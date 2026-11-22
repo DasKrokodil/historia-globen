@@ -1,0 +1,737 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "2107",
+  "datum": "2026-11-22",
+  "urval": "ids=18 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "gedi-grundas",
+      "titel": "Swahilistaden Gedi grundas",
+      "start": 1001,
+      "plats": "Gedi nära kusten i Kilifi county (i dag Kenya)",
+      "wikidata": "Q502518",
+      "kandidater": [
+        {
+          "fil": "File:Great Mosque of Gede.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Great_Mosque_of_Gede.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Mgiganteus",
+          "datum": "2007-07",
+          "beskrivning": "Ruins of the Great Mosque in Gede, Kenya.",
+          "bredd": 1984,
+          "hojd": 1488,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Great_Mosque_of_Gede.jpg/960px-Great_Mosque_of_Gede.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ruins of Gedi"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "flera licenser: CC BY-SA 3.0, CC BY-SA 2.5",
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{Self|GFDL}}, {{Self|Cc-by-sa-3.0-migrated}}, {{Self|cc-by-sa-2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Flera licenser anges (CC BY-SA 3.0 och CC BY-SA 2.5); bilden används under CC BY-SA 3.0. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0."
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "ibn-al-haytham-optikens-bok",
+      "titel": "Ibn al-Haytham skriver Optikens bok i Kairo",
+      "start": 1011,
+      "plats": "Kairo, fatimidkalifatet (i dag Egypten)",
+      "wikidata": "Q264562",
+      "kandidater": [
+        {
+          "fil": "File:Thesaurus opticus Titelblatt.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Thesaurus_opticus_Titelblatt.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown illustrator Unknown illustrator",
+          "datum": "2006-01-08 22:22:26",
+          "beskrivning": "Engraving from the title page of Opticae Thesaurus , a latin edition of Ibn al-Haytham's Book of Optics . Among other things it shows how Archimedes allegedly set Roman ships on fire with parabolic mirrors during the Siege of Syracuse .",
+          "bredd": 2000,
+          "hojd": 2200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Thesaurus_opticus_Titelblatt.jpg/960px-Thesaurus_opticus_Titelblatt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archimedes mirrors",
+            "Books about optics",
+            "Engravings",
+            "Historical images of Harbour of Syracuse",
+            "Ibn al-Haytham",
+            "Parabolic mirrors",
+            "Thesaurus opticus"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "marrakech-grundas",
+      "titel": "Marrakech grundas av almoraviderna",
+      "start": 1070,
+      "plats": "Marrakech vid foten av Atlasbergen (i dag Marocko)",
+      "wikidata": "Q101625",
+      "kandidater": [
+        {
+          "fil": "File:Djemaa el Fna, evening.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Djemaa_el_Fna,_evening.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Donar Reiskoffer",
+          "datum": "8 December 2005 (according to Exif data)",
+          "beskrivning": "Djemaa el Fna, evening",
+          "bredd": 1596,
+          "hojd": 1023,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Djemaa_el_Fna%2C_evening.JPG/960px-Djemaa_el_Fna%2C_evening.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Dusk in Jamaa El Fna",
+            "General views of Jamaa El Fna",
+            "Minarets in Marrakech"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY 3.0",
+            "skal": [
+              "flera licenser: CC BY-SA 3.0, CC BY 3.0",
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{Self|GFDL}}, {{Self|Cc-by-sa-3.0-migrated}}, {{Self|cc-by-3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY 3.0\". Flera licenser anges (CC BY-SA 3.0 och CC BY 3.0); bilden används under CC BY 3.0. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under CC BY 3.0."
+          }
+        },
+        {
+          "fil": "File:MoroccoMarrakech townfromhill.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:MoroccoMarrakech_townfromhill.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "CS.D.",
+          "datum": "2004-09",
+          "beskrivning": null,
+          "bredd": 2304,
+          "hojd": 1728,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/MoroccoMarrakech_townfromhill.jpg/960px-MoroccoMarrakech_townfromhill.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Views of Marrakech"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{Self|GFDL}}, {{Self|Cc-by-sa-3.0-migrated}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0."
+          }
+        },
+        {
+          "fil": "File:Marrakesh, Morocco (8141914885).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Marrakesh,_Morocco_(8141914885).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "yeowatzup",
+          "datum": "2012-10-20 16:28",
+          "beskrivning": "Marrakesh, Morocco",
+          "bredd": 3888,
+          "hojd": 2592,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Marrakesh%2C_Morocco_%288141914885%29.jpg/960px-Marrakesh%2C_Morocco_%288141914885%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bab Agnaou"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "timbuktu-blir-fast-bosattning",
+      "titel": "Timbuktu blir en fast bosättning",
+      "start": 1100,
+      "plats": "Timbuktu, söder om Sahara nära Nigerfloden (i dag Mali)",
+      "wikidata": "Q9427",
+      "kandidater": [
+        {
+          "fil": "File:TIMBUKTU-EINZUG.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:TIMBUKTU-EINZUG.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Drawn by Martin Bernatz after a sketch by Heinrich Barth",
+          "datum": "1857",
+          "beskrivning": "Timbuktu seen from a distance by Heinrich Barth's party, September 7, 1853",
+          "bredd": 3594,
+          "hojd": 2207,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/TIMBUKTU-EINZUG.jpg/960px-TIMBUKTU-EINZUG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Architecture of Africa",
+            "History of Timbuktu",
+            "Johann Martin Bernatz",
+            "Reisen und Entdeckungen in Nord- und Central-Afrika (1859)"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null
+          }
+        },
+        {
+          "fil": "File:Timbuktu Mosque Sankore.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Timbuktu_Mosque_Sankore.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "Senani P",
+          "datum": "2006-12",
+          "beskrivning": "Sankore Mosque in Timbuktu, Mali, 2006.",
+          "bredd": 320,
+          "hojd": 240,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/44/Timbuktu_Mosque_Sankore.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "December 2006 in Africa",
+            "Mosques in Mali photographed in 2006",
+            "Mud buildings in Mali",
+            "Sankore Mosque"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 2.5",
+            "skal": [
+              "API:et säger \"CC BY 2.5\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "kilwas-stora-moske-norra-hallen",
+      "titel": "Stora moskén i Kilwa får sin norra bönehall",
+      "start": 1131,
+      "plats": "Kilwa Kisiwani (i dag Tanzania)",
+      "wikidata": "Q2035513",
+      "kandidater": [
+        {
+          "fil": "File:GreatMosque.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:GreatMosque.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "en:user:Claude McNab",
+          "datum": "2005-06",
+          "beskrivning": "Great Mosque at Kilwa",
+          "bredd": 453,
+          "hojd": 604,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/dc/GreatMosque.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Great Mosque of Kilwa",
+            "Mosques in Tanzania photographed in 2005"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "koutoubiamosken-byggs",
+      "titel": "Koutoubiamoskén byggs i Marrakech",
+      "start": 1147,
+      "plats": "Marrakech, almohadkalifatet (i dag Marocko)",
+      "wikidata": "Q1137533",
+      "kandidater": [
+        {
+          "fil": "File:Mosquée de la Koutoubia - marakesh.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mosqu%C3%A9e_de_la_Koutoubia_-_marakesh.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Baca12",
+          "datum": "2015-10-09 16:58:49",
+          "beskrivning": "Koutoubia Mosque, in Marrakesh, Morocco",
+          "bredd": 3648,
+          "hojd": 2736,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Mosqu%C3%A9e_de_la_Koutoubia_-_marakesh.jpg/960px-Mosqu%C3%A9e_de_la_Koutoubia_-_marakesh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2015 in Marrakech",
+            "Koutoubia Gardens",
+            "Koutoubia Minaret",
+            "Mosques in Morocco photographed in 2015"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "maimonides-skriver-more-nebuchim",
+      "titel": "Maimonides skriver Moré nebuchim i Fustat",
+      "start": 1185,
+      "plats": "Fustat (i dag en del av Kairo, Egypten)",
+      "wikidata": "Q1140185",
+      "kandidater": [
+        {
+          "fil": "File:14c ed of the Guide for the Perplexed by Maimonides.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:14c_ed_of_the_Guide_for_the_Perplexed_by_Maimonides.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Ferrer Bassa",
+          "datum": "1348",
+          "beskrivning": "a copy of manuscript of the Guide of the Perplexed by Maimonides made by Ferrer Bassa in 1348 in Barcelona",
+          "bredd": 1024,
+          "hojd": 1441,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/14c_ed_of_the_Guide_for_the_Perplexed_by_Maimonides.jpg/960px-14c_ed_of_the_Guide_for_the_Perplexed_by_Maimonides.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Star of David",
+            "The Guide for the Perplexed by Ferrer Bassa 1348"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "slaget-vid-kirina",
+      "titel": "Slaget vid Kirina",
+      "start": 1235,
+      "plats": "Kirina i regionen Koulikoro, Mali",
+      "wikidata": "Q1319855",
+      "kandidater": [
+        {
+          "fil": "File:ߞߙߎ߬ߞߊ߲߬ߝߎߥߊ߫ ߘߏ߲߬ߘߊ.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%DF%9E%DF%99%DF%8E%DF%AC%DF%9E%DF%8A%DF%B2%DF%AC%DF%9D%DF%8E%DF%A5%DF%8A%DF%AB_%DF%98%DF%8F%DF%B2%DF%AC%DF%98%DF%8A.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Lancine.kounfantoh.fofana",
+          "datum": "2019-11-03 14:08:08",
+          "beskrivning": "ߞߙߎ߬ߞߊ߲߬ߝߎߥߊ߫",
+          "bredd": 2540,
+          "hojd": 2102,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/%DF%9E%DF%99%DF%8E%DF%AC%DF%9E%DF%8A%DF%B2%DF%AC%DF%9D%DF%8E%DF%A5%DF%8A%DF%AB_%DF%98%DF%8F%DF%B2%DF%AC%DF%98%DF%8A.jpg/960px-%DF%9E%DF%99%DF%8E%DF%AC%DF%9E%DF%8A%DF%B2%DF%AC%DF%9D%DF%8E%DF%A5%DF%8A%DF%AB_%DF%98%DF%8F%DF%B2%DF%AC%DF%98%DF%8A.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Charte du Manden",
+            "Nqowiki",
+            "ߞߙߎ߬ߞߊ߲߬ߝߎߥߊ߫"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "salomoniska-dynastin-tar-makten",
+      "titel": "Yekuno Amlak grundar den salomoniska dynastin",
+      "start": 1270,
+      "plats": "Bete Amhara, i dag södra Wollo (i dag Etiopien)",
+      "wikidata": "Q888003",
+      "kandidater": [
+        {
+          "fil": "File:Yekuno Amlak.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Yekuno_Amlak.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "17 th century date QS:P,+1650-00-00T00:00:00Z/7",
+          "beskrivning": "Muslim prisoners before Emperor Yekuno Amlak.",
+          "bredd": 1335,
+          "hojd": 709,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Yekuno_Amlak.jpg/960px-Yekuno_Amlak.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Dromedaries in art",
+            "History of Ethiopia",
+            "Yekuno Amlak"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "ife-huvudet",
+      "titel": "Kopparhuvudena från Ife gjuts",
+      "start": 1300,
+      "plats": "Ife, jorubafolkets religiösa och kungliga centrum (i dag Nigeria)",
+      "wikidata": "Q15409979",
+      "kandidater": [
+        {
+          "fil": "File:Arte yoruba, nigeria, testa da ife, 12-15mo secolo.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Arte_yoruba,_nigeria,_testa_da_ife,_12-15mo_secolo.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "sailko",
+          "datum": "2011-02-15 08:54:04",
+          "beskrivning": "British Museum reference Af1939,34.1 Detailed description The Ife Head Location Room 25",
+          "bredd": 1084,
+          "hojd": 2364,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Arte_yoruba%2C_nigeria%2C_testa_da_ife%2C_12-15mo_secolo.JPG/960px-Arte_yoruba%2C_nigeria%2C_testa_da_ife%2C_12-15mo_secolo.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bronze Head from Ife from the British Museum"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{self|GFDL}}, {{self|Cc-by-sa-3.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0."
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "kilwa-pa-sin-hojd",
+      "titel": "Handelsstaden Kilwa bygger palats och kupolmoské",
+      "start": 1300,
+      "plats": "Kilwa Kisiwani på Swahilikusten (i dag Tanzania)",
+      "wikidata": "Q1741475",
+      "kandidater": [
+        {
+          "fil": "File:GreatMosque.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:GreatMosque.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "en:user:Claude McNab",
+          "datum": "2005-06",
+          "beskrivning": "Great Mosque at Kilwa",
+          "bredd": 453,
+          "hojd": 604,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/dc/GreatMosque.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Great Mosque of Kilwa",
+            "Mosques in Tanzania photographed in 2005"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "digerdoden-i-egypten",
+      "titel": "Digerdöden når Egypten och Kairo",
+      "start": 1347,
+      "plats": "Kairo och Nildalen, Egypten",
+      "wikidata": "Q92159855",
+      "kandidater": [
+        {
+          "fil": "File:Cairo, Islamic Cairo, 19th century pictures, 1870, photo 42 of 52 - Archivio fotografico Museo Egizio, Turin Album1 016.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cairo,_Islamic_Cairo,_19th_century_pictures,_1870,_photo_42_of_52_-_Archivio_fotografico_Museo_Egizio,_Turin_Album1_016.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Rodolfo Vittorio Lanzone",
+          "datum": "1870 date QS:P571,+1870-00-00T00:00:00Z/9",
+          "beskrivning": "Glimpse of a street in Cairo, leading to a small gate in the city walls. Some wooden pergolas are visible near the dwellings. Note that the level of the street is lower than that of the houses, to reach them one had to use narrow steps. The author's signature can be seen at the bottom centre.",
+          "bredd": 14363,
+          "hojd": 11155,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Cairo%2C_Islamic_Cairo%2C_19th_century_pictures%2C_1870%2C_photo_42_of_52_-_Archivio_fotografico_Museo_Egizio%2C_Turin_Album1_016.jpg/960px-Cairo%2C_Islamic_Cairo%2C_19th_century_pictures%2C_1870%2C_photo_42_of_52_-_Archivio_fotografico_Museo_Egizio%2C_Turin_Album1_016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1870 in Cairo",
+            "1870 photographs in the Archivio fotografico Museo Egizio (Turin)",
+            "19th-century black and white photographs of Egypt",
+            "Houses in Egypt in the Archivio fotografico Museo Egizio (Turin)",
+            "Media from Archivio fotografico Museo Egizio (Turin)",
+            "Photographs of Egypt by Rodolfo Vittorio Lanzone in the Archivio fotografico Museo Egizio, Turin",
+            "Photographs of Islamic Cairo in the Archivio fotografico Museo Egizio (Turin)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null
+          }
+        },
+        {
+          "fil": "File:Schiaparelli's excavations - Heliopolis, Kom, 1903-1906, photo 10 of 17 - Archivio fotografico Museo Egizio, Turin C00369.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Schiaparelli%27s_excavations_-_Heliopolis,_Kom,_1903-1906,_photo_10_of_17_-_Archivio_fotografico_Museo_Egizio,_Turin_C00369.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Francesco Ballerini",
+          "datum": "from 1903 until 1906 date QS:P571,+1903-00-00T00:00:00Z/8,P580,+1903-00-00T00:00:00Z/9,P582,+1906-00-00T00:00:00Z/9",
+          "beskrivning": "Probable trench in Kom, it can be observed that excavations had reached a muddy layer due to the presence of an aquifer very close to the surface. Schiaparelli excavations.",
+          "bredd": 5949,
+          "hojd": 8400,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Schiaparelli%27s_excavations_-_Heliopolis%2C_Kom%2C_1903-1906%2C_photo_10_of_17_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00369.jpg/960px-Schiaparelli%27s_excavations_-_Heliopolis%2C_Kom%2C_1903-1906%2C_photo_10_of_17_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00369.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1900s photographs in the Archivio fotografico Museo Egizio (Turin)",
+            "20th-century black and white photographs of Egypt",
+            "Cairo in the 1900s",
+            "Egyptian workers in the Archivio fotografico Museo Egizio (Turin)",
+            "Heliopolis in the Archivio fotografico Museo Egizio (Turin)",
+            "Kom trenches (Heliopolis)",
+            "Media from Archivio fotografico Museo Egizio (Turin)",
+            "People of Egypt in the 1900s",
+            "Photographs of Egypt by Francesco Ballerini",
+            "Schiaparelli's excavations in Heliopolis",
+            "Trenches in the Archivio fotografico Museo Egizio (Turin)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null
+          }
+        },
+        {
+          "fil": "File:Schiaparelli's excavations - Heliopolis, Kom, 1903-1906, photo 9 of 17 - Archivio fotografico Museo Egizio, Turin C00368.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Schiaparelli%27s_excavations_-_Heliopolis,_Kom,_1903-1906,_photo_9_of_17_-_Archivio_fotografico_Museo_Egizio,_Turin_C00368.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Francesco Ballerini",
+          "datum": "from 1903 until 1906 date QS:P571,+1903-00-00T00:00:00Z/8,P580,+1903-00-00T00:00:00Z/9,P582,+1906-00-00T00:00:00Z/9",
+          "beskrivning": "Probable trench in Kom, it can be observed that excavations had reached a muddy layer due to the presence of an aquifer very close to the surface. Schiaparelli excavations.",
+          "bredd": 8424,
+          "hojd": 5700,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Schiaparelli%27s_excavations_-_Heliopolis%2C_Kom%2C_1903-1906%2C_photo_9_of_17_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00368.jpg/960px-Schiaparelli%27s_excavations_-_Heliopolis%2C_Kom%2C_1903-1906%2C_photo_9_of_17_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00368.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1900s photographs in the Archivio fotografico Museo Egizio (Turin)",
+            "20th-century black and white photographs of Egypt",
+            "Cairo in the 1900s",
+            "Heliopolis in the Archivio fotografico Museo Egizio (Turin)",
+            "Kom trenches (Heliopolis)",
+            "Media from Archivio fotografico Museo Egizio (Turin)",
+            "Photographs of Egypt by Francesco Ballerini",
+            "Schiaparelli's excavations in Heliopolis",
+            "Trenches in the Archivio fotografico Museo Egizio (Turin)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "swahilikustens-afrikanska-och-asiatiska-rotter",
+      "titel": "Afrikanska och asiatiska rötter möts på swahilikusten",
+      "start": 1000,
+      "plats": "Swahilikusten (gravar i bland annat Mtwapa, Manda och Kilwa, i dag Kenya och Tanzania)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "banu-hilal-flyttar-till-maghreb",
+      "titel": "Banu Hilal och Banu Sulaym flyttar till Maghreb",
+      "start": 1001,
+      "plats": "Från Egypten via Kyrenaika till Ifriqiya (i dag Libyen, Tunisien och Algeriet)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "war-jabi-infor-sharia-i-takrur",
+      "titel": "Kung War Jabi inför sharia i Takrur",
+      "start": 1035,
+      "plats": "Takrur vid Senegalfloden (i dag Senegal och Mauretanien)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "almoraviderna-och-ghanariket",
+      "titel": "Erövrade almoraviderna Ghanariket?",
+      "start": 1076,
+      "plats": "Ghanariket (i dag Mauretanien och Mali)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "svalten-i-egypten-1200",
+      "titel": "Nilen uteblir och svält drabbar Egypten",
+      "start": 1200,
+      "plats": "Egypten",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "jordbavningen-1303-alexandria",
+      "titel": "Jordbävningen 1303 skadar Faros fyr i Alexandria",
+      "start": 1303,
+      "plats": "Alexandria och Kairo (jordbävningens centrum mellan Kreta och Rhodos)",
+      "wikidata": "Q1485683",
+      "kandidater": [],
+      "hamtad": "2026-11-20"
+    }
+  ]
+}

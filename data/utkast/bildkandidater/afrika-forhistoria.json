@@ -1,0 +1,1434 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 31,
+    "kandidater": 47,
+    "troliga": 47,
+    "flaggade": 0,
+    "avvisade": 0,
+    "smala": 10,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "jebel-irhoud",
+      "titel": "Jebel Irhoud: de äldsta fynden som räknas till Homo sapiens",
+      "plats": "Jebel Irhoud, Marocko",
+      "start": -297999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Jebel Irhoud: the oldest finds counted as Homo sapiens Jebel Irhoud",
+      "kandidater": []
+    },
+    {
+      "id": "omo-kibish",
+      "titel": "Homo sapiens vid Omo Kibish",
+      "plats": "Omo Kibish i Omodalen, södra Etiopien",
+      "start": -230999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Homo sapiens at Omo Kibish",
+      "kandidater": [
+        {
+          "fil": "File:Omo II 01.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Omo_II_01.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Alessandrosmerilli",
+          "datum": "2013-03-05 15:03:09",
+          "beskrivning": "Cráneo Omo II de H. sapiens",
+          "bredd": 1159,
+          "hojd": 1661,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Omo_II_01.jpg/960px-Omo_II_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Omo remains"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Omo Kibish - MCN 4152 (cropped).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Omo_Kibish_-_MCN_4152_(cropped).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "GuillaumeG",
+          "datum": "2019-12-05 11:06:15",
+          "beskrivning": "Reproduction du crâne de l'Homme de Kibish. Musée des Civilisations Noires de Dakar (Sénégal).",
+          "bredd": 2352,
+          "hojd": 2571,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Omo_Kibish_-_MCN_4152_%28cropped%29.jpg/960px-Omo_Kibish_-_MCN_4152_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Collections of Musée des civilisations noires",
+            "Omo 1",
+            "Replicas of skulls"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Omo River 02.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Omo_River_02.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Bernard Gagnon",
+          "datum": "2012-11-20",
+          "beskrivning": "Omo River seen from the Karo village of Doose, Ethiopia",
+          "bredd": 3264,
+          "hojd": 2303,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Omo_River_02.jpg/960px-Omo_River_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Omo River"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "florisbad",
+      "titel": "Florisbad: ett möjligt tidigt fynd av Homo sapiens",
+      "plats": "Florisbad, Sydafrika",
+      "start": -177999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Florisbad: a possible early find of Homo sapiens Florisbad",
+      "kandidater": []
+    },
+    {
+      "id": "herto",
+      "titel": "Homo sapiens i Herto",
+      "plats": "Herto i Mellersta Awash (Afar), Etiopien",
+      "start": -157999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Homo sapiens at Herto",
+      "kandidater": [
+        {
+          "fil": "File:Homo Sapiens Idaltu.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Homo_Sapiens_Idaltu.JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Alessandrosmerilli",
+          "datum": "06.03.2013",
+          "beskrivning": "Herto skull , Homo sapiens idaltu",
+          "bredd": 4000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Homo_Sapiens_Idaltu.JPG/960px-Homo_Sapiens_Idaltu.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Homo sapiens idaltu",
+            "Paleontological collections of the National Museum of Ethiopia"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Herto, Ethiopia ; Homo sapiens idaltu 1997 discovery map.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Herto,_Ethiopia_;_Homo_sapiens_idaltu_1997_discovery_map.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": null,
+          "datum": "2016-04-25 09:03:19",
+          "beskrivning": null,
+          "bredd": 341,
+          "hojd": 341,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/27/Herto%2C_Ethiopia_%3B_Homo_sapiens_idaltu_1997_discovery_map.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Homo sapiens distribution maps",
+            "Homo sapiens idaltu",
+            "Maps indicating sites of discovery"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Homo Sapiens Idaltu -fossils of skull of man and child.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Homo_Sapiens_Idaltu_-fossils_of_skull_of_man_and_child.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Alessandrosmerilli",
+          "datum": "2013-03-05 15:03:09",
+          "beskrivning": "Foreground (right): this skull of a seven to eight-year-old child, found in 1997, shows evidence of cut marks and polish after death, suggesting some form of ritualistic behavior post mortem. Catalogue name BOU-VP-16/5 (Herto rests). Foreground (center): This specimen of partial skull, found in 1967 in the lower Omo valley (Ethiopia) was estimated younger than 190.000 years old. Catalogue name: Omo II.",
+          "bredd": 4000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Homo_Sapiens_Idaltu_-fossils_of_skull_of_man_and_child.JPG/960px-Homo_Sapiens_Idaltu_-fossils_of_skull_of_man_and_child.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Homo sapiens idaltu"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Homo Sapiens Idaltu -description.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Homo_Sapiens_Idaltu_-description.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Alessandrosmerilli",
+          "datum": "2013-03-05 15:01:45",
+          "beskrivning": "Description of the photo",
+          "bredd": 4000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Homo_Sapiens_Idaltu_-description.JPG/960px-Homo_Sapiens_Idaltu_-description.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Homo sapiens idaltu"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Teschio di Homo sapiens idaltu, del pleistocene, 200-160 mila anni fa.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Teschio_di_Homo_sapiens_idaltu,_del_pleistocene,_200-160_mila_anni_fa.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Sailko",
+          "datum": "2018-11-06 10:35:00",
+          "beskrivning": "Paleontological collections of the National Museum of Ethiopia",
+          "bredd": 2214,
+          "hojd": 2250,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Teschio_di_Homo_sapiens_idaltu%2C_del_pleistocene%2C_200-160_mila_anni_fa.jpg/960px-Teschio_di_Homo_sapiens_idaltu%2C_del_pleistocene%2C_200-160_mila_anni_fa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Homo sapiens idaltu",
+            "Paleontological collections of the National Museum of Ethiopia"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "dar-es-soltan-benkniv",
+      "titel": "En kniv av ben i Dar es-Soltan",
+      "plats": "Grottan Dar es-Soltan 1 sydväst om Rabat, Marocko",
+      "start": -88049,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "A bone knife at Dar es-Soltan",
+      "kandidater": []
+    },
+    {
+      "id": "katanda-benharpuner",
+      "titel": "Harpuner av ben vid Katanda",
+      "plats": "Katanda vid Semlikifloden, Kongo-Kinshasa (punkten: Semlikis början vid Ishango, fyndplatsen anges inte)",
+      "start": -87999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Bone harpoons at Katanda",
+      "kandidater": []
+    },
+    {
+      "id": "panga-ya-saidi-grav",
+      "titel": "Den äldsta kända graven i Afrika",
+      "plats": "Panga ya Saidi vid Kenyas kust",
+      "start": -75999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The oldest known burial in Africa",
+      "kandidater": [
+        {
+          "fil": "File:The oldest grave in the cemetery.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_oldest_grave_in_the_cemetery.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Pjhap",
+          "datum": "2017-11-12 11:28:19",
+          "beskrivning": "170 burials",
+          "bredd": 3000,
+          "hojd": 4000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/The_oldest_grave_in_the_cemetery.jpg/960px-The_oldest_grave_in_the_cemetery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Jinja African Commonwealth war Cemetery"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Old Church Museum, Tulbagh Vault.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Old_Church_Museum,_Tulbagh_Vault.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Roché Petersen",
+          "datum": "2011-06-08 11:57:44",
+          "beskrivning": "The Old Church Museum is the oldest (1754) cross-form church in South Africa and houses a wonderful collection of Cape furniture.",
+          "bredd": 448,
+          "hojd": 331,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/20/Old_Church_Museum%2C_Tulbagh_Vault.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Burial vaults in South Africa",
+            "Graves in South Africa",
+            "Old Church Museum, Tulbagh"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Anthropomorphic figure Telem, Dogon people, 01.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Anthropomorphic_figure_Telem,_Dogon_people,_01.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Mickey Mystique",
+          "datum": "2018-09-13 09:41:24",
+          "beskrivning": "The oldest group of sculptures, known as the Telem, was supposedly crafted more than two hundred years ago in the same style as today. The Telem are distinguished by their exceptionally dynamic pose with arms raised upwards indicating a supplication for rain, or fertility. They are sometimes shown in a kneeling pose, mose often representing a woman. The Telem figures were kept in granaries, where sacrifices were offered to them; however, some have also been discovered in burial chambers - caves. Representations of anthropomorphic figures with elevated arms can be found on many objects, especially granary doors.",
+          "bredd": 2353,
+          "hojd": 2401,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Anthropomorphic_figure_Telem%2C_Dogon_people%2C_01.jpg/960px-Anthropomorphic_figure_Telem%2C_Dogon_people%2C_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Collections of the Museum of African Art (Belgrade)",
+            "Dogon collection in the Museum of African art in Belgrade",
+            "Dogon statues"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:John Vinton Dahlgren (1868-1899) obituary in the New York Times.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:John_Vinton_Dahlgren_(1868-1899)_obituary_in_the_New_York_Times.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Anonymous Unknown author",
+          "datum": "1899",
+          "beskrivning": "John Vinton Dahlgren (1868-1899) obituary in the New York Times",
+          "bredd": 627,
+          "hojd": 5060,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/e/ee/John_Vinton_Dahlgren_%281868-1899%29_obituary_in_the_New_York_Times.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "John Vinton Dahlgren",
+            "The New York Times, 1899"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Historic section of Reed Cemetery.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Historic_section_of_Reed_Cemetery.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "TheHistoryFinder",
+          "datum": "2021-06-18 19:07:59",
+          "beskrivning": "Reed Cemetery is an African-American cemetery in Russellville. Land was donated in 1884 to the city of Russellville in a wooden area southwest of the city during the period of Jim Crow segregation. The oldest known burial was in 1889. Earlier, unmarked graves in the historic section date from the mid-1880s. The cemetery contains a former slave over 100 years-old, the only African-American mayor in the city of Russellville, over 60 veterans from World War I through the Gulf War, and mulatto descendants of the namesake of Russellville, Dr. Thomas Russell.",
+          "bredd": 4032,
+          "hojd": 3024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Historic_section_of_Reed_Cemetery.jpg/960px-Historic_section_of_Reed_Cemetery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "National Register of Historic Places in Pope County, Arkansas"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "blombosgrottan",
+      "titel": "Ristad ockra och snäckpärlor i Blombos",
+      "plats": "Blombosgrottan, Västra Kapprovinsen, Sydafrika",
+      "start": -72999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q884971",
+      "kandidater": [
+        {
+          "fil": "File:Blombos.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Blombos.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Vincent Mourre / Inrap",
+          "datum": "2010-05-28",
+          "beskrivning": "general view of Blombos site, South Africa",
+          "bredd": 800,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Blombos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Blombos Cave"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "sibudu-pil-och-bage",
+      "titel": "Tidiga spår av pil och båge i Sibudu",
+      "plats": "Sibuduklippskyddet nära Tongaat, KwaZulu-Natal, Sydafrika",
+      "start": -61999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1322486",
+      "kandidater": [
+        {
+          "fil": "File:10.1371.journal.pone.0098359.g002.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:10.1371.journal.pone.0098359.g002.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "M. Ecker",
+          "datum": "2014-05-30",
+          "beskrivning": "The archaeological site of Sibudu, KwaZulu-Natal, South Africa. View on the excavation area within the rock shelter.",
+          "bredd": 1926,
+          "hojd": 1282,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/10.1371.journal.pone.0098359.g002.jpg/960px-10.1371.journal.pone.0098359.g002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Caves in South Africa",
+            "Sibudu Cave"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "diepkloof-strutsaggsskal",
+      "titel": "Ristade strutsäggsskal i Diepkloof",
+      "plats": "Diepkloofklippskyddet nära Elands Bay, Västra Kapprovinsen, Sydafrika",
+      "start": -57999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Engraved ostrich eggshells at Diepkloof",
+      "kandidater": [
+        {
+          "fil": "File:Iziko engraving ostrich eggshell.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Iziko_engraving_ostrich_eggshell.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Nkansah Rexford",
+          "datum": "2014-07-01 15:35:04",
+          "beskrivning": "Diepkloof, Western Cape Between 55 and 65 000 years old Engraved ostrich eggshell Dated by optically stimulated luminescence (OSL) and radiocarbon.",
+          "bredd": 2690,
+          "hojd": 1512,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Iziko_engraving_ostrich_eggshell.JPG/960px-Iziko_engraving_ostrich_eggshell.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "60th millennium BC",
+            "Cultural heritage items in Iziko South African Museum",
+            "Egg shells",
+            "Middle Stone Age artefacts",
+            "Prehistoric art in Southern Africa",
+            "Prehistory in South Africa"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "obsidian-i-porc-epicgrottan",
+      "titel": "Obsidian från långt bort i Porc-Epicgrottan",
+      "plats": "Porc-Epicgrottan söder om Dire Dawa, Etiopien",
+      "start": -48049,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Obsidian from afar in Porc-Epic Cave",
+      "kandidater": []
+    },
+    {
+      "id": "lebombobenet",
+      "titel": "Lebombobenet med inristade skåror",
+      "plats": "Border Cave i Lebombobergen, KwaZulu-Natal, Sydafrika (nära gränsen till Eswatini)",
+      "start": -40999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q581731",
+      "soktext": "The Lebombo bone with incised notches",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "enkapune-ya-muto-parlor",
+      "titel": "Pärlor av strutsäggsskal i Enkapune Ya Muto",
+      "plats": "Enkapune Ya Muto på Mau Escarpment, Kenya",
+      "start": -37999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Ostrich eggshell beads at Enkapune Ya Muto",
+      "kandidater": []
+    },
+    {
+      "id": "apollo-11-stenarna",
+      "titel": "Apollo 11-stenarna, Afrikas äldsta kända föreställande bilder",
+      "plats": "Apollo 11-grottan i ǀAi-ǀAis/Richtersveld, sydvästra Namibia",
+      "start": -27999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Apollo 11 stones, Africa’s oldest known figurative pictures",
+      "kandidater": []
+    },
+    {
+      "id": "ishangobenet",
+      "titel": "Ishangobenet",
+      "plats": "Ishango vid Edwardsjön, Demokratiska republiken Kongo",
+      "start": -19999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1077717",
+      "kandidater": [
+        {
+          "fil": "File:Ishango bone (cropped).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ishango_bone_(cropped).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Joeykentin",
+          "datum": "2022-02-09 16:35:16",
+          "beskrivning": "Bone tool and possible mathematical device that dates to the Upper Paleolithic era discovered in Ishango",
+          "bredd": 891,
+          "hojd": 1230,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Ishango_bone_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Ishango bone"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "jebel-sahaba",
+      "titel": "Våldet i Jebel Sahaba",
+      "plats": "Jebel Sahaba vid Nilen, norra Sudan",
+      "start": -16599,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The violence at Jebel Sahaba",
+      "kandidater": [
+        {
+          "fil": "File:Location of the Jebel Sahaba cemetery.webp",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Location_of_the_Jebel_Sahaba_cemetery.webp",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "2021-05-27",
+          "beskrivning": "Location of the Jebel Sahaba cemetery, Site 117, in the Nile Valley and map of the excavated area and burials (map following23, Image Courtesy British Museum Wendorf Archive, modified with Adobe Illustrator CS6, https://www.adobe.com/products/illustrator.html ). Red dots: individuals exhibiting signs of violence and/or traumatic lesions19,20,91; orange dots: newly identified lesions in the latter individuals; green dots: individuals newly identified as showing signs of violence and/or traumatic lesions; large dots: individuals discussed in detail in the text. Satellite image: Google Maps, 2020. 21° 58′ 12.0\" N 31° 22′ 12.0\" E, elevation 21.9 M. [online] Available through: < https://www.google.com/maps/place/ >.",
+          "bredd": 685,
+          "hojd": 606,
+          "mime": "image/webp",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Location_of_the_Jebel_Sahaba_cemetery.webp?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Jebel Sahaba",
+            "Maps of archaeological sites in Egypt"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "victoriasjon-fylls-pa-nytt",
+      "titel": "Victoriasjön fylls på nytt",
+      "plats": "Victoriasjön, mellan Uganda, Kenya och Tanzania",
+      "start": -15049,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Lake Victoria fills again Lake Victoria",
+      "kandidater": [
+        {
+          "fil": "File:Map of North America Exhibiting The recent Discoveries, Geographical and Nautical.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Map_of_North_America_Exhibiting_The_recent_Discoveries,_Geographical_and_Nautical.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "James Wyld",
+          "datum": "1848",
+          "beskrivning": "Fine example of the 1848 (our dating) edition of Wyld's massive map of North America, which includes the extra panel at the bottom, adding Central America, first issued in 1824. John Wyld was one of the most prolific publishers of separately issued maps during the 19th Century. His 6 (and later 7) sheet map of North America is a testament to Wyld's publishing accumen. First published in 1823, the map was periodically updated to incorporate new discoveries. However, Wyld had the curious habit of frequently leaving older information on the map, making for a very curious mix of geographical details. The evolution of Wyld's map of North America is truly fascinating, and reflects Wyld's commercial savy. The map was periodically updated in the 1820 and 1830s. With the outbreak of the Mexican-American War in 1846, Wyld issued a special 4-sheet edition of the map (eliminating the top 2 sheets and the bottom central America sheet), with a new title (Mexico the British Possessions in North America and the United States . . . 1846), which included a number of geographical revisions in the regions depicted and focused on the battlegrounds of the Mexican American War. Following the resolution of the Mexican-American War, Wyld re-issued his map of North America, showing the boundaries as established by the Treaty of Guadalupe Hidalgo, and with significant updates in the polar region, Alaska and northern Canada. In 1849, with the discovery of Gold In California, Wyld again saw commercial opportunity. Wyld again issued a section of his 7-sheet map of North America, under the title The United States Of North America With Part of the British Possessions And Mexico . . . 1849 . For this map, Wyld completely re-worked California and incorporated for the first time the information from John Fremont's seminal map of Oregon and Upper California. The following year, Wyld would again release a revised edition of his 7 sheet map of North America, retaining the changes made in the US Gold Rush map of 1849, but with additional updates in both the US and again in the northern sections of the larger North America map which had not been offered as part of the US Gold Rush map of 1849. While we have not attempted a complete cataloguing of all of the later editions, we note that Wyld issued editions of his map of North America in 1860 and again in 1875. We suspect, although we have not made the analysis, that some of the Civil War maps issued by Wyld during the early 1860s are probably again fragments of his larger map of North America. This undated edition, which we have dated 1848 because of its relationship to the1846 4-sheet map of Mexico . . . and the 1849 US Gold Rush Map, has been significantly updated from the 1838 edition. Among the more noteworthy additions are as follows: North West Sheet: The northern coastline of Alaska is now complete, most notably along the area labled West Georgia, which was left blank in the 1838 edition. The coastline and cape to the west of this area has also been significantly revised. The beginnings of a river system in southern Alaska are now shown, whereas the 1838 edition had no rivers. Nunivak Island appears for the first time, as does the large Kuskokwim River and the large bay which if forms just to the south. A number of bays and rivers in the western part of Alaska also appear for the first time. In Canada, east of Queen Charlotte's Island, a number of rivers appear for the first time in an area which had largely been blank in the 1838 edition and several mountain ranges show minor changes. Along the Northwest Passage, there is new detail around the area of Victoria Island and the Coronation Gulf, which is beginning to show the first details of a Dolphin and Union Strait and the southern coastline of the lands to the north. North East Sheet: Most of the changes are in the area west of Baffin Bay near Lancaster Sound and Admiralty Inlet, where there is significantly more coastal detail than in the 1838 edtion and the shap of Admiralty Inlet and its southern most coastline have been radically altered. Central West Sheet: Significant updates have been made to the river systems in the western part of Canada and the mountains west of the Canadian Rockies have been revised. The tentative dotted line boundary of between the US and Canada has been replaced with an accurate depiction of the border. The river systerms in Western Oregon have been improved and the number of placenames on the coastline has doubled. The western part ofCanadian Rockies includes signficiantly new mountain details and some new lake and river details. In the Interior of the Northwestern US, there are additional placenames along a number of rivers. Central East Sheet: No major changes: South West Sheet: The boundary between Mexico and the US has been revised to reflect the Treaty of Guadalupe Hidalgo, making Upper California, New Mexico and Texas part of the US, however the border slopes northward to San Diego Bay, several miles north of its present location. A large river running south from San Francisco Bay for nearly two thirds of California has been added with a large lake in the middle, approximating the San Joaquin Valley and several smaller rivers have been added in Southern California. California includes more Indian Place names. South East Sheet: Many new place names in the Southeastern US, most notably in Southern Georgia. Arkansas is no longer running across the top of Texas in its \"double-wide\" configuration, but the boundary is shown 1 degree east of its proper location. Missouri has been enlarged in the north, but is also too narrow, losing 1 degree in the west. Many new place names in Texas and Arkansas. Several new placenames appear along the Gulf Coast on the Texas and Louisiana Coast lines and the shape and angle of the coastline has been changed just below the Rio Grande in northern Mexico. Several new roads in Texas and a few new rivers. Central America Sheet: New placenames on the north coast. New political borders in Central America. Changed place names in the Yucatan. Rumsey notes: The first edition, listed in Phillips but not by Stevens and Tree or Wheat [was published in 1823] . . . A large impressive map showing with great accuracy the recent discoveries in the north west passage, but wildly off in the American southwest - Wheat: \"a large and beautiful map, excellent in all respects save for its southwestern geography.\" In the southwest, Wyld adds many mountain ranges that were purely speculative - probably just to fill in blank spaces in the map (unlike Arrowsmith). In northwestern Texas is a curious note on the topography of the area attributed to \"Mellish\" which is copied from a pre-1822 edition of his large map of the United States. Comparing this edition to the derived map of 1846, \"Mexico, the British Possessions...,\" ; one sees many changes in the northern areas and few in the southwest. Stevens and Tree list editions of 1824, 1827/8, 1838, and 1851/56. In addition to the editions listed by Rumsey, we note edtions identified by OCLC as havng been published in 1854, in the 1860 and \"1870s.\" The Rumsey collection also includes an 1875 edition of the map. In December 2000, Sotheby's offered a map which would appear to be a Faden edition of this map, dated 1820 and described as follows: North America-Faden, W. Map of North America from 20 degrees to 80 degrees north latitude exhibiting the recent discoveries, geographical and nautical. London: Willam Faden, 1820 Total dimensions if joined 1480 x 1650mm., large engraved wall-map in 6 sheets, original outline colour . . . Extremely detailed map of North America, incorporating the discoveries of explorers such as Pike, Humboldt, Lewis and Clark, Mackenzie, Ross and Vancouver. Within Arctic Canada are pencil additions, supplying a northern coast for Alaska and additional information for the region between Baffin's Bay and Hudson's Bay, the latter additions in German. Full Title: Map of North America Exhibiting The recent Discoveries, Geographical and Nautical; Drawn Chiefly from the Authorities of M. De. Humboldt, Lieutt. Pike, Messrs. Lewis and Clarke, Sir. Alexandr. MacKenzie, Mr. Hearne, Coll. Bouchette, Captns, Vancouver, Ross, Parry, Franklin & Back, also describing the Boundary Lines between the Territories of Great Britain, the United States, and the Mexican and Central States -- London Published forJa. Wyld, successor to W. Faden. No. 5 Charring Cross. Geographer to His Majesty.",
+          "bredd": 13160,
+          "hojd": 14294,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Map_of_North_America_Exhibiting_The_recent_Discoveries%2C_Geographical_and_Nautical.jpg/960px-Map_of_North_America_Exhibiting_The_recent_Discoveries%2C_Geographical_and_Nautical.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1840s maps of North America",
+            "Maps by James Wyld"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:The History of Braunstone Park.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_History_of_Braunstone_Park.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "L.clarke",
+          "datum": "2017-03-15",
+          "beskrivning": "Braunstone Park, Leicester",
+          "bredd": 640,
+          "hojd": 286,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/59/The_History_of_Braunstone_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Braunstone Park"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "taforalt-gravplatsen",
+      "titel": "Gravplatsen i Taforalt",
+      "plats": "Grotte des Pigeons vid Taforalt, provinsen Berkane, Marocko",
+      "start": -13099,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q167862",
+      "kandidater": [
+        {
+          "fil": "File:مغارة تافوغالت.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%D9%85%D8%BA%D8%A7%D8%B1%D8%A9_%D8%AA%D8%A7%D9%81%D9%88%D8%BA%D8%A7%D9%84%D8%AA.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Anwar Meqor",
+          "datum": "2015-03-01 09:46:46",
+          "beskrivning": "Taforalt Caves",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/%D9%85%D8%BA%D8%A7%D8%B1%D8%A9_%D8%AA%D8%A7%D9%81%D9%88%D8%BA%D8%A7%D9%84%D8%AA.jpg/960px-%D9%85%D8%BA%D8%A7%D8%B1%D8%A9_%D8%AA%D8%A7%D9%81%D9%88%D8%BA%D8%A7%D9%84%D8%AA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Taforalt"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "den-grona-sahara",
+      "titel": "Den gröna Sahara",
+      "plats": "Sahara och Nordafrika",
+      "start": -12599,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q60259056",
+      "soktext": "The Green Sahara",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Sahara satellite hires.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sahara_satellite_hires.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA",
+          "datum": "2002-02-11",
+          "beskrivning": "Sahara desert from space.",
+          "bredd": 7432,
+          "hojd": 4168,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Sahara_satellite_hires.jpg/960px-Sahara_satellite_hires.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Great Green Wall of the Sahara and the Sahel Initiative",
+            "Satellite pictures of the Sahara"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Npp green sahara simulation 1.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Npp_green_sahara_simulation_1.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Merikanto",
+          "datum": "2025-01-01",
+          "beskrivning": "NPP simulation of Green Sahara",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Npp_green_sahara_simulation_1.png/960px-Npp_green_sahara_simulation_1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Green Sahara"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Npp dry green sahara simulation 1.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Npp_dry_green_sahara_simulation_1.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Merikanto",
+          "datum": "2025-01-01",
+          "beskrivning": "Npp simulation of dry Green Sahara",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Npp_dry_green_sahara_simulation_1.png/960px-Npp_dry_green_sahara_simulation_1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Green Sahara"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Npp less dry green sahara simulation 1.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Npp_less_dry_green_sahara_simulation_1.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Merikanto",
+          "datum": "2025-01-01",
+          "beskrivning": "Npp simulation of less dry Green Sahara",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Npp_less_dry_green_sahara_simulation_1.png/960px-Npp_less_dry_green_sahara_simulation_1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Green Sahara"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Npp current sahara simulation 1.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Npp_current_sahara_simulation_1.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Merikanto",
+          "datum": "2025-01-01",
+          "beskrivning": "NPP simulation of current sahara",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Npp_current_sahara_simulation_1.png/960px-Npp_current_sahara_simulation_1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Green Sahara"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "ounjougou-keramik",
+      "titel": "Afrikas äldsta keramik i Ounjougou",
+      "plats": "Ounjougou på Bandiagaraplatån, Mali",
+      "start": -9999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1243595",
+      "kandidater": [
+        {
+          "fil": "File:Ounjougou confluence.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ounjougou_confluence.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Ounjougou",
+          "datum": "2005-02-",
+          "beskrivning": "Partial view of the Ounjougou archaeological sites complex, in the Yamé valley, near Bandiagara (Dogon Country, Mali)",
+          "bredd": 800,
+          "hojd": 600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/15/Ounjougou_confluence.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Landscapes of Mali"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "tassili-najjer-hallkonst",
+      "titel": "Hällkonsten i Tassili n'Ajjer",
+      "plats": "Tassili n'Ajjer i sydöstra Algeriet",
+      "start": -9999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The rock art of Tassili n'Ajjer",
+      "kandidater": [
+        {
+          "fil": "File:The Tanzoumaitak cave painting in Tassili n'ajjer.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Tanzoumaitak_cave_painting_in_Tassili_n%27ajjer.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "IssamBarhoumi",
+          "datum": "2023-02-07 10:25:27",
+          "beskrivning": "This zoomorphic cave paintingis located Tanzoumaitak in Tassili n'ajjer park in Djanet in Algeria. This is one of more than thousannds of cave paintings discovered by Henri Lhote and his team and they was guided by Djebrine Machar a Touareg guide who was known for a great expertise in the great Sahara's cave paintings. All the cave painting of this park are dated from the Neolithic 10000BC.",
+          "bredd": 5163,
+          "hojd": 2904,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/The_Tanzoumaitak_cave_painting_in_Tassili_n%27ajjer.jpg/960px-The_Tanzoumaitak_cave_painting_in_Tassili_n%27ajjer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Preselection For Montage Campaign:wlm-dz",
+            "Rock Art of the Tassili n'Ajjer",
+            "Wiki Loves Monuments 2024 in Algeria"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Rock carving from the Tassili n'Ajjer mountains.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Rock_carving_from_the_Tassili_n%27Ajjer_mountains.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "2016-10-09 07:40:04",
+          "beskrivning": null,
+          "bredd": 904,
+          "hojd": 1155,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Rock_carving_from_the_Tassili_n%27Ajjer_mountains.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Rock Art of the Tassili n'Ajjer"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Cave painting from the Tassili n'Ajjer mountains.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cave_painting_from_the_Tassili_n%27Ajjer_mountains.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "2016-10-09 07:38:35",
+          "beskrivning": null,
+          "bredd": 2251,
+          "hojd": 1508,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Cave_painting_from_the_Tassili_n%27Ajjer_mountains.jpg/960px-Cave_painting_from_the_Tassili_n%27Ajjer_mountains.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Pastoral Period",
+            "Rock Art of the Tassili n'Ajjer"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Gravure rupestre , tassili n'ajjer , algérie.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Gravure_rupestre_,_tassili_n%27ajjer_,_alg%C3%A9rie.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Akli salah",
+          "datum": "2014-03-27 09:09:08",
+          "beskrivning": "cave painting , algeria",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Gravure_rupestre_%2C_tassili_n%27ajjer_%2C_alg%C3%A9rie.jpg/960px-Gravure_rupestre_%2C_tassili_n%27ajjer_%2C_alg%C3%A9rie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Rock Art of the Tassili n'Ajjer",
+            "Rock art of the Tadrart Rouge",
+            "Tadrart Rouge"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Antinea, Tassili N'Ajjer, South Algeria, 4,000-3,000 BC.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Antinea,_Tassili_N%27Ajjer,_South_Algeria,_4,000-3,000_BC.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "4,000-3,000 BC",
+          "beskrivning": "Antinea, Tassili N'Ajjer , South Algeria, 4,000-3,000 BC",
+          "bredd": 216,
+          "hojd": 350,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Antinea%2C_Tassili_N%27Ajjer%2C_South_Algeria%2C_4%2C000-3%2C000_BC.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Rock Art of the Tassili n'Ajjer"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "simmarnas-grotta",
+      "titel": "Simmarnas grotta i Gilf Kebir",
+      "plats": "Wadi Sura i Gilf Kebir, Nya dalen, sydvästra Egypten",
+      "start": -7999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Cave of Swimmers in the Gilf Kebir",
+      "kandidater": [
+        {
+          "fil": "File:WadiSuraHumans.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:WadiSuraHumans.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Roland Unger",
+          "datum": "2011-03-12",
+          "beskrivning": "Painting of men in the Cave of the Swimmers, Wadi Sura, Gilf Kebir, Western Desert, Egypt",
+          "bredd": 800,
+          "hojd": 533,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/98/WadiSuraHumans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Wadi Sura swimmers cave"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:WadiSuraSingleSwimmer.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:WadiSuraSingleSwimmer.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Roland Unger",
+          "datum": "2011-03-12",
+          "beskrivning": "Painting of swimmers in the Cave of the Swimmers, Wadi Sura, Gilf Kebir, Western Desert, Egypt",
+          "bredd": 800,
+          "hojd": 534,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/00/WadiSuraSingleSwimmer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Wadi Sura swimmers cave"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "gobero-gravfaltet",
+      "titel": "Gobero, Saharas äldsta kända gravfält",
+      "plats": "Gobero i Ténéréöknen, Niger",
+      "start": -7699,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q849269",
+      "kandidater": [
+        {
+          "fil": "File:Gobero.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Gobero.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "Paul C. Sereno, Elena A. A. Garcea, Hélène Jousse, Christopher M. Stojanowski, Jean-François Saliège, Abdoulaye Maga, Oumarou A. Ide, Kelly J. Knudson, Anna Maria Mercuri, Thomas W. Stafford, Jr., Thomas G. Kaye, Carlo Giraudi, Isabella Massamba N'siala, Enzo Cocca, Hannah M. Moots, Didier B. Dutheil, Jeffrey P. Stivers",
+          "datum": "2008-08-14",
+          "beskrivning": "Aerial view of Gobero archaeological site in Niger from Holocene.",
+          "bredd": 996,
+          "hojd": 619,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Gobero.jpg/960px-Gobero.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2008 in Niger",
+            "Archaeological sites in Niger",
+            "Media from PLOS ONE",
+            "Tabelot",
+            "Ténéré"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kremeringen-vid-hora",
+      "titel": "Kremeringen vid berget Hora",
+      "plats": "Klippskyddet Hora 1 vid foten av berget Hora, Mzimbadistriktet, norra Malawi",
+      "start": -7589,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The cremation at Mount Hora",
+      "kandidater": []
+    },
+    {
+      "id": "dufunakanoten",
+      "titel": "Dufunakanoten, Afrikas äldsta kända båt",
+      "plats": "Dufuna, delstaten Yobe, Nigeria",
+      "start": -6555,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q5312423",
+      "kandidater": [
+        {
+          "fil": "File:Dufuna-canoe-theafricanhistory-com PicsArt 03-07-09.24.07.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Dufuna-canoe-theafricanhistory-com_PicsArt_03-07-09.24.07.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "2021-03-07",
+          "beskrivning": "The \"Dufuna Canoe\", which is the oldest boat in Africa (left) and a scene from its excavation (right).",
+          "bredd": 1942,
+          "hojd": 1080,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Dufuna-canoe-theafricanhistory-com_PicsArt_03-07-09.24.07.jpg/960px-Dufuna-canoe-theafricanhistory-com_PicsArt_03-07-09.24.07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological objects of Nigeria",
+            "Boats",
+            "Canoes",
+            "Historical objects",
+            "People of Nigeria"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "snackor-fran-roda-havet-i-gebel-ramlah",
+      "titel": "Snäckor från Röda havet i Gebel Ramlahs gravar",
+      "plats": "Gebel Ramlah i Västra öknen, södra Egypten",
+      "start": -4999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Red Sea shells in the graves of Gebel Ramlah",
+      "kandidater": []
+    },
+    {
+      "id": "nabta-playa",
+      "titel": "Stencirkeln i Nabta Playa",
+      "plats": "Nabta Playa i Nubiska öknen, södra Egypten",
+      "start": -4799,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1535226",
+      "kandidater": [
+        {
+          "fil": "File:Calendar aswan.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Calendar_aswan.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Raymbetz",
+          "datum": "2009-03-21",
+          "beskrivning": "Nabta Playa Calendar Circle, reconstructed at Aswan Nubia museum",
+          "bredd": 4288,
+          "hojd": 2848,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Calendar_aswan.JPG/960px-Calendar_aswan.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Nabta Playa",
+            "Prehistory in the Nubian Museum"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "uan-muhuggiag-mumien",
+      "titel": "Barnmumien i Uan Muhuggiag",
+      "plats": "Klippskyddet Uan Muhuggiag i Tadrart Acacus, Libyen",
+      "start": -4299,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The child mummy of Uan Muhuggiag",
+      "kandidater": []
+    },
+    {
+      "id": "bantuexpansionen",
+      "titel": "Bantuexpansionen",
+      "plats": "Höglandet kring gränsen mellan Kamerun och Nigeria, där expansionen troligen började",
+      "start": -3999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q130251",
+      "soktext": "The Bantu expansion",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Bantu Phillipson.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bantu_Phillipson.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2015-10-26 13:08:18",
+          "beskrivning": null,
+          "bredd": 332,
+          "hojd": 680,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Bantu_Phillipson.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Bantu expansion",
+            "Genetic studies on Bantu populations",
+            "Linguistic maps of Africa",
+            "Linguistic maps of Bantu languages",
+            "Maps of the history of Africa"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Bantu expansion-ar.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bantu_expansion-ar.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "Original: User:Vsion Derivative: علاء",
+          "datum": "2017-03-03",
+          "beskrivning": "One hypothesis about the origins and spread of the Bantu languages.",
+          "bredd": 400,
+          "hojd": 424,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/54/Bantu_expansion-ar.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Arabic-language maps",
+            "Bantu expansion",
+            "Genetic studies on Bantu populations",
+            "Linguistic maps of Africa",
+            "Linguistic maps of Bantu languages"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Bantu area.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bantu_area.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "No machine-readable author provided. Botev assumed (based on copyright claims).",
+          "datum": "27 August 2006 (original upload date)",
+          "beskrivning": "Approximated distribution of Bantu languages in Africa, own work",
+          "bredd": 332,
+          "hojd": 340,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/74/Bantu_area.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Bantu expansion",
+            "Genetic studies on Bantu populations",
+            "Linguistic maps of Africa",
+            "Linguistic maps of Bantu languages"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Niger-Congo map with delimitation.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Niger-Congo_map_with_delimitation.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Niger-Congo.svg : Kimdime Niger-Congo_map.png : Ulamm derivative work: Monsieur Fou ( talk )",
+          "datum": "2011-05-08 15:07",
+          "beskrivning": "vectorisation de Image:Niger-Congo.png Vectorization of Image:Niger-Congo.png , which is CC-by: Map showing the localization of Niger Congo subgroups and important single languages of that family.",
+          "bredd": 1207,
+          "hojd": 1139,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Niger-Congo_map_with_delimitation.png/960px-Niger-Congo_map_with_delimitation.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bantu",
+            "Bantu expansion",
+            "Genetic studies on Bantu populations",
+            "Genetic studies on sub-Saharan African populations",
+            "Linguistic maps of Africa",
+            "Linguistic maps of Niger-Congo languages"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:East and southern africa early iron age.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:East_and_southern_africa_early_iron_age.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2008-12-10 13:41",
+          "beskrivning": "Spread of the \"Early Iron Age\" in Eastern, Central and Southern Africa, a proxy for the Bantu migrations. Based on K. Shillington, History of Africa (3rd ed. 2005), p. 63 . Urewe (Lake Victoria) 250 BCE, Kwale 200 CE, Kisale 300 CE, , Kalundu/Dambwa 100 CE , Kalambo 300 CE, Nkope 300 CE, Gokmere-Ziwa/Bambata 300 CE, presence in South Africa (Kei river) by 400 CE.",
+          "bredd": 677,
+          "hojd": 784,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/03/East_and_southern_africa_early_iron_age.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Bantu expansion",
+            "Maps of the history of Africa"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "naqadakulturen",
+      "titel": "Naqadakulturen i Egypten före faraonerna",
+      "plats": "Naqada i Övre Egypten",
+      "start": -3999,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Naqada culture in Egypt before the pharaohs",
+      "kandidater": []
+    },
+    {
+      "id": "hallmalningarna-i-laas-geel",
+      "titel": "Hällmålningarna i Laas Geel",
+      "plats": "Laas Geel utanför Hargeisa, Maroodi Jeex, Somaliland (Somalia)",
+      "start": -3549,
+      "varldsdel": "Afrika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The rock paintings of Laas Geel",
+      "kandidater": [
+        {
+          "fil": "File:Laas Geel rock paintings.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Laas_Geel_rock_paintings.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Theodor Hoffsten",
+          "datum": "2012-01-03 15:56:40",
+          "beskrivning": "Laas Geel rock paintings",
+          "bredd": 3648,
+          "hojd": 2736,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Laas_Geel_rock_paintings.JPG/960px-Laas_Geel_rock_paintings.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Africa",
+            "Laas Geel"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:ASC Leiden - van de Bruinhorst Collection - Somaliland 2019 - 4591 - View of the desert from the caves with rock paintings of Laas Geel.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:ASC_Leiden_-_van_de_Bruinhorst_Collection_-_Somaliland_2019_-_4591_-_View_of_the_desert_from_the_caves_with_rock_paintings_of_Laas_Geel.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Gerard van de Bruinhorst",
+          "datum": "23 July 2019, 12:25",
+          "beskrivning": "View of the desert from the caves with rock paintings of Laas Geel.",
+          "bredd": 3000,
+          "hojd": 4000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/ASC_Leiden_-_van_de_Bruinhorst_Collection_-_Somaliland_2019_-_4591_-_View_of_the_desert_from_the_caves_with_rock_paintings_of_Laas_Geel.jpg/960px-ASC_Leiden_-_van_de_Bruinhorst_Collection_-_Somaliland_2019_-_4591_-_View_of_the_desert_from_the_caves_with_rock_paintings_of_Laas_Geel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Laas Geel",
+            "Somaliland 2019 (van de Bruinhorst Collection)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:ASC Leiden - van de Bruinhorst Collection - Somaliland 2019 - 4617 - A cactus (Opuntia) outside the caves with rock paintings of Laas Geel.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:ASC_Leiden_-_van_de_Bruinhorst_Collection_-_Somaliland_2019_-_4617_-_A_cactus_(Opuntia)_outside_the_caves_with_rock_paintings_of_Laas_Geel.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Gerard van de Bruinhorst",
+          "datum": "23 July 2019, 12:45",
+          "beskrivning": "A cactus (Opuntia) outside the caves with rock paintings of Laas Geel.",
+          "bredd": 3000,
+          "hojd": 4000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/ASC_Leiden_-_van_de_Bruinhorst_Collection_-_Somaliland_2019_-_4617_-_A_cactus_%28Opuntia%29_outside_the_caves_with_rock_paintings_of_Laas_Geel.jpg/960px-ASC_Leiden_-_van_de_Bruinhorst_Collection_-_Somaliland_2019_-_4617_-_A_cactus_%28Opuntia%29_outside_the_caves_with_rock_paintings_of_Laas_Geel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Laas Geel",
+            "Somaliland 2019 (van de Bruinhorst Collection)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Laas Geel Cave with Rock Art, September 2022.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Laas_Geel_Cave_with_Rock_Art,_September_2022.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Tinasimonrowe",
+          "datum": "2022-09-06 08:52:55",
+          "beskrivning": "The local guide at Laas Geel standing in the cave with the paintings behind him, looking out into the landscape",
+          "bredd": 4032,
+          "hojd": 2268,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Laas_Geel_Cave_with_Rock_Art%2C_September_2022.jpg/960px-Laas_Geel_Cave_with_Rock_Art%2C_September_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Somaliland"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:ASC Leiden - van de Bruinhorst Collection - Somaliland 2019 - 4577 - Red and white rock paintings of a bovine in the caves of Laas Geel.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:ASC_Leiden_-_van_de_Bruinhorst_Collection_-_Somaliland_2019_-_4577_-_Red_and_white_rock_paintings_of_a_bovine_in_the_caves_of_Laas_Geel.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Gerard van de Bruinhorst",
+          "datum": "23 July 2019, 12:17",
+          "beskrivning": "Red and white rock paintings of a bovine in the caves of Laas Geel.",
+          "bredd": 4000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/ASC_Leiden_-_van_de_Bruinhorst_Collection_-_Somaliland_2019_-_4577_-_Red_and_white_rock_paintings_of_a_bovine_in_the_caves_of_Laas_Geel.jpg/960px-ASC_Leiden_-_van_de_Bruinhorst_Collection_-_Somaliland_2019_-_4577_-_Red_and_white_rock_paintings_of_a_bovine_in_the_caves_of_Laas_Geel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Laas Geel",
+            "Somaliland 2019 (van de Bruinhorst Collection)"
+          ],
+          "smal": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1823 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 54,
+    "kandidater": 50,
+    "troliga": 49,
+    "flaggade": 1,
+    "avvisade": 0,
+    "smala": 9,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "lothagam-north",
+      "titel": "Pelarplatsen vid Lothagam North",
+      "plats": "Lothagam på Turkanasjöns västra sida (i dag Kenya)",
+      "start": -2999,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q85782261",
+      "kandidater": [
+        {
+          "fil": "File:Lothagam Site in N. Kenya.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lothagam_Site_in_N._Kenya.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Shaan Hurley",
+          "datum": "2012-05-21 23:26:49",
+          "beskrivning": "Lothagam Site. Capturing the region using a remote aerial copter.",
+          "bredd": 3648,
+          "hojd": 2736,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Lothagam_Site_in_N._Kenya.jpg/960px-Lothagam_Site_in_N._Kenya.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Lothagam North Pillar Site"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "flankskred-pa-piton-de-la-fournaise",
+      "titel": "Det senaste stora skredet på Piton de la Fournaise",
+      "plats": "Piton de la Fournaise, Réunion",
+      "start": -2499,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The last major landslide on Piton de la Fournaise",
+      "kandidater": []
+    },
+    {
+      "id": "kermariket",
+      "titel": "Kermariket i Nubien",
+      "plats": "Kerma vid Nilen i Nubien (i dag Sudan)",
+      "start": -2499,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1739282",
+      "kandidater": [
+        {
+          "fil": "File:Kerma city.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kerma_city.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Lassi",
+          "datum": "2005",
+          "beskrivning": "Kerma ancient city, Sudan",
+          "bredd": 2016,
+          "hojd": 1512,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Kerma_city.JPG/960px-Kerma_city.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cultural heritage monuments in Sudan",
+            "Kerma (archaeological site)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kintampokulturen",
+      "titel": "Kintampokulturen i Ghana",
+      "plats": "Bono East i Ghana; fynd också i östra Elfenbenskusten och Togo",
+      "start": -2499,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Kintampo culture in Ghana Bono East",
+      "kandidater": []
+    },
+    {
+      "id": "parlhirs-tams-i-norra-mali",
+      "titel": "Pärlhirs blir en odlad gröda i norra Mali",
+      "plats": "Norra Mali (punkten i Tilemsidalen)",
+      "start": -2499,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": null,
+      "soktext": "Pearl millet becomes a cultivated crop in northern Mali",
+      "kandidater": []
+    },
+    {
+      "id": "torka-vid-mare-aux-songes",
+      "titel": "Torka dödar dronter och jättesköldpaddor på Mauritius",
+      "plats": "Mare aux Songes, Mauritius",
+      "start": -2199,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Drought kills dodos and giant tortoises on Mauritius Mare aux Songes",
+      "kandidater": []
+    },
+    {
+      "id": "lag-nil-och-svalt-2150-fkr",
+      "titel": "Låga Nilöversvämningar och svält i Egypten",
+      "plats": "Egypten och Nildalen",
+      "start": -2149,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Low Nile floods and famine in Egypt",
+      "kandidater": [
+        {
+          "fil": "File:High Aswan Dam (built to control the Nile floods, store water and produce 2,1 GW of electricity) (14284086878).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:High_Aswan_Dam_(built_to_control_the_Nile_floods,_store_water_and_produce_2,1_GW_of_electricity)_(14284086878).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Jorge Láscar from Melbourne, Australia",
+          "datum": "Taken on 13 September 2012, 14:51",
+          "beskrivning": "The Aswan Dam is an embankment dam situated across the Nile River in Aswan, Egypt. Since the 1960s, the name commonly refers to the High Dam. Construction of the High Dam became a key objective of the Egyptian Government following the Egyptian Revolution of 1952, as the ability to control floods, provide water for irrigation, and generate hydroelectricity were seen as pivotal to Egypt's industrialization. The High Dam was constructed between 1960 and 1970, and has had a significant impact on the economy and culture of Egypt. Before the dams were built, the Nile River flooded every year during late summer, when water flowed down the valley from its East African drainage basin. These floods brought high water and natural nutrients and minerals that annually enriched the fertile soil along the floodplain and delta; this had made the Nile valley ideal for farming since ancient times. Because floods vary, in high-water years the whole crop might be wiped out, while in low-water years widespread drought and famine occasionally occurred. As Egypt's population grew and conditions changed, both a desire and ability developed to control the floods, and thus both protect and support farmland and the economically important cotton crop. With the reservoir storage provided by the Aswan dams, the floods could be lessened and the water stored for later release. The dam powers twelve generators each rated at 175 megawatts, with a total of 2.1 gigawatts. Power generation began in 1967. When the dam first reached peak output it produced around half of Egypt's entire electricity production (about 15 percent by 1998) and allowed most Egyptian villages to use electricity for the first time. The High Dam has also improved the efficiency and the extension of the Old Aswan Hydropower stations by regulating upstream flows [Wikipedia.org]",
+          "bredd": 4039,
+          "hojd": 2683,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/High_Aswan_Dam_%28built_to_control_the_Nile_floods%2C_store_water_and_produce_2%2C1_GW_of_electricity%29_%2814284086878%29.jpg/960px-High_Aswan_Dam_%28built_to_control_the_Nile_floods%2C_store_water_and_produce_2%2C1_GW_of_electricity%29_%2814284086878%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Lake Nasser"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:High Aswan Dam (built to control the Nile floods, store water and produce 2,1 GW of electricity) (14469341352).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:High_Aswan_Dam_(built_to_control_the_Nile_floods,_store_water_and_produce_2,1_GW_of_electricity)_(14469341352).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Jorge Láscar from Melbourne, Australia",
+          "datum": "Taken on 13 September 2012, 14:49",
+          "beskrivning": "The Aswan Dam is an embankment dam situated across the Nile River in Aswan, Egypt. Since the 1960s, the name commonly refers to the High Dam. Construction of the High Dam became a key objective of the Egyptian Government following the Egyptian Revolution of 1952, as the ability to control floods, provide water for irrigation, and generate hydroelectricity were seen as pivotal to Egypt's industrialization. The High Dam was constructed between 1960 and 1970, and has had a significant impact on the economy and culture of Egypt. Before the dams were built, the Nile River flooded every year during late summer, when water flowed down the valley from its East African drainage basin. These floods brought high water and natural nutrients and minerals that annually enriched the fertile soil along the floodplain and delta; this had made the Nile valley ideal for farming since ancient times. Because floods vary, in high-water years the whole crop might be wiped out, while in low-water years widespread drought and famine occasionally occurred. As Egypt's population grew and conditions changed, both a desire and ability developed to control the floods, and thus both protect and support farmland and the economically important cotton crop. With the reservoir storage provided by the Aswan dams, the floods could be lessened and the water stored for later release. The dam powers twelve generators each rated at 175 megawatts, with a total of 2.1 gigawatts. Power generation began in 1967. When the dam first reached peak output it produced around half of Egypt's entire electricity production (about 15 percent by 1998) and allowed most Egyptian villages to use electricity for the first time. The High Dam has also improved the efficiency and the extension of the Old Aswan Hydropower stations by regulating upstream flows [Wikipedia.org]",
+          "bredd": 4288,
+          "hojd": 2848,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/High_Aswan_Dam_%28built_to_control_the_Nile_floods%2C_store_water_and_produce_2%2C1_GW_of_electricity%29_%2814469341352%29.jpg/960px-High_Aswan_Dam_%28built_to_control_the_Nile_floods%2C_store_water_and_produce_2%2C1_GW_of_electricity%29_%2814469341352%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Lake Nasser"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Aswan High Dam, built to control the Nile floods, store water and produce 2,1 GW of electricity (14470862415).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Aswan_High_Dam,_built_to_control_the_Nile_floods,_store_water_and_produce_2,1_GW_of_electricity_(14470862415).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Jorge Láscar from Melbourne, Australia",
+          "datum": "Taken on 13 September 2012, 14:48",
+          "beskrivning": "The Aswan Dam is an embankment dam situated across the Nile River in Aswan, Egypt. Since the 1960s, the name commonly refers to the High Dam. Construction of the High Dam became a key objective of the Egyptian Government following the Egyptian Revolution of 1952, as the ability to control floods, provide water for irrigation, and generate hydroelectricity were seen as pivotal to Egypt's industrialization. The High Dam was constructed between 1960 and 1970, and has had a significant impact on the economy and culture of Egypt. Before the dams were built, the Nile River flooded every year during late summer, when water flowed down the valley from its East African drainage basin. These floods brought high water and natural nutrients and minerals that annually enriched the fertile soil along the floodplain and delta; this had made the Nile valley ideal for farming since ancient times. Because floods vary, in high-water years the whole crop might be wiped out, while in low-water years widespread drought and famine occasionally occurred. As Egypt's population grew and conditions changed, both a desire and ability developed to control the floods, and thus both protect and support farmland and the economically important cotton crop. With the reservoir storage provided by the Aswan dams, the floods could be lessened and the water stored for later release. The dam powers twelve generators each rated at 175 megawatts, with a total of 2.1 gigawatts. Power generation began in 1967. When the dam first reached peak output it produced around half of Egypt's entire electricity production (about 15 percent by 1998) and allowed most Egyptian villages to use electricity for the first time. The High Dam has also improved the efficiency and the extension of the Old Aswan Hydropower stations by regulating upstream flows [Wikipedia.org]",
+          "bredd": 4113,
+          "hojd": 2732,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Aswan_High_Dam%2C_built_to_control_the_Nile_floods%2C_store_water_and_produce_2%2C1_GW_of_electricity_%2814470862415%29.jpg/960px-Aswan_High_Dam%2C_built_to_control_the_Nile_floods%2C_store_water_and_produce_2%2C1_GW_of_electricity_%2814470862415%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aswan High Dam"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "brottare-i-beni-hasan",
+      "titel": "Brottarna i Baqet III:s grav i Beni Hasan",
+      "plats": "Grav BH15 i Beni Hasan, Mellanegypten",
+      "start": -2099,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The wrestlers in the tomb of Baqet III at Beni Hasan",
+      "kandidater": [
+        {
+          "fil": "File:Egypt, Group of wrestlers from tomb 15 at Beni Hasan. Wellcome M0006217.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Egypt,_Group_of_wrestlers_from_tomb_15_at_Beni_Hasan._Wellcome_M0006217.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": null,
+          "datum": "2014-10-23 03:07:41",
+          "beskrivning": "East wall showing group of wrestlers from tomb 15 at Beni Hasan. Wellcome Images Keywords: egyptology",
+          "bredd": 2771,
+          "hojd": 3893,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Egypt%2C_Group_of_wrestlers_from_tomb_15_at_Beni_Hasan._Wellcome_M0006217.jpg/960px-Egypt%2C_Group_of_wrestlers_from_tomb_15_at_Beni_Hasan._Wellcome_M0006217.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Egyptian wrestling",
+            "Tomb of Baqet III (BH15)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Beni Hasan. Tombe van Baqet III Muurschildering Twee worstelaars (facsimile), GD005162.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Beni_Hasan._Tombe_van_Baqet_III_Muurschildering_Twee_worstelaars_(facsimile),_GD005162.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "Unknown date",
+          "beskrivning": "Title Beni Hasan. Tombe van Baqet III: Muurschildering: Twee worstelaars (facsimile) Series EuroPhot. Archaeology. Ancient. Paintings. Genre EuroPhot. Archeologie. Oudheid. Schilderkunst. Genrestuk Other title(s) Beni Hasan. Tomb of Baqet III: Mural: Two wrestlers (facsimile) Extent 1 glasdia 100 x 85 mm Slide Language Undetermined Typographical details glass slide(s) Additional info General note: Fotograaf onbekend General note: Toegevoegde informatie op dia Biographical or historical data: Stroming/Stijl: Egyptische kunst, Middenrijk Biographical or historical data: Oorspronkelijke locatie/Vindplaats: Egypte, Beni Hasan, BH15 Biographical or historical data: Creatie/Bouw: 1991-1783 BC Biographical or historical data: Techniek/Materiaal: Muurschildering Source Library Catalog Source ID lbsn9988719090101471 University Leuven kindly ask you to mention KU Leuven and the collection holding the original as a token of your appreciation for their work. The collection holder can be found under “Source” in the Descriptive Information. We prefer it if you use the following format: “KU Leuven. Name of the collection”.",
+          "bredd": 3743,
+          "hojd": 3209,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Beni_Hasan._Tombe_van_Baqet_III_Muurschildering_Twee_worstelaars_%28facsimile%29%2C_GD005162.jpg/960px-Beni_Hasan._Tombe_van_Baqet_III_Muurschildering_Twee_worstelaars_%28facsimile%29%2C_GD005162.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Glass slides in the Leuven University Libraries"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Beni Hasan banner.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Beni_Hasan_banner.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "2026-10-02 21:58:46",
+          "beskrivning": "Egyptian, wrestling scene on east wall, tomb of Baqt at Beni Hasan. Necropolis in use 11th and 12th Dynasties (ca. 2000 BCE). Upper left portion of a nineteenth century line draft reproducing original mural in tomb, which was a polychrome of red human figures within Egyptian-style horizontal registers, showing successive moments of a wrestling match between two people, whose skin tones, white and black in the draft, were two shades of the red used on the tomb wall. See p. 47 (tomb 15) & Plate V in Percy Newberry, Beni Hasan Part II, Archaeological Survey of Egypt, F. Griffith Ed., Egypt Exploration Society, London, 1893; downloadable pdf copy from University of Heidelberg at Heidelberg Digital Library http://digi.ub.uni-heidelberg.de/diglit/newberry1893bd2",
+          "bredd": 1370,
+          "hojd": 196,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Beni_Hasan_banner.jpg/960px-Beni_Hasan_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Egyptian wrestling",
+            "Archaeological survey of Egypt",
+            "Tomb of Baqet III (BH15)",
+            "Wikivoyage banners of Egypt"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Egyptmotionseries.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Egyptmotionseries.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "2017-07-16 06:38:37",
+          "beskrivning": "Egyptian, wrestling scene on east wall, tomb of Baqt at Beni Hasan. Necropolis in use 11th and 12th Dynasties (ca. 2000 BCE). Upper left portion of a nineteenth century line draft reproducing original mural in tomb, which was a polychrome of red human figures within Egyptian-style horizontal registers, showing successive moments of a wrestling match between two people, whose skin tones, white and black in the draft, were two shades of the red used on the tomb wall. See p. 47 (tomb 15) & Plate V in Percy Newberry, Beni Hasan Part II, Archaeological Survey of Egypt, F. Griffith Ed., Egypt Exploration Society, London, 1893; downloadable pdf copy from University of Heidelberg at Heidelberg Digital Library http://digi.ub.uni-heidelberg.de/diglit/newberry1893bd2",
+          "bredd": 1712,
+          "hojd": 1321,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Egyptmotionseries.jpg/960px-Egyptmotionseries.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Egyptian wrestling",
+            "Archaeological survey of Egypt",
+            "Tomb of Baqet III (BH15)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "dhar-tichitt",
+      "titel": "Stenbyarna vid Dhar Tichitt",
+      "plats": "Klippbranterna vid Dhar Tichitt (i dag Mauretanien)",
+      "start": -1999,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1165596",
+      "soktext": "The stone villages of Dhar Tichitt",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Haches et herminettes provenant de villages du Dhar Tichitt.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Haches_et_herminettes_provenant_de_villages_du_Dhar_Tichitt.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Sylvie Amblard-Pison",
+          "datum": "2014",
+          "beskrivning": "Axes and adzes from villages in Dhar Tichitt",
+          "bredd": 465,
+          "hojd": 500,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Haches_et_herminettes_provenant_de_villages_du_Dhar_Tichitt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Dhar Tichitt",
+            "Polished stone tools"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "vulkanutbrottet-vid-deriba",
+      "titel": "Stort utbrott vid Deriba i Jebel Marra",
+      "plats": "Deribakalderan i Jebel Marra, Darfur, Sudan",
+      "start": -1569,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "A large eruption at Deriba in Jebel Marra",
+      "kandidater": []
+    },
+    {
+      "id": "nok-kulturen",
+      "titel": "Nok-kulturen och dess terrakottaskulpturer",
+      "plats": "Centrala Nigeria, kring byn Nok i Kaduna (i dag Nigeria)",
+      "start": -1499,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q927291",
+      "kandidater": [
+        {
+          "fil": "File:Nok Kultur, Nigeria. Fragment eines Gefäßes mit mehreren Figuren im Halbrelief..jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Nok_Kultur,_Nigeria._Fragment_eines_Gef%C3%A4%C3%9Fes_mit_mehreren_Figuren_im_Halbrelief..jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Nicotta",
+          "datum": "2011-09-28",
+          "beskrivning": "Nok Kultur, Nigeria. Fragment eines Gefäßes mit mehreren Figuren im Halbrelief.",
+          "bredd": 368,
+          "hojd": 553,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/00/Nok_Kultur%2C_Nigeria._Fragment_eines_Gef%C3%A4%C3%9Fes_mit_mehreren_Figuren_im_Halbrelief..jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Nok culture"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "hatshepsuts-expedition-till-punt",
+      "titel": "Hatshepsuts expedition till Punt",
+      "plats": "Hamnen Mersa Gawasis vid Röda havet (i dag Egypten), på väg till Punt",
+      "start": -1470,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Hatshepsut's expedition to Punt",
+      "kandidater": [
+        {
+          "fil": "File:Relief of Hatshepsut's expedition to the Land of Punt by Σταύρος.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Relief_of_Hatshepsut%27s_expedition_to_the_Land_of_Punt_by_%CE%A3%CF%84%CE%B1%CF%8D%CF%81%CE%BF%CF%82.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Σταύρος",
+          "datum": "2008-09-11",
+          "beskrivning": "This is a fine relief of members of Hatshepsut's trading expedition to the mysterious 'Land of Punt' from this pharaoh's elegant mortuary temple at Deir El-Bahri. In this scene, Egyptian soldiers bear tree branches and axes.",
+          "bredd": 3264,
+          "hojd": 2211,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Relief_of_Hatshepsut%27s_expedition_to_the_Land_of_Punt_by_%CE%A3%CF%84%CE%B1%CF%8D%CF%81%CE%BF%CF%82.jpg/960px-Relief_of_Hatshepsut%27s_expedition_to_the_Land_of_Punt_by_%CE%A3%CF%84%CE%B1%CF%8D%CF%81%CE%BF%CF%82.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Egyptian weapons",
+            "Ancient furs",
+            "Army of Egypt",
+            "Fur clothing of native people of Egypt",
+            "Male fur clothing in art",
+            "Man with arms raised (hieroglyph)",
+            "Military parades in Egypt",
+            "Reliefs of expedition to Punt",
+            "Spindle (hieroglyph)",
+            "Wild cat (clothing) in art"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Queen Hatshepsut's expedition to Punt, plaster cast of her mortuary temple at Deir el-Bahri, Western Thebes, Egypt - Royal Ontario Museum - DSC09766.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Queen_Hatshepsut%27s_expedition_to_Punt,_plaster_cast_of_her_mortuary_temple_at_Deir_el-Bahri,_Western_Thebes,_Egypt_-_Royal_Ontario_Museum_-_DSC09766.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Daderot",
+          "datum": "2011-11-20 18:04:40",
+          "beskrivning": "Exhibit in the Royal Ontario Museum, Toronto, Ontario, Canada. This exhibit is old enough so that it is in the public domain, and photography was permitted in the museum. I took this photograph and release it into the public domain.",
+          "bredd": 4320,
+          "hojd": 3240,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Queen_Hatshepsut%27s_expedition_to_Punt%2C_plaster_cast_of_her_mortuary_temple_at_Deir_el-Bahri%2C_Western_Thebes%2C_Egypt_-_Royal_Ontario_Museum_-_DSC09766.JPG/960px-Queen_Hatshepsut%27s_expedition_to_Punt%2C_plaster_cast_of_her_mortuary_temple_at_Deir_el-Bahri%2C_Western_Thebes%2C_Egypt_-_Royal_Ontario_Museum_-_DSC09766.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Egyptian antiquities in the Royal Ontario Museum",
+            "Reliefs of expedition to Punt",
+            "Replicas of ancient Egyptian art"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Trees to transplant from Punt to Egypt - Hatshepsut Mortuary Temple-rotated.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Trees_to_transplant_from_Punt_to_Egypt_-_Hatshepsut_Mortuary_Temple-rotated.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "83d40m ( talk ) 00:02, 2 February 2008 (UTC)",
+          "datum": "2008-02-01",
+          "beskrivning": "Photograph of a portion of a painted relief showing trees being transported from Punt to Egypt for transplantation; from Deir el Bahari in the Mortuary Temple of Hatshepsut, a pharaoh of the eighteenth dynasty of Ancient Egypt reigning from c. 1479 to 1458 BC",
+          "bredd": 333,
+          "hojd": 585,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/39/Trees_to_transplant_from_Punt_to_Egypt_-_Hatshepsut_Mortuary_Temple-rotated.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Reliefs of expedition to Punt"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Trees to transplant from Punt to Egypt - Hatshepsut Mortuary Temple c.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Trees_to_transplant_from_Punt_to_Egypt_-_Hatshepsut_Mortuary_Temple_c.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Trees_to_transplant_from_Punt_to_Egypt_-_Hatshepsut_Mortuary_Temple.JPG : 83d40m ( talk ) 00:02, 2 February 2008 (UTC). Original uploader was 83d40m at en.wikipedia derivative work: JMCC1 ( talk )",
+          "datum": "2011-06-25 04:08",
+          "beskrivning": "Photograph of a portion of a painted relief showing trees being transported from Punt to Egypt for transplantation; from Deir el Bahari in the Mortuary Temple of Hatshepsut, a pharaoh of the eighteenth dynasty of Ancient Egypt reigning from c. 1479 to 1458 BC",
+          "bredd": 333,
+          "hojd": 585,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Trees_to_transplant_from_Punt_to_Egypt_-_Hatshepsut_Mortuary_Temple_c.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Gardens of Hatshepsut Temple",
+            "Reliefs of expedition to Punt"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Hatshepsut-tree.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Hatshepsut-tree.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Edal Anton Lefterov",
+          "datum": "2011-09-20",
+          "beskrivning": "This tree in front of Hatshepsut' Temple is claimed to have been brought from Punt by Hatshepsut's Expedition which is depicted on the Temple walls.",
+          "bredd": 1000,
+          "hojd": 667,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Hatshepsut-tree.jpg/960px-Hatshepsut-tree.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Dead trees",
+            "Expedition to Punt",
+            "Gardens of Hatshepsut Temple"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "herdarnas-boplats-luxmanda",
+      "titel": "Herdarnas boplats Luxmanda i Tanzania",
+      "plats": "Luxmanda på Mbuluplatån, Babatidistriktet, norra Tanzania",
+      "start": -1249,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Luxmanda, a herders’ settlement in Tanzania",
+      "kandidater": []
+    },
+    {
+      "id": "afrikanskt-ris-odlas-i-nigerdeltat",
+      "titel": "Afrikanskt ris börjar odlas i Nigers inlandsdelta",
+      "plats": "Nigers inlandsdelta, Mali",
+      "start": -999,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "African rice begins to be cultivated in the Inner Niger Delta Inner Niger Delta",
+      "kandidater": []
+    },
+    {
+      "id": "garamanterna-i-fezzan",
+      "titel": "Garamanternas rike i Sahara",
+      "plats": "Fezzan i Sahara, kring Germa (i dag Libyen)",
+      "start": -999,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q839034",
+      "kandidater": [
+        {
+          "fil": "File:Germa - Garamantengräber.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Germa_-_Garamantengr%C3%A4ber.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Franzfoto",
+          "datum": "2010-11",
+          "beskrivning": "Germa - Garamantengräber",
+          "bredd": 3991,
+          "hojd": 2215,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Germa_-_Garamantengr%C3%A4ber.jpg/960px-Germa_-_Garamantengr%C3%A4ber.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Fezzan",
+            "Germa"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "koppar-vid-akjoujt",
+      "titel": "Koppar bryts och smälts vid Akjoujt",
+      "plats": "Akjoujt i västra Mauretanien",
+      "start": -999,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Copper is mined and smelted at Akjoujt Akjoujt",
+      "kandidater": []
+    },
+    {
+      "id": "karthago-grundas",
+      "titel": "Kartago grundas",
+      "plats": "Kartago vid Tunissjön (i dag Tunisien)",
+      "start": -813,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q6343",
+      "kandidater": [
+        {
+          "fil": "File:Tunisie Carthage Ruines 08.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tunisie_Carthage_Ruines_08.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "Calips",
+          "datum": "5 September 2006 (according to Exif data)",
+          "beskrivning": "Tunisie Carthage Photographie prise par Patrick GIRAUD",
+          "bredd": 3008,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Tunisie_Carthage_Ruines_08.JPG/960px-Tunisie_Carthage_Ruines_08.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Gulf of Tunis",
+            "House of the Cryptoporticus (Carthage)",
+            "Views of Bou Kornine"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "riket-dmt",
+      "titel": "Riket D'mt på Etiopiens och Eritreas högland",
+      "plats": "Yeha och höglandet i Tigray och Eritrea (i dag Etiopien och Eritrea)",
+      "start": -799,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q139315",
+      "soktext": "The Kingdom of D'mt in the highlands of Ethiopia and Eritrea",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "piye-erovrar-egypten",
+      "titel": "Piye från Kush erövrar Egypten",
+      "plats": "Memphis och Nildalen (i dag Egypten)",
+      "start": -727,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q315695",
+      "kandidater": [
+        {
+          "fil": "File:Stele Piye submission Mariette.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Stele_Piye_submission_Mariette.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Auguste Mariette (1821-1881)",
+          "datum": "2014-04-24 17:40:07",
+          "beskrivning": "Drawing of the upper-right part of the victory stele of pharaoh Piye, depicting Piye being tributed by four Nile Delta rulers: Nimlot (holding an horse) and his queen (before him), Osorkon IV, Iuput II and Peftjauawybast [see note for details]. Original stele in granite, found at Jebel Barkal and datable to the reign of Piye, 25th dynasty, now in the Cairo Museum.",
+          "bredd": 697,
+          "hojd": 464,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Stele_Piye_submission_Mariette.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Iuput II",
+            "Osorkon IV",
+            "Peftjauawybast",
+            "Prostration in ancient Egypt",
+            "Transport in the 8th century BC",
+            "Victory stele in the 21st year of the reign of Pharaoh Piankhy"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "kungapyramiderna-i-nuri",
+      "titel": "Kushkungarnas pyramider i Nuri",
+      "plats": "Nuri vid Nilen, nära fjärde katarakten (i dag Sudan)",
+      "start": -669,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2119839",
+      "kandidater": [
+        {
+          "fil": "File:Pyramids of Nuri.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Pyramids_of_Nuri.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Vit Hassan",
+          "datum": "2009-06-18 11:42:40",
+          "beskrivning": "The pyramid field of Nuri contained 21 kings together with 52 queens and princesess . The first to build his tomb at Nuri was king Taharqa. His pyramid had 51.75 m square and 40 or 50 m high. Taharqa subterranean chambers are the most elaborate of any Kushite tomb. The entrance was by an eastern stairway trench , north of the pyramid's central axis, reflecting the alignment of the original smaller pyramid. Three steps led to a doorway, with a moulded frame, that opened to a tunnel, widened and heightened into an antechamber with a barrel-vaulted ceiling. Six massive pillars carved from the natural rock divide the burial chamber into two side aisles and a central nave, each with a barrel-vaulted ceiling. The entire chamber was surrounded by a moat-like corridor entered steps leading down from in front of the antechamber doorway. After Taharqa 21 kings and 53 queens and princesess were buried at Nuri under pyramids of good masonry, using blocks of local red sandstone. The Nuri pyramids were generally much larger than those at el-Kurru, reaching heights of 20 to 30 m. The last king to be buried at Nuri died in about 308 BC. Taken in Nuri,Northern Sudan. Check my set: Pyramids & templeS: <a href=\" https://www.flickr.com/photos/vithassan/sets/72157594264778397/ \">www.flickr.com/photos/vithassan/sets/72157594264778397/</a>",
+          "bredd": 800,
+          "hojd": 593,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Pyramids_of_Nuri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Photographs by Vít Hassan",
+            "Pyramids of Nuri"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kyrene-grundas",
+      "titel": "Kolonister från Thera grundar Kyrene",
+      "plats": "Kyrene vid Shahhat (i dag Libyen)",
+      "start": -630,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q44112",
+      "kandidater": [
+        {
+          "fil": "File:Archaeological Site of Cyrene-109025.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Archaeological_Site_of_Cyrene-109025.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0 igo",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en",
+          "upphovsperson": "Giovanni Boccardi",
+          "datum": "1 January 2003",
+          "beskrivning": "Archaeological Site of Cyrene (Libya)",
+          "bredd": 1024,
+          "hojd": 768,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Archaeological_Site_of_Cyrene-109025.jpg/960px-Archaeological_Site_of_Cyrene-109025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cyrene",
+            "Temple of Apollo in Cyrene"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Archaeological Site of Cyrene-109023.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Archaeological_Site_of_Cyrene-109023.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0 igo",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en",
+          "upphovsperson": "Giovanni Boccardi",
+          "datum": "2017-04-19 09:59:18",
+          "beskrivning": "Archaeological Site of Cyrene (Libya)",
+          "bredd": 1024,
+          "hojd": 768,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Archaeological_Site_of_Cyrene-109023.jpg/960px-Archaeological_Site_of_Cyrene-109023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Caesareum (Cyrene)",
+            "Cyrenaica"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Archaeological Site of Cyrene-109029.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Archaeological_Site_of_Cyrene-109029.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0 igo",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en",
+          "upphovsperson": "Giovanni Boccardi",
+          "datum": "1 January 2003",
+          "beskrivning": "Agora Victory Monument, Archaeological Site of Cyrene (Libya)",
+          "bredd": 1024,
+          "hojd": 768,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Archaeological_Site_of_Cyrene-109029.jpg/960px-Archaeological_Site_of_Cyrene-109029.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Nike of Cyrene"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "meroe-blir-huvudstad",
+      "titel": "Meroë blir Kushrikets huvudstad",
+      "plats": "Meroë vid Nilen (i dag Sudan)",
+      "start": -590,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q5780",
+      "kandidater": [
+        {
+          "fil": "File:Sudan Meroe Pyramids 2001.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sudan_Meroe_Pyramids_2001.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 1.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/1.0",
+          "upphovsperson": "Photographer: B N Chagny",
+          "datum": "roku 2001 SFDAS 2001",
+          "beskrivning": "Aerial view of the Nubian pyramids at Meroe in 2001",
+          "bredd": 591,
+          "hojd": 403,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/53/Sudan_Meroe_Pyramids_2001.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "2001 photographs of Sudan",
+            "Aerial photographs of Sudan",
+            "Pyramids of Meroe"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "bananer-i-nkang",
+      "titel": "Spår av bananer i Nkang i Kamerun",
+      "plats": "Nkang nära Monatélé, Centrumregionen i Kamerun",
+      "start": -499,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Traces of bananas at Nkang in Cameroon Nkang near Monatélé",
+      "kandidater": []
+    },
+    {
+      "id": "hannos-resa-langs-afrika",
+      "titel": "Hanno seglar längs Västafrikas kust",
+      "plats": "Från Kartago (i dag Tunisien) längs Västafrikas kust",
+      "start": -499,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q296478",
+      "soktext": "Hanno sails along the coast of West Africa",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "urewekulturen",
+      "titel": "Urewekulturen framställer järn kring Victoriasjön",
+      "plats": "Kring Victoriasjön i Östafrika",
+      "start": -499,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Urewe culture smelts iron around Lake Victoria Around Lake Victoria",
+      "kandidater": []
+    },
+    {
+      "id": "medracen",
+      "titel": "Medracen, en kunglig grav i Numidien",
+      "plats": "Nära Batna i nordöstra Algeriet",
+      "start": -399,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Medracen, a royal tomb in Numidia Near Batna",
+      "kandidater": []
+    },
+    {
+      "id": "alexandria-grundas",
+      "titel": "Alexandria grundas",
+      "plats": "Alexandria vid Medelhavet (i dag Egypten)",
+      "start": -330,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q87",
+      "kandidater": [
+        {
+          "fil": "File:AlexandriaSkyline.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:AlexandriaSkyline.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "ASaber91",
+          "datum": "2017-07-01 15:42:01",
+          "beskrivning": "Skyline of Alexandria viewed from Qaitbey Citadel",
+          "bredd": 5700,
+          "hojd": 3308,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/AlexandriaSkyline.jpg/960px-AlexandriaSkyline.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Forecourt of Qaitbay Citadel",
+            "Skylines"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "meroitisk-skrift",
+      "titel": "Kushriket får egen skrift: meroitisk skrift",
+      "plats": "Meroë och Kushriket (i dag Sudan)",
+      "start": -299,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Kingdom of Kush gets its own script: Meroitic",
+      "kandidater": []
+    },
+    {
+      "id": "senegambiska-stencirklar",
+      "titel": "De senegambiska stencirklarna",
+      "plats": "Senegal och Gambia",
+      "start": -299,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Senegambian stone circles",
+      "kandidater": [
+        {
+          "fil": "File:Wassu Stone Cirles shaunamullally 02.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wassu_Stone_Cirles_shaunamullally_02.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "shaunamullally",
+          "datum": "Taken on 6 June 2006",
+          "beskrivning": "Wassu Stone Cirles",
+          "bredd": 800,
+          "hojd": 600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Wassu_Stone_Cirles_shaunamullally_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Wassu stone circles"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Πέτρινοι κύκλοι της Σενεγκάμπια(κάτοψη).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%CE%A0%CE%AD%CF%84%CF%81%CE%B9%CE%BD%CE%BF%CE%B9_%CE%BA%CF%8D%CE%BA%CE%BB%CE%BF%CE%B9_%CF%84%CE%B7%CF%82_%CE%A3%CE%B5%CE%BD%CE%B5%CE%B3%CE%BA%CE%AC%CE%BC%CF%80%CE%B9%CE%B1(%CE%BA%CE%AC%CF%84%CE%BF%CF%88%CE%B7).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Blair02",
+          "datum": "2021-04-02",
+          "beskrivning": "On the right river Gambia, on the left the stones from above",
+          "bredd": 934,
+          "hojd": 1442,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/c5/%CE%A0%CE%AD%CF%84%CF%81%CE%B9%CE%BD%CE%BF%CE%B9_%CE%BA%CF%8D%CE%BA%CE%BB%CE%BF%CE%B9_%CF%84%CE%B7%CF%82_%CE%A3%CE%B5%CE%BD%CE%B5%CE%B3%CE%BA%CE%AC%CE%BC%CF%80%CE%B9%CE%B1%28%CE%BA%CE%AC%CF%84%CE%BF%CF%88%CE%B7%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Senegambian stone circles",
+            "Sketches"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Senegambian Megaliths.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Senegambian_Megaliths.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Mellangoose",
+          "datum": "2025-01-03",
+          "beskrivning": "Megalithic sites in the Gambia & Senegal after Curdy, P. (1982) ‘Mbolop Tobé (Santhiou Kohel, Sénégal). Contribution à la connaissance du mégalithisme sénégambien’. Available at: https://www.academia.edu/64976455/",
+          "bredd": 3511,
+          "hojd": 1970,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Senegambian_Megaliths.jpg/960px-Senegambian_Megaliths.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of Senegambian stone circles",
+            "Maps of archaeological sites in Africa",
+            "OpenStreetMap maps of Senegal",
+            "OpenStreetMap maps of the Gambia"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Wassu stone circle.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wassu_stone_circle.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Ikiwaner",
+          "datum": "2008-03-01 17:33:49",
+          "beskrivning": "A stone circle in Wassu/The Gambia",
+          "bredd": 3888,
+          "hojd": 2592,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Wassu_stone_circle.jpg/960px-Wassu_stone_circle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2008 in the Gambia",
+            "Wassu stone circles"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Monolithe Sénégal 1.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Monolithe_S%C3%A9n%C3%A9gal_1.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Marc-AntoineV",
+          "datum": "2017-05-03 13:06:17",
+          "beskrivning": "Megalithitic Stone in the courtyard of the Musée Théodore Monod, Dakar, Sénégal.",
+          "bredd": 1536,
+          "hojd": 2048,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Monolithe_S%C3%A9n%C3%A9gal_1.jpg/960px-Monolithe_S%C3%A9n%C3%A9gal_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Building of the Musée Théodore Monod d'Art africain",
+            "Senegambian stone circles in Senegal"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "djenne-djenno",
+      "titel": "Djenné-Djenno, en av Västafrikas äldsta städer",
+      "plats": "Djenné-Djenno vid Nigerfloden, nära Djenné (i dag Mali)",
+      "start": -249,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q607668",
+      "kandidater": [
+        {
+          "fil": "File:Djenné Moschee.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Djenn%C3%A9_Moschee.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "The original uploader was Euronaut at German Wikipedia . Later versions were uploaded by Zahnstein at de.wikipedia .",
+          "datum": "15 July 2004 (original upload date)",
+          "beskrivning": "Moschee von Djenné Beschreibung: Die Moschee von Djenné Quelle: Foto von Klaus Kien, entstanden in den 90er Jahren im Rahmen der de:Städtepartnerschaft zwischen de:Bous (Saar) und de:Koulikoro Fotograf oder Zeichner: Klaus Kien, Gde. de:Bous (Saar)",
+          "bredd": 708,
+          "hojd": 336,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Djenn%C3%A9_Moschee.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Great Mosque of Djenné"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "eratosthenes-mater-jordens-omkrets",
+      "titel": "Eratosthenes räknar ut jordens omkrets",
+      "plats": "Alexandria och Syene, i dag Assuan (i dag Egypten)",
+      "start": -239,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q43182",
+      "kandidater": [
+        {
+          "fil": "File:Eratosthenes.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Eratosthenes.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2025-11-05 18:40:45",
+          "beskrivning": null,
+          "bredd": 2495,
+          "hojd": 3614,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Eratosthenes.jpg/960px-Eratosthenes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Eratosthenes in art"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "lejontemplet-i-musawwarat-es-sufra",
+      "titel": "Lejontemplet åt Apedemak i Musawwarat es-Sufra",
+      "plats": "Musawwarat es-Sufra, Sudan",
+      "start": -219,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Lion Temple of Apedemak at Musawwarat es-Sufra Musawwarat es-Sufra",
+      "kandidater": [
+        {
+          "fil": "File:Apedemak temple in Musawwarat es-sufra 2018.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Apedemak_temple_in_Musawwarat_es-sufra_2018.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Vaido Otsar",
+          "datum": "2018-02-23 11:44:08",
+          "beskrivning": "Apedemak (lion) temple in Musawwarat es-sufra",
+          "bredd": 4522,
+          "hojd": 3015,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Apedemak_temple_in_Musawwarat_es-sufra_2018.jpg/960px-Apedemak_temple_in_Musawwarat_es-sufra_2018.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Temple of Apedemak in Musawwarat es-Sufra"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Apedemak (lion) temple in Musawwarat es-sufra (1) (34081397596).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Apedemak_(lion)_temple_in_Musawwarat_es-sufra_(1)_(34081397596).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Hans Birger Nilsen",
+          "datum": "2017-03-24 10:35",
+          "beskrivning": "Apedemak (lion) temple in Musawwarat es-sufra (1)",
+          "bredd": 3482,
+          "hojd": 2019,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Apedemak_%28lion%29_temple_in_Musawwarat_es-sufra_%281%29_%2834081397596%29.jpg/960px-Apedemak_%28lion%29_temple_in_Musawwarat_es-sufra_%281%29_%2834081397596%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "March 2017 in Sudan",
+            "Temple of Apedemak in Musawwarat es-Sufra"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:MusawwaratLionTemple.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:MusawwaratLionTemple.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Clemens Schmillen",
+          "datum": "2017-01-01",
+          "beskrivning": "Musawwarat Apademak Temple",
+          "bredd": 1024,
+          "hojd": 683,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/MusawwaratLionTemple.jpg/960px-MusawwaratLionTemple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Temple of Apedemak in Musawwarat es-Sufra"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Architectural element from a temple depicting two lion deities and Amun as a ram 03.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Architectural_element_from_a_temple_depicting_two_lion_deities_and_Amun_as_a_ram_03.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Joe Mabel",
+          "datum": "Taken on 14 October 2025",
+          "beskrivning": "Sandstone high relief, from the Temple of Apedemak depicting two lion deities and Amun as a ram. Musawwarat es-Sufra, Upper Nubia, Sudan, Meroitic Period, late third century BCE. Fritz Hintze excavations, 1960. Photographed October 2025 at Gallery 899, Metropolitan Museum of Art. Part of the Divine Egypt exhibition.",
+          "bredd": 6000,
+          "hojd": 4000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Architectural_element_from_a_temple_depicting_two_lion_deities_and_Amun_as_a_ram_03.jpg/960px-Architectural_element_from_a_temple_depicting_two_lion_deities_and_Amun_as_a_ram_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2025 in the Upper East Side",
+            "3rd-century BC reliefs in the United States",
+            "Ancient Egyptian art in the Metropolitan Museum of Art",
+            "Architectural element from a temple depicting two lion deities and Amun as a ram",
+            "Divine Egypt",
+            "October 2025 in Manhattan, New York City",
+            "Reliefs of lions in the United States",
+            "Sandstone reliefs in the United States",
+            "Stone lions in the United States"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Architectural element from a temple depicting two lion deities and Amun as a ram 01.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Architectural_element_from_a_temple_depicting_two_lion_deities_and_Amun_as_a_ram_01.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Joe Mabel",
+          "datum": "Taken on 14 October 2025",
+          "beskrivning": "Sandstone high relief, from the Temple of Apedemak depicting two lion deities and Amun as a ram. Musawwarat es-Sufra, Upper Nubia, Sudan, Meroitic Period, late third century BCE. Fritz Hintze excavations, 1960. Photographed October 2025 at Gallery 899, Metropolitan Museum of Art. Part of the Divine Egypt exhibition.",
+          "bredd": 6000,
+          "hojd": 4000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Architectural_element_from_a_temple_depicting_two_lion_deities_and_Amun_as_a_ram_01.jpg/960px-Architectural_element_from_a_temple_depicting_two_lion_deities_and_Amun_as_a_ram_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2025 in the Upper East Side",
+            "3rd-century BC reliefs in the United States",
+            "Ancient Egyptian art in the Metropolitan Museum of Art",
+            "Architectural element from a temple depicting two lion deities and Amun as a ram",
+            "Divine Egypt",
+            "October 2025 in Manhattan, New York City",
+            "Reliefs of lions in the United States",
+            "Sandstone reliefs in the United States",
+            "Stone lions in the United States"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "tamfar-vid-spoegrivier",
+      "titel": "Ett tidigt tamfår i Namaqualand",
+      "plats": "Spoegrivier i Namaqualand, Nordkapprovinsen, Sydafrika",
+      "start": -196,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "An early domestic sheep in Namaqualand Spoegrivier in Namaqualand",
+      "kandidater": []
+    },
+    {
+      "id": "karthago-forstors",
+      "titel": "Karthago förstörs",
+      "plats": "Karthago, nordost om dagens Tunis i Tunisien",
+      "start": -145,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q815160",
+      "kandidater": [
+        {
+          "fil": "File:Carthage villas-romaines 1950.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Carthage_villas-romaines_1950.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2008-03-15 10:57:19",
+          "beskrivning": null,
+          "bredd": 1740,
+          "hojd": 1195,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Carthage_villas-romaines_1950.jpg/960px-Carthage_villas-romaines_1950.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1950 in Tunisia",
+            "Aerial photographs of Carthage",
+            "Roman villas of Carthage"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "handelshamnen-adulis",
+      "titel": "Adulis, Aksumrikets handelsplats vid Röda havet",
+      "plats": "Adulis vid Zulabukten, Eritrea",
+      "start": 1,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Adulis, the Aksumite trading town on the Red Sea",
+      "kandidater": []
+    },
+    {
+      "id": "rickettsia-felis-vid-ballito",
+      "titel": "Spår av en loppburen bakterie hos ett barn vid Ballito Bay",
+      "plats": "Nära Ballito i KwaZulu-Natal, Sydafrika (punkten är orten Ballito)",
+      "start": 14,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Traces of a flea-borne bacterium in a child at Ballito Bay",
+      "kandidater": []
+    },
+    {
+      "id": "suetonius-paulinus-over-atlasbergen",
+      "titel": "Suetonius Paulinus leder romerska soldater över Atlasbergen",
+      "plats": "Atlasbergen i romerska Mauretanien, dagens Marocko (punkten är bergskedjan enligt Wikidata)",
+      "start": 41,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Suetonius Paulinus leads Roman troops across the Atlas Mountains",
+      "kandidater": []
+    },
+    {
+      "id": "sista-silfiumstjalken",
+      "titel": "Den sista kända silfiumplantan skänks till Nero",
+      "plats": "Kyrenaika, östra Libyen",
+      "start": 54,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The last known silphium plant is given to Nero Cyrenaica",
+      "kandidater": []
+    },
+    {
+      "id": "byn-kirikongo-vaxer-fram",
+      "titel": "En by växer fram vid Kirikongo",
+      "plats": "Kirikongo vid Mouhounfloden, Burkina Faso",
+      "start": 100,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "A village grows up at Kirikongo",
+      "kandidater": []
+    },
+    {
+      "id": "akvedukten-fran-zaghouan",
+      "titel": "Akvedukten från Zaghouan leder vatten till Karthago",
+      "plats": "Zaghouan, Tunisien (där akvedukten börjar)",
+      "start": 101,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Zaghouan aqueduct carries water to Carthage Zaghouan",
+      "kandidater": []
+    },
+    {
+      "id": "amazigher-befolkar-kanarieoarna",
+      "titel": "Amazigher från Nordafrika slår sig ner på Kanarieöarna",
+      "plats": "Kanarieöarna",
+      "start": 101,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Amazigh people from North Africa settle the Canary Islands Canary Islands",
+      "kandidater": []
+    },
+    {
+      "id": "torka-i-romerska-nordafrika-under-hadrianus",
+      "titel": "Fem år av torka i romerska Nordafrika",
+      "plats": "Romerska Nordafrika (punkten är Timgad i dagens Algeriet)",
+      "start": 123,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Five years of drought in Roman North Africa",
+      "kandidater": []
+    },
+    {
+      "id": "burakulturen",
+      "titel": "Burakulturen i nedre Nigerdalen",
+      "plats": "Bura i sydvästra Niger (punkten enligt Wikidata)",
+      "start": 200,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Bura culture in the lower Niger valley",
+      "kandidater": []
+    },
+    {
+      "id": "cyprianus-pest",
+      "titel": "Cyprianus pest",
+      "plats": "Romarriket; Karthago, där biskop Cyprianus beskrev pesten (i dag Tunisien)",
+      "start": 249,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Plague of Cyprian",
+      "kandidater": [
+        {
+          "fil": "File:Heiliger Cyprianus.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Heiliger_Cyprianus.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Master of Messkirch",
+          "datum": "circa 1535/40",
+          "beskrivning": "Ausstattung der ehemaligen Seitenaltäre der Meßkircher St. Martinskirche, Standflügel: als Bischof und Märtyrer",
+          "bredd": 910,
+          "hojd": 1986,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Heiliger_Cyprianus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Bishops in art",
+            "Paintings by Meister von Meßkirch in the Staatsgalerie Stuttgart",
+            "Paintings of Saint Cyprian",
+            "Seitenaltäre des Meisters von Meßkirch (ehemals St. Martin, Meßkirch) (Seitentafeln)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Saint Cyprien évêque de Carthage.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Saint_Cyprien_%C3%A9v%C3%AAque_de_Carthage.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1780-01-01 16:52:03",
+          "beskrivning": "Saint Cyprien évêque de Carthage",
+          "bredd": 826,
+          "hojd": 1153,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Saint_Cyprien_%C3%A9v%C3%AAque_de_Carthage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Prints of Saint Cyprian"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Cyprian von Karthago2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cyprian_von_Karthago2.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "The original uploader was Bwag at German Wikipedia .",
+          "datum": "14 September 2006 (original upload date)",
+          "beskrivning": "Russian icon: Cyprian of Carthage Heiligenlexikon.de Image was kindly \"publicized\" by ÖHL [1]",
+          "bredd": 258,
+          "hojd": 327,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Cyprian_von_Karthago2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Frescos in Stavronikita monastery",
+            "Frescos of Saint Cyprian"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Nuremberg chronicles f 121v 1.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Nuremberg_chronicles_f_121v_1.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Michel Wolgemut, Wilhelm Pleydenwurff (Text: Hartmann Schedel )",
+          "datum": "1493",
+          "beskrivning": "Illustration from the Nuremberg Chronicle",
+          "bredd": 230,
+          "hojd": 293,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/09/Nuremberg_chronicles_f_121v_1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Bishops in the Nuremberg Chronicle",
+            "Nuremberg Chronicle illustrations f 121-130",
+            "Prints of Saint Cyprian"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Some world-circuit saunterings (1913) (14779728415).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Some_world-circuit_saunterings_(1913)_(14779728415).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1913",
+          "beskrivning": "Identifier : someworldcircuit01nich ( find matches ) Title : Some world-circuit saunterings Year : 1913 ( 1910s ) Authors : Nichols, William F. (William Ford), 1849-1924 Subjects : Voyages around the world Publisher : San Francisco, P. Elder and company Contributing Library : The Library of Congress Digitizing Sponsor : The Library of Congress View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: e is to look a dozen ways at once inorder not to lose the novelties that treat Occidentaleyes on all sides. The guide talks of some of them,and takes you to the ordinary rug factory, and theslippery-lane-hke maze of Algiers where young Algiersswarms Uke bees but where the bee-simile must notin all accuracy be understood to suggest either thehoney or the fragrance of flower meads. He, how-ever, would be what Mrs. Partington used to call apolygon of a talker if he could begin to answer allthe questions in which the avid tourist finds himselfplunged by what he sees. The flowing robes ofhumanity, as deftly managed by the dock stevedoreto keep them from getting tangled up with the heavyfreight he handles, as by the statuesque dandy strol-ling the sidewalk, in their variety and splashes,rather than dashes, of color suggest something likethe flags of all nations and the first impulse is toask from what section does this one or that one come.But over all the stir and hues of face and raiment, Text Appearing After Image: S-2 « l^gs J JOTTINGS ON THE WAY TO NAPLES stand out those mosques with their needle-Uke mina-rets to prick the conscience of Christendom as itrecalls what North Africa once was—North Africain the early Christian ages being that strip of Africaalong the Mediterranean west of and distant fromEgypt which was the name of the region about theNile and its delta. What other reUgious conditionsmight exist in North Africa today, if the traditionsof its Cyprian of Carthage and its Augustine ofHippo had been maintained and an aggressive mis-sionary spirit had been at work through the ageswith that maxim of St. Cyprian in the plague for thewatchword of its propaganda—Respondere natalibus—in substance, Be true to your Christian birthright.There is many a lesson here to any modern Chris-tianity which fails to catch or keep the quickstep ofthe Apostohc missionary order, Go. Our propitious voyage—for we seemed to havehad favored winter days from beginning to end, andthat just after a severe Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 2620,
+          "hojd": 1408,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Some_world-circuit_saunterings_%281913%29_%2814779728415%29.jpg/960px-Some_world-circuit_saunterings_%281913%29_%2814779728415%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "History of Gibraltar",
+            "Some world-circuit saunterings (1913)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
+        }
+      ]
+    },
+    {
+      "id": "aksums-mynt",
+      "titel": "Aksum börjar prägla egna mynt",
+      "plats": "Aksum (i dag Etiopien)",
+      "start": 270,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Aksum begins minting its own coins Aksum (today Ethiopia)",
+      "kandidater": []
+    },
+    {
+      "id": "antoniusklostret",
+      "titel": "Antoniusklostret grundas i Östra öknen",
+      "plats": "Röda havsbergen i Östra öknen, Egypten",
+      "start": 300,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2088356",
+      "kandidater": [
+        {
+          "fil": "File:St. Anthony's Monastery 2006.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:St._Anthony%27s_Monastery_2006.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Tentoila ( talk )",
+          "datum": "2006-07-07",
+          "beskrivning": "St. Anthony's Egyptian Coptic Monastery at Coma, Egypt.",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/St._Anthony%27s_Monastery_2006.jpg/960px-St._Anthony%27s_Monastery_2006.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Arecaceae in Egypt",
+            "Monastery of Saint Anthony"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "aksums-stora-steler",
+      "titel": "Aksums stora steler",
+      "plats": "Norra stelparken i Aksum (i dag Etiopien)",
+      "start": 301,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2259366",
+      "kandidater": [
+        {
+          "fil": "File:Aksum, stele 3 detta di re ezana, l'unica mai crollata 05.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Aksum,_stele_3_detta_di_re_ezana,_l%27unica_mai_crollata_05.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Sailko",
+          "datum": "2018-11-16 07:23:17",
+          "beskrivning": "Aksum Stele n. 3 (King Ezana's Stele)",
+          "bredd": 2904,
+          "hojd": 5112,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Aksum%2C_stele_3_detta_di_re_ezana%2C_l%27unica_mai_crollata_05.jpg/960px-Aksum%2C_stele_3_detta_di_re_ezana%2C_l%27unica_mai_crollata_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aksum Stele n. 3 (King Ezana's Stele)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "skogen-oppnas-pa-laikipiaplatan",
+      "titel": "Skogen på Laikipiaplatån ger vika för öppnare land",
+      "plats": "Marura Swamp på Laikipiaplatån, Kenya",
+      "start": 335,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The forest on the Laikipia Plateau gives way to more open land",
+      "kandidater": []
+    },
+    {
+      "id": "tsunamin-365-alexandria",
+      "titel": "Tsunamin 365 slår mot Alexandria",
+      "plats": "Alexandria och Nildeltat (jordbävningens centrum nära Kreta)",
+      "start": 365,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The tsunami of 365 strikes Alexandria",
+      "kandidater": []
+    },
+    {
+      "id": "garimaevangelierna",
+      "titel": "Garimaevangelierna skrivs på ge’ez",
+      "plats": "Abba Garima-klostret, Etiopien",
+      "start": 390,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Garima Gospels are written in Ge’ez Abba Garima Monastery",
+      "kandidater": []
+    },
+    {
+      "id": "augustinus-skriver-bekannelser",
+      "titel": "Augustinus skriver Bekännelser",
+      "plats": "Hippo Regius, dagens Annaba i Algeriet (där Augustinus var biskop)",
+      "start": 397,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Augustine writes the Confessions Hippo Regius",
+      "kandidater": []
+    },
+    {
+      "id": "caelius-aurelianus-oversatter-soranos",
+      "titel": "Caelius Aurelianus för över Soranos läkekonst till latin",
+      "plats": "Sicca i Numidien, dagens El Kef i Tunisien (hans hemstad)",
+      "start": 400,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Caelius Aurelianus renders Soranus’s medicine into Latin Sicca in Numidia",
+      "kandidater": []
+    },
+    {
+      "id": "martianus-capella-och-de-sju-fria-konsterna",
+      "titel": "Martianus Capella samlar de sju fria konsterna i en bok",
+      "plats": "Karthago, Tunisien",
+      "start": 410,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Martianus Capella gathers the seven liberal arts in one book Carthage",
+      "kandidater": []
+    },
+    {
+      "id": "lydenburghuvudena",
+      "titel": "Lydenburghuvudena",
+      "plats": "Lydenburg i Mpumalanga, Sydafrika",
+      "start": 500,
+      "varldsdel": "Afrika",
+      "period": "antiken",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Lydenburg Heads Lydenburg in Mpumalanga",
+      "kandidater": [
+        {
+          "fil": "File:Iziko Lydenburg Heads 2.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Iziko_Lydenburg_Heads_2.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Nkansahrexford",
+          "datum": "2014-07-02 10:36:45",
+          "beskrivning": "The Lydenburg heads are the earliest known examples of African sculpture in Southern Africa. Two of the heads are large enough to have been worn as ceremonial helmet masks. The other five smaller heads have a hole on either side of the neck, by which they could have been attached to a pole or costume during a performance. One of the small heads has an animal-like nose and mouth, which would have been of symbolic importance to the makers of the heads.",
+          "bredd": 3936,
+          "hojd": 5248,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Iziko_Lydenburg_Heads_2.JPG/960px-Iziko_Lydenburg_Heads_2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ceremonial ceramics",
+            "Lydenburg heads",
+            "Terracotta sculptures"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Duberria lutrix lutrix 239266616.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Duberria_lutrix_lutrix_239266616.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Jimmy Whatmore",
+          "datum": "2019-11-23",
+          "beskrivning": "Southern Slugeater ( Duberria lutrix lutrix )",
+          "bredd": 2048,
+          "hojd": 1368,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Duberria_lutrix_lutrix_239266616.jpg/960px-Duberria_lutrix_lutrix_239266616.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1 snake",
+            "Duberria lutrix heads",
+            "Duberria lutrix of Mpumalanga",
+            "Reptiles of Lydenburg"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Duberria lutrix lutrix 239266418.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Duberria_lutrix_lutrix_239266418.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Jimmy Whatmore",
+          "datum": "2019-11-23",
+          "beskrivning": "Southern Slugeater ( Duberria lutrix lutrix )",
+          "bredd": 2048,
+          "hojd": 1368,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Duberria_lutrix_lutrix_239266418.jpg/960px-Duberria_lutrix_lutrix_239266418.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1 snake",
+            "Duberria lutrix heads",
+            "Duberria lutrix of Mpumalanga",
+            "Reptiles of Lydenburg",
+            "Serpentes facing left"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Duberria lutrix 239266751.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Duberria_lutrix_239266751.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Jimmy Whatmore",
+          "datum": "2020-01-21",
+          "beskrivning": "Common Slug-eater ( Duberria lutrix )",
+          "bredd": 2048,
+          "hojd": 1368,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Duberria_lutrix_239266751.jpg/960px-Duberria_lutrix_239266751.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1 snake",
+            "Animals of Ehlanzeni District Municipality",
+            "Duberria lutrix heads",
+            "Duberria lutrix of Mpumalanga",
+            "Reptiles of Lydenburg"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Duberria lutrix 239266857.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Duberria_lutrix_239266857.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Jimmy Whatmore",
+          "datum": "2020-01-21",
+          "beskrivning": "Common Slug-eater ( Duberria lutrix )",
+          "bredd": 2048,
+          "hojd": 1536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Duberria_lutrix_239266857.jpg/960px-Duberria_lutrix_239266857.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1 snake",
+            "Duberria lutrix heads",
+            "Duberria lutrix of Mpumalanga",
+            "Reptiles of Lydenburg",
+            "Serpentes facing right",
+            "Serpentes tongues"
+          ],
+          "smal": false
+        }
+      ]
+    }
+  ]
+}

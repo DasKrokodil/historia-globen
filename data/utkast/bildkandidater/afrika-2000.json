@@ -1,0 +1,417 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 9,
+    "kandidater": 12,
+    "troliga": 8,
+    "flaggade": 4,
+    "avvisade": 0,
+    "smala": 2,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "sexdagarskriget-i-kisangani",
+      "titel": "Sexdagarskriget i Kisangani",
+      "plats": "Kisangani",
+      "start": 2000,
+      "varldsdel": "Afrika",
+      "period": "2000",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q3119043",
+      "kandidater": [
+        {
+          "fil": "File:Cimetière Mémorial de la guerre de 2000.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cimeti%C3%A8re_M%C3%A9morial_de_la_guerre_de_2000.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "Oasisk",
+          "datum": "2006-12-04",
+          "beskrivning": "Memorial Cemetery of the Six Day War of 2000",
+          "bredd": 1280,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Cimeti%C3%A8re_M%C3%A9morial_de_la_guerre_de_2000.JPG/960px-Cimeti%C3%A8re_M%C3%A9morial_de_la_guerre_de_2000.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "African World War"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "mordet-pa-laurent-desire-kabila",
+      "titel": "President Laurent-Désiré Kabila mördas",
+      "plats": "Presidentpalatset Palais de Marbre, Kinshasa",
+      "start": 2001,
+      "varldsdel": "Afrika",
+      "period": "2000",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q105359547",
+      "kandidater": [
+        {
+          "fil": "File:Visit of Laurent Désiré Kabila, President of the Democratic Republic of Congo, to the EC (cropped).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Visit_of_Laurent_D%C3%A9sir%C3%A9_Kabila,_President_of_the_Democratic_Republic_of_Congo,_to_the_EC_(cropped).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Etienne Scholasse, European Communities",
+          "datum": "1998-11-25",
+          "beskrivning": "João de Deus Pinheiro, Member of the EC in charge of External Relations with African, Caribbean and Pacific Countries and South Africa, and the Lomé Convention, received Laurent Désiré Kabila, President of the Democratic Republic of Congo. The discussion focused on the armed conflict raging in the area as well as on the conditions under which cooperation and financial support from the EU could be restored.",
+          "bredd": 997,
+          "hojd": 1196,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Visit_of_Laurent_D%C3%A9sir%C3%A9_Kabila%2C_President_of_the_Democratic_Republic_of_Congo%2C_to_the_EC_%28cropped%29.jpg/960px-Visit_of_Laurent_D%C3%A9sir%C3%A9_Kabila%2C_President_of_the_Democratic_Republic_of_Congo%2C_to_the_EC_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Laurent-Désiré Kabila"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "afrikanska-unionen-bildas",
+      "titel": "Afrikanska unionen bildas",
+      "plats": "Durban, Sydafrika",
+      "start": 2002,
+      "varldsdel": "Afrika",
+      "period": "2000",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q7159",
+      "soktext": "The African Union is formed Durban",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Manmohan Singh addressing the Plenary Session of the Fifth BRICS Summit, at Durban, South Africa on March 27, 2013. The Union Minister for Commerce & Industry and Textiles, Shri Anand Sharma is also seen.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Manmohan_Singh_addressing_the_Plenary_Session_of_the_Fifth_BRICS_Summit,_at_Durban,_South_Africa_on_March_27,_2013._The_Union_Minister_for_Commerce_%26_Industry_and_Textiles,_Shri_Anand_Sharma_is_also_seen.jpg",
+          "kalla": "commons-sok",
+          "licens": "GODL-India",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf",
+          "upphovsperson": "Prime Minister's Office",
+          "datum": "2013-03-27 17:18:25",
+          "beskrivning": "The Prime Minister, Dr. Manmohan Singh addressing the Plenary Session of the Fifth BRICS Summit, at Durban, South Africa on March 27, 2013. The Union Minister for Commerce & Industry and Textiles, Shri Anand Sharma is also seen.",
+          "bredd": 2219,
+          "hojd": 1422,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Manmohan_Singh_addressing_the_Plenary_Session_of_the_Fifth_BRICS_Summit%2C_at_Durban%2C_South_Africa_on_March_27%2C_2013._The_Union_Minister_for_Commerce_%26_Industry_and_Textiles%2C_Shri_Anand_Sharma_is_also_seen.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Anand Sharma in 2013",
+            "Manmohan Singh at BRICS summit",
+            "Manmohan Singh in 2013"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: GODL-India"
+        },
+        {
+          "fil": "File:The Union Minister of Women and Child Development, Smt. Renuka Chowdhury addressing the 4th World Congress on Rural Women in Durban, South Africa on April 25, 2007.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Union_Minister_of_Women_and_Child_Development,_Smt._Renuka_Chowdhury_addressing_the_4th_World_Congress_on_Rural_Women_in_Durban,_South_Africa_on_April_25,_2007.jpg",
+          "kalla": "commons-sok",
+          "licens": "GODL-India",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf",
+          "upphovsperson": "Ministry of Women and Child Development",
+          "datum": "Unknown date Date, time or both in the file Exif metadata are incorrect/invalid.",
+          "beskrivning": "The Union Minister of Women and Child Development, Smt. Renuka Chowdhury addressing the 4th World Congress on Rural Women in Durban, South Africa on April 25, 2007.",
+          "bredd": 640,
+          "hojd": 427,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/64/The_Union_Minister_of_Women_and_Child_Development%2C_Smt._Renuka_Chowdhury_addressing_the_4th_World_Congress_on_Rural_Women_in_Durban%2C_South_Africa_on_April_25%2C_2007.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Renuka Chowdhury"
+          ],
+          "smal": true,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: GODL-India"
+        },
+        {
+          "fil": "File:Ambika Soni, the Minister of State for External Affairs, Shri Anand Sharma, the Media Advisor to the PM, Shri Sanjay Baru and other dignitaries witnessing unveiling of the Plaque at Resistance Monument in Durban.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ambika_Soni,_the_Minister_of_State_for_External_Affairs,_Shri_Anand_Sharma,_the_Media_Advisor_to_the_PM,_Shri_Sanjay_Baru_and_other_dignitaries_witnessing_unveiling_of_the_Plaque_at_Resistance_Monument_in_Durban.jpg",
+          "kalla": "commons-sok",
+          "licens": "GODL-India",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf",
+          "upphovsperson": "Prime Minister's Office",
+          "datum": "2006-10-01 14:06:16",
+          "beskrivning": "The Union Minister for Tourism and Culture, Smt. Ambika Soni, the Minister of State for External Affairs, Shri Anand Sharma, the Media Advisor to the PM, Shri Sanjay Baru and other dignitaries witnessing unveiling of the Plaque at Resistance Monument in Durban, South Africa on October 01, 2006.",
+          "bredd": 1900,
+          "hojd": 1114,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Ambika_Soni%2C_the_Minister_of_State_for_External_Affairs%2C_Shri_Anand_Sharma%2C_the_Media_Advisor_to_the_PM%2C_Shri_Sanjay_Baru_and_other_dignitaries_witnessing_unveiling_of_the_Plaque_at_Resistance_Monument_in_Durban.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ambika Soni",
+            "Anand Sharma in 2006",
+            "Unveiling ceremonies in South Africa"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: GODL-India"
+        },
+        {
+          "fil": "File:Britannica Dredge and Dredging 7.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Britannica_Dredge_and_Dredging_7.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Encyclopædia Britannica, Volume 8, Slice 7. , available freely at Project Gutenberg",
+          "datum": "1911",
+          "beskrivning": "Twin-screw sand-pump dredger Kate , 1,154 GRT, built in 1897 by Wm. Simons & Co of Renfrew for the East London Harbour Board, Cape Colony. She passed to the government of the newly-formed Union of South Africa in 1910. Smith's Coasters of Durban bought her in 1921. She was scrapped in 1930.",
+          "bredd": 402,
+          "hojd": 262,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Britannica_Dredge_and_Dredging_7.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Dredge ships of South Africa",
+            "Ships built at W. Simons & Co, Renfrew, Scotland",
+            "Ships built in 1897",
+            "Ships scrapped in 1930",
+            "Steamships of South Africa",
+            "Suction hopper dredger"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Natal province - descriptive guide and official hand-book (1911) (14573757427).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Natal_province_-_descriptive_guide_and_official_hand-book_(1911)_(14573757427).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Tatlow, A.H; South African Railways. Publicity Dept",
+          "datum": "1911",
+          "beskrivning": "Identifier : natalprovincedes00tatl ( find matches ) Title : Natal province : descriptive guide and official hand-book Year : 1911 ( 1910s ) Authors : Tatlow, A.H South African Railways. Publicity Dept Subjects : Railroads Publisher : Durban, Natal : South African Railways Printing Works Contributing Library : Robarts - University of Toronto Digitizing Sponsor : University of Toronto View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: borough,including town lands, comprises about 45 square miles. The estimated population is 28,000 : comprising Europeans, Natives,Indians, and other coloured races. The municipality is divided into eight wards, and its affairs areadministered by a mayor and fifteen councillors. Its representation in theUnion Parliament is two members. The rateable amount of the boroughproperties for the year 1909-10 amounted to £3,329,770. The General Ratewas 3sd., and the Water Rate id. in the £. The municipal revenue for theyear ending 31st July, 1909, was £320,881 (including a loan of £200,000), andthe expenditure £169,523 (including Capital expenditure £36,069, Loan redemption£23,000). Assets, £1,928,397: liabilities, £1.207.514. The streets in the city are mostly all macadamised, and the footpaths inthe main thoroughfares well paved with concrete flags. A feature of theresidential streets is that they are lined with trees which afford welcomeshade, besides forming cool and leafy drives. Text Appearing After Image: Ill tl W11 i ich undertakin i in thit he municipalil / I rom I heStation a1 tlradiates to thi / and nplete n(and ample supplyand priva An i pic 1 in I. been laid down 0 / * t^^D Municipal Buildings. Pieter-maritzburg (Mk^Z 1.—Church Street 2.—Interior of Main Hall municipality. The cars traverse the two principal streets, Church Street andCommercial Road. From the Town Hall, which is situated in the centre ofthe city, at the intersection of Church Street and Commercial Road, the carsproceed to the railway station and thence to the Botanical Gardens, this routeserving the residents in the suburbs of Prestbury, Mayors Walk and ZwaartkopValley. Residents at Scottsville, and on the Town Hill, are well provided for,and the route to Scottsville takes in the racecourse and the new golf links. A 126 Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 2732,
+          "hojd": 2982,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Natal_province_-_descriptive_guide_and_official_hand-book_%281911%29_%2814573757427%29.jpg/960px-Natal_province_-_descriptive_guide_and_official_hand-book_%281911%29_%2814573757427%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Natal province - descriptive guide and official hand-book (1911)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
+        }
+      ]
+    },
+    {
+      "id": "kongos-overgangsregering-2003",
+      "titel": "Övergångsregeringen tillträder",
+      "plats": "Kinshasa (och Goma, där Kongos flagga hissades)",
+      "start": 2003,
+      "varldsdel": "Afrika",
+      "period": "2000",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The transitional government takes office Kinshasa (and Goma",
+      "kandidater": []
+    },
+    {
+      "id": "sirleaf-valjs-i-liberia",
+      "titel": "Ellen Johnson Sirleaf väljs till Liberias president",
+      "plats": "Liberia (huvudstaden Monrovia)",
+      "start": 2005,
+      "varldsdel": "Afrika",
+      "period": "2000",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q839191",
+      "soktext": "Ellen Johnson Sirleaf is elected president of Liberia Liberia (capital Monrovia)",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "fotbolls-vm-2010",
+      "titel": "Fotbolls-VM i Sydafrika",
+      "plats": "Soccer City, Johannesburg, och nio städer i Sydafrika",
+      "start": 2010,
+      "varldsdel": "Afrika",
+      "period": "2000",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q176883",
+      "kandidater": [
+        {
+          "fil": "File:FIFA World Cup 2010 Spain with cup.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:FIFA_World_Cup_2010_Spain_with_cup.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Anthony Stanley",
+          "datum": "2010-07-11 23:19:17",
+          "beskrivning": "Spain with the cup after FIFA World Cup 2010 Final against Netherlands , 11 July 2010, Soccer City , Johannesburg",
+          "bredd": 4256,
+          "hojd": 2832,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/FIFA_World_Cup_2010_Spain_with_cup.jpg/960px-FIFA_World_Cup_2010_Spain_with_cup.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Andrés Iniesta in 2010",
+            "Carles Puyol",
+            "David Silva",
+            "David Villa",
+            "FIFA World Cup victory celebration",
+            "Fernando Torres (footballer)",
+            "Final of the 2010 FIFA World Cup",
+            "Gerard Piqué in 2010",
+            "Javi Martínez",
+            "Men laughing",
+            "People with FIFA World Cup trophy",
+            "Pepe Reina",
+            "Vicente del Bosque",
+            "Xavi Hernández in 2010"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "sydsudan-blir-sjalvstandigt",
+      "titel": "Sydsudan blir självständigt",
+      "plats": "Sydsudan (huvudstaden Juba)",
+      "start": 2011,
+      "varldsdel": "Afrika",
+      "period": "2000",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q958",
+      "kandidater": [
+        {
+          "fil": "File:South Sudan topographic map.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:South_Sudan_topographic_map.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Goran_tek-en",
+          "datum": "2016-09-05",
+          "beskrivning": "Topographic map of South Sudan.",
+          "bredd": 1553,
+          "hojd": 1120,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/South_Sudan_topographic_map.svg/960px-South_Sudan_topographic_map.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Color deficiency ok",
+            "English-language maps of South Sudan",
+            "Relief location maps of South Sudan",
+            "SVG topographic maps of South Sudan"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "ebolaepidemin-i-vastafrika",
+      "titel": "Ebolaepidemin i Västafrika",
+      "plats": "Méliandou i Guinea, och sedan Liberia och Sierra Leone",
+      "start": 2013,
+      "varldsdel": "Afrika",
+      "period": "2000",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q15989108",
+      "kandidater": [
+        {
+          "fil": "File:2014 ebola virus epidemic in West Africa simplified.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2014_ebola_virus_epidemic_in_West_Africa_simplified.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "ZeLonewolf",
+          "datum": "2014-11-02 12:26:08",
+          "beskrivning": "Simplified 2014 ebola virus epidemic situation map, simplified. Based on: File:2014_ebola_virus_epidemic_in_West_Africa.svg",
+          "bredd": 1600,
+          "hojd": 850,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/2014_ebola_virus_epidemic_in_West_Africa_simplified.svg/960px-2014_ebola_virus_epidemic_in_West_Africa_simplified.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2014 Ebola outbreak maps",
+            "Maps of infectious diseases of West Africa"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Checking for fever.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Checking_for_fever.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "CDC Global",
+          "datum": "2014-09-16 08:07",
+          "beskrivning": "To enter some buildings, visitors must be screened or checked for a fever. A reading at or above 38.6 degrees Celsius (or 101.5 degrees Fahrenheit) means you will not be allowed to enter. Here, CDC EIS Officer Kerton is screened by a healthcare worker for symptoms of a fever before entering a building. For more information on Ebola and what CDC is doing, please visit: www.cdc.gov/vhf/ebola/",
+          "bredd": 4000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Checking_for_fever.jpg/960px-Checking_for_fever.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2014 West Africa Ebola outbreak",
+            "Centers for Disease Control and Prevention",
+            "Ebola in Guinea",
+            "Multicolored umbrellas",
+            "People in 2014"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "afrikanska-frihandelsomradet",
+      "titel": "Afrikanska frihandelsområdet AfCFTA grundas",
+      "plats": "Kigali, Rwanda",
+      "start": 2018,
+      "varldsdel": "Afrika",
+      "period": "2000",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q50828855",
+      "kandidater": [
+        {
+          "fil": "File:AfricanContinentalFreeTradeArea.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:AfricanContinentalFreeTradeArea.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Themightyquill , Curiouskiwicat",
+          "datum": "2018-03-27",
+          "beskrivning": "Map of the African Continental Free Trade Agreement. Ratifying parties Signed March 2018, not ratified Signed July 2018 or later, not ratified",
+          "bredd": 1000,
+          "hojd": 1000,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/AfricanContinentalFreeTradeArea.svg/960px-AfricanContinentalFreeTradeArea.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2018 in Africa",
+            "African Continental Free Trade Area",
+            "Free trade agreement maps",
+            "SVG maps of the African Union"
+          ],
+          "smal": false
+        }
+      ]
+    }
+  ]
+}
