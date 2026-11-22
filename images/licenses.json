@@ -759,6 +759,21 @@
       }
     },
     {
+      "eventId": "burakulturen",
+      "eventTitle": "Burakulturen i nedre Nigerdalen",
+      "file": "images/events/burakulturen.webp",
+      "kind": "historisk",
+      "credit": "Okänd fotograf / Metropolitan Museum of Art via Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-burakulturen",
+        "title": "Grave Marker MET VS1998.478.1 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Grave_Marker_MET_VS1998.478.1.jpeg",
+        "license": "CC0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "burke-och-wills-expedition",
       "eventTitle": "Burke och Wills försöker korsa Australien",
       "file": "images/events/burke-och-wills-expedition.webp",
@@ -1012,6 +1027,21 @@
         "id": "commons-bild-den-grona-sahara",
         "title": "Npp green sahara simulation 1 – Merikanto (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Npp_green_sahara_simulation_1.png",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "dhar-tichitt",
+      "eventTitle": "Stenbyarna vid Dhar Tichitt",
+      "file": "images/events/dhar-tichitt.webp",
+      "kind": "historisk",
+      "credit": "Sylvie Amblard-Pison / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-dhar-tichitt",
+        "title": "Haches et herminettes provenant de villages du Dhar Tichitt – Sylvie Amblard-Pison (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Haches_et_herminettes_provenant_de_villages_du_Dhar_Tichitt.jpg",
         "license": "CC BY 4.0",
         "checked": "2026-11-22"
       }
@@ -2613,6 +2643,21 @@
       }
     },
     {
+      "eventId": "kungapyramiderna-i-nuri",
+      "eventTitle": "Kushkungarnas pyramider i Nuri",
+      "file": "images/events/kungapyramiderna-i-nuri.webp",
+      "kind": "historisk",
+      "credit": "Vit Hassan / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-kungapyramiderna-i-nuri",
+        "title": "Pyramids of Nuri – Vit Hassan (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Pyramids_of_Nuri.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "kvaggan-dor-ut",
       "eventTitle": "Kvaggan dör ut",
       "file": "images/events/kvaggan-dor-ut.webp",
@@ -3387,6 +3432,21 @@
       }
     },
     {
+      "eventId": "nok-kulturen",
+      "eventTitle": "Nok-kulturen och dess terrakottaskulpturer",
+      "file": "images/events/nok-kulturen.webp",
+      "kind": "historisk",
+      "credit": "Nicotta / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-nok-kulturen",
+        "title": "Nok Kultur, Nigeria. Fragment eines Gefäßes mit mehreren Figuren im Halbrelief. – Nicotta (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Nok_Kultur,_Nigeria._Fragment_eines_Gef%C3%A4%C3%9Fes_mit_mehreren_Figuren_im_Halbrelief..jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "nya-lagarna-1542",
       "eventTitle": "Nya lagarna ska skydda urfolken i Amerika",
       "file": "images/events/nya-lagarna-1542.webp",
@@ -3555,6 +3615,21 @@
       "source": null
     },
     {
+      "eventId": "ounjougou-keramik",
+      "eventTitle": "Afrikas äldsta keramik i Ounjougou",
+      "file": "images/events/ounjougou-keramik.webp",
+      "kind": "historisk",
+      "credit": "Ounjougou / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-ounjougou-keramik",
+        "title": "Ounjougou confluence – Ounjougou (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ounjougou_confluence.JPG",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "oxford",
       "eventTitle": "Undervisning i Oxford",
       "file": "images/events/oxford.webp",
@@ -3606,6 +3681,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Professor_Alexander_Fleming_at_work_in_his_laboratory_at_St_Mary%27s_Hospital%2C_London%2C_during_the_Second_World_War._D17801_%28cropped%29.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "piye-erovrar-egypten",
+      "eventTitle": "Piye från Kush erövrar Egypten",
+      "file": "images/events/piye-erovrar-egypten.webp",
+      "kind": "historisk",
+      "credit": "Auguste Mariette / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-piye-erovrar-egypten",
+        "title": "Stele Piye submission Mariette – Auguste Mariette (1821-1881) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Stele_Piye_submission_Mariette.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -3843,6 +3933,21 @@
       }
     },
     {
+      "eventId": "simmarnas-grotta",
+      "eventTitle": "Simmarnas grotta i Gilf Kebir",
+      "file": "images/events/simmarnas-grotta.webp",
+      "kind": "historisk",
+      "credit": "Roland Unger / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-simmarnas-grotta",
+        "title": "WadiSuraSingleSwimmer – Roland Unger (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:WadiSuraSingleSwimmer.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "sirleaf-valjs-i-liberia",
       "eventTitle": "Ellen Johnson Sirleaf väljs till Liberias president",
       "file": "images/events/sirleaf-valjs-i-liberia.webp",
@@ -3865,6 +3970,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "sista-silfiumstjalken",
+      "eventTitle": "Den sista kända silfiumplantan skänks till Nero",
+      "file": "images/events/sista-silfiumstjalken.webp",
+      "kind": "historisk",
+      "credit": "Hunab 21 / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-sista-silfiumstjalken",
+        "title": "Cyrene coin – Hunab 21 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cyrene_coin.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
     },
     {
       "eventId": "sjalvstandighetsforklaringen",
