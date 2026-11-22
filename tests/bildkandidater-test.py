@@ -3,6 +3,7 @@
 Inget nätverk: anropen besvaras av en låtsasöppnare. Repot ändras inte (utdata i en tillfällig mapp)."""
 import importlib.util
 import json
+import os
 import re
 import sys
 import tempfile
@@ -59,17 +60,38 @@ def test_p18():
 
 def test_licens():
     k = bk.klassa_licens
-    assert k('CC BY-SA 4.0')[:2] == ('cc-by-sa', 'ok')
-    assert k('CC BY 3.0')[:2] == ('cc-by', 'ok')
-    assert k('CC0')[:2] == ('cc0', 'ok')
-    assert k('Public domain')[:2] == ('public-domain', 'ok')
-    assert k('PD-old-100')[:2] == ('public-domain', 'ok')
-    assert k('CC BY-SA 3.0, GFDL')[:2] == ('cc-by-sa', 'ok')
-    for lic in ('CC BY-NC 2.0', 'CC BY-NC-SA 4.0', 'CC BY-ND 4.0', 'GFDL 1.2', 'Attribution', 'All rights reserved'):
+    assert k('CC BY-SA 4.0')[:2] == ('cc-by-sa', 'trolig')
+    assert k('CC BY 3.0')[:2] == ('cc-by', 'trolig')
+    assert k('CC0')[:2] == ('cc0', 'trolig')
+    assert k('Public domain')[:2] == ('public-domain', 'trolig')
+    assert k('PD-old-100')[:2] == ('public-domain', 'trolig')
+    assert k('CC BY-SA 3.0, GFDL')[:2] == ('cc-by-sa', 'trolig')
+    for lic in ('CC BY-NC 2.0', 'CC BY-NC-SA 4.0', 'CC BY-ND 4.0', 'GFDL 1.2', 'All rights reserved'):
         klass, status, skal = k(lic)
         assert klass is None and status == 'avvisad' and skal, lic
-    assert k(None)[1] == 'avvisad'
+    # Det som inte känns igen flaggas till en människa och godkänns aldrig (#2182, #2183)
+    for lic in ('No restrictions', 'Attribution', 'GODL-India', 'KOGL Type 1', None):
+        klass, status, skal = k(lic)
+        assert klass is None and status == 'flagga' and skal, lic
     assert k('CC BY 4.0', {'NonFree': {'value': 'true'}})[1] == 'avvisad'
+
+
+def test_samma_klass_som_bild_hamta():
+    """En licensetikett ger samma klass i bildkandidater.py och bild_hamta.py (en gemensam modul, #2183)."""
+    spec = importlib.util.spec_from_file_location('bild_hamta', ROOT / 'tools' / 'bild_hamta.py')
+    bh = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(bh)
+    klass = {'pd': 'public-domain', 'cc0': 'cc0', 'by': 'cc-by', 'by-sa': 'cc-by-sa'}
+    for lic in ('CC BY-SA 4.0', 'CC BY 2.0', 'CC BY 3.0 DE', 'Public domain', 'CC0', 'CC BY-NC 2.0', 'CC BY-ND 4.0',
+                'GFDL', 'Fair use', 'No restrictions', 'Attribution', 'GODL-India', 'No known copyright restrictions'):
+        strikt = bh.klassa_namn(lic)
+        snabb, status, _ = bk.klassa_licens(lic)
+        if strikt and strikt[0] in klass:
+            assert snabb == klass[strikt[0]] and status == 'trolig', (lic, strikt, snabb, status)
+        elif strikt is None:
+            assert status == 'flagga', (lic, status)
+        else:
+            assert status == 'avvisad', (lic, strikt, status)
 
 
 def test_p18_och_storlek():
@@ -79,7 +101,8 @@ def test_p18_och_storlek():
     assert list(fil) == ['File:Pyramid preferred.jpg', 'File:Pyramid normal.jpg'], list(fil)
     smal, bred = fil['File:Pyramid preferred.jpg'], fil['File:Pyramid normal.jpg']
     assert smal['smal'] is True and bred['smal'] is False
-    assert bred['licensklass'] == 'cc-by-sa' and bred['licensstatus'] == 'ok'
+    assert bred['licensklass'] == 'cc-by-sa' and bred['licensstatus'] == 'trolig'
+    assert p['varldsdel'] == 'Afrika' and p['period'] == 'medeltid' and p['hamtad'] == '2026-01-01'
     assert bred['upphovsperson'] == 'Anna Andersson'  # HTML bort
     assert bred['datum'] == '1880-05-01' and (bred['bredd'], bred['hojd']) == (1600, 1200)
     assert bred['filsida'] == 'https://commons.wikimedia.org/wiki/File:Pyramid_normal.jpg'
@@ -93,7 +116,7 @@ def test_sokning_utan_id_och_utan_p18():
     assert [c['fil'] for c in po['a']['kandidater']] == ['File:Slag A.jpg', 'File:Slag B.jpg', 'File:Slag NC.jpg',
                                                           'File:Slag GFDL.jpg']  # i träffordning, högst fem
     st = {c['fil']: c['licensstatus'] for c in po['a']['kandidater']}
-    assert st['File:Slag NC.jpg'] == 'avvisad' and st['File:Slag GFDL.jpg'] == 'avvisad' and st['File:Slag A.jpg'] == 'ok'
+    assert st['File:Slag NC.jpg'] == 'avvisad' and st['File:Slag GFDL.jpg'] == 'avvisad' and st['File:Slag A.jpg'] == 'trolig'
     assert all(c['kalla'] == 'commons-sok' for c in po['b']['kandidater'])
     assert po['b']['anmarkningar'], 'händelse med id men utan P18 ska säga det'
     assert bk.sok_text(handelse('x')) == 'Title x Place'
@@ -207,27 +230,51 @@ def test_cache_och_offline():
 
 def test_utkastfilen():
     with tempfile.TemporaryDirectory() as t:
-        ut = Path(t) / 'u' / 'bildkandidater.json'
+        os.environ['HISTORIA_GLOBEN_PROV_UT'] = t
+        ut = Path(t) / 'u'
         po = bk.kor([handelse('a')], klient(Last()), idag='2026-01-01')
         doc = bk.skriv(ut, po, 'test', idag='2026-01-01')
         assert doc['status'] == 'förslag' and 'kontrolleras manuellt' in doc['anmarkning']
         assert doc['schema'] == bk.SCHEMA and doc['generated']['kandidater'] == 4
-        assert doc['generated']['tillatna'] == 2 and doc['generated']['avvisade'] == 2
+        assert doc['generated']['troliga'] == 2 and doc['generated']['avvisade'] == 2
+        assert doc['filer'] == ['afrika-medeltid.json']
         po2 = bk.kor([handelse('b', start=900)], klient(Last()), idag='2026-01-02')
         doc2 = bk.skriv(ut, po2, 'test2', idag='2026-01-02')
         assert [p['id'] for p in doc2['handelser']] == ['b', 'a']  # en bit i taget: den förra behålls
-        assert json.loads(ut.read_text(encoding='utf-8'))['status'] == 'förslag'
+        fil = json.loads((ut / 'afrika-medeltid.json').read_text(encoding='utf-8'))
+        assert fil['status'] == 'förslag' and 'date' not in fil['generated']  # inget körningsdatum i filen
+        # En annan världsdel och period hamnar i en egen fil, och den första filen rörs inte
+        fore = (ut / 'afrika-medeltid.json').read_bytes()
+        bk.skriv(ut, bk.kor([handelse('e', start=1600, lon=15.0, lat=50.0)], klient(Last()), idag='2026-01-03'), 't3')
+        assert (ut / 'europa-tidigmodern.json').exists() and (ut / 'afrika-medeltid.json').read_bytes() == fore
+        # Samma indata ger samma fil, byte för byte
+        bk.skriv(ut, po2, 'test2', idag='2026-01-02')
+        assert (ut / 'afrika-medeltid.json').read_bytes() == fore
+        assert set(bk.las_mapp(ut)) == {'a', 'b', 'e'}
+
+
+def test_bara_under_utkast():
+    """Grinden: utdata hamnar aldrig utanför data/utkast/ (beslut 2026-11-22)."""
+    os.environ.pop('HISTORIA_GLOBEN_PROV_UT', None)
+    for fel in (ROOT / 'data' / 'handelser', ROOT / 'data', ROOT / 'data' / 'utkast' / '..' / 'events'):
+        try:
+            bk.sakra_utkastvag(fel)
+        except SystemExit:
+            continue
+        raise AssertionError(f'{fel} borde stoppas')
+    assert bk.sakra_utkastvag(ROOT / 'data' / 'utkast' / 'bildkandidater') == (ROOT / 'data' / 'utkast' / 'bildkandidater').resolve()
 
 
 def test_sparar_i_bitar_och_sammanfattar():
     with tempfile.TemporaryDirectory() as t:
-        ut = Path(t) / 'bildkandidater.json'
+        os.environ['HISTORIA_GLOBEN_PROV_UT'] = t
+        ut = Path(t) / 'bildkandidater'
         sparade = []
         orig = bk.skriv
 
         def spion(*a, **k):
             d = orig(*a, **k)
-            sparade.append(d['generated']['handelser'])
+            sparade.append(len(d['handelser']))
             return d
         bk.skriv = spion
         try:
@@ -256,10 +303,10 @@ def test_appen_laser_inte_utkast():
             assert 'data/utkast' not in f.read_text(encoding='utf-8'), f'{f} läser data/utkast'
     assert "'data/utkast/'" in (ROOT / 'scripts' / 'validate-site.py').read_text(encoding='utf-8')
     assert 'data/utkast' in (ROOT / 'scripts' / 'build-site.sh').read_text(encoding='utf-8')
-    uts = ROOT / 'data' / 'utkast' / 'bildkandidater.json'
-    if uts.exists():  # om en lista är incheckad ska den vara märkt som förslag
-        d = json.loads(uts.read_text(encoding='utf-8'))
-        assert d['status'] == 'förslag' and d['anmarkning']
+    for uts in sorted((ROOT / 'data' / 'utkast' / 'bildkandidater').glob('*.json')):
+        d = json.loads(uts.read_text(encoding='utf-8'))  # en incheckad lista ska vara märkt som förslag
+        assert d['status'] == 'förslag' and d['anmarkning'] and d['schema'] == bk.SCHEMA, uts
+        assert all(k['licensstatus'] in ('trolig', 'flagga', 'avvisad') for p in d['handelser'] for k in p['kandidater']), uts
 
 
 if __name__ == '__main__':

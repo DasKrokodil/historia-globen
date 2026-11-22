@@ -1,0 +1,1996 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 48,
+    "kandidater": 62,
+    "troliga": 62,
+    "flaggade": 0,
+    "avvisade": 0,
+    "smala": 10,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "apidima",
+      "titel": "Apidima: ett möjligt tidigt fynd av Homo sapiens i Europa",
+      "plats": "Apidimagrottan i södra Grekland",
+      "start": -207999,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Apidima: a possible early find of Homo sapiens in Europe",
+      "kandidater": []
+    },
+    {
+      "id": "ranis-zlaty-kun",
+      "titel": "Homo sapiens i Ranis och Zlatý kůň",
+      "plats": "Ilsenhöhle i Ranis, Tyskland",
+      "start": -42999,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Homo sapiens at Ranis and Zlatý kůň Ilsenhöhle at Ranis",
+      "kandidater": []
+    },
+    {
+      "id": "lejonmanniskan",
+      "titel": "Lejonmänniskan",
+      "plats": "Hohlenstein-Stadel i Lonetal, Schwäbische Alb, Tyskland",
+      "start": -38999,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q702658",
+      "kandidater": [
+        {
+          "fil": "File:Loewenmensch1.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Loewenmensch1.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Dagmar Hollmann",
+          "datum": "2013-11-15",
+          "beskrivning": "The lion man from the Stadel Cave in Hohlenstein, Lonetal.",
+          "bredd": 2218,
+          "hojd": 3944,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Loewenmensch1.jpg/960px-Loewenmensch1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Löwenmensch"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Loewenmensch2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Loewenmensch2.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Thilo Parg",
+          "datum": "2013-11-15",
+          "beskrivning": "The lion man from the Stadel cave in Hohlenstein, Lonetal",
+          "bredd": 1812,
+          "hojd": 3221,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Loewenmensch2.jpg/960px-Loewenmensch2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ivory engravings",
+            "Löwenmensch"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kampanska-ignimbriten",
+      "titel": "Jätteutbrottet i Campi Flegrei",
+      "plats": "Fuorigrotta i Neapel, Kampanien, Italien; punkten är Fuorigrotta i Campi Flegreis kaldera, i dess östra del",
+      "start": -37755,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The great eruption of Campi Flegrei Fuorigrotta in Naples",
+      "kandidater": []
+    },
+    {
+      "id": "chauvetgrottan",
+      "titel": "Målningarna i Chauvetgrottan",
+      "plats": "Chauvetgrottan, Ardèche, Frankrike",
+      "start": -34999,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q374096",
+      "kandidater": [
+        {
+          "fil": "File:Rhinocéros grotte Chauvet.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Rhinoc%C3%A9ros_grotte_Chauvet.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Inocybe at French Wikipedia",
+          "datum": "Art préhistorique",
+          "beskrivning": null,
+          "bredd": 2194,
+          "hojd": 1429,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Rhinoc%C3%A9ros_grotte_Chauvet.jpg/960px-Rhinoc%C3%A9ros_grotte_Chauvet.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Chauvet Cave",
+            "Coelodonta antiquitatis in prehistoric art"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "lascaux",
+      "titel": "Målningarna i Lascaux",
+      "plats": "Lascaux nära Montignac, Dordogne, Frankrike",
+      "start": -19999,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q172125",
+      "kandidater": [
+        {
+          "fil": "File:Lascaux painting.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lascaux_painting.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "EU",
+          "datum": "February 2006",
+          "beskrivning": "Aurochs, horses and deer painted on a cave",
+          "bredd": 720,
+          "hojd": 472,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Lascaux_painting.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Art of Lascaux",
+            "Bos primigenius in prehistoric art",
+            "Paintings of horses in prehistoric art"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "obsidian-fran-melos-i-franchthi",
+      "titel": "Obsidian från Melos i Franchthigrottan",
+      "plats": "Franchthigrottan vid Kiladabukten i Argolis, Grekland",
+      "start": -12999,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Obsidian from Melos in Franchthi Cave",
+      "kandidater": [
+        {
+          "fil": "File:Paleolithic, obsidian, Franchthi Cave, 202046.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Paleolithic,_obsidian,_Franchthi_Cave,_202046.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Zde",
+          "datum": "2020-09-25 08:50:41",
+          "beskrivning": "(1-7) Flint tools. (8-9) Obsidian tools, obsidian of Melos. (10-12) Bone tools. (13-21) Perforated shells. (22-23) Bones of gilthead seabream, spaurus auratus, (24) red deer, Cervus elaphus and (25-26) wild pig, Sus scrofa. (27) Landsnails, Helix figulina. Paleolithic, 10000 - 8000 BC. Findings from Franchthi Cave. Archaeological Museum of Nafplio.",
+          "bredd": 5875,
+          "hojd": 3909,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Paleolithic%2C_obsidian%2C_Franchthi_Cave%2C_202046.jpg/960px-Paleolithic%2C_obsidian%2C_Franchthi_Cave%2C_202046.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cycladic obsidian",
+            "Flint tools",
+            "Paleolithic in the Archaeological Museum of Nafplio"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Paleolithic, obsidian, Franchthi Cave, 202046x.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Paleolithic,_obsidian,_Franchthi_Cave,_202046x.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Zde",
+          "datum": "2020-09-25 08:50:41",
+          "beskrivning": "(8-9) Obsidian tools, obsidian of Melos. Below is flint tools, rights is bone tools. Paleolithic, 10000 - 8000 BC. Findings from Franchthi Cave. Archaeological Museum of Nafplio.",
+          "bredd": 2366,
+          "hojd": 1574,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Paleolithic%2C_obsidian%2C_Franchthi_Cave%2C_202046x.jpg/960px-Paleolithic%2C_obsidian%2C_Franchthi_Cave%2C_202046x.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cycladic obsidian",
+            "Paleolithic in the Archaeological Museum of Nafplio"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Mesolithic, Franchthi Cave, AM of Nafplio, 202048.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mesolithic,_Franchthi_Cave,_AM_of_Nafplio,_202048.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Zde",
+          "datum": "2020-09-25 08:51:14",
+          "beskrivning": "(1-15) Flint tools. (16-17) Obsidian tools, obsidian of Melos. (18-19) Bone tools. (20-22) Perforated shells. (23) Landsnails, Helix figulina. Mesolithic, 7500 - 7000 BC. Findings from Franchthi Cave. Archaeological Museum of Nafplio.",
+          "bredd": 5766,
+          "hojd": 3837,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Mesolithic%2C_Franchthi_Cave%2C_AM_of_Nafplio%2C_202048.jpg/960px-Mesolithic%2C_Franchthi_Cave%2C_AM_of_Nafplio%2C_202048.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cycladic obsidian",
+            "Mesolithic in the Archaeological Museum of Nafplio"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "tandingreppet-i-villabruna",
+      "titel": "Ett ingrepp mot karies i Villabruna",
+      "plats": "Sovramonte i provinsen Belluno, Venetien, Italien; punkten är kommunen, inte klippskyddet Riparo Villabruna",
+      "start": -12210,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Treatment of tooth decay at Villabruna",
+      "kandidater": []
+    },
+    {
+      "id": "laacher-see-utbrottet",
+      "titel": "Vulkanutbrottet vid Laacher See",
+      "plats": "Laacher See i Eifel, Rheinland-Pfalz, Tyskland",
+      "start": -11050,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Laacher See eruption",
+      "kandidater": [
+        {
+          "fil": "File:Close-up of the Wingertsbergwand.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Close-up_of_the_Wingertsbergwand.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "OutcropWizard",
+          "datum": "2019-09-20 11:32:10",
+          "beskrivning": "Close-up of the deposits of the Laacher See eruption at the Wingertsbergwand",
+          "bredd": 5472,
+          "hojd": 3648,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Close-up_of_the_Wingertsbergwand.jpg/960px-Close-up_of_the_Wingertsbergwand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Laacher See",
+            "Laacher See Volcano",
+            "Mendig",
+            "Wingertsbergwand"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Carrière du Wingertsberg - éruption du Laacher See.jpeg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Carri%C3%A8re_du_Wingertsberg_-_%C3%A9ruption_du_Laacher_See.jpeg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Tsuhful",
+          "datum": "2011-05-07",
+          "beskrivning": "La couche supérieure, soit l'ULST - Upper Laacher See Tephra - est la zone la plus riche en phénocristaux et en minéraux mafiques. La couche moyenne - MLST, Middle Laacher See Tephra - présente des échantillons plus hétérogènes et de couleur variable. Dans le bas, les ponces blanches éjectées en premieres - LLST , Lower Laacher See Tephra - forment des strates horizontales, chaque strate correspondant à une explosion. Elles sont fortement vacuolaires et contiennent peu de phénocristaux.",
+          "bredd": 2560,
+          "hojd": 1920,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Carri%C3%A8re_du_Wingertsberg_-_%C3%A9ruption_du_Laacher_See.jpeg/960px-Carri%C3%A8re_du_Wingertsberg_-_%C3%A9ruption_du_Laacher_See.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Wingertsbergwand"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Base Surge Eruption - panoramio.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Base_Surge_Eruption_-_panoramio.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "mroszewski",
+          "datum": "Taken on 29 June 2008",
+          "beskrivning": "Base Surge Eruption",
+          "bredd": 600,
+          "hojd": 800,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/68/Base_Surge_Eruption_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Base surge deposits (volcanism)",
+            "Laacher See Volcano",
+            "Tuff rock formations of Laacher See Volcano",
+            "Volcanic ash in Germany"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Steinbruch zwischen Laacher See und Mendig im Landschaftsschutzgebiet Rhein-Ahr-Eifel-9366.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Steinbruch_zwischen_Laacher_See_und_Mendig_im_Landschaftsschutzgebiet_Rhein-Ahr-Eifel-9366.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Raimond Spekking",
+          "datum": "2013-12-29 13:12:05",
+          "beskrivning": "Steinbruch zwischen Laacher See und Mendig im Landschaftsschutzgebiet Rhein-Ahr-Eifel (Gebietsnummer 07-LSG-71-4) Steinbruch Michels - Asche- und Bimstufflagen der Laacher-See-Eruption (vor 11.000a), die hier im Steinbruch in einer Mächtigkeit von 30m Basalt des Oberen Niedermendiger Lavastroms (Eruption vor 200.000a) überlagern",
+          "bredd": 5184,
+          "hojd": 2651,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Steinbruch_zwischen_Laacher_See_und_Mendig_im_Landschaftsschutzgebiet_Rhein-Ahr-Eifel-9366.jpg/960px-Steinbruch_zwischen_Laacher_See_und_Mendig_im_Landschaftsschutzgebiet_Rhein-Ahr-Eifel-9366.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cross-bedding",
+            "Pumice",
+            "Quaternary volcanism",
+            "Steinbruch Mendig",
+            "Tuff rock formations in Germany"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Steinbruch zwischen Laacher See und Mendig im Landschaftsschutzgebiet Rhein-Ahr-Eifel-9360.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Steinbruch_zwischen_Laacher_See_und_Mendig_im_Landschaftsschutzgebiet_Rhein-Ahr-Eifel-9360.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Raimond Spekking",
+          "datum": "2013-12-29 13:04:20",
+          "beskrivning": "Steinbruch zwischen Laacher See und Mendig im Landschaftsschutzgebiet Rhein-Ahr-Eifel (Gebietsnummer 07-LSG-71-4) Steinbruch Michels - Asche- und Bimstufflagen der Laacher-See-Eruption (vor 11.000a), die hier im Steinbruch in einer Mächtigkeit von 30m Basalt des Oberen Niedermendiger Lavastroms (Eruption vor 200.000a) überlagern",
+          "bredd": 5184,
+          "hojd": 3456,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Steinbruch_zwischen_Laacher_See_und_Mendig_im_Landschaftsschutzgebiet_Rhein-Ahr-Eifel-9360.jpg/960px-Steinbruch_zwischen_Laacher_See_und_Mendig_im_Landschaftsschutzgebiet_Rhein-Ahr-Eifel-9360.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Pumice",
+            "Quaternary volcanism",
+            "Steinbruch Mendig",
+            "Tuff rock formations in Germany"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "yngre-dryas",
+      "titel": "Yngre dryas: istidens sista köldknäpp",
+      "plats": "Norra halvklotet (markören i Allerød, Danmark, där perioden först beskrevs)",
+      "start": -10899,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q944279",
+      "kandidater": [
+        {
+          "fil": "File:Partin 2015 YD global map.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Partin_2015_YD_global_map.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Partin et al.",
+          "datum": "2024-06-02 10:26:45",
+          "beskrivning": "This graphic shows the temperature and w:precipitation changes across parts of the globe during the w:Younger Dryas period. It has been modified from the original file by stacking the two halves vertically instead of horizontally to improve readability on Wikipedia pages, and by expanding the two acronyms to make the graphic clearer for common readers.",
+          "bredd": 582,
+          "hojd": 636,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/44/Partin_2015_YD_global_map.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "English-language maps of the world",
+            "Younger Dryas"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "baltiska-issjon-tappas-ut",
+      "titel": "Baltiska issjön töms vid Billingen",
+      "plats": "Billingen mellan Skövde och Skara, Västergötland, Sverige; punkten är berget, inte själva genombrottet",
+      "start": -9670,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Baltic Ice Lake drains at Billingen",
+      "kandidater": []
+    },
+    {
+      "id": "natet-fran-antrea",
+      "titel": "Nätet från Antrea",
+      "plats": "Korpilahti i Antrea på Karelska näset, i dag Kamennogorsk i Ryssland; punkten är Kamennogorsk",
+      "start": -8539,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Antrea net",
+      "kandidater": [
+        {
+          "fil": "File:AntreaNet.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:AntreaNet.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Sakari Pälsi",
+          "datum": "1920",
+          "beskrivning": "Some of the remains of the Paleolithic Antrea net.",
+          "bredd": 1227,
+          "hojd": 1909,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/AntreaNet.jpg/960px-AntreaNet.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeology in Finland",
+            "Neolithic fishing nets"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Antrean verkon kaivaus Sakari Pälsin kuvaamana 1914.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Antrean_verkon_kaivaus_Sakari_P%C3%A4lsin_kuvaamana_1914.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Sakari Pälsi",
+          "datum": "30 July 1914 date QS:P571,+1914-07-30T00:00:00Z/11",
+          "beskrivning": "Photography from the excavations of the Antrea Net in 1914 by Sakari Pälsi.",
+          "bredd": 863,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Antrean_verkon_kaivaus_Sakari_P%C3%A4lsin_kuvaamana_1914.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Archeological Picture Collection",
+            "Fishing nets in Finland",
+            "History of Finland",
+            "Neolithic artefacts from Finland",
+            "Photographs by Sakari Pälsi"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Joint Operational Access Exercise 16-5 160205-F-NA975-206.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Joint_Operational_Access_Exercise_16-5_160205-F-NA975-206.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Staff Sgt. Marianique Santos",
+          "datum": "Taken on 5 February 2016",
+          "beskrivning": "U.S. Army Staff Sgt. Lee Antreas, battalion air NCOIC with the 407th Brigade Support Battalion, 2nd Brigade Combat Team, 82nd Airborne Division, uses an anemometer to measure wind speed before a container deliver system drop during Large Package Week at Pope Army Airfield, N.C., Feb. 5, 2016. Large Package Week leads up to Joint Operational Access Exercise 16-5, where in Army and Air Force units work together to improve interoperability for worldwide crisis, contingency and humanitarian operations. (U.S. Air Force photo by Staff Sgt. Marianique Santos) Unit: 1st Combat Camera Squadron DVIDS Tags: Airmen; Mobility; Soldiers; Cargo; JOAX; Large Package Week",
+          "bredd": 3674,
+          "hojd": 2761,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Joint_Operational_Access_Exercise_16-5_160205-F-NA975-206.jpg/960px-Joint_Operational_Access_Exercise_16-5_160205-F-NA975-206.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2016 in Fort Bragg (North Carolina)",
+            "2nd Brigade Combat Team, 82nd Airborne Division",
+            "82nd Airborne Division",
+            "Joint Operational Access Exercise 16-05"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "pessekanoten",
+      "titel": "Kanoten från Pesse",
+      "plats": "Pesse, Hoogeveen, Drenthe, Nederländerna; punkten är byn, och kanoten hittades söder om den",
+      "start": -8039,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Pesse canoe Pesse",
+      "kandidater": [
+        {
+          "fil": "File:Boomstamkano van Pesse, Drents Museum, 1955-VIII-2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Boomstamkano_van_Pesse,_Drents_Museum,_1955-VIII-2.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": null,
+          "datum": "between 8040 and 7510 BC",
+          "beskrivning": "The Pesse canoe is believed to be the world's oldest known boat. It is made from a piece of trunk of the Scots pine (Pinus silvestris). With the help of fire, this piece of trunk, with the exception of the front and back ends, has been hollowed out. A thin layer of charred wood is still present in many places on the inside of this hollowed-out tree trunk. The exterior also shows clear traces of fire.",
+          "bredd": 730,
+          "hojd": 430,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Boomstamkano_van_Pesse%2C_Drents_Museum%2C_1955-VIII-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Pesse canoe"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Drents Museum prehistoric 8943.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Drents_Museum_prehistoric_8943.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "C messier",
+          "datum": "2019-03-15 16:34:06",
+          "beskrivning": "The prehistoric antiquites room in Drents Museum. Bottom right can be seen the Pesse Canoe, the oldest surviving canoe in the world.",
+          "bredd": 4608,
+          "hojd": 3456,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Drents_Museum_prehistoric_8943.jpg/960px-Drents_Museum_prehistoric_8943.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Collections of the Drents Museum",
+            "Pesse canoe"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:VOYAGE EN FOUTA AU NORD DU SENEGAL 04.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:VOYAGE_EN_FOUTA_AU_NORD_DU_SENEGAL_04.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Boydiop2",
+          "datum": "2018-11-23 10:43:16",
+          "beskrivning": "Fouta trip in the north of Senegal on the edge of a dugout canoe on the Senegal river in the village of Wallah",
+          "bredd": 4128,
+          "hojd": 3096,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/VOYAGE_EN_FOUTA_AU_NORD_DU_SENEGAL_04.jpg/960px-VOYAGE_EN_FOUTA_AU_NORD_DU_SENEGAL_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Pirogues in Senegal",
+            "Senegal River",
+            "Transport in Saint-Louis Region",
+            "Wallah (Senegal)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "doggerland-drankes",
+      "titel": "Doggerland dränks",
+      "plats": "Doggerland, i dag södra Nordsjön (markören på Doggers bank)",
+      "start": -7999,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1138308",
+      "kandidater": [
+        {
+          "fil": "File:Doggerland.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Doggerland.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Max Naylor",
+          "datum": "2008-02-22",
+          "beskrivning": "A map of the area known as Doggerland which connected the British Isles and the European continent. Loosely based on two images, found at http://www.bevpease.force9.co.uk/p.Flood_files/image002.jpg and http://humanities.exeter.ac.uk/archaeology/research/projects/title_89282_en.html , (now archived at https://web.archive.org/web/20220420042919/http://humanities.exeter.ac.uk/archaeology/research/projects/title_89282_en.html ) however drawing work was all done in Illustrator by myself. Norway has been excluded from the map.",
+          "bredd": 545,
+          "hojd": 600,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Doggerland.svg/960px-Doggerland.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Doggerland",
+            "Geological maps of the United Kingdom",
+            "Greenlandian palaeogeography",
+            "Maps of European Upper Paleolithic",
+            "Maps of the North Sea",
+            "Quaternary geology"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "sesklo",
+      "titel": "Bondebyn Sesklo i Thessalien",
+      "plats": "Sesklo nära Volos, Magnesia, Thessalien, Grekland",
+      "start": -7509,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The farming village of Sesklo in Thessaly Sesklo near Volos",
+      "kandidater": []
+    },
+    {
+      "id": "akermyrapaddeln",
+      "titel": "Paddeln från Åkermyra",
+      "plats": "Åkermyra, Hedemora, Dalarna, Sverige",
+      "start": -7039,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Åkermyra paddle Åkermyra",
+      "kandidater": []
+    },
+    {
+      "id": "barumkvinnan",
+      "titel": "Barumkvinnan begravs i Skåne",
+      "plats": "Barum vid Oppmannasjön, nordost om Kristianstad, Skåne, Sverige",
+      "start": -7009,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q6981339",
+      "kandidater": [
+        {
+          "fil": "File:Bäckaskogskvinnan.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:B%C3%A4ckaskogskvinnan.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Sven Rosborn",
+          "datum": "2012-11-09 15:46:48",
+          "beskrivning": "Stenålderskvinnan Bäckaskogskvinnan.",
+          "bredd": 1488,
+          "hojd": 1984,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/B%C3%A4ckaskogskvinnan.jpg/960px-B%C3%A4ckaskogskvinnan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "History of Sweden",
+            "Human bones in Statens historiska museum",
+            "Maglemosian culture",
+            "Mesolithic burials"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Ben från Bäckaskogskvinnan - Historiska museet - 222358 HST - 325086.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ben_fr%C3%A5n_B%C3%A4ckaskogskvinnan_-_Historiska_museet_-_222358_HST_-_325086.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": null,
+          "datum": "1996-01-10",
+          "beskrivning": "Image depicting bone from Bäckaskog woman with object number 222358_HST in the collection of the Swedish History Museum.",
+          "bredd": 2048,
+          "hojd": 3072,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Ben_fr%C3%A5n_B%C3%A4ckaskogskvinnan_-_Historiska_museet_-_222358_HST_-_325086.jpg/960px-Ben_fr%C3%A5n_B%C3%A4ckaskogskvinnan_-_Historiska_museet_-_222358_HST_-_325086.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "ladoga-blir-en-egen-sjo",
+      "titel": "Ladoga skiljs från Ancylussjön",
+      "plats": "Ladoga, Ryssland",
+      "start": -6850,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Lake Ladoga is cut off from the Ancylus Lake Lake Ladoga",
+      "kandidater": []
+    },
+    {
+      "id": "elsjankakulturens-lerkarl",
+      "titel": "Lerkärlen i Jelsjankakulturen",
+      "plats": "Mellersta Volga, Ryssland; punkten är Samarakröken, i kulturens område, inte en fyndplats",
+      "start": -6699,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Pottery of the Elshanka culture Middle Volga",
+      "kandidater": []
+    },
+    {
+      "id": "skidfragment-vid-sindorsjon",
+      "titel": "Skidliknande föremål vid Sindorsjön",
+      "plats": "Sindorsjön i Republiken Komi, Ryssland; punkten är sjön, inte själva fyndplatsen Vis I",
+      "start": -6299,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Ski-like objects at Lake Sindor",
+      "kandidater": []
+    },
+    {
+      "id": "storeggaskredet",
+      "titel": "Storeggaskredet och tsunamin",
+      "plats": "Storeggaskredet i Norska havet, cirka 100 km nordväst om Møre, Norge; punkten är skredområdet",
+      "start": -6224,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Storegga Slide and its tsunami",
+      "kandidater": [
+        {
+          "fil": "File:StoreggaFLCommonsZone2OK.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:StoreggaFLCommonsZone2OK.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Lamiot",
+          "datum": "2012-05-13",
+          "beskrivning": "Position of the Storegga Slide (west of Norway). The yellow numbers give the height of the tsunami wave from tsunamite recently studied by researchers. This is a megatsunami which - around 8150 years ago - spread hundreds of kilometers following the collapse of a piece of shelf . Source of yellow data . see also (in French): museum presentation by the Belgian \"A tsunami in Belgium?\"",
+          "bredd": 617,
+          "hojd": 454,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/c9/StoreggaFLCommonsZone2OK.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Storegga maps"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "bar-och-fisk-i-zamostje",
+      "titel": "Bär kokade med fisk i Zamostje",
+      "plats": "Zamostje 2 vid floden Dubna, Moskva oblast, Ryssland",
+      "start": -5699,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q27926362",
+      "soktext": "Berries cooked with fish at Zamostje",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "tybrind-vig",
+      "titel": "Boplatsen i Tybrind Vig",
+      "plats": "Tybrind Vig, Lillebältskusten på västra Fyn, Danmark",
+      "start": -5399,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1454480",
+      "soktext": "The settlement at Tybrind Vig Tybrind Vig",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Tybrind Vig bow tips.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tybrind_Vig_bow_tips.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "XXLRay",
+          "datum": "2012-08-20",
+          "beskrivning": "Tips of a Tybrind Vig style bow",
+          "bredd": 2560,
+          "hojd": 1920,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Tybrind_Vig_bow_tips.jpg/960px-Tybrind_Vig_bow_tips.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological objects of Denmark",
+            "Bows (archery)",
+            "Middlestone",
+            "Tybrind Vig"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Tybrind Vig Bow Tips Dark Background.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tybrind_Vig_Bow_Tips_Dark_Background.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "XXLRay",
+          "datum": "2012-08-29",
+          "beskrivning": "Tips of a Tybrind Vig style bow",
+          "bredd": 2560,
+          "hojd": 1920,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Tybrind_Vig_Bow_Tips_Dark_Background.jpg/960px-Tybrind_Vig_Bow_Tips_Dark_Background.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological objects of Denmark",
+            "Bows (archery)",
+            "Middlestone",
+            "Tybrind Vig"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Needle-netting technique.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Needle-netting_technique.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Stilfehler",
+          "datum": "2024-08-23",
+          "beskrivning": "A stone-age textile technique, found in textiles excavated in Tybrind vig, Denmark.",
+          "bredd": 1200,
+          "hojd": 1000,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Needle-netting_technique.png/960px-Needle-netting_technique.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Simple nålebinding"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Økser, skiveøkser -OBM FS9711-2- (27983559340).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%C3%98kser,_skive%C3%B8kser_-OBM_FS9711-2-_(27983559340).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Odense Bys Museer from Odense, Denmark",
+          "datum": "2016-07-12 16:36",
+          "beskrivning": "Inv.nr: OBM/FS9711-2 Protokolnr: FS9711 Genstand: Økser, skiveøkser Materiale: Flint Fundsted: Tybrind Vig Sogn: Ørslev Stednr.: 401521 Loknr.: 9 Dato/år: 11-05-1960 Giver/sælger: Cand.pharm. Hans Find Larsen, Fåborg Litteratur: Albrectsen 1960a <a href=\" http://museum.odense.dk \" rel=\"nofollow\">Se mere på museum.odense.dk</a>",
+          "bredd": 3000,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/%C3%98kser%2C_skive%C3%B8kser_-OBM_FS9711-2-_%2827983559340%29.jpg/960px-%C3%98kser%2C_skive%C3%B8kser_-OBM_FS9711-2-_%2827983559340%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Collections of Museum Odense"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "ilumetsakratrarna",
+      "titel": "Kratrarna i Ilumetsa",
+      "plats": "Ilumetsa i Võrumaa, sydöstra Estland",
+      "start": -5220,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Ilumetsa craters",
+      "kandidater": [
+        {
+          "fil": "File:Ilumetsa crater, Estonia.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ilumetsa_crater,_Estonia.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Miraceti",
+          "datum": "2008-05-16",
+          "beskrivning": "Ilumetsa crater, Orava Parish, Põlva County Estonia",
+          "bredd": 3872,
+          "hojd": 2592,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Ilumetsa_crater%2C_Estonia.jpg/960px-Ilumetsa_crater%2C_Estonia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Crater floors (impact craters)",
+            "Ilumetsa craters"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Ilumetsa impact crater.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ilumetsa_impact_crater.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "ErikAbner",
+          "datum": "2020-03-28 15:00:44",
+          "beskrivning": "Ilumetsa impact crater in Põlvamaa, Estonia",
+          "bredd": 3024,
+          "hojd": 4032,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Ilumetsa_impact_crater.jpg/960px-Ilumetsa_impact_crater.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ilumetsa craters"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Ilumetsa meteoriidikraater.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ilumetsa_meteoriidikraater.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Ilme Parik",
+          "datum": "2013-04-14 14:41:47",
+          "beskrivning": "Ilumetsa meteoriidikraatrid on meteoriidikraatrid Põlva maakonnas Veriora vallas.",
+          "bredd": 4001,
+          "hojd": 1925,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Ilumetsa_meteoriidikraater.jpg/960px-Ilumetsa_meteoriidikraater.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ilumetsa craters"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Ilumetsa meteoriidikraatri väravad.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ilumetsa_meteoriidikraatri_v%C3%A4ravad.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Ilme Parik",
+          "datum": "2013-04-14 14:35:19",
+          "beskrivning": "Ilumetsa meteoriidikraatrid on meteoriidikraatrid Põlva maakonnas Veriora vallas.",
+          "bredd": 2929,
+          "hojd": 1947,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Ilumetsa_meteoriidikraatri_v%C3%A4ravad.JPG/960px-Ilumetsa_meteoriidikraatri_v%C3%A4ravad.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Gates in Estonia",
+            "Ilumetsa craters"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Devil at Ilumetsa crater path, Estonia.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Devil_at_Ilumetsa_crater_path,_Estonia.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Miraceti",
+          "datum": "2008-05-16",
+          "beskrivning": "Devil at Ilumetsa crater path, Estonia",
+          "bredd": 2592,
+          "hojd": 3872,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Devil_at_Ilumetsa_crater_path%2C_Estonia.jpg/960px-Devil_at_Ilumetsa_crater_path%2C_Estonia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Devils",
+            "Ilumetsa craters",
+            "Wooden statues in Estonia"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "rodockragraven-i-manjarv",
+      "titel": "Rödockragraven i Manjärv",
+      "plats": "Manjärv, Älvsby socken, Norrbotten, Sverige",
+      "start": -5199,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The red ochre grave at Manjärv Manjärv",
+      "kandidater": []
+    },
+    {
+      "id": "koppargruvan-i-rudna-glava",
+      "titel": "Koppargruvan i Rudna Glava",
+      "plats": "Rudna Glava vid floden Šaška, Majdanpek, östra Serbien; punkten är trakten",
+      "start": -4999,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The copper mine at Rudna Glava",
+      "kandidater": []
+    },
+    {
+      "id": "gravfaltet-i-naltjik",
+      "titel": "Gravfältet i Naltjik",
+      "plats": "Naltjik i Kabardinien-Balkarien, Ryssland (norra Kaukasus)",
+      "start": -4929,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The cemetery at Nalchik Nalchik in Kabardino-Balkaria",
+      "kandidater": [
+        {
+          "fil": "File:NalchikJewishCemetery.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:NalchikJewishCemetery.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Shaul",
+          "datum": "1993",
+          "beskrivning": "Jewish Cemetery in Nalchik",
+          "bredd": 800,
+          "hojd": 600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/8/88/NalchikJewishCemetery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1993 in Russia",
+            "Cemeteries in Kabardino-Balkaria",
+            "Jewish cemeteries in Russia",
+            "Monuments and memorials in Nalchik",
+            "Mountain Jews"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "hepatit-b-i-sachtysj",
+      "titel": "Hepatit B bland jägarfolket i Sachtysj",
+      "plats": "Sachtysj i Ivanovo oblast vid övre Volga, Ryssland; punkten är byn Sachtysj, inte gravfälten",
+      "start": -4850,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Hepatitis B among the hunter-gatherers of Sakhtysh",
+      "kandidater": []
+    },
+    {
+      "id": "varna-gravfaltet",
+      "titel": "Guldet i Varnagravfältet",
+      "plats": "Varna, Bulgarien",
+      "start": -4568,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q946052",
+      "kandidater": [
+        {
+          "fil": "File:Or de Varna - Nécropole.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Or_de_Varna_-_N%C3%A9cropole.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Yelkrokoyade",
+          "datum": "2007-07-21",
+          "beskrivning": "A tomb from the Varna necropolis (Bulgaria), circa 4600 BC, with the world's oldest gold jewellery yet discovered.",
+          "bredd": 1746,
+          "hojd": 2592,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Or_de_Varna_-_N%C3%A9cropole.jpg/960px-Or_de_Varna_-_N%C3%A9cropole.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Burial with skeleton and golden treasure (Varna Museum)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "flintgruvorna-i-spiennes",
+      "titel": "Flintgruvorna i Spiennes",
+      "plats": "Spiennes sydost om Mons, Belgien",
+      "start": -4299,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The flint mines of Spiennes",
+      "kandidater": [
+        {
+          "fil": "File:Spiennes - Minières néolithiques de silex (2).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Spiennes_-_Mini%C3%A8res_n%C3%A9olithiques_de_silex_(2).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Jean-Pol GRANDMONT",
+          "datum": "2010-09-11 10:41",
+          "beskrivning": "Spiennes (Belgium), neolithic mines of flint of the \"Camp à Caillaux\".",
+          "bredd": 2592,
+          "hojd": 3888,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Spiennes_-_Mini%C3%A8res_n%C3%A9olithiques_de_silex_%282%29.jpg/960px-Spiennes_-_Mini%C3%A8res_n%C3%A9olithiques_de_silex_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Neolithic flint mines of Spiennes"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Neolithic Flint Mines at Spiennes 2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Neolithic_Flint_Mines_at_Spiennes_2.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Thilo Parg",
+          "datum": "2015-05-27",
+          "beskrivning": "Neolithic Flint Mines at Spiennes",
+          "bredd": 3000,
+          "hojd": 1688,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Neolithic_Flint_Mines_at_Spiennes_2.jpg/960px-Neolithic_Flint_Mines_at_Spiennes_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Neolithic flint mines of Spiennes"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Neolithic Flint Mines at Spiennes 4.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Neolithic_Flint_Mines_at_Spiennes_4.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Thilo Parg",
+          "datum": "Der Urheber Thilo Parg hat diese Datei unter der Lizenz CC-BY-SA-3.0 auf Wikimedia Commons veröffentlicht. Dies bedeutet, dass eine kostenlose, auch kommerzielle Nutzung möglich ist, wenn folgende Bedingungen eingehalten werden: Online-Medien: Gut lesbare Angabe des Urhebers neben dem Bild: „Thilo Parg / Wikimedia Commons“ Gut lesbarer Lizenzname neben dem Bild: „Lizenz: CC BY-SA 3.0 “ Print-Medien: Gut lesbare Angabe des Urhebers neben dem Bild: „Thilo Parg / Wikimedia Commons“ Gut lesbare Angabe des Lizenznamens neben dem Bild: „Lizenz: Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 3.0 Unported“ oder „Lizenz: CC BY-SA 3.0“ Diese Bedingungen gelten auch für jegliche Weiterverwendung der jeweiligen Druck- und Onlinepublikation. Bitte senden Sie mir ein Belegexemplar bzw. die URL Ihrer Publikation zu, in der Sie mein Foto verwenden. Für Fragen zu diesem Foto und seinen Lizenzbedingungen sowie für die Zusendung der Belegexemplare stehe ich Ihnen gerne unter thilo.pargERSETZENwikipedia.de (ERSETZEN durch @ ersetzen) zur Verfügung. Bitte kontaktieren Sie mich, falls Sie ... ... das Foto in einem anderen Format (z.B. RAW) benötigen ... das Foto ohne die oben genannten Anforderungen einsetzen möchten ... Interesse an ähnlichen Bildern haben. Dieses Foto darf nicht in Facebook hochgeladen werden! Die Lizenz CC BY-SA 3.0 ist nicht mit den Facebook Lizenzbedingungen kompatibel, eine Benutzung dieser Datei auf Facebook stellt eine Urheberrechtsverletzung dar! Verstöße gegen diese Lizenzbedingungen werden verfolgt. The author of this file, Thilo Parg , published this file under the licence CC-BY-SA-3.0 on Wikimedia Commons. This means that free, commercial usage is permitted under the following terms and conditions: Online media: Legible name of the author next to the image \"Thilo Parg / Wikimedia Commons\" Legible license name next to the image: \" License: CC BY-SA 3.0 \" Print media: Legible name of the author close to the image \"Thilo Parg / Wikimedia Commons\" Legible license name next to the image: \"License: Creative Commons Attribution - ShareAlike 3.0 Unported\" or \"License: CC BY-SA 3.0 \" These conditions also apply for any further use of the respective print and online publication. Please send me a specimen copy or the URL of the website where the file is used. Feel free to contact me via thilo.pargREPLACEwikipedia.de (replace REPLACE with an @) for any questions or in case you need ... ... a different version (e.g. RAW) of this image ... a license to use the image without the requirements of the terms and conditions above ... similar photographs. This photo has been released under the license CC BY-SA 3.0 so you must not upload it to Facebook! Uploading this photo to Facebook constitutes a copyright violation! Violations of the terms and conditions above will be prosecuted.",
+          "beskrivning": "Neolithic Flint Mines at Spiennes",
+          "bredd": 3000,
+          "hojd": 1688,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Neolithic_Flint_Mines_at_Spiennes_4.jpg/960px-Neolithic_Flint_Mines_at_Spiennes_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Neolithic flint mines of Spiennes"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Neolithic Flint Mines at Spiennes 1.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Neolithic_Flint_Mines_at_Spiennes_1.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Thilo Parg",
+          "datum": "2015-05-27",
+          "beskrivning": "Neolithic Flint Mines at Spiennes",
+          "bredd": 3000,
+          "hojd": 1688,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Neolithic_Flint_Mines_at_Spiennes_1.jpg/960px-Neolithic_Flint_Mines_at_Spiennes_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Neolithic flint mines of Spiennes"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Neolithic Flint Mines at Spiennes 3.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Neolithic_Flint_Mines_at_Spiennes_3.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Thilo Parg",
+          "datum": "2015-05-27",
+          "beskrivning": "Neolithic Flint Mines at Spiennes",
+          "bredd": 3000,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Neolithic_Flint_Mines_at_Spiennes_3.jpg/960px-Neolithic_Flint_Mines_at_Spiennes_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Neolithic flint mines of Spiennes"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "hallristningarna-i-alta",
+      "titel": "Hällristningarna i Alta",
+      "plats": "Alta, Finnmark, Norge",
+      "start": -4199,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q433634",
+      "kandidater": [
+        {
+          "fil": "File:Alta-Carvings-2012-07-17-12-15-018.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Alta-Carvings-2012-07-17-12-15-018.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Karl Brodowsky",
+          "datum": "2012-07-17",
+          "beskrivning": "Rock carvings near Alta (Norway)",
+          "bredd": 1024,
+          "hojd": 1536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Alta-Carvings-2012-07-17-12-15-018.jpg/960px-Alta-Carvings-2012-07-17-12-15-018.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Rock art of Alta"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kamkeramikernas-byteshandel",
+      "titel": "Kamkeramikernas byteshandel",
+      "plats": "Kierikki vid Ijo älv, Uleåborg, Finland; punkten är ett exempel på kulturens boplatser",
+      "start": -4199,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The exchange network of the Comb Ceramic culture",
+      "kandidater": []
+    },
+    {
+      "id": "variscitgruvorna-i-gava",
+      "titel": "Variscitgruvorna i Gavà",
+      "plats": "Gavà i Katalonien, Spanien",
+      "start": -4199,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The variscite mines of Gavà Gavà in Catalonia",
+      "kandidater": []
+    },
+    {
+      "id": "saimen-bryter-igenom-salpausselka",
+      "titel": "Saimen bryter igenom Salpausselkä",
+      "plats": "Vuoksens början vid Saimen, Imatra, Finland; var genombrottet skedde anges inte",
+      "start": -4050,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Lake Saimaa breaks through the Salpausselkä",
+      "kandidater": []
+    },
+    {
+      "id": "hallmalningarna-i-astuvansalmi",
+      "titel": "Hällmålningarna i Astuvansalmi",
+      "plats": "Astuvansalmi vid sjön Yövesi i Saimen, Ristiina, Sankt Michel, Finland",
+      "start": -3999,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q43967",
+      "kandidater": [
+        {
+          "fil": "File:Astuvansalmen kalliolippa.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Astuvansalmen_kalliolippa.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Ohto Kokko",
+          "datum": "2006-01-19 08:24:59",
+          "beskrivning": "Astuvansalmi prehistoric rock paintings in Ristiina, Finland",
+          "bredd": 768,
+          "hojd": 1024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Astuvansalmen_kalliolippa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Astuvansalmi rock paintings"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "stenyxorna-fran-langdale",
+      "titel": "Stenyxorna från Langdale",
+      "plats": "Great Langdale i Lake District, England",
+      "start": -3999,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Langdale stone axes",
+      "kandidater": [
+        {
+          "fil": "File:Neolithic polished stone axe fragment, Langdale stone (FindID 430451).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Neolithic_polished_stone_axe_fragment,_Langdale_stone_(FindID_430451).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Derby Museums Trust, Rachel Atherton, 2011-03-08 12:34:54",
+          "datum": "between 3500 BC and 2100 BC",
+          "beskrivning": "Neolithic polished stone axehead fragment. From towards the butt end, but both ends broken and large flake broken off one surface (ancient damage). Longitudinal striations on middle of both surfaces, and diagonal striations at the edges/sides - presumably from polishing. Patinated brown-grey all over, except for tiny chip revealing blue-grey stone - probably Great Langdale stone. Length 52.1mm, width 39mm-50.5mm, thickness 22.4mm, weight",
+          "bredd": 3689,
+          "hojd": 2223,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Neolithic_polished_stone_axe_fragment%2C_Langdale_stone_%28FindID_430451%29.jpg/960px-Neolithic_polished_stone_axe_fragment%2C_Langdale_stone_%28FindID_430451%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Neolithic artefacts in the Portable Antiquities Scheme",
+            "Portable Antiquities Scheme",
+            "Portable Antiquities Scheme, DENO"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Stone Axe head from Wragby (FindID 476663).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Stone_Axe_head_from_Wragby_(FindID_476663).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "North Lincolnshire Museum, Martin Foreman, 2012-03-14 09:24:38",
+          "datum": "between 3500 BC and 1500 BC",
+          "beskrivning": "Igneous Stone, finder suggests an origin in Coniston area of the Lake District, citing his personal knowledge of geological topics. The stone is pale grey green in colour, dense and vesicular with crystalline and micaceous inclusions. A more local origin as a glacial erratic is possible. Possible Axe head. Stone of lentoid section, slightly tapered; a chip on one side has subsequently been smoothed, though whether by human or natural agency is uncertain. The vesicular nature of the material would not seem as apt to the making of a polished axe head as the more familiar Langdale tuff. Nor is this reporter aware of a trade in axe blanks comparable with that in polished axes. However, unpolished axes, maces and axe hammers are a feature of Early Bronze Age activity, and like the Neolithic versions may equally have been charged with significance beyond their primary functions - which are also debated. Suggested date: Possibly Neolithic to Early Bronze Age, 3500-1500 BC. Length: 127mm, Width: 67mm, Thickness: 35mm, Weight: circa 500gms.",
+          "bredd": 1286,
+          "hojd": 1772,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Stone_Axe_head_from_Wragby_%28FindID_476663%29.jpg/960px-Stone_Axe_head_from_Wragby_%28FindID_476663%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bronze Age stone axes in the Portable Antiquities Scheme",
+            "Images by Martin Foreman",
+            "Neolithic artefacts in the Portable Antiquities Scheme",
+            "Portable Antiquities Scheme",
+            "Portable Antiquities Scheme, NLM"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Neolithic polished stone Langdale Tuff axehead. (FindID 917147).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Neolithic_polished_stone_Langdale_Tuff_axehead._(FindID_917147).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "The Portable Antiquities Scheme, Lucy Bevan, 2018-10-03 16:19:10",
+          "datum": "between 4000 BC and 2350 BC",
+          "beskrivning": "An incomplete polished stone axehead, probably of Langdale Tuff. The handaxe has an assymetrical break at the butt end. The surface of the axe is granular but smooth with a distinct grey-green hue. The surfaces are finely polished with striations visible and very little visible of any flaking scars from the rough-out stage of manufacture. The object is sub-rectangular and tapers toward the butt and has a pointed oval section. The blade end tapers out to the side and in along the blade edge. The cutting edge is assymetical and has a large flake missing, probably post depositional damage as the stone revealed is darker. One face has a large flake missing at the distal end. The butt end is missing due to a crude break. Date: Neolithic Dimensions: 91.9mm x 64.6mm x 34.4mm. Weight: 273g. The object is a probable Langdale polished axehead. The Langdale tuff's in the Lake District are soft, volcanic deposits and polished axe-heads from this source are found throughout the country. This rock type is formed from compressed volcanic ash and has a fine grained composition with infrequent crystalline inclusions. Tuff is found in Britain and Ireland in a band that runs down the Irish Sea from the Lake District, County Antrim (Ireland), through North Wales and into Cornwall and Devon. Volcanic tuff is similar to flint in that it can be finely worked, ground and polished to form a variety of tools; however axes are the most common find type and were used across Northern Europe during the Neolithic period Sally Taylor MSc has an analysed the axe and has commented: Dorset Axe L 940mm W 670mm Th 370mm Wt 270g Blade section of a finely worked Langdale polished axe, broken in antiquity. Symmetrical edges in plan and a very even outline in profile; rounded oval in cross-section, with no triangular crest where the blade face rises to meet the body of the axe - further evidence of fine work. Minimal polished out flake scars - two small examples observed in the blade section. Thin side facets at the blade end reducing to very straight, slightly rounded edges separating the two faces of the axe; fine diagonal polishing striations evident along the edges of both sides. Clear signs of use - an obliquely worn blade with small chips along the edge. A large impact removal on one face, behind the worn side of the blade; repair of this damage by repolishing, evidenced by a smoothed dip in the face surface towards the blade edge and visible polishing striations. In what would have been the mid-section of the original axe (at the broken end of the section seen) a band of shallow fine pitting across both faces, not seen at the edges - evidence of hafting wear. Three break surfaces, two with hinge fractures; an additional modern break makes it difficult to determine the removal sequence and attribute intentionality.",
+          "bredd": 6284,
+          "hojd": 6883,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Neolithic_polished_stone_Langdale_Tuff_axehead._%28FindID_917147%29.jpg/960px-Neolithic_polished_stone_Langdale_Tuff_axehead._%28FindID_917147%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Portable Antiquities Scheme",
+            "Portable Antiquities Scheme, DOR"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Neolithic Great Langdale Polished Stone Axehead (FindID 192567).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Neolithic_Great_Langdale_Polished_Stone_Axehead_(FindID_192567).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "North Lincolnshire Museum, Lisa Staves, 2007-09-07 12:22:02",
+          "datum": "between 3500 BC and 2100 BC",
+          "beskrivning": "An incomplete Neolithic polished stone axehead. The green coloured axe is sub-triangular in plan and pointed oval in cross section. The axe tapers in thickness to the cutting edge, which is still very sharp. The tip of the butt end is missing and there are some small chips removed on both faces. The greenstone comes from Great Langdale in Cumbria. The surviving length is 97.7mm, the width at the cutting edge is 61.2mm, the thickness is 26.5mm and the weight is 220.0g.",
+          "bredd": 1500,
+          "hojd": 909,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Neolithic_Great_Langdale_Polished_Stone_Axehead_%28FindID_192567%29.jpg/960px-Neolithic_Great_Langdale_Polished_Stone_Axehead_%28FindID_192567%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Neolithic artefacts in the Portable Antiquities Scheme",
+            "Portable Antiquities Scheme",
+            "Portable Antiquities Scheme, NLM"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Neolithic axe, Langdale polished axe (FindID 767612).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Neolithic_axe,_Langdale_polished_axe_(FindID_767612).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Oxfordshire County Council, Anni Byard, 2016-02-12 13:51:05",
+          "datum": "between 4000 BC and 2351 BC",
+          "beskrivning": "A damaged and incomplete stone axe of Neolithic date, probably a Group VI Langdale axe. The stone axe has been polished and is grey-green in colour. The axe is made from a fine-grained siliceous tuff, a sedimentary volcanic rock which was orignally deposited in water and is likely to be from the Great Langdale quarries in Cumbria. The axe is damaged, missing most of one side and some of the blade edge on both surfaces. The break may have occured during use, as it appears to originate from the blade end (Alison Roberts pers. comm ). c. 4000-2351 BC.",
+          "bredd": 4231,
+          "hojd": 3023,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Neolithic_axe%2C_Langdale_polished_axe_%28FindID_767612%29.jpg/960px-Neolithic_axe%2C_Langdale_polished_axe_%28FindID_767612%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Photographs by Anni Byard",
+            "Portable Antiquities Scheme",
+            "Portable Antiquities Scheme, BERK"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "trypillias-jatteboplatser",
+      "titel": "Trypilliakulturens jätteboplatser",
+      "plats": "Talianky nära Talne, Ukraina; punkten är byn, och jätteboplatserna låg spridda i trakten",
+      "start": -3999,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The mega-sites of the Trypillia culture Talianky near Talne",
+      "kandidater": []
+    },
+    {
+      "id": "lillberget",
+      "titel": "Boplatsen Lillberget vid Överkalix",
+      "plats": "Lillberget vid Överkalix, Norrbotten, Sverige",
+      "start": -3899,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Lillberget settlement near Överkalix Lillberget near Överkalix",
+      "kandidater": []
+    },
+    {
+      "id": "majkopkurganen",
+      "titel": "Majkopkurganen",
+      "plats": "Majkop i Adygeja, Ryssland (norra Kaukasus)",
+      "start": -3699,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q3843598",
+      "soktext": "The Maikop kurgan Maikop in Adygea",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "ggantija",
+      "titel": "Templen i Ġgantija på Gozo",
+      "plats": "Xagħra på Gozo, Malta",
+      "start": -3599,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Ġgantija temples on Gozo Xagħra on Gozo",
+      "kandidater": [
+        {
+          "fil": "File:Ggantija Temples, Xaghra, Gozo.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ggantija_Temples,_Xaghra,_Gozo.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "BoneA",
+          "datum": "2010-10-30 12:17:39",
+          "beskrivning": "This media is about Maltese cultural property with inventory number 00001 .",
+          "bredd": 3871,
+          "hojd": 2581,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Ggantija_Temples%2C_Xaghra%2C_Gozo.jpg/960px-Ggantija_Temples%2C_Xaghra%2C_Gozo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ġgantija"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Templo de Ġgantija, isla de Gozo, Malta, 2021-08-23, DD 15.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Templo_de_%C4%A0gantija,_isla_de_Gozo,_Malta,_2021-08-23,_DD_15.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Diego Delso",
+          "datum": "2021-08-23 15:29:05",
+          "beskrivning": "Ġgantija Temple, Gozo Island, Malta",
+          "bredd": 3790,
+          "hojd": 3031,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Templo_de_%C4%A0gantija%2C_isla_de_Gozo%2C_Malta%2C_2021-08-23%2C_DD_15.jpg/960px-Templo_de_%C4%A0gantija%2C_isla_de_Gozo%2C_Malta%2C_2021-08-23%2C_DD_15.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological objects from the Xagħra Stone Circle",
+            "Buildings in Malta photographed in 2021",
+            "Figurines",
+            "Prehistoric sculptures of Malta",
+            "Ġgantija Interpretation Centre"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Ġgantija Temples, Xaghra, Gozo.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%C4%A0gantija_Temples,_Xaghra,_Gozo.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "BrandyMay",
+          "datum": "2016-08-31",
+          "beskrivning": "This media is about Maltese cultural property with inventory number 00001 .",
+          "bredd": 1200,
+          "hojd": 1600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/%C4%A0gantija_Temples%2C_Xaghra%2C_Gozo.jpg/960px-%C4%A0gantija_Temples%2C_Xaghra%2C_Gozo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2015 photographs of Malta",
+            "Ġgantija"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Ġgantija Temples. Xaghra, Gozo.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%C4%A0gantija_Temples._Xaghra,_Gozo.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "BrandyMay",
+          "datum": "2016-08-31",
+          "beskrivning": "This media is about Maltese cultural property with inventory number 00001 .",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/%C4%A0gantija_Temples._Xaghra%2C_Gozo.jpg/960px-%C4%A0gantija_Temples._Xaghra%2C_Gozo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2015 photographs of Malta",
+            "Ġgantija"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Ġgantija Temples,Xaghra Gozo.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%C4%A0gantija_Temples,Xaghra_Gozo.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "BrandyMay",
+          "datum": "2016-08-31",
+          "beskrivning": "This media is about Maltese cultural property with inventory number 00001 .",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/%C4%A0gantija_Temples%2CXaghra_Gozo.jpg/960px-%C4%A0gantija_Temples%2CXaghra_Gozo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2015 photographs of Malta",
+            "Ġgantija"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "ganggriften-i-rossberga",
+      "titel": "Gånggriften i Rössberga",
+      "plats": "Rössberga, cirka 10 km söder om Falköping, Västergötland, Sverige",
+      "start": -3499,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The passage grave at Rössberga Rössberga",
+      "kandidater": [
+        {
+          "fil": "File:Rössberga - KMB - 16000300034169.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:R%C3%B6ssberga_-_KMB_-_16000300034169.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "Bengt A. Lundberg",
+          "datum": "26 April 2002",
+          "beskrivning": "Notera Av dokumentationsskäl har originalbeskrivningen från Riksantikvarieämbetet behållits. Tillrättalägganden och alternativa beskrivningar bör införas separat från nedanstående information. Felaktigheter kan även anmälas till denna sida . Gånggrift. Rössberga Valtorp 2:1 Motiv: Rössberga Nyckelord: Riksintressen Kategori: Stenkammargrav",
+          "bredd": 768,
+          "hojd": 512,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/7f/R%C3%B6ssberga_-_KMB_-_16000300034169.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Kambrosilurområdet",
+            "Passage graves in Falköping Municipality",
+            "Photographs by Bengt A. Lundberg"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Rössberga 1, den 9 april 2006.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:R%C3%B6ssberga_1,_den_9_april_2006.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Harri Blomberg",
+          "datum": "Taken on 9 April 2006",
+          "beskrivning": "En gånggrift i Rössberga i Falköpings kommun. Denna stenåldersgrav undersöktes 1962. Minst 128 individer begravdes där utifrån skelettfynden, men det var troligen fler. Det var ingen större skillnad i antal mellan män och kvinnor och alla åldrar hittades representerade. Den stora runda stenen på bilden kallas för nyckelsten och höll upp själva gravkammarens takhäll(ar), tidigare trodde man att den var själva nyckeln till själva konstruktionen, att stenen var i centrum och höll upp hela byggnaden.",
+          "bredd": 2048,
+          "hojd": 1536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/R%C3%B6ssberga_1%2C_den_9_april_2006.JPG/960px-R%C3%B6ssberga_1%2C_den_9_april_2006.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "April 2006 in Västra Götaland County",
+            "Kambrosilurområdet",
+            "Passage graves in Falköping Municipality",
+            "Valtorps socken"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "vagnshjulen-i-novokorsunskaja",
+      "titel": "Vagnshjulen i Novokorsunskaja",
+      "plats": "Novokorsunskaja i Kubanområdet, Krasnodar kraj, Ryssland; punkten är byn, inte kurganen",
+      "start": -3499,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The wagon wheels of Novokorsunskaya",
+      "kandidater": []
+    },
+    {
+      "id": "kon-som-opererades-i-champ-durand",
+      "titel": "En ko med ett hål i skallen i Champ-Durand",
+      "plats": "Den befästa boplatsen Champ-Durand i Vendée, Frankrike",
+      "start": -3399,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q22963151",
+      "kandidater": [
+        {
+          "fil": "File:Nieul-autise champ-durand 07.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Nieul-autise_champ-durand_07.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Liberliger",
+          "datum": "2018-10-19 15:47:28",
+          "beskrivning": "Enceinte préhistorique de Champ Durand à Nieul-sur-l'Autise (85).",
+          "bredd": 6093,
+          "hojd": 2877,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Nieul-autise_champ-durand_07.jpg/960px-Nieul-autise_champ-durand_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Enceinte préhistorique de Champ Durand"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "otzi",
+      "titel": "Ötzi dör i Alperna",
+      "plats": "Tisenjoch i Ötztalalperna, på gränsen mellan Italien och Österrike",
+      "start": -3358,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q171291",
+      "kandidater": [
+        {
+          "fil": "File:Otzi-Quinson.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Otzi-Quinson.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "120",
+          "datum": "2011-05-22",
+          "beskrivning": "reconstruction of Ötzi mummy as shown in Prehistory Museum of Quinson, Alpes-de-Haute-Provence, France",
+          "bredd": 600,
+          "hojd": 428,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Otzi-Quinson.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Collection of prehistory of the Musée de la préhistoire des gorges du Verdon",
+            "Ötzi"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "skara-brae",
+      "titel": "Stenbyn Skara Brae",
+      "plats": "Skara Brae vid Bay of Skaill, Orkney, Skottland",
+      "start": -3179,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q816437",
+      "kandidater": [
+        {
+          "fil": "File:Orkney Skara Brae.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Orkney_Skara_Brae.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Dr. John F. Burka",
+          "datum": "2002-08-24",
+          "beskrivning": "Neolithic excavations at Skara Brae on Orkney in Scotland .",
+          "bredd": 800,
+          "hojd": 533,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/31/Orkney_Skara_Brae.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Skara Brae"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "newgrange",
+      "titel": "Newgrange och ljuset vid vintersolståndet",
+      "plats": "Newgrange vid floden Boyne, County Meath, Irland",
+      "start": -3099,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q339503",
+      "kandidater": [
+        {
+          "fil": "File:Irelands history.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Irelands_history.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Tjp finn",
+          "datum": "2016-08-26 17:55:18",
+          "beskrivning": "A front view of the Newgrange monument taken from outside the grounds",
+          "bredd": 3264,
+          "hojd": 2448,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Irelands_history.jpg/960px-Irelands_history.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Newgrange"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "meteoritkratrarna-i-morasko",
+      "titel": "Meteoritkratrarna i Morasko",
+      "plats": "Morasko i norra Poznań, Polen",
+      "start": -3050,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The meteorite craters at Morasko",
+      "kandidater": [
+        {
+          "fil": "File:Morasko krater zima.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Morasko_krater_zima.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": null,
+          "datum": "2005-05-26 18:23:40",
+          "beskrivning": null,
+          "bredd": 1280,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Morasko_krater_zima.jpg/960px-Morasko_krater_zima.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Morasko meteorite",
+            "Nature reserve Meteoryt Morasko"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Poznan Morasko 115-15.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Poznan_Morasko_115-15.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.5",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.5",
+          "upphovsperson": null,
+          "datum": "2005-08-18 23:43:39",
+          "beskrivning": null,
+          "bredd": 720,
+          "hojd": 504,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Poznan_Morasko_115-15.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Nature reserve Meteoryt Morasko"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Poland can into meteorites.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Poland_can_into_meteorites.png",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Bernd",
+          "datum": "2012-11-17",
+          "beskrivning": "Polandball comic on the news that geologists at Adam Mickiewicz University in Poznan are cleaning and will soon display a 261kg meteorite, Poland's biggest, which was found in Morasko Meteorite Nature Reserve on 8 October 2012 ( news link )",
+          "bredd": 900,
+          "hojd": 900,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Poland_can_into_meteorites.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "2012 in Poland",
+            "Adam Mickiewicz University",
+            "Countryballs (Denmark)",
+            "Countryballs (Germany)",
+            "Countryballs (Iceland)",
+            "Countryballs (Nepal)",
+            "Countryballs (Netherlands)",
+            "Countryballs (Poland)",
+            "Morasko meteorite",
+            "Polandball comics"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Morasko Natural Reserve, COVID19 maseczka.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Morasko_Natural_Reserve,_COVID19_maseczka.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "MOs810",
+          "datum": "2020-04-25 16:44:50",
+          "beskrivning": "Porzucona maseczka COVID-19 w Wielkopolskim Parku Narodowym.",
+          "bredd": 3088,
+          "hojd": 2414,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Morasko_Natural_Reserve%2C_COVID19_maseczka.jpg/960px-Morasko_Natural_Reserve%2C_COVID19_maseczka.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "April 2020 in Poznań",
+            "COVID-19 pandemic in Poznań",
+            "Littering of personal protective equipment during the COVID-19 pandemic",
+            "Nature reserve Meteoryt Morasko",
+            "Used disposable surgical masks during the COVID-19 pandemic",
+            "Waste",
+            "Waste in Poland"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Morasko krater C.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Morasko_krater_C.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Szczureq",
+          "datum": "2014-06-06 14:45",
+          "beskrivning": "Impact crater in Morasko filled with water. It is the third crater in diameter in group.",
+          "bredd": 3972,
+          "hojd": 1495,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Morasko_krater_C.jpg/960px-Morasko_krater_C.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Nature reserve Meteoryt Morasko"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "los-millares",
+      "titel": "Den befästa boplatsen Los Millares",
+      "plats": "Los Millares, Santa Fe de Mondújar, Almería, Andalusien, Spanien",
+      "start": -3024,
+      "varldsdel": "Europa",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The fortified settlement of Los Millares Los Millares",
+      "kandidater": []
+    }
+  ]
+}
