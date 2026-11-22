@@ -132,10 +132,8 @@ def flaggor(k, e):
                 f.append('nutida-foto')
             elif not k.get('datum_original') and (ar_i(k.get('datum_fil')) or 0) >= NUTIDA_FRAN:
                 f.append('datum-osakert')
-        else:  # äldre kandidatlista: datumet kan vara uppladdningen
-            ar = ar_i(k.get('datum'))
-            if ar and ar >= NUTIDA_FRAN:
-                f.append('datum-osakert')
+        # Äldre kandidatlista utan skilda datum: ingen flagga. Datumet visas ändå i tabellen som "verk eller fil", och i
+        # omgången #2104–#2105 var flaggan fel för minst 15 av 18 valda bilder (fotots eget datum).
     # Moderna konstverk: inte kartor och inte föremål som filsidan dateras före 1900 (ett kärl från 800-talet, #2193)
     if KONSTVERK.search(text) and 'karta' not in f and not GAMMALT_AR.search(text):
         f.append('konstverk')

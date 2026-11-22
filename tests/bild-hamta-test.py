@@ -150,6 +150,8 @@ def main():
 
     # --- risker som inte stoppar men ska synas (#2193): PD bara i USA, PD-self med annan licens, eget verk av gammal bild,
     # mall om panoramafrihet, versionslös cc-by-sa-all och dubblerat upphovsnamn
+    check(bh.klassa_mall('Cc-by-sa-3.0-igo') == ('by-sa', 'CC BY-SA 3.0 IGO') and bh.klassa_namn('CC BY-SA 3.0 IGO') == ('by-sa', 'CC BY-SA 3.0 IGO'),
+          'CC BY-SA 3.0 IGO ska kännas igen (fynd i omgången #2104–#2105)')
     r = bh.licensmallar('{{GFDL-user-en|Exempel|migration=relicense}}')[0]
     check(('by-sa', 'CC BY-SA 3.0') in {(m[1], m[2]) for m in r}, f'GFDL med migration=relicense ska ge CC BY-SA 3.0: {r}')
     check(('by-sa', 'CC BY-SA 3.0') not in {(m[1], m[2]) for m in bh.licensmallar('{{GFDL-user-en|Exempel|migration=not-eligible}}')[0]},
