@@ -4727,7 +4727,8 @@ async function run(browser, vp) {
         const r = document.getElementById('flat-canvas').getBoundingClientRect(), base = Math.max(r.width / 4096, r.height / 2048), scale = base * zoom;
         return { lat, lon, zoom, halfLon: r.width / 2 / scale / 4096 * 360, halfLat: r.height / 2 / scale / 2048 * 180 };
       });
-      await tp.waitForFunction(() => Number(document.getElementById('flat-view').dataset.view.split(',')[2]) > 1.2, null, { timeout: T.step });
+      // data-view skrivs först när kartan har ritats; i Firefox saknas den en stund, och väntan ska då fortsätta i stället för att kasta (#2171)
+      await tp.waitForFunction(() => Number((document.getElementById('flat-view').dataset.view ?? '').split(',')[2]) > 1.2, null, { timeout: T.step });
       const f = await frame();
       // Hela Sverige (11° Ö–24° Ö, 55° N–69° N) ryms i kartans ruta
       if (f.lon - f.halfLon > 11 || f.lon + f.halfLon < 24 || f.lat - f.halfLat > 55 || f.lat + f.halfLat < 69) throw new Error(`Sverige ryms inte i kartan: mitt ${f.lat},${f.lon}, halva ${f.halfLat}×${f.halfLon} grader`);
