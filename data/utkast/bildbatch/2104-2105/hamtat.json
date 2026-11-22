@@ -1,0 +1,413 @@
+[
+  {
+    "ref": "File:Ounjougou confluence.JPG",
+    "kalla": "commons",
+    "handelse": "ounjougou-keramik",
+    "status": "klar",
+    "skal": [],
+    "todo": [
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:Ounjougou_confluence.JPG",
+      "titel": "Ounjougou confluence",
+      "upphovsperson": "Ounjougou",
+      "credit_rad_i_metadata": "Own work",
+      "datum": "2005-02-",
+      "beskrivning_i_metadata": "Partial view of the Ounjougou archaeological sites complex, in the Yamé valley, near Bandiagara (Dogon Country, Mali)",
+      "mime": "image/jpeg",
+      "bredd": 800,
+      "hojd": 600,
+      "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/15/Ounjougou_confluence.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "licens_api": "CC BY-SA 4.0",
+      "licensmallar": [
+        "self|cc-by-sa-4.0"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-ounjougou-keramik",
+      "title": "Ounjougou confluence – Ounjougou (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ounjougou_confluence.JPG",
+      "license": "CC BY-SA 4.0",
+      "checked": "2026-11-22"
+    },
+    "image": {
+      "file": "images/events/ounjougou-keramik.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC BY-SA 4.0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC BY-SA 4.0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC BY-SA 4.0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC BY-SA 4.0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC BY-SA 4.0."
+      },
+      "credit": "Ounjougou / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": "commons-bild-ounjougou-keramik"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC BY-SA 4.0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC BY-SA 4.0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC BY-SA 4.0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC BY-SA 4.0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC BY-SA 4.0."
+      },
+      "credit": "Ounjougou / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": "commons-bild-ounjougou-keramik",
+      "id": "ounjougou-keramik"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2104-2105/ounjougou-keramik.webp",
+      "bytes": 81604
+    }
+  },
+  {
+    "ref": "File:WadiSuraSingleSwimmer.jpg",
+    "kalla": "commons",
+    "handelse": "simmarnas-grotta",
+    "status": "klar",
+    "skal": [
+      "GFDL anges också (dubbellicens)"
+    ],
+    "todo": [
+      "liten källbild (800 × 534 px): bilden förstoras till 800 × 600",
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:WadiSuraSingleSwimmer.jpg",
+      "titel": "WadiSuraSingleSwimmer",
+      "upphovsperson": "Roland Unger",
+      "credit_rad_i_metadata": "Own work Firstly published at Wikivoyage",
+      "datum": "2011-03-12",
+      "beskrivning_i_metadata": "Painting of swimmers in the Cave of the Swimmers, Wadi Sura, Gilf Kebir, Western Desert, Egypt",
+      "mime": "image/jpeg",
+      "bredd": 800,
+      "hojd": 534,
+      "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/00/WadiSuraSingleSwimmer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "licens_api": "CC BY-SA 3.0",
+      "licensmallar": [
+        "self|GFDL",
+        "self|cc-by-sa-3.0,2.5,2.0,1.0"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-simmarnas-grotta",
+      "title": "WadiSuraSingleSwimmer – Roland Unger (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:WadiSuraSingleSwimmer.jpg",
+      "license": "CC BY-SA 3.0",
+      "checked": "2026-11-22",
+      "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{self|GFDL}}, {{self|cc-by-sa-3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0."
+    },
+    "image": {
+      "file": "images/events/simmarnas-grotta.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC BY-SA 3.0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC BY-SA 3.0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC BY-SA 3.0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC BY-SA 3.0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC BY-SA 3.0."
+      },
+      "credit": "Roland Unger / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": "commons-bild-simmarnas-grotta"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC BY-SA 3.0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC BY-SA 3.0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC BY-SA 3.0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC BY-SA 3.0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC BY-SA 3.0."
+      },
+      "credit": "Roland Unger / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": "commons-bild-simmarnas-grotta",
+      "id": "simmarnas-grotta"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2104-2105/simmarnas-grotta.webp",
+      "bytes": 117120
+    }
+  },
+  {
+    "ref": "File:Haches et herminettes provenant de villages du Dhar Tichitt.jpg",
+    "kalla": "commons",
+    "handelse": "dhar-tichitt",
+    "status": "klar",
+    "skal": [],
+    "todo": [
+      "liten källbild (465 × 500 px): bilden förstoras till 800 × 600",
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:Haches_et_herminettes_provenant_de_villages_du_Dhar_Tichitt.jpg",
+      "titel": "Haches et herminettes provenant de villages du Dhar Tichitt",
+      "upphovsperson": "Sylvie Amblard-Pison",
+      "credit_rad_i_metadata": "https://journals.openedition.org/afriques/1496",
+      "datum": "2014",
+      "beskrivning_i_metadata": "Axes and adzes from villages in Dhar Tichitt",
+      "mime": "image/jpeg",
+      "bredd": 465,
+      "hojd": 500,
+      "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Haches_et_herminettes_provenant_de_villages_du_Dhar_Tichitt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "licens_api": "CC BY 4.0",
+      "licensmallar": [
+        "cc-by-4.0"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-dhar-tichitt",
+      "title": "Haches et herminettes provenant de villages du Dhar Tichitt – Sylvie Amblard-Pison (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:Haches_et_herminettes_provenant_de_villages_du_Dhar_Tichitt.jpg",
+      "license": "CC BY 4.0",
+      "checked": "2026-11-22"
+    },
+    "image": {
+      "file": "images/events/dhar-tichitt.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC BY 4.0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC BY 4.0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC BY 4.0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC BY 4.0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC BY 4.0."
+      },
+      "credit": "Sylvie Amblard-Pison / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": "commons-bild-dhar-tichitt"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC BY 4.0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC BY 4.0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC BY 4.0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC BY 4.0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC BY 4.0."
+      },
+      "credit": "Sylvie Amblard-Pison / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": "commons-bild-dhar-tichitt",
+      "id": "dhar-tichitt"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2104-2105/dhar-tichitt.webp",
+      "bytes": 45432
+    }
+  },
+  {
+    "ref": "File:Nok Kultur, Nigeria. Fragment eines Gefäßes mit mehreren Figuren im Halbrelief..jpg",
+    "kalla": "commons",
+    "handelse": "nok-kulturen",
+    "status": "klar",
+    "skal": [],
+    "todo": [
+      "liten källbild (368 × 553 px): bilden förstoras till 800 × 600",
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:Nok_Kultur,_Nigeria._Fragment_eines_Gef%C3%A4%C3%9Fes_mit_mehreren_Figuren_im_Halbrelief..jpg",
+      "titel": "Nok Kultur, Nigeria. Fragment eines Gefäßes mit mehreren Figuren im Halbrelief.",
+      "upphovsperson": "Nicotta",
+      "credit_rad_i_metadata": "Own work",
+      "datum": "2011-09-28",
+      "beskrivning_i_metadata": "Nok Kultur, Nigeria. Fragment eines Gefäßes mit mehreren Figuren im Halbrelief.",
+      "mime": "image/jpeg",
+      "bredd": 368,
+      "hojd": 553,
+      "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/00/Nok_Kultur%2C_Nigeria._Fragment_eines_Gef%C3%A4%C3%9Fes_mit_mehreren_Figuren_im_Halbrelief..jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "licens_api": "CC BY-SA 3.0",
+      "licensmallar": [
+        "self|cc-by-sa-3.0"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-nok-kulturen",
+      "title": "Nok Kultur, Nigeria. Fragment eines Gefäßes mit mehreren Figuren im Halbrelief. – Nicotta (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:Nok_Kultur,_Nigeria._Fragment_eines_Gef%C3%A4%C3%9Fes_mit_mehreren_Figuren_im_Halbrelief..jpg",
+      "license": "CC BY-SA 3.0",
+      "checked": "2026-11-22"
+    },
+    "image": {
+      "file": "images/events/nok-kulturen.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC BY-SA 3.0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC BY-SA 3.0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC BY-SA 3.0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC BY-SA 3.0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC BY-SA 3.0."
+      },
+      "credit": "Nicotta / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": "commons-bild-nok-kulturen"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC BY-SA 3.0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC BY-SA 3.0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC BY-SA 3.0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC BY-SA 3.0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC BY-SA 3.0."
+      },
+      "credit": "Nicotta / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": "commons-bild-nok-kulturen",
+      "id": "nok-kulturen"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2104-2105/nok-kulturen.webp",
+      "bytes": 60204
+    }
+  },
+  {
+    "ref": "File:Stele Piye submission Mariette.jpg",
+    "kalla": "commons",
+    "handelse": "piye-erovrar-egypten",
+    "status": "klar",
+    "skal": [],
+    "todo": [
+      "liten källbild (697 × 464 px): bilden förstoras till 800 × 600",
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:Stele_Piye_submission_Mariette.jpg",
+      "titel": "Stele Piye submission Mariette",
+      "upphovsperson": "Auguste Mariette (1821-1881)",
+      "credit_rad_i_metadata": "This image has been extracted from another file",
+      "datum": "2014-04-24 17:40:07",
+      "beskrivning_i_metadata": "Drawing of the upper-right part of the victory stele of pharaoh Piye, depicting Piye being tributed by four Nile Delta rulers: Nimlot (holding an horse) and his queen (before him), Osorkon IV, Iuput II and Peftjauawybast [see note for details]. Original stele in granite, found at Jebel Barkal and datable to the reign of Piye, 25th dynasty, now in the Cairo Museum.",
+      "mime": "image/jpeg",
+      "bredd": 697,
+      "hojd": 464,
+      "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Stele_Piye_submission_Mariette.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "licens_api": "Public domain",
+      "licensmallar": [
+        "PD-old-auto-1923"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-piye-erovrar-egypten",
+      "title": "Stele Piye submission Mariette – Auguste Mariette (1821-1881) (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:Stele_Piye_submission_Mariette.jpg",
+      "license": "Public domain",
+      "checked": "2026-11-22"
+    },
+    "image": {
+      "file": "images/events/piye-erovrar-egypten.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "Auguste Mariette (1821-1881) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-piye-erovrar-egypten"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "Auguste Mariette (1821-1881) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-piye-erovrar-egypten",
+      "id": "piye-erovrar-egypten"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2104-2105/piye-erovrar-egypten.webp",
+      "bytes": 88672
+    }
+  },
+  {
+    "ref": "File:Pyramids of Nuri.jpg",
+    "kalla": "commons",
+    "handelse": "kungapyramiderna-i-nuri",
+    "status": "klar",
+    "skal": [],
+    "todo": [
+      "liten källbild (800 × 593 px): bilden förstoras till 800 × 600",
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:Pyramids_of_Nuri.jpg",
+      "titel": "Pyramids of Nuri",
+      "upphovsperson": "Vit Hassan",
+      "credit_rad_i_metadata": "originally posted to Flickr as -Monuments-",
+      "datum": "2009-06-18 11:42:40",
+      "beskrivning_i_metadata": "The pyramid field of Nuri contained 21 kings together with 52 queens and princesess . The first to build his tomb at Nuri was king Taharqa. His pyramid had 51.75 m square and 40 or 50 m high. Taharqa subterranean chambers are the most elaborate of any Kushite tomb. The entrance was by an eastern stairway trench , north of the pyramid's central axis, reflecting the alignment of the original smaller pyramid. Three steps led to a doorway, with a moulded frame, that opened to a tunnel, widened and heightened into an antechamber with a barrel-vaulted ceiling. Six massive pillars carved from the natural rock divide the burial chamber into two side aisles and a central nave, each with a barrel-vaulted ceiling. The entire chamber was surrounded by a moat-like corridor entered steps leading down from in front of the antechamber doorway. After Taharqa 21 kings and 53 queens and princesess were buried at Nuri under pyramids of good masonry, using blocks of local red sandstone. The Nuri pyramids were generally much larger than those at el-Kurru, reaching heights of 20 to 30 m. The last king to be buried at Nuri died in about 308 BC. Taken in Nuri,Northern Sudan. Check my set: Pyramids & templeS: <a href=\" https://www.flickr.com/photos/vithassan/sets/72157594264778397/ \">www.flickr.com/photos/vithassan/sets/72157594264778397/</a>",
+      "mime": "image/jpeg",
+      "bredd": 800,
+      "hojd": 593,
+      "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Pyramids_of_Nuri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "licens_api": "CC BY-SA 2.0",
+      "licensmallar": [
+        "cc-by-sa-2.0"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-kungapyramiderna-i-nuri",
+      "title": "Pyramids of Nuri – Vit Hassan (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:Pyramids_of_Nuri.jpg",
+      "license": "CC BY-SA 2.0",
+      "checked": "2026-11-22"
+    },
+    "image": {
+      "file": "images/events/kungapyramiderna-i-nuri.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC BY-SA 2.0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC BY-SA 2.0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC BY-SA 2.0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC BY-SA 2.0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC BY-SA 2.0."
+      },
+      "credit": "Vit Hassan / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": "commons-bild-kungapyramiderna-i-nuri"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC BY-SA 2.0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC BY-SA 2.0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC BY-SA 2.0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC BY-SA 2.0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC BY-SA 2.0."
+      },
+      "credit": "Vit Hassan / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": "commons-bild-kungapyramiderna-i-nuri",
+      "id": "kungapyramiderna-i-nuri"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2104-2105/kungapyramiderna-i-nuri.webp",
+      "bytes": 48798
+    }
+  }
+]
