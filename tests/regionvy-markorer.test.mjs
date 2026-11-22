@@ -447,3 +447,10 @@ test('landsmarginalen (#1690): Australien får namn vid Aotearoa, på sidan mot 
   const shown = placeNames(cands.map(at), { W: 600, H: 100, measure: () => 60, max: 3 });
   assert.deepEqual(shown.map(n => n.id), ['nb-2', 'o', 's']);
 });
+
+test('orter som alltid tas med (#2157): Visby står i Sveriges ortnamn, med namn ur Natural Earth på alla språk', () => {
+  const visby = read('data/ortnamn/sverige.json').places.find(p => p.id === 'ne-1159134137');
+  assert.ok(visby, 'Visby saknas i data/ortnamn/sverige.json; kör python3 tools/ortnamn.py');
+  for (const l of ['sv', 'en', 'de', 'es', 'fr']) assert.equal(visby.name[l], 'Visby');
+  assert.ok(Math.abs(visby.coordinates[0] - 18.3) < 0.05 && Math.abs(visby.coordinates[1] - 57.63) < 0.05, 'Visby ligger på Gotland');
+});

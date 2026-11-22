@@ -95,6 +95,12 @@ SEA_EAST_LIMIT = {
 NAME_OVERRIDES = {
     1159151045: {'wikidata': 'Q1723761', 'name': {'sv': 'Naujaat'}},
 }
+# Orter i Natural Earth som alltid tas med i en plats fil, också när urvalet stannar vid MAX_PLACES (#2157): plats -> NE_ID.
+# Visby (SCALERANK 7) föll bort i Sveriges ram, som också räcker till Berlin, Riga och Sankt Petersburg, fast det är Gotlands
+# enda stad med en egen ort i Natural Earth (geografens granskning före v6.5.0). De läggs sist bland Natural Earths orter.
+ALWAYS = {
+    'sverige': (1159134137,),  # Visby
+}
 
 
 def load(cache, key):
@@ -343,7 +349,9 @@ def build(place, ne_places, marine, countries):
             found.append((weight, p['SCALERANK'], -(p.get('POP_MAX') or 0), p['NE_ID'], p, x, y))
     found.sort(key=lambda t: (t[0], t[2], t[3]))
     out['places'] = []
-    for _, rank, _, ne_id, p, x, y in found[:MAX_PLACES]:
+    keep = set(ALWAYS.get(place['id'], ()))
+    chosen = found[:MAX_PLACES] + [t for t in found[MAX_PLACES:] if t[3] in keep]
+    for _, rank, _, ne_id, p, x, y in chosen:
         nm, fb = names(p, True)
         fix = NAME_OVERRIDES.get(ne_id)
         if fix:
