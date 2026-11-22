@@ -53,6 +53,16 @@ Tillåtet (CLAUDE.md, Bilder punkt 1): public domain, CC0, CC BY, CC BY-SA och L
 - Profeten Muhammed avbildas aldrig. Reglerna om respekt i CLAUDE.md, Bilder punkt 4, gäller.
 - Skriv bildtexten på svenska först, och översätt den till en, de, es och fr i samma pull request (CLAUDE.md, Språk). Översättningen ändrar aldrig fakta.
 
+## Standard sedan 2026-11-22 (beslut 2026-11-22, bildpipelinen som standard)
+
+- **En omgång är 30–40 händelser**, till exempel två bildissues, i en och samma pull request. Texten skriver "Del av #N" för varje issue.
+- **Arbeta utifrån granskningslistan** (`tools/bildbatch.py`, steg 3 nedan). Öppna filsidan bara för den kandidat du väljer, och sök själv bara för viktiga händelser utan kandidat.
+- **Kör `bild_hamta.py` med `--ej-hamtade`.** Vänta aldrig på 429; listan hämtas om i Actions (`.github/workflows/bild-ej-hamtade.yml`, Run workflow med grenen och omgångens namn).
+- **Skärmbilder tas i var tredje omgång:** när numret på det första issuet är delbart med 3. Annars skriver pull requesten "Skärmbilder: nej (tas i var tredje bildomgång, beslut 2026-11-22)".
+- **Kör testsviten och bygget en gång** när allt är klart, och igen bara om något föll.
+- **Rättningar efter granskningen görs av en ny, liten arbetare** med en kort order, inte av byggaren.
+- **Måttet:** licensfel noll. Andelen med bild jämförs per världsdel (golvet i Afrika är 44 %).
+
 ## Ordningen, steg för steg
 
 1. Ta issuet enligt "Etiketterna `redo` och `pågår`" i CLAUDE.md (kommentar, `pågår`, tilldelning, modellnivårad: licens och källor kräver Opus eller motsvarande).
