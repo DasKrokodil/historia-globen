@@ -6000,6 +6000,75 @@ async function run(browser, vp) {
     }
   });
 
+  // #2154: prova både måtten och det som faktiskt tar emot ett tryck.
+  const provaPlatskarta = async ({ width, height, place, touch, test }) => {
+    const options = { viewport: { width, height }, hasTouch: touch, reducedMotion: 'reduce' };
+    const ctx = await newTestContext(browser, options);
+    const pg = await ctx.newPage();
+    const errors = [];
+    pg.on('pageerror', e => errors.push(e.message));
+    if (THREE_LOCAL) await pg.route(THREE_URL, route => route.fulfill({ contentType: 'application/javascript', path: THREE_LOCAL }));
+    try {
+      await pg.addInitScript(() => localStorage.setItem('hg-year-tip', '1'));
+      await pg.goto(`${BASE}?lang=sv#y=1800&f=place:${place}`);
+      const action = pg.locator('#detail [data-selection-action]');
+      await action.waitFor({ state: 'visible', timeout: T.load });
+      const clear = async selector => {
+        const obstruction = await pg.locator(selector).evaluate(el => {
+          const r = el.getBoundingClientRect();
+          for (const y of [r.top + 8, r.top + r.height / 2, r.bottom - 8]) {
+            const hit = document.elementFromPoint(r.left + r.width / 2, y);
+            if (!el.contains(hit)) return hit?.id || hit?.className || 'utanför bilden';
+          }
+          return null;
+        });
+        if (obstruction) throw new Error(`${selector} täcks av ${obstruction}`);
+      };
+      const open = async back => {
+        await action.focus();
+        await pg.keyboard.press('Enter');
+        await pg.locator(`#${back}`).waitFor({ state: 'visible', timeout: T.step });
+        await pg.waitForFunction(id => document.activeElement?.id === id, back, { timeout: T.step });
+      };
+      const result = await test(pg, open, clear);
+      if (errors.length) throw new Error(errors.join(' | '));
+      return result;
+    } finally { await stangSida(ctx); }
+  };
+
+  await check('platskartan lämnar årtalet fritt i liggande telefon (#2154)', () =>
+    provaPlatskarta({ width: 800, height: 360, place: 'aotearoa', touch: true, test: async (pg, open, clear) => {
+      await open('globe-region-back');
+      await clear('#year-big');
+      return 'årtalet och Lämna platsens karta går att nå';
+    } }));
+
+  await check('platskartan har läsbart stängt ark och fri karta i halvt läge (#2154)', () =>
+    provaPlatskarta({ width: 400, height: 800, place: 'skane', touch: true, test: async (pg, open, clear) => {
+      await open('flat-region-back');
+      const title = pg.locator('#detail[data-sheet="closed"] .place-head h3');
+      await title.waitFor({ state: 'visible', timeout: T.step });
+      if ((await title.innerText()).trim() !== 'Skåne') throw new Error('platsnamnet saknas i stängt ark');
+      await pg.locator('#detail-handle').press('ArrowUp');
+      await pg.waitForFunction(() => {
+        const card = document.querySelector('#detail[data-sheet="half"]');
+        const flat = document.querySelector('#flat-view');
+        const box = flat.dataset.regionBox?.split(',').map(Number);
+        const canvas = document.querySelector('#flat-canvas').getBoundingClientRect();
+        if (!card || !box || box[2] - box[0] < 80 || box[3] - box[1] < 80) return false;
+        return canvas.top + box[3] < card.getBoundingClientRect().top;
+      }, null, { timeout: T.step });
+      await clear('#flat-labels .rbrick');
+      return 'Skånes ram ligger ovanför arket och brickan går att trycka på';
+    } }));
+
+  await check('platskartan går att öppna från platskortet vid 200 % zoom (#2154)', () =>
+    provaPlatskarta({ width: 640, height: 400, place: 'skane', touch: false, test: async (pg, open, clear) => {
+      await clear('#detail [data-selection-action]');
+      await open('flat-region-back');
+      return 'Visa på kartan ligger över fokusraden och Enter flyttar fokus till kartan';
+    } }));
+
   // #1952: regionvyn på en liggande telefon. Rutan, platskortet och fokusraden täckte 79–87 % av bilden vid 800 × 360 och 640 × 360, och
   // platsens markörer låg utanför skärmen. Medan regionvyn är öppen i en låg liggande yta (högst 480 px, css/style.css och
   // js/controllers/region.js) fälls kortet ihop, knapparna överst göms och fokusraden och rutan blir en rad var. Provet öppnar Aotearoa
