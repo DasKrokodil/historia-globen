@@ -175,6 +175,22 @@ Kontrollerat 2026-11-22 med granskningslistan `data/utkast/bildbatch/2107.md`.
 | `digerdoden-i-egypten` | Listans kandidater ur sökning är en gatubild från Kairo 1870 och utgrävningsfoton från Heliopolis 1903–1906, som inte visar pesten. |
 | `salomoniska-dynastin-tar-makten` | Listans kandidat (File:Yekuno Amlak.jpg): ursprung och datering saknas på filsidan (bara ett diskussionsforum som källa), så licensen går inte att belägga. Borttagen efter granskning av PR #2188. |
 
+## Afrika 1921–1968, del 8 av 9 (#2110, 2026-11-22)
+
+Sökt i kandidatlistan `data/utkast/bildkandidater.json` och på Wikimedia Commons 2026-11-22, licensen läst i filsidans wikitext (`action=raw`).
+
+| Händelse (id) | Skäl |
+|---|---|
+| `kimbangu-predikar-1921` | Det enda samtida fotot av Simon Kimbangu på Commons är 400 px brett och har mallen PD-US-expired utan någon källa (bara "Simon Kimbangu in the early 20th century"). Övriga träffar är nutida foton av museet i Nkamba och målningar från 2025. Library of Congress svarade HTTP 429. |
+| `brazzavillekonferensen-1944` | Fotot av Charles de Gaulle som öppnar konferensen ([filsidan](https://commons.wikimedia.org/wiki/File:Charles_de_Gaulle_opening_the_Brazzaville_Conference,_1944.jpg)) har PD-US-not renewed för ett franskt foto från 1944; filsidan visar inte att bilden först publicerades i USA och anger ingen status i Frankrike. |
+| `ethiopian-airlines-grundas-1945` | Bilderna av bolagets Douglas DC-3 på Commons har bara GFDL, som inte är tillåten. Wikidatas bild är ett nutida flygplan (2025). Library of Congress svarade inte inom 30 sekunder. |
+| `afrikas-ar-1960` | Wikidatas bild är en nutida karta med självständighetsår, där filsidans licensmall bara säger GFDL (med `migration=relicense`), medan API:et säger CC BY-SA 3.0. Ingen fri bild från 1960 hittades, bara små frimärken. |
+| `biafra-utropas` | Inga samtida foton av Ojukwu eller utropandet. Det enda fotot av Ojukwu från 1969 är märkt som uppladdarens eget verk (CC0) och är 328 px brett, så ursprunget är oklart. Library of Congress gav inga träffar. |
+| `enugu-faller-1967` | Bara nutida foton från delstaten Enugu (djur, landskap). |
+| `massakern-i-asaba` | Ingen bild av händelsen eller av Asaba vid den tiden. |
+| `port-harcourt-1968` | Bara nutida foton av staden (2023, 2024). |
+| `torkan-i-sahel` | Wikidatas bild är en karta över regnmängden 2007, inte torkan 1968–1973. Ingen fri bild av torkan hittades. |
+
 ### Ej hämtad, prövas igen
 
 | Händelse (id) | Hinder |
@@ -199,3 +215,5 @@ Tio av 18 händelser fick en bild från Wikimedia Commons (licensen kontrollerad
 | `oyoriket` | Den enda kandidaten är ett foto av palatset i Oyo från "mitten av 1900-talet", hämtat från en webbplats, med mallen PD-old (upphovspersonen död för mer än 70 år sedan). Det går inte att kontrollera för ett foto från 1900-talet utan känd fotograf. Bilden är dessutom smal (500 px). |
 | `asanteriket-grundas` | Den enda kandidaten är en liten karta (428 px) ur en engelsk atlas från 1800-talet, utan uppgift om källa, upphov eller år. |
 | `shaka-bygger-zuluriket` | Kandidaten är ett foto av monumentet Spirit of eMakhosini, ett monument från 2003. Sydafrika saknar frihet för panorama för konstverk enligt Commons (Commons:Copyright rules by territory/South Africa), och filsidan har varken NoFoP-mall eller konstnärens tillstånd. Bilden lades först in i #2190 och togs bort efter granskningen. |
+
+| `ancs-ungdomsforbund-grundas-1944` | Vald bild: [Sisulu wedding with mandela and lembede.JPG](https://commons.wikimedia.org/wiki/File:Sisulu_wedding_with_mandela_and_lembede.JPG) (1944, PD-South-Africa enligt filsidan, okänd fotograf), Walter och Albertina Sisulus bröllop med Nelson Mandela och Anton Lembede. Licensen är läst, men själva filen på upload.wikimedia.org gav HTTP 429 med Retry-After 600 s vid två körningar (08:04 och 08:11 UTC). |
