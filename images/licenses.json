@@ -3108,21 +3108,6 @@
       }
     },
     {
-      "eventId": "salomoniska-dynastin-tar-makten",
-      "eventTitle": "Yekuno Amlak grundar den salomoniska dynastin",
-      "file": "images/events/salomoniska-dynastin-tar-makten.webp",
-      "kind": "historisk",
-      "credit": "Okänd konstnär / Wikimedia Commons",
-      "license": "Public domain",
-      "source": {
-        "id": "commons-bild-salomoniska-dynastin-tar-makten",
-        "title": "Yekuno Amlak – Unknown author Unknown author (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Yekuno_Amlak.jpg",
-        "license": "Public domain",
-        "checked": "2026-11-22"
-      }
-    },
-    {
       "eventId": "saltmarschen",
       "eventTitle": "Gandhis saltmarsch",
       "file": "images/events/saltmarschen.webp",

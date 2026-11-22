@@ -150,6 +150,7 @@ Kontrollerat 2026-11-22 med granskningslistan `data/utkast/bildbatch/2107.md`.
 | `svalten-i-egypten-1200` | Ingen kandidat i listan. Egen sökning gav bara PDF-skanningar av senare översättningar av Abd al-Latif al-Baghdadis bok (1800 och 1810), ingen bild. |
 | `slaget-vid-kirina` | Listans enda kandidat (Wikidatas bild, 2019) visar enligt filsidans kategorier Kurukan Fuga och Mandékans stadga, inte slaget. |
 | `digerdoden-i-egypten` | Listans kandidater ur sökning är en gatubild från Kairo 1870 och utgrävningsfoton från Heliopolis 1903–1906, som inte visar pesten. |
+| `salomoniska-dynastin-tar-makten` | Listans kandidat (File:Yekuno Amlak.jpg): ursprung och datering saknas på filsidan (bara ett diskussionsforum som källa), så licensen går inte att belägga. Borttagen efter granskning av PR #2188. |
 
 ### Ej hämtad, prövas igen
 
