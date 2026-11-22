@@ -128,6 +128,66 @@ Granskningen är alltså ungefär en tiondel av byggarnas kostnad.
 - Konkret: kortare uppdrag att läsa in, skärmbilder och hela testsviten en gång per omgång i stället för flera, inga omtag av skärmbilder, och omgångar som inte drar ut på tiden på grund av 429.
 - Förbättringarna i #2193 minskar granskningens fynd. Steg B ska visa om de också minskar antalet anrop.
 
+## Steg B: efter förbättringarna i #2200 (2026-11-22)
+
+DasKrokodil beslutade att följa rekommendationerna (#2195): bygga #2193 (#2200) och sedan göra steg B med samma mått och verklig tokenmätning. Steg B gjordes på #2106 och #2111. Fler gick inte att ta, eftersom taket är sex öppna bild-pull requests per person. Uppdraget var detsamma som i steg A; bara verktygen var nya.
+
+**Rättningar gjordes av en ny, liten arbetare** med en kort order, i stället för av byggaren. Byggaren hade ett långt sammanhang som gjorde rättningarna dyra i steg A.
+
+| Issue och PR | Händelser | Bild efter granskning | Ej hämtad (429) | Ingen fri bild | Tid till PR | Rättning | Bygge (viktat) | Rättning (viktat) | Summa |
+| --- | ---: | ---: | ---: | ---: | --- | --- | ---: | ---: | ---: |
+| #2106, [#2202](https://github.com/DasKrokodil/historia-globen/pull/2202) | 18 | 8 | 2 | 8 | 12 min | 3,5 min, och main ihopslagen | 1,68 miljoner | 0,68 miljoner | 2,36 miljoner |
+| #2111, [#2204](https://github.com/DasKrokodil/historia-globen/pull/2204) | 17 | 8 | 0 | 9 | 15 min | 5 min, och main ihopslagen | 1,39 miljoner | 0,79 miljoner | 2,18 miljoner |
+
+**Jämförelse:**
+- **Kostnaden för att bygga, före rättningar, räknat ur loggarna:**
+
+  | Omgång | Viktad kostnad | Jämfört med kontrollen |
+  | --- | ---: | ---: |
+  | Steg B, i snitt | 1,54 miljoner | **−28 %** |
+  | Steg A, i snitt (1,54 / 2,41 / 1,82) | 1,92 miljoner | −10 % |
+  | Kontrollen #2110 | 2,14 miljoner | – |
+
+- **Hela kostnaden med rättningar:** steg B 2,27 miljoner i snitt, steg A 2,86, och kontrollen 2,74. Steg B är **−17 %** mot kontrollen.
+- **Rättningarna med en ny arbetare** kostade 0,68 och 0,79 miljoner, och då ingick att slå ihop main. Det är ungefär lika mycket som steg A:s två rättningsomgångar per issue (0,6–1,0 miljoner), men steg A slog inte ihop main.
+- **Andel med bild:**
+
+  | Omgång | Med bild | Utan de "ej hämtade" |
+  | --- | --- | --- |
+  | Steg B | 16 av 35 = 46 % | 48 % |
+  | Steg A | 52 % | – |
+  | Kontrollen | 44 % | – |
+
+  Inget av dem når 65 %. Det kravet kom från en omgång i Europa (#2170). I Afrika finns färre fria bilder: kandidatlistan saknade kandidat för 11 av 18 händelser i #2106.
+- **Licensfel som når `main`:** 0. Granskningen stoppade Sydsudan-bilden: licensmallen stämde inte med upphovet, och Flickr-licensen gick inte att kontrollera.
+- **Granskningens kostnad:** historikern 0,27 och 0,30 miljoner, den samlade språkgranskningen 0,20 miljoner, och de fem expertgranskningarna av barnsoldatbilden 0,11–0,13 miljoner var.
+
+**Vad förbättringarna gav:**
+- Beskrivningen i listan sparade öppnade filsidor. Lydenburgs kandidater visade sig vara ormar redan i listan.
+- `passa-in` ersatte handbeskärningen.
+- `--ej-hamtade` gjorde att arbetarna slapp vänta på 429.
+- Byggarna gjorde färre anrop: 72 och 54, mot 66–96 i steg A och 82 i kontrollen.
+
+**Fynd i steg B som redan är rättade i #2200:**
+- GFDL med `migration=relicense` räknas nu som CC BY-SA 3.0, så två bilder valdes bort i onödan.
+- `passa-in` gav svart bakgrund på genomskinliga bilder.
+- `konstverk` flaggade antika föremål, kartor och en kyrkogård.
+- `staende` mäter nu hur mycket av höjden 4:3-utsnittet tar bort.
+
+**Kvar att göra:** kandidatlistan saknar kandidater för många händelser i Afrika. En ny körning av `bildkandidater.py` med bättre söktext kan ge fler.
+
+**Slutsats efter steg B:**
+- Byggkostnaden ligger nära målet (−28 % mot 30 %), och hela kostnaden är −17 %.
+- Pipelinen är snabbare än det gamla sättet och ger lika många eller fler bilder, utan fler licensfel.
+- Måttet för andel med bild bör sättas per världsdel.
+
+## Rekommendation till DasKrokodil efter steg B
+
+1. **Gör pipelinen till standard för bildissuesen**, med rättningar av en ny, liten arbetare. Den är billigare och snabbare än det gamla sättet.
+2. **Sätt måttet för andel med bild per världsdel**, till exempel kontrollens nivå som golv i Afrika (44 %). Behåll licensfel noll och full granskning.
+3. **De fasta kostnaderna** (fråga 2 i #2195) är nästa hävstång: större omgångar, skärmbilder för ett urval, och de "ej hämtade" i Actions. Avgör dem innan alla 58 återstående bildissues körs.
+4. **Ramstilen** för känsliga foton (fråga 4) är fortfarande öppen.
+
 ## Övriga fynd
 
 - Ett möjligt sakfel i en händelsetext, "Tyskland erkände 2015", ska kontrolleras: #2194.
