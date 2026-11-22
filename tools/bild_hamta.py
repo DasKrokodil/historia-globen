@@ -473,7 +473,13 @@ def _bilder_in():
 def passa_in(src, dst, bi):
     """Hela bilden inpassad i 800 × 600 på en kant i bildens egen kantfärg (medianen av ytterkanten), utan beskärning (#2193)."""
     from PIL import Image, ImageStat
-    img = Image.open(src).convert('RGB')
+    img = Image.open(src)
+    if img.mode in ('RGBA', 'LA', 'P') and ('A' in img.mode or 'transparency' in img.info):
+        # Genomskinlig bild (till exempel en SVG-karta som PNG): lägg den på vitt, annars blir bakgrunden svart (#2193)
+        rgba = img.convert('RGBA')
+        vit = Image.new('RGBA', rgba.size, (255, 255, 255, 255))
+        img = Image.alpha_composite(vit, rgba)
+    img = img.convert('RGB')
     w, h = img.size
     kant = Image.new('RGB', (w * 2 + h * 2, 1))
     for i, px in enumerate(list(img.crop((0, 0, w, 1)).getdata()) + list(img.crop((0, h - 1, w, h)).getdata())

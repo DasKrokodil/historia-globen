@@ -83,15 +83,21 @@ def licensmallar(wikitext):
         low = re.sub(r'[\s_]+', '-', namn.lower())
         if any(low.startswith(v) for v in VARNINGSMALLAR):
             varningar.append(namn)
+        # Licensmigreringen 2009: en GFDL-fil märkt migration=relicense är också licensierad under CC BY-SA 3.0 (#2193)
+        flyttad = any(re.sub(r'\s+', '', d.lower()) == 'migration=relicense' for d in delar[1:])
         if low in ('self', 'self2') or low.startswith('self-'):
             for d in delar[1:]:
                 k = klassa_mall(d)
                 if k:
                     hittade.append((f'{namn}|{d}', *k))
+                    if k[0] == 'gfdl' and flyttad:
+                        hittade.append((f'{namn}|{d}|migration=relicense', 'by-sa', 'CC BY-SA 3.0'))
             continue
         k = klassa_mall(namn)
         if k:
             hittade.append((namn, *k))
+            if k[0] == 'gfdl' and flyttad:
+                hittade.append((f'{namn}|migration=relicense', 'by-sa', 'CC BY-SA 3.0'))
     unika, sett = [], set()
     for h in hittade:
         if (h[1], h[2]) not in sett:

@@ -150,6 +150,10 @@ def main():
 
     # --- risker som inte stoppar men ska synas (#2193): PD bara i USA, PD-self med annan licens, eget verk av gammal bild,
     # mall om panoramafrihet, versionslös cc-by-sa-all och dubblerat upphovsnamn
+    r = bh.licensmallar('{{GFDL-user-en|Exempel|migration=relicense}}')[0]
+    check(('by-sa', 'CC BY-SA 3.0') in {(m[1], m[2]) for m in r}, f'GFDL med migration=relicense ska ge CC BY-SA 3.0: {r}')
+    check(('by-sa', 'CC BY-SA 3.0') not in {(m[1], m[2]) for m in bh.licensmallar('{{GFDL-user-en|Exempel|migration=not-eligible}}')[0]},
+          'GFDL utan migrering ska inte bli CC BY-SA')
     r = bh.licensmallar('{{self|GFDL|cc-by-sa-all}}')[0]
     check(('by-sa', 'CC BY-SA') in {(m[1], m[2]) for m in r}, f'cc-by-sa-all ska kännas igen: {r}')
     bed = bh.bedom_commons({'LicenseShortName': {'value': 'CC BY-SA 3.0'}}, '{{self|GFDL|cc-by-sa-all}}', IDAG)
@@ -412,6 +416,17 @@ def main():
                 check(r > 150 and g < 80, f'den röda randen överst ska finnas kvar efter passa-in, fick {(r, g, b)}')
                 kr, kg, kb = ut.convert('RGB').getpixel((20, 300))
                 check(abs(kr - 240) < 20 and abs(kg - 230) < 20, f'kanten ska ha bildens egen färg, fick {(kr, kg, kb)}')
+        # En genomskinlig bild får vit och inte svart bakgrund (fynd i steg B)
+        gs = Image.new('RGBA', (800, 400), (0, 0, 0, 0))
+        ImageDraw.Draw(gs).rectangle((300, 100, 500, 300), fill=(0, 100, 0, 255))
+        buf = io.BytesIO()
+        gs.save(buf, 'PNG')
+        with tempfile.TemporaryDirectory() as tmp:
+            dst = Path(tmp) / 'g.webp'
+            bh.konvertera(buf.getvalue(), dst, passa=True)
+            with Image.open(dst) as ut:
+                px = ut.convert('RGB').getpixel((10, 300))
+                check(min(px) > 200, f'genomskinlig bakgrund ska bli vit, fick {px}')
 
     print('bild-hamta-test: ok')
 

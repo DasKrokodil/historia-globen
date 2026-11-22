@@ -97,6 +97,11 @@ def test_flaggor_efter_piloten():
     monument = kand('e', kategorier=['Monuments and memorials in KwaZulu-Natal', '2003 sculptures'])
     assert 'konstverk' in bb.flaggor(monument, e)
     assert 'konstverk' not in bb.flaggor(kand('f', kategorier=['Battles of X']), e)
+    # Fynd i steg B: antika föremål, kartor och nästan kvadratiska bilder ska inte flaggas
+    assert 'konstverk' not in bb.flaggor(kand('g', kategorier=['Igbo-Ukwu bronzes', '9th-century sculptures']), e)
+    assert 'konstverk' not in bb.flaggor(kand('h', kategorier=['Maps of South Sudan', 'Monuments']), e)
+    assert 'staende' in bb.flaggor(dict(kand('i'), bredd=1080, hojd=1143), e)  # utsnittet tar bort 29 % av höjden
+    assert 'staende' not in bb.flaggor(dict(kand('j'), bredd=1600, hojd=1300), e)  # 8 %
 
 
 def test_samma_fil_och_stil():
