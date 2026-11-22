@@ -142,7 +142,7 @@ data/ui/              gränssnittets texter: sprak.json (språken, vem som över
 data/religions.json   religioner som områden (statsreligion per rike ur Cliopatria) och faktarutor
 data/religions-polities.json  rikenas områden per religion och period, laddas vid klick (tools/religioner_riken.py)
 data/styles.json      bildstilar efter tidsålder och plats (ramar och promptar)
-data/utkast/          utkast från massimport (draft), läses inte av appen; hced.json byggs med tools/hced.py
+data/utkast/          utkast från massimport (draft), läses inte av appen; hced.json byggs med tools/hced.py, bildkandidater/ med tools/bildkandidater.py och bildbatch/ med tools/bildbatch.py (granskningslistor, #2183); program skriver bara hit (beslut 2026-11-22)
 images/events/        bilder till händelser, <händelse-id>.webp, 800 × 600
 images/licenses.json  genererat register över händelsebildernas licenser (#393)
 images/karta/         kartbilder till upptäcktsvyn (public domain, ur gamla kartor)

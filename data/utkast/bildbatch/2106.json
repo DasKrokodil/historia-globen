@@ -1,0 +1,735 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "2106",
+  "datum": "2026-11-22",
+  "urval": "ids=18 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "lydenburghuvudena",
+      "titel": "Lydenburghuvudena",
+      "start": 500,
+      "plats": "Lydenburg i Mpumalanga, Sydafrika",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Duberria lutrix lutrix 239266616.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Duberria_lutrix_lutrix_239266616.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Jimmy Whatmore",
+          "datum": "2019-11-23",
+          "beskrivning": "Southern Slugeater ( Duberria lutrix lutrix )",
+          "bredd": 2048,
+          "hojd": 1368,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Duberria_lutrix_lutrix_239266616.jpg/960px-Duberria_lutrix_lutrix_239266616.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1 snake",
+            "Duberria lutrix heads",
+            "Duberria lutrix of Mpumalanga",
+            "Reptiles of Lydenburg"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-zero"
+            ]
+          }
+        },
+        {
+          "fil": "File:Duberria lutrix lutrix 239266418.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Duberria_lutrix_lutrix_239266418.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Jimmy Whatmore",
+          "datum": "2019-11-23",
+          "beskrivning": "Southern Slugeater ( Duberria lutrix lutrix )",
+          "bredd": 2048,
+          "hojd": 1368,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Duberria_lutrix_lutrix_239266418.jpg/960px-Duberria_lutrix_lutrix_239266418.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1 snake",
+            "Duberria lutrix heads",
+            "Duberria lutrix of Mpumalanga",
+            "Reptiles of Lydenburg",
+            "Serpentes facing left"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-zero"
+            ]
+          }
+        },
+        {
+          "fil": "File:Duberria lutrix 239266751.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Duberria_lutrix_239266751.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Jimmy Whatmore",
+          "datum": "2020-01-21",
+          "beskrivning": "Common Slug-eater ( Duberria lutrix )",
+          "bredd": 2048,
+          "hojd": 1368,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Duberria_lutrix_239266751.jpg/960px-Duberria_lutrix_239266751.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1 snake",
+            "Animals of Ehlanzeni District Municipality",
+            "Duberria lutrix heads",
+            "Duberria lutrix of Mpumalanga",
+            "Reptiles of Lydenburg"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-zero"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    },
+    {
+      "id": "arabiska-erovringen-av-egypten",
+      "titel": "Arabiska erövringen av Egypten",
+      "start": 639,
+      "plats": "Egypten, från Babylonfästningen (dagens Gamla Kairo) till Alexandria",
+      "wikidata": "Q317519",
+      "kandidater": [
+        {
+          "fil": "File:فتوح مصر والنوبة.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%D9%81%D8%AA%D9%88%D8%AD_%D9%85%D8%B5%D8%B1_%D9%88%D8%A7%D9%84%D9%86%D9%88%D8%A8%D8%A9.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Dr. Husein Mu'nis et al.",
+          "datum": "1986",
+          "beskrivning": "Map showing the course of the Islamic armies and their conquest of Egypt and Nubia.",
+          "bredd": 1345,
+          "hojd": 1929,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/%D9%81%D8%AA%D9%88%D8%AD_%D9%85%D8%B5%D8%B1_%D9%88%D8%A7%D9%84%D9%86%D9%88%D8%A8%D8%A9.jpg/960px-%D9%81%D8%AA%D9%88%D8%AD_%D9%85%D8%B5%D8%B1_%D9%88%D8%A7%D9%84%D9%86%D9%88%D8%A8%D8%A9.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Arabic-language maps",
+            "Egypt in the 7th century",
+            "Maps of the Rashidun Caliphate",
+            "Maps of the history of Cyprus",
+            "Maps of the history of Egypt",
+            "Maps of the history of Israel",
+            "Maps of the history of Jordan",
+            "Maps of the history of Lebanon",
+            "Maps of the history of Syria",
+            "Maps showing 7th-century history"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Egypt"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "islamisk"
+    },
+    {
+      "id": "kanemriket",
+      "titel": "Kanemriket vid Tchadsjön",
+      "start": 700,
+      "plats": "Kanem, nordöst om Tchadsjön (i dag Tchad)",
+      "wikidata": "Q1139762",
+      "kandidater": [
+        {
+          "fil": "File:Eastern Sahel in Politische Wandkarte von Africa im Maßstabe by Heinrich Kiepert.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Eastern_Sahel_in_Politische_Wandkarte_von_Africa_im_Ma%C3%9Fstabe_by_Heinrich_Kiepert.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Heinrich Kiepert",
+          "datum": "1885",
+          "beskrivning": "H. Kiepert's Politische Wandkarte von Africa im Maßstabe von 1:8,000000. Neubearbeitung von Heinrich Kiepert. Berlin / Verlag von Dietrich Reimer. 3te verbesserte Auflage / 1885.",
+          "bredd": 4669,
+          "hojd": 2399,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Eastern_Sahel_in_Politische_Wandkarte_von_Africa_im_Ma%C3%9Fstabe_by_Heinrich_Kiepert.jpg/960px-Eastern_Sahel_in_Politische_Wandkarte_von_Africa_im_Ma%C3%9Fstabe_by_Heinrich_Kiepert.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1885 maps of Africa",
+            "Maps of Kanem Empire",
+            "Maps of Lake Chad Drainage basin",
+            "Maps of Ouaddai"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-70-expired"
+            ]
+          }
+        },
+        {
+          "fil": "File:Rabih az-Zubayr 1896.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Rabih_az-Zubayr_1896.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Wario2",
+          "datum": "2021-11-18",
+          "beskrivning": "Map showing the Lake Chad region in 1896, highlighting Rabih az-Zubayr's Empire and its vassal Dar al Kuti, showing neighboring states.",
+          "bredd": 825,
+          "hojd": 550,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/62/Rabih_az-Zubayr_1896.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1896 maps of Africa",
+            "Bornu",
+            "Kanem Empire",
+            "Maps of Africa in the 19th century",
+            "Maps of Lake Chad",
+            "Maps of the history of Chad",
+            "Maps of the history of the Central African Republic",
+            "Rabah"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:The Statemans Yearbook - Statistical and Historical Annual of the States of the World for the Year (1899) (14576880947).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Statemans_Yearbook_-_Statistical_and_Historical_Annual_of_the_States_of_the_World_for_the_Year_(1899)_(14576880947).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1899",
+          "beskrivning": "Identifier : statemansyearboo1899wrig ( find matches ) Title : The Statemans Yearbook : Statistical and Historical Annual of the States of the World for the Year Year : 1899 ( 1890s ) Authors : Wright, Carroll D. Subjects : Publisher : The MacMillan Co. NY Contributing Library : University of Florida, George A. Smathers Libraries Digitizing Sponsor : University of Florida, George A. Smathers Libraries View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: tants,such as Birni, Bundi, Gummel, Mashena, Borsari, Surrikolo, Logon-Karnah,capital of the Logon territory, and Doloo, capital of the tributary MandaraState. The coast lands continue to be exposed to the incursions of tlie Kuriand Yedina pirates, wlio inhabit the archipelagoes in Lake Chad. WAD AI—KANEM. The Sultanate of Wadai, at present the most powerful State in CentralSudan, occupies with the tributary States the whole region between Dar-Furand Lake Chad, and extends from the southern verge of the Sahara southwardsnearly to the divide between the Chad and Congo basins. Total area, in-cluding Wadai and Bagirmi, nearly 172,000 square miles; populationestimated by Nachtigal at 2,600,000. The Arabs, here collectively calledAramka, have been settled in the country for over 500 years. Their traders(Jellaba) send caravans south to Dar-Banda and Bagirmi, and west to Bornu, For Sokoto, .see Niger Tbrbitories, under the British Empire. Statesmans Year-Bools: 1899 TELEGRAPHS AND PC SPAIN Text Appearing After Image: 20 30 - Telegraphsj;^5^^^^^_7:777_ Cables REFERENCE TO POLITICAL COLOURING Possessions, Protectorates, Spheres of influence, or occupation of countries Q _ JiBrituh (~ 31 Spaniah \\irZ)French ( H Turkuh j \\ Italian ___ i Congo Free State nZZHGerman I ; Transvaal (_ ^Portuguese (Orange Free State Independent or unoccupied States are uncolotired The EiiiKirtffa Geotfrupkical Tn ITICAL DIVISIONS, 1899 Plate 4. Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 1861,
+          "hojd": 3182,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/The_Statemans_Yearbook_-_Statistical_and_Historical_Annual_of_the_States_of_the_World_for_the_Year_%281899%29_%2814576880947%29.jpg/960px-The_Statemans_Yearbook_-_Statistical_and_Historical_Annual_of_the_States_of_the_World_for_the_Year_%281899%29_%2814576880947%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1899 maps of Africa",
+            "The Statemans Yearbook - Statistical and Historical Annual of the States of the World for the Year (1899)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "karta",
+            "staende",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "islamisk"
+    },
+    {
+      "id": "igbo-ukwu-bronserna",
+      "titel": "Bronserna i Igbo-Ukwu gjuts",
+      "start": 801,
+      "plats": "Igbo-Ukwu, delstaten Anambra (i dag Nigeria)",
+      "wikidata": "Q4785495",
+      "kandidater": [
+        {
+          "fil": "File:9th century bronze ceremonial pot, Igbo-Ukwu, Nigeria.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:9th_century_bronze_ceremonial_pot,_Igbo-Ukwu,_Nigeria.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Ochiwar",
+          "datum": "2013-10-03 13:26:18",
+          "beskrivning": "Photograph of a 9th century bronze pot excavated in Igbo-Ukwu, Anambra State Nigeria. Presently located in the National Museum, Onikan, Lagos, Nigeria",
+          "bredd": 1999,
+          "hojd": 2393,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/9th_century_bronze_ceremonial_pot%2C_Igbo-Ukwu%2C_Nigeria.JPG/960px-9th_century_bronze_ceremonial_pot%2C_Igbo-Ukwu%2C_Nigeria.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "9th-century art in Nigeria",
+            "9th-century bronzes",
+            "Archaeological objects of Nigeria",
+            "Igbo Ukwu bronzes",
+            "Igbo art",
+            "Metalwork of Africa",
+            "Nigerian National Museum"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Bronze ceremonial vessel in form of a snail shell, 9th century, Igbo-Ukwu, Nigeria.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bronze_ceremonial_vessel_in_form_of_a_snail_shell,_9th_century,_Igbo-Ukwu,_Nigeria.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Ochiwar",
+          "datum": "2013-10-03 13:26:45",
+          "beskrivning": "Photograph of a 9th century bronze vessel in the shape of a snail shell found at Igbo-Ukwu, Anambra State, Nigeria. Presently located in the National Museum, Onikan, Lagos, Nigeria",
+          "bredd": 2372,
+          "hojd": 1371,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Bronze_ceremonial_vessel_in_form_of_a_snail_shell%2C_9th_century%2C_Igbo-Ukwu%2C_Nigeria.JPG/960px-Bronze_ceremonial_vessel_in_form_of_a_snail_shell%2C_9th_century%2C_Igbo-Ukwu%2C_Nigeria.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "9th-century art in Nigeria",
+            "Archaeological objects of Nigeria",
+            "Ceremonial vessels",
+            "Igbo Ukwu bronzes",
+            "Igbo art",
+            "Nigerian National Museum",
+            "Sculptures of snails"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "konstverk"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "al-qarawiyyin-grundas",
+      "titel": "Al-Qarawiyyin grundas i Fès",
+      "start": 857,
+      "plats": "Fès (i dag Marocko)",
+      "wikidata": "Q378014",
+      "kandidater": [
+        {
+          "fil": "File:University of Al Qaraouiyine.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:University_of_Al_Qaraouiyine.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Abdel Hassouni",
+          "datum": "2015-06-24",
+          "beskrivning": "The oldest university of the world, Al Qarawiyine university in Fès.",
+          "bredd": 1080,
+          "hojd": 1143,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/University_of_Al_Qaraouiyine.jpg/960px-University_of_Al_Qaraouiyine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Al-Qarawiyyin courtyard",
+            "Minaret of al-Qarawiyyin Mosque",
+            "Zellij in Al-Qarawiyyin courtyard"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "islamisk"
+    },
+    {
+      "id": "sungbos-eredo",
+      "titel": "Vallarna i Sungbos Eredo byggs",
+      "start": 901,
+      "plats": "Sydväst om Ijebu Ode, delstaten Ogun (i dag Nigeria)",
+      "wikidata": "Q2092142",
+      "kandidater": [
+        {
+          "fil": "File:Sungbo-eredo-photo.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sungbo-eredo-photo.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "angiekake",
+          "datum": "culled from nigeria's national monuments",
+          "beskrivning": "this is Africa's largest single ancient monument situated in Ogun State, off the main road in rain forest of south-west Africa. it's a 100 mile long wall believed to have been constructed a millennium ago.",
+          "bredd": 802,
+          "hojd": 539,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/8/85/Sungbo-eredo-photo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Sungbo's Eredo"
+          ],
+          "smal": false,
+          "flaggor": [
+            "konstverk"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "mapungubwe-riket",
+      "titel": "Mapungubwe-riket vid Limpopo",
+      "start": 1000,
+      "plats": "Där floderna Shashe och Limpopo möts (i dag Sydafrika)",
+      "wikidata": "Q98085401",
+      "kandidater": [
+        {
+          "fil": "File:African Gold art.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:African_Gold_art.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Cool Art",
+          "datum": "2012-01-09",
+          "beskrivning": "gold statuettes and objects made by African artisans from the Ashanti Empire and the Kingdom of Mapungubwe",
+          "bredd": 6936,
+          "hojd": 2008,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/African_Gold_art.jpg/960px-African_Gold_art.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "African art collections",
+            "Ashanti Empire",
+            "Ashanti Empire in art",
+            "Golden Rhinoceros of Mapungubwe",
+            "Mapungubwe Collection"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Kongo Cosmogram 3.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kongo_Cosmogram_3.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "MiddleOfAfrica",
+          "datum": "2023-05-07",
+          "beskrivning": "The Yowa, or Dikenga Cross, is a symbol in Bakongo spirituality that depicts the physical world, the spiritual (ancestral) world, the Kalûnga river (line) that runs between the two worlds, the four moments of the sun, and the mbûngi circle.",
+          "bredd": 1200,
+          "hojd": 1000,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Kongo_Cosmogram_3.png/960px-Kongo_Cosmogram_3.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "African Americans and religion",
+            "Angola",
+            "Culture of the Democratic Republic of the Congo",
+            "Hoodoo (spirituality)",
+            "Kongo",
+            "Kongo people"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:MapungubweHill.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:MapungubweHill.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "JJ van Zyl",
+          "datum": "2007",
+          "beskrivning": "Mapungubwe Hill",
+          "bredd": 800,
+          "hojd": 532,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/de/MapungubweHill.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Mapungubwe National Park"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 3.0\" men ingen licensmall kändes igen på filsidan ({{GFDL-user}})"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "GFDL-user"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "tidig-medeltid"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "suetonius-paulinus-over-atlasbergen",
+      "titel": "Suetonius Paulinus leder romerska soldater över Atlasbergen",
+      "start": 41,
+      "plats": "Atlasbergen i romerska Mauretanien, dagens Marocko (punkten är bergskedjan enligt Wikidata)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    },
+    {
+      "id": "sista-silfiumstjalken",
+      "titel": "Den sista kända silfiumplantan skänks till Nero",
+      "start": 54,
+      "plats": "Kyrenaika, östra Libyen",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    },
+    {
+      "id": "byn-kirikongo-vaxer-fram",
+      "titel": "En by växer fram vid Kirikongo",
+      "start": 100,
+      "plats": "Kirikongo vid Mouhounfloden, Burkina Faso",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    },
+    {
+      "id": "amazigher-befolkar-kanarieoarna",
+      "titel": "Amazigher från Nordafrika slår sig ner på Kanarieöarna",
+      "start": 101,
+      "plats": "Kanarieöarna",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    },
+    {
+      "id": "burakulturen",
+      "titel": "Burakulturen i nedre Nigerdalen",
+      "start": 200,
+      "plats": "Bura i sydvästra Niger (punkten enligt Wikidata)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    },
+    {
+      "id": "skogen-oppnas-pa-laikipiaplatan",
+      "titel": "Skogen på Laikipiaplatån ger vika för öppnare land",
+      "start": 335,
+      "plats": "Marura Swamp på Laikipiaplatån, Kenya",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    },
+    {
+      "id": "tsunamin-365-alexandria",
+      "titel": "Tsunamin 365 slår mot Alexandria",
+      "start": 365,
+      "plats": "Alexandria och Nildeltat (jordbävningens centrum nära Kreta)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    },
+    {
+      "id": "gao-saney-handelsstad",
+      "titel": "Handelsstaden Gao-Saney vid Nigerfloden",
+      "start": 700,
+      "plats": "Gao-Saney nära Gao vid Nigerfloden (i dag Mali)",
+      "wikidata": "Q1493767",
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "islamisk"
+    },
+    {
+      "id": "kisaliska-gravarna",
+      "titel": "Gravarna från den kisaliska tiden i Upembasänkan",
+      "start": 700,
+      "plats": "Norra delen av Upembasänkan (i dag Demokratiska republiken Kongo)",
+      "wikidata": "Q118904028",
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "elefantfaglarna-dor-ut",
+      "titel": "Elefantfåglarna dör ut på Madagaskar",
+      "start": 800,
+      "plats": "Madagaskar",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "fuktigare-klimat-vid-limpopo",
+      "titel": "Ett fuktigare klimat vid Limpopo när Mapungubwe växer fram",
+      "start": 950,
+      "plats": "Nordöstra Sydafrika, vid Limpopo (Pafuri i norra Krugerparken)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "tidig-medeltid"
+    }
+  ]
+}

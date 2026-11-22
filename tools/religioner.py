@@ -14,11 +14,17 @@ Regler för ett rikes religion ett visst år (religion_at):
   under rubriken Majority; annars den enda som nämns (sure = true). Nämns flera utan markering
   väljs den först nämnda (sure = false).
 - Riken med kontrollerat år för kristnandet (christianSince, med källa) är kristna från det året.
+- Ett handplockat val per rike (religionOverride = {"religion": id, "sources": [källor]}, #2140) ersätter religionen som
+  texten gav, när en öppnad källa uttryckligen säger vilken religion faktarutans allmännare ord betyder (till exempel
+  Zapotekernas "Polytheistic" = mesoamerikansk religion). Regeln och säkerheten (sure) är desamma som för texten, och årtalet (since)
+  räknas ur texten före valet. Valet skrivs för hand i registret och behålls vid ombyggnad.
 - Anger faktarutan ett årtal för religionen ("c. 200 AD", "from 6th century") gäller den därifrån (since).
 - Procentsiffror i faktarutan kommer ofta från en nutida folkräkning och används bara från 1900,
   utom när faktarutan anger religionen som officiell utan årtal (till exempel Ryska imperiet).
 - Från 1900 används Wikipedias tabell Religion by country för länder vars faktaruta saknar
   religion (modern).
+- Rikesdelar som Cliopatria har fel tas bort före allt annat (KLIPP, #2162): USA:s del över södra Vietnam 1967–2005,
+  samma ruta som tools/riken.py klipper bort i rikeslagret (#2151).
 
 Arv (#269, gäller alla religioner): ett område som har haft en religion behåller den när rikena
 som följer där saknar religion i faktarutan (eller bara har en religion som enligt reglerna ovan
@@ -58,6 +64,25 @@ INH_MIN_AREA = 0.3  # och ärvda öar och rester mindre än så här (kvadratgra
 SLIVER = 0.05    # ärvda områden "öppnas" med så här många grader, så att smala remsor längs gränser försvinner
 GAP = 100        # ett område utan rike i Cliopatria minns sin religion så här många år
 CENSUS_FROM = 1900  # procentsiffror (folkräkningar) och tabellen Religion by country används från detta år
+
+# Rikesdelar som Cliopatria har fel (#2162): samma rutor som tools/riken.py klipper bort i rikeslagret, så att de inte heller
+# ger någon religion här. (rikets namn, första år, sista år, ruta (väst, syd, öst, nord)). Cliopatrias USA-post 1967–2005
+# har en del över södra Vietnam med Saigon, som annars räknades till kristendomen 1970–2009; rutan är VIETNAM_USA i
+# tools/riken.py (#2151) och tests/religioner-test.py kontrollerar att de är lika när den finns där.
+KLIPP = [('United States of America', 1967, 2005, (103.0, 8.0, 110.5, 17.6))]
+
+
+def klipp(name, a, b, geometry):
+    """Rikets område utan rutorna i KLIPP för perioden a–b (shapely-geometri). En period som bara delvis ligger inom
+    en rutas år är ett fel, eftersom rutan då skulle gälla fel år."""
+    for namn, fran, till, (w, s, e, n) in KLIPP:
+        if namn != name or b < fran or a > till:
+            continue
+        if a < fran or b > till:
+            raise ValueError(f'{name} {a}–{b} ligger bara delvis inom {fran}–{till}')
+        ruta = shape({'type': 'Polygon', 'coordinates': [[(w, s), (e, s), (e, n), (w, n), (w, s)]]})
+        geometry = geometry.difference(ruta)
+    return geometry
 
 # (id, svenskt namn, färg, mönster). Ordningen avgör vid lika träff.
 RELIGIONS = [
@@ -158,6 +183,21 @@ def since(text, rel):
     return int(m.group(1)) if m.group(1) else (int(m.group(2)) - 1) * 100 + 1
 
 
+RELIGION_IDS = {i for i, *_ in RELIGIONS}
+
+
+def override_religion(name, override):
+    """Religionen i ett rikes handplockade val (religionOverride, #2140). Kastar ValueError när valet saknar en känd
+    religion eller en källa, så att ett trasigt val stoppar bygget i stället för att tyst ge fel karta."""
+    rel = override.get('religion')
+    if rel not in RELIGION_IDS:
+        raise ValueError(f'{name}: religionOverride.religion {rel!r} är ingen religion i RELIGIONS')
+    srcs = override.get('sources')
+    if not isinstance(srcs, list) or not srcs or not all(isinstance(x, str) and x for x in srcs):
+        raise ValueError(f'{name}: religionOverride saknar sources (minst en källa i sources.json)')
+    return rel
+
+
 def steps():
     """Ögonblicksbildernas startår: tätare ju närmare nutiden. Stegen räknas i Cliopatrias år (3400 f.Kr., 3300 f.Kr. …,
     år 0, 50, 100 …) och lämnas som astronomiska år, så att 3400 f.Kr. blir -3399 (#1989)."""
@@ -220,11 +260,14 @@ class Row:
         self.adopted = entry.get('christianSince')
         self.modern = rec.get('modern') if self.rule in ('saknas', 'okänd') else None
         self.since = since(self.text, self.rel)
+        override = entry.get('religionOverride')
+        if override:  # handplockat val med källa (#2140): ersätter religionen som texten gav, inte regeln eller säkerheten
+            self.rel = override_religion(entry['name'], override)
         self._s = None
 
     def shape(self):
         if self._s is None:
-            self._s = shape(self.g).buffer(0).simplify(TOL / 2, preserve_topology=True)
+            self._s = klipp(self.name, self.a, self.b, shape(self.g).buffer(0)).simplify(TOL / 2, preserve_topology=True)
         return self._s
 
     def religion_at(self, y):
@@ -280,7 +323,7 @@ def main():
             info['since'] = r.since
         if r.modern:
             info['modern'] = r.modern
-        for k in ('christianSince', 'source', 'variants'):
+        for k in ('christianSince', 'source', 'religionOverride', 'variants'):
             if k in e:
                 info[k] = e[k]
         polities[r.name] = info
@@ -365,7 +408,9 @@ def main():
              'markerad som statlig eller officiell väljs först; annars en religion över 50 procent eller under rubriken Majority; annars '
              'den enda religionen som nämns (sure = true). Där flera religioner nämns utan att någon är markerad väljs den först nämnda '
              '(regel "först nämnd", sure = false), och området visas ljusare med streckad kant. För riken med ett kontrollerat år för '
-             'kristnandet (source) visas kristendomen från det året. '
+             'kristnandet (source) visas kristendomen från det året. Ett handplockat val med källa (religionOverride, #2140) ersätter '
+             'religionen som faktarutans text gav när en öppnad källa uttryckligen säger vilken religion faktarutans ord betyder; '
+             'regeln och säkerheten är desamma som för texten. '
              'Områdena är sammanslagna per religion i ögonblicksbilder (start–end) och förenklade (0.25 grader, avrundat till 0.1 grad). '
              'polities listar varje rike med Wikipedia-sida, faktarutans text, vald religion och regel (variants: texten för delar av '
              'riket som i Cliopatria pekar på en annan Wikipedia-sida). Lagret visar rikenas religion, '
@@ -376,6 +421,8 @@ def main():
              'religionen först från det året (since i polities). Arv (#269): ett område som har haft en religion behåller den när '
              'rikena som följer där inte anger någon religion som gäller, tills ett rike med en annan angiven religion täcker området. '
              'Sådana områden har inherited (until = sista året religionen stod i faktarutan där, from = de rikena) och visas som osäkra. '
+             'Ändring av Cliopatria (#2162): USA-postens del över södra Vietnam 1967–2005 (103,0–110,5 grader öst, 8,0–17,6 nord) '
+             'är borttagen, som i rikeslagret (#2151). '
              'Byggt med tools/religioner.py.')
     doc = {'schema': 'historia-globen/religions@3', 'notes': notes, 'religions': rels,
            'polities': sorted(polities.values(), key=lambda p: p['name'])}

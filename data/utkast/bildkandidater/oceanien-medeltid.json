@@ -1,0 +1,687 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 20,
+    "kandidater": 17,
+    "troliga": 17,
+    "flaggade": 0,
+    "avvisade": 0,
+    "smala": 6,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "polynesier-pa-henderson",
+      "titel": "Polynesier bor på Henderson och Pitcairn",
+      "plats": "Henderson Island, Pitcairnöarna (i dag Storbritannien)",
+      "start": 800,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q379759",
+      "kandidater": [
+        {
+          "fil": "File:Henderson.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Henderson.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Makemake at German Wikipedia",
+          "datum": "2000-03",
+          "beskrivning": "On Henderson Island, Pitcairn Islands",
+          "bredd": 1500,
+          "hojd": 1024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Henderson.JPG/960px-Henderson.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2000 in the Pitcairn Islands",
+            "Henderson Island"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "polynesier-pa-mangareva",
+      "titel": "Polynesier bosätter sig på Mangareva",
+      "plats": "Mangareva, Gambieröarna (i dag Franska Polynesien)",
+      "start": 800,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q616662",
+      "kandidater": [
+        {
+          "fil": "File:Mangareva.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mangareva.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA Johnson Space Center - Earth Sciences and Image Analysis",
+          "datum": "2001-06-16",
+          "beskrivning": "NASA astronaut image of Mangareva, Gambier Islands, French Polynesia",
+          "bredd": 3060,
+          "hojd": 2036,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Mangareva.JPG/960px-Mangareva.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "ISS Expedition 2 Crew Earth Observations",
+            "Mangareva",
+            "PD NASA-AP",
+            "Rikitea",
+            "Satellite pictures of the Gambier Islands",
+            "Totegegie"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "tui-tonga-riket",
+      "titel": "Tuʻi Tonga-riket börjar breda ut sig",
+      "plats": "Muʻa på Tongatapu (i dag Tonga)",
+      "start": 950,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q842390",
+      "soktext": "The Tuʻi Tonga Empire begins to expand",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "taputapuatea-marae",
+      "titel": "Tempelplatsen Taputapuātea på Raiatea",
+      "plats": "Opoa på östra Raiatea (i dag Franska Polynesien)",
+      "start": 1000,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q3287362",
+      "kandidater": [
+        {
+          "fil": "File:Taputapu marae Raiatea little man.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Taputapu_marae_Raiatea_little_man.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Kulia Petz",
+          "datum": "2007-08-24 06:24:59",
+          "beskrivning": "Close-up of an anthropomorphic statue on the ancient marae of Taputapuatea, Ra'iatea, French Polynesia.",
+          "bredd": 600,
+          "hojd": 800,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Taputapu_marae_Raiatea_little_man.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Taputapuatea marae",
+            "Tiki"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "roi-mata-hovdingarna",
+      "titel": "Roi Mata-hövdingarna i Vanuatu",
+      "plats": "Efate, Lelepa och Eretoka (i dag Vanuatu)",
+      "start": 1001,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q558599",
+      "kandidater": [
+        {
+          "fil": "File:Fele's Cave.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Fele%27s_Cave.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "PhillipC",
+          "datum": "2006-11-24",
+          "beskrivning": "Fele's Cave on Lelepa Island in Vanuatu — a UNESCO World Heritage Site in Oceania . Here, in 1265, Roy Mata was poisoned by his jealous brother during a great feast.",
+          "bredd": 3472,
+          "hojd": 2434,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Fele%27s_Cave.jpg/960px-Fele%27s_Cave.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Caves of Vanuatu",
+            "History of Vanuatu",
+            "Lelepa Island",
+            "Nature of Vanuatu",
+            "World Heritage Sites in Vanuatu"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "polynesier-nar-sallskapsoarna",
+      "titel": "Polynesier når Sällskapsöarna",
+      "plats": "Sällskapsöarna, med Tahiti (i dag Franska Polynesien)",
+      "start": 1025,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q118920",
+      "kandidater": [
+        {
+          "fil": "File:Society kingdoms.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Society_kingdoms.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "ArnoldPlaton",
+          "datum": "2012-10-02",
+          "beskrivning": "Kingdoms in the Society Islands (Oceania)",
+          "bredd": 711,
+          "hojd": 250,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Society_kingdoms.svg/960px-Society_kingdoms.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "History of Bora Bora",
+            "History of Huahine",
+            "History of Raiatea",
+            "Kingdom of Tahiti",
+            "Maps of Huahine",
+            "SVG maps of the Society Islands"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "polynesier-nar-rapa-nui",
+      "titel": "Polynesier når Rapa Nui (påskön)",
+      "plats": "Rapa Nui, påskön (i dag Chile)",
+      "start": 1100,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q14452",
+      "kandidater": [
+        {
+          "fil": "File:Easter Island 5.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Easter_Island_5.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "kallerna",
+          "datum": "2018-09-20 00:44:50",
+          "beskrivning": "Ahu in Easter Island. Hanga Roa seen in the background.",
+          "bredd": 6000,
+          "hojd": 4000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Easter_Island_5.jpg/960px-Easter_Island_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ahu in Easter Island",
+            "Hanga Roa"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "pulemelei",
+      "titel": "Stenhögen Pulemelei byggs på Savaiʻi",
+      "plats": "Letolo på östra Savaiʻi (i dag Samoa)",
+      "start": 1100,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q7259289",
+      "kandidater": [
+        {
+          "fil": "File:View from Pulemelei Mound - Samoa.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:View_from_Pulemelei_Mound_-_Samoa.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Neil",
+          "datum": "2007-07-29 07:04:20",
+          "beskrivning": "View from Pulemelei Mound, Palauli district, south east side of Savai'i island in Samoa. Pulemelei mound is the biggest historial site in the Polynesian group",
+          "bredd": 3072,
+          "hojd": 2304,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/View_from_Pulemelei_Mound_-_Samoa.jpg/960px-View_from_Pulemelei_Mound_-_Samoa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2007 in Samoa",
+            "Archaeology in Samoa",
+            "History of Samoa",
+            "Savai'i",
+            "Tourism in Samoa",
+            "Views from mounds",
+            "Views of Samoa"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "polynesier-nar-marquesas",
+      "titel": "Polynesier når Marquesasöarna",
+      "plats": "Marquesasöarna (i dag Franska Polynesien)",
+      "start": 1190,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q172697",
+      "kandidater": [
+        {
+          "fil": "File:HivaOa BaieDesTraitres 20061110.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:HivaOa_BaieDesTraitres_20061110.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Sémhur · ✉ · ✍ ·",
+          "datum": "2006-11-10",
+          "beskrivning": "Vegetation at the edge of the road from Atuona to Puamau, Hiva Oa , Marquesas Islands, French Polynesia . Sight on the \"Baie des Traitres\" ( Traitors Bay ) and the Hanakee rock.",
+          "bredd": 3888,
+          "hojd": 2430,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/HivaOa_BaieDesTraitres_20061110.jpg/960px-HivaOa_BaieDesTraitres_20061110.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bays of French Polynesia",
+            "Foreground flowers",
+            "Hiva Oa",
+            "Landscapes with flowers"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "polynesier-pa-aucklandoarna",
+      "titel": "Polynesier når Aucklandöarna",
+      "plats": "Enderby Island, Aucklandöarna (i dag Nya Zeeland)",
+      "start": 1201,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q950165",
+      "kandidater": [
+        {
+          "fil": "File:EnderbyIsland1.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:EnderbyIsland1.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "M. Murphy",
+          "datum": "2006-01-23",
+          "beskrivning": "A view along the coast of Enderby Island (with kelp).",
+          "bredd": 3072,
+          "hojd": 2304,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/EnderbyIsland1.JPG/960px-EnderbyIsland1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Durvillaea potatorum",
+            "Enderby Island"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "polynesier-pa-norfolkon",
+      "titel": "Polynesier bosätter sig på Norfolkön",
+      "plats": "Norfolkön (i dag Australien)",
+      "start": 1201,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q31057",
+      "kandidater": [
+        {
+          "fil": "File:Dusk on Norfolk Island.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Dusk_on_Norfolk_Island.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Peter James McNally",
+          "datum": "2015-12-14 19:13:59",
+          "beskrivning": "Cloudy dusk on Norfolk Island, with Araucarias",
+          "bredd": 5760,
+          "hojd": 3840,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Dusk_on_Norfolk_Island.jpg/960px-Dusk_on_Norfolk_Island.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Araucaria heterophylla",
+            "December 2015 in Norfolk Island",
+            "Landscape of Norfolk Island"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "wairau-bar",
+      "titel": "Tidig polynesisk boplats vid Wairau Bar",
+      "plats": "Wairau Bar vid Cloudy Bay, Sydön (i dag Nya Zeeland)",
+      "start": 1288,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q7960320",
+      "kandidater": [
+        {
+          "fil": "File:Wairau Bar PA01.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wairau_Bar_PA01.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Paora",
+          "datum": "2026-09-20 14:37:11",
+          "beskrivning": "Aerial view of the mouth of the Wairau River, photographed on 20 September 2026",
+          "bredd": 3213,
+          "hojd": 2955,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Wairau_Bar_PA01.jpg/960px-Wairau_Bar_PA01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aerial photographs of Marlborough District",
+            "September 2026 in New Zealand",
+            "Te Koko-o-Kupe / Cloudy Bay",
+            "Wairau Bar",
+            "White Bluffs / Te Parinui o Whiti"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "moafaglarna-dor-ut",
+      "titel": "Moafåglarna och moaörnen dör ut",
+      "plats": "Nya Zeeland, särskilt Sydön",
+      "start": 1300,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q452969",
+      "kandidater": [
+        {
+          "fil": "File:Giant Haasts eagle attacking New Zealand moa.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Giant_Haasts_eagle_attacking_New_Zealand_moa.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "John Megahan",
+          "datum": "2004",
+          "beskrivning": "Giant Haast's eagle attacking New Zealand moa",
+          "bredd": 1375,
+          "hojd": 1101,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Giant_Haasts_eagle_attacking_New_Zealand_moa.jpg/960px-Giant_Haasts_eagle_attacking_New_Zealand_moa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2004 paintings",
+            "Accipitridae illustrations",
+            "Dinornithiformes life restorations",
+            "Hieraaetus moorei",
+            "Unidentified Dinornithidae"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Moa mock hunt.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Moa_mock_hunt.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Augustus Hamilton",
+          "datum": "1906–7",
+          "beskrivning": "In the early 20th century, when this moa was reconstructed by Augustus Hamilton , moa were still thought to have a very upright neck. At the time Hamilton was registrar at the Otago Museum . He placed the moa in the Dunedin Public Gardens and persuaded Peter Buck (left), Hēmi Papakura (middle) and Tūtere Wī Repa (right) to pose as if in a moa hunt. This famous image was reproduced at the 1906–7 Christchurch International Exhibition . [1]",
+          "bredd": 521,
+          "hojd": 635,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Moa_mock_hunt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1906 in Dunedin",
+            "Dinornis models",
+            "Dinornis robustus",
+            "Photographs by Augustus Hamilton",
+            "Te Rangi Hiroa (Peter Buck)"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "polynesier-pa-raoul",
+      "titel": "Polynesier på Raoul Island",
+      "plats": "Raoul Island, Kermadecöarna (i dag Nya Zeeland)",
+      "start": 1301,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q28048",
+      "kandidater": [
+        {
+          "fil": "File:Raoul Island, New Zealand (STS008-36-1403, cropped rotated).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Raoul_Island,_New_Zealand_(STS008-36-1403,_cropped_rotated).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2007-05-15 00:42:05",
+          "beskrivning": null,
+          "bredd": 754,
+          "hojd": 518,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Raoul_Island%2C_New_Zealand_%28STS008-36-1403%2C_cropped_rotated%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Earth photography during STS-8",
+            "Raoul Island",
+            "Satellite pictures of islands",
+            "Satellite pictures of the Kermadec Islands"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "kaharoautbrottet",
+      "titel": "Kaharoautbrottet vid Tarawera",
+      "plats": "Mount Tarawera nära Rotorua, Nordön (i dag Nya Zeeland)",
+      "start": 1314,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1192560",
+      "kandidater": [
+        {
+          "fil": "File:Okataina.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Okataina.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Richard Waitt, U.S. Geological Survey",
+          "datum": "1986",
+          "beskrivning": "This large fissure system produced during a major explosive eruption at Tarawera in 1886 is one of the most dramatic features of the massive Okataina Volcanic Centre.",
+          "bredd": 640,
+          "hojd": 415,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Okataina.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Eruption fissures",
+            "Hydrothermal alteration",
+            "Rift zones of Mount Tarawera"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "moriori-pa-chathamoarna",
+      "titel": "Moriori bosätter sig på Chathamöarna",
+      "plats": "Rēkohu, Chathamöarna (i dag Nya Zeeland)",
+      "start": 1400,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1758372",
+      "soktext": "The Moriori settle the Chatham Islands Rēkohu",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "rangitoto-bildas",
+      "titel": "Vulkanön Rangitoto bildas",
+      "plats": "Rangitoto i Haurakiviken vid Auckland (i dag Nya Zeeland)",
+      "start": 1400,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1422715",
+      "kandidater": [
+        {
+          "fil": "File:Rangitoto02.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Rangitoto02.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "User:Grutness",
+          "datum": "2005-12-12",
+          "beskrivning": "Rangitoto Island from One Tree Hill",
+          "bredd": 800,
+          "hojd": 588,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Rangitoto02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Remote views of Rangitoto Island"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kuwae-utbrottet",
+      "titel": "Vulkanen Kuwae rasar samman",
+      "plats": "Kuwaekalderan mellan Epi och Tongoa (i dag Vanuatu)",
+      "start": 1452,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1783754",
+      "kandidater": [
+        {
+          "fil": "File:ShepherdIslandsMap.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:ShepherdIslandsMap.png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": null,
+          "datum": "2006-11-20 17:50:57",
+          "beskrivning": null,
+          "bredd": 568,
+          "hojd": 663,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/d6/ShepherdIslandsMap.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Emao Island",
+            "Kuwae submarine volcano",
+            "Makura Island",
+            "Makura submarine volcano",
+            "Maps of islands of Vanuatu",
+            "Maps of volcanoes in Vanuatu",
+            "Moso Island",
+            "Nguna",
+            "Shepherd Islands",
+            "Submarine volcanoes in Vanuatu",
+            "Tongariki Island",
+            "Tongoa Island",
+            "Éfaté Island",
+            "Émaé Island"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "tui-haatakalaua",
+      "titel": "Tuʻi Haʻatakalaua tar makten i Tonga",
+      "plats": "Muʻa på Tongatapu (i dag Tonga)",
+      "start": 1470,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q7857330",
+      "soktext": "Tuʻi Haʻatakalaua takes power in Tonga",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "piilani-enar-maui",
+      "titel": "Piʻilani enar Maui",
+      "plats": "Maui (i dag Hawaii, USA)",
+      "start": 1475,
+      "varldsdel": "Oceanien",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q18158323",
+      "soktext": "Piʻilani unites Maui Maui (today Hawaii",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    }
+  ]
+}

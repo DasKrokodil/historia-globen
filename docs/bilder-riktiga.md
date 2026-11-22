@@ -37,6 +37,7 @@ Att en adress går att nå betyder inte att bilden får användas. **Varje ny k�
 Tillåtet (CLAUDE.md, Bilder punkt 1): public domain, CC0, CC BY, CC BY-SA och Library of Congress-bilder märkta "No known restrictions on publication". Inte CC BY-NC, inte "all rights reserved", inte oklara villkor.
 
 - Läs licensmallen i `action=raw` och `extmetadata` (`LicenseShortName`, `Artist`, `Credit`), inte bara rubriken.
+- **En licens som verktygen inte känner igen** (till exempel Commons-etiketten "No restrictions", "Attribution" eller nationella licenser som GODL-India) flaggas och godkänns aldrig av ett program; en människa bedömer filsidan och avstår hellre (beslut 2026-11-22). Library of Congress "No known restrictions on publication" är tillåten som förut.
 - **Flera licenser eller motsägelser** (till exempel olika licens i Wikidata och på filsidan, eller "PD" med osäkert ursprung) skrivs öppet i källpostens `note`. Går det inte att avgöra: använd inte bilden, skriv varför i issuet.
 - Bilden behåller sin egen licens, som står i `license` och bildtexten. Upphovet står i `credit`.
 - Filsidan läggs som källa i `data/sources.json` (id, titel, url, licens, datum då den kontrollerades) och som `source` i `image`.
@@ -44,6 +45,10 @@ Tillåtet (CLAUDE.md, Bilder punkt 1): public domain, CC0, CC BY, CC BY-SA och L
 ## Bildtexten
 
 - Den säger **bara det filsidan stöder**: vad bilden visar, när och av vem om det står där. Inga egna tillägg ur minnet.
+- **Obligatoriska mönster (beslut 2026-11-22):**
+  - Nutida foto av en plats eller ett föremål: "Nutida foto (år) av …, inte från händelsens tid."
+  - Föremål på museum: "Föremål från …, fotograferat på …"
+  - Karta: säg om den är samtida eller ritad senare, till exempel "Karta ritad år …" eller "Modern karta över …". En modern karta får aldrig se ut att vara från händelsens tid.
 - **Märk senare avbildningar** ("Målning från 1800-talet av ett slag 1066"), **propaganda**, **teckningar och karikatyrer** och **fantasibilder** ("visar inte hur personen såg ut"). En bild av dokumentet eller platsen i dag säger det ("Nutida foto av ...").
 - Profeten Muhammed avbildas aldrig. Reglerna om respekt i CLAUDE.md, Bilder punkt 4, gäller.
 - Skriv bildtexten på svenska först, och översätt den till en, de, es och fr i samma pull request (CLAUDE.md, Språk). Översättningen ändrar aldrig fakta.
@@ -52,8 +57,8 @@ Tillåtet (CLAUDE.md, Bilder punkt 1): public domain, CC0, CC BY, CC BY-SA och L
 
 1. Ta issuet enligt "Etiketterna `redo` och `pågår`" i CLAUDE.md (kommentar, `pågår`, tilldelning, modellnivårad: licens och källor kräver Opus eller motsvarande).
 2. Kontrollera `main`: har händelsen redan en bild? Är den med i [bilder-saknas.md](bilder-saknas.md) (då redan prövad)?
-3. Sök kandidater. Hämta metadata i batch (anropsregler ovan), välj en bild per händelse, kontrollera licens och vad filsidan säger.
-4. Hämta miniatyren (960 px) och spara den som `images/incoming/<händelse-id>.<png|jpg>`. Filnamnet är händelsens id.
+3. Ta fram granskningslistan: spara issuets text i en fil och kör `python3 tools/bildbatch.py --namn <issuenummer> --ids-fran <filen> --licens` (se "Granskningslistan" nedan). Välj en bild per händelse i listan, öppna filsidan och kontrollera licens och vad filsidan säger. Saknar listan kandidater för en händelse: sök själv bara om händelsen är viktig (tur, tema, fun fact), annars skriv den i `docs/bilder-saknas.md`.
+4. Ta bort `#` på de godkända raderna i `data/utkast/bildbatch/<issuenummer>-lista.txt`. Skriv `passa-in` efter en tabb som tredje kolumn för stående dokument och kartor. Kör sedan `python3 tools/bild_hamta.py --lista data/utkast/bildbatch/<issuenummer>-lista.txt --ej-hamtade data/utkast/bildbatch/<issuenummer>-ej-hamtade.txt`. Bilder som Wikimedia inte lämnar ut, till exempel Retry-After på 600 s, hamnar i den sista filen och tas i en senare körning utan nytt urval. Verktyget hämtar miniatyren (960 px), bygger webp-filen och skriver utkast till källpost och `image`. Eller spara miniatyren för hand som `images/incoming/<händelse-id>.<png|jpg>`.
 5. Lägg en post per bild i `images/incoming/bildlogg.json` (`kind: "historisk"`, `source`, `caption`, `credit`, `license`). Följ de befintliga posterna.
 6. Lägg källan i `data/sources.json` (och i README:s licensavsnitt om källan är ny).
 7. `python3 tools/bilder_in.py`: beskär till 4:3, skalar till 800 × 600, sparar `images/events/<id>.webp` (helst under 150 kB) och fyller i `image`.
@@ -73,11 +78,30 @@ Tillåtet (CLAUDE.md, Bilder punkt 1): public domain, CC0, CC BY, CC BY-SA och L
 - `tools/license_manifests.py`: licensmanifesten (steg 11).
 - `tools/bildpromptar.py`: bara för illustrationer ([bilder-ai-illustrationer.md](bilder-ai-illustrationer.md)).
 
+**Granskningslistan (#2183):** `tools/bildbatch.py` skriver `data/utkast/bildbatch/<namn>.md` (en rubrik per händelse, högst tre kandidater i en tabell med licens, upphov, datum, storlek och flaggor, och raderna "Vald" och "Motiv" att fylla i), `<namn>.json` (samma som data) och `<namn>-lista.txt` (indata till `bild_hamta.py`, allt bortkommenterat tills agenten godkänner). Med `--licens` körs också den strikta licenskontrollen (licensmallen på filsidan mot API:et), annars visas bara den troliga licensen ur kandidatlistan. Varje kandidat visar också filsidans beskrivning och kategorier, så att motivet syns utan ett extra anrop, och händelsen får stilen enligt `data/styles.json`.
+
+Flaggorna (#2193):
+
+| Flagga | Betyder |
+| --- | --- |
+| `karta` | Kartan kan vara samtida eller ritad senare; bildtexten säger vilket. |
+| `nutida-foto` | Verkets datum är 1990 eller senare för en händelse före 1900. |
+| `datum-osakert` | Bara filens datum, ofta uppladdningen, finns. |
+| `staende` | Stående eller nästan kvadratisk bild, där 4:3-utsnittet tar bort mer än 20 % av höjden. Skriv `passa-in` i tredje kolumnen i listan, så visas hela bilden i stället för ett 4:3-utsnitt. |
+| `konstverk` | Monument, staty, skulptur, relief eller väggmålning. Kontrollera frihet för panorama i landet och konstnärens dödsår. |
+| `samma-fil` | Samma fil föreslås för flera händelser i omgången. |
+| `smal` | Under 800 px. |
+| `ur-sokning` | Inte Wikidatas bild. |
+| `licens-flagga` | Licensen kunde inte avgöras. |
+| `licens-risk` | Till exempel public domain bara i USA, PD-self med en annan licens, eller "eget verk" av en gammal bild. `bild_hamta.py` godkänner bilden men skriver risken i källans `note`. |
+
+Flaggorna sorterar och varnar, men avvisar aldrig. Bara en avvisad licens tas bort ur listan. Verktyget väljer aldrig bild och skriver ingen bildtext. Checka in granskningslistan i bild-pull requesten, ifylld, så att granskaren ser vad som valdes och varför.
+
 **Verktygen finns:** `tools/bild_hamta.py` (#2118, hämtar och konverterar de valda bilderna med batch, User-Agent, Retry-After, tre försök och tidstak) och `tools/bildkandidater.py` (#2119, kandidater och licensförslag per händelse, se nedan) är ihopslagna. Anropsreglerna ovan är verktygens beteende. Förslagen från verktygen är underlag, inte beslut: licenskontrollen och bildtexten granskas som förut.
 
 ## Kandidatlistan: skript och arbetsflöde
 
-`tools/bildkandidater.py` (#2119) föreslår fria bilder till händelser utan bild och skriver `data/utkast/bildkandidater.json`, som appen inte läser. Allt i listan är förslag: öppna filsidan, kontrollera licensen och att bilden visar händelsen innan den används.
+`tools/bildkandidater.py` (#2119) föreslår fria bilder till händelser utan bild och skriver `data/utkast/bildkandidater/<världsdel>-<period>.json` (en fil per världsdel och period i `tools/tackning.py`, #2183), som appen inte läser. Licensen klassas med samma regler som `bild_hamta.py` (`tools/licens_commons.py`): `trolig` (API:et anger en tillåten licens, men filsidans mall är inte läst), `flagga` (en människa bedömer) eller `avvisad`. Allt i listan är förslag: öppna filsidan, kontrollera licensen och att bilden visar händelsen innan den används.
 
 **Arbetsflödet** `.github/workflows/bildkandidater.yml` kör skriptet i Actions. Det startas bara för hand, har bara rättigheterna `contents: write` och `pull-requests: write` på jobbet, använder inga hemligheter, tar högst 240 minuter och kör en körning i taget.
 
@@ -91,8 +115,8 @@ Skriptet sparar filen efter var 50:e händelse, så ett avbrott eller en timeout
 
 **Efter körningen:**
 
-1. Pull requesten med listan slås ihop. Den är ett underlag: filen `data/utkast/bildkandidater.json` läses inte av sidan, och ingen fakta ändras.
-2. Byggare (ett bildissue i taget) läser sin bit ur `data/utkast/bildkandidater.json` på `main`, öppnar filsidan för varje kandidat de tänker använda och kontrollerar licens och motiv där, och kör sedan `python3 tools/bild_hamta.py` för de valda bilderna (rutinen ovan). Kandidaterna är förslag och kontrolleras alltid på filsidan; en kandidat blir en bild först efter källkontroll.
+1. Pull requesten med listan slås ihop. Den är ett underlag: filerna i `data/utkast/bildkandidater/` läses inte av sidan, och ingen fakta ändras.
+2. Byggare (ett bildissue i taget) tar fram sin granskningslista med `tools/bildbatch.py` ur `data/utkast/bildkandidater/` på `main`, öppnar filsidan för varje kandidat de tänker använda och kontrollerar licens och motiv där, och kör sedan `python3 tools/bild_hamta.py` för de valda bilderna (rutinen ovan). Kandidaterna är förslag och kontrolleras alltid på filsidan; en kandidat blir en bild först efter källkontroll.
 3. Listan blir gammal när händelser får bild. Kör om per världsdel vid behov (Run workflow med en världsdel); en körning behåller posterna för andra händelser.
 4. Saknas listan, eller är den för gammal för ens bit, kan byggaren själv köra `python3 tools/bildkandidater.py --region <världsdel> --period <FRÅN-TILL>` för sin bit (skriv `--period=-800--400` med likhetstecken när perioden börjar med minus). Samma skript, samma fil, samma krav på kontroll.
 

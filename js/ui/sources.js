@@ -63,6 +63,8 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
     const rp = religionsDoc.polities ?? [];
     // Riken med kontrollerat år för kristnandet har en egen källa
     for (const p of rp.filter(p => p.source)) add('religions', [p.source], ui('sources.christianisation', { name: p.name }), 'source-checked');
+    // Riken med ett handplockat val av religion (religionOverride, #2140) har källan som säger vilken religion det är
+    for (const p of rp.filter(p => p.religionOverride?.sources?.length)) add('religions', p.religionOverride.sources, ui('sources.religionOverride', { name: p.name }), 'source-checked');
     // Källor för hela religionsfilen (se notes i data/religions.json): de räknas inte som egna uppgifter
     const whole = (id, label) => add('religions', [id], label, null, false);
     if (rp.length) whole('cliopatria', ui('sources.religionAreas'));

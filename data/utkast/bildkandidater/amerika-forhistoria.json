@@ -1,0 +1,860 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 21,
+    "kandidater": 25,
+    "troliga": 25,
+    "flaggade": 0,
+    "avvisade": 0,
+    "smala": 3,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "white-sands-fotspar",
+      "titel": "Fotspår från istiden vid White Sands",
+      "plats": "White Sands nationalpark, New Mexico, USA",
+      "start": -21499,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Ice Age footprints at White Sands",
+      "kandidater": [
+        {
+          "fil": "File:Ice Age Human Footprints (a45c5031-d519-43f0-8d64-7b81d653c3ff).JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ice_Age_Human_Footprints_(a45c5031-d519-43f0-8d64-7b81d653c3ff).JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NPS",
+          "datum": "Taken on 30 January 2020",
+          "beskrivning": "Seven human footprints preserved in Ice Age gypsum cement. Ice Age footprints from adolescent female estimated to 23,000-21,000 years ago. During this time warming and drying events caused Lake Otero to significantly drop in water level, allowing for the footprints to be made in the drying gypsum mud. Keywords: Ice Age; Human; Footprint; Fossil; Gypsum",
+          "bredd": 6000,
+          "hojd": 4000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Ice_Age_Human_Footprints_%28a45c5031-d519-43f0-8d64-7b81d653c3ff%29.JPG/960px-Ice_Age_Human_Footprints_%28a45c5031-d519-43f0-8d64-7b81d653c3ff%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological sites in White Sands National Park",
+            "Footprints",
+            "Fossils",
+            "Gypsum in New Mexico",
+            "Ice ages"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Archeologists Uncover Ice Age Footprints (7970cc77-e177-4e4f-a8dd-2ec1289d14fe).JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Archeologists_Uncover_Ice_Age_Footprints_(7970cc77-e177-4e4f-a8dd-2ec1289d14fe).JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NPS",
+          "datum": "Taken on 14 January 2020",
+          "beskrivning": "Two researchers using two different methods to uncover footprints. Researchers must be careful to protect each archeological find whilst finding ways to best uncover their discoveries. Two methods include using a brush to gently brush away loose sediment and a small scraper to scrape away particles and provide more definition for fossil outlines. Keywords: Archeologist; Archeology; Excavation; Footprint; Brush",
+          "bredd": 4011,
+          "hojd": 2416,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Archeologists_Uncover_Ice_Age_Footprints_%287970cc77-e177-4e4f-a8dd-2ec1289d14fe%29.JPG/960px-Archeologists_Uncover_Ice_Age_Footprints_%287970cc77-e177-4e4f-a8dd-2ec1289d14fe%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological sites in White Sands National Park",
+            "Archaeologists",
+            "Brushes",
+            "Excavations",
+            "Fossil hominin footprints"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Black and White Footprints (b0d6859c-17a5-4254-8901-cc116f9893e4).JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Black_and_White_Footprints_(b0d6859c-17a5-4254-8901-cc116f9893e4).JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NPS",
+          "datum": "Taken on 15 January 2020",
+          "beskrivning": "Aerial image of three fossilized human footprints in black and white. Black and white photo filters aid in contrasting images and better illustrate the depth and impressions of the footprints in the sediment. Keywords: Footprint; Human; Fossil",
+          "bredd": 4592,
+          "hojd": 3448,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Black_and_White_Footprints_%28b0d6859c-17a5-4254-8901-cc116f9893e4%29.JPG/960px-Black_and_White_Footprints_%28b0d6859c-17a5-4254-8901-cc116f9893e4%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological sites in White Sands National Park",
+            "Footprints",
+            "Fossils",
+            "Gypsum in New Mexico",
+            "Ice ages"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Excavation Trench with Ice Age Footprints in Background (268b8b71-a423-41c2-8155-dee89c62cdcb).JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Excavation_Trench_with_Ice_Age_Footprints_in_Background_(268b8b71-a423-41c2-8155-dee89c62cdcb).JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NPS",
+          "datum": "Taken on 20 January 2020",
+          "beskrivning": "Closeup of sedimentary layering with ruler for reference. Layering shows exceptional distinction between archeological strata and changes between sediment deposits. Keywords: Excavation; Trench; Archeology; Layer",
+          "bredd": 3024,
+          "hojd": 4032,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Excavation_Trench_with_Ice_Age_Footprints_in_Background_%28268b8b71-a423-41c2-8155-dee89c62cdcb%29.JPG/960px-Excavation_Trench_with_Ice_Age_Footprints_in_Background_%28268b8b71-a423-41c2-8155-dee89c62cdcb%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological sites in White Sands National Park",
+            "Trenches"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Small footprints indicate that young children and toddlers accompanied family members along travels. These footprints are not (ba192a50-29a9-4c0d-beda-9c7e22957d01).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Small_footprints_indicate_that_young_children_and_toddlers_accompanied_family_members_along_travels._These_footprints_are_not_(ba192a50-29a9-4c0d-beda-9c7e22957d01).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NPS",
+          "datum": "Taken on 26 April 2018",
+          "beskrivning": "Close up image of a fossilized toddler footprint in white gypsum sand. NPS ruler is adjacent to the left of footprint to demonstrate size. Approximately 137mm long. Small footprints indicate that young children and toddlers accompanied family members along travels. These footprints are not consistent with the walking path of the other members and suggest that they were carried during a majority of their travels. Keywords: Footprint; Human; Fossil; Toddler; Adolescent",
+          "bredd": 1366,
+          "hojd": 1621,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Small_footprints_indicate_that_young_children_and_toddlers_accompanied_family_members_along_travels._These_footprints_are_not_%28ba192a50-29a9-4c0d-beda-9c7e22957d01%29.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological sites in White Sands National Park",
+            "Footprints",
+            "Fossils",
+            "Gypsum in New Mexico",
+            "Ice ages",
+            "Rulers numbered by millimetre"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "missoulafloderna",
+      "titel": "Missoulafloderna, istidens jätteflodvågor",
+      "plats": "Glaciärsjön Missoula i Montana och Channeled Scablands i östra Washington, USA",
+      "start": -15999,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q371794",
+      "kandidater": [
+        {
+          "fil": "File:Wpdms nasa topo missoula floods.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wpdms_nasa_topo_missoula_floods.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": null,
+          "datum": "2006-01-07 18:59:03",
+          "beskrivning": null,
+          "bredd": 464,
+          "hojd": 384,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/62/Wpdms_nasa_topo_missoula_floods.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Cordilleran Ice Sheet",
+            "Hydrological maps of the United States",
+            "Ice-age glacial lakes of Oregon",
+            "Ice-age glacial lakes of Washington (state)",
+            "Maps of Oregon",
+            "Maps of ice age floods",
+            "Maps of the Columbia River",
+            "Missoula Floods",
+            "Pleistocene geology of Washington (state)",
+            "Topographic maps of Washington (state)",
+            "WPDMS maps"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "bonnevillefloden",
+      "titel": "Bonnevillefloden bryter igenom vid Red Rock Pass",
+      "plats": "Red Rock Pass i Idaho, USA",
+      "start": -15449,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Bonneville flood breaks through at Red Rock Pass",
+      "kandidater": []
+    },
+    {
+      "id": "monte-verde",
+      "titel": "Boplatsen Monte Verde i Chile",
+      "plats": "Monte Verde, Chile",
+      "start": -12499,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q975775",
+      "kandidater": [
+        {
+          "fil": "File:Monte Verde 3.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Monte_Verde_3.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Rodolfo Ditzel Lacoa",
+          "datum": "2012-09-30 15:45:46",
+          "beskrivning": "This is a photo of a national monument in Chile:",
+          "bredd": 4608,
+          "hojd": 2216,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Monte_Verde_3.JPG/960px-Monte_Verde_3.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Monte Verde, Chile"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "megafaunan-forsvinner-i-amerika",
+      "titel": "Megafaunan försvinner i Amerika",
+      "plats": "Nordamerika (markören vid La Brea i Los Angeles, där många av djuren har hittats)",
+      "start": -11799,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The megafauna disappears in the Americas",
+      "kandidater": []
+    },
+    {
+      "id": "clovis-kulturen",
+      "titel": "Clovis-kulturen i Nordamerika",
+      "plats": "Blackwater Draw nära Clovis, New Mexico, USA (fynd över stora delar av Nordamerika)",
+      "start": -11099,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q3485378",
+      "kandidater": [
+        {
+          "fil": "File:Clovis spear point, British Museum.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Clovis_spear_point,_British_Museum.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Photograph by Mike Peel ( www.mikepeel.net ).",
+          "datum": "2010-09-12",
+          "beskrivning": "Clovis spear point. Object 5 of 100. British Museum",
+          "bredd": 1770,
+          "hojd": 2585,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Clovis_spear_point%2C_British_Museum.jpg/960px-Clovis_spear_point%2C_British_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "A History of The World in 100 Objects",
+            "Clovis points"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "pumpan-tams-i-guila-naquitz",
+      "titel": "Pumpan tämjs i Guilá Naquitz",
+      "plats": "Guilá Naquitz-grottan nordväst om Mitla, Oaxaca, Mexiko",
+      "start": -8799,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Squash is domesticated at Guilá Naquitz",
+      "kandidater": []
+    },
+    {
+      "id": "lapa-do-santo-begravningar",
+      "titel": "Begravningsritualer i Lapa do Santo",
+      "plats": "Lapa do Santo i Lagoa Santa-karsten, Minas Gerais, Brasilien",
+      "start": -8599,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q56678621",
+      "kandidater": [
+        {
+          "fil": "File:Lapa do Santo - Overview mais esqueleto para apresentar.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lapa_do_Santo_-_Overview_mais_esqueleto_para_apresentar.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Strauss MAE-USP",
+          "datum": "2018-10-06 10:03:56",
+          "beskrivning": "Lapa do Santo - Vista aérea do maciço e esqueleto humano de cinco anos de idade. Os padrões de sepultamento do sítio arqueológico Lapa do Santo (Holoceno Inicial, Brasil) , p. 254 - Emílio Goeldi. A Lapa do Santo é um sítio arqueológico localizado na região de Lagoa Santa em Minas Gerais. Apresenta um rico registro da cultura material dos grupos que habitaram o Brasil central durante Holoceno Inicial, Médio e Final. Dezenas de sepultamentos humanos foram encontrados na Lapa do Santo. Também é o local onde foi descoberto o caso de decapitação mais antigo das américas.",
+          "bredd": 1742,
+          "hojd": 865,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Lapa_do_Santo_-_Overview_mais_esqueleto_para_apresentar.jpg/960px-Lapa_do_Santo_-_Overview_mais_esqueleto_para_apresentar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Lapa do Santo archaeological site",
+            "Museu de Arqueologia e Etnologia da Universidade de São Paulo"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "potatisen-tams",
+      "titel": "Potatisen tämjs i Anderna",
+      "plats": "Kring Titicacasjön, södra Peru och nordvästra Bolivia",
+      "start": -7999,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The potato is domesticated in the Andes Around Lake Titicaca",
+      "kandidater": []
+    },
+    {
+      "id": "koster-hundgravar",
+      "titel": "Amerikas äldsta kända hundgravar",
+      "plats": "Koster nära Eldred i Illinoisflodens dal, Illinois, USA",
+      "start": -7899,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q16893638",
+      "kandidater": [
+        {
+          "fil": "File:COLLEGE STUDENTS WORK WITH ARCHAEOLOGISTS AT \"KOSTER DIG\" AN ANCIENT INDIAN BURIAL SITE - NARA - 552495.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:COLLEGE_STUDENTS_WORK_WITH_ARCHAEOLOGISTS_AT_%22KOSTER_DIG%22_AN_ANCIENT_INDIAN_BURIAL_SITE_-_NARA_-_552495.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Arthur Greenberg",
+          "datum": "June 1973 date QS:P571,+1973-06-00T00:00:00Z/10",
+          "beskrivning": null,
+          "bredd": 3000,
+          "hojd": 2010,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/COLLEGE_STUDENTS_WORK_WITH_ARCHAEOLOGISTS_AT_%22KOSTER_DIG%22_AN_ANCIENT_INDIAN_BURIAL_SITE_-_NARA_-_552495.jpg/960px-COLLEGE_STUDENTS_WORK_WITH_ARCHAEOLOGISTS_AT_%22KOSTER_DIG%22_AN_ANCIENT_INDIAN_BURIAL_SITE_-_NARA_-_552495.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1973 in archaeology",
+            "Archaeological sites in Illinois",
+            "DOCUMERICA photographs by Arthur Greenberg",
+            "DOCUMERICA photographs of Illinois",
+            "June 1973 in Illinois",
+            "Pre-Columbian cultures of North America"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "cueva-de-las-manos",
+      "titel": "Händerna i Cueva de las Manos",
+      "plats": "Cueva de las Manos, Santa Cruz, Argentina",
+      "start": -7299,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q223385",
+      "kandidater": [
+        {
+          "fil": "File:SantaCruz-CuevaManos-P2210651b.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:SantaCruz-CuevaManos-P2210651b.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Mariano",
+          "datum": "2005-08-12",
+          "beskrivning": "Hands at the Cuevas de las Manos upon Río Pinturas , near the town of Perito Moreno in Santa Cruz Province , Argentina . Picture taken by me in 2005.",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/SantaCruz-CuevaManos-P2210651b.jpg/960px-SantaCruz-CuevaManos-P2210651b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cave paintings in Cueva de las Manos, Río Pinturas",
+            "Rock paintings of hands"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "obsidian-fran-oregon-under-huronsjon",
+      "titel": "Obsidian från Oregon under Huronsjön",
+      "plats": "Alpena–Amberley-ryggen på Huronsjöns botten, mellan Michigan och Ontario",
+      "start": -7049,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Obsidian from Oregon beneath Lake Huron",
+      "kandidater": []
+    },
+    {
+      "id": "majsen-tams-i-balsasdalen",
+      "titel": "Majsen tämjs i Mexiko",
+      "plats": "Xihuatoxtla nära Iguala, Balsasdalen, Mexiko",
+      "start": -6999,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Maize is domesticated in Mexico Xihuatoxtla near Iguala",
+      "kandidater": []
+    },
+    {
+      "id": "kopparkulturen-vid-stora-sjoarna",
+      "titel": "Kopparkulturen vid de stora sjöarna",
+      "plats": "Området kring de stora sjöarna, Nordamerika (punkten: Oconto, Wisconsin)",
+      "start": -6499,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Old Copper Complex by the Great Lakes",
+      "kandidater": [
+        {
+          "fil": "File:Atlas Van der Hagen-KW1049B11 075 14-Aangezicht op het pavilioen van Samson en het meer van- sijn Hoogheyt.jpeg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Atlas_Van_der_Hagen-KW1049B11_075_14-Aangezicht_op_het_pavilioen_van_Samson_en_het_meer_van-_sijn_Hoogheyt.jpeg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Romeyn de Hooghe / Nicolaes Visscher II",
+          "datum": "circa 1685 date QS:P571,+1685-00-00T00:00:00Z/9,P1480,Q5727902",
+          "beskrivning": "The print shows the complex of pleasure gardens of Enghien near Brussels. The plan is part of a series of prints commissioned by Nicolaes Visscher II (1649-1702) and engraved by Romeyn de Hooghe (1645-1708). De Hooghe has drawn his visitors on the crossroad of two lanes. Left is the Grote Alleé that leads to a great lake in the Parc dEnguien. Across the lake is the Pavilion of Samson. To the right the Maliebaan, the playing grounds, where people are playing the Kolfspel. At the far end of the Maliebaan is the Malie house, an inn for the players to relax.",
+          "bredd": 5500,
+          "hojd": 4509,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Atlas_Van_der_Hagen-KW1049B11_075_14-Aangezicht_op_het_pavilioen_van_Samson_en_het_meer_van-_sijn_Hoogheyt.jpeg/960px-Atlas_Van_der_Hagen-KW1049B11_075_14-Aangezicht_op_het_pavilioen_van_Samson_en_het_meer_van-_sijn_Hoogheyt.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Atlas van der Hagen",
+            "Atlas van der Hagen (Volume 2)",
+            "Jeu de mail in art",
+            "Parc d’Enghien in art",
+            "Prints by Romeyn de Hooghe",
+            "Prints published by Nicolaes Visscher II"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "agassizsjon-toms",
+      "titel": "Agassizsjön töms och klimatet kyls",
+      "plats": "Agassizsjön i dagens Manitoba, Ontario, Minnesota och North Dakota, Nordamerika",
+      "start": -6199,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1785837",
+      "soktext": "Lake Agassiz drains and the climate cools",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "windover-gravarna",
+      "titel": "Gravarna i Windover och omsorgen om en sjuk pojke",
+      "plats": "Windover nära Titusville, Florida, USA",
+      "start": -6049,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Windover burials and the care of a sick boy Windover near Titusville",
+      "kandidater": []
+    },
+    {
+      "id": "mount-mazama-crater-lake",
+      "titel": "Mount Mazama exploderar och Crater Lake bildas",
+      "plats": "Crater Lake i Kaskadbergen, Oregon, USA",
+      "start": -5699,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Mount Mazama erupts and Crater Lake forms",
+      "kandidater": [
+        {
+          "fil": "File:Mount Mazama eruption timeline.PNG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mount_Mazama_eruption_timeline.PNG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S. GEOLOGICAL SURVEY and the NATIONAL PARK SERVICE",
+          "datum": "2006-03-29 05:24:35",
+          "beskrivning": "Cataclysmic eruption to present. Eruptions of ash and pumice: The cataclysmic eruption started from a vent on the northeast side of the volcano as a towering column of ash, with pyroclastic flows spreading to the northeast. Caldera collapse: As more magma was erupted, cracks opened up around the summit, which began to collapse. Fountains of pumice and ash surrounded the collapsing summit, and pyroclastic flows raced down all sides of the volcano. Steam explosions: When the dust had settled, the new caldera was 5 miles (8 km) in diameter and 1 mile (1.6 km) deep. Ground water interacted with hot deposits causing explosions of steam and ash. Today: In the first few hundred years after the cataclysmic eruption, renewed eruptions built Wizard Island, Merriam Cone, and the central platform. Water filled the new caldera to form the deepest lake in the United States. Figure modified from diagrams on back of 1988 USGS map “Crater Lake National Park and Vicinity, Oregon.”",
+          "bredd": 250,
+          "hojd": 841,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Mount_Mazama_eruption_timeline.PNG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "2002 illustrations",
+            "Diagrams of calderas",
+            "English-language diagrams",
+            "Holocene caldera-forming eruptions in the United States",
+            "Mount Mazama diagrams",
+            "Types of volcanic eruptions",
+            "Volcanological diagrams"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Rhyodacite pumice fall deposit (Holocene; south of Grouse Hill, Crater Lake Caldera, Oregon, USA) 5.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Rhyodacite_pumice_fall_deposit_(Holocene;_south_of_Grouse_Hill,_Crater_Lake_Caldera,_Oregon,_USA)_5.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "James St. John",
+          "datum": "2012-08-04 16:43:50",
+          "beskrivning": "Rhyodacite pumice & volcanic ash in the Holocene of Orgeon, USA. Crater Lake is a large, deep, freshwater lake in the Cascade Range of America's Pacific Northwest. It formed about 7,700 years ago when an ancient volcano called Mt. Mazama had an enormous explosive ash eruption. The event involved an estimated 50 cubic kilometers of magma being erupted. This was followed by collapse of the mountain, leaving a large depression which later filled with water. Large holes or depressions formed when a volcano destroys itself or collapses are called calderas. Crater Lake Caldera in Oregon is a world-class example of this type of volcanic feature. Shown here is an unconsolidated volcanic deposit at the caldera rim. This material is a mix of rhyodacite ash and small pumice fragments deposited during an explosive eruption in the early Holocene. It may be from a pre-caldera forming eruption or the caldera-forming eruption itself (unit cp or unit rhp of Bacon, 2008) Locality: rim of Crater Lake Caldera, just south of Grouse Hill picnic area, Crater Lake National Park, southwestern Oregon, USA Reference cited: Bacon (2008) - Geologic map of Mount Mazama and Crater Lake Caldera, Oregon. United State Geological Survey Scientific Investigations Map 2832 [accompanying pamphlet].",
+          "bredd": 4288,
+          "hojd": 2848,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Rhyodacite_pumice_fall_deposit_%28Holocene%3B_south_of_Grouse_Hill%2C_Crater_Lake_Caldera%2C_Oregon%2C_USA%29_5.jpg/960px-Rhyodacite_pumice_fall_deposit_%28Holocene%3B_south_of_Grouse_Hill%2C_Crater_Lake_Caldera%2C_Oregon%2C_USA%29_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Grouse Hill (Mt. Mazama)",
+            "Holocene volcanism of Oregon",
+            "Pyroclastic rocks in Oregon",
+            "Rhyodacite pumice fall deposit (Holocene; south of Grouse Hill, Crater Lake Caldera, Oregon)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Rhyodacite pumice fall deposit (Holocene; south of Grouse Hill, Crater Lake Caldera, Oregon, USA) 3.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Rhyodacite_pumice_fall_deposit_(Holocene;_south_of_Grouse_Hill,_Crater_Lake_Caldera,_Oregon,_USA)_3.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "James St. John",
+          "datum": "2012-08-04 16:43:41",
+          "beskrivning": "Rhyodacite pumice & volcanic ash in the Holocene of Orgeon, USA. Crater Lake is a large, deep, freshwater lake in the Cascade Range of America's Pacific Northwest. It formed about 7,700 years ago when an ancient volcano called Mt. Mazama had an enormous explosive ash eruption. The event involved an estimated 50 cubic kilometers of magma being erupted. This was followed by collapse of the mountain, leaving a large depression which later filled with water. Large holes or depressions formed when a volcano destroys itself or collapses are called calderas. Crater Lake Caldera in Oregon is a world-class example of this type of volcanic feature. Shown here is an unconsolidated volcanic deposit at the caldera rim. This material is a mix of rhyodacite ash and small pumice fragments deposited during an explosive eruption in the early Holocene. It may be from a pre-caldera forming eruption or the caldera-forming eruption itself (unit cp or unit rhp of Bacon, 2008) Locality: rim of Crater Lake Caldera, just south of Grouse Hill picnic area, Crater Lake National Park, southwestern Oregon, USA Reference cited: Bacon (2008) - Geologic map of Mount Mazama and Crater Lake Caldera, Oregon. United State Geological Survey Scientific Investigations Map 2832 [accompanying pamphlet].",
+          "bredd": 4288,
+          "hojd": 2848,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Rhyodacite_pumice_fall_deposit_%28Holocene%3B_south_of_Grouse_Hill%2C_Crater_Lake_Caldera%2C_Oregon%2C_USA%29_3.jpg/960px-Rhyodacite_pumice_fall_deposit_%28Holocene%3B_south_of_Grouse_Hill%2C_Crater_Lake_Caldera%2C_Oregon%2C_USA%29_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Eruption products of the Crater Lake Caldera",
+            "Rhyodacite pumice fall deposit (Holocene; south of Grouse Hill, Crater Lake Caldera, Oregon)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Wizard Island, Crater Lake National Park, Oregon (219304137).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wizard_Island,_Crater_Lake_National_Park,_Oregon_(219304137).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Ken Lund from Reno, Nevada, USA",
+          "datum": "2006-08-18 11:19",
+          "beskrivning": "Wizard Island is a volcanic cinder cone which forms an island at the west end of Crater Lake in Crater Lake National Park, Oregon. The top of the island reaches 6,933 feet (2,113 m) above sea level, about 755 feet (230 m) above the average surface of the lake. The cone is capped by a volcanic crater about 500 feet (150 m) wide and 100 feet (30 m) deep. The crater was named the \"Witches Cauldron\" by Will G. Steel in 1885, who also gave Wizard Island its name at the same time. The land area of the island is 315.85 acres (127.82 ha). Wizard Island was created after Mount Mazama, a large stratovolcano, erupted violently approximately 7,700 years ago, forming its caldera which now contains Crater Lake. Following the cataclysmic caldera-forming eruption, which left a hole about 4,000 feet (1,200 m) deep where the mountain had once stood, a series of smaller eruptions over the next several hundred years formed several cinder cones on the caldera floor. The highest of these cones, the only one to rise above the current lake level, is Wizard Island, which rises over 2,700 feet (820 m) above the lowest point on the caldera floor and the deepest point in the lake. Another large cinder cone, Merriam Cone, is located in the northeast part of the lake. Although Merriam Cone rises about 1,400 feet (430 m) above the caldera floor, its summit is still 505 feet (154 m) below the average lake level. Its surface features and lack of a crater indicate that Merriam Cone formed under water. Current public access to Wizard Island is available only during the summer months when boat tours on Crater Lake are in operation. The tours depart from Cleetwood Cove at the north end of the lake, and circle the lake in the counterclockwise direction, stopping at a dock at Governors Bay on the south side of Wizard Island. Passengers on boat trips early in the day may choose to disembark on the island, but must be prepared to spend the entire day on the island if subsequent boats are too full to take on additional passengers. Those on late afternoon boat trips are not permitted to disembark. A final boat is dispatched at the end of each day to pick up any stragglers since overnight camping is not permitted on the island. Two hiking trails are available on Wizard Island, one of which switchbacks up the flanks of the cone and circles the crater on top while the other trail meanders from the dock towards the western end of the island. <a href=\" http://en.wikipedia.org/wiki/Wizard_Island \" rel=\"nofollow\">en.wikipedia.org/wiki/Wizard_Island</a> <a href=\" http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License \" rel=\"nofollow\">en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_...</a>",
+          "bredd": 1280,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Wizard_Island%2C_Crater_Lake_National_Park%2C_Oregon_%28219304137%29.jpg/960px-Wizard_Island%2C_Crater_Lake_National_Park%2C_Oregon_%28219304137%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Crater Lake"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Wizard Island, Crater Lake National Park, Oregon (219303587).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wizard_Island,_Crater_Lake_National_Park,_Oregon_(219303587).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Ken Lund from Reno, Nevada, USA",
+          "datum": "2006-08-18 11:12",
+          "beskrivning": "Wizard Island is a volcanic cinder cone which forms an island at the west end of Crater Lake in Crater Lake National Park, Oregon. The top of the island reaches 6,933 feet (2,113 m) above sea level, about 755 feet (230 m) above the average surface of the lake. The cone is capped by a volcanic crater about 500 feet (150 m) wide and 100 feet (30 m) deep. The crater was named the \"Witches Cauldron\" by Will G. Steel in 1885, who also gave Wizard Island its name at the same time. The land area of the island is 315.85 acres (127.82 ha). Wizard Island was created after Mount Mazama, a large stratovolcano, erupted violently approximately 7,700 years ago, forming its caldera which now contains Crater Lake. Following the cataclysmic caldera-forming eruption, which left a hole about 4,000 feet (1,200 m) deep where the mountain had once stood, a series of smaller eruptions over the next several hundred years formed several cinder cones on the caldera floor. The highest of these cones, the only one to rise above the current lake level, is Wizard Island, which rises over 2,700 feet (820 m) above the lowest point on the caldera floor and the deepest point in the lake. Another large cinder cone, Merriam Cone, is located in the northeast part of the lake. Although Merriam Cone rises about 1,400 feet (430 m) above the caldera floor, its summit is still 505 feet (154 m) below the average lake level. Its surface features and lack of a crater indicate that Merriam Cone formed under water. Current public access to Wizard Island is available only during the summer months when boat tours on Crater Lake are in operation. The tours depart from Cleetwood Cove at the north end of the lake, and circle the lake in the counterclockwise direction, stopping at a dock at Governors Bay on the south side of Wizard Island. Passengers on boat trips early in the day may choose to disembark on the island, but must be prepared to spend the entire day on the island if subsequent boats are too full to take on additional passengers. Those on late afternoon boat trips are not permitted to disembark. A final boat is dispatched at the end of each day to pick up any stragglers since overnight camping is not permitted on the island. Two hiking trails are available on Wizard Island, one of which switchbacks up the flanks of the cone and circles the crater on top while the other trail meanders from the dock towards the western end of the island. <a href=\" http://en.wikipedia.org/wiki/Wizard_Island \" rel=\"nofollow\">en.wikipedia.org/wiki/Wizard_Island</a> <a href=\" http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License \" rel=\"nofollow\">en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_...</a>",
+          "bredd": 1280,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Wizard_Island%2C_Crater_Lake_National_Park%2C_Oregon_%28219303587%29.jpg/960px-Wizard_Island%2C_Crater_Lake_National_Park%2C_Oregon_%28219303587%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Crater Lake"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "chinchorromumier",
+      "titel": "Chinchorromumierna",
+      "plats": "Arica och Camaronesdalen, norra Chile",
+      "start": -5049,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q27096877",
+      "soktext": "The Chinchorro mummies",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Chinchorro mummy heads Arica.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chinchorro_mummy_heads_Arica.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Zorka Ostojic Espinoza",
+          "datum": "2004-01-25 17:16:03",
+          "beskrivning": "Original caption: En Arica están las momias más antiguas del mundo, pertenecen a la Cultura Chinchorro con diez mil años de antigüedad. Hace relativamente poco tiempo se encontraron en un sitio en el centro de la ciudad nuevos cuerpos momificados, corresponden a un periodo tardío de la cultura Chinchorro, así que son un poco más \"jóvenes\", tienen aproximadamente 9.500 años. Estas imágenes son de este lugar que pronto se convertirá en un museo in situ, para mi fue muy sobrecogedor estar ahí. Los chinchorros preparaban esmeradamente a sus muertos para que continuaran el camino hacia otra vida y lo lograron, porque después de diez mil años están presentes...",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Chinchorro_mummy_heads_Arica.jpg/960px-Chinchorro_mummy_heads_Arica.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Arica",
+            "Chinchorro mummies"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Momia cultura chinchorro año 3000 AC.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Momia_cultura_chinchorro_a%C3%B1o_3000_AC.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Pablo Trincado",
+          "datum": "2008-09-26 22:28:19",
+          "beskrivning": "Head of a mummy from the Chinchorro culture, found in Northern Chile.",
+          "bredd": 2816,
+          "hojd": 2112,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Momia_cultura_chinchorro_a%C3%B1o_3000_AC.jpg/960px-Momia_cultura_chinchorro_a%C3%B1o_3000_AC.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Chinchorro mummies"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Chinchorro mummy bodies Arica.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chinchorro_mummy_bodies_Arica.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Zorka Ostojic Espinoza",
+          "datum": "2004-01-25 17:16:03",
+          "beskrivning": "Original caption: En Arica están las momias más antiguas del mundo, pertenecen a la Cultura Chinchorro con diez mil años de antigüedad. Hace relativamente poco tiempo se encontraron en un sitio en el centro de la ciudad nuevos cuerpos momificados, corresponden a un periodo tardío de la cultura Chinchorro, así que son un poco más \"jóvenes\", tienen aproximadamente 9.500 años. Estas imágenes son de este lugar que pronto se convertirá en un museo in situ, para mi fue muy sobrecogedor estar ahí. Los chinchorros preparaban esmeradamente a sus muertos para que continuaran el camino hacia otra vida y lo lograron, porque después de diez mil años están presentes...",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Chinchorro_mummy_bodies_Arica.jpg/960px-Chinchorro_mummy_bodies_Arica.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Arica",
+            "Chinchorro mummies"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Chinchorro mummy find Arica.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chinchorro_mummy_find_Arica.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Zorka Ostojic Espinoza",
+          "datum": "2004-01-25 17:16:03",
+          "beskrivning": "Original caption: En Arica están las momias más antiguas del mundo, pertenecen a la Cultura Chinchorro con diez mil años de antigüedad. Hace relativamente poco tiempo se encontraron en un sitio en el centro de la ciudad nuevos cuerpos momificados, corresponden a un periodo tardío de la cultura Chinchorro, así que son un poco más \"jóvenes\", tienen aproximadamente 9.500 años. Estas imágenes son de este lugar que pronto se convertirá en un museo in situ, para mi fue muy sobrecogedor estar ahí. Los chinchorros preparaban esmeradamente a sus muertos para que continuaran el camino hacia otra vida y lo lograron, porque después de diez mil años están presentes...",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Chinchorro_mummy_find_Arica.jpg/960px-Chinchorro_mummy_find_Arica.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Arica",
+            "Chinchorro mummies"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Momia Chinchorro Negra.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Momia_Chinchorro_Negra.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "WeHaKa",
+          "datum": "Taken on 16 May 2015, 11:58:46 (according to Exif data)",
+          "beskrivning": "Museo Arqueológico San Miguel de Azapa: Momia de infante, tipo Negra",
+          "bredd": 2560,
+          "hojd": 1920,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Momia_Chinchorro_Negra.jpg/960px-Momia_Chinchorro_Negra.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Chinchorro mummies",
+            "Mummies of children",
+            "Museo de San Miguel de Azapa"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "indigo-i-huaca-prieta",
+      "titel": "Indigoblå bomull i Huaca Prieta",
+      "plats": "Huaca Prieta i Chicamadalen, La Libertad, Peru",
+      "start": -4049,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Indigo-blue cotton at Huaca Prieta",
+      "kandidater": []
+    },
+    {
+      "id": "sechin-bajo",
+      "titel": "Ett runt torg i Sechin Bajo",
+      "plats": "Sechin Bajo i Casmadalen, Áncash, Peru",
+      "start": -3599,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q6123107",
+      "kandidater": [
+        {
+          "fil": "File:Sechin casma valley.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sechin_casma_valley.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Sylvain2803",
+          "datum": "2009-08-01",
+          "beskrivning": "The Sechín archeological site and the valley of Casma",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Sechin_casma_valley.JPG/960px-Sechin_casma_valley.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Sechín"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "watson-brake",
+      "titel": "Jordhögarna i Watson Brake",
+      "plats": "Watson Brake, Louisiana, USA",
+      "start": -3499,
+      "varldsdel": "Amerika",
+      "period": "forhistoria",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2552689",
+      "kandidater": [
+        {
+          "fil": "File:Watson Brake Aerial Illustration HRoe 2014.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Watson_Brake_Aerial_Illustration_HRoe_2014.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Herb Roe",
+          "datum": "2016-10-19 11:06:24",
+          "beskrivning": "Artists conception of Watson Brake, an archaeological site in Ouachita Parish, Louisiana that dates from the Archaic period. The oldest earthwork in North America, it was built and occupied 3500 BCE, approximately 5400 years ago.",
+          "bredd": 400,
+          "hojd": 250,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Watson_Brake_Aerial_Illustration_HRoe_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Herb Roe",
+            "Native American mounds in Louisiana",
+            "Watson Brake"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Watson Brake - Map.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Watson_Brake_-_Map.png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.5",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.5",
+          "upphovsperson": "Maximilian Dörrbecker ( Chumwa )",
+          "datum": "see file history",
+          "beskrivning": "Map of the Watson Brake archaeological site",
+          "bredd": 2478,
+          "hojd": 1872,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Watson_Brake_-_Map.png/960px-Watson_Brake_-_Map.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Geographic Overlays",
+            "Maps of Louisiana",
+            "Maps showing history of indigenous peoples of North America",
+            "Watson Brake"
+          ],
+          "smal": false
+        }
+      ]
+    }
+  ]
+}

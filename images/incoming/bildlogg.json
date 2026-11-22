@@ -3214,5 +3214,165 @@
     "source": "commons-bild-freden-i-nystad",
     "id": "freden-i-nystad",
     "file": "freden-i-nystad.png"
+  },
+  {
+    "id": "kungadomet-kongo-grundas",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Don Alvaro, kung av Kongo, tar emot en nederländsk delegation år 1642. Bild ur en bok från 1747, efter Dapper, med gravören J. van der Schleys namn. En europeisk bild från långt efter rikets grundande. Licens: Public domain.",
+      "en": "Don Álvaro, King of Kongo, receives a Dutch delegation in 1642. Picture from a book of 1747, after Dapper, bearing the name of the engraver J. van der Schley. A European image made long after the kingdom was founded. Licence: Public domain.",
+      "de": "Don Álvaro, König von Kongo, empfängt 1642 eine niederländische Gesandtschaft. Bild aus einem Buch von 1747 nach Dapper, mit dem Namen des Stechers J. van der Schley. Ein europäisches Bild aus der Zeit lange nach der Gründung des Reiches. Lizenz: gemeinfrei.",
+      "es": "Don Álvaro, rey del Congo, recibe a una delegación neerlandesa en 1642. Imagen de un libro de 1747, según Dapper, con el nombre del grabador J. van der Schley. Una imagen europea realizada mucho después de la fundación del reino. Licencia: dominio público.",
+      "fr": "Don Álvaro, roi du Kongo, reçoit une délégation néerlandaise en 1642. Image tirée d’un livre de 1747, d’après Dapper, portant le nom du graveur J. van der Schley. Une image européenne réalisée longtemps après la fondation du royaume. Licence : domaine public."
+    },
+    "credit": "Pierre d'Hondt (förläggare) och J. van der Schley (gravör) / Koninklijke Bibliotheek och Atlas of Mutual Heritage via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-kungadomet-kongo-grundas",
+    "file": "kungadomet-kongo-grundas.webp"
+  },
+  {
+    "id": "bartolomeu-dias-rundar-afrika",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Staty av Bartolomeu Dias av skulptören Coert Steynberg vid Sydafrikas högkommission i London. Nutida foto (2007) av RedCoat, inte från händelsens tid. Utsnitt. Licens: CC BY-SA 3.0.",
+      "en": "Statue of Bartolomeu Dias by the sculptor Coert Steynberg at the High Commission of South Africa in London. Modern photo (2007) by RedCoat, not from the time of the event. Detail. Licence: CC BY-SA 3.0.",
+      "de": "Statue von Bartolomeu Dias, geschaffen vom Bildhauer Coert Steynberg, an der Hohen Kommission Südafrikas in London. Heutiges Foto (2007) von RedCoat, nicht aus der Zeit des Ereignisses. Ausschnitt. Lizenz: CC BY-SA 3.0.",
+      "es": "Estatua de Bartolomeu Dias del escultor Coert Steynberg en el Alto Comisionado de Sudáfrica en Londres. Foto actual (2007) de RedCoat, no de la época del acontecimiento. Detalle. Licencia: CC BY-SA 3.0.",
+      "fr": "Statue de Bartolomeu Dias par le sculpteur Coert Steynberg au haut-commissariat d’Afrique du Sud à Londres. Photo actuelle (2007) de RedCoat, pas de l’époque de l’événement. Détail. Licence : CC BY-SA 3.0."
+    },
+    "credit": "RedCoat, bearbetning Biser Todorov / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-bartolomeu-dias-rundar-afrika",
+    "file": "bartolomeu-dias-rundar-afrika.webp"
+  },
+  {
+    "id": "askia-muhammad-tar-makten",
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Askias gravmonument i Gao. Foto av Walter Mittelholzer under en flygning till Tchadsjön 1930–1931, inte från händelsens tid. Licens: Public domain.",
+      "en": "The tomb of Askia in Gao. Photograph by Walter Mittelholzer during a flight to Lake Chad in 1930–1931, not from the time of the event. Licence: Public domain.",
+      "de": "Das Grabmal von Askia in Gao. Foto von Walter Mittelholzer während eines Fluges zum Tschadsee 1930–1931, nicht aus der Zeit des Ereignisses. Lizenz: gemeinfrei.",
+      "es": "La tumba de Askia en Gao. Foto de Walter Mittelholzer durante un vuelo al lago Chad en 1930–1931, no de la época del acontecimiento. Licencia: dominio público.",
+      "fr": "Le tombeau des Askia à Gao. Photo de Walter Mittelholzer lors d’un vol vers le lac Tchad en 1930–1931, pas de l’époque de l’événement. Licence : domaine public."
+    },
+    "credit": "Walter Mittelholzer / ETH-Bibliothek via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-askia-muhammad-tar-makten",
+    "file": "askia-muhammad-tar-makten.webp"
+  },
+  {
+    "id": "afonso-i-kung-av-kongo",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Kungadömet Kongos vapen, omkring 1528–1541. Modern teckning (2017) av Samhanin, inte från händelsens tid. Licens: CC BY 3.0.",
+      "en": "The coat of arms of the Kingdom of Kongo, around 1528–1541. Modern drawing (2017) by Samhanin, not from the time of the event. Licence: CC BY 3.0.",
+      "de": "Das Wappen des Königreichs Kongo, um 1528–1541. Moderne Zeichnung (2017) von Samhanin, nicht aus der Zeit des Ereignisses. Lizenz: CC BY 3.0.",
+      "es": "El escudo de armas del reino del Congo, hacia 1528–1541. Dibujo moderno (2017) de Samhanin, no de la época del acontecimiento. Licencia: CC BY 3.0.",
+      "fr": "Les armoiries du royaume du Kongo, vers 1528–1541. Dessin moderne (2017) de Samhanin, pas de l’époque de l’événement. Licence : CC BY 3.0."
+    },
+    "credit": "Samhanin / Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "source": "commons-bild-afonso-i-kung-av-kongo",
+    "file": "afonso-i-kung-av-kongo.webp"
+  },
+  {
+    "id": "atlantiska-slavhandeln",
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Så ”stuvades” förslavade människor på det brittiska slavskeppet Brookes enligt 1788 års lag om slavhandeln. Affisch från december 1788 av en förening som arbetade för att avskaffa slavhandeln. Utsnitt. Licens: Public domain.",
+      "en": "How enslaved people were “stowed” on the British slave ship Brookes under the Slave Trade Act of 1788. Poster from December 1788 by a society working to abolish the slave trade. Detail. Licence: Public domain.",
+      "de": "So wurden versklavte Menschen auf dem britischen Sklavenschiff Brookes nach dem Sklavenhandelsgesetz von 1788 „verstaut“. Plakat vom Dezember 1788 einer Gesellschaft, die sich für die Abschaffung des Sklavenhandels einsetzte. Ausschnitt. Lizenz: gemeinfrei.",
+      "es": "Así se «estibaba» a las personas esclavizadas en el barco negrero británico Brookes según la ley de 1788 sobre la trata de esclavos. Cartel de diciembre de 1788 de una sociedad que trabajaba por abolir la trata de esclavos. Detalle. Licencia: dominio público.",
+      "fr": "La façon dont les personnes réduites en esclavage étaient « arrimées » sur le navire négrier britannique Brookes selon la loi de 1788 sur la traite. Affiche de décembre 1788 d’une société qui œuvrait pour l’abolition de la traite. Détail. Licence : domaine public."
+    },
+    "credit": "Plymouthavdelningen av Society for Effecting the Abolition of the Slave Trade / Library of Congress via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-atlantiska-slavhandeln",
+    "file": "atlantiska-slavhandeln.webp"
+  },
+  {
+    "id": "etiopisk-adalska-kriget",
+    "kind": "historisk",
+    "style": "miniatyr",
+    "caption": {
+      "sv": "Yagbea Sion i strid mot sultanen av Adal. Miniatyr från 1400-talet i en handskrift av Marco Polos bok (BnF ms. fr. 2810). En europeisk bild av ett tidigare krig mot Adal, inte av det här kriget. Bilden visar krigarna i europeisk riddarrustning. Licens: Public domain.",
+      "en": "Yagbea Sion fighting the sultan of Adal. Miniature from the 15th century in a manuscript of Marco Polo’s book (BnF ms. fr. 2810). A European image of an earlier war against Adal, not of this war. The picture shows the warriors in European knightly armour. Licence: Public domain.",
+      "de": "Yagbea Sion im Kampf gegen den Sultan von Adal. Miniatur aus dem 15. Jahrhundert in einer Handschrift von Marco Polos Buch (BnF ms. fr. 2810). Ein europäisches Bild eines früheren Krieges gegen Adal, nicht von diesem Krieg. Das Bild zeigt die Krieger in europäischer Ritterrüstung. Lizenz: gemeinfrei.",
+      "es": "Yagbea Sion luchando contra el sultán de Adal. Miniatura del siglo XV en un manuscrito del libro de Marco Polo (BnF ms. fr. 2810). Una imagen europea de una guerra anterior contra Adal, no de esta guerra. La imagen muestra a los guerreros con armadura de caballero europeo. Licencia: dominio público.",
+      "fr": "Yagbea Sion combattant le sultan d’Adal. Miniature du XVe siècle dans un manuscrit du livre de Marco Polo (BnF ms. fr. 2810). Une image européenne d’une guerre antérieure contre l’Adal, et non de cette guerre. L’image montre les guerriers en armure de chevalier européen. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär / Bibliothèque nationale de France (ms. fr. 2810) via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-etiopisk-adalska-kriget",
+    "file": "etiopisk-adalska-kriget.webp"
+  },
+  {
+    "id": "dahomey-erovrar-ouidah",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Föremål från Fon i Benin, slutet av 1700-talet: kung Agadjas emblem i trä och silver, 23 cm, fotograferat på Musée africain de Lyon (2016). Licens: CC BY-SA 4.0.",
+      "en": "Object from the Fon people of Benin, late 18th century: King Agadja’s emblem in wood and silver, 23 cm, photographed at the Musée africain de Lyon (2016). Licence: CC BY-SA 4.0.",
+      "de": "Gegenstand der Fon aus Benin, spätes 18. Jahrhundert: das Emblem König Agadjas aus Holz und Silber, 23 cm, fotografiert im Musée africain de Lyon (2016). Lizenz: CC BY-SA 4.0.",
+      "es": "Objeto de los fon de Benín, finales del siglo XVIII: emblema del rey Agadja en madera y plata, 23 cm, fotografiado en el Musée africain de Lyon (2016). Licencia: CC BY-SA 4.0.",
+      "fr": "Objet fon du Bénin, fin du XVIIIe siècle : emblème du roi Agadja en bois et argent, 23 cm, photographié au Musée africain de Lyon (2016). Licence : CC BY-SA 4.0."
+    },
+    "credit": "Ji-Elle / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-dahomey-erovrar-ouidah",
+    "file": "dahomey-erovrar-ouidah.webp"
+  },
+  {
+    "id": "andrianampoinimerina-enar-imerina",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Kung Andrianampoinimerina av Madagaskar. Målning av Philippe-Auguste Ramanankirahina från 1905, mer än hundra år efter 1787. En konstnärs bild från långt senare. Utsnitt. Licens: Public domain.",
+      "en": "King Andrianampoinimerina of Madagascar. Painting by Philippe-Auguste Ramanankirahina from 1905, more than a hundred years after 1787. An artist’s image from much later. Detail. Licence: Public domain.",
+      "de": "König Andrianampoinimerina von Madagaskar. Gemälde von Philippe-Auguste Ramanankirahina aus dem Jahr 1905, mehr als hundert Jahre nach 1787. Das Bild eines Künstlers aus viel späterer Zeit. Ausschnitt. Lizenz: gemeinfrei.",
+      "es": "El rey Andrianampoinimerina de Madagascar. Pintura de Philippe-Auguste Ramanankirahina de 1905, más de cien años después de 1787. La imagen de un artista de mucho después. Detalle. Licencia: dominio público.",
+      "fr": "Le roi Andrianampoinimerina de Madagascar. Peinture de Philippe-Auguste Ramanankirahina de 1905, plus de cent ans après 1787. L’image d’un artiste bien plus tardive. Détail. Licence : domaine public."
+    },
+    "credit": "Philippe-Auguste Ramanankirahina / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-andrianampoinimerina-enar-imerina",
+    "file": "andrianampoinimerina-enar-imerina.webp"
+  },
+  {
+    "id": "sokotokalifatet-grundas",
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Sokoto sett från utkanten. Bild ur P.-L. Monteils reseskildring om resan 1890–1892 från Saint-Louis till Tripoli via Tchadsjön, daterad 1890. Licens: Public domain.",
+      "en": "Sokoto seen from its outskirts. Picture from P.-L. Monteil’s account of the 1890–1892 journey from Saint-Louis to Tripoli by way of Lake Chad, dated 1890. Licence: Public domain.",
+      "de": "Sokoto vom Stadtrand aus gesehen. Bild aus P.-L. Monteils Bericht über die Reise 1890–1892 von Saint-Louis über den Tschadsee nach Tripolis, datiert 1890. Lizenz: gemeinfrei.",
+      "es": "Sokoto visto desde las afueras. Imagen del relato de P.-L. Monteil sobre el viaje de 1890–1892 de Saint-Louis a Trípoli por el lago Chad, fechada en 1890. Licencia: dominio público.",
+      "fr": "Sokoto vu depuis ses abords. Image tirée du récit de P.-L. Monteil sur le voyage de 1890–1892 de Saint-Louis à Tripoli par le lac Tchad, datée de 1890. Licence : domaine public."
+    },
+    "credit": "P.-L. Monteil / Internet Archive via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-sokotokalifatet-grundas",
+    "file": "sokotokalifatet-grundas.webp"
+  },
+  {
+    "id": "rozviriket",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Sädesmagasinen vid Ntabazikamambo (Manyanga) i Bubidistriktet, ett nationalmonument som anses ha varit Chirisamhurus sista huvudstad under Rozvidynastin. Nutida foto (2018) av Senzeni1, inte från händelsens tid. Licens: CC BY-SA 4.0.",
+      "en": "The granaries at Ntabazikamambo (Manyanga) in Bubi District, a national monument believed to have been the last capital of Chirisamhuru of the Rozvi dynasty. Modern photo (2018) by Senzeni1, not from the time of the event. Licence: CC BY-SA 4.0.",
+      "de": "Die Kornspeicher von Ntabazikamambo (Manyanga) im Distrikt Bubi, ein Nationaldenkmal, das als letzte Hauptstadt Chirisamhurus aus der Rozvi-Dynastie gilt. Heutiges Foto (2018) von Senzeni1, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+      "es": "Los graneros de Ntabazikamambo (Manyanga), en el distrito de Bubi, un monumento nacional que se considera la última capital de Chirisamhuru, de la dinastía rozvi. Foto actual (2018) de Senzeni1, no de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+      "fr": "Les greniers de Ntabazikamambo (Manyanga), dans le district de Bubi, un monument national considéré comme la dernière capitale de Chirisamhuru, de la dynastie rozvi. Photo actuelle (2018) de Senzeni1, pas de l’époque de l’événement. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Senzeni1 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-rozviriket",
+    "file": "rozviriket.webp"
   }
 ]
