@@ -136,3 +136,24 @@ Den 21 november 2026 gav reservsökningarna i Library of Congress bildkatalog HT
 | `stavnsbandet-upphavs` | Tom kandidatlista. Alternativsökning på Commons: HTTP 429. |
 | `slaget-vid-jena-auerstedt` | En senare karta i kandidatlistan. Alternativsökning på Commons: HTTP 429. |
 | `slavhandeln-forbjuds-1807` | Kandidaten visar ett riksvapen. Alternativsökning på Commons: HTTP 429. |
+
+## Afrika 1921–1968, del 8 av 9 (#2110, 2026-11-22)
+
+Sökt i kandidatlistan `data/utkast/bildkandidater.json` och på Wikimedia Commons 2026-11-22, licensen läst i filsidans wikitext (`action=raw`).
+
+| Händelse (id) | Skäl |
+|---|---|
+| `kimbangu-predikar-1921` | Det enda samtida fotot av Simon Kimbangu på Commons är 400 px brett och har mallen PD-US-expired utan någon källa (bara "Simon Kimbangu in the early 20th century"). Övriga träffar är nutida foton av museet i Nkamba och målningar från 2025. Library of Congress svarade HTTP 429. |
+| `ethiopian-airlines-grundas-1945` | Bilderna av bolagets Douglas DC-3 på Commons har bara GFDL, som inte är tillåten. Wikidatas bild är ett nutida flygplan (2025). Library of Congress svarade inte inom 30 sekunder. |
+| `afrikas-ar-1960` | Wikidatas bild är en nutida karta med självständighetsår, där filsidans licensmall bara säger GFDL (med `migration=relicense`), medan API:et säger CC BY-SA 3.0. Ingen fri bild från 1960 hittades, bara små frimärken. |
+| `biafra-utropas` | Inga samtida foton av Ojukwu eller utropandet. Det enda fotot av Ojukwu från 1969 är märkt som uppladdarens eget verk (CC0) och är 328 px brett, så ursprunget är oklart. Library of Congress gav inga träffar. |
+| `enugu-faller-1967` | Bara nutida foton från delstaten Enugu (djur, landskap). |
+| `massakern-i-asaba` | Ingen bild av händelsen eller av Asaba vid den tiden. |
+| `port-harcourt-1968` | Bara nutida foton av staden (2023, 2024). |
+| `torkan-i-sahel` | Wikidatas bild är en karta över regnmängden 2007, inte torkan 1968–1973. Ingen fri bild av torkan hittades. |
+
+### Ej hämtad, prövas igen
+
+| Händelse (id) | Hinder |
+|---|---|
+| `ancs-ungdomsforbund-grundas-1944` | Vald bild: [Sisulu wedding with mandela and lembede.JPG](https://commons.wikimedia.org/wiki/File:Sisulu_wedding_with_mandela_and_lembede.JPG) (1944, PD-South-Africa enligt filsidan, okänd fotograf), Walter och Albertina Sisulus bröllop med Nelson Mandela och Anton Lembede. Licensen är läst, men själva filen på upload.wikimedia.org gav HTTP 429 med Retry-After 600 s vid två körningar (08:04 och 08:11 UTC). |
