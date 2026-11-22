@@ -18,6 +18,21 @@
       }
     },
     {
+      "eventId": "afrikanska-frihandelsomradet",
+      "eventTitle": "Afrikanska frihandelsområdet AfCFTA grundas",
+      "file": "images/events/afrikanska-frihandelsomradet.webp",
+      "kind": "historisk",
+      "credit": "Themightyquill, Curiouskiwicat m.fl. / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-afrikanska-frihandelsomradet",
+        "title": "AfricanContinentalFreeTradeArea – modern karta, Themightyquill och Curiouskiwicat (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:AfricanContinentalFreeTradeArea.svg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "agadez-mosken",
       "eventTitle": "Moskén i Agadez byggs",
       "file": "images/events/agadez-mosken.webp",
@@ -129,6 +144,21 @@
         "url": "https://www.loc.gov/item/2018667050/",
         "license": "No known restrictions on publication",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "andra-kongokriget",
+      "eventTitle": "Andra Kongokriget",
+      "file": "images/events/andra-kongokriget.webp",
+      "kind": "historisk",
+      "credit": "L. Rose / USAID via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-andra-kongokriget",
+        "title": "DRC- Child Soldiers – L. Rose, USAID (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:DRC-_Child_Soldiers.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -1011,6 +1041,36 @@
       }
     },
     {
+      "eventId": "ebola-upptacks-i-yambuku",
+      "eventTitle": "Ebola upptäcks i Yambuku",
+      "file": "images/events/ebola-upptacks-i-yambuku.webp",
+      "kind": "historisk",
+      "credit": "Frederick A. Murphy / CDC via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-ebola-upptacks-i-yambuku",
+        "title": "Ebola virus em – Frederick A. Murphy, CDC, 1976 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ebola_virus_em.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "ebolaepidemin-i-vastafrika",
+      "eventTitle": "Ebolaepidemin i Västafrika",
+      "file": "images/events/ebolaepidemin-i-vastafrika.webp",
+      "kind": "historisk",
+      "credit": "CDC Global / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-ebolaepidemin-i-vastafrika",
+        "title": "Checking for fever – CDC Global, 16 september 2014 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Checking_for_fever.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "edwin-smith-papyrusen",
       "eventTitle": "Edwin Smith-papyrusen, den äldsta kända kirurgiska texten",
       "file": "images/events/edwin-smith-papyrusen.webp",
@@ -1123,6 +1183,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "festac-77",
+      "eventTitle": "Festac ’77, den stora afrikanska kulturfestivalen i Lagos",
+      "file": "images/events/festac-77.webp",
+      "kind": "historisk",
+      "credit": "Helinä Rautavaara / Helinä Rautavaaran museo via Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-festac-77",
+        "title": "Festac '77 Regatta – Helinä Rautavaara, 1977 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Festac_%2777_Regatta_(22361732555).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-22"
+      }
     },
     {
       "eventId": "finanskrisen-2008",
@@ -1272,6 +1347,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Estadio_Centenario_1930.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "fotbolls-vm-2010",
+      "eventTitle": "Fotbolls-VM i Sydafrika",
+      "file": "images/events/fotbolls-vm-2010.webp",
+      "kind": "historisk",
+      "credit": "Anthony Stanley / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-fotbolls-vm-2010",
+        "title": "FIFA World Cup 2010 Spain with cup – Anthony Stanley (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:FIFA_World_Cup_2010_Spain_with_cup.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -3558,6 +3648,21 @@
       }
     },
     {
+      "eventId": "sexdagarskriget-i-kisangani",
+      "eventTitle": "Sexdagarskriget i Kisangani",
+      "file": "images/events/sexdagarskriget-i-kisangani.webp",
+      "kind": "historisk",
+      "credit": "Oasisk / Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "source": {
+        "id": "commons-bild-sexdagarskriget-i-kisangani",
+        "title": "Cimetière Mémorial de la guerre de 2000 – nutida foto 2006, Oasisk (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cimeti%C3%A8re_M%C3%A9morial_de_la_guerre_de_2000.JPG",
+        "license": "CC BY 2.5",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "shakespeare-dor",
       "eventTitle": "Shakespeare dör",
       "file": "images/events/shakespeare-dor.webp",
@@ -3570,6 +3675,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Shakespeare.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "sirleaf-valjs-i-liberia",
+      "eventTitle": "Ellen Johnson Sirleaf väljs till Liberias president",
+      "file": "images/events/sirleaf-valjs-i-liberia.webp",
+      "kind": "historisk",
+      "credit": "White House Photography Office / NARA via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-sirleaf-valjs-i-liberia",
+        "title": "The Inauguration Ceremony of Liberian President Ellen Johnson Sirleaf, 16 januari 2006 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Inauguration_Ceremony_of_Liberian_President_Ellen_Johnson_Sirleaf_-_DPLA_-_b23ac987cbce5568d24812d42529d5f6.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-22"
       }
     },
     {

@@ -159,6 +159,22 @@ Kontrollerat 2026-11-22 med granskningslistan `data/utkast/bildbatch/2106.md` oc
 | `sista-silfiumstjalken` | File:Cyrene coin.jpg (mynt från Kyrene med ett silfiumfrö, PD-old-auto och CC0) är godkänd, men upload.wikimedia.org svarade HTTP 429 med Retry-After 600 s. Raden står i `data/utkast/bildbatch/2106-ej-hamtade.txt`. |
 | `burakulturen` | File:Grave Marker MET VS1998.478.1.jpeg (gravmarkör av terrakotta, burafolket, 200–1000-talet, Metropolitan Museum of Art, CC0) är godkänd, men upload.wikimedia.org svarade HTTP 429 med Retry-After 600 s. Raden står i `data/utkast/bildbatch/2106-ej-hamtade.txt`. |
 
+## Afrika 1970–2018, pilot #2111 (2026-11-22)
+
+Granskningslistan `data/utkast/bildbatch/2111.md` och högst en kort sökning på Wikimedia Commons per händelse, 2026-11-22.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `operation-tail-wind` | Kandidaten är en gravyr från 1850 av ett kulthus vid Biafrabukten, inte händelsen. Sökningen gav ett foto av en tidningssida från 7 januari 1970 i Aart Rietvelds samling (CC BY-SA 4.0 för fotot), men licensen täcker inte tidningens egna bilder och text, så den användes inte. |
+| `angolas-inbordeskrig` | Kandidaten (kubansk stridsvagnsbesättning i Angola, 1976) har okänd upphovsperson men mallen PD-USGov-Military, som förutsätter att en amerikansk statsanställd tog bilden. Filsidan visar inte det: bilden är hämtad ur en CIA-skrift från 1982. Den är också bara 616 px bred. |
+| `sowetoupproret` | Sam Nzimas foto är public domain bara i USA. Filsidan säger att den sydafrikanska upphovsrätten upphör i slutet av 2026, så bilden kan prövas igen från 2027. |
+| `grona-baltet-maathai` | Tom kandidatlista. Sökningen gav bara bilder från senare år (bland annat Nobelpriset 2004), inget från 1977. |
+| `operation-kitona` | Tom kandidatlista. Sökningen gav bara ett diagram och en karta. |
+| `mordet-pa-laurent-desire-kabila` | Kandidaten är ett porträtt från ett besök hos EG 1998 med licensmallen EC-Audiovisual Center, som verktygen inte känner igen; vi avstår enligt docs/bilder-riktiga.md. Bilden visar inte heller händelsen. |
+| `afrikanska-unionen-bildas` | Kandidaterna är en mudderpråm ur Britannica 1911 och två foton med licensen GODL-India från andra möten i Durban (2006 och 2013), inte händelsen. Sökningen gav inget från 2002. |
+| `kongos-overgangsregering-2003` | Tom kandidatlista. Sökningen gav bara dokument (PDF). |
+| `sydsudan-blir-sjalvstandigt` | Filsidans licensmall (PD-USGov-POTUS) stämmer inte med upphovet (USAID), och Flickr-sidans licens gick inte att kontrollera (2026-11-22). |
+
 ## Afrika 1826–1905, pilot #2109 (bildpipelinen #2183)
 
 Kontrollerat 2026-11-22 med granskningslistan `data/utkast/bildbatch/2109.md`.

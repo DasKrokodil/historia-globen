@@ -1,0 +1,16 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:Jujuh-house, or place of worship ILN-1850-0622-0004.jpg	operation-tail-wind
+# File:Cuban PT-76 Angola.JPG	angolas-inbordeskrig
+# File:Mbuyisa Makhubu carries Hector Pieterson at Soweto Uprising.jpg	sowetoupproret
+File:Ebola virus em.jpg	ebola-upptacks-i-yambuku	passa-in
+File:Festac '77 Regatta (22361732555).jpg	festac-77
+File:DRC- Child Soldiers.jpg	andra-kongokriget
+File:Cimetière Mémorial de la guerre de 2000.JPG	sexdagarskriget-i-kisangani
+# File:Visit of Laurent Désiré Kabila, President of the Democratic Republic of Congo, to the EC (cropped).jpg	mordet-pa-laurent-desire-kabila
+# File:Britannica Dredge and Dredging 7.jpg	afrikanska-unionen-bildas
+File:The Inauguration Ceremony of Liberian President Ellen Johnson Sirleaf - DPLA - b23ac987cbce5568d24812d42529d5f6.JPG	sirleaf-valjs-i-liberia
+File:FIFA World Cup 2010 Spain with cup.jpg	fotbolls-vm-2010
+# File:South Sudan independence celebration in Juba.jpg	sydsudan-blir-sjalvstandigt
+File:Checking for fever.jpg	ebolaepidemin-i-vastafrika
+File:AfricanContinentalFreeTradeArea.svg	afrikanska-frihandelsomradet	passa-in

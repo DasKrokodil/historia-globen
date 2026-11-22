@@ -77,6 +77,8 @@
         "commons-bild-arabiska-varen",
         "commons-bild-attackerna-11-september-2001",
         "commons-bild-diamanterna-i-kimberley",
+        "commons-bild-ebolaepidemin-i-vastafrika",
+        "commons-bild-festac-77",
         "commons-bild-finanskrisen-2008",
         "commons-bild-folkmordet-i-rwanda",
         "commons-bild-gondar-blir-etiopiens-huvudstad",
@@ -95,6 +97,7 @@
     {
       "license": "CC BY 2.5",
       "sourceIds": [
+        "commons-bild-sexdagarskriget-i-kisangani",
         "commons-bild-sydney-harbour-bridge-invigs"
       ]
     },
@@ -330,6 +333,7 @@
       "sourceIds": [
         "commons-bild-aksum-blir-kristet",
         "commons-bild-caral",
+        "commons-bild-fotbolls-vm-2010",
         "commons-bild-kvinnlig-rostratt-nya-zeeland",
         "commons-bild-mosken-i-cordoba",
         "commons-bild-star-wars"
@@ -410,6 +414,7 @@
     {
       "license": "CC BY-SA 4.0",
       "sourceIds": [
+        "commons-bild-afrikanska-frihandelsomradet",
         "commons-bild-agadez-mosken",
         "commons-bild-al-qarawiyyin-grundas",
         "commons-bild-angkor-wat",
@@ -3415,6 +3420,7 @@
       "sourceIds": [
         "bourne-northmen-columbus-1906",
         "commons-bild-alltinget-grundas",
+        "commons-bild-andra-kongokriget",
         "commons-bild-andra-slaget-vid-el-alamein",
         "commons-bild-andrianampoinimerina-enar-imerina",
         "commons-bild-arabforbundet-grundas-1945",
@@ -3450,6 +3456,7 @@
         "commons-bild-dna-strukturen",
         "commons-bild-dodahavsrullarna",
         "commons-bild-dronten-sista-gangen",
+        "commons-bild-ebola-upptacks-i-yambuku",
         "commons-bild-edwin-smith-papyrusen",
         "commons-bild-encyclopedien-ges-ut",
         "commons-bild-etiopisk-adalska-kriget",
@@ -3534,6 +3541,7 @@
         "commons-bild-saltmarschen",
         "commons-bild-semmelweis-handtvatt",
         "commons-bild-shakespeare-dor",
+        "commons-bild-sirleaf-valjs-i-liberia",
         "commons-bild-sjalvstandighetsforklaringen",
         "commons-bild-sjoslaget-vid-dan-no-ura",
         "commons-bild-sjoslaget-vid-hango-udd",
