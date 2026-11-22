@@ -1,0 +1,994 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 19,
+    "kandidater": 31,
+    "troliga": 27,
+    "flaggade": 4,
+    "avvisade": 0,
+    "smala": 5,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "muskotkrigen",
+      "titel": "Muskötkrigen",
+      "plats": "Hela Nya Zeeland, även Chathamöarna (den första kända striden med musköter stod vid Moremonui i Northland)",
+      "start": 1806,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1192398",
+      "kandidater": [
+        {
+          "fil": "File:MaoriWardanceKahuroa.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:MaoriWardanceKahuroa.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Merrett, Joseph Jenner, 1816-1854.",
+          "datum": "circa 1845 date QS:P,+1845-00-00T00:00:00Z/9,P1480,Q5727902",
+          "beskrivning": "War dance, New Zealand",
+          "bredd": 4677,
+          "hojd": 2971,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/MaoriWardanceKahuroa.jpg/960px-MaoriWardanceKahuroa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1840s works",
+            "Dance in the 1840s",
+            "Haka",
+            "Joseph Jenner Merrett",
+            "Māori in art",
+            "Māori weapons",
+            "New Zealand in the 1840s"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kauai-underkastar-sig",
+      "titel": "Kauaʻi går upp i kungariket Hawaiʻi",
+      "plats": "Honolulu, Oʻahu",
+      "start": 1810,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Kauaʻi Joins the Kingdom of Hawaiʻi Honolulu",
+      "kandidater": []
+    },
+    {
+      "id": "forsta-missionen-rangihoua",
+      "titel": "Den första kristna missionen i Nya Zeeland",
+      "plats": "Oihi vid Rangihoua, Bay of Islands, Nya Zeeland",
+      "start": 1814,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The first Christian mission in New Zealand Oihi at Rangihoua",
+      "kandidater": [
+        {
+          "fil": "File:Oihi Bay (Rangihoua Bay), 1964 (15419077993).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Oihi_Bay_(Rangihoua_Bay),_1964_(15419077993).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "1964",
+          "beskrivning": "Oihi Bay (Rangihoua Bay) at the time of the 150th anniversary of the first Christian service in 1964, where the Rev. R E Marsden (great-great-grandson of Samuel Marsden) conducted the service. The Reverend Samuel Marsden (1765-1838) was the driving force behind the establishment of Anglican mission stations in New Zealand in the early 19th century. His work and that of his missionaries helped build a relationship of trust with Māori chiefs, paving the way for the acceptance of an official British Crown presence in New Zealand. Born in England, Marsden was a member of the Church Missionary Society and remained formally based in New South Wales, but developed an interest in evangelizing New Zealand from the early 1800s onwards. Europeans had known of New Zealand since the 1640s and by the early 19th century there had been increasing contact between Māori and Europeans, mainly by the many whalers and sealers around the coast of New Zealand and especially in the Bay of Islands. A small community of Europeans had formed in the Bay of Islands, made up of explorers, flax traders, timber merchants, seamen, and ex-convicts who had served their sentences in Australia (and some who had escaped the Australian penal system). Marsden was concerned that they were corrupting the Māori way of life, and lobbied the Church Missionary Society successfully to send a mission to New Zealand. Marsden also protested to the British authorities about the trade in Māori heads, the involvement of the British in tribal conflicts, and lawlessness in Kororāreka, a mixed-race settlement in the Bay of Islands. He helped convince the Governor of New South Wales to support the appointment of a British Resident in New Zealand, a crucial link in the chain of events that ultimately led to Britain seeking sovereignty over New Zealand. Lay missionaries Thomas Kendall, John King and William Hall were chosen for the New Zealand mission in 1809, but it wasn’t until November 1814 that Marsden took his brig \"Active\" on an exploratory journey to the Bay of Islands with Kendall and Hall. Marsden conducted the first Christian service on New Zealand soil on Christmas Day 1814. The service was spoken in English but translated into Maori for the 400-strong Māori congregation. He led off with the Old Hundredth (Psalm 100) and then preached from Luke 2:10 – 'behold, I bring you good tidings of great joy'. A mission station was founded with a base at Rangihoua Bay, later moved to Kerikeri, (where the mission house and stone store can still be seen), and ultimately a model farming village at Te Waimate. Archives New Zealand Reference: AAQT 6539, A76870, R24459938 For updates on our On This Day series and news from Archives New Zealand, follow us on Twitter www.twitter.com/ArchivesNZ",
+          "bredd": 2436,
+          "hojd": 1862,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Oihi_Bay_%28Rangihoua_Bay%29%2C_1964_%2815419077993%29.jpg/960px-Oihi_Bay_%28Rangihoua_Bay%29%2C_1964_%2815419077993%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1964 in New Zealand",
+            "Psalm 100",
+            "Rangihoua Bay",
+            "Samuel Marsden"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Oihi Bay, Bay of Islands (15416431034).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Oihi_Bay,_Bay_of_Islands_(15416431034).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2014-12-16 12:53",
+          "beskrivning": "Oihi Bay, Bay of Islands – photograph of an oil painting (unknown artist) of the Rangihoua Mission Station established by Reverend Samuel Marsden. It was the site of the first Christian sermon preached in New Zealand on Christmas Day, 25 December 1814. The Reverend Samuel Marsden (1765-1838) was the driving force behind the establishment of Anglican mission stations in New Zealand in the early 19th century. His work and that of his missionaries helped build a relationship of trust with Māori chiefs, paving the way for the acceptance of an official British Crown presence in New Zealand. Born in England, Marsden was a member of the Church Missionary Society and remained formally based in New South Wales, but developed an interest in evangelizing New Zealand from the early 1800s onwards. Europeans had known of New Zealand since the 1640s and by the early 19th century there had been increasing contact between Māori and Europeans, mainly by the many whalers and sealers around the coast of New Zealand and especially in the Bay of Islands. A small community of Europeans had formed in the Bay of Islands, made up of explorers, flax traders, timber merchants, seamen, and ex-convicts who had served their sentences in Australia (and some who had escaped the Australian penal system). Marsden was concerned that they were corrupting the Māori way of life, and lobbied the Church Missionary Society successfully to send a mission to New Zealand. Marsden also protested to the British authorities about the trade in Māori heads, the involvement of the British in tribal conflicts, and lawlessness in Kororāreka, a mixed-race settlement in the Bay of Islands. He helped convince the Governor of New South Wales to support the appointment of a British Resident in New Zealand, a crucial link in the chain of events that ultimately led to Britain seeking sovereignty over New Zealand. Lay missionaries Thomas Kendall, John King and William Hall were chosen for the New Zealand mission in 1809, but it wasn’t until November 1814 that Marsden took his brig \"Active\" on an exploratory journey to the Bay of Islands with Kendall and Hall. Marsden conducted the first Christian service on New Zealand soil on Christmas Day 1814. The service was spoken in English but translated into Maori for the 400-strong Māori congregation. He led off with the Old Hundredth (Psalm 100) and then preached from Luke 2:10 – 'behold, I bring you good tidings of great joy'. A mission station was founded with a base at Rangihoua Bay, later moved to Kerikeri, (where the mission house and stone store can still be seen), and ultimately a model farming village at Te Waimate. Archives New Zealand Reference: AAME 8106, W5603, 11/1/128, R20938600 For updates on our On This Day series and news from Archives New Zealand, follow us on Twitter www.twitter.com/ArchivesNZ",
+          "bredd": 2900,
+          "hojd": 2138,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Oihi_Bay%2C_Bay_of_Islands_%2815416431034%29.jpg/960px-Oihi_Bay%2C_Bay_of_Islands_%2815416431034%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "History of New Zealand",
+            "Rangihoua Bay"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "svarta-linjen",
+      "titel": "Svarta linjen i Tasmanien",
+      "plats": "Tasmanien (då Van Diemens land)",
+      "start": 1830,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Black Line in Tasmania",
+      "kandidater": [
+        {
+          "fil": "File:Map of Main Line Railway, Tasmania.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Map_of_Main_Line_Railway,_Tasmania.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Tasmanian Main Line Railway Company",
+          "datum": "1880",
+          "beskrivning": "Map of Main Line Railway, Tasmania. Shows the main railway line from Hobart to Launceston in red; the Mersey, Deloraine, Launceston and Western Railway in black; and the projected line from Bridgewater in a broken red line.",
+          "bredd": 739,
+          "hojd": 1000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/70/Map_of_Main_Line_Railway%2C_Tasmania.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Old maps of Tasmania",
+            "Rail transport maps of Australia",
+            "South Line, Tasmania"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:A handbook of the birds of Tasmania and its dependencies (1910) (14749635802).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:A_handbook_of_the_birds_of_Tasmania_and_its_dependencies_(1910)_(14749635802).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1910",
+          "beskrivning": "Identifier : handbookofbirdso00litt ( find matches ) Title : A handbook of the birds of Tasmania and its dependencies Year : 1910 ( 1910s ) Authors : Littler, Frank Mervyn Subjects : Birds -- Australia Tasmania Publisher : Launceston, Tasmania : F.M. Littler Contributing Library : American Museum of Natural History Library Digitizing Sponsor : Biodiversity Heritage Library View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: y field-glasses these Gulls quietly drop down among the nests and steal eggs from unprotected nests right under the noses of birds sitting hard by. From observations it was found that the Cormorants were afraid of the Gulls, and would not return to protect their nests while any of these impudent robbers were close by. On other parts of the island remains of extensive Iookeries were evident. It was noted that when this Cormorant was in full flight its wing action much resembled that of the Black Duck (Anas super- ciliosa). When disturbed from the rookery they would fly some few hundred yards from the shore and settle in a compact mass in the water, with their bodies sunk low and necks erect. LITTLE CORMORANT (Phalacrocorox melanoleucus, Vieill .) Male and Female (breeding plumage).—Upper surface shining black, glossed with greenish; on the sides of the head and neck longish white feathers, forming a kind of mane; the feathers on the forehead form a short crest, in wliich a few white feathers Text Appearing After Image: PORTION OF CORMORANT ROOKERY, NINTH ISLAND . Photo by J. G. Littler. BIRDS OF TASMANIA. 201 are mixed; shoulders and wing coverts shining greyish-black; under surface white; under tail coverts sooty-black; bill yellow; legs and feet black. Dimensions in mm.;—Length, 585; bill, 29; wing, 228; tail, 152; tarsus, 36. Male and Female (non-breeding plumage).—Crest almost absent and without white feathers; feathers forming lateial mane short. Young.—Feathers of upper surface margined with brownish to biownish-white; those of under surface somewhat yellow-brown towards the tips. Nest.—Constructed of sticks and lined with leaves; placed in the branches of a low tree in water. Breeds in colonies. Eggs.—Clutch three to four; inclined to oval in shape; texture coarse; surface without gloss; colour bluish-white, irregularly coated with lime. Dimensions in mm. of a clutch :—(1) 47 x 30, (2) 46 X 30, (3) 47.5 x 31. Breeding Season.—August or September to November. Geographical Distribution-.—Tasmania, Australia, New Zea- land, New Caledonia, and northwards to some of the islands of the Austro-Malayan Archipelago. Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 2400,
+          "hojd": 1614,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/A_handbook_of_the_birds_of_Tasmania_and_its_dependencies_%281910%29_%2814749635802%29.jpg/960px-A_handbook_of_the_birds_of_Tasmania_and_its_dependencies_%281910%29_%2814749635802%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "A handbook of the birds of Tasmania and its dependencies (1910)",
+            "Ninth Island (Tasmania)",
+            "Phalacrocoracidae of Tasmania",
+            "Waterhouse Island Group"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
+        },
+        {
+          "fil": "File:SLNSW 24219 The Governors of New South Wales, Victoria, Queensland, and Tasmania, with the captain aboard the Orient Line steamship RMS Ormonde, for an Australia Day luncheon (26 January 1938).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:SLNSW_24219_The_Governors_of_New_South_Wales,_Victoria,_Queensland,_and_Tasmania,_with_the_captain_aboard_the_Orient_Line_steamship_RMS_Ormonde,_for_an_Australia_Day_luncheon_(26_January_1938).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Sam Hood",
+          "datum": "26 January 1938",
+          "beskrivning": "The Governors of New South Wales, Victoria, Queensland, and Tasmania, aboard the Orient Line steamship RMS Ormonde , the flagship of the 150th anniversary regatta, for an Australia Day luncheon. Left to right: Lord Huntingfield (Governor of Victoria), Lord Wakehurst (Governor of NSW), Captain A. E. Nicholls (Commander of the RMS Ormonde), Sir Ernest Clark (Governor of Tasmania), and Sir Leslie Orme Wilson (Governor of Queensland).",
+          "bredd": 1400,
+          "hojd": 1046,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/SLNSW_24219_The_Governors_of_New_South_Wales%2C_Victoria%2C_Queensland%2C_and_Tasmania%2C_with_the_captain_aboard_the_Orient_Line_steamship_RMS_Ormonde%2C_for_an_Australia_Day_luncheon_%2826_January_1938%29.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1938 Australia Day",
+            "1938 in unidentified locations in the City of Sydney",
+            "Black and white photographs of ships",
+            "Governors of Tasmania",
+            "Governors of Victoria, Australia",
+            "Group photographs of men wearing suits",
+            "January 1938",
+            "John Loder, 2nd Baron Wakehurst",
+            "Leslie Orme Wilson",
+            "Ormonde (ship, 1917)",
+            "Ship captains from the United Kingdom",
+            "White uniforms"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:A handbook of the birds of Tasmania and its dependencies (1910) (14746766541).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:A_handbook_of_the_birds_of_Tasmania_and_its_dependencies_(1910)_(14746766541).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1910",
+          "beskrivning": "Identifier : handbookofbirdso00litt ( find matches ) Title : A handbook of the birds of Tasmania and its dependencies Year : 1910 ( 1910s ) Authors : Littler, Frank Mervyn Subjects : Birds -- Australia Tasmania Publisher : Launceston, Tasmania : F.M. Littler Contributing Library : American Museum of Natural History Library Digitizing Sponsor : Biodiversity Heritage Library View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: extremity and the appearance of white beyond the black is due to the whitish feet (E. A. Wilson). * BLACK-BROWED ALBATROSS (Diomedia melanophirys, Temm .) Male.—General colour white; a slaty patcli in front of and behind the eyes; back and wings slaty-black; tail slate-grey; bill dull yellow; legs and feet yellow. Dimensions in mm. :—Length, about 860; bill, 138; wing, 510; tail, 185; tarsus, 78. Female.—Similar to male. Young.—Differs from the adult in that the head is grey and the bill dark blue. Nest.—Constructed of grass, moss, and earth into the shape of a small inverted cone. Breeds in colonies. Eggs.—Clutch one; inchned to oval in shape; texture coarse; surface without gloss; colour dull white, with a few distinct mark- ings on the apex. Dimensions in mm.:—101 x 67. Breeding Season.—November and December. Geographical Distribution.—Seas of Tasmania, Australia, New Zealand, and the Southern Ocean in general. Observations.—Wound the coast of Tasmania this fine Albatross Text Appearing After Image: ROOKERY OF WHITE-CAPPED ALBATROSS , Photo. by H. P. C. Ashworth From \" THE EMU \" BIRDS OF TASMANIA. 187 is frequently to be seen either following in the wake of ships or else scouring the ocean for food. It has been found breeding on Campbell, Auckland, Antipodes, Bounty, Falkland, and Kerguelen Islands. \" Of all the species with which I am acquainted this is the most fearless of man, for it often approaches many yards nearer the vessel than any other; I have even observed it so near that the tips of its pinions were not more than two arms lengths from the taffrail. It is very easily captured with a hook and line, and, as this operation gives not the least pain to the bird, the point of the hook merely taking hold in the horny and insensible tip of the bill, I frequently amused myself by capturing specimens in this way, and after detaining them suffciently long to afford me an opportunity for investigating any particular point respecting whichI wished to satisfy myself, setting them at liberty again, after having marked many, in order to ascertain whether the individuals which were flying round the ship were the same that were simi- Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 2384,
+          "hojd": 1608,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/A_handbook_of_the_birds_of_Tasmania_and_its_dependencies_%281910%29_%2814746766541%29.jpg/960px-A_handbook_of_the_birds_of_Tasmania_and_its_dependencies_%281910%29_%2814746766541%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "A handbook of the birds of Tasmania and its dependencies (1910)",
+            "Thalassarche cauta"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
+        },
+        {
+          "fil": "File:A handbook of the birds of Tasmania and its dependencies (1910) (14769774933).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:A_handbook_of_the_birds_of_Tasmania_and_its_dependencies_(1910)_(14769774933).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1910",
+          "beskrivning": "Identifier : handbookofbirdso00litt ( find matches ) Title : A handbook of the birds of Tasmania and its dependencies Year : 1910 ( 1910s ) Authors : Littler, Frank Mervyn Subjects : Birds -- Australia Tasmania Publisher : Launceston, Tasmania : F.M. Littler Contributing Library : American Museum of Natural History Library Digitizing Sponsor : Biodiversity Heritage Library View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: Irides andejelashes yellows cere and gape yellowish-green; base of the billlead colour, tip black; legs yellow, slightly tinged with green(Gould). Dimensions in mm. :—Length, 431; bill, 24; wing, 267;tail, 221; tarsus, 71. Female.—Similar in plumage to male. Dimensions in mm. : —Length, 445; bill, 24; wing, 283; tail, 203; tarsus, 71. Yonng.—Male.— Cere and gape olive-yellow; irides and eye-lash primrose-yellow (Gould). Nest.—Constructed in the fork of a fairly high tree, and com-posed of sticks and twigs, and lined with fine roots, leaves, &c.Frequently the nest of another bird of prey is used (A. J. Camp-bell). Eggs.—Clutch three usually, four sometimes; roundish, of finetexture, and without lustre; colour white, faintlj tinged withblue or green, generally without markings. An example in aclutch iia the collection of Mr. F. D. Barclay is somewhat heavilymarked with brown at the smaller end. Dimensions in mm. of aclutch -.—(l) 41 X 33, (2) 39.5 x 33, (3) 40 x 32. Text Appearing After Image: BIRDS OF TASMANIA. 5 Breeding Season.—August to November. Geographical Distribution.—Tasmania, Australia, and NewGuinea. Observations.—With an easy and graceful flight, this elegantwinged arrow of a bird skims the hedgerows and trees, and marksdown its victim. Of all our Hawks this species is the quickest onthe wing, and the most feared by small birds. In the northernparts of the island, at least, it is not as plentiful as either theGoshawk or Brown Hawk. Sub-Family—Aquilinae. WEDGE-TAILED EAGLE (UroaHtus audax, Latham). Male.—Upper and under surfaces, except back of the neck, deepbrownish-black; feathers on upper back and chest minutely tippedwith pale brown; back of the neck pale reddish-brown; head ligb.terthan body; bases of the feathers snow-white. Dimensions in mai. :—Length, 1,091; bill, 62; wing, 598; tail, 433; tarsus, 94. Female.—Similar in plumage. As the age of the bird increases, the major wing coverts turnrusty in proportion; the chest takes on a lighter hu Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 3024,
+          "hojd": 1884,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/A_handbook_of_the_birds_of_Tasmania_and_its_dependencies_%281910%29_%2814769774933%29.jpg/960px-A_handbook_of_the_birds_of_Tasmania_and_its_dependencies_%281910%29_%2814769774933%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "A handbook of the birds of Tasmania and its dependencies (1910)",
+            "Aquila audax (illustrations)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
+        }
+      ]
+    },
+    {
+      "id": "pinjarramassakern",
+      "titel": "Pinjarramassakern",
+      "plats": "Pinjarra, Västaustralien",
+      "start": 1834,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1550913",
+      "kandidater": [
+        {
+          "fil": "File:Pinjarra Massacre Site, August 2020 01.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Pinjarra_Massacre_Site,_August_2020_01.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Calistemon",
+          "datum": "2020-08-31 09:40:46",
+          "beskrivning": "Pinjarra Massacre Site, Western Australia.",
+          "bredd": 4608,
+          "hojd": 3456,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Pinjarra_Massacre_Site%2C_August_2020_01.jpg/960px-Pinjarra_Massacre_Site%2C_August_2020_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "August 2020 in Western Australia",
+            "Pinjarra Massacre Site"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "he-whakaputanga",
+      "titel": "He Whakaputanga – självständighetsförklaringen",
+      "plats": "Waitangi, Bay of Islands, Nya Zeeland",
+      "start": 1835,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q1182065",
+      "kandidater": [
+        {
+          "fil": "File:He Whakaputanga o te Rangatiratanga o Nu Tireni (known as The Declaration of Independence) (Page 1 of 3), 1835 (10430000633).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:He_Whakaputanga_o_te_Rangatiratanga_o_Nu_Tireni_(known_as_The_Declaration_of_Independence)_(Page_1_of_3),_1835_(10430000633).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2006-07-13 14:51",
+          "beskrivning": "On 28 October 1835, 34 Māori rangatira (chiefs) at Waitangi, Bay of Islands, signed He W[h]akaputanga o te Rangatiratanga o Nu Tireni, also known as the Declaration of Independence of New Zealand (although the Declaration - the English language text - is different and not what the rangatira signed). He Whakaputanga was drawn up by Northern rangatira and the official British Resident James Busby, as part of an ongoing conversation forged by Māori with the Crown. By 1839 a total of 52 rangatira had signed the Māori text document, including rangatira outside of Ngāpuhi. Its four sections declared Aotearoa a sovereign state, and that full sovereign power and authority resided in Te Whakaminenga o Ngā Hapū o Nu Tireni, often translated as the General Assembly of Hapū or Confederation of United Tribes. He Whakaputanga (and in turn the sovereignty of the rangatira) was recognised by British authorities in 1836; hence the need to negotiate further relationships with te Tiriti o Waitangi. Whether He Whakaputanga has any standing today is the subject of ongoing constitutional debate. These range from the view that the Treaty of Waitangi extinguished any sovereignty of the chiefs recognised in the Declaration, and is therefore nothing more than an interesting historical document; to the view that Māori never gave up sovereignty by signing te Tiriti o Waitangi (the Māori documents signed by the majority of rangatira), and that the sovereignty acknowledged in He Whakaputanga is reaffirmed in its family document, te Tiriti. More information can be found in the Waitangi Tribunal Report on He Whakaputanga: www.justice.govt.nz/tribunals/waitangi-tribunal/Reports/h... He Whakaputanga is currently on display at Archives New Zealand's Wellington office. Archives Reference: IA1 9/1/1a (page 1 of 3) For updates on our On This Day series and news from Archives New Zealand, follow us on Twitter twitter.com/ArchivesNZ Material supplied by Archives New Zealand",
+          "bredd": 3001,
+          "hojd": 4542,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/He_Whakaputanga_o_te_Rangatiratanga_o_Nu_Tireni_%28known_as_The_Declaration_of_Independence%29_%28Page_1_of_3%29%2C_1835_%2810430000633%29.jpg/960px-He_Whakaputanga_o_te_Rangatiratanga_o_Nu_Tireni_%28known_as_The_Declaration_of_Independence%29_%28Page_1_of_3%29%2C_1835_%2810430000633%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Declaration of the Independence of New Zealand"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "hobsons-suveranitetsproklamationer",
+      "titel": "Hobson utropar brittisk suveränitet",
+      "plats": "Nya Zeeland",
+      "start": 1840,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Hobson proclaims British sovereignty New Zealand",
+      "kandidater": [
+        {
+          "fil": "File:Proclamations of sovereignty over Aotearoa New Zealand, 21 May 1840 (16085443964).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Proclamations_of_sovereignty_over_Aotearoa_New_Zealand,_21_May_1840_(16085443964).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2014-12-16 15:38",
+          "beskrivning": "The New Zealand Company in Port Nicholson set up its own form of self-government in March, and William Hobson was alerted to this by a ship’s captain on 21 May 1840. Hobson was furious, characterising the actions of the council of colonists as ‘usurped authority’ and high treason. Immediately upon receiving the news, Hobson issued proclamations of Her Majesty’s sovereignty over Aotearoa New Zealand. The North Island was claimed by cession (in his accompanying dispatch he cited the ‘universal adherence’ of the chiefs, despite having only two signed sheets of the Treaty in his possession) and the South Island on the basis of Captain Cook’s discovery. The South Island proclamation took effect from that date – and had to be reissued because Hobson omitted the grounds for the assertion on the first copy he sent to London. However, the North Island proclamation was made retrospective to 6 February (Hobson wrongly wrote 5 February), with subsequent signings being characterised as ratification and confirmation. British sovereignty over New Zealand was thereby asserted, based, at least in respect of the North Island, on the cession of sovereignty in the Treaty, notwithstanding the large areas of the country over which Māori had yet to sign. Some historians point out that the significant differences in meaning between the Māori and English texts had become apparent by this time, and although Hobson was surely aware of this, he made no mention of the matter when forwarding his proclamations to London. These are copies of the proclamations of sovereignty made by William Hobson. They were read aloud by Willoughby Shortland at Thorndon, Wellington on 4 June 1840. The left image relates the North Island, and shows the incorrect date of 5 February as the first signing of te Tiriti o Waitangi. The right image proclaims sovereignty over the South and Stewart Islands by right of discovery. The proclamations were published in the London Gazette on 2 October 1840. Archives Reference: G30 Box 1 archway.archives.govt.nz/ViewFullItem.do?code=3796080 This record is part of #Waitangi175, celebrating 175 years since the signing of of te Tiriti o Waitangi. You can see other real time tweets on Twitter (twitter.com/ArchivesNZ), or explore the Waitangi 175 album here on Flickr. Material supplied by Archives New Zealand Caption information from www.justice.govt.nz/tribunals/waitangi-tribunal/Reports/h...",
+          "bredd": 6313,
+          "hojd": 5258,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Proclamations_of_sovereignty_over_Aotearoa_New_Zealand%2C_21_May_1840_%2816085443964%29.jpg/960px-Proclamations_of_sovereignty_over_Aotearoa_New_Zealand%2C_21_May_1840_%2816085443964%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "William Hobson"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Proclamations of William Hobson, 30 January 1840 (16035758631).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Proclamations_of_William_Hobson,_30_January_1840_(16035758631).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2014-12-16 15:34",
+          "beskrivning": "After arriving in Kororāreka on 29 January, William Hobson organised a meeting for the following day (30 January). It was held at Kororāreka or Russell Church, where he read the above proclamations. Hobson proclaimed before 300 settlers and 100 Māori that his duties as Lieutenant-Governor had begun. Hobson also declared that the boundaries of New South Wales were extended to include any parts of New Zealand which \"is or may be\" acquired in sovereignty. In a second proclamation he announced – in accordance with Gipps’s Sydney edict – that no land titles would be recognised by Britain as valid unless derived from or confirmed by a grant from the Crown, and that henceforth private land purchases from Māori would be regarded as null and void. As in Sydney, the local land purchasers reacted with dismay, but they were partly reassured by Busby, who advised them to have faith in the fairness of the British Government. Some settlers, however, sought to undermine Hobson’s work by telling local Māori the Kāwana (Governor) planned to make them taurekareka (slaves) of the Queen. Archives Reference: G30 Box 1 archway.archives.govt.nz/ViewFullItem.do?code=3796080 This record is part of #Waitangi175, celebrating 175 years since the signing of of te Tiriti o Waitangi. You can see other real time tweets on Twitter (twitter.com/ArchivesNZ), or explore the Waitangi 175 album here on Flickr. Material supplied by Archives New Zealand Caption information from www.justice.govt.nz/tribunals/waitangi-tribunal/Reports/h...",
+          "bredd": 6183,
+          "hojd": 5287,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Proclamations_of_William_Hobson%2C_30_January_1840_%2816035758631%29.jpg/960px-Proclamations_of_William_Hobson%2C_30_January_1840_%2816035758631%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Historical images of Russell, New Zealand",
+            "William Hobson"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Kororāreka (Russell) Church, Bay of Islands (15834781970).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Koror%C4%81reka_(Russell)_Church,_Bay_of_Islands_(15834781970).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2014-12-11 15:28",
+          "beskrivning": "After arriving the Bay of Islands on 29 January, William Hobson organised a meeting for the following day (30 January). It was held at Kororāreka or Russell Church, pictured here in 1967. Getting to the Church caused some conflict. The British Government thought Hobson would land as British Consul, and progressively proclaim himself Lieutenant-Governor over any lands acquired in sovereignty from the chiefs. Instead Hobson decided to assert this higher status from the outset. Captain Joseph Nias of HMS Herald refused to fire the 13-gun salute for a lieutenant-governor however, and fired the 11 guns befitting a consul instead. Archives Reference: AAQT 6539 W3537 Box 68/ A80918 archway.archives.govt.nz/ViewFullItem.do?code=24461424 This record is part of #Waitangi175, celebrating 175 years since the signing of of te Tiriti o Waitangi. You can see other real time tweets on Twitter (twitter.com/ArchivesNZ), or explore the Waitangi 175 album here on Flickr. Material supplied by Archives New Zealand Caption information from www.justice.govt.nz/tribunals/waitangi-tribunal/Reports/h...",
+          "bredd": 2420,
+          "hojd": 1798,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Koror%C4%81reka_%28Russell%29_Church%2C_Bay_of_Islands_%2815834781970%29.jpg/960px-Koror%C4%81reka_%28Russell%29_Church%2C_Bay_of_Islands_%2815834781970%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1967 in New Zealand",
+            "Christ Church, Russell"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Admiralty Chart No 2528 Poverty Bay to Cape Palliser, (16719843905), Published 1857.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Admiralty_Chart_No_2528_Poverty_Bay_to_Cape_Palliser,_(16719843905),_Published_1857.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2014-12-15 15:29",
+          "beskrivning": "After the signing at Mana Island, the HMS Herald made a quick stop at Port Nicholson on 20 June 1840. Thomas Bunbury landed at Thorndon, and was surprised to find Willoughby Shortland there (Shortland had arrived on 2 June to thwart the New Zealand Company). Hearing that Hobson, like Bunbury, had proclaimed sovereignty over Aotearoa New Zealand, he decided to head north to the Bay of Islands. But first, Bunbury wanted to get the signature of paramount Ngāti Te Whatu-i-apiti rangatira Te Hapuku, who was based in Hawkes Bay. The Herald left Port Nicholson on 21 June, and on the night of 23 June, anchored in Hawkes Bay near the mouth of the Tukituki River. This 1857 British Admiralty harbour chart of Poverty Bay to Cape Palliser shows Hawkes Bay, as well as Tukituki River. Zoom or download to enlarge. Surveyed by Capt. J.L. Stokes, Comr. B. Drury and the officers of H.M.S. Acheron and Pandora 1849-55. Archives Reference: MW676 Box 1/ 4/ 2528 archway.archives.govt.nz/ViewFullItem.do?code=21488147 This record is part of #Waitangi175, celebrating 175 years since the signing of of te Tiriti o Waitangi. You can see other real time tweets on Twitter (twitter.com/ArchivesNZ), or explore the Waitangi 175 album here on Flickr. Material supplied by Archives New Zealand Caption information from T. Lindsay Buick, ‘The Treaty of Waitangi’",
+          "bredd": 4600,
+          "hojd": 6712,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Admiralty_Chart_No_2528_Poverty_Bay_to_Cape_Palliser%2C_%2816719843905%29%2C_Published_1857.jpg/960px-Admiralty_Chart_No_2528_Poverty_Bay_to_Cape_Palliser%2C_%2816719843905%29%2C_Published_1857.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1850s maps of New Zealand",
+            "1857 maps",
+            "1857 works in New Zealand",
+            "Admiralty Charts 2401-2600",
+            "Admiralty Charts Region N: New Zealand, New Caledonia, Vanuatu and Santa Cruz Islands",
+            "Byron Drury",
+            "Cape Palliser / Mātakitaki-a-Kupe",
+            "John Lort Stokes",
+            "Maps of the Gisborne District",
+            "Maps of the Hawke's Bay Region",
+            "Ngāti Te Whatuiāpiti"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Admiralty Chart No 1575 Akaroa Harbour (16380266047), Surveyed 1849-1850.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Admiralty_Chart_No_1575_Akaroa_Harbour_(16380266047),_Surveyed_1849-1850.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2014-12-15 15:34",
+          "beskrivning": "William Hobson gave Thomas Bunbury the task of gathering the signatures of rangatira in Te Waipounamu and Rakiura (the South and Stewart Islands). However, Hobson believed Māori in the southern regions were ‘wild savages’ and doubted their ability to observe ‘even the form of a treaty’. Because of this belief, Bunbury was given permission to proclaim sovereignty by right of ‘discovery’ if needed. After leaving Tauranga, Bunbury and Edward Williams sailed south on the HMS Herald . After a passage through heavy seas, they anchored at Akaroa Heads on 24 May. Here the Herald sat for three days, and Captain Nias lost his best bower anchor in a tidal drift. The Herald finally entered Akaroa Harbour on the night of 27 May, and anchored in the dark near Ōnuku. Local Ngāi Tahu Māori were wary of the ship due to an incident in 1830, when the Elizabeth arrived with a Ngāti Toa war party. But Bunbury, Williams and William Stewart (a trader who knew the southern dialect) went ashore the next day. They were greeted by Iwikau of Pauri and Hone Tikao (John Love) of Pigeon Bay. Williams explained te Tiriti to them, but bad weather meant they returned to the Herald before any signatures could be gathered. On 30 May they landed again at Ōnuku, and according to Williams, Iwikau and Tikao signed the Herald sheet ‘after a little more explanation.’ Bunbury was pleased as these rangatira were ‘of some consequence’. The Herald then left Akaroa on 31 May, heading for Rakiura (Stewart Island). This is a British Admiralty harbour chart of Akaroa, surveyed in 1849-1850. Ōnuku is located on the right-hand side of the harbour (Roumataki on the chart), and Akaroa township is the settlement in Pakaeriki Bay. Zoom or download to enlarge. Archives Reference: ADOE 16621 MW676 Box 1/8B 1575 archway.archives.govt.nz/ViewFullItem.do?code=21488189 This record is part of #Waitangi175, celebrating 175 years since the signing of of te Tiriti o Waitangi. You can see other real time tweets on Twitter (twitter.com/ArchivesNZ), or explore the Waitangi 175 album here on Flickr. Material from Archives New Zealand Caption information from Claudia Orange, ‘The Treaty of Waitangi’ and Harry Evison, ‘The Long Dispute’",
+          "bredd": 3413,
+          "hojd": 4540,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Admiralty_Chart_No_1575_Akaroa_Harbour_%2816380266047%29%2C_Surveyed_1849-1850.jpg/960px-Admiralty_Chart_No_1575_Akaroa_Harbour_%2816380266047%29%2C_Surveyed_1849-1850.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Admiralty Charts 1401-1600",
+            "Admiralty Charts Region N: New Zealand, New Caledonia, Vanuatu and Santa Cruz Islands",
+            "Akaroa Harbour",
+            "Old maps of New Zealand"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "nya-zeeland-egen-kronkoloni",
+      "titel": "Nya Zeeland blir egen kronkoloni",
+      "plats": "Nya Zeeland",
+      "start": 1841,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "New Zealand becomes a separate Crown colony New Zealand",
+      "kandidater": [
+        {
+          "fil": "File:New Zealand Becomes a Dominion (15149497056).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:New_Zealand_Becomes_a_Dominion_(15149497056).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2014-09-08 11:00",
+          "beskrivning": "On 26 September 1907 the colony of New Zealand ceased to exist. New Zealand became a dominion within the British Empire. The change was the idea of Prime Minister Sir Joseph Ward. He felt that New Zealand “had well outgrown the ‘colonial stage’, and was as much entitled to a separate designation as the Commonwealth of Australia or the Dominion of Canada”. Ward also had regional imperial ambitions. He hoped the term ‘dominion’ would remind the world that New Zealand was not part of Australia. It would dignify New Zealand, a country he thought was ‘the natural centre for the government of the South Pacific'. However, the shift from colony to dominion was a change of name only. It had no practical effect. New Zealand was no more and no less independent from Britain than it had been before. Dominion status was more about perceptions – and perceptions matter. Other parts of the Empire also became dominions at this time, for they wanted a distinct status that would not confuse them with lesser ‘colonies’. After New Zealand became a dominion the Government ran a competition in 1908 to select a design for a Coat of Arms for the \"Dominion of New Zealand\". Two prizes were offered with £20 for the winner and £15 for the runner up. Entries were created by ordinary New Zealanders and the designs included everything from kiwi, sheep, cows, fern leaves, sheaves of wheat, moa and lions to stars, ships, British soldiers, Māori warriors, Union Jacks, Southern Crosses and crowns. As mentioned in Archives NZ’s 26 August 2014 flickr photo description, three designs from the competition were selected for final judgement in England, with the winner being James McDonald from the Department of Tourism and Health Resorts. The wining design, shown above, was “tidied up” with the Māori carvings at the bottom being replaced with ‘more conventional’ decoration, the Zealandia figure being made ‘more demure’ and the Māori figure ‘less challenging’. The royal warrant for New Zealand’s first coat of arms was issued on 26 August 1911. The lithograph of the final design can be viewed in Archives NZ’s Constitution Room. The competition entries form part of the ‘Constitutional Papers’ record group which is comprised of records relating to significant constitutional developments of New Zealand. See more of the designs listed on Archway: www.archway.archives.govt.nz/ViewEntity.do?code=8341 – click on the ‘records’ tab and view the 30/Coat of Arms Competition entries. Archives Reference: ACGO 8341 IA9/44/30 75 New Zealand Coat of Arms photostream photo www.flickr.com/photos/archivesnz/9595593076/in/photolist-... 'Dominion status', URL: www.nzhistory.net.nz/culture/dominion-day , (Ministry for Culture and Heritage), updated 5-Aug-2014",
+          "bredd": 3493,
+          "hojd": 1153,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/New_Zealand_Becomes_a_Dominion_%2815149497056%29.jpg/960px-New_Zealand_Becomes_a_Dominion_%2815149497056%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Dominion Day (New Zealand)",
+            "National coat of arms of New Zealand (1911-1956)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-ruapekapeka",
+      "titel": "Slaget vid Ruapekapeka",
+      "plats": "Ruapekapeka sydost om Kawakawa, Nya Zeeland",
+      "start": 1845,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q15273596",
+      "kandidater": [
+        {
+          "fil": "File:Ruapekapeka shattered cannon.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ruapekapeka_shattered_cannon.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Winstonwolfe at English Wikipedia",
+          "datum": "30 November 2006 (original upload date)",
+          "beskrivning": "Photo taken by the author, 2006",
+          "bredd": 1920,
+          "hojd": 2560,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Ruapekapeka_shattered_cannon.jpg/960px-Ruapekapeka_shattered_cannon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cannon barrels",
+            "Ruapekapeka"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "guldrushen-i-victoria",
+      "titel": "Guldrushen i Victoria",
+      "plats": "Ballarat och andra guldfält i Victoria (Australien)",
+      "start": 1851,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2096366",
+      "kandidater": [
+        {
+          "fil": "File:Nerrena Fossickers in the Creek Nerrena.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Nerrena_Fossickers_in_the_Creek_Nerrena.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2010-12-26 21:41:01",
+          "beskrivning": "Nerrena Fossickers in Nerrena Creek. Location now known as Nerrina, a suburb of Ballarat. Author unknown but was originally published 1904 in Geol. Survey , the Department of Mines Bulletin No. 15 in which W.M. Bradford described the locality as “The Nerrena or Little Bendigo Gold-field\"",
+          "bredd": 382,
+          "hojd": 608,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Nerrena_Fossickers_in_the_Creek_Nerrena.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Australian gold rushes",
+            "Gold panning in Australia"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Canvas town south melbourne victoria 1850s.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Canvas_town_south_melbourne_victoria_1850s.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "1860",
+          "beskrivning": "Canvas Town, South Melbourne in the 1850s",
+          "bredd": 600,
+          "hojd": 333,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/00/Canvas_town_south_melbourne_victoria_1850s.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Australian gold rushes",
+            "Economy of Australia",
+            "History of Victoria, Australia",
+            "History of mining in art",
+            "Melbourne in art",
+            "Tent cities",
+            "Tents in art",
+            "Victoria, Australia in the 1850s"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Prospectors' hut Upper Dargo, Gippsland, ca 1870 (SLV b19603).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Prospectors%27_hut_Upper_Dargo,_Gippsland,_ca_1870_(SLV_b19603).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Thomas J. Washbourne",
+          "datum": "circa 1870 date QS:P,+1870-00-00T00:00:00Z/9,P1480,Q5727902",
+          "beskrivning": "Prospectors' hut in the 19th century goldfields at Upper Dargo , Gippsland, Victoria, Australia",
+          "bredd": 1773,
+          "hojd": 1121,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Prospectors%27_hut_Upper_Dargo%2C_Gippsland%2C_ca_1870_%28SLV_b19603%29.jpg/960px-Prospectors%27_hut_Upper_Dargo%2C_Gippsland%2C_ca_1870_%28SLV_b19603%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Australian gold rushes",
+            "Gold mining in Australia",
+            "Historic images Dargo, Victoria",
+            "Huts in Australia",
+            "Victoria, Australia in the 1870s"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "konstitutionen-1852",
+      "titel": "Nya Zeeland får självstyre genom konstitutionen 1852",
+      "plats": "Nya Zeeland (lagen antogs av parlamentet i London)",
+      "start": 1852,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q7015280",
+      "soktext": "New Zealand gains self-government through the 1852 constitution",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "kingitanga-forsta-maorikungen",
+      "titel": "Kīngitanga: den förste maorikungen kröns",
+      "plats": "Ngāruawāhia, Waikato, Nya Zeeland",
+      "start": 1858,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q1235723",
+      "soktext": "Kīngitanga: the first Māori king is crowned Ngāruawāhia",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Te Paki o Matariki door Turanga-waewae Marae.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Te_Paki_o_Matariki_door_Turanga-waewae_Marae.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "John Houston",
+          "datum": "1939-03-18",
+          "beskrivning": "Wooden carved door displaying the coat of arms for the Māori kings (Te Paki o Matariki) at the Māori meeting house Te Māhinārangi at Tūrangawaewae marae in Ngāruawāhia, which includes a depiction of the constellation Matariki (Pleiades). The Paki o Matariki symbol belongs to the Tainui Maori King Movement (Kingitanga), and is used on buildings, properties and correspondence belonging to the Kingitanga. The central circles represent the creation of the world. The left hand figure represents Aitua (misfortune), the one on the right Te Atuatanga (spirituality).",
+          "bredd": 1080,
+          "hojd": 1788,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Te_Paki_o_Matariki_door_Turanga-waewae_Marae.jpg/960px-Te_Paki_o_Matariki_door_Turanga-waewae_Marae.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Matariki",
+            "Tūrangawaewae"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "krigsutbrottet-i-waitara",
+      "titel": "Kriget i Taranaki bryter ut vid Waitara",
+      "plats": "Waitara, Taranaki, Nya Zeeland",
+      "start": 1860,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q5453870",
+      "soktext": "The Taranaki War Breaks Out at Waitara Waitara",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "markkonfiskeringarna-1863",
+      "titel": "New Zealand Settlements Act: maorisk mark konfiskeras",
+      "plats": "Waikato, Taranaki och Bay of Plenty, Nordön, Nya Zeeland",
+      "start": 1863,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "New Zealand Settlements Act: Māori land is confiscated Waikato",
+      "kandidater": [
+        {
+          "fil": "File:Riria - Claims at Pukewhau (27992514512).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Riria_-_Claims_at_Pukewhau_(27992514512).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2016-07-04 09:51",
+          "beskrivning": "Title: Compensation Court - No. 19 - Riria - Claims at Pukewhau - 700 acres - letter and schematic diagram annotated in Māori language. Date: 1865 Record number: CC 65/1006 Item ID R22741059 This item is a letter sent to the Governor of New Zealand and forwarded to the Compensation Court in Auckland, and it identifies major features of land at Pukewhau in the Waikato region claimed by Riria. The Compensation Court, presided over by Judges of the Native Lands Court, heard appeals for compensation from Māori people whose land had been confiscated under the New Zealand Settlements Act 1863. This item is held in the Auckland Office of Archives New Zealand. For further queries please email auckland.archives@dia.govt.nz Material from Archives New Zealand",
+          "bredd": 2992,
+          "hojd": 2322,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Riria_-_Claims_at_Pukewhau_%2827992514512%29.jpg/960px-Riria_-_Claims_at_Pukewhau_%2827992514512%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1865 letters",
+            "Letters in Archives New Zealand",
+            "Waikato Region"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Te Maungarongo- the Covenant of Peace, 27 May 1865 (27136853131).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Te_Maungarongo-_the_Covenant_of_Peace,_27_May_1865_(27136853131).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2015-05-26 15:02",
+          "beskrivning": "On 27 May 1865, Wiremu Tāmihana Tarapīpipi Te Waharoa laid down his taiaha before Brigadier General G. J. Carey at Tamahere. After years of warfare between the colonial government and Māori forces fighting for sovereignty and land, it was a powerfully-symbolic act. “Among Pākehā this act was described as a surrender” writes historian Evelyn Stokes, but “Tāmihana described it in a letter to [Governor George] Grey as 'te maungarongo' (the covenant of peace), indicating that arms had been laid down on both sides.” As NZHistory notes, Tāmihana became concerned at growing European encroachment, land purchases and the government’s failure to support Māori social and political structures. He believed that a pan-tribal movement would not only provide protection against European settlement but also develop its own system of laws and maintain peace among the tribes. Tāmihana took a leading role in the formation of the King Movement and the election of Pōtatau Te Wherowhero as the first Māori King. Accordingly, he became known as ‘Kingmaker’. When Te Wherowhero was confirmed as king in May 1859, Tāmihana placed a Bible over his head. Tāmihana’s descendants still perform this ritual when Māori monarchs are crowned. When war broke out in Taranaki in 1860 he acted as mediator. But the government remained suspicious of his motives and hostility to the Kīngitanga, and 1863 Governor George Grey ordered a British army to cross the Mangatāwhiri River and invade the lands of the Kīngitanga. The lead up to the scene shown above included correspondence between Tamihana and government officials, and a letter from Grey in January 1865 that suggested a meeting, which was not immediately arranged. In April Tāmihana submitted a petition to Parliament outlining a Māori view of the causes of the war, and seeking redress for the confiscations. There was no immediate response, but in May Tāmihana followed up earlier moves to meet Brigadier General G. J. Carey. Sadly, during his work to smooth out the peace process after 27 May, Tāmihana died (on 27 December 1866). He was “a man of peace forced into war.” Archives Reference: AAAD 699 Box 23/m archway.archives.govt.nz/ViewFullItem.do?code=16563321 (artist unknown) For updates on our On This Day series and news from Archives New Zealand, follow us on Twitter www.twitter.com/ArchivesNZ Material from Archives New Zealand Caption information from www.teara.govt.nz/en/biographies/1t82/te-waharoa-wiremu-t... and www.nzhistory.net.nz/media/photo/wiremu-tamihana",
+          "bredd": 3253,
+          "hojd": 1256,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Te_Maungarongo-_the_Covenant_of_Peace%2C_27_May_1865_%2827136853131%29.jpg/960px-Te_Maungarongo-_the_Covenant_of_Peace%2C_27_May_1865_%2827136853131%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Invasion of the Waikato",
+            "Wiremu Tamihana"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "te-kooti-far-skydd",
+      "titel": "Te Kooti får skydd hos maorikungen",
+      "plats": "King Country (Te Rohe Pōtae), Nya Zeeland",
+      "start": 1872,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Te Kooti Is Given Refuge by the Māori King",
+      "kandidater": []
+    },
+    {
+      "id": "telegraflinjen-genom-australien",
+      "titel": "Telegraflinjen genom Australien blir klar",
+      "plats": "Frew's Ponds, Northern Territory; linjen gick mellan Adelaide och Darwin (Australien)",
+      "start": 1872,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q856092",
+      "kandidater": [
+        {
+          "fil": "File:Adelaide-Darwin Telegraph Line.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Adelaide-Darwin_Telegraph_Line.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Mart Moppel",
+          "datum": "2007-11-27 18:17:16",
+          "beskrivning": "Telegraph poles near the Tennant Creek Telegraph Station",
+          "bredd": 853,
+          "hojd": 1280,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Adelaide-Darwin_Telegraph_Line.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Australian Overland Telegraph Line",
+            "Tennant Creek"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Alice Springs Telegraph Station 4.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Alice_Springs_Telegraph_Station_4.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Reinhard Dietrich",
+          "datum": "2009-03-02",
+          "beskrivning": "Alice Springs Telegraph Station, Oppenheimer Pole for 9 Lines",
+          "bredd": 1944,
+          "hojd": 2592,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Alice_Springs_Telegraph_Station_4.jpg/960px-Alice_Springs_Telegraph_Station_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Alice Springs telegraph station",
+            "Telephone poles"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "fiji-blir-brittisk-koloni",
+      "titel": "Fiji blir brittisk koloni",
+      "plats": "Levuka (Fiji)",
+      "start": 1874,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q5148320",
+      "soktext": "Fiji Becomes a British Colony Levuka (Fiji)",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "forsta-testmatchen-i-cricket",
+      "titel": "Den första testmatchen i cricket",
+      "plats": "Melbourne Cricket Ground, Melbourne, Australien",
+      "start": 1877,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The first Test match in cricket Melbourne Cricket Ground",
+      "kandidater": [
+        {
+          "fil": "File:Test Match, 1928 (8415569405).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Test_Match,_1928_(8415569405).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "National Media Museum from UK",
+          "datum": "1928",
+          "beskrivning": "Creator: Herbert Fishwick (?) Date: 1928 Format: Photograph Collection: Kodak Collection at the National Media Museum Inventory no: 1990-5036/6012/0017 Blog: Happy Australia Day A snapshot photograph of the Third Test between England and Australia in Melbourne, Australia. Larwood of England is just bowling to Beckett during Australia's first innings. Originally a shooting term, the word 'snapshot' was first linked with photography in the late 1850s, when it was used to describe a photograph taken with a brief exposure. Over time, snapshot came to mean any amateur photograph taken with a simple camera. Snapshots are informal, personal records of everyday life and experiences.",
+          "bredd": 900,
+          "hojd": 588,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/46/Test_Match%2C_1928_%288415569405%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Cricket matches at the Melbourne Cricket Ground",
+            "Cricket matches in Australia",
+            "Grayscale",
+            "Kodak Collection at the National Media Museum",
+            "Melbourne Cricket Ground scoreboards",
+            "People of Australia in 1928",
+            "Photographs by Herbert Fishwick in the National Media Museum",
+            "The Ashes, 1928–29"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
+        },
+        {
+          "fil": "File:Boxing Day Test 2015.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Boxing_Day_Test_2015.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "User:Jenks24",
+          "datum": "2015-12-26",
+          "beskrivning": "The first day of the 2015 Boxing Day Test match, between Australia and the West Indies at the Melbourne Cricket Ground. The photo is of the first ball of the day's play at about 11:30am (start was delayed slightly due to rain). Jerome Taylor is the bowler and Joe Burns is facing (David Warner is the non-striker).",
+          "bredd": 3264,
+          "hojd": 2448,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Boxing_Day_Test_2015.jpg/960px-Boxing_Day_Test_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2015 in cricket",
+            "Cricket matches at the Melbourne Cricket Ground",
+            "David Warner",
+            "December 2015 in Melbourne",
+            "Frank Worrell Trophy"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Bodyline cable descriptions 2nd Test 30 December 1932 a295004.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bodyline_cable_descriptions_2nd_Test_30_December_1932_a295004.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Gillette Safety Razor Company",
+          "datum": "1932",
+          "beskrivning": "Cable Second Test Match between Australia and England at the Melbourne Cricket Ground, 30 December 1932-3 January 1933, 26 pages of cables and summaries , State Library of New South Wales, MLMSS 6187/Box 1X/Folder 2 File 2 152/149",
+          "bredd": 4195,
+          "hojd": 5429,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Bodyline_cable_descriptions_2nd_Test_30_December_1932_a295004.jpg/960px-Bodyline_cable_descriptions_2nd_Test_30_December_1932_a295004.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1932 in cricket",
+            "1933 in cricket",
+            "Australian Library Collections"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:England cricket team, 4th Test v Australia, 1925-02-18.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:England_cricket_team,_4th_Test_v_Australia,_1925-02-18.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1925-02-18",
+          "beskrivning": "The England captain AER Gilligan leading his team onto the field at the start of the Australian 2nd innings during the 4th Test match between Australia and England at the Melbourne cricket ground, 18th February 1925. England won by an innings and 29 runs. Left-right: Maurice Tate, Patsy Hendren, Arthur Gilligan, Herbert Sutcliffe, Bert Strudwick, William Whysall, Jack Hearne, APF Chapman and Frank Woolley.",
+          "bredd": 960,
+          "hojd": 662,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/38/England_cricket_team%2C_4th_Test_v_Australia%2C_1925-02-18.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Arthur Gilligan",
+            "Frank Woolley",
+            "Herbert Strudwick",
+            "Herbert Sutcliffe",
+            "J. W. Hearne",
+            "Maurice Tate",
+            "Patsy Hendren",
+            "Percy Chapman",
+            "William Whysall"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:JohnsontoHutton.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:JohnsontoHutton.JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Clarrie Cook",
+          "datum": "1951",
+          "beskrivning": "w:Len Hutton batting during the 5th Test Match of the 1950-51 Ashes series played at the Melbourne Cricket Ground. Ian Johnson is bowling",
+          "bredd": 720,
+          "hojd": 896,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f3/JohnsontoHutton.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Ian Johnson",
+            "Len Hutton",
+            "The Ashes, 1950–51"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "royal-national-park",
+      "titel": "Australiens första nationalpark",
+      "plats": "Royal National Park söder om Sydney, Australien",
+      "start": 1879,
+      "varldsdel": "Oceanien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q113523",
+      "kandidater": [
+        {
+          "fil": "File:WattamollaLiss.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:WattamollaLiss.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "No machine-readable author provided. Kdliss assumed (based on copyright claims).",
+          "datum": "8 April 2006 (original upload date)",
+          "beskrivning": "Wattamolla beach in the Royal National Park , Australia.",
+          "bredd": 768,
+          "hojd": 1024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/b/b4/WattamollaLiss.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "April 2006 in New South Wales",
+            "Wattamolla Beach"
+          ],
+          "smal": true
+        }
+      ]
+    }
+  ]
+}

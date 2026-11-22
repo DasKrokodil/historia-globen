@@ -47,6 +47,10 @@ from datetime import date
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from licens_commons import (  # noqa: E402  (en gemensam licensklassning, #2183)
+    AVVISADE, TILLATNA, VARNINGSMALLAR, bedom_commons, klassa_mall, klassa_namn, licensmallar)
+
 ROOT = Path(__file__).resolve().parent.parent
 USER_AGENT = 'HistoriaGlobenBildverktyg/1.0 (hobbyprojekt med oppen kallkod; tools/bild_hamta.py)'
 COMMONS_API = 'https://commons.wikimedia.org/w/api.php'
@@ -59,7 +63,24 @@ TIDSTAK = 180        # sekunder per bild (och per batchanrop), omförsök inräk
 TIMEOUT = 30         # sekunder per anrop
 MAX_BYTES_HAMTAD = 30_000_000
 TILLATNA_VARDAR = {'commons.wikimedia.org', 'upload.wikimedia.org', 'thumb.wikimedia.org', 'www.loc.gov', 'tile.loc.gov'}
-ID_RE = re.compile(r'^[a-z0-9][a-z0-9-]*$')
+# Händelse-id blir ett filnamn (images/events/<id>.webp): gemener, siffror och bindestreck, även å, ä, ö och andra latinska
+# bokstäver med accent (vapenstilleståndet-i-korea, #2182), men aldrig snedstreck, punkt eller mellanslag.
+ID_RE = re.compile(r'^[a-z0-9\u00df-\u00f6\u00f8-\u00ff]+(?:-[a-z0-9\u00df-\u00f6\u00f8-\u00ff]+)*$')
+HANDELSER = ROOT / 'data' / 'handelser'
+
+
+def kanda_id(mapp=HANDELSER):
+    """Alla händelse-id i data/handelser/, eller None om mappen saknas (då prövas bara mönstret)."""
+    mapp = Path(mapp)
+    if not mapp.is_dir():
+        return None
+    ids = set()
+    for f in sorted(mapp.glob('*.json')):
+        try:
+            ids.update(e['id'] for e in json.loads(f.read_text(encoding='utf-8')).get('events', []))
+        except (OSError, ValueError, KeyError):
+            continue
+    return ids
 MOTIV_TODO = '[TODO: vad bilden visar, bara det källan stöder]'
 SPRAK = ('sv', 'en', 'de', 'es', 'fr')
 NBSP = ' '
@@ -229,166 +250,6 @@ def las_lista(path):
         if eid.strip():
             mappning[ref.strip()] = eid.strip()
     return refs, mappning
-
-
-# ---------------------------------------------------------------- licensklassning
-
-TILLATNA = {'pd', 'cc0', 'by', 'by-sa'}
-AVVISADE = {'nc', 'fair'}
-
-
-def _cc_etikett(sa, version, land):
-    return f"CC BY{'-SA' if sa else ''} {version}" + (f' {land.upper()}' if land else '')
-
-
-def klassa_namn(text):
-    """Licens ur Commons visningsnamn (LicenseShortName, UsageTerms) → (klass, etikett) eller None."""
-    s = re.sub(r'\s+', ' ', (text or '').strip())
-    low = s.lower()
-    if not low:
-        return None
-    if re.search(r'\bnc\b|non-?commercial|-nc\b|-nc-|\bnd\b|-nd\b|no-?derivs', low):
-        return 'nc', s
-    if re.search(r'fair use|non-?free|all rights reserved|copyrighted', low):
-        return 'fair', s
-    m = re.search(r'\bcc[ -]by(?:-(sa))?[ -]+(\d(?:\.\d)?)(?:[,\d.]*)(?: ([a-z]{2}))?\b', low)
-    if m:
-        return ('by-sa' if m.group(1) else 'by'), _cc_etikett(m.group(1), m.group(2), m.group(3))
-    if re.search(r'\bcc0\b|cc[- ]zero', low):
-        return 'cc0', 'CC0'
-    if re.search(r'public domain|^pd\b|gemeinfrei|no known copyright', low):
-        return 'pd', 'Public domain'
-    if low.startswith('gfdl') or re.search(r'\bgfdl\b', low):
-        return 'gfdl', s
-    return None
-
-
-def klassa_mall(namn):
-    """Licensmallens namn på filsidan → (klass, etikett) eller None när mallen inte är en licens."""
-    n = re.sub(r'[\s_]+', '-', namn.strip().lower())
-    if n.startswith(('int:', 'template:')):
-        return None
-    if n in ('cc0', 'cc-zero', 'cc-zero-1.0'):
-        return 'cc0', 'CC0'
-    m = re.fullmatch(r'cc-by(-sa)?-(\d(?:\.\d)?)(?:,[\d.,]+)?(?:-([a-z]{2}))?(?:-migrated.*|-with-.*)?', n)
-    if m:
-        return ('by-sa' if m.group(1) else 'by'), _cc_etikett(m.group(1), m.group(2), m.group(3))
-    if re.match(r'cc-by-(nc|nd)|cc-nc', n):
-        return 'nc', namn.strip()
-    if n == 'pd' or n.startswith(('pd-', 'licensed-pd', 'cc-pd')):
-        return 'pd', 'Public domain'
-    if n.startswith('gfdl'):
-        return 'gfdl', namn.strip()
-    if n.startswith(('fair-use', 'non-free', 'nonfree', 'copyrighted', 'no-license', 'no-permission', 'no-source')):
-        return 'fair', namn.strip()
-    return None
-
-
-VARNINGSMALLAR = ('personality-rights', 'trademark', 'insignia', 'nazi-symbol', 'currency')
-
-
-def licensmallar(wikitext):
-    """Licensmallarna i filsidans wikitext: lista med (mallnamn, klass, etikett). Läser innersta mallar, samt parametrarna i {{self|…}}."""
-    hittade, varningar = [], []
-    for m in re.finditer(r'\{\{([^{}]*)\}\}', wikitext or ''):
-        delar = [d.strip() for d in m.group(1).split('|')]
-        namn = delar[0]
-        low = re.sub(r'[\s_]+', '-', namn.lower())
-        if any(low.startswith(v) for v in VARNINGSMALLAR):
-            varningar.append(namn)
-        if low in ('self', 'self2') or low.startswith('self-'):
-            for d in delar[1:]:
-                k = klassa_mall(d)
-                if k:
-                    hittade.append((f'{namn}|{d}', *k))
-            continue
-        k = klassa_mall(namn)
-        if k:
-            hittade.append((namn, *k))
-    unika, sett = [], set()
-    for h in hittade:
-        if (h[1], h[2]) not in sett:
-            sett.add((h[1], h[2]))
-            unika.append(h)
-    return unika, varningar
-
-
-def bedom_commons(ext, wikitext, idag):
-    """Licensbedömning för en Commons-fil.
-
-    Returnerar {'status': godkand | godkand-med-not | flagga | avvisad, 'licens': etikett eller None, 'skal': [...], 'note': utkast eller None,
-    'mallar': [...], 'api': visningsnamn}. wikitext är None om licensmallen inte kunde hämtas.
-    """
-    api_namn = (ext.get('LicenseShortName') or {}).get('value') or (ext.get('UsageTerms') or {}).get('value') or ''
-    api_klass = klassa_namn(api_namn)
-    mallar, varningar = licensmallar(wikitext) if wikitext is not None else ([], [])
-    mall_text = ', '.join('{{' + m[0] + '}}' for m in mallar) or ('inga igenkända licensmallar' if wikitext is not None else 'licensmallen inte läst')
-    res = {'status': None, 'licens': None, 'skal': [], 'note': None, 'api': api_namn,
-           'mallar': [m[0] for m in mallar]}
-    klasser = {m[1] for m in mallar} | ({api_klass[0]} if api_klass else set())
-    tillatna = klasser & TILLATNA
-    underlag = (f'Licens enligt filsidan (action=raw, öppnad {idag}): {mall_text}. '
-                f'Commons API (LicenseShortName): "{api_namn or "saknas"}".')
-
-    if klasser & AVVISADE:
-        res['skal'].append('licensen är inte tillåten: ' + ', '.join(sorted(klasser & AVVISADE)) + f' ({mall_text}; API: "{api_namn}")')
-        if tillatna:
-            res['status'] = 'flagga'
-            res['skal'].append('motsägelse: en tillåten och en otillåten licens anges')
-            res['note'] = underlag + ' Källorna är oeniga om licensen; använd inte bilden förrän det är utrett.'
-        else:
-            res['status'] = 'avvisad'
-        return res
-    if 'gfdl' in klasser and not tillatna:
-        res['status'] = 'avvisad'
-        res['skal'].append(f'bara GFDL ({mall_text}), ingen tillåten licens')
-        return res
-    if wikitext is None and api_klass and api_klass[0] in TILLATNA:
-        res['status'] = 'flagga'
-        res['skal'].append('licensmallen (action=raw) kunde inte hämtas, så API:ets licens är inte korskontrollerad')
-        res['licens'] = api_klass[1]
-        return res
-    if not tillatna:
-        res['status'] = 'flagga'
-        res['skal'].append(f'licensen kunde inte avgöras ({mall_text}; API: "{api_namn}")')
-        return res
-    mall_tillatna = [m for m in mallar if m[1] in TILLATNA]
-    if api_klass and api_klass[0] in TILLATNA and mall_tillatna and (api_klass[0], api_klass[1]) not in {(m[1], m[2]) for m in mall_tillatna}:
-        res['status'] = 'flagga'
-        res['skal'].append(f'motsägelse: filsidans mallar ({mall_text}) och API:et ("{api_namn}") anger olika licens')
-        res['licens'] = api_klass[1]
-        res['note'] = underlag + ' De anger olika licens; kontrollera filsidan för hand.'
-        return res
-    if not mall_tillatna:
-        res['status'] = 'flagga'
-        res['skal'].append(f'API:et säger "{api_namn}" men ingen licensmall kändes igen på filsidan ({mall_text})')
-        res['licens'] = api_klass[1]
-        return res
-    etiketter = []
-    for m in mall_tillatna:
-        if m[2] not in etiketter:
-            etiketter.append(m[2])
-    if api_klass and api_klass[1] in etiketter:
-        valt = api_klass[1]
-    else:
-        valt = etiketter[0]
-    res['licens'] = valt
-    if len(etiketter) > 1 or 'gfdl' in klasser or varningar:
-        res['status'] = 'godkand-med-not'
-        delar = [underlag]
-        if len(etiketter) > 1:
-            delar.append('Flera licenser anges (' + ' och '.join(etiketter) + f'); bilden används under {valt}. Kontrollera vilken licens som gäller vilken del (verk respektive foto).')
-            res['skal'].append('flera licenser: ' + ', '.join(etiketter))
-        if 'gfdl' in klasser:
-            delar.append(f'Filen är också licensierad under GFDL; bilden används under {valt}.')
-            res['skal'].append('GFDL anges också (dubbellicens)')
-        if varningar:
-            delar.append('Filsidan har dessutom mallar om andra rättigheter: ' + ', '.join('{{' + v + '}}' for v in varningar) + '.')
-            res['skal'].append('filsidan har mallar om andra rättigheter: ' + ', '.join(varningar))
-        res['note'] = ' '.join(delar)
-    else:
-        res['status'] = 'godkand'
-    return res
 
 
 def rensa_html(text):
@@ -622,7 +483,7 @@ def konvertera(data, dst, cache_dir=None):
 
 # ---------------------------------------------------------------- körning
 
-def kor(poster, klient, out_dir, dry_run=False, okand=None, skriv_over=False, idag=None, klocka=time.monotonic):
+def kor(poster, klient, out_dir, dry_run=False, okand=None, skriv_over=False, idag=None, klocka=time.monotonic, kanda=None):
     """Kör alla poster. Varje resultat: status klar | flaggad | avvisad | ej hämtad | saknas | fel | hoppad."""
     idag = idag or date.today().isoformat()
     resultat = []
@@ -640,6 +501,8 @@ def kor(poster, klient, out_dir, dry_run=False, okand=None, skriv_over=False, id
         elif not ID_RE.match(p['id']):
             r['status'], r['skal'] = 'fel', [f'ogiltigt händelse-id: {p["id"]}']
             continue
+        elif kanda is not None and p['id'] not in kanda:
+            r['todo'].append(f'händelse-id:t {p["id"]} finns inte i data/handelser/: kontrollera stavningen')
         deadline = klocka() + klient.tidstak
         thumb = None
         try:
@@ -795,7 +658,7 @@ def main(argv=None):
     if not a.ingen_cache:
         cache = Path(a.cache_dir) if a.cache_dir else Path(os.environ.get('XDG_CACHE_HOME') or Path.home() / '.cache') / 'historia-globen' / 'bild_hamta'
     klient = Klient(cache_dir=cache, max_vanta=a.max_vanta)
-    resultat = kor(parse_indata(refs, mappning), klient, a.out, a.dry_run, a.okand, a.skriv_over)
+    resultat = kor(parse_indata(refs, mappning), klient, a.out, a.dry_run, a.okand, a.skriv_over, kanda=kanda_id())
     if a.json:
         print(json.dumps(resultat, ensure_ascii=False, indent=2))
     else:

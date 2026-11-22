@@ -1,0 +1,986 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 25,
+    "kandidater": 27,
+    "troliga": 27,
+    "flaggade": 0,
+    "avvisade": 0,
+    "smala": 9,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "sixtinska-kapellets-tak",
+      "titel": "Michelangelo målar Sixtinska kapellets tak",
+      "plats": "Sixtinska kapellet i Vatikanen, Rom, Kyrkostaten (i dag Vatikanstaten)",
+      "start": 1508,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q844675",
+      "kandidater": [
+        {
+          "fil": "File:CAPPELLA SISTINA Ceiling.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:CAPPELLA_SISTINA_Ceiling.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Michelangelo",
+          "datum": "from 1508 until 1512 date QS:P571,+1550-00-00T00:00:00Z/7,P580,+1508-00-00T00:00:00Z/9,P582,+1512-00-00T00:00:00Z/9",
+          "beskrivning": null,
+          "bredd": 3129,
+          "hojd": 1125,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/CAPPELLA_SISTINA_Ceiling.jpg/960px-CAPPELLA_SISTINA_Ceiling.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Sistine Chapel ceiling"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "reformationen-i-danmark",
+      "titel": "Reformationen införs i Danmark",
+      "plats": "Köpenhamn, Danmark",
+      "start": 1536,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q4381174",
+      "soktext": "The Reformation is introduced in Denmark Copenhagen",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "reformationen-i-skane",
+      "titel": "Reformationen: ärkebiskopsdömet i Lund upphör",
+      "plats": "Lund och Malmö, Skåne",
+      "start": 1536,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": null,
+      "soktext": "The Reformation: the archdiocese of Lund is abolished Lund and Malmö",
+      "kandidater": []
+    },
+    {
+      "id": "defenestrationen-1618",
+      "titel": "Defenestrationen i Prag",
+      "plats": "Prag, Böhmen",
+      "start": 1618,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q374696",
+      "kandidater": [
+        {
+          "fil": "File:Prager.Fenstersturz.1618.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Prager.Fenstersturz.1618.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Johann Philipp Abelinus",
+          "datum": "2008-10-05 11:20:04",
+          "beskrivning": "Second Defenestration of Prague",
+          "bredd": 1530,
+          "hojd": 1112,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Prager.Fenstersturz.1618.jpg/960px-Prager.Fenstersturz.1618.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Defenestration of Prague (1618)",
+            "Engravings of Theatrum Europaeum",
+            "Theatrum Europaeum, Volume 1 (1635)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-vita-berget",
+      "titel": "Slaget vid Vita berget",
+      "plats": "Vita berget nära Prag, Böhmen",
+      "start": 1620,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q4373",
+      "kandidater": [
+        {
+          "fil": "File:Schlacht am Weißen Berg C-K 063.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Schlacht_am_Wei%C3%9Fen_Berg_C-K_063.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Peter Snayers",
+          "datum": "1620 date QS:P571,+1620-00-00T00:00:00Z/9",
+          "beskrivning": "Battle of White Mountain",
+          "bredd": 897,
+          "hojd": 569,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/48/Schlacht_am_Wei%C3%9Fen_Berg_C-K_063.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1620 landscape paintings",
+            "1620s landscape paintings",
+            "17th-century paintings of angels",
+            "17th-century paintings of cavalry in battle",
+            "Angels with banners",
+            "Battle of White Mountain",
+            "Paintings of angels in the air with humans",
+            "Paintings of battles by Peter Snayers"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "vasa-sjunker",
+      "titel": "Regalskeppet Vasa sjunker",
+      "plats": "Stockholms hamn, Sverige",
+      "start": 1628,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q219821",
+      "kandidater": [
+        {
+          "fil": "File:The Vasa from the Bow.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Vasa_from_the_Bow.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "JavierKohen",
+          "datum": "2009-10-08",
+          "beskrivning": "The Vasa from the Bow",
+          "bredd": 6048,
+          "hojd": 4032,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/The_Vasa_from_the_Bow.jpg/960px-The_Vasa_from_the_Bow.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Exterior of Vasa (ship, 1627)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-breitenfeld-1631",
+      "titel": "Slaget vid Breitenfeld",
+      "plats": "Breitenfeld vid Leipzig, Sachsen",
+      "start": 1631,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q205379",
+      "kandidater": [
+        {
+          "fil": "File:Erste-schlacht-bei-breitenf.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Erste-schlacht-bei-breitenf.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "circa 1885 date QS:P,+1885-00-00T00:00:00Z/9,P1480,Q5727902",
+          "beskrivning": "Kärtchen zur Schlacht bei Breitenfeld",
+          "bredd": 362,
+          "hojd": 381,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Erste-schlacht-bei-breitenf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "19th-century maps of battles",
+            "Maps from Meyers Konversationslexikon 4th edition",
+            "Maps of the Battle of Breitenfeld"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:29a Gustave Adolphe à la bataille de Breitenfeld, 1632.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:29a_Gustave_Adolphe_%C3%A0_la_bataille_de_Breitenfeld,_1632.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "DCHNwam",
+          "datum": "2025-04-15 10:59:31",
+          "beskrivning": "A photograph taken by DCHNwam",
+          "bredd": 3876,
+          "hojd": 2529,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/29a_Gustave_Adolphe_%C3%A0_la_bataille_de_Breitenfeld%2C_1632.jpg/960px-29a_Gustave_Adolphe_%C3%A0_la_bataille_de_Breitenfeld%2C_1632.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "April 2025 Alsace photographs",
+            "April 2025 in Strasbourg",
+            "Gustavus Adolphus at the Battle of Breitenfeld"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Dankaerts-Historis-9302.tif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Dankaerts-Historis-9302.tif",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Matthäus Merian",
+          "datum": "1642",
+          "beskrivning": "Battle of Breitenfeld (1631) , 7 Old Style/17 September 1631 New Style. Latin text: Diatyposis utriusque aciei Regi Sueciae et Electoralis Saxonicae, hisque oppositae caesareae et ligisticae, sub ductu comitis Tillii, una cum accurata designatione legiorum, turmarum, alarum et cohortium utriusque partis, quo pacto illae ante conflictum iuxta Lipsiam ex adverso constiterint Subiecta illis praelii icone. . In image: \"Gr. von Fürstenberg\", \"Seehausen\", \"Gros Wideritsch\", \"Klein Wideritsch\", \"Sachsische Geschutz\", \"Tillische Geschütz\", \"Galgenhügel\", \"Gehölz\", \"Breitenfeld\", \"Lindenthal\", \"Gr. von Pappenheim\", \"Lincker Flügel\", \"Rechter Flügel\", \"Ordnung der Tyllischen Armeen\", \"Ge. Gr. Tylli\", \"G. von Arnheim\", \"Ordnung der Schwedischen Armeen\", \"Gustav\", \"Gen. Bannier\", \"Obr. Hebron\", \"Rehterflügel\", \"Kon. May. zu Schweden\", \"Obr. Hall\", \"Weg von Wittenberg nach Leipzig\", \"Ordnung der Sachsische Armee\", \"Ch. D. zu Sachsen\", \"Podelwitz\", \"Ietzschlitz\", \"?Schollcka\", \"Battaille\", \"Bataille\".",
+          "bredd": 5430,
+          "hojd": 2160,
+          "mime": "image/tiff",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Dankaerts-Historis-9302.tif/lossy-page1-960px-Dankaerts-Historis-9302.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Breitenfeld (1631)",
+            "Prints from Dankaerts Historis at the Peace Palace Library"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-nordlingen-1634",
+      "titel": "Slaget vid Nördlingen",
+      "plats": "Nördlingen, Bayern",
+      "start": 1634,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q312212",
+      "kandidater": [
+        {
+          "fil": "File:Battle of Nordlingen in 1634 by Jacques Courtois.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Battle_of_Nordlingen_in_1634_by_Jacques_Courtois.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Jacques Courtois",
+          "datum": "1648 date QS:P571,+1648-00-00T00:00:00Z/9",
+          "beskrivning": null,
+          "bredd": 620,
+          "hojd": 308,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Battle_of_Nordlingen_in_1634_by_Jacques_Courtois.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1640s paintings from France",
+            "1676 paintings",
+            "17th-century oil paintings in Germany",
+            "17th-century paintings of cavalry in battle",
+            "Baroque paintings of war",
+            "Paintings by Jacques Courtois",
+            "Paintings in the LWL-Museum für Kunst und Kultur",
+            "Paintings of the Battle of Nördlingen",
+            "Panoramics in Nördlingen"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-wittstock",
+      "titel": "Slaget vid Wittstock",
+      "plats": "Wittstock, Brandenburg",
+      "start": 1636,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q428972",
+      "kandidater": [
+        {
+          "fil": "File:The Battle of Wittstock 1636.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Battle_of_Wittstock_1636.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "17 th century date QS:P,+1650-00-00T00:00:00Z/7",
+          "beskrivning": "Battle of Wittstock",
+          "bredd": 1000,
+          "hojd": 803,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/The_Battle_of_Wittstock_1636.jpg/960px-The_Battle_of_Wittstock_1636.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Wittstock"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "rundetarn-star-klart",
+      "titel": "Rundetårn står klart som observatorium",
+      "plats": "Köpenhamn, Danmark",
+      "start": 1642,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q1140534",
+      "kandidater": [
+        {
+          "fil": "File:Copenhagen - Rundetårn - 2013.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Copenhagen_-_Rundet%C3%A5rn_-_2013.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Avda",
+          "datum": "2013-07-30 11:56:08",
+          "beskrivning": "Copenhagen - Rundetårn - 2013",
+          "bredd": 1302,
+          "hojd": 2048,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Copenhagen_-_Rundet%C3%A5rn_-_2013.jpg/960px-Copenhagen_-_Rundet%C3%A5rn_-_2013.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Rundetårn"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-rocroi",
+      "titel": "Slaget vid Rocroi",
+      "plats": "Rocroi, Frankrike",
+      "start": 1643,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q728480",
+      "kandidater": [
+        {
+          "fil": "File:La Bataille de Rocroi.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:La_Bataille_de_Rocroi.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Sauveur Lecomte",
+          "datum": "17 December 2011",
+          "beskrivning": "Peinture du peintre Sauveur Le Conte, représentant la victoire du Grand Condé lors de la bataille de Rocroi en 1643.",
+          "bredd": 593,
+          "hojd": 400,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/6c/La_Bataille_de_Rocroi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Rocroi",
+            "Series of the Actions of the Great Condé – Musée Condé"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-jankau",
+      "titel": "Slaget vid Jankau",
+      "plats": "Jankov, Böhmen",
+      "start": 1645,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q1415925",
+      "kandidater": [
+        {
+          "fil": "File:Old copper engraving of the Battle of Jankov.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Old_copper_engraving_of_the_Battle_of_Jankov.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2007-11-11 11:53:49",
+          "beskrivning": "Old copper engraving of the Battle of Jankov .",
+          "bredd": 460,
+          "hojd": 370,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/27/Old_copper_engraving_of_the_Battle_of_Jankov.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Jankov"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "westfaliska-freden",
+      "titel": "Westfaliska freden",
+      "plats": "Osnabrück och Münster, Westfalen",
+      "start": 1648,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q150995",
+      "kandidater": [
+        {
+          "fil": "File:Westfaelischer Friede in Muenster (Gerard Terborch 1648).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Westfaelischer_Friede_in_Muenster_(Gerard_Terborch_1648).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Gerard ter Borch",
+          "datum": "1648",
+          "beskrivning": null,
+          "bredd": 6000,
+          "hojd": 4649,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Westfaelischer_Friede_in_Muenster_%28Gerard_Terborch_1648%29.jpg/960px-Westfaelischer_Friede_in_Muenster_%28Gerard_Terborch_1648%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1640s furniture in art",
+            "1640s interiors in art",
+            "1640s oil on copper paintings",
+            "1648 in Münster (Westfalen)",
+            "1648 portrait paintings of men",
+            "17th-century group portraits",
+            "17th-century oil on copper paintings from the Netherlands",
+            "Adriaan Clant",
+            "Adriaen Pauw",
+            "Bandstrings in art",
+            "Blue stockings",
+            "Boot-hose in art",
+            "Buff coats",
+            "Diego de Saavedra Fajardo",
+            "Falling band collars",
+            "Gaspar de Bracamonte y Guzmán",
+            "Group portrait paintings from the Netherlands",
+            "Group portrait paintings in the Rijksmuseum Amsterdam",
+            "Het sluiten van de Vrede van Munster",
+            "Holy Roman Empire",
+            "Interior of the historical town hall Münster",
+            "Male brown shoes in portrait paintings",
+            "Male portrait paintings by Gerard ter Borch (II)",
+            "Oaths in art",
+            "Ostrich plumes in art",
+            "Paintings by Gerard ter Borch (II) in the Rijksmuseum Amsterdam",
+            "Paintings from the Demidoff di San Donato collection",
+            "Peace of Westphalia",
+            "Prince-electors",
+            "Red heels",
+            "Velvet upholstered furniture in art",
+            "Willem Ripperda"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "forsvenskningen-av-skane",
+      "titel": "Försvenskningen av Skåne",
+      "plats": "Skåne",
+      "start": 1658,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Swedification of Scania Scania",
+      "kandidater": [
+        {
+          "fil": "File:Malmö, statue of Carl X Gustav.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Malm%C3%B6,_statue_of_Carl_X_Gustav.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Dguendel",
+          "datum": "2018-06-21",
+          "beskrivning": "Malmö, statue of Carl X Gustav",
+          "bredd": 3260,
+          "hojd": 4823,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Malm%C3%B6%2C_statue_of_Carl_X_Gustav.JPG/960px-Malm%C3%B6%2C_statue_of_Carl_X_Gustav.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Statue of Carl X Gustav in Malmö"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Framsidan på Konung Fredrik III cessionsbrev gällande provinsen Skåne.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Framsidan_p%C3%A5_Konung_Fredrik_III_cessionsbrev_g%C3%A4llande_provinsen_Sk%C3%A5ne.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Riksarkivet",
+          "datum": "1658-02-24",
+          "beskrivning": "I samband med freden i Roskilde så avträdde Danmark bl.a. provinsen Skåne till Sverige. Bilden föreställer cessionsbrevet gällande avträdelse av Skåne till Sverige. Undertecknat 24 februari 1658 i Köpenhamn. Hämtad från arkivet Originaltraktater med främmande makter (traktater) som bevaras hos Riksarkivet",
+          "bredd": 7753,
+          "hojd": 7038,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Framsidan_p%C3%A5_Konung_Fredrik_III_cessionsbrev_g%C3%A4llande_provinsen_Sk%C3%A5ne.jpg/960px-Framsidan_p%C3%A5_Konung_Fredrik_III_cessionsbrev_g%C3%A4llande_provinsen_Sk%C3%A5ne.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Denmark in the 1650s",
+            "Frederick III of Denmark",
+            "History of Skåne",
+            "Sweden in the 1650s",
+            "Treaties in the National Archives of Sweden"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "freden-i-roskilde",
+      "titel": "Freden i Roskilde",
+      "plats": "Roskilde, Själland",
+      "start": 1658,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q212234",
+      "soktext": "Treaty of Roskilde Roskilde",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Treaty of Roskilde - peace banquet.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Treaty_of_Roskilde_-_peace_banquet.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Erik Dahlbergh",
+          "datum": "1658",
+          "beskrivning": "The peace banquet (Fredstaffelet) at Frederiksborg Castle following the signing of the Treaty of Roskilde in 1658.",
+          "bredd": 600,
+          "hojd": 450,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Treaty_of_Roskilde_-_peace_banquet.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Charles X Gustav of Sweden",
+            "Erik Dahlbergh",
+            "Frederick III of Denmark",
+            "History of Hillerød",
+            "Interior of Frederiksborg Palace in art, pre-1859",
+            "Treaties of Roskilde (1658)"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Treaty of Roskilde - arrival at Frederiksborg.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Treaty_of_Roskilde_-_arrival_at_Frederiksborg.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "circa 1658 date QS:P,+1658-00-00T00:00:00Z/9,P1480,Q5727902 (?)",
+          "beskrivning": "The arrival at Frederiksborg Castle for the peace banquet following the signing of the Treaty of Roskilde in Roskilde, 26 February 1658.",
+          "bredd": 600,
+          "hojd": 467,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Treaty_of_Roskilde_-_arrival_at_Frederiksborg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Hillerød Kommune in art",
+            "History of Hillerød",
+            "Treaties of Roskilde (1568)"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Treaty of Roskilde - peace banquet (7949340).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Treaty_of_Roskilde_-_peace_banquet_(7949340).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Erik Dahlbergh",
+          "datum": "1696",
+          "beskrivning": "The peace banquet (Fredstaffelet) at Frederiksborg Castle following the signing of the Treaty of Roskilde in 1658.",
+          "bredd": 4472,
+          "hojd": 3680,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Treaty_of_Roskilde_-_peace_banquet_%287949340%29.jpg/960px-Treaty_of_Roskilde_-_peace_banquet_%287949340%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Charles X Gustav of Sweden",
+            "De rebus a Carolo Gustavo Sveciae rege gestis commentariorum libri septem (1696) (SD XVII.4.2668)",
+            "Erik Dahlbergh",
+            "Frederick III of Denmark",
+            "History of Hillerød",
+            "Interior of Frederiksborg Palace in art, pre-1859",
+            "Treaties of Roskilde (1658)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:9. 1658 Freden i Roskilde.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:9._1658_Freden_i_Roskilde.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Kasper Holl",
+          "datum": "2021-04-23",
+          "beskrivning": "Freden i Roskilde bliver indgået i 1658 og Danmark afgiver Skånelandene og Trondheim til Sverige",
+          "bredd": 2000,
+          "hojd": 2541,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/9._1658_Freden_i_Roskilde.png/960px-9._1658_Freden_i_Roskilde.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of Denmark in the 17th century",
+            "Maps of Estonia in the 17th century",
+            "Maps of Finland in the 17th century",
+            "Maps of Latvia in the 17th century",
+            "Maps of Norway in the 17th century",
+            "Maps of Scandinavia in the 17th century",
+            "Maps of Sweden in the 17th century",
+            "Maps of the history of Denmark",
+            "Maps of the history of Finland",
+            "Maps of the history of Norway",
+            "Maps of the history of Sweden",
+            "Maps showing 1658",
+            "Treaties of Roskilde (1658)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Treaty of Roskilde - peace banquet (fragment) (7949340).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Treaty_of_Roskilde_-_peace_banquet_(fragment)_(7949340).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Erik Dahlbergh",
+          "datum": "1696",
+          "beskrivning": "The peace banquet (Fredstaffelet) at Frederiksborg Castle following the signing of the Treaty of Roskilde in 1658.",
+          "bredd": 2565,
+          "hojd": 2019,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Treaty_of_Roskilde_-_peace_banquet_%28fragment%29_%287949340%29.jpg/960px-Treaty_of_Roskilde_-_peace_banquet_%28fragment%29_%287949340%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Charles X Gustav of Sweden",
+            "De rebus a Carolo Gustavo Sveciae rege gestis commentariorum libri septem (1696) (SD XVII.4.2668)",
+            "Erik Dahlbergh",
+            "Frederick III of Denmark",
+            "History of Hillerød",
+            "Interior of Frederiksborg Palace in art, pre-1859",
+            "Treaties of Roskilde (1658)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "trohetseden-i-malmo",
+      "titel": "Skåningarna svär trohet till den svenske kungen",
+      "plats": "Malmö, Skåne",
+      "start": 1658,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Scania swears allegiance to the Swedish king Malmö",
+      "kandidater": []
+    },
+    {
+      "id": "freden-i-kopenhamn-1660",
+      "titel": "Freden i Köpenhamn",
+      "plats": "Köpenhamn",
+      "start": 1660,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q829702",
+      "kandidater": [
+        {
+          "fil": "File:Sju bocker om konung Carl X Gustafs bragder. 2 1915 (151982553).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sju_bocker_om_konung_Carl_X_Gustafs_bragder._2_1915_(151982553).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Samuel Pufendorf",
+          "datum": "2023-03-07 12:46:04",
+          "beskrivning": "Adres wydawniczy : Stockholm : Wahlström & Widstrand, [1915] Współtwórcy : Hillman, Adolf (1844-1933). Tłumaczenie Opis fizyczny : [207] k. tabl., [32] k. tabl. złoż. : il. ; 38 cm",
+          "bredd": 11228,
+          "hojd": 8727,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Sju_bocker_om_konung_Carl_X_Gustafs_bragder._2_1915_%28151982553%29.jpg/960px-Sju_bocker_om_konung_Carl_X_Gustafs_bragder._2_1915_%28151982553%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Sju böcker om konung Carl X Gustafs bragder. 2 (1915)",
+            "Treaty of Copenhagen (1660)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "lunds-universitet-grundas",
+      "titel": "Lunds universitet grundas",
+      "plats": "Lund, Skåne",
+      "start": 1666,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q218506",
+      "kandidater": [
+        {
+          "fil": "File:Universitetsbyggnaden, Lund.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Universitetsbyggnaden,_Lund.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": null,
+          "datum": "2004-10-07 15:07:40",
+          "beskrivning": null,
+          "bredd": 640,
+          "hojd": 480,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Universitetsbyggnaden%2C_Lund.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Unidentified year in Skåne County",
+            "Universitetshuset, Lund"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "riksbanken-grundas",
+      "titel": "Riksbanken grundas",
+      "plats": "Stockholm, Sverige",
+      "start": 1668,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q564652",
+      "kandidater": [
+        {
+          "fil": "File:Sveriges Riksbank, Brunkebergstorg, 2020.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sveriges_Riksbank,_Brunkebergstorg,_2020.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Holger.Ellgaard",
+          "datum": "2020-08-04 13:11:09",
+          "beskrivning": "Sveriges Riksbank, fasad mot Brunkebergstorg",
+          "bredd": 2235,
+          "hojd": 1614,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Sveriges_Riksbank%2C_Brunkebergstorg%2C_2020.jpg/960px-Sveriges_Riksbank%2C_Brunkebergstorg%2C_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Brunkebergstorg",
+            "Riksbankshuset, Stockholm"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "friskyttar-och-snapphanar",
+      "titel": "Friskyttar och snapphanar",
+      "plats": "Skåne, särskilt Göinge och norra Skåne",
+      "start": 1676,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": null,
+      "soktext": "Friskyttar and snapphanes Scania",
+      "kandidater": []
+    },
+    {
+      "id": "slaget-vid-landskrona",
+      "titel": "Slaget vid Landskrona",
+      "plats": "Ylleshed utanför Landskrona, Skåne",
+      "start": 1677,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2889107",
+      "kandidater": [
+        {
+          "fil": "File:Battle of Tirups Hed-Johan Philip Lemke.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Battle_of_Tirups_Hed-Johan_Philip_Lemke.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Johann Philipp Lemke",
+          "datum": "2005-09-28 21:00:26",
+          "beskrivning": "14 July 1677: The battle of Tirups Hed (moor) outside of Landskrona . Swedish victory.",
+          "bredd": 600,
+          "hojd": 433,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Battle_of_Tirups_Hed-Johan_Philip_Lemke.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Landskrona",
+            "Johan Filip Lemke"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "freden-i-lund",
+      "titel": "Freden i Lund",
+      "plats": "Lund, Skåne",
+      "start": 1679,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q652359",
+      "kandidater": [
+        {
+          "fil": "File:Kungshuset i Lund.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kungshuset_i_Lund.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "spi516, contributor to flickr",
+          "datum": "7 of june 2005",
+          "beskrivning": "Kungshuset in the City of Lund, Sweden.",
+          "bredd": 1536,
+          "hojd": 2048,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Kungshuset_i_Lund.jpg/960px-Kungshuset_i_Lund.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2005 in Lund",
+            "Kungshuset, Lund",
+            "May 2005 in Skåne County"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kapitulationen-vid-perevolotjna",
+      "titel": "Kapitulationen vid Perevolotjna",
+      "plats": "Perevolotjna vid Dnepr (i dag Ukraina)",
+      "start": 1709,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2671292",
+      "kandidater": [
+        {
+          "fil": "File:Perewolotnja-1709.PNG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Perewolotnja-1709.PNG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2005-11-11 20:40:46",
+          "beskrivning": null,
+          "bredd": 364,
+          "hojd": 342,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/db/Perewolotnja-1709.PNG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Maps of the Battle of Poltava",
+            "Surrender at Perevolochna"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Карта к статье «Переволочна». Военная энциклопедия Сытина. Том № 18. (Санкт-Петербург, 1911-1915).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D1%80%D1%82%D0%B0_%D0%BA_%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B5_%C2%AB%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D0%B0%C2%BB._%D0%92%D0%BE%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F_%D1%8D%D0%BD%D1%86%D0%B8%D0%BA%D0%BB%D0%BE%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F_%D0%A1%D1%8B%D1%82%D0%B8%D0%BD%D0%B0._%D0%A2%D0%BE%D0%BC_%E2%84%96_18._(%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3,_1911-1915).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "« ВЭС ». ( СПб ; 1914 год ).",
+          "datum": "before 1916",
+          "beskrivning": "Perevolochna (Ukrainian: Переволочна) was a settlement in Kobeliaky Raion (district) of Poltava Oblast (province) of Ukraine close to Svitlohirske. It was situated at the bank of the Dnepr, where a ford enabled people to cross the river. It existed until the Dniprodzerzhynsk reservoir was built in the middle of the 1960s.",
+          "bredd": 1258,
+          "hojd": 1359,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/%D0%9A%D0%B0%D1%80%D1%82%D0%B0_%D0%BA_%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B5_%C2%AB%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%BB%D0%BE%D1%87%D0%BD%D0%B0%C2%BB._%D0%92%D0%BE%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F_%D1%8D%D0%BD%D1%86%D0%B8%D0%BA%D0%BB%D0%BE%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F_%D0%A1%D1%8B%D1%82%D0%B8%D0%BD%D0%B0._%D0%A2%D0%BE%D0%BC_%E2%84%96_18._%28%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%2C_1911-1915%29.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of Poltava Oblast",
+            "Surrender at Perevolochna"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "skanes-generalguvernement-upphor",
+      "titel": "Skåne styrs som två vanliga län",
+      "plats": "Skåne",
+      "start": 1719,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": null,
+      "soktext": "Scania is governed as two ordinary counties Scania",
+      "kandidater": []
+    },
+    {
+      "id": "stavnsbandet-upphavs",
+      "titel": "Stavnsbåndet upphävs",
+      "plats": "Danmark (markören i Köpenhamn)",
+      "start": 1788,
+      "varldsdel": "Europa",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The stavnsbånd is abolished",
+      "kandidater": []
+    }
+  ]
+}

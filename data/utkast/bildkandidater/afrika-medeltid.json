@@ -1,0 +1,1360 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 36,
+    "kandidater": 37,
+    "troliga": 36,
+    "flaggade": 1,
+    "avvisade": 0,
+    "smala": 6,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "arabiska-erovringen-av-egypten",
+      "titel": "Arabiska erövringen av Egypten",
+      "plats": "Egypten, från Babylonfästningen (dagens Gamla Kairo) till Alexandria",
+      "start": 639,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q317519",
+      "kandidater": [
+        {
+          "fil": "File:فتوح مصر والنوبة.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%D9%81%D8%AA%D9%88%D8%AD_%D9%85%D8%B5%D8%B1_%D9%88%D8%A7%D9%84%D9%86%D9%88%D8%A8%D8%A9.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Dr. Husein Mu'nis et al.",
+          "datum": "1986",
+          "beskrivning": "Map showing the course of the Islamic armies and their conquest of Egypt and Nubia.",
+          "bredd": 1345,
+          "hojd": 1929,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/%D9%81%D8%AA%D9%88%D8%AD_%D9%85%D8%B5%D8%B1_%D9%88%D8%A7%D9%84%D9%86%D9%88%D8%A8%D8%A9.jpg/960px-%D9%81%D8%AA%D9%88%D8%AD_%D9%85%D8%B5%D8%B1_%D9%88%D8%A7%D9%84%D9%86%D9%88%D8%A8%D8%A9.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Arabic-language maps",
+            "Egypt in the 7th century",
+            "Maps of the Rashidun Caliphate",
+            "Maps of the history of Cyprus",
+            "Maps of the history of Egypt",
+            "Maps of the history of Israel",
+            "Maps of the history of Jordan",
+            "Maps of the history of Lebanon",
+            "Maps of the history of Syria",
+            "Maps showing 7th-century history"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kairouan-grundas",
+      "titel": "Kairouan grundas",
+      "plats": "Kairouan (i dag Tunisien)",
+      "start": 670,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q179570",
+      "kandidater": [
+        {
+          "fil": "File:View of Kairouan from the Minaret of the Great Mosque - Tunisia - 1899.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:View_of_Kairouan_from_the_Minaret_of_the_Great_Mosque_-_Tunisia_-_1899.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1899",
+          "beskrivning": "Photograph of Kairouan from the Minaret of the Great Mosque, Tunisia. This color photochrome print was taken in 1899 in Kairouan, Tunisia.",
+          "bredd": 600,
+          "hojd": 443,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/93/View_of_Kairouan_from_the_Minaret_of_the_Great_Mosque_-_Tunisia_-_1899.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Kairouan on photochrome prints"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "gao-saney-handelsstad",
+      "titel": "Handelsstaden Gao-Saney vid Nigerfloden",
+      "plats": "Gao-Saney nära Gao vid Nigerfloden (i dag Mali)",
+      "start": 700,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1493767",
+      "soktext": "The trading town of Gao-Saney on the Niger",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "kanemriket",
+      "titel": "Kanemriket vid Tchadsjön",
+      "plats": "Kanem, nordöst om Tchadsjön (i dag Tchad)",
+      "start": 700,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1139762",
+      "soktext": "The Kanem Empire at Lake Chad Kanem",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Eastern Sahel in Politische Wandkarte von Africa im Maßstabe by Heinrich Kiepert.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Eastern_Sahel_in_Politische_Wandkarte_von_Africa_im_Ma%C3%9Fstabe_by_Heinrich_Kiepert.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Heinrich Kiepert",
+          "datum": "1885",
+          "beskrivning": "H. Kiepert's Politische Wandkarte von Africa im Maßstabe von 1:8,000000. Neubearbeitung von Heinrich Kiepert. Berlin / Verlag von Dietrich Reimer. 3te verbesserte Auflage / 1885.",
+          "bredd": 4669,
+          "hojd": 2399,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Eastern_Sahel_in_Politische_Wandkarte_von_Africa_im_Ma%C3%9Fstabe_by_Heinrich_Kiepert.jpg/960px-Eastern_Sahel_in_Politische_Wandkarte_von_Africa_im_Ma%C3%9Fstabe_by_Heinrich_Kiepert.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1885 maps of Africa",
+            "Maps of Kanem Empire",
+            "Maps of Lake Chad Drainage basin",
+            "Maps of Ouaddai"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Rabih az-Zubayr 1896.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Rabih_az-Zubayr_1896.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Wario2",
+          "datum": "2021-11-18",
+          "beskrivning": "Map showing the Lake Chad region in 1896, highlighting Rabih az-Zubayr's Empire and its vassal Dar al Kuti, showing neighboring states.",
+          "bredd": 825,
+          "hojd": 550,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/62/Rabih_az-Zubayr_1896.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1896 maps of Africa",
+            "Bornu",
+            "Kanem Empire",
+            "Maps of Africa in the 19th century",
+            "Maps of Lake Chad",
+            "Maps of the history of Chad",
+            "Maps of the history of the Central African Republic",
+            "Rabah"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:The Statemans Yearbook - Statistical and Historical Annual of the States of the World for the Year (1899) (14576880947).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Statemans_Yearbook_-_Statistical_and_Historical_Annual_of_the_States_of_the_World_for_the_Year_(1899)_(14576880947).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1899",
+          "beskrivning": "Identifier : statemansyearboo1899wrig ( find matches ) Title : The Statemans Yearbook : Statistical and Historical Annual of the States of the World for the Year Year : 1899 ( 1890s ) Authors : Wright, Carroll D. Subjects : Publisher : The MacMillan Co. NY Contributing Library : University of Florida, George A. Smathers Libraries Digitizing Sponsor : University of Florida, George A. Smathers Libraries View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: tants,such as Birni, Bundi, Gummel, Mashena, Borsari, Surrikolo, Logon-Karnah,capital of the Logon territory, and Doloo, capital of the tributary MandaraState. The coast lands continue to be exposed to the incursions of tlie Kuriand Yedina pirates, wlio inhabit the archipelagoes in Lake Chad. WAD AI—KANEM. The Sultanate of Wadai, at present the most powerful State in CentralSudan, occupies with the tributary States the whole region between Dar-Furand Lake Chad, and extends from the southern verge of the Sahara southwardsnearly to the divide between the Chad and Congo basins. Total area, in-cluding Wadai and Bagirmi, nearly 172,000 square miles; populationestimated by Nachtigal at 2,600,000. The Arabs, here collectively calledAramka, have been settled in the country for over 500 years. Their traders(Jellaba) send caravans south to Dar-Banda and Bagirmi, and west to Bornu, For Sokoto, .see Niger Tbrbitories, under the British Empire. Statesmans Year-Bools: 1899 TELEGRAPHS AND PC SPAIN Text Appearing After Image: 20 30 - Telegraphsj;^5^^^^^_7:777_ Cables REFERENCE TO POLITICAL COLOURING Possessions, Protectorates, Spheres of influence, or occupation of countries Q _ JiBrituh (~ 31 Spaniah \\irZ)French ( H Turkuh j \\ Italian ___ i Congo Free State nZZHGerman I ; Transvaal (_ ^Portuguese (Orange Free State Independent or unoccupied States are uncolotired The EiiiKirtffa Geotfrupkical Tn ITICAL DIVISIONS, 1899 Plate 4. Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 1861,
+          "hojd": 3182,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/The_Statemans_Yearbook_-_Statistical_and_Historical_Annual_of_the_States_of_the_World_for_the_Year_%281899%29_%2814576880947%29.jpg/960px-The_Statemans_Yearbook_-_Statistical_and_Historical_Annual_of_the_States_of_the_World_for_the_Year_%281899%29_%2814576880947%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1899 maps of Africa",
+            "The Statemans Yearbook - Statistical and Historical Annual of the States of the World for the Year (1899)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
+        }
+      ]
+    },
+    {
+      "id": "kisaliska-gravarna",
+      "titel": "Gravarna från den kisaliska tiden i Upembasänkan",
+      "plats": "Norra delen av Upembasänkan (i dag Demokratiska republiken Kongo)",
+      "start": 700,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q118904028",
+      "soktext": "The Kisalian graves of the Upemba Depression",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "elefantfaglarna-dor-ut",
+      "titel": "Elefantfåglarna dör ut på Madagaskar",
+      "plats": "Madagaskar",
+      "start": 800,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The elephant birds die out on Madagascar Madagascar",
+      "kandidater": []
+    },
+    {
+      "id": "igbo-ukwu-bronserna",
+      "titel": "Bronserna i Igbo-Ukwu gjuts",
+      "plats": "Igbo-Ukwu, delstaten Anambra (i dag Nigeria)",
+      "start": 801,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q4785495",
+      "kandidater": [
+        {
+          "fil": "File:9th century bronze ceremonial pot, Igbo-Ukwu, Nigeria.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:9th_century_bronze_ceremonial_pot,_Igbo-Ukwu,_Nigeria.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Ochiwar",
+          "datum": "2013-10-03 13:26:18",
+          "beskrivning": "Photograph of a 9th century bronze pot excavated in Igbo-Ukwu, Anambra State Nigeria. Presently located in the National Museum, Onikan, Lagos, Nigeria",
+          "bredd": 1999,
+          "hojd": 2393,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/9th_century_bronze_ceremonial_pot%2C_Igbo-Ukwu%2C_Nigeria.JPG/960px-9th_century_bronze_ceremonial_pot%2C_Igbo-Ukwu%2C_Nigeria.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "9th-century art in Nigeria",
+            "9th-century bronzes",
+            "Archaeological objects of Nigeria",
+            "Igbo Ukwu bronzes",
+            "Igbo art",
+            "Metalwork of Africa",
+            "Nigerian National Museum"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Bronze ceremonial vessel in form of a snail shell, 9th century, Igbo-Ukwu, Nigeria.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bronze_ceremonial_vessel_in_form_of_a_snail_shell,_9th_century,_Igbo-Ukwu,_Nigeria.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Ochiwar",
+          "datum": "2013-10-03 13:26:45",
+          "beskrivning": "Photograph of a 9th century bronze vessel in the shape of a snail shell found at Igbo-Ukwu, Anambra State, Nigeria. Presently located in the National Museum, Onikan, Lagos, Nigeria",
+          "bredd": 2372,
+          "hojd": 1371,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Bronze_ceremonial_vessel_in_form_of_a_snail_shell%2C_9th_century%2C_Igbo-Ukwu%2C_Nigeria.JPG/960px-Bronze_ceremonial_vessel_in_form_of_a_snail_shell%2C_9th_century%2C_Igbo-Ukwu%2C_Nigeria.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "9th-century art in Nigeria",
+            "Archaeological objects of Nigeria",
+            "Ceremonial vessels",
+            "Igbo Ukwu bronzes",
+            "Igbo art",
+            "Nigerian National Museum",
+            "Sculptures of snails"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "al-qarawiyyin-grundas",
+      "titel": "Al-Qarawiyyin grundas i Fès",
+      "plats": "Fès (i dag Marocko)",
+      "start": 857,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q378014",
+      "kandidater": [
+        {
+          "fil": "File:University of Al Qaraouiyine.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:University_of_Al_Qaraouiyine.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Abdel Hassouni",
+          "datum": "2015-06-24",
+          "beskrivning": "The oldest university of the world, Al Qarawiyine university in Fès.",
+          "bredd": 1080,
+          "hojd": 1143,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/University_of_Al_Qaraouiyine.jpg/960px-University_of_Al_Qaraouiyine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Al-Qarawiyyin courtyard",
+            "Minaret of al-Qarawiyyin Mosque",
+            "Zellij in Al-Qarawiyyin courtyard"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "sungbos-eredo",
+      "titel": "Vallarna i Sungbos Eredo byggs",
+      "plats": "Sydväst om Ijebu Ode, delstaten Ogun (i dag Nigeria)",
+      "start": 901,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2092142",
+      "kandidater": [
+        {
+          "fil": "File:Sungbo-eredo-photo.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sungbo-eredo-photo.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "angiekake",
+          "datum": "culled from nigeria's national monuments",
+          "beskrivning": "this is Africa's largest single ancient monument situated in Ogun State, off the main road in rain forest of south-west Africa. it's a 100 mile long wall believed to have been constructed a millennium ago.",
+          "bredd": 802,
+          "hojd": 539,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/8/85/Sungbo-eredo-photo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Sungbo's Eredo"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "fuktigare-klimat-vid-limpopo",
+      "titel": "Ett fuktigare klimat vid Limpopo när Mapungubwe växer fram",
+      "plats": "Nordöstra Sydafrika, vid Limpopo (Pafuri i norra Krugerparken)",
+      "start": 950,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "A wetter climate on the Limpopo as Mapungubwe rises North-eastern South Africa",
+      "kandidater": []
+    },
+    {
+      "id": "mapungubwe-riket",
+      "titel": "Mapungubwe-riket vid Limpopo",
+      "plats": "Där floderna Shashe och Limpopo möts (i dag Sydafrika)",
+      "start": 1000,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q98085401",
+      "soktext": "The Kingdom of Mapungubwe on the Limpopo",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:African Gold art.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:African_Gold_art.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Cool Art",
+          "datum": "2012-01-09",
+          "beskrivning": "gold statuettes and objects made by African artisans from the Ashanti Empire and the Kingdom of Mapungubwe",
+          "bredd": 6936,
+          "hojd": 2008,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/African_Gold_art.jpg/960px-African_Gold_art.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "African art collections",
+            "Ashanti Empire",
+            "Ashanti Empire in art",
+            "Golden Rhinoceros of Mapungubwe",
+            "Mapungubwe Collection"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Kongo Cosmogram 3.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kongo_Cosmogram_3.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "MiddleOfAfrica",
+          "datum": "2023-05-07",
+          "beskrivning": "The Yowa, or Dikenga Cross, is a symbol in Bakongo spirituality that depicts the physical world, the spiritual (ancestral) world, the Kalûnga river (line) that runs between the two worlds, the four moments of the sun, and the mbûngi circle.",
+          "bredd": 1200,
+          "hojd": 1000,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Kongo_Cosmogram_3.png/960px-Kongo_Cosmogram_3.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "African Americans and religion",
+            "Angola",
+            "Culture of the Democratic Republic of the Congo",
+            "Hoodoo (spirituality)",
+            "Kongo",
+            "Kongo people"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:MapungubweHill.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:MapungubweHill.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "JJ van Zyl",
+          "datum": "2007",
+          "beskrivning": "Mapungubwe Hill",
+          "bredd": 800,
+          "hojd": 532,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/de/MapungubweHill.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Mapungubwe National Park"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Mapungubwe National Park sign in 2005.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mapungubwe_National_Park_sign_in_2005.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "JJ van Zyl",
+          "datum": "2005",
+          "beskrivning": "Mapungubwe National Park",
+          "bredd": 800,
+          "hojd": 531,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/93/Mapungubwe_National_Park_sign_in_2005.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Mapungubwe National Park"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Mapungubwe, Limpopo, South Africa (20535231612).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mapungubwe,_Limpopo,_South_Africa_(20535231612).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "South African Tourism from South Africa",
+          "datum": "2015-05-20 12:00",
+          "beskrivning": "Vue du Limpopo en Afrique du Sud.",
+          "bredd": 4928,
+          "hojd": 3280,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Mapungubwe%2C_Limpopo%2C_South_Africa_%2820535231612%29.jpg/960px-Mapungubwe%2C_Limpopo%2C_South_Africa_%2820535231612%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Mapungubwe Museum and Interpretive Centre",
+            "Mapungubwe National Park"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "swahilikustens-afrikanska-och-asiatiska-rotter",
+      "titel": "Afrikanska och asiatiska rötter möts på swahilikusten",
+      "plats": "Swahilikusten (gravar i bland annat Mtwapa, Manda och Kilwa, i dag Kenya och Tanzania)",
+      "start": 1000,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "African and Asian roots meet on the Swahili coast",
+      "kandidater": []
+    },
+    {
+      "id": "banu-hilal-flyttar-till-maghreb",
+      "titel": "Banu Hilal och Banu Sulaym flyttar till Maghreb",
+      "plats": "Från Egypten via Kyrenaika till Ifriqiya (i dag Libyen, Tunisien och Algeriet)",
+      "start": 1001,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Banu Hilal and Banu Sulaym migrate to the Maghreb",
+      "kandidater": []
+    },
+    {
+      "id": "gedi-grundas",
+      "titel": "Swahilistaden Gedi grundas",
+      "plats": "Gedi nära kusten i Kilifi county (i dag Kenya)",
+      "start": 1001,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q502518",
+      "kandidater": [
+        {
+          "fil": "File:Great Mosque of Gede.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Great_Mosque_of_Gede.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Mgiganteus",
+          "datum": "2007-07",
+          "beskrivning": "Ruins of the Great Mosque in Gede, Kenya.",
+          "bredd": 1984,
+          "hojd": 1488,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Great_Mosque_of_Gede.jpg/960px-Great_Mosque_of_Gede.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ruins of Gedi"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "ibn-al-haytham-optikens-bok",
+      "titel": "Ibn al-Haytham skriver Optikens bok i Kairo",
+      "plats": "Kairo, fatimidkalifatet (i dag Egypten)",
+      "start": 1011,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q264562",
+      "kandidater": [
+        {
+          "fil": "File:Thesaurus opticus Titelblatt.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Thesaurus_opticus_Titelblatt.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown illustrator Unknown illustrator",
+          "datum": "2006-01-08 22:22:26",
+          "beskrivning": "Engraving from the title page of Opticae Thesaurus , a latin edition of Ibn al-Haytham's Book of Optics . Among other things it shows how Archimedes allegedly set Roman ships on fire with parabolic mirrors during the Siege of Syracuse .",
+          "bredd": 2000,
+          "hojd": 2200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Thesaurus_opticus_Titelblatt.jpg/960px-Thesaurus_opticus_Titelblatt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archimedes mirrors",
+            "Books about optics",
+            "Engravings",
+            "Historical images of Harbour of Syracuse",
+            "Ibn al-Haytham",
+            "Parabolic mirrors",
+            "Thesaurus opticus"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "war-jabi-infor-sharia-i-takrur",
+      "titel": "Kung War Jabi inför sharia i Takrur",
+      "plats": "Takrur vid Senegalfloden (i dag Senegal och Mauretanien)",
+      "start": 1035,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "King War Jabi introduces sharia in Takrur",
+      "kandidater": []
+    },
+    {
+      "id": "marrakech-grundas",
+      "titel": "Marrakech grundas av almoraviderna",
+      "plats": "Marrakech vid foten av Atlasbergen (i dag Marocko)",
+      "start": 1070,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q101625",
+      "kandidater": [
+        {
+          "fil": "File:Djemaa el Fna, evening.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Djemaa_el_Fna,_evening.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Donar Reiskoffer",
+          "datum": "8 December 2005 (according to Exif data)",
+          "beskrivning": "Djemaa el Fna, evening",
+          "bredd": 1596,
+          "hojd": 1023,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Djemaa_el_Fna%2C_evening.JPG/960px-Djemaa_el_Fna%2C_evening.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Dusk in Jamaa El Fna",
+            "General views of Jamaa El Fna",
+            "Minarets in Marrakech"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:MoroccoMarrakech townfromhill.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:MoroccoMarrakech_townfromhill.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "CS.D.",
+          "datum": "2004-09",
+          "beskrivning": null,
+          "bredd": 2304,
+          "hojd": 1728,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/MoroccoMarrakech_townfromhill.jpg/960px-MoroccoMarrakech_townfromhill.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Views of Marrakech"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Marrakesh, Morocco (8141914885).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Marrakesh,_Morocco_(8141914885).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "yeowatzup",
+          "datum": "2012-10-20 16:28",
+          "beskrivning": "Marrakesh, Morocco",
+          "bredd": 3888,
+          "hojd": 2592,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Marrakesh%2C_Morocco_%288141914885%29.jpg/960px-Marrakesh%2C_Morocco_%288141914885%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bab Agnaou"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "almoraviderna-och-ghanariket",
+      "titel": "Erövrade almoraviderna Ghanariket?",
+      "plats": "Ghanariket (i dag Mauretanien och Mali)",
+      "start": 1076,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Did the Almoravids conquer the Ghana Empire?",
+      "kandidater": []
+    },
+    {
+      "id": "timbuktu-blir-fast-bosattning",
+      "titel": "Timbuktu blir en fast bosättning",
+      "plats": "Timbuktu, söder om Sahara nära Nigerfloden (i dag Mali)",
+      "start": 1100,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q9427",
+      "kandidater": [
+        {
+          "fil": "File:Timbuktu Mosque Sankore.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Timbuktu_Mosque_Sankore.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "Senani P",
+          "datum": "2006-12",
+          "beskrivning": "Sankore Mosque in Timbuktu, Mali, 2006.",
+          "bredd": 320,
+          "hojd": 240,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/44/Timbuktu_Mosque_Sankore.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "December 2006 in Africa",
+            "Mosques in Mali photographed in 2006",
+            "Mud buildings in Mali",
+            "Sankore Mosque"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:TIMBUKTU-EINZUG.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:TIMBUKTU-EINZUG.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Drawn by Martin Bernatz after a sketch by Heinrich Barth",
+          "datum": "1857",
+          "beskrivning": "Timbuktu seen from a distance by Heinrich Barth's party, September 7, 1853",
+          "bredd": 3594,
+          "hojd": 2207,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/TIMBUKTU-EINZUG.jpg/960px-TIMBUKTU-EINZUG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Architecture of Africa",
+            "History of Timbuktu",
+            "Johann Martin Bernatz",
+            "Reisen und Entdeckungen in Nord- und Central-Afrika (1859)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kilwas-stora-moske-norra-hallen",
+      "titel": "Stora moskén i Kilwa får sin norra bönehall",
+      "plats": "Kilwa Kisiwani (i dag Tanzania)",
+      "start": 1131,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2035513",
+      "kandidater": [
+        {
+          "fil": "File:GreatMosque.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:GreatMosque.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "en:user:Claude McNab",
+          "datum": "2005-06",
+          "beskrivning": "Great Mosque at Kilwa",
+          "bredd": 453,
+          "hojd": 604,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/dc/GreatMosque.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Great Mosque of Kilwa",
+            "Mosques in Tanzania photographed in 2005"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "zagwedynastin",
+      "titel": "Zagwedynastin tar makten i norra Etiopien",
+      "plats": "Lasta i norra Etiopien",
+      "start": 1137,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q140446",
+      "kandidater": [
+        {
+          "fil": "File:Lalibela, san giorgio, esterno 18.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lalibela,_san_giorgio,_esterno_18.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Sailko",
+          "datum": "2018-11-13 10:14:59",
+          "beskrivning": "Biete Ghiorgis",
+          "bredd": 5517,
+          "hojd": 4748,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Lalibela%2C_san_giorgio%2C_esterno_18.jpg/960px-Lalibela%2C_san_giorgio%2C_esterno_18.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Biete Ghiorgis"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "koutoubiamosken-byggs",
+      "titel": "Koutoubiamoskén byggs i Marrakech",
+      "plats": "Marrakech, almohadkalifatet (i dag Marocko)",
+      "start": 1147,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1137533",
+      "kandidater": [
+        {
+          "fil": "File:Mosquée de la Koutoubia - marakesh.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mosqu%C3%A9e_de_la_Koutoubia_-_marakesh.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Baca12",
+          "datum": "2015-10-09 16:58:49",
+          "beskrivning": "Koutoubia Mosque, in Marrakesh, Morocco",
+          "bredd": 3648,
+          "hojd": 2736,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Mosqu%C3%A9e_de_la_Koutoubia_-_marakesh.jpg/960px-Mosqu%C3%A9e_de_la_Koutoubia_-_marakesh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2015 in Marrakech",
+            "Koutoubia Gardens",
+            "Koutoubia Minaret",
+            "Mosques in Morocco photographed in 2015"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "maimonides-skriver-more-nebuchim",
+      "titel": "Maimonides skriver Moré nebuchim i Fustat",
+      "plats": "Fustat (i dag en del av Kairo, Egypten)",
+      "start": 1185,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1140185",
+      "kandidater": [
+        {
+          "fil": "File:14c ed of the Guide for the Perplexed by Maimonides.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:14c_ed_of_the_Guide_for_the_Perplexed_by_Maimonides.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Ferrer Bassa",
+          "datum": "1348",
+          "beskrivning": "a copy of manuscript of the Guide of the Perplexed by Maimonides made by Ferrer Bassa in 1348 in Barcelona",
+          "bredd": 1024,
+          "hojd": 1441,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/14c_ed_of_the_Guide_for_the_Perplexed_by_Maimonides.jpg/960px-14c_ed_of_the_Guide_for_the_Perplexed_by_Maimonides.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Star of David",
+            "The Guide for the Perplexed by Ferrer Bassa 1348"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "svalten-i-egypten-1200",
+      "titel": "Nilen uteblir och svält drabbar Egypten",
+      "plats": "Egypten",
+      "start": 1200,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Nile fails and famine strikes Egypt Egypt",
+      "kandidater": []
+    },
+    {
+      "id": "slaget-vid-kirina",
+      "titel": "Slaget vid Kirina",
+      "plats": "Kirina i regionen Koulikoro, Mali",
+      "start": 1235,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1319855",
+      "kandidater": [
+        {
+          "fil": "File:ߞߙߎ߬ߞߊ߲߬ߝߎߥߊ߫ ߘߏ߲߬ߘߊ.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%DF%9E%DF%99%DF%8E%DF%AC%DF%9E%DF%8A%DF%B2%DF%AC%DF%9D%DF%8E%DF%A5%DF%8A%DF%AB_%DF%98%DF%8F%DF%B2%DF%AC%DF%98%DF%8A.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Lancine.kounfantoh.fofana",
+          "datum": "2019-11-03 14:08:08",
+          "beskrivning": "ߞߙߎ߬ߞߊ߲߬ߝߎߥߊ߫",
+          "bredd": 2540,
+          "hojd": 2102,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/%DF%9E%DF%99%DF%8E%DF%AC%DF%9E%DF%8A%DF%B2%DF%AC%DF%9D%DF%8E%DF%A5%DF%8A%DF%AB_%DF%98%DF%8F%DF%B2%DF%AC%DF%98%DF%8A.jpg/960px-%DF%9E%DF%99%DF%8E%DF%AC%DF%9E%DF%8A%DF%B2%DF%AC%DF%9D%DF%8E%DF%A5%DF%8A%DF%AB_%DF%98%DF%8F%DF%B2%DF%AC%DF%98%DF%8A.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Charte du Manden",
+            "Nqowiki",
+            "ߞߙߎ߬ߞߊ߲߬ߝߎߥߊ߫"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "salomoniska-dynastin-tar-makten",
+      "titel": "Yekuno Amlak grundar den salomoniska dynastin",
+      "plats": "Bete Amhara, i dag södra Wollo (i dag Etiopien)",
+      "start": 1270,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q888003",
+      "kandidater": [
+        {
+          "fil": "File:Yekuno Amlak.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Yekuno_Amlak.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "17 th century date QS:P,+1650-00-00T00:00:00Z/7",
+          "beskrivning": "Muslim prisoners before Emperor Yekuno Amlak.",
+          "bredd": 1335,
+          "hojd": 709,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Yekuno_Amlak.jpg/960px-Yekuno_Amlak.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Dromedaries in art",
+            "History of Ethiopia",
+            "Yekuno Amlak"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "ife-huvudet",
+      "titel": "Kopparhuvudena från Ife gjuts",
+      "plats": "Ife, jorubafolkets religiösa och kungliga centrum (i dag Nigeria)",
+      "start": 1300,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q15409979",
+      "kandidater": [
+        {
+          "fil": "File:Arte yoruba, nigeria, testa da ife, 12-15mo secolo.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Arte_yoruba,_nigeria,_testa_da_ife,_12-15mo_secolo.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "sailko",
+          "datum": "2011-02-15 08:54:04",
+          "beskrivning": "British Museum reference Af1939,34.1 Detailed description The Ife Head Location Room 25",
+          "bredd": 1084,
+          "hojd": 2364,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Arte_yoruba%2C_nigeria%2C_testa_da_ife%2C_12-15mo_secolo.JPG/960px-Arte_yoruba%2C_nigeria%2C_testa_da_ife%2C_12-15mo_secolo.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bronze Head from Ife from the British Museum"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kilwa-pa-sin-hojd",
+      "titel": "Handelsstaden Kilwa bygger palats och kupolmoské",
+      "plats": "Kilwa Kisiwani på Swahilikusten (i dag Tanzania)",
+      "start": 1300,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1741475",
+      "kandidater": [
+        {
+          "fil": "File:GreatMosque.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:GreatMosque.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "en:user:Claude McNab",
+          "datum": "2005-06",
+          "beskrivning": "Great Mosque at Kilwa",
+          "bredd": 453,
+          "hojd": 604,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/dc/GreatMosque.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Great Mosque of Kilwa",
+            "Mosques in Tanzania photographed in 2005"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "jordbavningen-1303-alexandria",
+      "titel": "Jordbävningen 1303 skadar Faros fyr i Alexandria",
+      "plats": "Alexandria och Kairo (jordbävningens centrum mellan Kreta och Rhodos)",
+      "start": 1303,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1485683",
+      "soktext": "The earthquake of 1303 damages the Lighthouse of Alexandria",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "digerdoden-i-egypten",
+      "titel": "Digerdöden når Egypten och Kairo",
+      "plats": "Kairo och Nildalen, Egypten",
+      "start": 1347,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q92159855",
+      "soktext": "The Black Death reaches Egypt and Cairo",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Cairo, Islamic Cairo, 19th century pictures, 1870, photo 42 of 52 - Archivio fotografico Museo Egizio, Turin Album1 016.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cairo,_Islamic_Cairo,_19th_century_pictures,_1870,_photo_42_of_52_-_Archivio_fotografico_Museo_Egizio,_Turin_Album1_016.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Rodolfo Vittorio Lanzone",
+          "datum": "1870 date QS:P571,+1870-00-00T00:00:00Z/9",
+          "beskrivning": "Glimpse of a street in Cairo, leading to a small gate in the city walls. Some wooden pergolas are visible near the dwellings. Note that the level of the street is lower than that of the houses, to reach them one had to use narrow steps. The author's signature can be seen at the bottom centre.",
+          "bredd": 14363,
+          "hojd": 11155,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Cairo%2C_Islamic_Cairo%2C_19th_century_pictures%2C_1870%2C_photo_42_of_52_-_Archivio_fotografico_Museo_Egizio%2C_Turin_Album1_016.jpg/960px-Cairo%2C_Islamic_Cairo%2C_19th_century_pictures%2C_1870%2C_photo_42_of_52_-_Archivio_fotografico_Museo_Egizio%2C_Turin_Album1_016.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1870 in Cairo",
+            "1870 photographs in the Archivio fotografico Museo Egizio (Turin)",
+            "19th-century black and white photographs of Egypt",
+            "Houses in Egypt in the Archivio fotografico Museo Egizio (Turin)",
+            "Media from Archivio fotografico Museo Egizio (Turin)",
+            "Photographs of Egypt by Rodolfo Vittorio Lanzone in the Archivio fotografico Museo Egizio, Turin",
+            "Photographs of Islamic Cairo in the Archivio fotografico Museo Egizio (Turin)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Schiaparelli's excavations - Heliopolis, Kom, 1903-1906, photo 10 of 17 - Archivio fotografico Museo Egizio, Turin C00369.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Schiaparelli%27s_excavations_-_Heliopolis,_Kom,_1903-1906,_photo_10_of_17_-_Archivio_fotografico_Museo_Egizio,_Turin_C00369.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Francesco Ballerini",
+          "datum": "from 1903 until 1906 date QS:P571,+1903-00-00T00:00:00Z/8,P580,+1903-00-00T00:00:00Z/9,P582,+1906-00-00T00:00:00Z/9",
+          "beskrivning": "Probable trench in Kom, it can be observed that excavations had reached a muddy layer due to the presence of an aquifer very close to the surface. Schiaparelli excavations.",
+          "bredd": 5949,
+          "hojd": 8400,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Schiaparelli%27s_excavations_-_Heliopolis%2C_Kom%2C_1903-1906%2C_photo_10_of_17_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00369.jpg/960px-Schiaparelli%27s_excavations_-_Heliopolis%2C_Kom%2C_1903-1906%2C_photo_10_of_17_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00369.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1900s photographs in the Archivio fotografico Museo Egizio (Turin)",
+            "20th-century black and white photographs of Egypt",
+            "Cairo in the 1900s",
+            "Egyptian workers in the Archivio fotografico Museo Egizio (Turin)",
+            "Heliopolis in the Archivio fotografico Museo Egizio (Turin)",
+            "Kom trenches (Heliopolis)",
+            "Media from Archivio fotografico Museo Egizio (Turin)",
+            "People of Egypt in the 1900s",
+            "Photographs of Egypt by Francesco Ballerini",
+            "Schiaparelli's excavations in Heliopolis",
+            "Trenches in the Archivio fotografico Museo Egizio (Turin)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Schiaparelli's excavations - Heliopolis, Kom, 1903-1906, photo 9 of 17 - Archivio fotografico Museo Egizio, Turin C00368.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Schiaparelli%27s_excavations_-_Heliopolis,_Kom,_1903-1906,_photo_9_of_17_-_Archivio_fotografico_Museo_Egizio,_Turin_C00368.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Francesco Ballerini",
+          "datum": "from 1903 until 1906 date QS:P571,+1903-00-00T00:00:00Z/8,P580,+1903-00-00T00:00:00Z/9,P582,+1906-00-00T00:00:00Z/9",
+          "beskrivning": "Probable trench in Kom, it can be observed that excavations had reached a muddy layer due to the presence of an aquifer very close to the surface. Schiaparelli excavations.",
+          "bredd": 8424,
+          "hojd": 5700,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Schiaparelli%27s_excavations_-_Heliopolis%2C_Kom%2C_1903-1906%2C_photo_9_of_17_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00368.jpg/960px-Schiaparelli%27s_excavations_-_Heliopolis%2C_Kom%2C_1903-1906%2C_photo_9_of_17_-_Archivio_fotografico_Museo_Egizio%2C_Turin_C00368.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1900s photographs in the Archivio fotografico Museo Egizio (Turin)",
+            "20th-century black and white photographs of Egypt",
+            "Cairo in the 1900s",
+            "Heliopolis in the Archivio fotografico Museo Egizio (Turin)",
+            "Kom trenches (Heliopolis)",
+            "Media from Archivio fotografico Museo Egizio (Turin)",
+            "Photographs of Egypt by Francesco Ballerini",
+            "Schiaparelli's excavations in Heliopolis",
+            "Trenches in the Archivio fotografico Museo Egizio (Turin)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Aswan, Temple of Philae, 19th century pictures, 1870-1880, photo 37 of 38 - Archivio fotografico Museo Egizio, Turin INV36 007.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Aswan,_Temple_of_Philae,_19th_century_pictures,_1870-1880,_photo_37_of_38_-_Archivio_fotografico_Museo_Egizio,_Turin_INV36_007.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Hippolyte Béchard",
+          "datum": "from 1870 until 1880 date QS:P571,+1850-00-00T00:00:00Z/7,P580,+1870-00-00T00:00:00Z/9,P582,+1880-00-00T00:00:00Z/9",
+          "beskrivning": "The image shows the epigraph left by Napoleon’s army on the walls of the Temple of Isis in Philae in 1799, when they reached the island. The author's signature is visible at the bottom right.",
+          "bredd": 5008,
+          "hojd": 6456,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Aswan%2C_Temple_of_Philae%2C_19th_century_pictures%2C_1870-1880%2C_photo_37_of_38_-_Archivio_fotografico_Museo_Egizio%2C_Turin_INV36_007.jpg/960px-Aswan%2C_Temple_of_Philae%2C_19th_century_pictures%2C_1870-1880%2C_photo_37_of_38_-_Archivio_fotografico_Museo_Egizio%2C_Turin_INV36_007.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1870s photographs in the Archivio fotografico Museo Egizio (Turin)",
+            "19th-century black and white photographs of Egypt",
+            "Aswan in the 1870s",
+            "French-language graffiti",
+            "Graffiti in the Archivio fotografico Museo Egizio (Turin)",
+            "Graffiti on monuments in Egypt",
+            "Historical images of the Temple of Isis in Philae",
+            "Media from Archivio fotografico Museo Egizio (Turin)",
+            "Photographs of Egypt by Henri Béchard in the Archivio fotografico Museo Egizio, Turin",
+            "Temple of Philae in the Archivio fotografico Museo Egizio (Turin)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Pirouze the fairest and most honourably born.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Pirouze_the_fairest_and_most_honourably_born.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Edmund Dulac",
+          "datum": "1911",
+          "beskrivning": "The Story Of The Wicked Half-Brothers. Continued After some days employed in a fruitless quest he came to a desolate tract in the midst of which stood a castle of black marble. As he approached he beheld at an upper window a damsel of marvellous beauty, with torn garments, dishevelled hair, and a countenance expressive of the most lively affliction, who immediately that she set eyes on him wrung her hands and waived him away crying, 'Oh, fly, fly from this place of death and the monster which inhabits it! For here lives a black giant which feeds on human flesh, seizing all he can find. Even now in his dungeons you may hear the cries of those whom for his next meal he will devour.' 'Madam,' replied the Prince, 'for my safety you need have no care. Only be good enough to inform me who you are and how you came to be in your present plight.' 'I come from Cairo,' she replied, 'where my birth gives me rank. And as I was travelling from thence on my road to Bagdad this monstrous negro suddenly fell upon us, and having slain my escort brought me hither a captive, to endure, if Heaven refuses me succour, things far worse than death. But though I know my own peril I will not see others perish in a vain attempt to rescue me, therefore once more I entreat you to fly ere it be too late?' But even as she spoke, the negro, a horrible and gigantic monster of loathsome appearance, came in sight moving rapidly toward the palace. No sooner had he caught sight of the Prince than he rushed upon him with growls of fury, and drawing his scimitar aimed at him a blow which, had it found him, must there and then have ended the fight. The Prince, however, swerved nimbly under the stroke, and reaching his farthest, wounded the giant in the knee; then wheeling his charger about before the negro could turn on his maimed limb he attacked him from the rear, and with one fortunate blow brought him to earth. Instantly, before the giant could gather up his huge length and regain his vantage, Codadad spurred forward and with a single sweep of his sword smote off his head. Meanwhile, all breathless above, the lady had leaned watching the contest. Now, seeing that victory was secured, she gave free vent to her joy and gratitude. 'O prince of men!' she cried, 'now is revealed to me the high rank to which thou wast born. Finish, then, thy work; take from the girdle of yonder wretch the keys of the castle and come quickly to the release of me and my fellow prisoners.' The Prince did according to her directions; as he opened the gates and entered the forecourt the lady advanced to meet him, ready, had he permitted it, to throw herself in gratitude at his feet. And now, as he beheld near at hand the beauty which had charmed him from a distance, Codadad realized how great had been his fortune, and with his whole heart rejoiced at the deliverance of one in whose nature so much virtue and grace seemed blended. But while he was thus lost in the contemplation of her loveliness there arose from the basement of the castle a dreadful sound of crying and lamentation. 'What is that?' inquired the Prince. 'It is the cry of the prisoners,' replied the lady, 'to whom, I doubt not, the opening of the gates has betokened the monster's return. Come, therefore, quickly and relieve them of their misery.' And so saying she pointed to the door which led to the place of confinement. Thither, accompanied by the lady, went Codadad with all speed. Descending by a dark stair he came upon a vast cavern dimly lighted, around the walls of which a hundred prisoners lay chained. Instantly he set to work to loose their bonds, informing them at the same time of the death of their captor and of their freedom from all further danger. At these unexpected tidings the captives raised a cry of joy and thanksgiving; but great as was their surprise at such unlooked-for deliverance, greater still was that of the Prince when, on bringing them to the light, he discovered that forty-nine of the hundred whom he had released were his own brethren. Pirouze the fairest and most honourably born. Pirouze the fairest and most honourably born. The Princes received the cordial embraces of their deliverer with little embarrassment, for the disaster into which they had fallen had caused them almost entirely to forget their original intent. Satisfied with expressing in proper terms their obligation and gratitude toward Codadad, they now joined eagerly in his survey of the castle; there upon examination they found an extraordinary variety and wealth of booty, consisting for the most part of merchandise which the negro had pillaged from passing caravans, some of it actually belonging to those whom Codadad had so recently rescued. The Prince accordingly ordered the merchants each to take what he recognized as his own; and this being done he divided the rest equally between them. The question then arose how they should remove their plunder from a place so desolately situated, where it would seem impossible to procure means of conveyance; but on a further search they found not only the camels of the merchants, but also the horses on which the Princes of Harran had ridden; and as, at their approach, the black slaves who were in charge of the stables fell into headlong flight, Codadad and his companions found themselves left in undisputed possession. The merchants therefore loaded their camels, and with renewed protestations of gratitude departed on the several roads by which their avocations called them. When they were gone Codadad's next care was to inquire of the lady in what direction she wished to travel, promising that he and the Princes would conduct her in safety to any place she might name. The lady replied, thanking him for his generous offer. 'But wherever I go,' said she, 'it cannot be to my own country, for not only is it too far distant, but cruel misfortune has separated me from it for ever. And since you have put me under so great an obligation, let me now confess the truth which before I thought it prudent to conceal. My dignity of rank is far higher than that to which I recently laid claim; in me you behold a King's daughter, and if it will interest you to hear the story of my misfortunes, I shall be happy to recount it.' Assured of the lively sympathy of her auditors she began as follows: Read more: http://chestofbooks.com/fairy-tale/Arabian-Nights/The-Story-Of-The-Wicked-Half-Brothers-Continued.html#ixzz1se85ka7v",
+          "bredd": 500,
+          "hojd": 621,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Pirouze_the_fairest_and_most_honourably_born.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "People of Egypt",
+            "Stories from The Arabian Nights (Dulac, 1911)"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "ibn-khalduns-muqaddima",
+      "titel": "Ibn Khaldun skriver Muqaddiman",
+      "plats": "Qalʿat ibn Salama, i dagens Algeriet",
+      "start": 1377,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1259616",
+      "kandidater": [
+        {
+          "fil": "File:La Muqaddima d'Ibn Khaldoun.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:La_Muqaddima_d%27Ibn_Khaldoun.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Riad Salih",
+          "datum": "2024-11-07 11:04:12",
+          "beskrivning": "The Muqaddimah of Ibn Khaldun",
+          "bredd": 1630,
+          "hojd": 2012,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/La_Muqaddima_d%27Ibn_Khaldoun.jpg/960px-La_Muqaddima_d%27Ibn_Khaldoun.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Arabic-language book covers",
+            "Muqaddima"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kungadomet-kongo-grundas",
+      "titel": "Kungadömet Kongo grundas",
+      "plats": "Kring Mbanza Kongo, rikets huvudstad (i dag Angola)",
+      "start": 1390,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q796583",
+      "soktext": "The Kingdom of Kongo is founded Around Mbanza Kongo",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "mutapariket",
+      "titel": "Mutapariket växer fram",
+      "plats": "Dande–Musengezi-området i norra Zimbabwe, där de första huvudstäderna låg",
+      "start": 1430,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q854468",
+      "soktext": "The Mutapa Empire emerges",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "ewuare-oba-i-benin",
+      "titel": "Oba Ewuare bygger upp kungariket Benin",
+      "plats": "Benin City (i dag Nigeria)",
+      "start": 1440,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q376898",
+      "kandidater": [
+        {
+          "fil": "File:Oba Ewuare the Great!.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Oba_Ewuare_the_Great!.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Ebameful",
+          "datum": "2016-12-31",
+          "beskrivning": "This is an image from",
+          "bredd": 1200,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Oba_Ewuare_the_Great%21.jpg/960px-Oba_Ewuare_the_Great%21.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Art of Nigeria",
+            "Benin Empire",
+            "Ewuare"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "bartolomeu-dias-rundar-afrika",
+      "titel": "Bartolomeu Dias seglar runt Afrikas sydspets",
+      "plats": "Mossel Bay vid Afrikas sydkust (i dag Sydafrika)",
+      "start": 1488,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q130377",
+      "kandidater": [
+        {
+          "fil": "File:Bartolomeu Dias, South Africa House (cut).JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bartolomeu_Dias,_South_Africa_House_(cut).JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Bartolomeu_Dias,_South_Africa_House.JPG : RedCoat ( en:User:RedCoat10 ) derivative work: Biser Todorov ( talk )",
+          "datum": "2009-08-17 17:40",
+          "beskrivning": "Statue of Bartolomeu Dias at the High Commission of South Africa in London",
+          "bredd": 648,
+          "hojd": 1439,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Bartolomeu_Dias%2C_South_Africa_House_%28cut%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Statue of Bartolomeu Dias, South Africa House, London"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "askia-muhammad-tar-makten",
+      "titel": "Askia Muhammad tar makten i Songhairiket",
+      "plats": "Gao vid Nigerfloden (i dag Mali)",
+      "start": 1493,
+      "varldsdel": "Afrika",
+      "period": "medeltid",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1771994",
+      "soktext": "Askia Muhammad takes power in the Songhai Empire",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    }
+  ]
+}
