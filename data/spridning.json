@@ -121,17 +121,25 @@
         "fr": "Premières sorties d’Afrique"
       },
       "summary": {
-        "sv": "Fynd i Levanten (Qafzeh och Skhūl, cirka 130 000–90 000 år sedan) och i Arabien (Al Wusta, cirka 90 000 år sedan) kan komma från tidiga utvandringar. Enligt genetiska studier lämnade de lite eller inget arv till människor som lever i dag. Vilka vägar de tog är inte känt.",
-        "en": "Finds in the Levant (Qafzeh and Skhūl, about 130,000–90,000 years ago) and in Arabia (Al Wusta, about 90,000 years ago) may come from early dispersals. According to genetic studies, they left little or no ancestry in people living today. Which routes they took is not known.",
-        "de": "Funde in der Levante (Qafzeh und Skhūl, etwa 130.000–90.000 Jahre vor heute) und in Arabien (Al Wusta, etwa 90.000 Jahre vor heute) können von frühen Auswanderungen stammen. Nach genetischen Studien hinterließen sie bei heute lebenden Menschen wenig oder kein Erbgut. Welche Wege sie nahmen, ist nicht bekannt.",
-        "es": "Los hallazgos del Levante (Qafzeh y Skhūl, hace unos 130 000–90 000 años) y de Arabia (Al Wusta, hace unos 90 000 años) pueden proceder de salidas tempranas. Según los estudios genéticos, dejaron poca o ninguna herencia en las personas que viven hoy. No se sabe qué rutas siguieron.",
-        "fr": "Des découvertes au Levant (Qafzeh et Skhūl, il y a environ 130 000 à 90 000 ans) et en Arabie (Al Wusta, il y a environ 90 000 ans) pourraient provenir de sorties précoces. Selon les études génétiques, elles ont laissé peu ou pas d’héritage chez les personnes vivant aujourd’hui. On ignore quels itinéraires elles ont suivis."
+        "sv": "Fynd i Levanten (Qafzeh och Skhūl, cirka 130 000–90 000 år sedan) och i Arabien (Al Wusta, cirka 90 000 år sedan) kan komma från tidiga utvandringar. Enligt genetiska studier lämnade de lite eller inget arv till människor som lever i dag. Vilka vägar de tog är inte känt, och linjerna på kartan är bara exempel.",
+        "en": "Finds in the Levant (Qafzeh and Skhūl, about 130,000–90,000 years ago) and in Arabia (Al Wusta, about 90,000 years ago) may come from early dispersals. According to genetic studies, they left little or no ancestry in people living today. Which routes they took is not known, and the lines on the map are only examples.",
+        "de": "Funde in der Levante (Qafzeh und Skhūl, etwa 130.000–90.000 Jahre vor heute) und in Arabien (Al Wusta, etwa 90.000 Jahre vor heute) können von frühen Auswanderungen stammen. Nach genetischen Studien hinterließen sie bei heute lebenden Menschen wenig oder kein Erbgut. Welche Wege sie nahmen, ist nicht bekannt; die Linien auf der Karte sind nur Beispiele.",
+        "es": "Los hallazgos del Levante (Qafzeh y Skhūl, hace unos 130 000–90 000 años) y de Arabia (Al Wusta, hace unos 90 000 años) pueden proceder de salidas tempranas. Según los estudios genéticos, dejaron poca o ninguna herencia en las personas que viven hoy. No se sabe qué rutas siguieron; las líneas del mapa son solo ejemplos.",
+        "fr": "Des découvertes au Levant (Qafzeh et Skhūl, il y a environ 130 000 à 90 000 ans) et en Arabie (Al Wusta, il y a environ 90 000 ans) pourraient provenir de sorties précoces. Selon les études génétiques, elles ont laissé peu ou pas d’héritage chez les personnes vivant aujourd’hui. On ignore quels itinéraires elles ont suivis ; les lignes sur la carte ne sont que des exemples."
+      },
+      "note": {
+        "sv": "Linjerna visar bara exempel på vägar över Sinai. Enligt en klimatmodell var en södra väg över sundet Bab el-Mandeb också möjlig under en del av tiden, för cirka 135 000–115 000 år sedan, om människorna kunde ta sig över havet. Samma studie säger att det inte visar att någon tog den vägen, eftersom det arkeologiska stödet är mycket litet.",
+        "en": "The lines only show examples of routes across Sinai. According to a climate model, a southern route across the Bab-el-Mandeb strait was also possible for part of the time, about 135,000–115,000 years ago, if people could cross the sea. The same study says that this does not show that anyone took that route, since the archaeological support is very limited.",
+        "de": "Die Linien zeigen nur Beispiele für Wege über den Sinai. Nach einem Klimamodell war zeitweise auch ein südlicher Weg über die Meerenge Bab al-Mandab möglich, vor etwa 135.000–115.000 Jahren, sofern die Menschen das Meer überqueren konnten. Dieselbe Studie sagt, dass dies nicht zeigt, dass jemand diesen Weg nahm, da die archäologischen Belege sehr begrenzt sind.",
+        "es": "Las líneas solo muestran ejemplos de rutas por el Sinaí. Según un modelo climático, durante parte de ese tiempo, hace unos 135 000–115 000 años, también era posible una ruta sur por el estrecho de Bab el-Mandeb, si las personas podían cruzar el mar. El mismo estudio afirma que esto no demuestra que alguien siguiera esa ruta, ya que el apoyo arqueológico es muy escaso.",
+        "fr": "Les lignes ne montrent que des exemples d’itinéraires par le Sinaï. Selon un modèle climatique, une route sud par le détroit de Bab el-Mandeb était aussi possible pendant une partie de cette période, il y a environ 135 000 à 115 000 ans, si les humains pouvaient traverser la mer. La même étude précise que cela ne montre pas que quelqu’un ait emprunté cette route, car les indices archéologiques sont très limités."
       },
       "sources": [
         "harvati-2022-homo-mlp",
         "freidline-2023-tam-pa-ling",
         "hallett-2025-human-niche",
-        "vallini-2024-persian-plateau"
+        "vallini-2024-persian-plateau",
+        "beyer-2021-climatic-windows"
       ],
       "review": "source-checked"
     },
