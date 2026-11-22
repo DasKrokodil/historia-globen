@@ -916,6 +916,7 @@
   "sources.uncertainBorder": "{name}: frontera incierta (borde difuminado)",
   "sources.factBox": "{name}: ficha informativa",
   "sources.christianisation": "{name} (cristianización)",
+  "sources.religionOverride": "{name} (religión en la capa)",
   "sources.religionAreas": "Religiones: las áreas siguen las fronteras de los imperios en Cliopatria",
   "sources.religionWiki": "Religiones: la religión de cada imperio (ficha de Wikipedia)",
   "sources.religionModern": "Religiones: países actuales desde 1900",

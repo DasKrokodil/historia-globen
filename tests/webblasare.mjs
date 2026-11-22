@@ -3581,6 +3581,28 @@ async function run(browser, vp) {
         await lp.close();
       }
     }
+    // #2156: med öppen start (edtf "../") räknas år sedan ur slutåret, inte ur tidslinjens kant -99999:
+    // neandertalarna, "till cirka 37 000 f.Kr.", är ≈ 39 000 år sedan och inte ≈ 102 000
+    const np = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await np.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await np.route(u => isFont(u.href), r => r.abort());
+      }
+      await np.goto(`${BASE}?ny=2156&lang=sv#y=-40050`);
+      await np.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await np.isHidden('#panel')) await np.click('#btn-panel');
+      await np.waitForSelector('#panel', { state: 'visible', timeout: T.step });
+      const nev = await panelEvent(np, { id: 'neandertalare' });
+      await nev.waitFor({ state: 'visible', timeout: T.step });
+      await nev.click();
+      const nago = (await np.locator('#detail .meta-ago').textContent({ timeout: T.step }) ?? '').replace(/[\u00a0\u202f]/g, ' ').trim();
+      if (nago !== '≈ 39 000 år sedan') throw new Error(`neandertalare: "≈ N år sedan" blev "${nago}", väntade ≈ 39 000 år sedan (öppen start, #2156)`);
+      seen.push(`neandertalare: ${nago}`);
+    } finally {
+      await np.close();
+    }
     return `${seen.join('; ')} | ${seenWhen.join('; ')}`;
   });
 

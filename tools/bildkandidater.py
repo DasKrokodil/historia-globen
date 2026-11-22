@@ -321,6 +321,9 @@ def kandidat_ur_sida(sida, kalla):
         'licensadress': ev('LicenseUrl'),
         'upphovsperson': ev('Artist'),
         'datum': ev('DateTimeOriginal') or ev('DateTime'),
+        'datum_original': ev('DateTimeOriginal'),  # verkets eller fotots datum enligt filsidan (#2193)
+        'datum_fil': ev('DateTime'),               # filens datum, ofta uppladdningen
+        'kredit': ev('Credit'),
         'beskrivning': ev('ImageDescription'),
         'bredd': bredd,
         'hojd': hojd,

@@ -1,0 +1,27 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# Ifylld 2026-11-22: nr i granskningslistan eller egen sökning (en kort sökning per händelse utan kandidat).
+# lydenburghuvudena: listans kandidater (ormar) avvisade; egen sökning
+File:Iziko Lydenburg Heads 1.JPG	lydenburghuvudena	passa-in
+# arabiska-erovringen-av-egypten: ingen (PD-Egypt för en karta från 1986, osäker licens)
+# File:فتوح مصر والنوبة.jpg	arabiska-erovringen-av-egypten
+File:Eastern Sahel in Politische Wandkarte von Africa im Maßstabe by Heinrich Kiepert.jpg	kanemriket
+# igbo-ukwu-bronserna: nr 2 i stället för nr 1 (liggande bild)
+File:Bronze ceremonial vessel in form of a snail shell, 9th century, Igbo-Ukwu, Nigeria.JPG	igbo-ukwu-bronserna
+File:University of Al Qaraouiyine.jpg	al-qarawiyyin-grundas
+# sungbos-eredo: ingen (datumfältet säger att bilden är hämtad ur Nigerias nationalmonument, motsäger "eget verk")
+# File:Sungbo-eredo-photo.jpg	sungbos-eredo
+# mapungubwe-riket: ingen (nr 1 blandar Ashanti och Mapungubwe; nr 3 har bara GFDL-user med migration=relicense, avstår)
+# File:MapungubweHill.jpg	mapungubwe-riket
+# Egna sökningar för händelser utan kandidat:
+File:Cyrene coin.jpg	sista-silfiumstjalken
+File:Almogarén - Archaeological area of Cuatro Puertas.jpg	amazigher-befolkar-kanarieoarna
+File:Grave Marker MET VS1998.478.1.jpeg	burakulturen	passa-in
+# skogen-oppnas-pa-laikipiaplatan: ingen (ny uppladdning 2026-09 utan kategorier, "eget verk" går inte att bedöma; avstår)
+# File:The-laikipia-plateau-1.jpg	skogen-oppnas-pa-laikipiaplatan
+File:Stele Almeria Gao-Saney MNM R88-19-279.jpg	gao-saney-handelsstad	passa-in
+# kisaliska-gravarna: grave 03 i stället för 01 (01 speglar besökare i glaset)
+File:AfricaMuseum grave 03.jpg	kisaliska-gravarna
+File:Aepyornis maximus eggs Zoothèque MNHN.jpg	elefantfaglarna-dor-ut
+# fuktigare-klimat-vid-limpopo: ingen (bara GFDL-user med migration=relicense, avstår)
+# File:LSConfluence.jpg	fuktigare-klimat-vid-limpopo

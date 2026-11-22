@@ -69,6 +69,12 @@ ID_RE = re.compile(r'^[a-z0-9\u00df-\u00f6\u00f8-\u00ff]+(?:-[a-z0-9\u00df-\u00f
 HANDELSER = ROOT / 'data' / 'handelser'
 
 
+def licens_commons_modul():
+    """tools/licens_commons.py (för prov och andra verktyg som vill nå hela licensmodulen)."""
+    import licens_commons
+    return licens_commons
+
+
 def kanda_id(mapp=HANDELSER):
     """Alla händelse-id i data/handelser/, eller None om mappen saknas (då prövas bara mönstret)."""
     mapp = Path(mapp)
@@ -105,6 +111,7 @@ OKAND = {
                  'es': 'Artista desconocido', 'fr': 'Artiste inconnu'},
 }
 OKAND_TEXTER = {'unknown', 'unknown author', 'unknown photographer', 'unknown artist', 'anonymous', 'anonym', 'unbekannt',
+                'unknown illustrator', 'unknown painter', 'unknown engraver', 'unknown author unknown author',
                 'okänd', 'not stated', 'author unknown', 'unknown creator', 'anon.', 'anon'}
 LOC_LICENS = 'Inga kända restriktioner (Library of Congress)'
 LOC_KALLLICENS = 'No known restrictions on publication'
@@ -238,17 +245,22 @@ def parse_indata(refs, mappning):
     return poster
 
 
-def las_lista(path):
-    """Rader med referens och valfritt händelse-id efter en tabb. En rad som börjar med # är en kommentar."""
+def las_lista(path, val=None):
+    """Rader med referens och valfritt händelse-id efter en tabb. En rad som börjar med # är en kommentar.
+    En tredje kolumn `passa-in` (#2193) passar in hela bilden i 800 × 600 i stället för att beskära till 4:3
+    (stående dokument och kartor); referensen läggs då i mängden `val` om den ges."""
     refs, mappning = [], {}
     for rad in Path(path).read_text(encoding='utf-8').splitlines():
         rad = rad.strip()
         if not rad or rad.startswith('#'):
             continue
-        ref, _, eid = rad.partition('\t')
-        refs.append(ref.strip())
-        if eid.strip():
-            mappning[ref.strip()] = eid.strip()
+        delar = [d.strip() for d in rad.split('\t')]
+        ref = delar[0]
+        refs.append(ref)
+        if len(delar) > 1 and delar[1]:
+            mappning[ref] = delar[1]
+        if val is not None and len(delar) > 2 and delar[2] == 'passa-in':
+            val.add(ref)
     return refs, mappning
 
 
@@ -258,7 +270,11 @@ def rensa_html(text):
 
 
 def ext_varde(ext, nyckel):
-    return rensa_html((ext.get(nyckel) or {}).get('value'))
+    """Ren text ur extmetadata. Commons skriver ibland namnet två gånger (en länk och en reservtext, till exempel
+    'Unknown illustrator Unknown illustrator'); då behålls det en gång (#2193)."""
+    t = rensa_html((ext.get(nyckel) or {}).get('value'))
+    m = re.fullmatch(r'(.+?)\s+\1', t)
+    return m.group(1) if m else t
 
 
 # ---------------------------------------------------------------- Commons
@@ -454,8 +470,36 @@ def _bilder_in():
     return mod
 
 
-def konvertera(data, dst, cache_dir=None):
-    """Bildbytes → 800 × 600 webp med bilder_in.convert (samma beskärning). Returnerar (bytes, varningar)."""
+def passa_in(src, dst, bi):
+    """Hela bilden inpassad i 800 × 600 på en kant i bildens egen kantfärg (medianen av ytterkanten), utan beskärning (#2193)."""
+    from PIL import Image, ImageStat
+    img = Image.open(src)
+    if img.mode in ('RGBA', 'LA', 'P') and ('A' in img.mode or 'transparency' in img.info):
+        # Genomskinlig bild (till exempel en SVG-karta som PNG): lägg den på vitt, annars blir bakgrunden svart (#2193)
+        rgba = img.convert('RGBA')
+        vit = Image.new('RGBA', rgba.size, (255, 255, 255, 255))
+        img = Image.alpha_composite(vit, rgba)
+    img = img.convert('RGB')
+    w, h = img.size
+    kant = Image.new('RGB', (w * 2 + h * 2, 1))
+    for i, px in enumerate(list(img.crop((0, 0, w, 1)).getdata()) + list(img.crop((0, h - 1, w, h)).getdata())
+                           + list(img.crop((0, 0, 1, h)).getdata()) + list(img.crop((w - 1, 0, w, h)).getdata())):
+        kant.putpixel((i, 0), px)
+    farg = tuple(int(v) for v in ImageStat.Stat(kant).median)
+    skala = min(bi.W / w, bi.H / h)
+    ny = img.resize((max(1, round(w * skala)), max(1, round(h * skala))), Image.LANCZOS)
+    duk = Image.new('RGB', (bi.W, bi.H), farg)
+    duk.paste(ny, ((bi.W - ny.width) // 2, (bi.H - ny.height) // 2))
+    for q in (82, 75, 68, 60, 52, 45):
+        duk.save(dst, 'WEBP', quality=q, method=6)
+        if Path(dst).stat().st_size <= bi.MAX_BYTES:
+            break
+    return Path(dst).stat().st_size
+
+
+def konvertera(data, dst, cache_dir=None, passa=False):
+    """Bildbytes → 800 × 600 webp med bilder_in.convert (samma beskärning), eller hela bilden inpassad (passa=True).
+    Returnerar (bytes, varningar)."""
     try:
         from PIL import Image
         import io
@@ -475,7 +519,7 @@ def konvertera(data, dst, cache_dir=None):
     with tempfile.TemporaryDirectory(dir=cache_dir if cache_dir and Path(cache_dir).is_dir() else None) as tmp:
         src = Path(tmp) / 'kalla.img'
         src.write_bytes(data)
-        storlek = bi.convert(src, dst)
+        storlek = passa_in(src, dst, bi) if passa else bi.convert(src, dst)
     if storlek > bi.MAX_BYTES:
         varningar.append(f'webp-filen är {storlek // 1000} kB, över {bi.MAX_BYTES // 1000} kB')
     return storlek, varningar
@@ -483,7 +527,8 @@ def konvertera(data, dst, cache_dir=None):
 
 # ---------------------------------------------------------------- körning
 
-def kor(poster, klient, out_dir, dry_run=False, okand=None, skriv_over=False, idag=None, klocka=time.monotonic, kanda=None):
+def kor(poster, klient, out_dir, dry_run=False, okand=None, skriv_over=False, idag=None, klocka=time.monotonic, kanda=None,
+        passa=None):
     """Kör alla poster. Varje resultat: status klar | flaggad | avvisad | ej hämtad | saknas | fel | hoppad."""
     idag = idag or date.today().isoformat()
     resultat = []
@@ -582,7 +627,7 @@ def kor(poster, klient, out_dir, dry_run=False, okand=None, skriv_over=False, id
             r['status'], r['skal'] = 'ej hämtad', r['skal'] + [f'miniatyren: {e}']
             continue
         try:
-            storlek, varn = konvertera(bild, dst, klient.cache_dir)
+            storlek, varn = konvertera(bild, dst, klient.cache_dir, passa=p['ref'] in (passa or ()))
         except RuntimeError as e:
             r['status'], r['skal'] = 'fel', r['skal'] + [str(e)]
             continue
@@ -594,6 +639,16 @@ def kor(poster, klient, out_dir, dry_run=False, okand=None, skriv_over=False, id
             if r[nyckel] and 'TODO' in json.dumps(r[nyckel], ensure_ascii=False):
                 r['todo'].append(f'{nyckel} innehåller TODO: fyll i före incheckning')
     return resultat
+
+
+def skriv_ej_hamtade(fil, resultat, passa=()):
+    """De bilder som blev "ej hämtad" (till exempel 429 med Retry-After över taket) som en --lista-fil, så att en senare
+    körning, för hand eller i Actions, kan ta dem utan att någon väljer om. Skriver ingen fil om inget saknas."""
+    rader = [f'{r["ref"]}\t{r["handelse"] or ""}' + ('\tpassa-in' if r['ref'] in passa else '')
+             for r in resultat if r['status'] == 'ej hämtad']
+    if rader:
+        Path(fil).write_text('# Ej hämtade av tools/bild_hamta.py; kör igen med --lista\n' + '\n'.join(rader) + '\n', encoding='utf-8')
+    return len(rader)
 
 
 def skriv_rapport(resultat, ut=None):
@@ -639,10 +694,12 @@ def main(argv=None):
     ap.add_argument('--skriv-over', action='store_true', help='ersätt en befintlig webp-fil')
     ap.add_argument('--okand', choices=sorted(OKAND), help='sätt fasta frasen Okänd fotograf/konstnär när metadata saknar upphovsperson')
     ap.add_argument('--max-vanta', type=int, default=MAX_VANTA, help='längsta väntan på Retry-After i sekunder')
+    ap.add_argument('--ej-hamtade', metavar='FIL',
+                    help='skriv de bilder som blev "ej hämtad" som en --lista-fil, för en senare körning (#2193)')
     a = ap.parse_args(argv)
-    refs, mappning = list(a.refs), {}
+    refs, mappning, passa = list(a.refs), {}, set()
     if a.lista:
-        r2, m2 = las_lista(a.lista)
+        r2, m2 = las_lista(a.lista, passa)
         refs += r2
         mappning.update(m2)
     for m in a.map:
@@ -658,7 +715,9 @@ def main(argv=None):
     if not a.ingen_cache:
         cache = Path(a.cache_dir) if a.cache_dir else Path(os.environ.get('XDG_CACHE_HOME') or Path.home() / '.cache') / 'historia-globen' / 'bild_hamta'
     klient = Klient(cache_dir=cache, max_vanta=a.max_vanta)
-    resultat = kor(parse_indata(refs, mappning), klient, a.out, a.dry_run, a.okand, a.skriv_over, kanda=kanda_id())
+    resultat = kor(parse_indata(refs, mappning), klient, a.out, a.dry_run, a.okand, a.skriv_over, kanda=kanda_id(), passa=passa)
+    if a.ej_hamtade:
+        skriv_ej_hamtade(a.ej_hamtade, resultat, passa)
     if a.json:
         print(json.dumps(resultat, ensure_ascii=False, indent=2))
     else:

@@ -30,6 +30,7 @@
         "dillehay-2015-monte-verde",
         "florin-2020-madjedbebe",
         "freidline-2023-tam-pa-ling",
+        "fu-2025-harbin-mtdna",
         "gandini-2025-sahul",
         "hallett-2025-human-niche",
         "harvati-2022-homo-mlp",
@@ -76,12 +77,15 @@
         "commons-bild-arabiska-varen",
         "commons-bild-attackerna-11-september-2001",
         "commons-bild-diamanterna-i-kimberley",
+        "commons-bild-ebolaepidemin-i-vastafrika",
+        "commons-bild-festac-77",
         "commons-bild-finanskrisen-2008",
         "commons-bild-folkmordet-i-rwanda",
         "commons-bild-gondar-blir-etiopiens-huvudstad",
         "commons-bild-hammurabis-lagar",
         "commons-bild-kilwa-pa-sin-hojd",
         "commons-bild-kilwas-stora-moske-norra-hallen",
+        "commons-bild-krugerparken",
         "commons-bild-manskliga-rattigheter-1948",
         "commons-bild-mayastadernas-nedgang",
         "commons-bild-muhammeds-forsta-uppenbarelse",
@@ -93,6 +97,7 @@
     {
       "license": "CC BY 2.5",
       "sourceIds": [
+        "commons-bild-sexdagarskriget-i-kisangani",
         "commons-bild-sydney-harbour-bridge-invigs"
       ]
     },
@@ -103,6 +108,7 @@
         "commons-bild-harar-adals-huvudstad",
         "commons-bild-kilskriften",
         "commons-bild-lalibelas-klippkyrkor",
+        "commons-bild-lydenburghuvudena",
         "commons-bild-marrakech-grundas",
         "cramp-2014-mjolk"
       ]
@@ -133,9 +139,11 @@
         "cintas-pena-2023-valencina",
         "cliopatria",
         "commons-bild-borobudur-byggs",
+        "commons-bild-elefantfaglarna-dor-ut",
         "commons-bild-fn-grundas",
         "commons-bild-gagarin-vostok-1",
         "commons-bild-galileo-sidereus-nuncius",
+        "commons-bild-gao-saney-handelsstad",
         "commons-bild-jenners-vaccin",
         "commons-bild-lister-antiseptik",
         "commons-bild-nederlandarna-till-dejima",
@@ -325,6 +333,7 @@
       "sourceIds": [
         "commons-bild-aksum-blir-kristet",
         "commons-bild-caral",
+        "commons-bild-fotbolls-vm-2010",
         "commons-bild-kvinnlig-rostratt-nya-zeeland",
         "commons-bild-mosken-i-cordoba",
         "commons-bild-star-wars"
@@ -340,6 +349,8 @@
     {
       "license": "CC BY-SA 3.0",
       "sourceIds": [
+        "commons-bild-amazigher-befolkar-kanarieoarna",
+        "commons-bild-asterix-frankrikes-forsta-satellit",
         "commons-bild-bartolomeu-dias-rundar-afrika",
         "commons-bild-brihadisvaratemplet",
         "commons-bild-gedi-grundas",
@@ -347,6 +358,7 @@
         "commons-bild-haamonga-a-maui",
         "commons-bild-hagia-sofia-byggs-532",
         "commons-bild-ife-huvudet",
+        "commons-bild-igbo-ukwu-bronserna",
         "commons-bild-jarnpelaren-i-delhi",
         "commons-bild-lanse-aux-meadows",
         "commons-bild-lapitafolket-nar-samoa",
@@ -358,6 +370,7 @@
         "commons-bild-sovjetunionens-upplosning",
         "commons-bild-stora-mosken-i-djenne",
         "commons-bild-sydafrikas-forsta-fria-val",
+        "commons-bild-universitetet-i-alexandria-1942",
         "commons-bild-vulkanutbrottet-pa-thera"
       ]
     },
@@ -401,7 +414,9 @@
     {
       "license": "CC BY-SA 4.0",
       "sourceIds": [
+        "commons-bild-afrikanska-frihandelsomradet",
         "commons-bild-agadez-mosken",
+        "commons-bild-al-qarawiyyin-grundas",
         "commons-bild-angkor-wat",
         "commons-bild-chan-chan",
         "commons-bild-chichen-itza",
@@ -410,6 +425,7 @@
         "commons-bild-guru-nanak",
         "commons-bild-jantar-mantar-jaipur",
         "commons-bild-jordbrukets-borjan",
+        "commons-bild-kisaliska-gravarna",
         "commons-bild-klippkonsten-vid-ubirr",
         "commons-bild-koutoubiamosken-byggs",
         "commons-bild-latte-stenar-pa-marianerna",
@@ -422,6 +438,7 @@
         "commons-bild-slaget-vid-salamis",
         "commons-bild-stora-buddha-i-kamakura",
         "commons-bild-tarikh-al-sudan",
+        "commons-bild-taungbarnet-hittas",
         "commons-bild-teotihuacan-solpyramiden",
         "commons-bild-tikal-vaxer-fram",
         "commons-flagga-georgia-1918",
@@ -1017,6 +1034,7 @@
         "wp-defense-brest-fortress",
         "wp-dejima",
         "wp-delhi",
+        "wp-denisovan",
         "wp-denmark-norway",
         "wp-derafsh-kaviani",
         "wp-deriba-caldera",
@@ -1425,6 +1443,7 @@
         "wp-gondar",
         "wp-gonur-depe",
         "wp-goree",
+        "wp-gothic-christianity",
         "wp-gran-colombia",
         "wp-grand-principality-of-moscow",
         "wp-grans-kongo",
@@ -1570,6 +1589,7 @@
         "wp-hungarian-revolution-1956",
         "wp-hurricane-katrina",
         "wp-hvalsey-church",
+        "wp-hwicce",
         "wp-ia-drang",
         "wp-ibn-al-haytham",
         "wp-ibn-battuta",
@@ -2505,6 +2525,7 @@
         "wp-siege-of-dapur",
         "wp-siege-of-eshowe",
         "wp-siege-of-mariupol",
+        "wp-siege-of-paris",
         "wp-siege-of-saguntum",
         "wp-siege-of-tyre-332",
         "wp-siege-pyongyang-1593",
@@ -2567,6 +2588,7 @@
         "wp-spanish-coup-1936",
         "wp-spanish-empire",
         "wp-spanish-flu",
+        "wp-spanish-legion",
         "wp-spice-trade",
         "wp-spiennes",
         "wp-spirit-cave-thailand",
@@ -2750,6 +2772,7 @@
         "wp-treaty-nanking",
         "wp-treaty-nystad",
         "wp-treaty-of-copenhagen-1660",
+        "wp-treaty-of-frankfurt-1871",
         "wp-treaty-of-kiel",
         "wp-treaty-of-portsmouth",
         "wp-treaty-of-roskilde",
@@ -2933,6 +2956,7 @@
         "wp-zaghouan-aqueduct",
         "wp-zagwe",
         "wp-zanzibar",
+        "wp-zapotec-civilization",
         "wp-zhang-heng",
         "wp-zhang-qian",
         "wp-zheng-he",
@@ -3397,8 +3421,10 @@
       "sourceIds": [
         "bourne-northmen-columbus-1906",
         "commons-bild-alltinget-grundas",
+        "commons-bild-andra-kongokriget",
         "commons-bild-andra-slaget-vid-el-alamein",
         "commons-bild-andrianampoinimerina-enar-imerina",
+        "commons-bild-arabforbundet-grundas-1945",
         "commons-bild-askia-muhammad-tar-makten",
         "commons-bild-atlantiska-slavhandeln",
         "commons-bild-atombomberna-hiroshima-nagasaki",
@@ -3412,6 +3438,7 @@
         "commons-bild-belagringen-av-riga-1700",
         "commons-bild-berlinkonferensen",
         "commons-bild-berlinmuren-byggs",
+        "commons-bild-biafrakriget",
         "commons-bild-blabocken-utrotas",
         "commons-bild-blockaden-av-biafra",
         "commons-bild-borskraschen-1929",
@@ -3430,10 +3457,12 @@
         "commons-bild-dna-strukturen",
         "commons-bild-dodahavsrullarna",
         "commons-bild-dronten-sista-gangen",
+        "commons-bild-ebola-upptacks-i-yambuku",
         "commons-bild-edwin-smith-papyrusen",
         "commons-bild-encyclopedien-ges-ut",
         "commons-bild-etiopisk-adalska-kriget",
         "commons-bild-forsta-flottan-sydney",
+        "commons-bild-forsta-hjarttransplantationen",
         "commons-bild-forsta-jarnvagen-mellan-stader",
         "commons-bild-fotbolls-vm-1930",
         "commons-bild-freden-i-paris-1783",
@@ -3455,6 +3484,7 @@
         "commons-bild-jordbavningen-i-lissabon-1755",
         "commons-bild-jordbavningen-i-valdivia-1960",
         "commons-bild-kabuki-borjar-1603",
+        "commons-bild-kanemriket",
         "commons-bild-kant-vad-ar-upplysning",
         "commons-bild-kapkolonin-1652",
         "commons-bild-karl-den-store-krons",
@@ -3512,6 +3542,7 @@
         "commons-bild-saltmarschen",
         "commons-bild-semmelweis-handtvatt",
         "commons-bild-shakespeare-dor",
+        "commons-bild-sirleaf-valjs-i-liberia",
         "commons-bild-sjalvstandighetsforklaringen",
         "commons-bild-sjoslaget-vid-dan-no-ura",
         "commons-bild-sjoslaget-vid-hango-udd",
@@ -3537,6 +3568,7 @@
         "commons-bild-slaget-vid-kororareka",
         "commons-bild-slaget-vid-lund",
         "commons-bild-slaget-vid-lutzen-1632",
+        "commons-bild-slaget-vid-mersa-matruh",
         "commons-bild-slaget-vid-midway",
         "commons-bild-slaget-vid-narva-1700",
         "commons-bild-slaget-vid-orakau",
@@ -4405,22 +4437,24 @@
       ]
     },
     {
+      "license": "Stängd artikel, länkad källa: bara författarmanuset läst, ingen text kopierad; stöder bara årtal och dateringsmetod (beslut 2026-11-12)",
+      "sourceIds": [
+        "sinding-2020-zjochov"
+      ]
+    },
+    {
       "license": "Stängd artikel, länkad källa: bara sammanfattningen läst, ingen text kopierad (beslut 2026-11-12)",
       "sourceIds": [
         "bennett-2021-white-sands",
         "chen-2019-xiahe",
         "detroit-2019-homo-luzonensis",
+        "fu-2025-harbin-proteome",
         "martinon-torres-2021-panga-ya-saidi",
         "mijares-2010-callao",
         "pigati-2023-white-sands",
         "rizal-2020-ngandong",
-        "surovell-2026-monte-verde"
-      ]
-    },
-    {
-      "license": "© AAAS (bara länkad, ingen text kopierad; stöder bara årtal och dateringsmetod)",
-      "sourceIds": [
-        "sinding-2020-zjochov"
+        "surovell-2026-monte-verde",
+        "tsutaya-2025-penghu"
       ]
     },
     {

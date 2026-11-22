@@ -147,7 +147,9 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
 GROUPS = {
     'romarriket': ('Rom: kungadöme, republik, kejsardöme och Bysans', 'Rome: kingdom, republic, empire and Byzantium', [
         ('Roman Kingdom', 'romerska-kungadomet', 'Romerska kungadömet', '#b8433a'),
-        ('Roman Republic', 'romerska-republiken', 'Romerska republiken', '#b8433a'),
+        # Cliopatria anger Q175881 för Roman Republic, som är Romerska republiken 1798–1799 (en systerrepublik); antikens
+        # republik 509–27 f.Kr. är Q17167 (Wikidata, kontrollerat 2026-11-22, #2156)
+        ('Roman Republic', 'romerska-republiken', 'Romerska republiken', '#b8433a', {'wikidata': 'Q17167'}),
         # Cliopatria anger fel Wikidata-id för Roman Empire (Q12544, Bysantinska riket; rätt är Q2277) och Byzantine
         # Empire (Q112039853, "Foreign relations of the Byzantine Empire"; rätt är Q12544). Med Cliopatrias id fick
         # tools/riken_namn.py Bysans namn på Romerska kejsardömet och utrikesrelationernas spanska namn på Bysantinska
