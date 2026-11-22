@@ -11766,6 +11766,17 @@ async function run(browser, vp) {
         });
         if (!task.free || task.bottom > task.rootBottom || task.top < 0) throw new Error(`uppdragstexten är täckt eller klippt: ${JSON.stringify(task)}`);
       };
+      // #hunt-close gick inte att klicka i Firefox och WebKit efter omladdningen (Chromium: går): felet säger vad som hindrade (#2171)
+      const stangJakten = () => lp.click('#hunt-close', { timeout: T.step }).catch(async e => {
+        const d = await lp.evaluate(() => {
+          const el = document.getElementById('hunt-close');
+          if (!el) return { finns: false };
+          const r = el.getBoundingClientRect(), cs = getComputedStyle(el), top = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+          return { finns: true, dold: el.hidden || !!el.closest('[hidden]'), display: cs.display, visibility: cs.visibility, pointer: cs.pointerEvents, ruta: [Math.round(r.left), Math.round(r.top), Math.round(r.width), Math.round(r.height)],
+            fonster: [innerWidth, innerHeight], ovanpa: top ? `${top.id || top.className || top.tagName}` : 'inget' };
+        }).catch(() => ({ finns: 'okänt' }));
+        throw new Error(`#hunt-close gick inte att klicka: ${JSON.stringify(d)} (${String(e.message).split('\n')[0]})`);
+      });
       await startHunt();
       // Eleven kan välja en samtida händelse, inte bara se uppdraget.
       if (await lp.isHidden('#panel')) await lp.click('#btn-panel');
@@ -11780,7 +11791,7 @@ async function run(browser, vp) {
       await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await lp.waitForSelector('#hunt', { state: 'visible', timeout: T.step });
       if (await lp.isVisible('#tour-card') || await lp.isVisible('#detail')) throw new Error('slutkort eller faktaruta kom tillbaka vid omladdning');
-      await lp.click('#hunt-close');
+      await stangJakten();
       await lp.waitForSelector('#hunt', { state: 'hidden', timeout: T.step });
       await lp.waitForSelector('#tour-lesson-end', { state: 'visible', timeout: T.step });
       if ((await lp.textContent('#year-big')).trim() !== '1000') throw new Error('året flyttades när jakten avslutades');
