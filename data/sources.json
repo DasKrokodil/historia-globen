@@ -734,6 +734,8 @@
     { "id": "wp-dutch-east-indies", "title": "Dutch East Indies – Wikipedia", "url": "https://en.wikipedia.org/wiki/Dutch_East_Indies", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
     { "id": "whe-dutch-east-india-company", "title": "Dutch East India Company – World History Encyclopedia (Kim Martins)", "url": "https://www.worldhistory.org/Dutch_East_India_Company/", "license": "CC BY-NC-SA (bara länkad, ingen text kopierad)", "checked": "2026-10-31" },
     { "id": "wp-german-empire", "title": "German Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/German_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-treaty-of-frankfurt-1871", "title": "Treaty of Frankfurt (1871) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Treaty_of_Frankfurt_(1871)", "license": "CC BY-SA 4.0", "checked": "2026-11-22" },
+    { "id": "wp-siege-of-paris", "title": "Siege of Paris (1870–1871) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Siege_of_Paris_(1870%E2%80%931871)", "license": "CC BY-SA 4.0", "checked": "2026-11-22" },
     { "id": "wp-weimar-republic", "title": "Weimar Republic – Wikipedia", "url": "https://en.wikipedia.org/wiki/Weimar_Republic", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
     { "id": "wp-nazi-germany", "title": "Nazi Germany – Wikipedia", "url": "https://en.wikipedia.org/wiki/Nazi_Germany", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
     { "id": "wp-west-germany", "title": "West Germany – Wikipedia", "url": "https://en.wikipedia.org/wiki/West_Germany", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
