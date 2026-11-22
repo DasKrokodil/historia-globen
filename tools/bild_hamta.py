@@ -52,7 +52,9 @@ from licens_commons import (  # noqa: E402  (en gemensam licensklassning, #2183)
     AVVISADE, TILLATNA, VARNINGSMALLAR, bedom_commons, klassa_mall, klassa_namn, licensmallar)
 
 ROOT = Path(__file__).resolve().parent.parent
-USER_AGENT = 'HistoriaGlobenBildverktyg/1.0 (hobbyprojekt med oppen kallkod; tools/bild_hamta.py)'
+# Wikimedias regler för automatiska anrop ber om en kontaktuppgift. Projektets publika adress, aldrig namn eller e-post
+# (DasKrokodils ok 2026-11-22, docs/beslut/2026-11-22-user-agent-och-originalfil.md).
+USER_AGENT = 'HistoriaGlobenBildverktyg/1.1 (https://github.com/DasKrokodil/historia-globen; tools/bild_hamta.py)'
 COMMONS_API = 'https://commons.wikimedia.org/w/api.php'
 COMMONS_INDEX = 'https://commons.wikimedia.org/w/index.php'
 BATCH = 50
@@ -62,6 +64,7 @@ MAX_VANTA = 60       # sekunder: längsta väntan på Retry-After
 TIDSTAK = 180        # sekunder per bild (och per batchanrop), omförsök inräknade
 TIMEOUT = 30         # sekunder per anrop
 MAX_BYTES_HAMTAD = 30_000_000
+ORIGINAL_MIME = {'image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/tiff'}  # originalfiler som Pillow läser
 TILLATNA_VARDAR = {'commons.wikimedia.org', 'upload.wikimedia.org', 'thumb.wikimedia.org', 'www.loc.gov', 'tile.loc.gov'}
 # Händelse-id blir ett filnamn (images/events/<id>.webp): gemener, siffror och bindestreck, även å, ä, ö och andra latinska
 # bokstäver med accent (vapenstilleståndet-i-korea, #2182), men aldrig snedstreck, punkt eller mellanslag.
@@ -550,6 +553,7 @@ def kor(poster, klient, out_dir, dry_run=False, okand=None, skriv_over=False, id
             r['todo'].append(f'händelse-id:t {p["id"]} finns inte i data/handelser/: kontrollera stavningen')
         deadline = klocka() + klient.tidstak
         thumb = None
+        original = None
         try:
             if p['kalla'] == 'commons':
                 st, sida = meta[p['nyckel']]
@@ -574,6 +578,10 @@ def kor(poster, klient, out_dir, dry_run=False, okand=None, skriv_over=False, id
                 bed = bedom_commons(ext, wikitext, idag)
                 kalla, image, underlag, todo = bygg_commons(p, sida, bed, okand, idag)
                 thumb = info.get('thumburl') or info.get('url')
+                # Reserv när miniatyren nekas (429): originalfilen, om den är en rasterbild Pillow kan läsa och inte är för stor
+                if (info.get('url') and info.get('url') != thumb and str(info.get('mime', '')) in ORIGINAL_MIME
+                        and (info.get('size') or 0) <= MAX_BYTES_HAMTAD):
+                    original = info['url']
             else:
                 try:
                     data = json.loads(klient.hamta(loc_url(p['nyckel']), deadline).decode('utf-8'))
@@ -624,8 +632,15 @@ def kor(poster, klient, out_dir, dry_run=False, okand=None, skriv_over=False, id
         try:
             bild = klient.hamta(thumb, deadline)
         except EjHamtad as e:
-            r['status'], r['skal'] = 'ej hämtad', r['skal'] + [f'miniatyren: {e}']
-            continue
+            if not original:
+                r['status'], r['skal'] = 'ej hämtad', r['skal'] + [f'miniatyren: {e}']
+                continue
+            try:
+                bild = klient.hamta(original, klocka() + klient.tidstak)
+            except EjHamtad as e2:
+                r['status'], r['skal'] = 'ej hämtad', r['skal'] + [f'miniatyren: {e}', f'originalfilen: {e2}']
+                continue
+            r['todo'].append(f'miniatyren nekades ({e}); bilden är gjord av originalfilen')
         try:
             storlek, varn = konvertera(bild, dst, klient.cache_dir, passa=p['ref'] in (passa or ()))
         except RuntimeError as e:
