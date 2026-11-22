@@ -148,6 +148,34 @@ def main():
     check({m[1] for m in mall} == {'gfdl', 'by-sa', 'pd'} and varn == ['Personality rights'], f'licensmallar: {mall} {varn}')
     check(bh.licensmallar('{{Information|description={{en|x}}}} {{int:license-header}}')[0] == [], 'beskrivningsmallar ska inte tas för licenser')
 
+    # --- risker som inte stoppar men ska synas (#2193): PD bara i USA, PD-self med annan licens, eget verk av gammal bild,
+    # mall om panoramafrihet, versionslös cc-by-sa-all och dubblerat upphovsnamn
+    r = bh.licensmallar('{{self|GFDL|cc-by-sa-all}}')[0]
+    check(('by-sa', 'CC BY-SA') in {(m[1], m[2]) for m in r}, f'cc-by-sa-all ska kännas igen: {r}')
+    bed = bh.bedom_commons({'LicenseShortName': {'value': 'CC BY-SA 3.0'}}, '{{self|GFDL|cc-by-sa-all}}', IDAG)
+    check(bed['status'] == 'godkand-med-not' and bed['licens'] == 'CC BY-SA 3.0', f'cc-by-sa-all med API-version: {bed}')
+    lc = bh.licens_commons_modul()
+    check(any('bara i USA' in x for x in lc.risker('{{PD-US-not renewed}}', {}, ['PD-US-not renewed'])), 'PD-US-not renewed ska ge en risk')
+    check(any('annan licens' in x for x in lc.risker('{{PD-self}} Permission: Free Art License', {}, ['PD-self'])), 'PD-self med FAL')
+    check(any('eget verk' in x for x in lc.risker('', {'Credit': {'value': 'Own work'}, 'DateTimeOriginal': {'value': '1904'}}, ['PD-old-70'])),
+          'eget verk av en bild från 1904 ska ge en risk')
+    check(lc.risker('{{PD-old-100}}', {'Credit': {'value': 'Own work'}, 'DateTimeOriginal': {'value': '2012-05-01'}}, ['cc-by-sa-4.0']) == [],
+          'ett eget foto från 2012 är ingen risk')
+    bed = bh.bedom_commons({'LicenseShortName': {'value': 'Public domain'}}, '{{PD-US-not renewed}}', IDAG)
+    check(bed['status'] == 'godkand-med-not' and 'risk:' in ' '.join(bed['skal']) and 'bara i USA' in bed['note'], f'risken ska stå i note: {bed}')
+    check(bh.ext_varde({'Artist': {'value': '<a>Unknown illustrator</a> Unknown illustrator'}}, 'Artist') == 'Unknown illustrator',
+          'dubblerat upphovsnamn ska bli ett')
+    with tempfile.TemporaryDirectory() as tmp:
+        lf = Path(tmp) / 'l.txt'
+        lf.write_text('File:A.jpg\ta-b\tpassa-in\nFile:B.jpg\tc\n# File:C.jpg\td\n', encoding='utf-8')
+        val = set()
+        refs, mapp = bh.las_lista(lf, val)
+        check(refs == ['File:A.jpg', 'File:B.jpg'] and mapp == {'File:A.jpg': 'a-b', 'File:B.jpg': 'c'} and val == {'File:A.jpg'}, 'passa-in i listan')
+        ut = Path(tmp) / 'ej.txt'
+        n = bh.skriv_ej_hamtade(ut, [{'ref': 'File:A.jpg', 'handelse': 'a-b', 'status': 'ej hämtad'},
+                                     {'ref': 'File:B.jpg', 'handelse': 'c', 'status': 'klar'}], {'File:A.jpg'})
+        check(n == 1 and 'File:A.jpg\ta-b\tpassa-in' in ut.read_text(encoding='utf-8'), 'ej hämtade ska skrivas som lista')
+
     # --- hela flödet i --dry-run: status per fil
     with tempfile.TemporaryDirectory() as tmp:
         ut = Path(tmp) / 'ut'
@@ -368,6 +396,22 @@ def main():
             check(kod == 1 and 'AVVISAD' in buf.getvalue(), 'main ska ge slutkod 1 och en läsbar rapport för en avvisad bild')
         finally:
             bh.Klient.__init__ = klass_init
+
+    # --- passa-in (#2193): en stående bild passas in hel i 800 × 600 på en kant i bildens egen färg, utan beskärning
+    if PIL_OK:
+        im = Image.new('RGB', (600, 1200), (240, 230, 200))
+        ImageDraw.Draw(im).rectangle((0, 0, 599, 40), fill=(200, 0, 0))  # en röd rand överst som en beskärning skulle ta bort
+        buf = io.BytesIO()
+        im.save(buf, 'PNG')
+        with tempfile.TemporaryDirectory() as tmp:
+            dst = Path(tmp) / 'x.webp'
+            bh.konvertera(buf.getvalue(), dst, passa=True)
+            with Image.open(dst) as ut:
+                check(ut.size == (800, 600), f'passa-in ska ge 800 × 600, gav {ut.size}')
+                r, g, b = ut.convert('RGB').getpixel((400, 5))
+                check(r > 150 and g < 80, f'den röda randen överst ska finnas kvar efter passa-in, fick {(r, g, b)}')
+                kr, kg, kb = ut.convert('RGB').getpixel((20, 300))
+                check(abs(kr - 240) < 20 and abs(kg - 230) < 20, f'kanten ska ha bildens egen färg, fick {(kr, kg, kb)}')
 
     print('bild-hamta-test: ok')
 

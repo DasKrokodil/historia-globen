@@ -76,10 +76,37 @@ def test_flaggor_och_ordning():
     assert 'File:NC.jpg' not in filer  # en avvisad licens visas aldrig
     assert filer[0] == 'File:Bra.jpg' and filer[-1] == 'File:Sok.jpg', filer  # flaggorna sorterar, de avvisar inte
     fl = {k['fil']: k['flaggor'] for k in rader}
-    assert fl['File:Karta.jpg'] == ['karta'] and fl['File:Foto.jpg'] == ['nutida-foto'] and fl['File:Sok.jpg'] == ['ur-sokning']
+    # Äldre kandidatlista utan skilda datum: ett datum från 2012 kan vara uppladdningen, så det blir datum-osakert (#2193)
+    assert fl['File:Karta.jpg'] == ['karta'] and fl['File:Foto.jpg'] == ['datum-osakert'] and fl['File:Sok.jpg'] == ['ur-sokning']
     assert bb.flaggor(kand('x', datum='2012'), handelse('ny', 1950)) == []  # ett foto från 2012 av en händelse 1950 är inte "nutida" här
     assert bb.flaggor(kand('x', status='flagga'), e) == ['licens-flagga']
     assert len(bb.ordna(KANDIDATER['a']['kandidater'], e, 3)) == 3
+
+
+def test_flaggor_efter_piloten():
+    """Flaggorna från #2193: verkets datum mot filens, stående bild, moderna konstverk."""
+    e = handelse('x', 1100)
+    nytt_foto = dict(kand('a'), datum_original='2013-10-27', datum_fil='2013-10-28')
+    gammalt_verk = dict(kand('b'), datum_original='1572', datum_fil='2006-01-08')  # kopparstick, uppladdat 2006
+    bara_fil = dict(kand('c'), datum_original=None, datum_fil='2006-01-08')
+    assert bb.flaggor(nytt_foto, e) == ['nutida-foto']
+    assert bb.flaggor(gammalt_verk, e) == []  # inte "nutida" bara för att filen laddades upp 2006 (fel 6 gånger i piloten)
+    assert bb.flaggor(bara_fil, e) == ['datum-osakert']
+    staende = dict(kand('d'), bredd=1446, hojd=1496)
+    assert 'staende' in bb.flaggor(staende, e)
+    monument = kand('e', kategorier=['Monuments and memorials in KwaZulu-Natal', '2003 sculptures'])
+    assert 'konstverk' in bb.flaggor(monument, e)
+    assert 'konstverk' not in bb.flaggor(kand('f', kategorier=['Battles of X']), e)
+
+
+def test_samma_fil_och_stil():
+    poster, _ = bb.bygg([handelse('p', 1300), handelse('q', 1301)],
+                        {'p': {'id': 'p', 'kandidater': [kand('File:Delad.jpg')]},
+                         'q': {'id': 'q', 'kandidater': [kand('File:Delad.jpg'), kand('File:Egen.jpg')]}})
+    k = {(p['id'], x['fil']): x for p in poster for x in p['kandidater']}
+    assert 'samma-fil' in k[('p', 'File:Delad.jpg')]['flaggor'] and k[('p', 'File:Delad.jpg')]['samma_fil_som'] == ['q']
+    assert 'samma-fil' not in k[('q', 'File:Egen.jpg')]['flaggor']
+    assert all(p['stil'] for p in poster)  # stilen enligt data/styles.json föreslås för varje händelse
 
 
 def test_hela_flodet_och_determinism():
@@ -95,7 +122,7 @@ def test_hela_flodet_och_determinism():
         assert doc['redan_bild_eller_utkast'] == ['c-bild', 'd-utkast']  # inte med: har bild eller är utkast
         md = (ut / '2107.md').read_text(encoding='utf-8')
         assert '## 1. `a`' in md and 'A \\| B' in md and '## Utan användbar kandidat' in md and 'Vald (nr' in md
-        assert 'licens-flagga' in md and 'No restrictions (flagga)' in md
+        assert 'licens-flagga' in md and 'No restrictions (flagga)' in md and 'Stil enligt data/styles.json' in md
         lista = (ut / '2107-lista.txt').read_text(encoding='utf-8').splitlines()
         assert '# File:Bra.jpg\ta' in lista and '# File:Smal.jpg\tf-ö' in lista
         assert all(r.startswith('#') for r in lista)  # inget är godkänt förrän agenten tar bort #
@@ -113,12 +140,16 @@ def test_strikt_licens_lagger_till_flagga():
 
         def falsk(titlar):
             return {x: ({'status': 'flagga', 'licens': None, 'skal': ['ingen mall'], 'note': None} if x == 'File:Bra.jpg'
+                        else {'status': 'godkand-med-not', 'licens': 'CC BY-SA 4.0', 'skal': [], 'note': None,
+                              'risker': ['public domain bara i USA']} if x == 'File:Karta.jpg'
                         else {'status': 'godkand', 'licens': 'CC BY-SA 4.0', 'skal': [], 'note': None}) for x in titlar}
         assert bb.main(['--namn', 's', '--id', 'a', '--licens'] + arg, strikt_fn=falsk) == 0
         doc = json.loads((Path(t) / 'ut' / 's.json').read_text(encoding='utf-8'))
         k = {x['fil']: x for x in doc['handelser'][0]['kandidater']}
         assert k['File:Bra.jpg']['licens_strikt']['status'] == 'flagga' and 'licens-flagga' in k['File:Bra.jpg']['flaggor']
-        assert 'filsidan: godkand CC BY-SA 4.0' in (Path(t) / 'ut' / 's.md').read_text(encoding='utf-8')
+        md = (Path(t) / 'ut' / 's.md').read_text(encoding='utf-8')
+        assert 'filsidan: godkand CC BY-SA 4.0' in md and 'licensrisk: public domain bara i USA' in md
+        assert 'licens-risk' in k['File:Karta.jpg']['flaggor']
 
 
 def test_grind_och_indata():
