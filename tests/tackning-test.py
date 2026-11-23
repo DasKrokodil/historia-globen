@@ -123,4 +123,19 @@ land = rep.split('## Rikenas landyta\n', 1)[1]
 r1850 = next(l for l in land.splitlines() if l.startswith('| 1850 |'))
 assert r1850.startswith('| 1850 | 1 | ') and r1850.endswith('| inte mätt |') and '| 0 % |' not in r1850, r1850
 assert next(l for l in land.splitlines() if l.startswith('| 1914 |')) == '| 1914 | 0 | 0 % | inte mätt |'
-print('tackning-test: ok (räkning, markeringar, andelar, världsdelar, luckor, krig utan Fokus-slag, riken och samma rapport vid samma indata)')
+sea = rep.split('## Rikesytor i havet\n', 1)[1]
+assert '1 perioder mättes' in sea and '### Ytor på minst' in sea and '### Ytor under' in sea, sea[:600]
+
+# Rikesytor i havet (#1444): en ruta mitt i Atlanten är hav, en i Sahara land, och Chimor ger samma andelar som mätningen i
+# issuet (44 och 33 procent mot data/land.json), så att metoden är densamma
+bands = tackning._row_bands(tackning.land_rings(ROOT / 'data/land.json'), tackning.SEA_STEP)
+box = lambda w, s_, e, n: {'type': 'Polygon', 'coordinates': [[[w, s_], [e, s_], [e, n], [w, n], [w, s_]]]}
+assert tackning.sea_share(box(-40, 20, -30, 30), bands) > 0.99, 'mitt i Atlanten'
+assert tackning.sea_share(box(5, 22, 15, 28), bands) < 0.01, 'Sahara'
+# Två polygoner som täcker samma ruta räknas en gång
+twice = {'type': 'MultiPolygon', 'coordinates': [box(-40, 20, -30, 30)['coordinates'], box(-40, 20, -30, 30)['coordinates']]}
+assert abs(tackning.sea_share(twice, bands) - tackning.sea_share(box(-40, 20, -30, 30), bands)) < 1e-9
+chimor = json.loads((ROOT / 'data/empires/chimor.json').read_text(encoding='utf-8'))['polities'][0]['periods']
+got = {(p['start'], p['end']): round(100 * tackning.sea_share(p['geometry'], bands)) for p in chimor}
+assert got[(911, 1201)] == 44 and got[(1202, 1343)] == 33, got
+print('tackning-test: ok (räkning, markeringar, andelar, världsdelar, luckor, krig utan Fokus-slag, riken, rikesytor i havet och samma rapport vid samma indata)')
