@@ -4,7 +4,7 @@ Ersätter "läs allt först". Dirigent och arbetare läser **kärnan**, issuet o
 
 ## Kärnan (alltid)
 
-- [CLAUDE.md](../CLAUDE.md): Arkitektur, Källpolicy, Licenser, Testa innan du är klar, Arbetssätt. (Filstruktur, Datamodell, Bilder och Utseende läses när uppgiften träffar dem nedan.)
+- [CLAUDE.md](../CLAUDE.md): hela (absoluta förbud, Källpolicy, Licenser, Arkitekturens sex beslut, Testa innan du är klar, Utseende). Det som flyttats ut (2026-11-23) läses när uppgiften träffar det, enligt tabellen nedan och i [docs/referens/](../docs/referens/README.md).
 - [project.md](project.md): hela (projektets orkesterpolicy).
 - Absoluta förbud, som gäller även om inget annat läses: aldrig fakta ur minnet, aldrig pusha till `main`, inga personuppgifter till externa tjänster, inga nya beroenden eller arkitekturändringar utan Rikards ok, `.orchestra/shared/` redigeras inte.
 
@@ -12,17 +12,20 @@ Ersätter "läs allt först". Dirigent och arbetare läser **kärnan**, issuet o
 
 | Utlösare (etikett, sökväg eller ämne) | Läs dessutom |
 | --- | --- |
-| `data`, `faktafel`, `källkontroll`, ändring i `data/` eller fakta i text | CLAUDE.md: Datamodell; [docs/kallor.md](../docs/kallor.md): Grundregler, Granskningsnivåer, Så kontrollerar du en uppgift; avsnittet i [docs/datamodell.md](../docs/datamodell.md) för den fil som ändras; beslut som träffas vid sökning |
+| `data`, `faktafel`, `källkontroll`, ändring i `data/` eller fakta i text | [docs/referens/datamodell-kort.md](../docs/referens/datamodell-kort.md); [docs/kallor.md](../docs/kallor.md): Grundregler, Granskningsnivåer, Så kontrollerar du en uppgift; avsnittet i [docs/datamodell.md](../docs/datamodell.md) för den fil som ändras; beslut som träffas vid sökning |
 | Riken (`data/empires/`, `tools/riken.py`, etiketten `riken`) | docs/datamodell.md: `empires/`; docs/arkitektur.md: Faktarutan om ett rike, Rikets berättelse, Hjälpskript |
 | Vägar och resor, upptäcktsvyn (`data/routes/`, `data/upptackt.json`, `js/layers/lines.js`, `discovery.js`) | docs/datamodell.md: `routes/`, `upptackt.json`; docs/arkitektur.md: Lagerregistret |
 | Religioner | docs/datamodell.md: `religions.json`, `religions-polities.json`; docs/arkitektur.md: Faktarutan om en religion |
-| `utseende`, CSS, paneler, menyer, mobil | CLAUDE.md: Utseende; docs/arkitektur.md: Moduler, Mobilen, Mindre trängsel på kartan; tillgänglighet: Tangentbord och skärmläsare, Pekskärmar och zoom |
+| `utseende`, CSS, paneler, menyer, mobil | CLAUDE.md: Utseende (kvar i kärnan); docs/arkitektur.md: Moduler, Mobilen, Mindre trängsel på kartan; tillgänglighet: Tangentbord och skärmläsare, Pekskärmar och zoom |
 | Lager, rendering, globen, tidslinje, fokusläge, uppspelning | docs/arkitektur.md: Principer, Hur delarna hänger ihop, Lagerregistret, Fokusläget, Uppspelning, Laddning av data |
-| Bilder (`images/`, fältet `image`) | CLAUDE.md: Bilder; [docs/bildpromptar.md](../docs/bildpromptar.md) vid illustrationer |
+| Bilder (`images/`, fältet `image`) | [docs/referens/bilder.md](../docs/referens/bilder.md); [docs/bildpromptar.md](../docs/bildpromptar.md) vid illustrationer |
 | Publicering, cache, CI, release (`.github/`, `scripts/`, `_headers`) | [docs/DEPLOYMENT.md](../docs/DEPLOYMENT.md); docs/arkitektur.md: Publicering, Testa |
 | Formuläret för förslag (`functions/`, `js/ui/feedback.js`) | [docs/feedback.md](../docs/feedback.md) |
 | UX-genomgång, blind-spots, arkitekturanalys, täckningsrunda, benchmark, release-rapport | [docs/produkt/06-granskningsperspektiv.md](../docs/produkt/06-granskningsperspektiv.md) (de linser som berörs) och [docs/produkt/05-ux-oversikt.md](../docs/produkt/05-ux-oversikt.md) (flöden och lägen) |
 | Nytt issue som tillför eller prioriterar en funktion, nytt mål eller ny målgrupp | [docs/produkt/01-vision-och-mal.md](../docs/produkt/01-vision-och-mal.md), [02](../docs/produkt/02-anvandare-och-intressenter.md) och [03](../docs/produkt/03-anvandningsfall-och-funktioner.md) |
+| Filstruktur (var något ligger) | [docs/referens/filstruktur.md](../docs/referens/filstruktur.md) |
+| Issues, etiketter, PR-tak, Codex, Copilot, Andreas roll, piloter, backlog review, release | [docs/referens/arbetssatt.md](../docs/referens/arbetssatt.md) |
+| Versionsplan, milstolpar | [docs/referens/versionsplan.md](../docs/referens/versionsplan.md) |
 | Bara dokumentation | Kärnan och de dokument som ändras |
 | Arkitektur, datamodell, kategorier, licenser, nya beroenden | Hela berörda avsnitt i docs/arkitektur.md eller docs/datamodell.md och sök i docs/beslut/ och i den frysta docs/beslut.md; det är alltid en fråga till Rikard först |
 

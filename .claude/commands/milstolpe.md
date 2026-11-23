@@ -77,7 +77,7 @@ Dirigenten (du) syntetiserar och skriver en daterad rapport `docs/granskningar/�
 2. Stickprovskontrollera agenternas påståenden om repot (beslut, milstolpe, kod) innan de förs in; i provkörningen var ett av dem fel. Varje agents viktigaste fynd, med allvar och bevis, utan att slå ihop motstridiga åsikter i tysthet.
 3. Förslag till ordning, beroenden och filkrockar, och vem (Codex, Claude Code, agent) som bör ta vad, med issues
    sorterade i kontextgrupper enligt steg 3.
-4. Öppna frågor till Rikard, med rekommendation enligt CLAUDE.md ("Rekommendation i varje issue som kräver beslut").
+4. Öppna frågor till Rikard, med rekommendation enligt [docs/referens/arbetssatt.md](../../docs/referens/arbetssatt.md) ("Rekommendation i varje issue som kräver beslut").
 5. Uppskattad kostnad som intervall (enligt tokenbudgeten i `.orchestra/project.md`), **per kontextgrupp**: startkostnad en
    gång plus marginalkostnad per issue, uttryckt som procent av veckoanvändningen när miljön visar den (annars noteras
    att den saknas).

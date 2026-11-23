@@ -144,7 +144,7 @@ images/lager/         bildlagrens bilder: nattljus 2016 (NASA) och istidens kust
 images/incoming/      nya bilder innan de konverteras
 schemas/              JSON Schema för innehållsformaten, bland annat händelser, riken, turer, teman, platser och bildlager
 tools/                hjälpskript som körs för hand (Python): riken, religioner, bildpromptar, bildkonvertering och licensmanifest
-docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, omstridda gränser och Sveriges hållning (omstridda-granser.md, #644); docs/bilder/ har skärmbilderna i README; docs/granskningar/ tar emot externa granskningar
+docs/                 dokumentation: referens/ (det som flyttats ut ur CLAUDE.md, AGENTS.md och .orchestra/project.md 2026-11-23: filstruktur, versionsplan, arbetssätt, bilder m.m.), arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, omstridda gränser och Sveriges hållning (omstridda-granser.md, #644); docs/bilder/ har skärmbilderna i README; docs/granskningar/ tar emot externa granskningar
 .orchestra/           arbetsflödet dirigenten och orkestern (MIT-licens)
 data/LICENSE          licens för data: CC BY 4.0
 data/handelser/       händelserna, en redigeringsfil per period; här redigeras händelser (#394)
