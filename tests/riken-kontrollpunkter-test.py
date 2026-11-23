@@ -304,6 +304,11 @@ PUNKTER = [
     *[('weimarrepubliken', SAARBRUCKEN_WD, 'Saarbrücken', y, False) for y in (1925, 1931)],
     *[('nazityskland', FORBACH, 'Forbach', y, False) for y in (1935, 1937, 1939)],
     *[('franska-kolonialvaldet', FORBACH, 'Forbach', y, True) for y in (1935, 1939)],
+    # Forbach från 1958 (#2199): Cliopatria räknar Forbach till Förbundsrepubliken 1958–1989; Frankrikes gräns i Natural Earth
+    # klipps ur Västtyskland och Tyskland och läggs till Frankrike
+    *[('frankrike', FORBACH, 'Forbach', y, True) for y in (1958, 1960, 1975, 1990, 1991, 2000, 2024)],
+    *[('vasttyskland', FORBACH, 'Forbach', y, False) for y in (1958, 1960, 1975, 1990)],
+    *[('tyskland', FORBACH, 'Forbach', y, False) for y in (1991, 2000, 2024)],
     *[('tjeckoslovakien', SELB, 'Selb', y, False) for y in (1947, 1960, 1990)],
     *[('vasttyskland', SELB, 'Selb', y, True) for y in (1950, 1970, 1990)],
     ('tjeckien', SELB, 'Selb', 2000, False),

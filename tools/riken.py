@@ -2305,6 +2305,16 @@ DISPUTED = {
                                'remove': ['vasttyskland'], 'add': []},
     'saar-brd-1957': {'area': SAAR, 'from': 1957, 'to': 1957, 'strict': True, 'efter': True, 'dec': 3,
                       'remove': [], 'add': ['vasttyskland']},
+    # Forbach i Lorraine från 1958 (#2199): Cliopatria räknar en bit av Moselle med Forbach till Förbundsrepubliken 1958–1989, och
+    # Femte republikens gräns slutar där cirka 0,035 grader från Forbach. Gränsen mellan Frankrike och Tyskland är dagens efter att
+    # Saar blev tyskt 1957, så Frankrikes gräns i Natural Earth klipps ur Västtyskland och Tyskland, och Frankrikes sida av gränsen
+    # läggs till Frankrike, som 1920–1939 (#1750, #1755). Bara efter förenklingen, som för Saar
+    'frankrike-brd': {'area': ('ne', ['frankrike-ne']), 'from': 1958, 'to': 1990, 'strict': True, 'efter': True,
+                      'remove': ['vasttyskland'], 'add': []},
+    'frankrike-tyskland': {'area': ('ne', ['frankrike-ne']), 'from': 1991, 'strict': True, 'efter': True,
+                           'remove': ['tyskland'], 'add': []},
+    'gransen-frankrike-1958': {'area': FRANSKA_SIDAN, 'from': 1958, 'strict': True, 'efter': True,
+                               'remove': [], 'add': ['frankrike']},
     # Kehl: Cliopatria räknar staden till Förbundsrepubliken från 1950 och till Fjärde republiken till och med 1949
     # (en.wikipedia "Kehl": frigiven i 42 delar 29 juli 1949–8 april 1953). Fjärde republiken har sin gräns från 1949
     # också 1950–1957 efter sammanslagningen och förenklingen; Västtysklands gräns klipps bort ur den från 1950
