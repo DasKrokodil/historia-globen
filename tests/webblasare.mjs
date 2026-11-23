@@ -101,6 +101,46 @@ function stubbaTurnstile() {
   window.turnstile = { render: (el, o) => { o.callback('test-token'); return 1; }, reset() {} };
 }
 
+// #2145: tillfällig provsond i sidan. Läser lagrets verkliga markör utan att ändra puls eller synlighet.
+async function beginPulseProbe() {
+  const { EventsLayer } = await import('./js/layers/events.js');
+  const original = EventsLayer.prototype.update;
+  const probe = { layer: null, selectedId: null };
+  EventsLayer.prototype.update = function (...args) {
+    probe.layer = this;
+    probe.selectedId = args[0].selectedId;
+    return original.apply(this, args);
+  };
+  window.__hgPulseFlight = [];
+  window.__hgPulseT0 = performance.now();
+  const canvas = document.getElementById('globe-canvas');
+  const onFlight = e => window.__hgPulseFlight?.push(e.detail.phase);
+  canvas.addEventListener('hg:globe-flight', onFlight);
+  probe.restore = () => {
+    EventsLayer.prototype.update = original;
+    canvas.removeEventListener('hg:globe-flight', onFlight);
+  };
+  window.__hgPulseProbe = probe;
+}
+function readPulseProbe() {
+  const p = window.__hgPulseProbe;
+  const sprite = p?.layer?.sprites.find(s => s.userData.event.id === p.selectedId);
+  return {
+    flight: window.__hgPulseFlight ?? [], selectedId: p?.selectedId ?? null,
+    layerCaptured: !!p?.layer, markerFound: !!sprite, markerVisible: sprite?.visible ?? null,
+    parentVisible: sprite?.parent?.visible ?? null, scale: sprite?.scale.x ?? null,
+    calm: document.querySelector('input[data-calm]')?.checked ?? null,
+    camera: document.getElementById('globe-canvas').dataset.camera ?? null,
+    flatOpen: !document.getElementById('flat-view').hidden,
+  };
+}
+function endPulseProbe() {
+  window.__hgPulseProbe?.restore();
+  delete window.__hgPulseProbe;
+  delete window.__hgPulseFlight;
+  delete window.__hgPulseT0;
+}
+
 // Körs i sidan: jämför den platta kartans pixlar (#flat-canvas) med en sparad bild.
 // Används för att se att ett lager faktiskt ritar något: lagret av → spara → lagret på → räkna ändrade pixlar.
 // Hjälpen läggs i window.__hgTestPixels av en vanlig funktion (inte en textsträng), eftersom en sträng måste köras
@@ -8218,53 +8258,52 @@ async function run(browser, vp) {
       await visible('#panel');
     }
     // Flygningen till markören avslutas med hg:globe-flight (phase: 'end', js/globe.js). Lyssnaren sätts före klicket (#1174).
-    await page.evaluate(() => {
-      window.__hgPulseFlight = [];
-      window.__hgPulseT0 = performance.now();
-      document.getElementById('globe-canvas').addEventListener('hg:globe-flight', e => window.__hgPulseFlight?.push(e.detail.phase));
-    });
-    // Samtidigt-kortet kan ligga i en mobilpanel ovanpå globen. Klicka på själva knappen så att
-    // testet provar kortets egen händelsehanterare, utan att fastna i panelens övergång.
-    await event.evaluate(el => el.click());
-    await visible('#detail');
-    const detail = (await page.textContent('#detail')).replace(/\s+/g, ' ').trim();
-    if (!detail.includes(title)) throw new Error(`faktarutan gäller inte den valda händelsen: ${title}`);
-    if (vp.width > 760) {
-      const layout = await page.evaluate(() => {
-        const panel = document.getElementById('panel').getBoundingClientRect();
-        const detail = document.getElementById('detail').getBoundingClientRect();
-        return { panelOpen: document.getElementById('panel').classList.contains('open'), cardHidden: document.getElementById('funfact').hidden, tabVisible: !document.getElementById('ff-tab').hidden, right: Math.round(detail.right - panel.right) };
-      });
-      if (!layout.panelOpen || !layout.cardHidden || !layout.tabVisible || Math.abs(layout.right) > 1) throw new Error('faktarutan delar inte högersidans läsyta med Samtidigt');
-      // #1051: rutan ska också ta emot klick. Mäts i punkten mitt i rutan, där listan annars kan ligga över
-      const hit = await page.evaluate(() => { const r = document.getElementById('detail').getBoundingClientRect(); const el = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return !!el?.closest('#detail'); });
-      if (!hit) throw new Error('faktarutan är täckt av Samtidigt-listan och tar inte emot klick (#1051)');
+    await page.evaluate(beginPulseProbe);
+    try {
+      // Samtidigt-kortet kan ligga i en mobilpanel ovanpå globen. Klicka på själva knappen så att
+      // testet provar kortets egen händelsehanterare, utan att fastna i panelens övergång.
+      await event.evaluate(el => el.click());
+      await visible('#detail');
+      const detail = (await page.textContent('#detail')).replace(/\s+/g, ' ').trim();
+      if (!detail.includes(title)) throw new Error(`faktarutan gäller inte den valda händelsen: ${title}`);
+      if (vp.width > 760) {
+        const layout = await page.evaluate(() => {
+          const panel = document.getElementById('panel').getBoundingClientRect();
+          const detail = document.getElementById('detail').getBoundingClientRect();
+          return { panelOpen: document.getElementById('panel').classList.contains('open'), cardHidden: document.getElementById('funfact').hidden, tabVisible: !document.getElementById('ff-tab').hidden, right: Math.round(detail.right - panel.right) };
+        });
+        if (!layout.panelOpen || !layout.cardHidden || !layout.tabVisible || Math.abs(layout.right) > 1) throw new Error('faktarutan delar inte högersidans läsyta med Samtidigt');
+        // #1051: rutan ska också ta emot klick. Mäts i punkten mitt i rutan, där listan annars kan ligga över
+        const hit = await page.evaluate(() => { const r = document.getElementById('detail').getBoundingClientRect(); const el = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return !!el?.closest('#detail'); });
+        if (!hit) throw new Error('faktarutan är täckt av Samtidigt-listan och tar inte emot klick (#1051)');
+      }
+      await shot('3-handelse-oppnas');
+      const calm = page.locator('input[data-calm]');
+      if (await calm.isChecked()) await calm.evaluate(el => el.click());
+      // Valet flyger först till markören. När flygningen är klar ska den valda medaljen fortsätta
+      // pulsera även om globen annars står helt stilla (#390).
+      // #1174: vänta in flygningens slut i stället för en fast väntan (CI kan vara sen), och mät över minst en halv
+      // pulsperiod. Pulsen är 1 + 0,12·sin(t/240), period cirka 1 500 ms. Fyra bilder inom 240 ms nära kurvans topp
+      // eller botten skiljer under en pixel och kunde bli lika fast pulsen gick; över en halv period ändras skalan
+      // alltid med minst 0,12, oavsett var mätningen börjar.
+      // Syns markören redan flyger globen inte alls: då räcker en kort stund utan att någon flygning har börjat
+      await page.waitForFunction(() => { const f = window.__hgPulseFlight ?? []; return f.includes('end') || (!f.includes('start') && performance.now() - window.__hgPulseT0 > 500); }, null, { timeout: T.step }).catch(() => {});
+      await page.waitForTimeout(200);
+      // Mätningen slutar vid första bild som skiljer sig (oftast den andra), och tar annars högst sju bilder över 750 ms
+      const first = await page.locator('#globe-canvas').screenshot();
+      let pulsing = false, frames = 1;
+      for (let i = 0; i < 6 && !pulsing; i++) { await page.waitForTimeout(125); pulsing = !(await page.locator('#globe-canvas').screenshot()).equals(first); frames++; }
+      if (!pulsing) throw new Error(`den valda markörens puls stannade när globen stod stilla; diagnos: ${JSON.stringify({ ...await page.evaluate(readPulseProbe), frames })}`);
+      await page.locator('#detail [data-close]').click();
+      await hidden('#detail');
+      if (vp.width > 760) {
+        await visible('#funfact');
+        await page.click('#panel-close');
+      }
+      return `${title}; vald markör pulserar när globen står stilla`;
+    } finally {
+      await page.evaluate(endPulseProbe);
     }
-    await shot('3-handelse-oppnas');
-    const calm = page.locator('input[data-calm]');
-    if (await calm.isChecked()) await calm.evaluate(el => el.click());
-    // Valet flyger först till markören. När flygningen är klar ska den valda medaljen fortsätta
-    // pulsera även om globen annars står helt stilla (#390).
-    // #1174: vänta in flygningens slut i stället för en fast väntan (CI kan vara sen), och mät över minst en halv
-    // pulsperiod. Pulsen är 1 + 0,12·sin(t/240), period cirka 1 500 ms. Fyra bilder inom 240 ms nära kurvans topp
-    // eller botten skiljer under en pixel och kunde bli lika fast pulsen gick; över en halv period ändras skalan
-    // alltid med minst 0,12, oavsett var mätningen börjar.
-    // Syns markören redan flyger globen inte alls: då räcker en kort stund utan att någon flygning har börjat
-    await page.waitForFunction(() => { const f = window.__hgPulseFlight ?? []; return f.includes('end') || (!f.includes('start') && performance.now() - window.__hgPulseT0 > 500); }, null, { timeout: T.step }).catch(() => {});
-    await page.waitForTimeout(200);
-    // Mätningen slutar vid första bild som skiljer sig (oftast den andra), och tar annars högst sju bilder över 750 ms
-    const first = await page.locator('#globe-canvas').screenshot();
-    let pulsing = false;
-    for (let i = 0; i < 6 && !pulsing; i++) { await page.waitForTimeout(125); pulsing = !(await page.locator('#globe-canvas').screenshot()).equals(first); }
-    await page.evaluate(() => { delete window.__hgPulseFlight; delete window.__hgPulseT0; });
-    if (!pulsing) throw new Error('den valda markörens puls stannade när globen stod stilla');
-    await page.locator('#detail [data-close]').click();
-    await hidden('#detail');
-    if (vp.width > 760) {
-      await visible('#funfact');
-      await page.click('#panel-close');
-    }
-    return `${title}; vald markör pulserar när globen står stilla`;
   });
 
   await check('sidzoom är tillåten utanför globen', async () => {
