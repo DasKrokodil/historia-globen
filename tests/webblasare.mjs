@@ -13137,8 +13137,9 @@ async function run(browser, vp) {
       await wp.waitForFunction(() => /^År 10\s000 f\.Kr\.: .*Nu är varje steg 100 år/.test(document.getElementById('screen-reader-status').textContent.replace(/\s+/g, ' ').trim()), null, { timeout: T.step })
         .catch(async () => { throw new Error(`statusraden säger "${await wp.textContent('#screen-reader-status')}"`); });
       await press('ArrowRight', '9900 f.Kr.');
-      // End går till reglagets sista år (3000 f.Kr.), och en pil tar en över gränsen till det andra reglaget (#1958)
-      await press('End', '3000 f.Kr.');
+      // End går till reglagets sista år (−3000), och en pil tar en över gränsen till det andra reglaget (#1958). Året −3000 visas och läses
+      // upp som 3001 f.Kr. och −2999 som 3000 f.Kr., så att de två åren vid bytet inte får samma namn (beslut 2026-11-22, #2152, #2196)
+      await press('End', '3001 f.Kr.');
       if ((await wp.getAttribute('#track', 'aria-valuemax')) !== '-3000') throw new Error(`reglagets övre gräns: ${await wp.getAttribute('#track', 'aria-valuemax')}`);
       if (!/före 3000/.test(await wp.getAttribute('#track', 'aria-label'))) throw new Error(`reglagets namn: ${await wp.getAttribute('#track', 'aria-label')}`);
       const nowIs = v => wp.waitForFunction(w => document.getElementById('track').getAttribute('aria-valuenow') === w, String(v), { timeout: T.step })
