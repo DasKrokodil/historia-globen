@@ -2,6 +2,8 @@
 
 Den här filen är till för agenter som inte läser CLAUDE.md, till exempel Codex. **Reglerna finns i [CLAUDE.md](CLAUDE.md) och [.orchestra/project.md](.orchestra/project.md). Läs båda innan du ändrar något.** Vid motsägelse gäller CLAUDE.md. Här upprepas bara det viktigaste.
 
+> **Från 2026-11-23 gäller färre granskningar:** ingen korsgranskning och ingen separat Codex-granskning före ihopslagning; du bygger, kör dina egna tester och öppnar PR:en. Se [docs/beslut/2026-11-23-farre-granskningar-sparar-tokens.md](docs/beslut/2026-11-23-farre-granskningar-sparar-tokens.md). Det går före äldre text nedan om granskning, kvittering och kökontroll.
+
 ## Skriv till Rikard
 
 Rikard (GitHub `DasKrokodil`) äger projektet. Han är projektledare, inte utvecklare. Skriv på svenska, kort och tydligt, i issues, kommentarer och pull requests: vad som ändrats, varför och hur han testar det.

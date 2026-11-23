@@ -1,5 +1,7 @@
 # Orkesterns projektpolicy: Historia-globen
 
+> **Från 2026-11-23 gäller färre granskningar:** ingen korsgranskning och ingen separat Codex-granskning före ihopslagning; dirigenten granskar bara arkitektur, säkerhet och functions/ före ihopslagning; fakta granskas i batch före release. Se [docs/beslut/2026-11-23-farre-granskningar-sparar-tokens.md](docs/beslut/2026-11-23-farre-granskningar-sparar-tokens.md). Det går före äldre text nedan om granskning, kvittering och kökontroll.
+
 Inställningar för [dirigenten och orkestern](shared/README.md) i det här projektet (#145). Gemensamma regler står i
 [shared/ORCHESTRA.md](shared/ORCHESTRA.md). Projektets regler här och i [CLAUDE.md](../CLAUDE.md) går före de
 gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159), efter Rikards utvärdering av första passet.

@@ -96,3 +96,5 @@ ser den, och **alltid de två sista raderna**:
 Nya issues skapade: ja, #… / nej (inga nya skapades i den här körningen)
 Kvar att ta: N issues med redo (#…) / inga
 ```
+
+**Förenklat 2026-11-23** ([beslut](../../docs/beslut/2026-11-23-farre-granskningar-sparar-tokens.md)): kortare promptar (en rad per spår), kökontroll per batch i stället för efter varje PR, `redo`-triage en gång per dag, ingen separat granskning före ihopslagning (dirigenten granskar bara arkitektur, säkerhet och `functions/`).
