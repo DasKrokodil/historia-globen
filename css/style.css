@@ -3450,6 +3450,9 @@ span.theme-event:hover { background: none; outline: none; }
   #extra-menu .chip-btn { min-width: 44px; min-height: 44px; box-sizing: border-box; }
   /* Separata rader ger tryckytan utrymme mellan stegknapparna och reglaget. */
   .app:not(.lesson):not(.touring):not(.focusing) #scale-switch .level-btn { height: 44px; border-radius: 12px; }
+  /* Tidsraden blir högre med 44 px i växlaren och växer uppåt. Ett mindre årtal håller raden under årtalet fri från
+     stegknapparna (#2221, DasKrokodils val A 2026-11-22: tryckytorna behålls). */
+  .app:not(.lesson):not(.touring):not(.focusing) .year-big { font-size: 42px; }
 }
 @media (min-width: 761px) and (max-width: 1100px) and (max-height: 480px) and (orientation: landscape) and (pointer: coarse) {
   .app:not(.lesson):not(.touring):not(.focusing) :is(.funfact, .ff-tab) { bottom: 156px; }
