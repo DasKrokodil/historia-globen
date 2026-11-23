@@ -435,6 +435,21 @@
       }
     },
     {
+      "eventId": "bass-sund-bildas",
+      "eventTitle": "Tasmanien blir en ö",
+      "file": "images/events/bass-sund-bildas.webp",
+      "kind": "historisk",
+      "credit": "MODIS Land Rapid Response Team, NASA GSFC / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-bass-sund-bildas",
+        "title": "The Beautiful and Blue Bass Strait (MODIS 2021-12-01) – MODIS Land Rapid Response Team, NASA GSFC (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Beautiful_and_Blue_Bass_Strait_(MODIS_2021-12-01).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "batavia-1619",
       "eventTitle": "Nederländarna grundar Batavia på Jayakartas ruiner",
       "file": "images/events/batavia-1619.webp",
@@ -756,6 +771,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:A_small_temple_beneath_the_Bodhi_tree,_Bodh_Gaya,_c._1810.jpg",
         "license": "Public domain",
         "checked": "2026-10-29"
+      }
+    },
+    {
+      "eventId": "budj-bim-utbrottet",
+      "eventTitle": "Vulkanen Budj Bim får utbrott",
+      "file": "images/events/budj-bim-utbrottet.webp",
+      "kind": "historisk",
+      "credit": "Dhx1 / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-budj-bim-utbrottet",
+        "title": "Budj Bim ‐ Mt Eccles National Park, Victoria, Australia 28 – Dhx1 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Budj_Bim_%E2%80%90_Mt_Eccles_National_Park,_Victoria,_Australia_28.jpg",
+        "license": "CC0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -1084,6 +1114,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "dingon-nar-australien",
+      "eventTitle": "Dingon i Australien: de äldsta säkra fynden",
+      "file": "images/events/dingon-nar-australien.webp",
+      "kind": "historisk",
+      "credit": "Mrjohncummings / Royal Veterinary College anatomy museum / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-dingon-nar-australien",
+        "title": "Dingo (Canis lupus dingo) skeleton at the Royal Veterinary College anatomy museum – Mrjohncummings (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Dingo_(Canis_lupus_dingo)_skeleton_at_the_Royal_Veterinary_College_anatomy_museum.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
+      }
     },
     {
       "eventId": "dna-strukturen",
@@ -1952,6 +1997,21 @@
         "title": "Bronze ceremonial vessel in form of a snail shell, 9th century, Igbo-Ukwu, Nigeria – Ochiwar, nutida foto 2013 (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Bronze_ceremonial_vessel_in_form_of_a_snail_shell,_9th_century,_Igbo-Ukwu,_Nigeria.JPG",
         "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "independence-i-kulturen",
+      "eventTitle": "Independence I-kulturen i norra Grönland",
+      "file": "images/events/independence-i-kulturen.webp",
+      "kind": "historisk",
+      "credit": "NASA ICE NASA/Jeremy Harbeck / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-independence-i-kulturen",
+        "title": "Vue aérienne de l'Independance fjord – NASA ICE NASA/Jeremy Harbeck (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Vue_a%C3%A9rienne_de_l%27Independance_fjord.jpg",
+        "license": "CC BY 2.0",
         "checked": "2026-11-22"
       }
     },
@@ -3105,6 +3165,21 @@
       }
     },
     {
+      "eventId": "megafaunan-forsvinner-i-australien",
+      "eventTitle": "Australiens megafauna dör ut",
+      "file": "images/events/megafaunan-forsvinner-i-australien.webp",
+      "kind": "historisk",
+      "credit": "Gameraquai / Western Australian Museum / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-megafaunan-forsvinner-i-australien",
+        "title": "Diprotodon optatum display WA – Gameraquai (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Diprotodon_optatum_display_WA.jpg",
+        "license": "CC0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "meijirestaurationen",
       "eventTitle": "Meijirestaurationen i Japan",
       "file": "images/events/meijirestaurationen.webp",
@@ -3264,6 +3339,21 @@
       }
     },
     {
+      "eventId": "mount-gambiers-utbrott",
+      "eventTitle": "Vulkanen Mount Gambier får utbrott",
+      "file": "images/events/mount-gambiers-utbrott.webp",
+      "kind": "historisk",
+      "credit": "User:Satellizer / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-mount-gambiers-utbrott",
+        "title": "Blue Lake, Mount Gambier, November 2018 – User:Satellizer (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Blue_Lake,_Mount_Gambier,_November_2018.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "muhammeds-forsta-uppenbarelse",
       "eventTitle": "Islams början: Muhammeds första uppenbarelse",
       "file": "images/events/muhammeds-forsta-uppenbarelse.webp",
@@ -3276,6 +3366,36 @@
         "url": "https://commons.wikimedia.org/wiki/File:Jabbal_An-Nour_-_Makkah_(2241558560).jpg",
         "license": "CC BY 2.0",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "mungokvinnan-kremeras",
+      "eventTitle": "Mungokvinnan kremeras",
+      "file": "images/events/mungokvinnan-kremeras.webp",
+      "kind": "historisk",
+      "credit": "NASA Earth Observatory / Wanmei Liang, Landsat-data från USGS / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-mungokvinnan-kremeras",
+        "title": "Lake Mungo’s Geological and Archaeological Treasures (153686) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lake_Mungo%E2%80%99s_Geological_and_Archaeological_Treasures_(153686).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "murujugas-hallristningar",
+      "eventTitle": "Murujugas hällristningar",
+      "file": "images/events/murujugas-hallristningar.webp",
+      "kind": "historisk",
+      "credit": "Jussarian / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-murujugas-hallristningar",
+        "title": "Burrup Rock Art – Jussarian (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Burrup_Rock_Art.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -3606,6 +3726,21 @@
       }
     },
     {
+      "eventId": "oruanuiutbrottet",
+      "eventTitle": "Superutbrottet i Taupō",
+      "file": "images/events/oruanuiutbrottet.webp",
+      "kind": "historisk",
+      "credit": "Ave volc / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-oruanuiutbrottet",
+        "title": "Oruanui Loc1287 u3 25-33cm – Ave volc (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Oruanui_Loc1287_u3_25-33cm.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "osmanska-riket",
       "eventTitle": "Osmanska riket",
       "file": "images/events/osmanska-riket.webp",
@@ -3744,6 +3879,21 @@
       }
     },
     {
+      "eventId": "pungvargen-forsvinner-fran-fastlandet",
+      "eventTitle": "Pungvargen och pungdjävulen dör ut på fastlandet",
+      "file": "images/events/pungvargen-forsvinner-fran-fastlandet.webp",
+      "kind": "historisk",
+      "credit": "Megan Jerrard / Tasmanian Museum and Art Gallery, Hobart / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-pungvargen-forsvinner-fran-fastlandet",
+        "title": "Tasmanian Tiger (Thylacine) Skeletons – User:Megan Jerrard (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tasmanian_Tiger_(Thylacine)_Skeletons.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "qi-ger-upp-221-fkr",
       "eventTitle": "Qi ger upp och Kina enas",
       "file": "images/events/qi-ger-upp-221-fkr.webp",
@@ -3810,6 +3960,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Rosetta_Stone.JPG",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "rotoitiutbrottet",
+      "eventTitle": "Rotoitiutbrottet på Nordön",
+      "file": "images/events/rotoitiutbrottet.webp",
+      "kind": "historisk",
+      "credit": "Abaconda Management Group / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-rotoitiutbrottet",
+        "title": "Lake Rotoiti – Abaconda Management Group (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lake_Rotoiti.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -5328,6 +5493,21 @@
       }
     },
     {
+      "eventId": "torressundsoarna-befolkas",
+      "eventTitle": "Torressundsöarna befolkas",
+      "file": "images/events/torressundsoarna-befolkas.webp",
+      "kind": "historisk",
+      "credit": "Kelisi at English Wikipedia / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-torressundsoarna-befolkas",
+        "title": "TorresStraitIslandsMap – Kelisi at English Wikipedia (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:TorresStraitIslandsMap.png",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "tredje-slaget-vid-panipat",
       "eventTitle": "Tredje slaget vid Panipat",
       "file": "images/events/tredje-slaget-vid-panipat.webp",
@@ -5544,6 +5724,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Treatyofwaitangi.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "wandjinamalningarna",
+      "eventTitle": "Wandjinamålningarna i Kimberley",
+      "file": "images/events/wandjinamalningarna.webp",
+      "kind": "historisk",
+      "credit": "Robyn Jay / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-wandjinamalningarna",
+        "title": "Rock painting of Wandjina from Bachsten Camp – Robyn Jay (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Rock_painting_of_Wandjina_from_Bachsten_Camp.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-22"
       }
     },
     {

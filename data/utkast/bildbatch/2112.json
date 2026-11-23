@@ -1,0 +1,955 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "2112",
+  "datum": "2026-11-22",
+  "urval": "ids=19 licens=trolig",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "madjedbebe",
+      "titel": "Människor i Australien för 65 000 år sedan?",
+      "start": -62999,
+      "plats": "Madjedbebe i Arnhemland, norra Australien",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Swan Reach Museum was the Primary School. Swan Reach is on the Murray River South Australia. (7524881046).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Swan_Reach_Museum_was_the_Primary_School._Swan_Reach_is_on_the_Murray_River_South_Australia._(7524881046).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "denisbin from Adelaide, Australia",
+          "datum": "2011-11-24 13:47",
+          "datum_original": "2011-11-24 13:47",
+          "datum_fil": "2019-12-10 20:43:04",
+          "kredit": "Swan Reach Museum was the Primary School. Swan Reach is on the Murray River South Australia.",
+          "beskrivning": "Swan Reach Museum- was originally the local primary school. The abundant black swans that used to float on the Murray here gave their name to the district. White occupation began with the pastoralists in the 1850s and 1860s. The first two stations were Swan Reach and Portee. A third soon was settled called Punyelroo. The original Swan Reach homestead was built around 1865 by Eardly Heywood but things changed when the government established a ferry service here in 1898. Just prior to this the station was sold in 1896 to Emma and Paul Hasse from Lobethal. The old homestead was converted into the Swan Reach Hotel which was licensed from 1899 to Emma Hasse. A town was surveyed in 1899 on Paul Hasse’s land with 46 town blocks. The first town blocks were sold in 1900. As the pastoral stations were broken up for wheat farming and smalls scale sheep grazing more people in the district boosted the development of a small town. The district Hall opened in 1902 (the school met here from 1902 to 1917) and the first Council Chamber was built in 1907; around 1902 the first Post Office opened in the general store; in 1904 a general store opened below the Swan Reach Hotel. It is still there but has closed as a general store in 2012. A police station was built in 1911 and the first policeman assigned to the district; a Lutheran manse was erected in 1911 and Lutheran services were held in this house until the church was completed in 1923; a small private hospital opened in 1913; and a fine stone Congregational Church opened in 1914. The town was established. Farmers came from the German settled areas of the Eastern Ranges and English background settlers came from all over the state. The earliest graves in the cemetery appear to date from around 1905. The early days at the port of Swan Reach were busy as local wheat farmers carted their grain and wool to the town for shipment down the Murray to the rail terminal and facilities at Murray Bridge. This river trade ceased once motor trucks became more widespread in usage in the mid 1920s. In later years the town got a new state school (1917) and a Town Hall/Institute building in 1933. During times of peak flood for the Murray much of the town was flooded, especially in 1917, 1931 and 1956. Swan Reach also had from 1925 the United Aborigines’ Mission along the riverfront. The concept was to provide some housing for displaced Aboriginal children.UAM was the group that ran Colebrook Home at Eden Hills etc. This mission closed down in 1945 when donations from the Gerard family allowed for the purchase of land at Loveday in the Upper Riverland for the establishment of the Gerard Aboriginal Mission. The Gerard Mission was taken over by the State government in 1961 and it was handed over to the Gerard Aboriginal Council in 1974. Not far from Swan Reach is Kroehn’s Landing south towards Walkers Flat. This is an important Aboriginal archaeological site as it was the first archaeological dig site in Australia undertaken in 1929. Work at this site allowed archaeologist to date the Aboriginal occupation along this stretch of the Murray back to 7,000 years ago. At that time this revolutionised archaeological theory about how long Aboriginal people had been in Australia. Today we have evidence of their presence in Australia back to around 65,000 years ago. Opposite the township of Swan Reach, down on the fertile river flats, is a major historical house - Silver Lea. It was built in 1908 for a local pastoralist James Brown. Brown had had Punyelroo Station for many years but by the late 1880s his holdings were down to 5,000 acres in the Swan Reach district. Then in 1885 James Brown purchased a small 275 acre holding opposite the Swan Reach Station, later hotel. Here he set about building a mansion over four years. The ceilings were imported from France and the floor tiles from Italy. No expense was spared. When James Brown died in 1921 he was buried in the garden of his beloved Silver Lea. His son Andrew Brown took over the small property and house until he sold it in 1933. The house was completely flooded in 1956 and later most of the land was sold off for the Swan Reach golf course. A later owner John George restored the house in 1989 and it is still in excellent condition as a memorial to a prominent founder of the district. Browns Well at Paruna was named after James Brown who had extensive pastoral properties across the Mallee not just near Swan Reach.",
+          "bredd": 1000,
+          "hojd": 667,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Swan_Reach_Museum_was_the_Primary_School._Swan_Reach_is_on_the_Murray_River_South_Australia._%287524881046%29.jpg/960px-Swan_Reach_Museum_was_the_Primary_School._Swan_Reach_is_on_the_Murray_River_South_Australia._%287524881046%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Former schools in South Australia",
+            "Museums in South Australia",
+            "November 2011 in South Australia",
+            "Swan Reach, South Australia"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ]
+        },
+        {
+          "fil": "File:Migraciones humanas en haplogrupos de ADN-Y.PNG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Migraciones_humanas_en_haplogrupos_de_ADN-Y.PNG",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Maulucioni",
+          "datum": "2010-11-18",
+          "datum_original": "2010-11-18",
+          "datum_fil": "2023-11-15 10:28:27",
+          "kredit": "Own work",
+          "beskrivning": "World map of early migrations of modern humans based on the Y-chromosome DNA.",
+          "bredd": 1433,
+          "hojd": 736,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Migraciones_humanas_en_haplogrupos_de_ADN-Y.PNG/960px-Migraciones_humanas_en_haplogrupos_de_ADN-Y.PNG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Human Y-DNA haplogroups",
+            "Out of Africa maps",
+            "Sahul",
+            "Sundaland",
+            "Y-chromosomal Adam"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "ur-sokning"
+          ]
+        },
+        {
+          "fil": "File:Carte Ethnographique de la Macédoine Grecque Representant la Repartition Ethnique au mois d’août 1915. (IA dr carte-ethnographique-de-la-macdoine-grecque-representant-la-repartition-et-10628000).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Carte_Ethnographique_de_la_Mac%C3%A9doine_Grecque_Representant_la_Repartition_Ethnique_au_mois_d%E2%80%99ao%C3%BBt_1915._(IA_dr_carte-ethnographique-de-la-macdoine-grecque-representant-la-repartition-et-10628000).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Anonymous Unknown author",
+          "datum": "2026-09-30 12:38:26",
+          "datum_original": null,
+          "datum_fil": "2026-09-30 12:38:26",
+          "kredit": "Internet Archive identifier: dr_carte-ethnographique-de-la-macdoine-grecque-representant-la-repartition-et-10628000 https://archive.org/download/dr_carte-ethnographique-de-la-macdoine-grecque-representant-la-repartition-et-10628000/10628000.jpg",
+          "beskrivning": "Zoomable full resolution image available at davidrumsey.com . This image 10628.000 is a part of image group 10628.000 . \"An exceptionally rare, colossal map of Greek Macedonia detailing the ethnic composition of every city, town and village in one of Europe’s most demographically diverse and politically turbulent regions, made during World War I shortly after Greece conquered the region from the Ottoman Empire, and in advance of the Greco-Turk ‘Population Exchange’ that dramatically altered the local society; sponsored by Greek nationalists as a form of ‘intellectual propaganda’ to solidify their claim to the entire region, published in Athens in stellar colours. This colossal map depicts Greek Macedonia during the height of World War I, shortly after the region was conquered by Greece after over 500 years of Ottoman rule, but while its ultimate fate still hung in the balance. The largest and most sophisticated of the many ethnographic maps of Macedonia made during its era, it was published in Athens in bright colours. It was commissioned by Greek nationalists as a form of ‘intellectual propaganda’ to show that while the region was demographically diverse, ethnic Greeks were easily the dominant community there, and so the region should rightfully remain part of Greece. The map is extremely rare. An expensive work, it would have been made in only a very small print run, and its immense size would have led to a very low survival rate. We can definitively trace only a single institutional example, held by the Manolis Triantafyllidis Collection at the Aristotle University of Thessaloniki, although we are aware of another example (in very poor condition) in a private Istanbul collection, while there seems to be a further example held by an unspecified Turkish institution. Moreover, the present offering is the only example we are aware as having appeared on the market, at least in the last generation. Historical Background: The Collapse of Ottoman Power in the Balkans and the Creation of Greek Macedonia Macedonia is a traditional region in the south Balkans that encompassed all the modern nation of North Macedonia, as well as parts of Greece, Albania, Serbia, Montenegro and Bulgaria. In ancient times, it was famously the homeland of Alexander the Great. In the 14th Century, the Ottomans conquered the region, where it became an important part of their empire. Macedonia was one of the most ethnically diverse regions in Europe, home to large communities of Greeks, Bulgarians, Macedonians (a Slavic people), Albanians, Romanians, Jews, Turks, Circassians and Roma; and to make matters even more complicated, there were even sectarian and language divisions within these communities. The diversity produced a climate of phenomenal cultural richness, but also tremendous political instability, as many of the ethno-religious groups harboured dreams of self-determination, as well as resentments towards each other. The main city of Macedonia was the great port of Salonica (today Thessaloniki, Greece), and for centuries one of the great centres of culture and commerce in the Ottoman Empire. Far from being an outpost, it often even led Istanbul in terms of social and political trends. The city was home to one of Europe’s most vibrant Jewish communities (Jews were long largest single ethnic group in the city), while also being the hometown of many prominent Greek and Turkish figures, notably Mustafa Kemal ‘Atatürk’ (1881 - 1938), the future founding President of Republic of Turkey. Salonica, and indeed much of the region, enjoyed a great economic boom, in part due to the completion of the railway linking the city to Belgrade and the rest of Europe, in 1888, and the railway connecting Salonica to Istanbul in 1896. However, during the same period, the Sublime Porte was beset by severe economic and political problems and its hold over its Balkan territories began to wane. In Macedonia certain ethnic communities, notably the Greeks, Bulgarians/Macedonians, and Albanians sought their autonomy, if not their outright secession from the Ottoman Empire, while inter-communal violence flared. External powers, including Greece, Serbia, Bulgaria, Russia, Austrian-Hungary, Britain and France continually interfered in the region’s affairs, often exacerbating the situation. Towards the turn of the century, the anti-Ottoman revolutionary activities became more organized, resulting in the formation of the Internal Macedonian Revolutionary Organization (IMRO), a Bulgarian-dominated Slavic insurgent group (founded in 1893); the Greek nationalists eventually formed themselves into the Greek Macedonian Committee (founded in 1903); while in 1896 the Albanians formed the League of Peja to advance their aspirations. The intercommunal violence and revolutionary upheaval become so widespread that the Ottomans held on to Macedonia only by the skin of their teeth. The great European powers become alarmed, fearing that that the violence could spin out of control, sparking a greater conflict throughout southwestern Europe, or even causing a crisis that could bring down the Sublime Porte altogether. In 1903, under severe external pressure, Sultan Abdul Hamid II reluctantly agreed to form a Gendarmerie to police Macedonia, with its senior officers recruited from the armies of the leading foreign powers (many were French) while the common officers and lower ranks were to be drawn from the local ethnic communities. The Macedonian Gendarmes had some moderate success in suppressing the unrest but seemed only to delay the inevitable reckoning. In 1908-9, a group of Ottoman army officers based in Macedonia, in two revolutions, overthrew the regime of Sultan Abdul Hamid II. Formally called the Committee of Union and Progress (CUP), but better known as the ‘Young Turks’, they started out supporting progressive ideals, and promised to restore democratic representation to Macedonia’s ethnic communities. For a brief moment they knocked the wind out of the sails of the local revolutionary movements, while reinvigorating Ottoman authority. However, the Young Turks soon reneged on their commitments and degenerated into following a dangerous mix of Turkish nationalism and militarism that alienated the majority of Macedonia’s communities, while hurtling the Ottoman Empire towards its destruction. During the First Balkan War (October 1912 – May 1913), the people of Albania rebelled, while a coalition of Greece, Serbia, Montenegro and Bulgaria went to war against the Ottomans. The Ottoman Army utterly collapsed, and the Allied forces overran all of Macedonia and Thrace, dividing the territory between them. Meanwhile, Albania became and independent country, on November 28, 1912. Importantly, Greece acquired the southern part of Macedonia, accounting for 51% of its territory and all of its coastline, creating ‘Greek Macedonia’, as showcased upon the present map. The remaining parts of Macedonia were divided between Albania, Serbia, Montenegro and Bulgaria. While precisely accurate information is impossible to obtain, as ethnic bias and wartime conditions affected the quality of census data, it is estimated that in 1912 Greek Macedonia had a population of approximately 1.05 million, with 44% of its residents classified as ethnic Greeks; 39% as ‘Muslims’ (variously Turks or Albanians); 9% as Bulgarians; and 9% as others (including Jews, Vlachs (ethnic Romanians), Roma, etc.). However, these statistics likely overestimated the Greek population (at the expense of the Slavic communities), as the Greek statisticians had a habit of counting Slavs who were politically allied to the Greek community as Greeks. However, in the immediate wake of the Greek takeover of its part of Macedonia, the region started to undergo transformative demographic and sociopolitical change; events moved quickly. Tens of thousands of ethnic Turks and smaller numbers of Slavic peoples left Greek Macedonia, preferring to live in countries where they were the majority, as opposed to remaining under the Greek banner. In November 1914 the Ottoman Empire entered World War I on the German side, joining an alliance that included its recent nemesis Bulgaria, while Serbia joined the Entente side. Greece was caught in a difficult predicament. The country’s pro-German King Constantine I wanted Greece to remain neutral (while quietly hoping for a Central Powers victory), while its prime minister Eleftherios Venizelos wanted to openly side with the Entente (to hopefully gain further territories from the Ottomans and Bulgaria). In 1915, the year that the present ap was issued, Britain and France, with Venizelos’s blessing, landed an expeditionary force at Thessaloniki, opening up the ‘Macedonian’ or ‘Salonica Front’. In 1916, Greece fractured in pro-Constantine and Venizelist forces, with the latter taking control of most of Northern Greece, including all of Greek Macedonia, and forming the ‘Provisional Government of National Defense’. This state of affairs remained until Venizelos and the Entente compelled Constantine I to abdicate in 1917, whereupon Greece was reunited, and formally allied to Britain and France. Later in the war, the Macedonian front proved pivotal, as the Entente forces caused the collapse of the Bulgarian army, leaving Istanbul dangerously exposed. However, the war ended before a strike upon the Ottoman capital was endeavored. In the wake of World War I, the Ottoman Empire was dismembered and the Entente side gave Greece a large chunk of Western Anatolia, including the great city of Smyrna (Izmir). However, during the Greco-Turkish War (1919-22), the Salonica-native, Mustafa Kemal (later ‘Atatürk’), pulled off the impossible and managed to reassemble the battered Turkish remnants of the Ottoman Empire into a disciplined fighting force, driving the Greeks and the Entente forces out of Anatolia altogether, and leading to the formation of the Republic of Turkey. In the wake of the Greco-Turkish conflict, neither country was content with having hundreds of thousands of people of the other’s nationality on their territories, and so agreed upon the Greco-Turkish Population Exchange (1923). This cruel accord forced 380,000 ethnic Turks to leave Greek Macedonia for Turkey, while 538,000 Greeks were forced to leave Anatolia for Greek Macedonia. Thus, Thessaloniki, which for over 500 hundred years was a great centre of Turkish culture, came to have barely any Turkish presence whatsoever. Moreover, many Slavic peoples who would not agree to assimilate into the Greek linguistic-cultural milieu were ‘encouraged’ to leave for Bulgaria or Yugoslavia, while many Greeks from those countries moved to Greek Macedonia. By 1928, it is estimated that at least 80% of Greek Macedonia’s population was ethnic Greek. The Present Map in Focus From the 1890s to the 1920s numerous ethnographic maps of Macedonia, or parts thereof, were published in places such as Athens, Istanbul, Sofia, Paris and London. These maps were sometimes sponsored as works of ‘intellectual propaganda’ by one of the region’s ethnic/national entities, or by external powers that wished to involve themselves in some way. However, the present map is by far and away the largest and most detailed and sophisticated of such works. The map captures Greek Macedonia at a critical historical juncture, in August 1915, less than three years after Greece conquered the region, and while the Entente Powers were in the process of making it a major World War I operational theatre. While some of the region’s former Turkish and Slavic residents had already emigrated, the traditional demographic make-up of the country was still largely intact. The map takes in all of Greek Macedonia, from Lake Peipus, near Albania, in the west, over past Thessaloniki on the Aegean coast, and then over to the boundaries of Thrace, in the east; Bulgaria appears to the northeast, while Serbia is located to the north and northwest. The map is titled in French, while the toponomy of the map is in Greek but transliterated using Latin characters, all done to make the map understandable to an international audience. The coastlines, rivers, lakes (‘limni’) and mountains (‘oros’) are all named, while all railways and major roads are delineated. Of note, the region is home to Mount Olympus (the sacred mountain of Classical times) and Mount Athos, the monastic complex that is a great holy site of the Greek Orthodox faith. Every single city, town and village is labelled and, corresponding to this, the ‘Legende’, in the upper left, explains the demographic information that that accompanies the marking of each settlement. The colour coding of the ethnic communities shows the ‘Grecs’ (Greeks) represented by a blue colour; ‘Slavophones’ (Slavic peoples on friendly terms with the Greeks whom the Greeks hoped to assimilate), shown by alternating Green and blue stripes; ‘Bulgares’ (meaning Bulgarians and Macedonians) are represented in green; ‘Mohométans’ (Muslims, who in the central and eastern areas are Turks, while the in the west they are mainly Albanians) being orange; while Jews (living mainly in the cities) are represented by Stars of David. Each settlement is visually shown with the proportions of residents of each ethnic community, with boxes, triangles and squares of various sizes proportional to each, as explained in the legend (a mere line represents 25 people, while a box 80mm square represents 1,000 people). The map reveals the demographic distribution to be quite mixed throughout, although certain concentrations are evident. Ethnic Greeks are dominant overall and are especially prevalent in the coastal areas and in the west and central parts of the region. However, there are very large concentrations of Albanians in the west; many majority Slavic towns in the upper interior; while the northwestern region, beyond Kavalla, is overwhelmingly ethnic Turkish. The map also spills over to show the demographic makeup across the border in Serbia (today Northern Macedonia), with Monastir (today Bitola) being a majority ethic Greek. Importantly, Greek Macedonia’s large and ancient Jewish population is shown to be concentrated in the cities (Kastoria, Kavalla, Serres), while Thessaloniki had an estimated 65,000 Jewish residents (versus 85,000 Greeks, 25,500 Turks and 8,300 peoples of other backgrounds). While the map is based on generally reliable data gathered by civil authorities, it had a powerful rhetorical purpose. Its objective is to visually demonstrate, in grand size and bright colours, that while Greek Macedonia was indeed ethnically diverse, it was clearly a majority Greek land that should remain under the control of Greece. Indeed, with the outcome of World War I uncertain, and Greece’s role in the conflict not entirely clear, there was a legitimate fear on the part of Greek leaders that powers representing certain ethnic minorities (being Albania, Serbia, Bulgaria or the Ottomans) could come and claim parts of Greek Macedonia on the grounds of uniting their ethnic homelands. This map pushes back hard against any such notions. Epilogue In the generation following the 1920s, the demographic makeup of Greek Macedonia became less diverse, for tragic reasons. The brutal Nazi occupation of Greece (1941-4) led to the almost complete destruction of the region’s Jewish community; most the Jews were murdered while others sought refuge in far way lands (America, Australia, etc.) never to return. The loss of the community of Thessaloniki not only destroyed of the Europe’s great centres of Judaism but also eliminated a major part of the city’s core identity. During and in the wake the Greek Civil War (1944-9), which pitted royalists against Communists, thousands of Slavic Macedonians were forced to leave the region under the mistaken notion that all Slavic people were sympathetic to the loosing Communist side. While Thessaloniki, and the region, has since regained its cultural verve, the climate is of course quite different than it was before the great developments of the last century. \" (Alexander Johnson, 2020) Manolis Triantafyllidis Collection, Aristotle University of Thessaloniki: A.17.16.; Jacques ANCEL, La Macédoine: son évolution contemporaine (Paris, 1930), p. 352; Sefer GÜVENC, Atlas of Old and New Toponyms of Northern Greece: Before and After the Population Exchange / Mbadele Öncesi ve Sonrası Eski ve Yeni Adları ile Kuzey Yunanistan Yer Adlari Atlası (Istanbul , 2010); Elie MURARD and Seyhun Orcan SAKALLI, ‘Mass Refugee Inflow and Long-Run Prosperity: Lessons from the Greek Population Resettlement’, IZA Discussion Papers, No. 11613 (Bonn: Institute of Labor Economics (IZA), 2018), p. 15; Henry Robert WILKINSON, Maps and Politics: A Review of the Ethnographic Cartography of Macedonia (Liverpool, 1951), p. 340. Subjects: Pictorial map; Ethnography; Nationality; Race; Data Visualization; Ottoman Mapping",
+          "bredd": 44342,
+          "hojd": 21574,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Carte_Ethnographique_de_la_Mac%C3%A9doine_Grecque_Representant_la_Repartition_Ethnique_au_mois_d%E2%80%99ao%C3%BBt_1915._%28IA_dr_carte-ethnographique-de-la-macdoine-grecque-representant-la-repartition-et-10628000%29.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "David Rumsey Historical Map Collection"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "datum-osakert",
+            "ur-sokning"
+          ]
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "rotoitiutbrottet",
+      "titel": "Rotoitiutbrottet på Nordön",
+      "start": -62049,
+      "plats": "Rotoitisjön i Ōkatainakalderan, Bay of Plenty, Nya Zeeland",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Paeroa-Ngapouri-Rotomahana Faults.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Paeroa-Ngapouri-Rotomahana_Faults.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "ChaseKiwi",
+          "datum": "2022-08-14",
+          "datum_original": "2022-08-14",
+          "datum_fil": "2023-03-27 16:23:47",
+          "kredit": "Own work with background from File:Satellite image of New Zealand in December 2002.jpg",
+          "beskrivning": "Geological Relationships of the presently active Okataina Volcanic Center in the Taupo Volcanic Zone, New Zealand. The Paeroa Fault and its splay Ngapouri-Rotomahana Fault to its south are shown. Identified are the approximate outlines of the Rotorua, Okataina Volcanic Center (Ōkataina Caldera which contains with in it the Rotoiti Caldera, the now believed non existent Haroharo Caldera, the Matahina Caldera, the Utu Caldera, and the postulated Kawerau Caldera), Kapenga Caldera, Reporoa Caldera and the recently characterised Omanawa Caldera. The volcanic features of the Okareka Embayment, Rotoma Embayment (Caldera) and Puhipuhi Embayment (Basin) within the Okataina Volcanic Center are identified. Lake Taupo is identified for orientation.",
+          "bredd": 762,
+          "hojd": 957,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/da/Paeroa-Ngapouri-Rotomahana_Faults.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Calderas in New Zealand",
+            "Calderas of the Taupo Volcanic Zone",
+            "Faults in New Zealand",
+            "Geological maps of New Zealand",
+            "Maps of the Taupo Volcanic Zone",
+            "Okataina Volcanic Centre",
+            "Photos of New Zealand by the Terra (satellite) MODIS",
+            "Puhipuhi-Whangarei Volcanic Field",
+            "Reporoa Caldera",
+            "Rotorua Caldera",
+            "Volcanism of the Taupo Volcanic Zone",
+            "Volcanoes in New Zealand (annotated)",
+            "Volcanological maps of New Zealand",
+            "Ōkataina Caldera"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "smal",
+            "staende",
+            "ur-sokning"
+          ]
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "megafaunan-forsvinner-i-australien",
+      "titel": "Australiens megafauna dör ut",
+      "start": -43999,
+      "plats": "Australien; punkten är Cuddie Springs i New South Wales",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:VIDEO - A Komodo dragon walking towards us (17120276475).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:VIDEO_-_A_Komodo_dragon_walking_towards_us_(17120276475).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Jorge Láscar from Melbourne, Australia",
+          "datum": "2013-11-01 00:00",
+          "datum_original": "2013-11-01 00:00",
+          "datum_fil": "2018-02-08 10:59:18",
+          "kredit": "VIDEO - A Komodo dragon walking towards us",
+          "beskrivning": "The Komodo dragon (Varanus komodoensis), also known as the Komodo monitor, is a large species of lizard found in the Indonesian islands of Komodo, Rinca, Flores, Gili Motang, and Padar. A member of the monitor lizard family Varanidae, it is the largest living species of lizard, growing to a maximum length of 3 metres (10 ft) in rare cases and weighing up to approximately 70 kilograms (150 lb). Their unusually large size has been attributed to island gigantism, since no other carnivorous animals fill the niche on the islands where they live. However, recent research suggests the large size of Komodo dragons may be better understood as representative of a relict population of very large varanid lizards that once lived across Indonesia and Australia, most of which, along with other megafauna, died out after the Pleistocene. Fossils very similar to V. komodoensis have been found in Australia dating to greater than 3.8 million years ago, and its body size remained stable on Flores, one of the handful of Indonesian islands where it is currently found, over the last 900,000 years, \"a time marked by major faunal turnovers, extinction of the island's megafauna, and the arrival of early hominids by 880 ka [kiloannums].\" As a result of their size, these lizards dominate the ecosystems in which they live. Komodo dragons hunt and ambush prey including invertebrates, birds, and mammals. It has been claimed that they have a venomous bite; there are two glands in the lower jaw which secrete several toxic proteins. The biological significance of these proteins is disputed, but the glands have been shown to secrete an anticoagulant. Komodo dragon group behaviour in hunting is exceptional in the reptile world. The diet of big Komodo dragons mainly consists of deer, though they also eat considerable amounts of carrion. Komodo dragons also occasionally attack humans in the area of West Manggarai Regency where they live in Indonesia. Mating begins between May and August, and the eggs are laid in September. About 20 eggs are deposited in abandoned megapode nests or in a self-dug nesting hole. The eggs are incubated for seven to eight months, hatching in April, when insects are most plentiful. Young Komodo dragons are vulnerable and therefore dwell in trees, safe from predators and cannibalistic adults. They take 8 to 9 years to mature, and are estimated to live up to 30 years. Komodo dragons were first recorded by Western scientists in 1910. Their large size and fearsome reputation make them popular zoo exhibits. In the wild, their range has contracted due to human activities, and they are listed as vulnerable by the IUCN. They are protected under Indonesian law, and a national park, Komodo National Park, was founded to aid protection efforts [Wikipedia.org]",
+          "bredd": 1280,
+          "hojd": 720,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/VIDEO_-_A_Komodo_dragon_walking_towards_us_%2817120276475%29.jpg/960px-VIDEO_-_A_Komodo_dragon_walking_towards_us_%2817120276475%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Varanus komodoensis in the Komodo National Park"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ]
+        },
+        {
+          "fil": "File:Wild Komodo dragons chaising each other - Komodo island (17119362551).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wild_Komodo_dragons_chaising_each_other_-_Komodo_island_(17119362551).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Jorge Láscar from Melbourne, Australia",
+          "datum": "Taken on 4 November 2013, 02:56",
+          "datum_original": "Taken on 4 November 2013, 02:56",
+          "datum_fil": "2018-02-08 10:58:13",
+          "kredit": "Wild Komodo dragons chaising each other - Komodo island",
+          "beskrivning": "The Komodo dragon (Varanus komodoensis), also known as the Komodo monitor, is a large species of lizard found in the Indonesian islands of Komodo, Rinca, Flores, Gili Motang, and Padar. A member of the monitor lizard family Varanidae, it is the largest living species of lizard, growing to a maximum length of 3 metres (10 ft) in rare cases and weighing up to approximately 70 kilograms (150 lb). Their unusually large size has been attributed to island gigantism, since no other carnivorous animals fill the niche on the islands where they live. However, recent research suggests the large size of Komodo dragons may be better understood as representative of a relict population of very large varanid lizards that once lived across Indonesia and Australia, most of which, along with other megafauna, died out after the Pleistocene. Fossils very similar to V. komodoensis have been found in Australia dating to greater than 3.8 million years ago, and its body size remained stable on Flores, one of the handful of Indonesian islands where it is currently found, over the last 900,000 years, \"a time marked by major faunal turnovers, extinction of the island's megafauna, and the arrival of early hominids by 880 ka [kiloannums].\" As a result of their size, these lizards dominate the ecosystems in which they live. Komodo dragons hunt and ambush prey including invertebrates, birds, and mammals. It has been claimed that they have a venomous bite; there are two glands in the lower jaw which secrete several toxic proteins. The biological significance of these proteins is disputed, but the glands have been shown to secrete an anticoagulant. Komodo dragon group behaviour in hunting is exceptional in the reptile world. The diet of big Komodo dragons mainly consists of deer, though they also eat considerable amounts of carrion. Komodo dragons also occasionally attack humans in the area of West Manggarai Regency where they live in Indonesia. Mating begins between May and August, and the eggs are laid in September. About 20 eggs are deposited in abandoned megapode nests or in a self-dug nesting hole. The eggs are incubated for seven to eight months, hatching in April, when insects are most plentiful. Young Komodo dragons are vulnerable and therefore dwell in trees, safe from predators and cannibalistic adults. They take 8 to 9 years to mature, and are estimated to live up to 30 years. Komodo dragons were first recorded by Western scientists in 1910. Their large size and fearsome reputation make them popular zoo exhibits. In the wild, their range has contracted due to human activities, and they are listed as vulnerable by the IUCN. They are protected under Indonesian law, and a national park, Komodo National Park, was founded to aid protection efforts [Wikipedia.org]",
+          "bredd": 4288,
+          "hojd": 2848,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Wild_Komodo_dragons_chaising_each_other_-_Komodo_island_%2817119362551%29.jpg/960px-Wild_Komodo_dragons_chaising_each_other_-_Komodo_island_%2817119362551%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Varanus komodoensis in the Komodo National Park"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ]
+        },
+        {
+          "fil": "File:Wild Komodo dragon - Komodo island (16912634577).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wild_Komodo_dragon_-_Komodo_island_(16912634577).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Jorge Láscar from Melbourne, Australia",
+          "datum": "Taken on 4 November 2013, 02:58",
+          "datum_original": "Taken on 4 November 2013, 02:58",
+          "datum_fil": "2018-02-08 10:58:20",
+          "kredit": "Wild Komodo dragon - Komodo island",
+          "beskrivning": "The Komodo dragon (Varanus komodoensis), also known as the Komodo monitor, is a large species of lizard found in the Indonesian islands of Komodo, Rinca, Flores, Gili Motang, and Padar. A member of the monitor lizard family Varanidae, it is the largest living species of lizard, growing to a maximum length of 3 metres (10 ft) in rare cases and weighing up to approximately 70 kilograms (150 lb). Their unusually large size has been attributed to island gigantism, since no other carnivorous animals fill the niche on the islands where they live. However, recent research suggests the large size of Komodo dragons may be better understood as representative of a relict population of very large varanid lizards that once lived across Indonesia and Australia, most of which, along with other megafauna, died out after the Pleistocene. Fossils very similar to V. komodoensis have been found in Australia dating to greater than 3.8 million years ago, and its body size remained stable on Flores, one of the handful of Indonesian islands where it is currently found, over the last 900,000 years, \"a time marked by major faunal turnovers, extinction of the island's megafauna, and the arrival of early hominids by 880 ka [kiloannums].\" As a result of their size, these lizards dominate the ecosystems in which they live. Komodo dragons hunt and ambush prey including invertebrates, birds, and mammals. It has been claimed that they have a venomous bite; there are two glands in the lower jaw which secrete several toxic proteins. The biological significance of these proteins is disputed, but the glands have been shown to secrete an anticoagulant. Komodo dragon group behaviour in hunting is exceptional in the reptile world. The diet of big Komodo dragons mainly consists of deer, though they also eat considerable amounts of carrion. Komodo dragons also occasionally attack humans in the area of West Manggarai Regency where they live in Indonesia. Mating begins between May and August, and the eggs are laid in September. About 20 eggs are deposited in abandoned megapode nests or in a self-dug nesting hole. The eggs are incubated for seven to eight months, hatching in April, when insects are most plentiful. Young Komodo dragons are vulnerable and therefore dwell in trees, safe from predators and cannibalistic adults. They take 8 to 9 years to mature, and are estimated to live up to 30 years. Komodo dragons were first recorded by Western scientists in 1910. Their large size and fearsome reputation make them popular zoo exhibits. In the wild, their range has contracted due to human activities, and they are listed as vulnerable by the IUCN. They are protected under Indonesian law, and a national park, Komodo National Park, was founded to aid protection efforts [Wikipedia.org]",
+          "bredd": 4288,
+          "hojd": 2848,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Wild_Komodo_dragon_-_Komodo_island_%2816912634577%29.jpg/960px-Wild_Komodo_dragon_-_Komodo_island_%2816912634577%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Varanus komodoensis in the Komodo National Park"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ]
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "mungokvinnan-kremeras",
+      "titel": "Mungokvinnan kremeras",
+      "start": -37999,
+      "plats": "Lake Mungo i New South Wales, Australien",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Lake Mungo’s Geological and Archaeological Treasures (153686).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lake_Mungo%E2%80%99s_Geological_and_Archaeological_Treasures_(153686).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA Earth Observatory image by Wanmei Liang, using Landsat data from the U.S. Geological Survey. Story by Lindsey Doermann.",
+          "datum": "Taken on 21 October 2024",
+          "datum_original": "Taken on 21 October 2024",
+          "datum_fil": "2025-10-26 15:36:28",
+          "kredit": "This image or video was catalogued by Goddard Space Flight Center of the United States National Aeronautics and Space Administration (NASA) under Photo ID: 153686 .",
+          "beskrivning": "The southwest corner of New South Wales, Australia, is a remote, semi-arid desert dotted with sheep pastures, dryland farms, and ample space for kangaroos to graze. But starting around 2 million years ago and through most of the Pleistocene, it hosted a system of large lakes, around which Australia’s First Peoples lived for millennia. Archaeological evidence indicates that humans arrived in what is now known as the Willandra Lakes Region approximately 50,000 years ago. They would have had access to freshwater mussels, crustaceans, and fish, as well as emus and marsupials. As the climate changed and the ice age drew to a close, the lakes shriveled, became more saline, and ultimately dried up around 18,500 years ago. This image, acquired on October 21, 2024, by the OLI-2 (Operational Land Imager-2) on Landsat 9, shows the remnant of one of these Pleistocene waterbodies, Lake Mungo. The dry lakebed is distinct for the large lunette dune fringing its eastern shoreline. These types of crescent-shaped mounds form on the downwind side of enclosed desert depressions. The Lake Mungo lunette, built up by the wind over the past 50,000 years, measures approximately 30 kilometers (18 miles) long—large enough to be easily visible from space. The dune has preserved an array of archaeological and geological treasures. Researchers have noted that all layers of the dune contain archaeological remains, indicating that humans occupied the area through various environmental conditions. In addition, a menagerie of megafaunal remains includes those of the giant marsupial and wombat-relative Zygomaturus trilobus, the large flightless bird Genyornis newtoni, the Tasmanian tiger, and giant kangaroos. Famously, the remains of “Mungo Lady,” uncovered in the lunette dune in 1968, have been dated at 40,000–42,000 years old. They represent the oldest human remains found in Australia and are among the earliest anatomically modern human remains discovered anywhere in the world. The similarly aged bones of “Mungo Man” were found a few years later. The two skeletons provide some of the earliest evidence of cremation and ritual burial. Scientists have also turned up clues about our planet’s past at the site. In the 1970s, researchers found evidence for a “geomagnetic excursion” baked into 30,000-year-old hearths preserved there. Excursions are significant changes to the intensity of Earth’s magnetic field and the orientation of its magnetic poles. Whereas complete magnetic pole reversals occur about every 300,000 years on average, excursions may happen 10 times as often and on a regional scale. Today, the effects of various land management practices are visible as sharp contrasts in color on the semi-arid landscape. “The lines you can see in the images are fence-line boundaries between Mungo National Park and neighboring pastoral properties that mostly graze sheep,” said Mike Letnic, an applied ecologist and conservation biologist at the University of New South Wales. Wild herbivores such as kangaroos and rabbits, along with domestic animals, graze in the brighter area containing the western portion of Lake Mungo’s lakebed, which is outside of the national park. Within park boundaries, grazing is limited to wild animals. But according to Letnic, grazing pressure on the land is still high because these herbivores have no predators regulating their populations. NASA Earth Observatory image by Wanmei Liang, using Landsat data from the U.S. Geological Survey. Story by Lindsey Doermann.",
+          "bredd": 1350,
+          "hojd": 900,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Lake_Mungo%E2%80%99s_Geological_and_Archaeological_Treasures_%28153686%29.jpg/960px-Lake_Mungo%E2%80%99s_Geological_and_Archaeological_Treasures_%28153686%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Lake Mungo",
+            "Landsat images of Australia",
+            "NASA Earth Observatory in 2024",
+            "Satellite pictures by Landsat 9",
+            "Satellite pictures of lakes of Australia"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ]
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "gabarnmung",
+      "titel": "Australiens äldsta daterade klippmålning",
+      "start": -25999,
+      "plats": "Gabarnmung i sydvästra Arnhemland, Australien",
+      "wikidata": "Q5515272",
+      "kandidater": [
+        {
+          "fil": "File:Gabarnmang Cave - 1.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Gabarnmang_Cave_-_1.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Jean-Jacques Delannoy",
+          "datum": "2018-09-27 13:56:29",
+          "datum_original": "2018-09-27 13:56:29",
+          "datum_fil": "2018-09-27 11:14:43",
+          "kredit": "http://press-files.anu.edu.au/downloads/press/n3991/html/ch11.xhtml?referer=3991&page=17",
+          "beskrivning": "Gabarnmang Cave",
+          "bredd": 790,
+          "hojd": 559,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/99/Gabarnmang_Cave_-_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Archaeology in Australia",
+            "Rock paintings in Australia",
+            "September 2018 in the Northern Territory"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ]
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "oruanuiutbrottet",
+      "titel": "Superutbrottet i Taupō",
+      "start": -23724,
+      "plats": "Vulkanen Taupō på Nordön, Nya Zeeland",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Taupo 2.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Taupo_2.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Anynobody",
+          "datum": "2008-03-25 23:19",
+          "datum_original": "2008-03-25 23:19",
+          "datum_fil": "2008-03-27 09:15:16",
+          "kredit": "self-made from NASA photo",
+          "beskrivning": "Oruanui eruption of Lake Taupo The eruption occurred over a period spanning months/years, the image here depicts a new eruption column during the early phase of the overall event.",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Taupo_2.png/960px-Taupo_2.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Eruption columns in New Zealand",
+            "Lake Taupō",
+            "Oruanui eruption",
+            "Volcanoes in art",
+            "Volcanology of New Zealand"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ]
+        },
+        {
+          "fil": "File:Oruanui Loc1287 u3 25-33cm.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Oruanui_Loc1287_u3_25-33cm.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Ave volc",
+          "datum": "2012-01-16",
+          "datum_original": "2012-01-16",
+          "datum_fil": "2016-12-07 23:58:20",
+          "kredit": "Own work",
+          "beskrivning": "Ash aggregates in ignimbrite from the Oruanui eruption of Taupo volcano, New Zealand",
+          "bredd": 3872,
+          "hojd": 2592,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Oruanui_Loc1287_u3_25-33cm.jpg/960px-Oruanui_Loc1287_u3_25-33cm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Eruption products of the Taupo Volcanic Zone",
+            "Explosive volcanism",
+            "Ignimbrites in New Zealand",
+            "Lapilli in New Zealand",
+            "Oruanui eruption",
+            "Pleistocene eruption products in New Zealand",
+            "Pyroclastic rocks in New Zealand",
+            "Taupo Volcanic Zone",
+            "Tephra in New Zealand",
+            "Volcanic ash in New Zealand"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ]
+        },
+        {
+          "fil": "File:Lake taupo landsat volcanic features vents.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lake_taupo_landsat_volcanic_features_vents.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "ChaseKiwi",
+          "datum": "2023-11-28",
+          "datum_original": "2023-11-28",
+          "datum_fil": "2023-11-28 20:50:59",
+          "kredit": "Own work with background from File:Satellite image of New Zealand in December 2002.jpg",
+          "beskrivning": "Composite picture of approximate location recent volcanic vents, geothermal fields and calderas Taupō and Maroa volcanoes from https://en.wikipedia.org/wiki/Taup%C5%8D_Volcano#/media/File:Lake_taupo_landsat.jpg and my own work based on Taupō: an overview of New Zealand’s youngest supervolcano by Barker et al NZ J of Geology & Geophysics 2020, Volcanic Unrest at Taupō Volcano in 2019: Causes, Mechanisms and Implications in Geochemistry Geophysics Geosystems June 2021 by Illsley-Kemp F. et al., volcanic vents updated as per Tapscott 2023",
+          "bredd": 1102,
+          "hojd": 948,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Lake_taupo_landsat_volcanic_features_vents.jpg/960px-Lake_taupo_landsat_volcanic_features_vents.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Eruptive vents in New Zealand",
+            "Eruptive vents within the Taupo Volcanic Zoone",
+            "Geothermal areas in New Zealand",
+            "Geothermal features in New Zealand",
+            "Lake Taupō",
+            "Maps of the Taupo Volcanic Zone",
+            "Oruanui eruption",
+            "Photos of New Zealand by the Terra (satellite) MODIS",
+            "Taupo Volcanic Zone",
+            "Volcanism of the Taupo Volcanic Zone",
+            "Volcanoes in New Zealand",
+            "Volcanological maps of New Zealand",
+            "Wairakei geothermal area"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "ur-sokning"
+          ]
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "bass-sund-bildas",
+      "titel": "Tasmanien blir en ö",
+      "start": -11999,
+      "plats": "Bass sund mellan Victoria och Tasmanien, Australien",
+      "wikidata": "Q171846",
+      "kandidater": [
+        {
+          "fil": "File:Bass Strait islands.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bass_Strait_islands.png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "en:Benutzer:Chuq",
+          "datum": "2006-04-15",
+          "datum_original": "2006-04-15",
+          "datum_fil": "2007-09-02 08:54:07",
+          "kredit": "Background imagery derived from NASA World Wind.",
+          "beskrivning": "Map of Bass Strait including major islands and island groups.",
+          "bredd": 693,
+          "hojd": 527,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/06/Bass_Strait_islands.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Islands of Tasmania",
+            "Maps of Bass Strait",
+            "Maps of islands of Australia",
+            "NASA World Wind",
+            "Satellite pictures of Australia"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "smal"
+          ]
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "independence-i-kulturen",
+      "titel": "Independence I-kulturen i norra Grönland",
+      "start": -2399,
+      "plats": "Independence Fjord i Peary Land, norra Grönland",
+      "wikidata": "Q641154",
+      "kandidater": [
+        {
+          "fil": "File:Vue aérienne de l'Independance fjord.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Vue_a%C3%A9rienne_de_l%27Independance_fjord.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "NASA ICE NASA/Jeremy Harbeck",
+          "datum": "2015-03-24 12:19:03",
+          "datum_original": "2015-03-24 12:19:03",
+          "datum_fil": "2018-08-28 19:05:44",
+          "kredit": "View north from Independence Fjord 3",
+          "beskrivning": "Vue aérienne de l'Independance fjord",
+          "bredd": 2048,
+          "hojd": 1419,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Vue_a%C3%A9rienne_de_l%27Independance_fjord.jpg/960px-Vue_a%C3%A9rienne_de_l%27Independance_fjord.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Independence Fjord"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ]
+        },
+        {
+          "fil": "File:Lama glama Vicugna pacos range.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lama_glama_Vicugna_pacos_range.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Original: Vardion / Derivative work: Carnby",
+          "datum": "2013-01-05 14:47",
+          "datum_original": "2013-01-05 14:47",
+          "datum_fil": "2013-01-05 15:07:10",
+          "kredit": "This file was derived from: BlankMap-World.png : Daniel W. Gade, Nature and culture in the Andes , Madison, University of Wisconsin Press, 1999, p. 104.",
+          "beskrivning": "Llama ( Lama glama ) and alpaca ( Vicugna pacos ) range",
+          "bredd": 1480,
+          "hojd": 625,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Lama_glama_Vicugna_pacos_range.png/960px-Lama_glama_Vicugna_pacos_range.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Camelidae distribution maps",
+            "Lama glama",
+            "Vicugna pacos"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "ur-sokning"
+          ]
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "torressundsoarna-befolkas",
+      "titel": "Torressundsöarna befolkas",
+      "start": -1999,
+      "plats": "Torressundsöarna mellan Kap York och Nya Guinea (i dag Australien)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Admiralty Chart No 1254 Fantome Island to Dunk Island, Queensland, Published 1933, Corrections to 1969.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Admiralty_Chart_No_1254_Fantome_Island_to_Dunk_Island,_Queensland,_Published_1933,_Corrections_to_1969.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Queensland State Archives",
+          "datum": "1933",
+          "datum_original": "1933",
+          "datum_fil": "2020-02-28 10:10:08",
+          "kredit": "https://www.flickr.com/photos/queenslandstatearchives/27178404372/",
+          "beskrivning": "Including Hinchinbrook Channel surveyed by Lieut. G.E.Richards 1887 - 1888, corrected to October 1933. Admiralty, London, small corrections to 1969 Dunk Island is an island within the Cassowary Coast Region, Queensland, Australia. The island lies 4 km off the Australian east coast, opposite the town of Mission Beach. The island forms part of the Family Islands National Park and is in the larger Great Barrier Reef World Heritage Area. The island is surrounded by reefs and has a diverse population of birds. Indigenous communities once used the island as a source of food. Europeans first settled on the island in 1897. Dunk Island was used by the Royal Australian Air Force during World War II. Queensland State Archives Digital Image ID 20451",
+          "bredd": 8292,
+          "hojd": 12248,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Admiralty_Chart_No_1254_Fantome_Island_to_Dunk_Island%2C_Queensland%2C_Published_1933%2C_Corrections_to_1969.jpg/960px-Admiralty_Chart_No_1254_Fantome_Island_to_Dunk_Island%2C_Queensland%2C_Published_1933%2C_Corrections_to_1969.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1969 in Queensland",
+            "20th-century maps of Queensland",
+            "Admiralty Charts 1201-1400",
+            "Admiralty Charts Region M: Australia and Torres Strait",
+            "Dunk Island",
+            "Fantome Island",
+            "Hinchinbrook Channel, Queensland"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "staende",
+            "ur-sokning"
+          ]
+        },
+        {
+          "fil": "File:35mm negative taken by Oskar Speck depicting a mosque - Flickr - Australian National Maritime Museum on The Commons.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:35mm_negative_taken_by_Oskar_Speck_depicting_a_mosque_-_Flickr_-_Australian_National_Maritime_Museum_on_The_Commons.jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Australian National Maritime Museum on The Commons",
+          "datum": "1930s",
+          "datum_original": "1930s",
+          "datum_fil": "2024-01-22 02:49:42",
+          "kredit": "35mm negative taken by Oskar Speck depicting a mosque . Also https://collections.sea.museum/objects/84497/view-of-a-mosque",
+          "beskrivning": "In the 1930s Oskar Speck was a German adventurer, who paddled his kayak, SUNNSCHIEN, from Germany to Australia. He departed from Ulm, Germany, on 18 June 1932, paddling down the Danube. During his seven and half year voyage, he stopped at ports in Germany, Austria, Hungary, the former Yugoslavia, Greece, Cyprus, Syria, Iraq, Iran, Pakistan, India, Sri Lanka, Bangladesh, Burma, Malaysia, Indonesia, Iran Jaya, Papua New Guinea and Australia. He arrived at Saibai Island, in the northern Torres Strait, on 20 September 1939. Upon his arrival at Thursday Island Speck was arrested as an enemy alien and interned for the duration of the World War II at Loveday and Tatura Internment camps. After the war, he settled in Australia and worked in the Opal industry. Oskar Speck died in 1993. The Australian National Maritime Museum undertakes research and accepts public comments that enhance the information we hold about images in our collection. If you can identify a person, vessel or landmark, write the details in the Comments box below. Thank you for helping caption this important historical image. You can see more of the Oskar Speck Collection on our website [ dead link ] . (Changed to https://collections.sea.museum/search/oskar%20speck ) ANMM Collection ANMS0545[158].",
+          "bredd": 1200,
+          "hojd": 810,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/35mm_negative_taken_by_Oskar_Speck_depicting_a_mosque_-_Flickr_-_Australian_National_Maritime_Museum_on_The_Commons.jpg/960px-35mm_negative_taken_by_Oskar_Speck_depicting_a_mosque_-_Flickr_-_Australian_National_Maritime_Museum_on_The_Commons.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Kai Besar",
+            "Mosques in Indonesia photographed in the 1930s",
+            "Mosques in Maluku",
+            "Oskar Speck (1907-1993)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "ur-sokning",
+            "licens-flagga"
+          ]
+        },
+        {
+          "fil": "File:35mm negative by Oskar Speck depicting a child in a canoe (25769818758).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:35mm_negative_by_Oskar_Speck_depicting_a_child_in_a_canoe_(25769818758).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Australian National Maritime Museum on The Commons",
+          "datum": "2018-01-12 23:41:57",
+          "datum_original": "2018-01-12 23:41:57",
+          "datum_fil": "2021-09-24 20:35:11",
+          "kredit": "https://www.flickr.com/photos/anmm_thecommons/25769818758/ and https://collections.sea.museum/objects/84436/view-of-a-child-standing-on-the-bow-of-canoe",
+          "beskrivning": "In the 1930s Oskar Speck was a German adventurer, who paddled his kayak, SUNNSCHIEN, from Germany to Australia. He departed from Ulm, Germany, on 18 June 1932, paddling down the Danube. During his seven and half year voyage, he stopped at ports in Germany, Austria, Hungary, the former Yugoslavia, Greece, Cyprus, Syria, Iraq, Iran, Pakistan, India, Sri Lanka, Bangladesh, Burma, Malaysia, Indonesia, Iran Jaya, Papua New Guinea and Australia. He arrived at Saibai Island, in the northern Torres Strait, on 20 September 1939. Upon his arrival at Thursday Island Speck was arrested as an enemy alien and interned for the duration of the World War II at Loveday and Tatura Internment camps. After the war, he settled in Australia and worked in the Opal industry. Oskar Speck died in 1993. The Australian National Maritime Museum undertakes research and accepts public comments that enhance the information we hold about images in our collection. If you can identify a person, vessel or landmark, write the details in the Comments box below. Thank you for helping caption this important historical image. You can see more of the Oskar Speck Collection on our website. ANMM Collection ANMS0545[097].",
+          "bredd": 1200,
+          "hojd": 819,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/35mm_negative_by_Oskar_Speck_depicting_a_child_in_a_canoe_%2825769818758%29.jpg/960px-35mm_negative_by_Oskar_Speck_depicting_a_child_in_a_canoe_%2825769818758%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1930s portrait photographs of children",
+            "Children of Asia",
+            "Indigenous peoples' canoes",
+            "Oskar Speck (1907-1993)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning",
+            "licens-flagga"
+          ]
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "wandjinamalningarna",
+      "titel": "Wandjinamålningarna i Kimberley",
+      "start": -1999,
+      "plats": "Kimberley i nordvästra Australien (punkten vid Mount Elizabeth Station och Barnett River)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Wandjina Rock Art, The Kimberley, Western Australia (6933546326).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wandjina_Rock_Art,_The_Kimberley,_Western_Australia_(6933546326).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Travel & Shit from Brighton, UK",
+          "datum": "2007-07-21 13:16",
+          "datum_original": "2007-07-21 13:16",
+          "datum_fil": "2015-05-05 19:17:52",
+          "kredit": "Wandjina Rock Art, The Kimberley, Western Australia",
+          "beskrivning": null,
+          "bredd": 2304,
+          "hojd": 1728,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Wandjina_Rock_Art%2C_The_Kimberley%2C_Western_Australia_%286933546326%29.jpg/960px-Wandjina_Rock_Art%2C_The_Kimberley%2C_Western_Australia_%286933546326%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Rock paintings in Australia"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ]
+        },
+        {
+          "fil": "File:Rock painting of Wandjina from Bachsten Camp.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Rock_painting_of_Wandjina_from_Bachsten_Camp.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Robyn Jay",
+          "datum": "2014-06-28 18:53:48",
+          "datum_original": "2014-06-28 18:53:48",
+          "datum_fil": "2015-07-22 18:50:52",
+          "kredit": "Flickr https://www.flickr.com/photos/learnscope/14416448238/sizes/l",
+          "beskrivning": "Rock painting of Wandjina from Bachsten Camp, in the Kimberley Region of Western Australia.",
+          "bredd": 1500,
+          "hojd": 1000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Rock_painting_of_Wandjina_from_Bachsten_Camp.jpg/960px-Rock_painting_of_Wandjina_from_Bachsten_Camp.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Prince Regent National Park",
+            "Rock paintings in Australia"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ]
+        },
+        {
+          "fil": "File:Wandjina rock art painting.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wandjina_rock_art_painting.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Stephan Ridgway",
+          "datum": "2014-07-01 11:03:38",
+          "datum_original": "2014-07-01 11:03:38",
+          "datum_fil": "2015-07-22 19:09:57",
+          "kredit": "Flickr https://www.flickr.com/photos/stephanridgway/15566746924/sizes/l",
+          "beskrivning": "Wandjina rock art painting from the Kimberley Region of Western Australia.",
+          "bredd": 2448,
+          "hojd": 3264,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Wandjina_rock_art_painting.jpg/960px-Wandjina_rock_art_painting.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Gwion Gwion rock art",
+            "Unidentified locations in the Kimberley region of Western Australia"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ]
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "murujugas-hallristningar",
+      "titel": "Murujugas hällristningar",
+      "start": -47999,
+      "plats": "Murujuga (Burruphalvön och Dampierarkipelagen), Pilbara, Western Australia",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "budj-bim-utbrottet",
+      "titel": "Vulkanen Budj Bim får utbrott",
+      "start": -34899,
+      "plats": "Budj Bim (Mount Eccles), Victoria, Australien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "cloggsgrottans-ritualeldar",
+      "titel": "Små ritualeldar i Cloggsgrottan",
+      "start": -10999,
+      "plats": "Cloggsgrottan vid Snowy River nära Buchan, Victoria, Australien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "budj-bim-alfallor",
+      "titel": "Gunditjmaras ålfällor i Budj Bim",
+      "start": -4599,
+      "plats": "Lake Condah vid Budj Bim, Victoria, Australien",
+      "wikidata": "Q85749368",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "mount-gambiers-utbrott",
+      "titel": "Vulkanen Mount Gambier får utbrott",
+      "start": -3999,
+      "plats": "Mount Gambier (Berrin), South Australia",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "el-nino-och-elden-vid-girraween",
+      "titel": "Starkare El Niño och ändrad eldning i norra Australien",
+      "start": -2050,
+      "plats": "Girraweenlagunen strax söder om Darwin, Northern Territory, Australien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "fisken-forsvinner-ur-tasmaniernas-kost",
+      "titel": "Fisken försvinner ur tasmaniernas kost",
+      "start": -2050,
+      "plats": "Tasmanien, Australien; källan nämner ingen enskild plats, och punkten är ungefär öns mitt",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "pungvargen-forsvinner-fran-fastlandet",
+      "titel": "Pungvargen och pungdjävulen dör ut på fastlandet",
+      "start": -1650,
+      "plats": "Australiens fastland; punkten är mitt på Nullarborslätten, där en uttorkad pungvarg, omkring 3 300 år gammal, hittades i en grotta",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "dingon-nar-australien",
+      "titel": "Dingon i Australien: de äldsta säkra fynden",
+      "start": -1397,
+      "plats": "Maduragrottorna på Nullarborslätten (i dag Western Australia)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    }
+  ],
+  "granskning": {
+    "datum": "2026-11-22",
+    "valda": [
+      {
+        "id": "rotoitiutbrottet",
+        "fil": "File:Lake Rotoiti.jpg",
+        "licens": "CC BY-SA 2.0",
+        "motiv": "Nutida foto (2007) av Rotoitisjön nordost om Rotoruasjön på Nordön, inte från händelsens tid. Licens: CC BY-SA 2.0."
+      },
+      {
+        "id": "murujugas-hallristningar",
+        "fil": "File:Burrup Rock Art.jpg",
+        "licens": "CC BY-SA 2.0",
+        "motiv": "Nutida foto (2012) av hällristningar på Burruphalvön, inte från händelsens tid. Filsidan daterar inte de avbildade ristningarna. Licens: CC BY-SA 2.0."
+      },
+      {
+        "id": "megafaunan-forsvinner-i-australien",
+        "fil": "File:Diprotodon optatum display WA.jpg",
+        "licens": "CC0",
+        "motiv": "Skelett av Diprotodon optatum, fotograferat på Western Australian Museum. Nutida foto (2023), inte från händelsens tid. Licens: CC0."
+      },
+      {
+        "id": "mungokvinnan-kremeras",
+        "fil": "File:Lake Mungo’s Geological and Archaeological Treasures (153686).jpg",
+        "licens": "Public domain",
+        "motiv": "Nutida satellitfoto (2024) av den torra sjöbottnen vid Lake Mungo och dynen längs dess östra kant, inte från händelsens tid. Licens: Public domain."
+      },
+      {
+        "id": "budj-bim-utbrottet",
+        "fil": "File:Budj Bim ‐ Mt Eccles National Park, Victoria, Australia 28.jpg",
+        "licens": "CC0",
+        "motiv": "Nutida foto (2009) av Lake Surprise i Budj Bim–Mount Eccles nationalpark i Victoria, Australien, inte från händelsens tid. Licens: CC0."
+      },
+      {
+        "id": "oruanuiutbrottet",
+        "fil": "File:Oruanui Loc1287 u3 25-33cm.jpg",
+        "licens": "CC BY-SA 4.0",
+        "motiv": "Nutida foto (2012) av askaggregat i ignimbrit från Oruanuiutbrottet vid vulkanen Taupō i Nya Zeeland, inte från händelsens tid. Licens: CC BY-SA 4.0."
+      },
+      {
+        "id": "bass-sund-bildas",
+        "fil": "File:The Beautiful and Blue Bass Strait (MODIS 2021-12-01).jpg",
+        "licens": "Public domain",
+        "motiv": "Nutida satellitfoto (2021) av Bass sund mellan Victoria och Tasmanien, taget av Aqua, inte från händelsens tid. Licens: Public domain."
+      },
+      {
+        "id": "mount-gambiers-utbrott",
+        "fil": "File:Blue Lake, Mount Gambier, November 2018.jpg",
+        "licens": "CC BY-SA 4.0",
+        "motiv": "Nutida foto (2018) av Blue Lake vid Mount Gambier i södra Australien, inte från händelsens tid. Licens: CC BY-SA 4.0."
+      },
+      {
+        "id": "independence-i-kulturen",
+        "fil": "File:Vue aérienne de l'Independance fjord.jpg",
+        "licens": "CC BY 2.0",
+        "motiv": "Nutida flygfoto (2015) vid Independencefjorden, inte från händelsens tid. Fotot visar landskapet, inte en utgrävd boplats. Licens: CC BY 2.0."
+      },
+      {
+        "id": "wandjinamalningarna",
+        "fil": "File:Rock painting of Wandjina from Bachsten Camp.jpg",
+        "licens": "CC BY-SA 2.0",
+        "motiv": "Nutida foto (2014) av en Wandjinamålning vid Bachsten Camp i Kimberley i västra Australien, inte från händelsens tid. Filsidan daterar inte själva målningen. Licens: CC BY-SA 2.0."
+      },
+      {
+        "id": "torressundsoarna-befolkas",
+        "fil": "File:TorresStraitIslandsMap.png",
+        "licens": "CC BY-SA 3.0",
+        "motiv": "Modern karta över Torressundsöarna, uppladdad 2006. Den visar inte den förhistoriska bosättningens utbredning. Licens: CC BY-SA 3.0."
+      },
+      {
+        "id": "pungvargen-forsvinner-fran-fastlandet",
+        "fil": "File:Tasmanian Tiger (Thylacine) Skeletons.jpg",
+        "licens": "CC BY-SA 4.0",
+        "motiv": "Skelett av pungvarg, fotograferade på Tasmanian Museum and Art Gallery i Hobart. Nutida foto (2018), inte från händelsens tid. Licens: CC BY-SA 4.0."
+      },
+      {
+        "id": "dingon-nar-australien",
+        "fil": "File:Dingo (Canis lupus dingo) skeleton at the Royal Veterinary College anatomy museum.JPG",
+        "licens": "CC BY-SA 3.0",
+        "motiv": "Skelett av en dingo, fotograferat på Royal Veterinary Colleges anatomiska museum. Nutida foto (2013), inte från händelsens tid; museiskelettet dateras inte på filsidan. Licens: CC BY-SA 3.0."
+      }
+    ],
+    "utan_bild": {
+      "madjedbebe": "Prövat Commons-sökningarna Madjedbebe och Malakunanja samt kategorin Madjedbebe. Inga relevanta bilder av fyndplatsen eller fynden hittades. Kandidatlistans skolmuseum, migrationskarta och Makedonienkarta valdes bort som fel motiv.",
+      "cloggsgrottans-ritualeldar": "Prövat Commons-sökningarna Cloggs Cave och Cloggs (utan PDF) samt kategorin Cloggs Cave. Inga relevanta bilder av grottan, eldarna eller fynden hittades; träskor och äldre bokskanningar valdes bort.",
+      "budj-bim-alfallor": "Prövat Commons-sökningarna Budj Bim channel, Budj Bim trap, Lake Condah eel traps och Tae Rak aquaculture samt kategorierna Budj Bim Cultural Landscape och Lake Condah. Inget verifierat foto av ålfällor eller kanaler hittades. Sjöfotot som används för vulkanutbrottet visar inte ålfällorna.",
+      "el-nino-och-elden-vid-girraween": "Prövat Commons-sökningarna Girraween lagoon och Girraween Northern Territory samt kategorin Girraween, Northern Territory. Inget relevant foto av lagunen eller sedimentproverna hittades. Bilder av en skola och en färglöpning valdes bort.",
+      "fisken-forsvinner-ur-tasmaniernas-kost": "Prövat Commons-sökningarna Tasmania fish midden och Tasmania midden samt kategorierna Shell middens in Tasmania och Fishing in Tasmania. Fotografier av skal- och stenrester vid Rupert Point och Monster Creek saknar på filsidorna koppling till fiskben eller kostförändringen; de används inte som belägg för denna händelse.",
+      "gabarnmung": "Bilden [Gabarnmang Cave - 1.jpg](https://commons.wikimedia.org/wiki/File:Gabarnmang_Cave_-_1.jpg) valdes bort efter separat granskning 2026-11-22. Commons anger CC BY-SA 4.0, men originalet är figur 11.3 i [ANU-publikationens kapitel 11](https://press-files.anu.edu.au/downloads/press/n3991/html/ch11.xhtml?referer=3991&page=17). [Imprint](https://press-files.anu.edu.au/downloads/press/n3991/html/imprint.xhtml?referer=3991&page=2) anger att återgivning kräver skriftligt tillstånd; ingen särskild fri bildlicens styrktes. Licensmotsägelsen är olöst, så bilden används inte."
+    },
+    "ej_hamtade": []
+  }
+}
