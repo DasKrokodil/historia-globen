@@ -11,11 +11,30 @@
 # Körs vid push till main och vid pull requests mot main och production, som validate-site.yml.
 name: Webbläsartest
 
+# Färre körningar (beslut 2026-11-23, docs/beslut/2026-11-23-farre-granskningar-sparar-tokens.md): varje
+# Chromium-jobb tar 10–19 minuter och uppstarten bara cirka 40 sekunder, så det som kostar är hur ofta sviten körs.
+# - Ingen körning vid varje push till main: ändringen testades redan som pull request, och följande ihopslagningar
+#   avbröt ändå varandras körningar. Main provas i stället varje natt och på begäran (workflow_dispatch).
+# - Firefox och WebKit körs inte längre automatiskt på release-PR:en utan veckovis (söndag), på begäran med
+#   `alla-webbläsare` som indata, eller med etiketten alla-webbläsare på en pull request.
+# - Ändringar som bara rör dokumentation (docs/, *.md, .claude/, .orchestra/) kör inte sviten.
 on:
-  push:
-    branches: [main]
+  schedule:
+    - cron: '17 3 * * *'   # varje natt, bara Chromium
+    - cron: '47 4 * * 0'   # söndag, alla webbläsare
+  workflow_dispatch:
+    inputs:
+      alla-webblasare:
+        description: 'Kör också Firefox och WebKit'
+        type: boolean
+        default: false
   pull_request:
     branches: [main, production]
+    paths-ignore:
+      - 'docs/**'
+      - '**/*.md'
+      - '.claude/**'
+      - '.orchestra/**'
 
 permissions:
   contents: read
@@ -46,7 +65,7 @@ jobs:
       - name: Bygg jobblistan
         id: plan
         env:
-          ALLA: ${{ github.event_name == 'pull_request' && (github.base_ref == 'production' || contains(github.event.pull_request.labels.*.name, 'alla-webbläsare')) }}
+          ALLA: ${{ (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'alla-webbläsare')) || (github.event_name == 'workflow_dispatch' && inputs.alla-webblasare) || (github.event_name == 'schedule' && github.event.schedule == '47 4 * * 0') }}
         run: |
           # Ett jobb per post i tests/jobb.json, för Chromium alltid och för Firefox och WebKit när ALLA är true (#2171).
           matrix=$(node -e '
