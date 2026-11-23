@@ -32,6 +32,10 @@ Regler:
 - Osäkert datum = ~ eller ? i edtf. Ungefärlig plats = fältet locationPrecision.
 - Världsdelens storlek = dess andel av landytan i data/land.json (Natural Earth 1:50m) norr om 60° S,
   räknad på ett rutnät om en halv grad, viktad med cos(latitud) och delad med region().
+- Rikesytor i havet (#1444) = andelen av varje rikesgräns (period) som ligger i havet enligt den finare kusten
+  data/land-10m.json (annars data/land.json), mätt rad för rad var 0,05 grad: sträckorna inom gränsen och inom land
+  på varje breddgrad, viktade med cos(latitud). Perioder med mer än 20 % listas, för sig under 5 000 km² (mätosäkert).
+  Ändrar ingenting på kartan; klippning mot land och areaKm2 kräver DasKrokodils beslut.
 """
 import argparse
 import importlib.util
@@ -236,6 +240,110 @@ def read_cliopatria(path):
             if f['properties'].get('Type') == 'POLITY' and f.get('geometry')]
 
 
+# ---------- Rikesytor i havet (#1444) ----------
+
+SEA_STEP = 0.05        # grader mellan raderna; Chimor ger samma andelar som mätningen i #1444
+SEA_SHARE = 0.20       # perioder med mer än så av ytan i havet listas
+SEA_MIN_KM2 = 5000     # mindre ytor (små öar, kuststäder) räknas för sig: raderna ligger för glest för dem
+
+
+def _row_bands(rings, step):
+    """Kanterna sorterade i rader om `step` grader (rad 0 har sin mitt vid 90 - step/2)."""
+    rows = int(180 / step)
+    bands = defaultdict(list)
+    for r in rings:
+        for (x1, y1), (x2, y2) in zip(r, r[1:] + r[:1]):
+            if y1 == y2:
+                continue
+            lo, hi = min(y1, y2), max(y1, y2)
+            for b in range(max(0, math.ceil((90 - hi) / step - 0.5)), min(rows, int((90 - lo) / step - 0.5) + 1)):
+                bands[b].append((x1, y1, x2, y2))
+    return bands
+
+
+def _row_spans(edges, lat):
+    """Sträckorna (från, till) i longitud där raden ligger inom ringarna, enligt jämn-udda-regeln."""
+    xs = sorted(x1 + (lat - y1) * (x2 - x1) / (y2 - y1) for x1, y1, x2, y2 in edges if (y1 > lat) != (y2 > lat))
+    return list(zip(xs[::2], xs[1::2]))
+
+
+def _merge(spans):
+    out = []
+    for a, b in sorted(spans):
+        if out and a <= out[-1][1]:
+            out[-1] = (out[-1][0], max(out[-1][1], b))
+        else:
+            out.append((a, b))
+    return out
+
+
+def _overlap(a, b):
+    i = j = 0
+    total = 0.0
+    while i < len(a) and j < len(b):
+        lo, hi = max(a[i][0], b[j][0]), min(a[i][1], b[j][1])
+        if hi > lo:
+            total += hi - lo
+        if a[i][1] < b[j][1]:
+            i += 1
+        else:
+            j += 1
+    return total
+
+
+def sea_share(geom, land_bands, step=SEA_STEP, cache=None):
+    """Andelen av gränsens yta som ligger i havet, mätt rad för rad (vägt med cos(latitud)), eller None för en tom
+    gräns. Varje polygon räknas för sig (hål med jämn-udda-regeln) och läggs ihop, så att överlappande delar inte
+    räknas två gånger. `land_bands` är landets kanter i rader (_row_bands)."""
+    cache = {} if cache is None else cache
+    polys = [geom['coordinates']] if geom['type'] == 'Polygon' else geom['coordinates'] if geom['type'] == 'MultiPolygon' else []
+    rows = defaultdict(list)
+    for poly in polys:
+        for b, edges in _row_bands([[(x, y) for x, y, *_ in ring] for ring in poly], step).items():
+            rows[b] += _row_spans(edges, 90 - (b + 0.5) * step)
+    whole = on_land = 0.0
+    for b, spans in rows.items():
+        lat = 90 - (b + 0.5) * step
+        if b not in cache:
+            cache[b] = _row_spans(land_bands.get(b, []), lat)
+        merged = _merge(spans)
+        weight = math.cos(math.radians(lat))
+        whole += weight * sum(hi - lo for lo, hi in merged)
+        on_land += weight * _overlap(merged, cache[b])
+    return 1 - on_land / whole if whole else None
+
+
+def sea_rows(root, step=SEA_STEP):
+    """[(andel i havet, grupp, namn, del, start, slut, areaKm2)] för alla rikesgränser utom delar med review "draft",
+    mätt mot den finare kusten (data/land-10m.json) om den finns, annars data/land.json. (None, None) om något saknas."""
+    root = Path(root)
+    land_file = next((p for p in ('data/land-10m.json', 'data/land.json') if (root / p).is_file()), None)
+    rings = land_rings(root / land_file) if land_file else None
+    try:
+        index = json.loads((root / 'data/empires/index.json').read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return None, land_file
+    if rings is None:
+        return None, land_file
+    land_bands, cache, out = _row_bands(rings, step), {}, []
+    for g in index['groups']:
+        try:
+            doc = json.loads((root / g['file']).read_text(encoding='utf-8'))
+        except (OSError, ValueError, KeyError):
+            continue
+        name = (g.get('name') or {}).get('sv', g['id']) if isinstance(g.get('name'), dict) else g.get('name', g['id'])
+        for pol in doc.get('polities', []):
+            if pol.get('review') == 'draft':
+                continue
+            for per in pol.get('periods', []):
+                if not per.get('geometry'):
+                    continue
+                share = sea_share(per['geometry'], land_bands, step, cache)
+                if share is not None:
+                    out.append((share, g['id'], name, pol['id'], per['start'], per['end'], per.get('areaKm2')))
+    return out, land_file
+
+
 # ---------- Rapporten ----------
 
 def pct(n, d):
@@ -368,6 +476,7 @@ def build(root, today, cliopatria=None):
     out += share_table('Ungefärlig plats', 'Andel händelser med fältet `locationPrecision`.', 'place')
 
     out += empire_tables(root, this_year, cliopatria)
+    out += sea_table(root)
 
     # Luckor: celler (period × världsdel) med färre händelser än väntat efter periodens längd och
     # världsdelens landyta. Vikten = roten ur periodens längd i år × världsdelens andel av landytan.
@@ -456,6 +565,36 @@ def empire_tables(root, this_year, cliopatria=None):
             vs = pct(weight(ours & theirs), weight(theirs)) if theirs else '–'
         yr = f'{1 - y} f.Kr.' if y < 1 else str(y)
         out.append(f'| {yr} | {len({g for g, _geom in alive})} | {pct(weight(ours), w_land)} | {vs} |')
+    return out
+
+
+def sea_table(root):
+    """Rikesytor i havet (#1444): perioder där mer än SEA_SHARE av gränsens yta ligger i havet. Ändrar inget på kartan."""
+    rows, land_file = sea_rows(root)
+    out = ['', '## Rikesytor i havet', '']
+    if rows is None:
+        return out + ['`data/empires/index.json` eller landets kust (`data/land-10m.json`, `data/land.json`) saknas, så det mäts inte.']
+    num = lambda n: f'{n:,}'.replace(',', '\u00a0')
+    yr = lambda y: f'{1 - y} f.Kr.' if y < 1 else str(y)
+    over = sorted((r for r in rows if r[0] > SEA_SHARE), key=lambda r: (-r[0], r[1], r[4]))
+    big = [r for r in over if (r[6] or 0) >= SEA_MIN_KM2]
+    small = [r for r in over if (r[6] or 0) < SEA_MIN_KM2]
+    step = str(SEA_STEP).replace('.', ',')
+    out += [f'Andelen av varje rikesgräns som ligger i havet enligt kusten i `{land_file}`, mätt rad för rad var {step} grad '
+            '(#1444). Cliopatrias ytor är grova, så små kustriken hamnar delvis i havet, och `areaKm2` och ytkurvan räknar med '
+            f'det. Inget klipps mot land här. {num(len(rows))} perioder mättes; {len(over)} perioder i {len({r[1] for r in over})} '
+            f'riken har mer än {round(SEA_SHARE * 100)} % i havet.', '']
+
+    def table(sel):
+        lines = ['| Rike | Del | Period | I havet | Yta (km²) |', '| --- | --- | --- | ---: | ---: |']
+        lines += [f'| {name} | {pid} | {yr(a)}–{yr(b)} | {round(share * 100)} % | {num(km2) if km2 else "–"} |'
+                  for share, gid, name, pid, a, b, km2 in sel] or ['| – | – | – | – | – |']
+        return lines
+    out += [f'### Ytor på minst {num(SEA_MIN_KM2)} km²', ''] + table(big)
+    out += ['', f'### Ytor under {num(SEA_MIN_KM2)} km² (mätosäkert)', '',
+            'Raderna ligger för glest för små öar och kuststäder, och kusten i Natural Earth saknar en del småöar, så en '
+            'hög andel här kan bero på mätningen och inte på gränsen.', '']
+    out += table(small)
     return out
 
 
