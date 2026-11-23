@@ -34,7 +34,7 @@ Att en adress går att nå betyder inte att bilden får användas. **Varje ny k�
 
 ## Licenskontroll per fil
 
-Tillåtet (CLAUDE.md, Bilder punkt 1): public domain, CC0, CC BY, CC BY-SA och Library of Congress-bilder märkta "No known restrictions on publication". Inte CC BY-NC, inte "all rights reserved", inte oklara villkor.
+Tillåtet ([referens/bilder.md](referens/bilder.md), punkt 1): public domain, CC0, CC BY, CC BY-SA och Library of Congress-bilder märkta "No known restrictions on publication". Inte CC BY-NC, inte "all rights reserved", inte oklara villkor.
 
 - Läs licensmallen i `action=raw` och `extmetadata` (`LicenseShortName`, `Artist`, `Credit`), inte bara rubriken.
 - **En licens som verktygen inte känner igen** (till exempel Commons-etiketten "No restrictions", "Attribution" eller nationella licenser som GODL-India) flaggas och godkänns aldrig av ett program; en människa bedömer filsidan och avstår hellre (beslut 2026-11-22). Library of Congress "No known restrictions on publication" är tillåten som förut.
@@ -50,7 +50,7 @@ Tillåtet (CLAUDE.md, Bilder punkt 1): public domain, CC0, CC BY, CC BY-SA och L
   - Föremål på museum: "Föremål från …, fotograferat på …"
   - Karta: säg om den är samtida eller ritad senare, till exempel "Karta ritad år …" eller "Modern karta över …". En modern karta får aldrig se ut att vara från händelsens tid.
 - **Märk senare avbildningar** ("Målning från 1800-talet av ett slag 1066"), **propaganda**, **teckningar och karikatyrer** och **fantasibilder** ("visar inte hur personen såg ut"). En bild av dokumentet eller platsen i dag säger det ("Nutida foto av ...").
-- Profeten Muhammed avbildas aldrig. Reglerna om respekt i CLAUDE.md, Bilder punkt 4, gäller.
+- Profeten Muhammed avbildas aldrig. Reglerna om respekt i [referens/bilder.md](referens/bilder.md), punkt 4, gäller.
 - Skriv bildtexten på svenska först, och översätt den till en, de, es och fr i samma pull request (CLAUDE.md, Språk). Översättningen ändrar aldrig fakta.
 
 ## Standard sedan 2026-11-22 (beslut 2026-11-22, bildpipelinen som standard)

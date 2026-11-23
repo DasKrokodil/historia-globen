@@ -1,0 +1,34 @@
+# Testa innan du är klar
+
+Testkraven i fullständig form. Flyttat ur [CLAUDE.md](../../CLAUDE.md) och [AGENTS.md](../../AGENTS.md) 2026-11-23 (del av [beslutet 2026-11-23](../beslut/2026-11-23-farre-granskningar-sparar-tokens.md), punkt 5). Reglerna är oförändrade.
+
+## Enligt CLAUDE.md
+
+1. `python3 -m http.server 8000` och öppna http://localhost:8000.
+2. Inga fel i konsolen. Globen snurrar, tidslinjen går att dra, uppspelning fungerar, fun facts dyker upp, "Platt vy" och "Källor" (sidan Om källorna) öppnas.
+3. Kontrollera all JSON (`python3 -m json.tool data/*.json`) och att varje `sources`-id finns i `sources.json` och varje händelse-id i `funfacts.json` finns i `events.json`. Händelser redigeras i `data/handelser/<period>.json` (perioden efter startåret), inte i `events.json` (#394). Har du ändrat en fil i `data/handelser/` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/events.json` och `data/genererat/` (sidan läser de uppdelade filerna, #337). Har du ändrat innehåll: kör `python3 tools/oversattning.py` och checka in `data/oversattning.json` (#675); den stoppar ny text utan översättning och inaktuella översättningar. Har du ändrat en `summary` i `data/handelser/` eller `data/routes/`: kör `python3 tools/textlangd.py` och checka in `data/textlangd.json`; den stoppar fler sammanfattningar över 300 tecken (#1599, docs/beslut/2026-11-14-kortare-faktatexter.md).
+4. Testa både desktop och mobilbredd.
+5. Ändras formuläret för förslag eller `functions/`: kör `node --test 'tests/*.test.mjs'` (se docs/feedback.md).
+6. **Röd kontroll (beslut 2026-11-05, skärpt samma dag):** läs loggen och hitta den första felande kontrollen, rätta högst en gång och bara om felet är trivialt (kör bara den felande kontrollen: `ENDAST="<del av namnet>" node tests/webblasare.mjs <port>`), annars lämna en överlämningsrapport och sätt `behöver hjälp` (Codex och Copilot gör så, och Claude Code tar över vid kökontrollen). **Faller samma kontroll i flera pull requests (beslut 2026-11-11):** samla uppgifterna i ett och samma issue (sök först efter det, lägg en kommentar med pull request, körning, jobb, felrad och datum; skapa annars ett bug-issue) i stället för ett nytt issue per pull request. Se [AGENTS.md](../../AGENTS.md#röd-kontroll-eller-slut-på-tid-samma-regel-för-alla-agenter-beslut-2026-11-05-skärpt-samma-dag).
+
+## Enligt AGENTS.md: Testa innan pull request
+
+Enligt CLAUDE.md, "Testa innan du är klar":
+
+- `bash scripts/build-site.sh` (bygger `dist/` och kör `scripts/validate-site.py`).
+- `python3 -m json.tool` på ändrade JSON-filer. Händelser redigeras i `data/handelser/<period>.json`, inte i `data/events.json` (#394). Har du ändrat en fil i `data/handelser/` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/events.json` och `data/genererat/`.
+- Webbläsartestet `tests/webblasare.mjs` (Playwright, körs i GitHub Actions för varje pull request): inga konsolfel, ingen horisontell scroll vid 400 px. Kör det lokalt när du ändrar sådant som syns på sidan (`index.html`, `js/`, `css/`, `data/`, `images/`, `_headers`). Ändrar du bara dokumentation (till exempel `AGENTS.md`, `CLAUDE.md`, `README.md`, `docs/`, `.orchestra/project.md`) behövs det inte lokalt: läs igenom diffen och kontrollera länkarna (testnivån "Riktad" i `.orchestra/project.md`).
+- Ändras `functions/` eller formuläret: `node --test 'tests/*.test.mjs'`.
+- Ändras innehåll i `data/`: `python3 tools/oversattning.py` och checka in `data/oversattning.json` (#675). Den stoppar ny text utan översättning och inaktuella översättningar; GitHub Actions kör `--check`.
+- Ändras en `summary` i `data/handelser/` eller `data/routes/`: `python3 tools/textlangd.py` och checka in `data/textlangd.json` (#1599). Den stoppar fler sammanfattningar över 300 tecken; GitHub Actions kör `--check`.
+- **Testa beteendet, inte bara att inget kraschar** (lärdom av #442, #450 och #493, där testerna var gröna men något ändå var fel):
+  - **Menyer och fokus:** var hamnar tangentbordsfokus när en meny, ruta eller ett kort stängs? Det ska vara en synlig knapp.
+  - **Animationer:** fortsätter det som ska röra sig (till exempel den valda markörens puls) att röra sig även när inget annat ändras?
+  - **Regler som bygger på datan:** räkna hur många poster i `data/events.json` (eller berörd fil) regeln slår på, och skriv siffran i pull requesten. Slår den på långt fler än avsett är regeln fel.
+  - **Visad text, inte bara att något finns (lärdom av #528):** en knapp kan finnas och ändå visa en teknisk nyckel (`longRunning`, `showMore`) i stället för text. Varje ny text ska ligga i `data/` (inte i JS, ingen reservtext i koden), och testet ska kontrollera den **synliga texten** och att inga råa nycklar syns.
+  - **Städa efter dig (lärdom av #559):** ett test som öppnar ett läge (Fokus, en dialog, Platt vy, presentationsläge) ska stänga det i `finally`. Annars drar ett enda fel med sig alla följande tester i timeouter, och det ser ut som många fel när det är ett.
+  - **Kontrollera att det du väntar på finns i det läget:** Samtidigt-kortet är till exempel dolt i Fokus. Verifiera förutsättningen i Chromium innan du lägger en `waitFor` på det.
+  - **Hårdkoda inte år eller poster som kan ändras (lärdom av #559, #376):** ett test som kräver "år 1274 har ett krigskort" går sönder när datan växer. Härled året ur datan när det går, eller skriv i testet varför just det året behövs.
+  - **Mät relativt, inte i pixlar:** jämför höjder och storlekar mot en jämförbar komponent i samma läge i stället för fasta siffror, eftersom panelens lägen skriver över regler.
+- **Översätt samtidigt (beslut 2026-11-06):** en ny eller ändrad gränssnittstext läggs i alla fem filerna i `data/ui/` (`sv`, `en`, `de`, `es`, `fr`) i samma pull request, och `node --test tests/i18n.test.mjs` ska vara grönt. Översättningen ändrar ingen betydelse och har samma `{platshållare}`. Samma regel gäller nytt innehåll, men innehåll med historiska fakta tar du bara om Rikard ber om det (se "Ta ett issue"); undantaget är issues med etiketten `översättning` (beslut 2026-11-08). Tilltalet följer [docs/beslut/2026-11-08-tilltal-efter-alder.md](../beslut/2026-11-08-tilltal-efter-alder.md).
+- Uppdatera `docs/` (arkitektur, datamodell, beslut) och filstrukturen i README.md och CLAUDE.md när något ändras.

@@ -114,7 +114,7 @@ Sidan läser händelserna uppdelade i ett index och de långa fälten per period
 | `placeholder` | `true` för platshållare, som märks "Platshållare" |
 | `retake` | Valfritt, för en illustration som ska göras om (#2156): `issue`, `reason` (varför, med öppnad källa) och `prompt` (den nya prompten ur `tools/bildpromptar.py`). Bilden och dess `prompt` står kvar oförändrade tills en människa har gjort den nya bilden; `tools/bilder_in.py` skriver då ett nytt `image` utan `retake`. Visas inte på sidan |
 
-Reglerna för bilder står i [CLAUDE.md](../CLAUDE.md#bilder-129).
+Reglerna för bilder står i [CLAUDE.md](../CLAUDE.md#bilder-129) och i full text i [referens/bilder.md](referens/bilder.md).
 
 ## `utkast/`: utkast från massimport
 
@@ -292,7 +292,7 @@ Exemplet nedan är en **platshållare**: introduktionen är inte skriven och tem
 - Varje id i `events` finns i `data/events.json`. En händelse som är `draft` räknas inte: temat visar bara händelser som syns, och minst 5 av dem ska synas.
 - Varje id i `view` finns i `data/vyer.json` och saknar `tag`.
 - `name` och `intro` har alla fem språk; en översättning ändrar aldrig fakta.
-- **Varning, inte fel:** färre än tre världsdelar bland de synliga händelserna (`region()` i `js/model.js`), eftersom varje paket ska ha innehåll från flera världsdelar (CLAUDE.md, Versionsplan); och händelser som börjar före tidslinjens början (se nedan).
+- **Varning, inte fel:** färre än tre världsdelar bland de synliga händelserna (`region()` i `js/model.js`), eftersom varje paket ska ha innehåll från flera världsdelar ([docs/referens/versionsplan.md](referens/versionsplan.md), Versionsplan); och händelser som börjar före tidslinjens början (se nedan).
 
 ### Hur ett tema väljs i Fokus
 
