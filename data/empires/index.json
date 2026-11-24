@@ -2184,7 +2184,8 @@
    "id": "mauryariket",
    "name": {
     "sv": "Mauryariket",
-    "en": "Maurya Empire"
+    "en": "Maurya Empire",
+    "es": "Imperio maurya"
    },
    "color": "#5f9e4a",
    "from": -317,
@@ -2195,7 +2196,8 @@
      "id": "mauryariket",
      "name": {
       "sv": "Mauryariket",
-      "en": "Maurya Empire"
+      "en": "Maurya Empire",
+      "es": "Imperio maurya"
      },
      "sources": [
       "cliopatria"
@@ -2206,77 +2208,92 @@
    "facts": {
     "summary": {
      "sv": "Mauryariket var en stormakt i Sydasien med maktbas i Magadha i Gangesslätten. Mycket av det vi vet kommer från Ashokas påbud, inskrifter spridda över Sydasien, och från bevarade delar av Megasthenes förlorade historieverk.",
-     "en": "The Maurya Empire was a great power in South Asia with its power base in Magadha on the Ganges plain. Much of what we know comes from the edicts of Ashoka, inscriptions spread across South Asia, and from surviving parts of Megasthenes's lost historical work."
+     "en": "The Maurya Empire was a great power in South Asia with its power base in Magadha on the Ganges plain. Much of what we know comes from the edicts of Ashoka, inscriptions spread across South Asia, and from surviving parts of Megasthenes's lost historical work.",
+     "es": "El Imperio maurya fue una gran potencia del sur de Asia con su base de poder en Magadha, en la llanura del Ganges. Gran parte de lo que sabemos procede de los edictos de Ashoka, inscripciones repartidas por el sur de Asia, y de las partes conservadas de la obra histórica perdida de Megástenes."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
-       "en": "When and where it arose"
+       "en": "When and where it arose",
+       "es": "Cuándo y dónde surgió"
       },
       "text": {
        "sv": "Chandragupta Maurya grundade riket omkring 320 f.Kr. (faktarutan säger cirka 321 f.Kr.) sedan han besegrat Nandadynastin. Han utsträckte sitt välde västerut till Afghanistan söder om Hindukush och söderut till norra Deckan.",
-       "en": "Chandragupta Maurya founded the empire around 320 BC (the fact box says about 321 BC) after he had defeated the Nanda dynasty. He extended his rule westward to Afghanistan south of the Hindu Kush and southward to the northern Deccan."
+       "en": "Chandragupta Maurya founded the empire around 320 BC (the fact box says about 321 BC) after he had defeated the Nanda dynasty. He extended his rule westward to Afghanistan south of the Hindu Kush and southward to the northern Deccan.",
+       "es": "Chandragupta Maurya fundó el imperio hacia 320 a. C. (el recuadro de datos indica aproximadamente 321 a. C.) después de derrotar a la dinastía Nanda. Extendió su dominio hacia el oeste hasta Afganistán, al sur del Hindú Kush, y hacia el sur hasta el norte del Decán."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
-       "en": "How it ended"
+       "en": "How it ended",
+       "es": "Cómo terminó"
       },
       "text": {
        "sv": "Riket hölls löst samman fram till 185 f.Kr., då den siste kejsaren, Brihadratha, mördades av Pushyamitra Shunga.",
-       "en": "The empire was held loosely together until 185 BC, when the last emperor, Brihadratha, was murdered by Pushyamitra Shunga."
+       "en": "The empire was held loosely together until 185 BC, when the last emperor, Brihadratha, was murdered by Pushyamitra Shunga.",
+       "es": "El imperio se mantuvo débilmente unido hasta 185 a. C., cuando el último emperador, Brihadratha, fue asesinado por Pushyamitra Shunga."
       }
      },
      {
       "label": {
        "sv": "Huvudstad",
-       "en": "Capital"
+       "en": "Capital",
+       "es": "Capital"
       },
       "text": {
        "sv": "Pataliputra, nära dagens Patna.",
-       "en": "Pataliputra, near present-day Patna."
+       "en": "Pataliputra, near present-day Patna.",
+       "es": "Pataliputra, cerca de la actual Patna."
       }
      },
      {
       "label": {
        "sv": "Kända härskare",
-       "en": "Famous rulers"
+       "en": "Famous rulers",
+       "es": "Gobernantes célebres"
       },
       "text": {
        "sv": "Chandragupta (cirka 321–298 f.Kr.), Bindusara (298–272 f.Kr.) och Ashoka (cirka 268–232 f.Kr.).",
-       "en": "Chandragupta (about 321–298 BC), Bindusara (298–272 BC) and Ashoka (about 268–232 BC)."
+       "en": "Chandragupta (about 321–298 BC), Bindusara (298–272 BC) and Ashoka (about 268–232 BC).",
+       "es": "Chandragupta (aproximadamente 321–298 a. C.), Bindusara (298–272 a. C.) y Ashoka (aproximadamente 268–232 a. C.)."
       }
      },
      {
       "label": {
        "sv": "Största utbredning",
-       "en": "Greatest extent"
+       "en": "Greatest extent",
+       "es": "Mayor extensión"
       },
       "text": {
        "sv": "Under Ashoka, när riket en kort tid styrde de stora städerna och huvudvägarna på hela subkontinenten utom längst i söder. Källan anger ingen yta. Utanför kärnområdena berodde rikets utsträckning på hur lojala de lokala befälhavarna var.",
-       "en": "Under Ashoka, when the empire for a short time ruled the great cities and main roads of the whole subcontinent except the far south. The source gives no area. Outside the core areas the empire's extent depended on how loyal the local commanders were."
+       "en": "Under Ashoka, when the empire for a short time ruled the great cities and main roads of the whole subcontinent except the far south. The source gives no area. Outside the core areas the empire's extent depended on how loyal the local commanders were.",
+       "es": "Bajo Ashoka, cuando el imperio controló durante un breve período las grandes ciudades y las principales vías de todo el subcontinente, salvo el extremo sur. La fuente no indica ninguna superficie. Fuera de las zonas centrales, la extensión del imperio dependía de la lealtad de los comandantes locales."
       }
      },
      {
       "label": {
        "sv": "Fler fakta",
-       "en": "More facts"
+       "en": "More facts",
+       "es": "Más datos"
       },
       "text": {
        "sv": "Ashoka blev buddhist efter det våldsamma Kalingakriget och sände missionärer bland annat till Sri Lanka och Centralasien, vilket bidrog till att buddhismen blev en världsreligion. Sydasiens befolkning under perioden uppskattas till 15–30 miljoner. Språk: magadhi-prakrit, och troligen sanskrit i litteraturen. Ashokas lejonkapitäl i Sarnath blev Indiens statsvapen 1947.",
-       "en": "Ashoka became a Buddhist after the violent Kalinga War and sent missionaries to, among other places, Sri Lanka and Central Asia, which contributed to Buddhism becoming a world religion. The population of South Asia in the period is estimated at 15–30 million. Language: Magadhi Prakrit, and probably Sanskrit in literature. Ashoka's lion capital at Sarnath became India's state emblem in 1947."
+       "en": "Ashoka became a Buddhist after the violent Kalinga War and sent missionaries to, among other places, Sri Lanka and Central Asia, which contributed to Buddhism becoming a world religion. The population of South Asia in the period is estimated at 15–30 million. Language: Magadhi Prakrit, and probably Sanskrit in literature. Ashoka's lion capital at Sarnath became India's state emblem in 1947.",
+       "es": "Ashoka se hizo budista tras la violenta guerra de Kalinga y envió misioneros, entre otros lugares, a Sri Lanka y Asia Central, lo que contribuyó a que el budismo se convirtiera en una religión mundial. La población del sur de Asia en ese período se estima en 15–30 millones. Idiomas: prácrito magadhi y, probablemente, sánscrito en la literatura. El capitel de los leones de Ashoka en Sarnath se convirtió en el emblema nacional de la India en 1947."
       }
      },
      {
       "label": {
        "sv": "Symbolen på kartan",
-       "en": "The symbol on the map"
+       "en": "The symbol on the map",
+       "es": "El símbolo en el mapa"
       },
       "text": {
        "sv": "Lejonkapitälet från Sarnath, toppen på en pelare som kejsar Ashoka lät resa cirka 250 f.Kr.: fyra lejon rygg mot rygg på en rund platta. Lejonen tolkas bland annat som ett tecken för Ashokas makt. Kapitälet är förebild för dagens indiska statsvapen. Teckningen visar lejonen och plattan, inte hjulet som en gång satt ovanpå.",
-       "en": "The lion capital from Sarnath, the top of a pillar that Emperor Ashoka had erected about 250 BC: four lions back to back on a round plate. The lions are interpreted, among other things, as a sign of Ashoka's power. The capital is the model for today's Indian state emblem. The drawing shows the lions and the plate, not the wheel that once sat on top."
+       "en": "The lion capital from Sarnath, the top of a pillar that Emperor Ashoka had erected about 250 BC: four lions back to back on a round plate. The lions are interpreted, among other things, as a sign of Ashoka's power. The capital is the model for today's Indian state emblem. The drawing shows the lions and the plate, not the wheel that once sat on top.",
+       "es": "El capitel de los leones de Sarnath, la parte superior de una columna que el emperador Ashoka mandó erigir hacia 250 a. C.: cuatro leones espalda con espalda sobre una plataforma redonda. Los leones se interpretan, entre otras cosas, como un signo del poder de Ashoka. El capitel es el modelo del actual emblema nacional de la India. El dibujo muestra los leones y la plataforma, no la rueda que antaño estaba encima."
       }
      }
     ],
@@ -2285,37 +2302,44 @@
       "year": -319,
       "label": {
        "sv": "cirka 320 f.Kr.",
-       "en": "about 320 BC"
+       "en": "about 320 BC",
+       "es": "hacia 320 a. C."
       },
       "title": {
        "sv": "Chandragupta grundar riket",
-       "en": "Chandragupta founds the empire"
+       "en": "Chandragupta founds the empire",
+       "es": "Chandragupta funda el imperio"
       },
       "text": {
        "sv": "Chandragupta Maurya besegrar Nandadynastin och grundar riket, med sin maktbas i Magadha. Hans välde når västerut till Afghanistan söder om Hindukush och söderut till norra Deckan.",
-       "en": "Chandragupta Maurya defeats the Nanda dynasty and founds the empire, with his power base in Magadha. His rule reaches westward to Afghanistan south of the Hindu Kush and southward to the northern Deccan."
+       "en": "Chandragupta Maurya defeats the Nanda dynasty and founds the empire, with his power base in Magadha. His rule reaches westward to Afghanistan south of the Hindu Kush and southward to the northern Deccan.",
+       "es": "Chandragupta Maurya derrota a la dinastía Nanda y funda el imperio, con su base de poder en Magadha. Su dominio llega hacia el oeste hasta Afganistán, al sur del Hindú Kush, y hacia el sur hasta el norte del Decán."
       },
       "sources": [
        "wp-maurya-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar riket från 318 f.Kr.",
-       "en": "The map shows the empire from 318 BC."
+       "en": "The map shows the empire from 318 BC.",
+       "es": "El mapa muestra el imperio a partir de 318 a. C."
       }
      },
      {
       "year": -302,
       "label": {
        "sv": "305–302 f.Kr.",
-       "en": "305–302 BC"
+       "en": "305–302 BC",
+       "es": "305–302 a. C."
       },
       "title": {
        "sv": "Fred med Seleukos",
-       "en": "Peace with Seleucus"
+       "en": "Peace with Seleucus",
+       "es": "Paz con Seleuco"
       },
       "text": {
        "sv": "Seleukos I, som styr den asiatiska delen av Alexanders forna rike, går över Indus och möter Chandragupta. De sluter ett förbund med giftermål: Seleukos lämnar över sina östligaste provinser, bland annat Gandhara, och får 500 krigselefanter. Källorna daterar konflikten olika, till 305–303 eller 303–302 f.Kr.",
-       "en": "Seleucus I, who rules the Asian part of Alexander's former empire, crosses the Indus and meets Chandragupta. They conclude an alliance sealed by marriage: Seleucus hands over his easternmost provinces, among them Gandhara, and receives 500 war elephants. The sources date the conflict differently, to 305–303 or 303–302 BC."
+       "en": "Seleucus I, who rules the Asian part of Alexander's former empire, crosses the Indus and meets Chandragupta. They conclude an alliance sealed by marriage: Seleucus hands over his easternmost provinces, among them Gandhara, and receives 500 war elephants. The sources date the conflict differently, to 305–303 or 303–302 BC.",
+       "es": "Seleuco I, que gobierna la parte asiática del antiguo imperio de Alejandro, cruza el Indo y se enfrenta a Chandragupta. Sellan una alianza con un matrimonio: Seleuco cede sus provincias más orientales, entre ellas Gandhara, y recibe 500 elefantes de guerra. Las fuentes fechan el conflicto de manera distinta, en 305–303 o en 303–302 a. C."
       },
       "sources": [
        "wp-maurya-empire",
@@ -2326,37 +2350,44 @@
       "year": -296,
       "label": {
        "sv": "cirka 297 f.Kr.",
-       "en": "about 297 BC"
+       "en": "about 297 BC",
+       "es": "hacia 297 a. C."
       },
       "title": {
        "sv": "Bindusara erövrar söderut",
-       "en": "Bindusara conquers southward"
+       "en": "Bindusara conquers southward",
+       "es": "Bindusara conquista hacia el sur"
       },
       "text": {
        "sv": "Chandraguptas son Bindusara blir kejsare och utvidgar riket söderut, till dagens Karnataka. Nästan hela den indiska halvön lyder under honom, utom tamilrikena längst i söder och Kalinga på östkusten.",
-       "en": "Chandragupta's son Bindusara becomes emperor and extends the empire southward, to present-day Karnataka. Almost the whole Indian peninsula is under him, except the Tamil kingdoms in the far south and Kalinga on the east coast."
+       "en": "Chandragupta's son Bindusara becomes emperor and extends the empire southward, to present-day Karnataka. Almost the whole Indian peninsula is under him, except the Tamil kingdoms in the far south and Kalinga on the east coast.",
+       "es": "Bindusara, hijo de Chandragupta, se convierte en emperador y amplía el imperio hacia el sur, hasta la actual Karnataka. Casi toda la península india le está sometida, salvo los reinos tamiles del extremo sur y Kalinga, en la costa oriental."
       },
       "sources": [
        "wp-maurya-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar en stor tillväxt, närmare 50 procent, från 291 f.Kr.",
-       "en": "The map shows a large growth, close to 50 per cent, from 291 BC."
+       "en": "The map shows a large growth, close to 50 per cent, from 291 BC.",
+       "es": "El mapa muestra un gran crecimiento, de casi el 50 %, a partir de 291 a. C."
       }
      },
      {
       "year": -267,
       "label": {
        "sv": "cirka 268 f.Kr.",
-       "en": "about 268 BC"
+       "en": "about 268 BC",
+       "es": "hacia 268 a. C."
       },
       "title": {
        "sv": "Ashoka blir kejsare",
-       "en": "Ashoka becomes emperor"
+       "en": "Ashoka becomes emperor",
+       "es": "Ashoka se convierte en emperador"
       },
       "text": {
        "sv": "Ashoka, Chandraguptas sonson, blir kejsare. Under honom kontrollerar riket en kort tid de viktigaste städerna och vägarna på hela subkontinenten utom längst i söder. Källan anger på ett annat ställe 272 f.Kr. som början på hans regering.",
-       "en": "Ashoka, Chandragupta's grandson, becomes emperor. Under him the empire for a short time controls the most important cities and roads of the whole subcontinent except the far south. The source gives 272 BC elsewhere as the beginning of his reign."
+       "en": "Ashoka, Chandragupta's grandson, becomes emperor. Under him the empire for a short time controls the most important cities and roads of the whole subcontinent except the far south. The source gives 272 BC elsewhere as the beginning of his reign.",
+       "es": "Ashoka, nieto de Chandragupta, se convierte en emperador. Bajo su mando, el imperio controla durante un breve período las ciudades y las vías más importantes de todo el subcontinente, salvo el extremo sur. En otro pasaje, la fuente indica 272 a. C. como comienzo de su reinado."
       },
       "sources": [
        "wp-maurya-empire"
@@ -2366,15 +2397,18 @@
       "year": -260,
       "label": {
        "sv": "cirka 261 f.Kr.",
-       "en": "about 261 BC"
+       "en": "about 261 BC",
+       "es": "hacia 261 a. C."
       },
       "title": {
        "sv": "Kalingakriget",
-       "en": "The Kalinga War"
+       "en": "The Kalinga War",
+       "es": "La guerra de Kalinga"
       },
       "text": {
        "sv": "Ashoka erövrar Kalinga på östkusten, i dagens Odisha. Uppskattningsvis 100 000 soldater och civila dödas. Efter förödelsen vänder sig Ashoka till buddhismen och tar avstånd från krig, men Kalinga förblir en del av riket.",
-       "en": "Ashoka conquers Kalinga on the east coast, in present-day Odisha. An estimated 100,000 soldiers and civilians are killed. After the devastation Ashoka turns to Buddhism and distances himself from war, but Kalinga remains part of the empire."
+       "en": "Ashoka conquers Kalinga on the east coast, in present-day Odisha. An estimated 100,000 soldiers and civilians are killed. After the devastation Ashoka turns to Buddhism and distances himself from war, but Kalinga remains part of the empire.",
+       "es": "Ashoka conquista Kalinga, en la costa oriental, en la actual Odisha. Se estima que mueren 100 000 soldados y civiles. Tras la devastación, Ashoka se vuelve hacia el budismo y se distancia de la guerra, pero Kalinga sigue siendo parte del imperio."
       },
       "sources": [
        "wp-maurya-empire",
@@ -2382,57 +2416,67 @@
       ],
       "mapNote": {
        "sv": "Kartan visar bara en liten ökning, cirka 3 procent, från 256 f.Kr.",
-       "en": "The map shows only a small increase, about 3 per cent, from 256 BC."
+       "en": "The map shows only a small increase, about 3 per cent, from 256 BC.",
+       "es": "El mapa muestra solo un pequeño aumento, de aproximadamente el 3 %, a partir de 256 a. C."
       }
      },
      {
       "year": -231,
       "label": {
        "sv": "232 f.Kr.",
-       "en": "232 BC"
+       "en": "232 BC",
+       "es": "232 a. C."
       },
       "title": {
        "sv": "Ashoka dör",
-       "en": "Ashoka dies"
+       "en": "Ashoka dies",
+       "es": "Muere Ashoka"
       },
       "text": {
        "sv": "Efter Ashokas död följer en rad svagare kejsare. Riket förlorar många områden under hans sonson Dasharatha. En del återtas av Samprati, men därefter krymper riket steg för steg.",
-       "en": "After Ashoka's death a series of weaker emperors follows. The empire loses many areas under his grandson Dasharatha. Some are retaken by Samprati, but after that the empire shrinks step by step."
+       "en": "After Ashoka's death a series of weaker emperors follows. The empire loses many areas under his grandson Dasharatha. Some are retaken by Samprati, but after that the empire shrinks step by step.",
+       "es": "Tras la muerte de Ashoka le suceden varios emperadores más débiles. El imperio pierde muchos territorios bajo su nieto Dasharatha. Samprati recupera algunos, pero después el imperio se reduce paso a paso."
       },
       "sources": [
        "wp-maurya-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar en minskning med cirka 70 procent från 225 f.Kr.",
-       "en": "The map shows a decrease of about 70 per cent from 225 BC."
+       "en": "The map shows a decrease of about 70 per cent from 225 BC.",
+       "es": "El mapa muestra una reducción de aproximadamente el 70 % a partir de 225 a. C."
       }
      },
      {
       "year": -184,
       "label": {
        "sv": "185 f.Kr.",
-       "en": "185 BC"
+       "en": "185 BC",
+       "es": "185 a. C."
       },
       "title": {
        "sv": "Riket upphör",
-       "en": "The empire ends"
+       "en": "The empire ends",
+       "es": "El imperio llega a su fin"
       },
       "text": {
        "sv": "Den siste kejsaren, Brihadratha, mördas av sin general Pushyamitra Shunga, som grundar Shungariket. Källan anger 185 f.Kr., men på ett ställe 180 f.Kr.",
-       "en": "The last emperor, Brihadratha, is murdered by his general Pushyamitra Shunga, who founds the Shunga Empire. The source gives 185 BC, but in one place 180 BC."
+       "en": "The last emperor, Brihadratha, is murdered by his general Pushyamitra Shunga, who founds the Shunga Empire. The source gives 185 BC, but in one place 180 BC.",
+       "es": "El último emperador, Brihadratha, es asesinado por su general Pushyamitra Shunga, quien funda el Imperio shunga. La fuente indica 185 a. C., pero en un pasaje 180 a. C."
       },
       "sources": [
        "wp-maurya-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar ett kraftigt minskat rike till och med 171 f.Kr.",
-       "en": "The map shows a greatly reduced empire up to and including 171 BC."
+       "en": "The map shows a greatly reduced empire up to and including 171 BC.",
+       "es": "El mapa muestra un imperio muy reducido hasta 171 a. C. inclusive."
       }
      }
     ],
     "mapNote": {
      "sv": "Källan anger cirka 320 till 185 f.Kr.",
-     "en": "The source gives about 320 to 185 BC."
+     "en": "The source gives about 320 to 185 BC.",
+     "es": "La fuente indica de aproximadamente 320 a 185 a. C."
     },
     "sources": [
      "wp-maurya-empire",
@@ -2445,7 +2489,8 @@
     {
      "name": {
       "sv": "Pataliputra",
-      "en": "Pataliputra"
+      "en": "Pataliputra",
+      "es": "Pataliputra"
      },
      "wikidata": "Q389755",
      "at": [
@@ -2464,7 +2509,8 @@
    "id": "osmanska-riket",
    "name": {
     "sv": "Osmanska riket",
-    "en": "Ottoman Empire"
+    "en": "Ottoman Empire",
+    "es": "Imperio otomano"
    },
    "color": "#2f8f7f",
    "from": 1305,
@@ -2475,7 +2521,8 @@
      "id": "osmanska-riket",
      "name": {
       "sv": "Osmanska riket",
-      "en": "Ottoman Empire"
+      "en": "Ottoman Empire",
+      "es": "Imperio otomano"
      },
      "sources": [
       "cliopatria"
@@ -2486,77 +2533,92 @@
    "facts": {
     "summary": {
      "sv": "Osmanska riket hade sitt centrum i dagens Turkiet och styrde från 1300-talet till början av 1900-talet stora delar av Sydösteuropa, Västasien och Nordafrika. I sex århundraden stod det i centrum för kontakterna mellan Mellanöstern och Europa.",
-     "en": "The Ottoman Empire had its centre in present-day Turkey and from the 14th century to the early 20th century ruled large parts of South-Eastern Europe, Western Asia and North Africa. For six centuries it stood at the centre of contacts between the Middle East and Europe."
+     "en": "The Ottoman Empire had its centre in present-day Turkey and from the 14th century to the early 20th century ruled large parts of South-Eastern Europe, Western Asia and North Africa. For six centuries it stood at the centre of contacts between the Middle East and Europe.",
+     "es": "El Imperio otomano tenía su centro en la actual Turquía y, desde el siglo XIV hasta principios del siglo XX, gobernó gran parte del sureste de Europa, el oeste de Asia y el norte de África. Durante seis siglos estuvo en el centro de los contactos entre Oriente Medio y Europa."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
-       "en": "When and where it arose"
+       "en": "When and where it arose",
+       "es": "Cuándo y dónde surgió"
       },
       "text": {
        "sv": "Ur ett litet furstendöme (beylik) i nordvästra Anatolien, grundat omkring 1299 av turkmenhövdingen Osman I. Hans efterträdare erövrade större delen av Anatolien och nådde Balkan i mitten av 1300-talet.",
-       "en": "From a small principality (beylik) in north-western Anatolia, founded around 1299 by the Turkmen chieftain Osman I. His successors conquered most of Anatolia and reached the Balkans in the middle of the 14th century."
+       "en": "From a small principality (beylik) in north-western Anatolia, founded around 1299 by the Turkmen chieftain Osman I. His successors conquered most of Anatolia and reached the Balkans in the middle of the 14th century.",
+       "es": "Surgió de un pequeño principado (beylik) del noroeste de Anatolia, fundado hacia 1299 por el jefe turcomano Osman I. Sus sucesores conquistaron la mayor parte de Anatolia y llegaron a los Balcanes a mediados del siglo XIV."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
-       "en": "How it ended"
+       "en": "How it ended",
+       "es": "Cómo terminó"
       },
       "text": {
        "sv": "Riket gick in i första världskriget på centralmakternas sida, och under kriget begick regimen folkmord på armenier, assyrier och greker. Efter kriget ockuperades och delades riket av de allierade. Efter det turkiska befrielsekriget under Mustafa Kemal Atatürk avskaffades sultanatet 1922, och republiken Turkiet utropades 29 oktober 1923.",
-       "en": "The empire entered the First World War on the side of the Central Powers, and during the war the regime committed genocide against Armenians, Assyrians and Greeks. After the war the empire was occupied and divided by the Allies. After the Turkish War of Independence under Mustafa Kemal Atatürk the sultanate was abolished in 1922, and the Republic of Turkey was proclaimed on 29 October 1923."
+       "en": "The empire entered the First World War on the side of the Central Powers, and during the war the regime committed genocide against Armenians, Assyrians and Greeks. After the war the empire was occupied and divided by the Allies. After the Turkish War of Independence under Mustafa Kemal Atatürk the sultanate was abolished in 1922, and the Republic of Turkey was proclaimed on 29 October 1923.",
+       "es": "El imperio entró en la Primera Guerra Mundial del lado de las Potencias Centrales y, durante la guerra, el régimen cometió genocidio contra armenios, asirios y griegos. Tras la guerra, los Aliados ocuparon y repartieron el imperio. Después de la guerra de independencia turca, dirigida por Mustafa Kemal Atatürk, el sultanato fue abolido en 1922 y la República de Turquía fue proclamada el 29 de octubre de 1923."
       }
      },
      {
       "label": {
        "sv": "Huvudstäder",
-       "en": "Capitals"
+       "en": "Capitals",
+       "es": "Capitales"
       },
       "text": {
        "sv": "Söğüt (från cirka 1299), Nicaea/İznik (1331–1335), Bursa (1335–1360-talet), Edirne (1360-talet–1453) och Konstantinopel/Istanbul (1453–1922). När Edirne erövrades är omstritt, mellan 1361 och 1369.",
-       "en": "Söğüt (from about 1299), Nicaea/İznik (1331–1335), Bursa (1335–1360s), Edirne (1360s–1453) and Constantinople/Istanbul (1453–1922). When Edirne was conquered is disputed, between 1361 and 1369."
+       "en": "Söğüt (from about 1299), Nicaea/İznik (1331–1335), Bursa (1335–1360s), Edirne (1360s–1453) and Constantinople/Istanbul (1453–1922). When Edirne was conquered is disputed, between 1361 and 1369.",
+       "es": "Söğüt (desde aproximadamente 1299), Nicea/İznik (1331–1335), Bursa (1335–década de 1360), Edirne (década de 1360–1453) y Constantinopla/Estambul (1453–1922). La fecha de la conquista de Edirne es discutida, entre 1361 y 1369."
       }
      },
      {
       "label": {
        "sv": "Kända härskare",
-       "en": "Famous rulers"
+       "en": "Famous rulers",
+       "es": "Gobernantes célebres"
       },
       "text": {
        "sv": "Osman I (cirka 1299–1323/24), Mehmed II, som erövrade Konstantinopel 1453, Selim I, vars erövringar ledde till att sultanerna tog titeln kalif, Suleiman den store på 1500-talet och den siste sultanen, Mehmed VI (1918–1922).",
-       "en": "Osman I (about 1299–1323/24), Mehmed II, who conquered Constantinople in 1453, Selim I, whose conquests led to the sultans taking the title of caliph, Suleiman the Magnificent in the 16th century and the last sultan, Mehmed VI (1918–1922)."
+       "en": "Osman I (about 1299–1323/24), Mehmed II, who conquered Constantinople in 1453, Selim I, whose conquests led to the sultans taking the title of caliph, Suleiman the Magnificent in the 16th century and the last sultan, Mehmed VI (1918–1922).",
+       "es": "Osman I (aproximadamente 1299–1323/24), Mehmed II, que conquistó Constantinopla en 1453, Selim I, cuyas conquistas llevaron a los sultanes a tomar el título de califa, Solimán el Magnífico en el siglo XVI y el último sultán, Mehmed VI (1918–1922)."
       }
      },
      {
       "label": {
        "sv": "Största utbredning",
-       "en": "Greatest extent"
+       "en": "Greatest extent",
+       "es": "Mayor extensión"
       },
       "text": {
        "sv": "Cirka 5,2 miljoner km² år 1683 enligt Wikipedias faktaruta (3,4 miljoner km² år 1521 och 2,55 miljoner år 1913). Samma år, 1683, förlorade riket vid andra belägringen av Wien, och forskare brukar se det som början på nedgången.",
-       "en": "About 5.2 million km² in 1683 according to Wikipedia's fact box (3.4 million km² in 1521 and 2.55 million in 1913). That same year, 1683, the empire lost at the Second Siege of Vienna, and scholars usually see that as the beginning of the decline."
+       "en": "About 5.2 million km² in 1683 according to Wikipedia's fact box (3.4 million km² in 1521 and 2.55 million in 1913). That same year, 1683, the empire lost at the Second Siege of Vienna, and scholars usually see that as the beginning of the decline.",
+       "es": "Aproximadamente 5,2 millones de km² en 1683 según el recuadro de datos de Wikipedia (3,4 millones de km² en 1521 y 2,55 millones en 1913). Ese mismo año, 1683, el imperio perdió en el segundo asedio de Viena, y los investigadores suelen ver en ello el comienzo del declive."
       }
      },
      {
       "label": {
        "sv": "Språk och religion",
-       "en": "Language and religion"
+       "en": "Language and religion",
+       "es": "Idioma y religión"
       },
       "text": {
        "sv": "Osmansk turkiska var officiellt språk. Arabiska, persiska, grekiska och många andra språk användes också. Sunniislam var statsreligion. Rikets trossamfund (millet) fick i olika grad sköta sina egna angelägenheter.",
-       "en": "Ottoman Turkish was the official language. Arabic, Persian, Greek and many other languages were also used. Sunni Islam was the state religion. The empire's religious communities (millet) were allowed, to varying degrees, to manage their own affairs."
+       "en": "Ottoman Turkish was the official language. Arabic, Persian, Greek and many other languages were also used. Sunni Islam was the state religion. The empire's religious communities (millet) were allowed, to varying degrees, to manage their own affairs.",
+       "es": "El turco otomano era el idioma oficial. También se usaban el árabe, el persa, el griego y muchos otros idiomas. El islam suní era la religión del Estado. Las comunidades religiosas del imperio (millet) pudieron gestionar sus propios asuntos en distinta medida."
       }
      },
      {
       "label": {
        "sv": "Symbolen på kartan",
-       "en": "The symbol on the map"
+       "en": "The symbol on the map",
+       "es": "El símbolo en el mapa"
       },
       "text": {
        "sv": "Tughran, sultanens kalligrafiska namnteckning. Den sattes på alla officiella dokument och präglades på mynt. Varje sultan hade sin egen tughra, och de första är från 1300-talet (den första osmanska tughran är Orhans, 1326). Formen känns igen på två öglor till vänster, tre lodräta streck i mitten och två utsträckta linjer åt höger.",
-       "en": "The tughra, the sultan's calligraphic signature. It was put on all official documents and stamped on coins. Each sultan had his own tughra, and the first date from the 14th century (the first Ottoman tughra is Orhan's, 1326). The form is recognised by two loops on the left, three vertical strokes in the middle and two extended lines to the right."
+       "en": "The tughra, the sultan's calligraphic signature. It was put on all official documents and stamped on coins. Each sultan had his own tughra, and the first date from the 14th century (the first Ottoman tughra is Orhan's, 1326). The form is recognised by two loops on the left, three vertical strokes in the middle and two extended lines to the right.",
+       "es": "La tugra, la firma caligráfica del sultán. Se ponía en todos los documentos oficiales y se acuñaba en las monedas. Cada sultán tenía su propia tugra, y las primeras datan del siglo XIV (la primera tugra otomana es la de Orhan, de 1326). Su forma se reconoce por dos lazos a la izquierda, tres trazos verticales en el centro y dos líneas extendidas hacia la derecha."
       }
      }
     ],
@@ -2565,15 +2627,18 @@
       "year": 1299,
       "label": {
        "sv": "cirka 1299",
-       "en": "about 1299"
+       "en": "about 1299",
+       "es": "hacia 1299"
       },
       "title": {
        "sv": "Ett litet furstendöme",
-       "en": "A small principality"
+       "en": "A small principality",
+       "es": "Un pequeño principado"
       },
       "text": {
        "sv": "Osman I grundar ett furstendöme i nordvästra Anatolien.",
-       "en": "Osman I founds a principality in north-western Anatolia."
+       "en": "Osman I founds a principality in north-western Anatolia.",
+       "es": "Osman I funda un principado en el noroeste de Anatolia."
       },
       "sources": [
        "wp-ottoman"
@@ -2583,15 +2648,18 @@
       "year": 1402,
       "label": {
        "sv": "1402",
-       "en": "1402"
+       "en": "1402",
+       "es": "1402"
       },
       "title": {
        "sv": "Nederlaget mot Timur",
-       "en": "The defeat by Timur"
+       "en": "The defeat by Timur",
+       "es": "La derrota ante Timur"
       },
       "text": {
        "sv": "Timur besegrar osmanerna vid Ankara och tar sultan Bayezid I till fånga. Riket faller ihop i ett inbördeskrig mellan sultanens söner som varar till 1413, och områden på Balkan, bland annat Thessaloniki, går förlorade. De återtas av Murad II mellan 1430- och 1450-talet.",
-       "en": "Timur defeats the Ottomans at Ankara and takes Sultan Bayezid I prisoner. The empire collapses into a civil war between the sultan's sons that lasts until 1413, and territories in the Balkans, among them Thessaloniki, are lost. They are retaken by Murad II between the 1430s and the 1450s."
+       "en": "Timur defeats the Ottomans at Ankara and takes Sultan Bayezid I prisoner. The empire collapses into a civil war between the sultan's sons that lasts until 1413, and territories in the Balkans, among them Thessaloniki, are lost. They are retaken by Murad II between the 1430s and the 1450s.",
+       "es": "Timur derrota a los otomanos en Ankara y hace prisionero al sultán Bayezid I. El imperio se desmorona en una guerra civil entre los hijos del sultán que dura hasta 1413, y se pierden territorios en los Balcanes, entre ellos Tesalónica. Murad II los recupera entre las décadas de 1430 y 1450."
       },
       "sources": [
        "wp-ottoman",
@@ -2599,44 +2667,52 @@
       ],
       "mapNote": {
        "sv": "Kartan (Cliopatria) visar nästan ingen minskning 1402, bara cirka 4 procent. Inbördeskriget syns inte som förlorat land.",
-       "en": "The map (Cliopatria) shows almost no decrease in 1402, only about 4 per cent. The civil war does not show up as lost land."
+       "en": "The map (Cliopatria) shows almost no decrease in 1402, only about 4 per cent. The civil war does not show up as lost land.",
+       "es": "El mapa (Cliopatria) casi no muestra reducción en 1402, solo de aproximadamente el 4 %. La guerra civil no aparece como territorio perdido."
       }
      },
      {
       "year": 1453,
       "label": {
        "sv": "1453",
-       "en": "1453"
+       "en": "1453",
+       "es": "1453"
       },
       "title": {
        "sv": "Konstantinopel erövras",
-       "en": "Constantinople is conquered"
+       "en": "Constantinople is conquered",
+       "es": "Constantinopla es conquistada"
       },
       "text": {
        "sv": "Mehmed II erövrar Konstantinopel, som blir huvudstad. Bysantinska riket upphör. Osmanerna styrde redan nästan allt land runt staden.",
-       "en": "Mehmed II conquers Constantinople, which becomes the capital. The Byzantine Empire ceases to exist. The Ottomans already ruled almost all the land around the city."
+       "en": "Mehmed II conquers Constantinople, which becomes the capital. The Byzantine Empire ceases to exist. The Ottomans already ruled almost all the land around the city.",
+       "es": "Mehmed II conquista Constantinopla, que se convierte en la capital. El Imperio bizantino llega a su fin. Los otomanos ya dominaban casi todo el territorio alrededor de la ciudad."
       },
       "sources": [
        "wp-ottoman"
       ],
       "mapNote": {
        "sv": "Ytan på kartan ändras knappt 1453, eftersom staden redan var omringad av osmanskt land. Kartan visar den stora tillväxten först 1459–1474.",
-       "en": "The area on the map hardly changes in 1453, since the city was already surrounded by Ottoman land. The map shows the great growth only in 1459–1474."
+       "en": "The area on the map hardly changes in 1453, since the city was already surrounded by Ottoman land. The map shows the great growth only in 1459–1474.",
+       "es": "La superficie en el mapa apenas cambia en 1453, ya que la ciudad estaba rodeada de territorio otomano. El mapa muestra el gran crecimiento solo en 1459–1474."
       }
      },
      {
       "year": 1517,
       "label": {
        "sv": "1516–1517",
-       "en": "1516–1517"
+       "en": "1516–1517",
+       "es": "1516–1517"
       },
       "title": {
        "sv": "Mamlukriket erövras",
-       "en": "The Mamluk Sultanate is conquered"
+       "en": "The Mamluk Sultanate is conquered",
+       "es": "El Sultanato mameluco es conquistado"
       },
       "text": {
        "sv": "Selim I besegrar mamlukerna och tar Syrien, Egypten och Hejaz. Riket når nu Röda havet, och efter erövringarna tar sultanerna titeln kalif.",
-       "en": "Selim I defeats the Mamluks and takes Syria, Egypt and the Hejaz. The empire now reaches the Red Sea, and after the conquests the sultans take the title of caliph."
+       "en": "Selim I defeats the Mamluks and takes Syria, Egypt and the Hejaz. The empire now reaches the Red Sea, and after the conquests the sultans take the title of caliph.",
+       "es": "Selim I derrota a los mamelucos y toma Siria, Egipto y el Hiyaz. El imperio llega ahora al mar Rojo y, tras las conquistas, los sultanes toman el título de califa."
       },
       "sources": [
        "wp-ottoman",
@@ -2644,44 +2720,52 @@
       ],
       "mapNote": {
        "sv": "På kartan syns erövringen först 1519, då ytan mer än fördubblas.",
-       "en": "On the map the conquest shows up only in 1519, when the area more than doubles."
+       "en": "On the map the conquest shows up only in 1519, when the area more than doubles.",
+       "es": "En el mapa la conquista solo aparece en 1519, cuando la superficie se más que duplica."
       }
      },
      {
       "year": 1683,
       "label": {
        "sv": "1683",
-       "en": "1683"
+       "en": "1683",
+       "es": "1683"
       },
       "title": {
        "sv": "Nederlaget vid Wien",
-       "en": "The defeat at Vienna"
+       "en": "The defeat at Vienna",
+       "es": "La derrota ante Viena"
       },
       "text": {
        "sv": "Riket är som störst men förlorar vid andra belägringen av Wien. Ett förbund av europeiska stater går till motangrepp i ett krig som varar till 1699.",
-       "en": "The empire is at its largest but loses at the Second Siege of Vienna. A league of European states counterattacks in a war that lasts until 1699."
+       "en": "The empire is at its largest but loses at the Second Siege of Vienna. A league of European states counterattacks in a war that lasts until 1699.",
+       "es": "El imperio alcanza su mayor extensión, pero pierde en el segundo asedio de Viena. Una liga de Estados europeos contraataca en una guerra que dura hasta 1699."
       },
       "sources": [
        "wp-ottoman"
       ],
       "mapNote": {
        "sv": "Enligt källan är riket som störst 1683, cirka 5,2 miljoner km². Kartan visar störst yta 1588–1608, cirka 4,3 miljoner km², och cirka 3,6 miljoner km² 1683.",
-       "en": "According to the source the empire is at its largest in 1683, about 5.2 million km². The map shows the largest area in 1588–1608, about 4.3 million km², and about 3.6 million km² in 1683."
+       "en": "According to the source the empire is at its largest in 1683, about 5.2 million km². The map shows the largest area in 1588–1608, about 4.3 million km², and about 3.6 million km² in 1683.",
+       "es": "Según la fuente, el imperio alcanza su mayor extensión en 1683, con aproximadamente 5,2 millones de km². El mapa muestra la mayor superficie en 1588–1608, con aproximadamente 4,3 millones de km², y aproximadamente 3,6 millones de km² en 1683."
       }
      },
      {
       "year": 1699,
       "label": {
        "sv": "1699",
-       "en": "1699"
+       "en": "1699",
+       "es": "1699"
       },
       "title": {
        "sv": "Freden i Karlowitz",
-       "en": "The Peace of Karlowitz"
+       "en": "The Peace of Karlowitz",
+       "es": "La paz de Karlowitz"
       },
       "text": {
        "sv": "Kriget som började vid Wien slutar med förlust. Riket lämnar större delen av Ungern, Kroatien och Slavonien till Habsburgarna, Podolien till Polen-Litauen och Morea och Dalmatien till Venedig. Det är rikets första stora landförluster i Europa.",
-       "en": "The war that began at Vienna ends in defeat. The empire cedes most of Hungary, Croatia and Slavonia to the Habsburgs, Podolia to Poland-Lithuania and the Morea and Dalmatia to Venice. These are the empire's first major land losses in Europe."
+       "en": "The war that began at Vienna ends in defeat. The empire cedes most of Hungary, Croatia and Slavonia to the Habsburgs, Podolia to Poland-Lithuania and the Morea and Dalmatia to Venice. These are the empire's first major land losses in Europe.",
+       "es": "La guerra que comenzó en Viena termina en derrota. El imperio cede la mayor parte de Hungría, Croacia y Eslavonia a los Habsburgo, Podolia a Polonia-Lituania, y la Morea y Dalmacia a Venecia. Son las primeras grandes pérdidas territoriales del imperio en Europa."
       },
       "sources": [
        "wp-ottoman",
@@ -2689,22 +2773,26 @@
       ],
       "mapNote": {
        "sv": "Kartan visar bara en liten minskning 1687–1705, några procent.",
-       "en": "The map shows only a small decrease in 1687–1705, a few per cent."
+       "en": "The map shows only a small decrease in 1687–1705, a few per cent.",
+       "es": "El mapa muestra solo una pequeña reducción en 1687–1705, de unos pocos puntos porcentuales."
       }
      },
      {
       "year": 1878,
       "label": {
        "sv": "1878",
-       "en": "1878"
+       "en": "1878",
+       "es": "1878"
       },
       "title": {
        "sv": "Berlinkongressen",
-       "en": "The Congress of Berlin"
+       "en": "The Congress of Berlin",
+       "es": "El Congreso de Berlín"
       },
       "text": {
        "sv": "Efter rysk-turkiska kriget 1877–1878 erkänns Rumänien, Serbien och Montenegro som självständiga. Österrike-Ungern ockuperar Bosnien och Hercegovina, Storbritannien tar över Cypern och Bulgarien blir ett nästan självständigt furstendöme.",
-       "en": "After the Russo-Turkish War of 1877–1878, Romania, Serbia and Montenegro are recognised as independent. Austria-Hungary occupies Bosnia and Herzegovina, Britain takes over Cyprus and Bulgaria becomes a nearly independent principality."
+       "en": "After the Russo-Turkish War of 1877–1878, Romania, Serbia and Montenegro are recognised as independent. Austria-Hungary occupies Bosnia and Herzegovina, Britain takes over Cyprus and Bulgaria becomes a nearly independent principality.",
+       "es": "Tras la guerra ruso-turca de 1877–1878, Rumanía, Serbia y Montenegro son reconocidas como independientes. Austria-Hungría ocupa Bosnia y Herzegovina, Gran Bretaña se hace cargo de Chipre y Bulgaria pasa a ser un principado casi independiente."
       },
       "sources": [
        "wp-congress-berlin",
@@ -2715,15 +2803,18 @@
       "year": 1908,
       "label": {
        "sv": "1908",
-       "en": "1908"
+       "en": "1908",
+       "es": "1908"
       },
       "title": {
        "sv": "Ungturkiska revolutionen",
-       "en": "The Young Turk Revolution"
+       "en": "The Young Turk Revolution",
+       "es": "La Revolución de los Jóvenes Turcos"
       },
       "text": {
        "sv": "Ungturkiska revolutionen återinför konstitutionell monarki.",
-       "en": "The Young Turk Revolution restores constitutional monarchy."
+       "en": "The Young Turk Revolution restores constitutional monarchy.",
+       "es": "La Revolución de los Jóvenes Turcos restablece la monarquía constitucional."
       },
       "sources": [
        "wp-ottoman"
@@ -2733,15 +2824,18 @@
       "year": 1918,
       "label": {
        "sv": "1918",
-       "en": "1918"
+       "en": "1918",
+       "es": "1918"
       },
       "title": {
        "sv": "Nederlag i första världskriget",
-       "en": "Defeat in the First World War"
+       "en": "Defeat in the First World War",
+       "es": "Derrota en la Primera Guerra Mundial"
       },
       "text": {
        "sv": "Riket har förlorat stora delar av Mellanöstern under kriget, bland annat genom arabiska revolten, som drev ut osmanerna ur större delen av Hejaz och tog Damaskus. I vapenstilleståndet i Mudros lämnar osmanerna sina garnisoner utanför Anatolien, och Istanbul ockuperas.",
-       "en": "The empire has lost large parts of the Middle East during the war, among other things through the Arab Revolt, which drove the Ottomans out of most of the Hejaz and took Damascus. In the Armistice of Mudros the Ottomans give up their garrisons outside Anatolia, and Istanbul is occupied."
+       "en": "The empire has lost large parts of the Middle East during the war, among other things through the Arab Revolt, which drove the Ottomans out of most of the Hejaz and took Damascus. In the Armistice of Mudros the Ottomans give up their garrisons outside Anatolia, and Istanbul is occupied.",
+       "es": "El imperio ha perdido grandes partes de Oriente Medio durante la guerra, entre otras cosas por la Revuelta árabe, que expulsó a los otomanos de la mayor parte del Hiyaz y tomó Damasco. En el armisticio de Mudros, los otomanos abandonan sus guarniciones fuera de Anatolia y Estambul es ocupada."
       },
       "sources": [
        "wp-ottoman",
@@ -2749,22 +2843,26 @@
       ],
       "mapNote": {
        "sv": "Kartan visar de stora förlusterna 1917 och 1919.",
-       "en": "The map shows the large losses in 1917 and 1919."
+       "en": "The map shows the large losses in 1917 and 1919.",
+       "es": "El mapa muestra las grandes pérdidas en 1917 y 1919."
       }
      },
      {
       "year": 1922,
       "label": {
        "sv": "1922",
-       "en": "1922"
+       "en": "1922",
+       "es": "1922"
       },
       "title": {
        "sv": "Sultanatet avskaffas",
-       "en": "The sultanate is abolished"
+       "en": "The sultanate is abolished",
+       "es": "Se abole el sultanato"
       },
       "text": {
        "sv": "Sultanatet avskaffas. Republiken Turkiet utropas året efter.",
-       "en": "The sultanate is abolished. The Republic of Turkey is proclaimed the following year."
+       "en": "The sultanate is abolished. The Republic of Turkey is proclaimed the following year.",
+       "es": "Se abole el sultanato. La República de Turquía es proclamada al año siguiente."
       },
       "sources": [
        "wp-ottoman"
@@ -2773,7 +2871,8 @@
     ],
     "mapNote": {
      "sv": "Källan anger cirka 1299 som start. Kartan slutar 1923, året då republiken utropades, men sultanatet avskaffades redan 1922. Den osmanska provinsen Tripolitanien, i dagens Libyen, ingår 1840–1911, som Cliopatria har den. Enligt Wikipedia styrde Osmanska riket området direkt från 1835 tills Italien tog det 1912; Wikidata anger vilajetet 1864–1911.",
-     "en": "The source gives about 1299 as the start. The map ends in 1923, the year the republic was proclaimed, but the sultanate was abolished as early as 1922. The Ottoman province of Tripolitania, in present-day Libya, is included in 1840–1911, as Cliopatria has it. According to Wikipedia the Ottoman Empire ruled the area directly from 1835 until Italy took it in 1912; Wikidata gives the vilayet as 1864–1911."
+     "en": "The source gives about 1299 as the start. The map ends in 1923, the year the republic was proclaimed, but the sultanate was abolished as early as 1922. The Ottoman province of Tripolitania, in present-day Libya, is included in 1840–1911, as Cliopatria has it. According to Wikipedia the Ottoman Empire ruled the area directly from 1835 until Italy took it in 1912; Wikidata gives the vilayet as 1864–1911.",
+     "es": "La fuente indica hacia 1299 como comienzo. El mapa termina en 1923, el año en que se proclamó la república, pero el sultanato ya había sido abolido en 1922. La provincia otomana de Tripolitania, en la actual Libia, se incluye en 1840–1911, tal como la tiene Cliopatria. Según Wikipedia, el Imperio otomano gobernó el territorio directamente desde 1835 hasta que Italia lo tomó en 1912; Wikidata indica el vilayato en 1864–1911."
     },
     "sources": [
      "wp-ottoman",
@@ -2823,7 +2922,8 @@
     {
      "name": {
       "sv": "Söğüt",
-      "en": "Söğüt"
+      "en": "Söğüt",
+      "es": "Söğüt"
      },
      "wikidata": "Q768506",
      "at": [
@@ -2841,7 +2941,8 @@
     {
      "name": {
       "sv": "Bursa",
-      "en": "Bursa"
+      "en": "Bursa",
+      "es": "Bursa"
      },
      "wikidata": "Q40738",
      "at": [
@@ -2857,13 +2958,15 @@
      "review": "source-checked",
      "note": {
       "sv": "Källorna skiljer sig: faktarutans källa anger att Edirne blev huvudstad på 1360-talet och att året för erövringen är omstritt (1361–1369); Wikidata anger 1365.",
-      "en": "The sources differ: the fact box's source states that Edirne became the capital in the 1360s and that the year of the conquest is disputed (1361–1369); Wikidata gives 1365."
+      "en": "The sources differ: the fact box's source states that Edirne became the capital in the 1360s and that the year of the conquest is disputed (1361–1369); Wikidata gives 1365.",
+      "es": "Las fuentes difieren: la fuente del recuadro de datos indica que Edirne se convirtió en capital en la década de 1360 y que el año de la conquista es discutido (1361–1369); Wikidata indica 1365."
      }
     },
     {
      "name": {
       "sv": "Edirne",
-      "en": "Edirne"
+      "en": "Edirne",
+      "es": "Edirne"
      },
      "wikidata": "Q43387",
      "at": [
@@ -2879,13 +2982,15 @@
      "review": "source-checked",
      "note": {
       "sv": "Källorna skiljer sig: faktarutans källa anger att Edirne blev huvudstad på 1360-talet och att året för erövringen är omstritt (1361–1369); Wikidata anger 1365.",
-      "en": "The sources differ: the fact box's source states that Edirne became the capital in the 1360s and that the year of the conquest is disputed (1361–1369); Wikidata gives 1365."
+      "en": "The sources differ: the fact box's source states that Edirne became the capital in the 1360s and that the year of the conquest is disputed (1361–1369); Wikidata gives 1365.",
+      "es": "Las fuentes difieren: la fuente del recuadro de datos indica que Edirne se convirtió en capital en la década de 1360 y que el año de la conquista es discutido (1361–1369); Wikidata indica 1365."
      }
     },
     {
      "name": {
       "sv": "Konstantinopel",
-      "en": "Constantinople"
+      "en": "Constantinople",
+      "es": "Constantinopla"
      },
      "wikidata": "Q16869",
      "at": [
@@ -2906,7 +3011,8 @@
    "id": "mongolriket",
    "name": {
     "sv": "Mongolriket och dess khanat",
-    "en": "Mongol Empire and successor khanates"
+    "en": "Mongol Empire and successor khanates",
+    "es": "Imperio mongol y sus kanatos sucesores"
    },
    "color": "#8a6d3b",
    "from": 1206,
@@ -2917,7 +3023,8 @@
      "id": "mongolriket",
      "name": {
       "sv": "Mongolriket",
-      "en": "Mongol Empire"
+      "en": "Mongol Empire",
+      "es": "Imperio mongol"
      },
      "sources": [
       "cliopatria"
@@ -2928,7 +3035,8 @@
      "id": "yuandynastin",
      "name": {
       "sv": "Yuandynastin",
-      "en": "Yuan Dynasty"
+      "en": "Yuan Dynasty",
+      "es": "Dinastía Yuan"
      },
      "sources": [
       "cliopatria"
@@ -2939,7 +3047,8 @@
      "id": "ilkhanatet",
      "name": {
       "sv": "Ilkhanatet",
-      "en": "Ilkhanate"
+      "en": "Ilkhanate",
+      "es": "Ilcanato"
      },
      "sources": [
       "cliopatria"
@@ -2950,7 +3059,8 @@
      "id": "chagatai-khanatet",
      "name": {
       "sv": "Chagatai-khanatet",
-      "en": "Chagatai Khanate"
+      "en": "Chagatai Khanate",
+      "es": "Kanato de Chagatai"
      },
      "sources": [
       "cliopatria"
@@ -2961,7 +3071,8 @@
      "id": "gyllene-horden",
      "name": {
       "sv": "Gyllene horden",
-      "en": "Golden Horde"
+      "en": "Golden Horde",
+      "es": "Horda de Oro"
      },
      "sources": [
       "cliopatria"
@@ -2972,77 +3083,92 @@
    "facts": {
     "summary": {
      "sv": "Mongolriket var det största sammanhängande riket i historien. Det uppstod i dagens Mongoliet och sträckte sig som störst från Japanska havet till Östeuropa. Gruppen på kartan omfattar också de fyra khanat som riket delades i.",
-     "en": "The Mongol Empire was the largest contiguous empire in history. It arose in present-day Mongolia and at its largest stretched from the Sea of Japan to Eastern Europe. The group on the map also includes the four khanates into which the empire was divided."
+     "en": "The Mongol Empire was the largest contiguous empire in history. It arose in present-day Mongolia and at its largest stretched from the Sea of Japan to Eastern Europe. The group on the map also includes the four khanates into which the empire was divided.",
+     "es": "El Imperio mongol fue el mayor imperio continuo de la historia. Surgió en la actual Mongolia y, en su máxima extensión, se extendía desde el mar del Japón hasta Europa del Este. El grupo del mapa incluye también los cuatro kanatos en que se dividió el imperio."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
-       "en": "When and where it arose"
+       "en": "When and where it arose",
+       "es": "Cuándo y dónde surgió"
       },
       "text": {
        "sv": "Temüjin enade nomadstammarna i Mongoliet, och ett rådsmöte utropade honom 1206 till härskare över alla mongoler, med titeln Djingis khan. Riket växte snabbt under honom och hans ättlingar.",
-       "en": "Temüjin united the nomadic tribes of Mongolia, and a council meeting proclaimed him in 1206 ruler of all Mongols, with the title Genghis Khan. The empire grew rapidly under him and his descendants."
+       "en": "Temüjin united the nomadic tribes of Mongolia, and a council meeting proclaimed him in 1206 ruler of all Mongols, with the title Genghis Khan. The empire grew rapidly under him and his descendants.",
+       "es": "Temüjin unió a las tribus nómadas de Mongolia, y una asamblea lo proclamó en 1206 gobernante de todos los mongoles, con el título de Gengis Kan. El imperio creció con rapidez bajo su mando y el de sus descendientes."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
-       "en": "How it ended"
+       "en": "How it ended",
+       "es": "Cómo terminó"
       },
       "text": {
        "sv": "Strider om tronföljden splittrade riket. När Khubilai khan dog 1294 hade det delats i fyra khanat: Gyllene horden, Chagatai-khanatet, Ilkhanatet och Yuandynastin i Kina. Ilkhanatet föll sönder 1335–1353, och Yuan förlorade Kina 1368. Gyllene hordens välde över Östeuropa brukar räknas som slut 1480, och Chagatai-khanatet fanns kvar till 1687.",
-       "en": "Struggles over the succession split the empire. When Kublai Khan died in 1294 it had been divided into four khanates: the Golden Horde, the Chagatai Khanate, the Ilkhanate and the Yuan dynasty in China. The Ilkhanate fell apart in 1335–1353, and the Yuan lost China in 1368. The Golden Horde's rule over Eastern Europe is usually counted as ending in 1480, and the Chagatai Khanate remained until 1687."
+       "en": "Struggles over the succession split the empire. When Kublai Khan died in 1294 it had been divided into four khanates: the Golden Horde, the Chagatai Khanate, the Ilkhanate and the Yuan dynasty in China. The Ilkhanate fell apart in 1335–1353, and the Yuan lost China in 1368. The Golden Horde's rule over Eastern Europe is usually counted as ending in 1480, and the Chagatai Khanate remained until 1687.",
+       "es": "Las disputas por la sucesión dividieron el imperio. Cuando Kublai Kan murió en 1294, estaba dividido en cuatro kanatos: la Horda de Oro, el Kanato de Chagatai, el Ilcanato y la dinastía Yuan en China. El Ilcanato se desintegró en 1335–1353, y los Yuan perdieron China en 1368. El dominio de la Horda de Oro sobre Europa del Este suele considerarse terminado en 1480, y el Kanato de Chagatai subsistió hasta 1687."
       }
      },
      {
       "label": {
        "sv": "Huvudstäder",
-       "en": "Capitals"
+       "en": "Capitals",
+       "es": "Capitales"
       },
       "text": {
        "sv": "Avarga (1206–1235) och Karakorum (1235–1271). Yuandynastin styrde från Dadu, dagens Peking.",
-       "en": "Avarga (1206–1235) and Karakorum (1235–1271). The Yuan dynasty ruled from Dadu, present-day Beijing."
+       "en": "Avarga (1206–1235) and Karakorum (1235–1271). The Yuan dynasty ruled from Dadu, present-day Beijing.",
+       "es": "Avarga (1206–1235) y Karakórum (1235–1271). La dinastía Yuan gobernó desde Dadu, la actual Pekín."
       }
      },
      {
       "label": {
        "sv": "Kända härskare",
-       "en": "Famous rulers"
+       "en": "Famous rulers",
+       "es": "Gobernantes célebres"
       },
       "text": {
        "sv": "Djingis khan (1206–1227), Ögedei (1229–1241), Güyük (1246–1248), Möngke (1251–1259) och Khubilai (1260–1294, då storkhan över hela riket bara till namnet).",
-       "en": "Genghis Khan (1206–1227), Ögedei (1229–1241), Güyük (1246–1248), Möngke (1251–1259) and Kublai (1260–1294, then Great Khan over the whole empire in name only)."
+       "en": "Genghis Khan (1206–1227), Ögedei (1229–1241), Güyük (1246–1248), Möngke (1251–1259) and Kublai (1260–1294, then Great Khan over the whole empire in name only).",
+       "es": "Gengis Kan (1206–1227), Ögedei (1229–1241), Güyük (1246–1248), Möngke (1251–1259) y Kublai (1260–1294, entonces gran kan de todo el imperio solo de nombre)."
       }
      },
      {
       "label": {
        "sv": "Största utbredning",
-       "en": "Greatest extent"
+       "en": "Greatest extent",
+       "es": "Mayor extensión"
       },
       "text": {
        "sv": "Cirka 23,5 miljoner km² år 1294 enligt Wikipedias faktaruta, jämfört med cirka 4 miljoner km² år 1206 och 13,5 miljoner km² år 1227.",
-       "en": "About 23.5 million km² in 1294 according to Wikipedia's fact box, compared with about 4 million km² in 1206 and 13.5 million km² in 1227."
+       "en": "About 23.5 million km² in 1294 according to Wikipedia's fact box, compared with about 4 million km² in 1206 and 13.5 million km² in 1227.",
+       "es": "Aproximadamente 23,5 millones de km² en 1294 según el recuadro de datos de Wikipedia, frente a aproximadamente 4 millones de km² en 1206 y 13,5 millones de km² en 1227."
       }
      },
      {
       "label": {
        "sv": "Fler fakta",
-       "en": "More facts"
+       "en": "More facts",
+       "es": "Más datos"
       },
       "text": {
        "sv": "Språk: mellanmongoliska, turkspråk, kinesiska, persiska med flera. Riket förband öst och väst, och den påtvingade freden, Pax Mongolica, gjorde handel och utbyte av teknik och idéer möjligt över Eurasien.",
-       "en": "Languages: Middle Mongol, Turkic languages, Chinese, Persian and others. The empire linked East and West, and the enforced peace, the Pax Mongolica, made trade and the exchange of technology and ideas possible across Eurasia."
+       "en": "Languages: Middle Mongol, Turkic languages, Chinese, Persian and others. The empire linked East and West, and the enforced peace, the Pax Mongolica, made trade and the exchange of technology and ideas possible across Eurasia.",
+       "es": "Idiomas: mongol medio, lenguas túrquicas, chino, persa y otros. El imperio unió Oriente y Occidente, y la paz impuesta, la Pax Mongolica, hizo posibles el comercio y el intercambio de tecnología e ideas por toda Eurasia."
       }
      },
      {
       "label": {
        "sv": "Symbolen på kartan",
-       "en": "The symbol on the map"
+       "en": "The symbol on the map",
+       "es": "El símbolo en el mapa"
       },
       "text": {
        "sv": "Tug eller sülde, en stång med hästtagel i en krans överst. Den fördes under Mongolriket: vita fanor användes i fred och svarta i krig. Hästtaglet anspelar på hur viktiga hästarna var för mongolerna.",
-       "en": "The tug or sülde, a pole with horsehair in a wreath at the top. It was carried under the Mongol Empire: white banners were used in peacetime and black ones in war. The horsehair alludes to how important horses were to the Mongols."
+       "en": "The tug or sülde, a pole with horsehair in a wreath at the top. It was carried under the Mongol Empire: white banners were used in peacetime and black ones in war. The horsehair alludes to how important horses were to the Mongols.",
+       "es": "El tug o sülde, un asta con crin de caballo dentro de una corona en la parte superior. Se portaba bajo el Imperio mongol: se usaban estandartes blancos en tiempos de paz y negros en tiempos de guerra. La crin de caballo alude a la importancia de los caballos para los mongoles."
       }
      }
     ],
@@ -3051,15 +3177,18 @@
       "year": 1206,
       "label": {
        "sv": "1206",
-       "en": "1206"
+       "en": "1206",
+       "es": "1206"
       },
       "title": {
        "sv": "Djingis khan enar mongolerna",
-       "en": "Genghis Khan unites the Mongols"
+       "en": "Genghis Khan unites the Mongols",
+       "es": "Gengis Kan une a los mongoles"
       },
       "text": {
        "sv": "Temüjin utropas till Djingis khan, härskare över alla mongoler.",
-       "en": "Temüjin is proclaimed Genghis Khan, ruler of all Mongols."
+       "en": "Temüjin is proclaimed Genghis Khan, ruler of all Mongols.",
+       "es": "Temüjin es proclamado Gengis Kan, gobernante de todos los mongoles."
       },
       "sources": [
        "wp-mongol-empire"
@@ -3069,15 +3198,18 @@
       "year": 1219,
       "label": {
        "sv": "1219–1221",
-       "en": "1219–1221"
+       "en": "1219–1221",
+       "es": "1219–1221"
       },
       "title": {
        "sv": "Fälttåget mot Khwarazm",
-       "en": "The campaign against Khwarazm"
+       "en": "The campaign against Khwarazm",
+       "es": "La campaña contra Corasmia"
       },
       "text": {
        "sv": "Efter att ha lagt under sig Qara Khitai anfaller mongolerna Khwarazmriket i Centralasien, med svår förödelse. Erövringen fullbordar mongolernas erövring av Centralasien och inleder erövringen av Persien.",
-       "en": "After bringing Qara Khitai under their rule, the Mongols attack the Khwarazmian Empire in Central Asia, with severe devastation. The conquest completes the Mongol conquest of Central Asia and begins the conquest of Persia."
+       "en": "After bringing Qara Khitai under their rule, the Mongols attack the Khwarazmian Empire in Central Asia, with severe devastation. The conquest completes the Mongol conquest of Central Asia and begins the conquest of Persia.",
+       "es": "Tras someter a Qara Khitai, los mongoles atacan el Imperio corasmio en Asia Central, con una grave devastación. La conquista completa la conquista mongola de Asia Central e inicia la conquista de Persia."
       },
       "sources": [
        "wp-mongol-khwarazm"
@@ -3087,15 +3219,18 @@
       "year": 1227,
       "label": {
        "sv": "1227",
-       "en": "1227"
+       "en": "1227",
+       "es": "1227"
       },
       "title": {
        "sv": "Djingis khan dör",
-       "en": "Genghis Khan dies"
+       "en": "Genghis Khan dies",
+       "es": "Muere Gengis Kan"
       },
       "text": {
        "sv": "Djingis khan dör. Riket är då cirka 13,5 miljoner km² och sträcker sig från Stilla havet till Kaspiska havet.",
-       "en": "Genghis Khan dies. The empire is then about 13.5 million km² and stretches from the Pacific Ocean to the Caspian Sea."
+       "en": "Genghis Khan dies. The empire is then about 13.5 million km² and stretches from the Pacific Ocean to the Caspian Sea.",
+       "es": "Muere Gengis Kan. El imperio tiene entonces aproximadamente 13,5 millones de km² y se extiende desde el océano Pacífico hasta el mar Caspio."
       },
       "sources": [
        "wp-mongol-empire"
@@ -3105,37 +3240,44 @@
       "year": 1234,
       "label": {
        "sv": "1234",
-       "en": "1234"
+       "en": "1234",
+       "es": "1234"
       },
       "title": {
        "sv": "Jindynastin faller",
-       "en": "The Jin dynasty falls"
+       "en": "The Jin dynasty falls",
+       "es": "Cae la dinastía Jin"
       },
       "text": {
        "sv": "Ögedeis arméer intar Jinrikets huvudstad Kaifeng 1232, och Jindynastin i norra Kina faller 1234, med hjälp från Songdynastin.",
-       "en": "Ögedei's armies take the Jin capital Kaifeng in 1232, and the Jin dynasty in northern China falls in 1234, with help from the Song dynasty."
+       "en": "Ögedei's armies take the Jin capital Kaifeng in 1232, and the Jin dynasty in northern China falls in 1234, with help from the Song dynasty.",
+       "es": "Los ejércitos de Ögedei toman Kaifeng, la capital del Imperio Jin, en 1232, y la dinastía Jin del norte de China cae en 1234, con la ayuda de la dinastía Song."
       },
       "sources": [
        "wp-mongol-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar tillväxten först i perioden från 1236.",
-       "en": "The map shows the growth only in the period from 1236."
+       "en": "The map shows the growth only in the period from 1236.",
+       "es": "El mapa muestra el crecimiento solo en el período a partir de 1236."
       }
      },
      {
       "year": 1241,
       "label": {
        "sv": "1241–1242",
-       "en": "1241–1242"
+       "en": "1241–1242",
+       "es": "1241–1242"
       },
       "title": {
        "sv": "Reträtten från Europa",
-       "en": "The retreat from Europe"
+       "en": "The retreat from Europe",
+       "es": "La retirada de Europa"
       },
       "text": {
        "sv": "Mongolerna har erövrat nästan hela Kievrus 1237–1240 och besegrar ungrarna vid floden Sajó i april 1241. När nyheten om storkhanen Ögedeis död kommer drar armén sig tillbaka året efter. Forskare tvivlar på att dödsfallet var enda skälet: klimat och Europas borgar spelade också in.",
-       "en": "The Mongols have conquered almost the whole of Kievan Rus' in 1237–1240 and defeat the Hungarians at the river Sajó in April 1241. When news of the Great Khan Ögedei's death arrives, the army withdraws the following year. Scholars doubt that the death was the only reason: climate and Europe's castles also played a part."
+       "en": "The Mongols have conquered almost the whole of Kievan Rus' in 1237–1240 and defeat the Hungarians at the river Sajó in April 1241. When news of the Great Khan Ögedei's death arrives, the army withdraws the following year. Scholars doubt that the death was the only reason: climate and Europe's castles also played a part.",
+       "es": "Los mongoles han conquistado casi toda la Rus de Kiev en 1237–1240 y derrotan a los húngaros en el río Sajó en abril de 1241. Cuando llega la noticia de la muerte del gran kan Ögedei, el ejército se retira al año siguiente. Los investigadores dudan de que la muerte fuera la única razón: también influyeron el clima y los castillos de Europa."
       },
       "sources": [
        "wp-mongol-empire"
@@ -3145,15 +3287,18 @@
       "year": 1258,
       "label": {
        "sv": "1258",
-       "en": "1258"
+       "en": "1258",
+       "es": "1258"
       },
       "title": {
        "sv": "Bagdad intas",
-       "en": "Baghdad is taken"
+       "en": "Baghdad is taken",
+       "es": "Bagdad es tomada"
       },
       "text": {
        "sv": "När kalifen vägrar underkasta sig belägrar och erövrar Hulagus armé Bagdad och plundrar staden. Abbasidkalifatet går under, och vägen mot Syrien ligger öppen.",
-       "en": "When the caliph refuses to submit, Hulagu's army besieges and conquers Baghdad and plunders the city. The Abbasid Caliphate comes to an end, and the road to Syria lies open."
+       "en": "When the caliph refuses to submit, Hulagu's army besieges and conquers Baghdad and plunders the city. The Abbasid Caliphate comes to an end, and the road to Syria lies open.",
+       "es": "Cuando el califa se niega a someterse, el ejército de Hulagu sitia y conquista Bagdad y saquea la ciudad. El califato abasí desaparece y el camino hacia Siria queda abierto."
       },
       "sources": [
        "wp-mongol-empire",
@@ -3164,15 +3309,18 @@
       "year": 1260,
       "label": {
        "sv": "1260–1264",
-       "en": "1260–1264"
+       "en": "1260–1264",
+       "es": "1260–1264"
       },
       "title": {
        "sv": "Strid om makten",
-       "en": "Struggle for power"
+       "en": "Struggle for power",
+       "es": "Lucha por el poder"
       },
       "text": {
        "sv": "Efter Möngke khans död strider bröderna Khubilai och Ariq Böke om makten. Samma år besegras en mongolisk här av mamlukerna vid Ain Jalut, och mongolerna kommer aldrig längre än Syrien i Mellanöstern.",
-       "en": "After the death of Möngke Khan the brothers Kublai and Ariq Böke fight for power. The same year a Mongol army is defeated by the Mamluks at Ain Jalut, and the Mongols never get further than Syria in the Middle East."
+       "en": "After the death of Möngke Khan the brothers Kublai and Ariq Böke fight for power. The same year a Mongol army is defeated by the Mamluks at Ain Jalut, and the Mongols never get further than Syria in the Middle East.",
+       "es": "Tras la muerte de Möngke Kan, los hermanos Kublai y Ariq Böke luchan por el poder. Ese mismo año un ejército mongol es derrotado por los mamelucos en Ain Jalut, y los mongoles nunca llegan más allá de Siria en Oriente Medio."
       },
       "sources": [
        "wp-mongol-empire"
@@ -3182,15 +3330,18 @@
       "year": 1279,
       "label": {
        "sv": "1279",
-       "en": "1279"
+       "en": "1279",
+       "es": "1279"
       },
       "title": {
        "sv": "Songdynastin besegras",
-       "en": "The Song dynasty is defeated"
+       "en": "The Song dynasty is defeated",
+       "es": "La dinastía Song es derrotada"
       },
       "text": {
        "sv": "Songs kejsarfamilj kapitulerar 1276, och de sista lojalisterna besegras i sjöslaget vid Yamen 1279. Yuandynastin under Khubilai khan styr nu hela Kina.",
-       "en": "The Song imperial family surrenders in 1276, and the last loyalists are defeated in the naval battle of Yamen in 1279. The Yuan dynasty under Kublai Khan now rules all of China."
+       "en": "The Song imperial family surrenders in 1276, and the last loyalists are defeated in the naval battle of Yamen in 1279. The Yuan dynasty under Kublai Khan now rules all of China.",
+       "es": "La familia imperial Song se rinde en 1276, y los últimos leales son derrotados en la batalla naval de Yamen en 1279. La dinastía Yuan, bajo Kublai Kan, gobierna ahora toda China."
       },
       "sources": [
        "wp-mongol-empire",
@@ -3201,15 +3352,18 @@
       "year": 1294,
       "label": {
        "sv": "1294",
-       "en": "1294"
+       "en": "1294",
+       "es": "1294"
       },
       "title": {
        "sv": "Fyra khanat",
-       "en": "Four khanates"
+       "en": "Four khanates",
+       "es": "Cuatro kanatos"
       },
       "text": {
        "sv": "Khubilai khan dör. Riket har delats i fyra khanat.",
-       "en": "Kublai Khan dies. The empire has been divided into four khanates."
+       "en": "Kublai Khan dies. The empire has been divided into four khanates.",
+       "es": "Muere Kublai Kan. El imperio se ha dividido en cuatro kanatos."
       },
       "sources": [
        "wp-mongol-empire"
@@ -3219,15 +3373,18 @@
       "year": 1368,
       "label": {
        "sv": "1368",
-       "en": "1368"
+       "en": "1368",
+       "es": "1368"
       },
       "title": {
        "sv": "Mingdynastin tar Kina",
-       "en": "The Ming dynasty takes China"
+       "en": "The Ming dynasty takes China",
+       "es": "La dinastía Ming toma China"
       },
       "text": {
        "sv": "Yuandynastin förlorar Kina till Mingdynastin.",
-       "en": "The Yuan dynasty loses China to the Ming dynasty."
+       "en": "The Yuan dynasty loses China to the Ming dynasty.",
+       "es": "La dinastía Yuan pierde China ante la dinastía Ming."
       },
       "sources": [
        "wp-mongol-empire"
@@ -3239,7 +3396,8 @@
     ],
     "mapNote": {
      "sv": "Kartan visar även khanaten och går därför längre. Källan anger 1206–1368 för själva Mongolriket.",
-     "en": "The map also shows the khanates and therefore runs longer. The source gives 1206–1368 for the Mongol Empire itself."
+     "en": "The map also shows the khanates and therefore runs longer. The source gives 1206–1368 for the Mongol Empire itself.",
+     "es": "El mapa muestra también los kanatos y por eso se extiende más. La fuente indica 1206–1368 para el propio Imperio mongol."
     },
     "sources": [
      "wp-mongol-empire",
@@ -3252,7 +3410,8 @@
     {
      "name": {
       "sv": "Avraga",
-      "en": "Avarga"
+      "en": "Avarga",
+      "es": "Avarga"
      },
      "wikidata": "Q4827751",
      "at": [
@@ -3271,7 +3430,8 @@
     {
      "name": {
       "sv": "Karakorum",
-      "en": "Karakorum"
+      "en": "Karakorum",
+      "es": "Karakórum"
      },
      "wikidata": "Q62677",
      "at": [
@@ -3290,7 +3450,8 @@
     {
      "name": {
       "sv": "Dadu (Khanbalik, dagens Peking)",
-      "en": "Khanbaliq"
+      "en": "Khanbaliq",
+      "es": "Dadu (Khanbaliq, actual Pekín)"
      },
      "wikidata": "Q101186473",
      "at": [
