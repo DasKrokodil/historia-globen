@@ -4950,25 +4950,30 @@
    },
    "place": {
     "sv": "Narva, svenska Ingermanland (i dag Estland)",
-    "en": "Narva, Swedish Ingria (today Estonia)"
+    "en": "Narva, Swedish Ingria (today Estonia)",
+    "de": "Narwa, schwedisches Ingermanland (heute Estland)"
    },
    "title": {
     "sv": "Slaget vid Narva",
-    "en": "Battle of Narva"
+    "en": "Battle of Narva",
+    "de": "Schlacht bei Narwa"
    },
    "summary": {
     "sv": "Den 30 november 1700 besegrar en svensk undsättningsarmé under Karl XII den ryska armé som belägrar Narva, fast ryssarna är tre till fyra gånger fler.",
-    "en": "On 30 November 1700, a Swedish relief army under Charles XII defeats the Russian army besieging Narva, even though the Russians outnumber them three or four to one."
+    "en": "On 30 November 1700, a Swedish relief army under Charles XII defeats the Russian army besieging Narva, even though the Russians outnumber them three or four to one.",
+    "de": "Am 30. November 1700 besiegt ein schwedisches Entsatzheer unter Karl XII. das russische Heer, das Narwa belagert, obwohl die Russen drei- bis viermal so zahlreich sind."
    },
    "note": {
     "kind": "calendar",
     "title": {
      "sv": "Om kalendern",
-     "en": "About the calendar"
+     "en": "About the calendar",
+     "de": "Zum Kalender"
     },
     "text": {
      "sv": "Wikipedia anger 19 november (juliansk kalender), 20 november (svensk kalender) och 30 november 1700 (gregoriansk). Wikidata anger 30 november (gregoriansk).",
-     "en": "Wikipedia gives 19 November (Julian calendar), 20 November (Swedish calendar) and 30 November 1700 (Gregorian). Wikidata gives 30 November (Gregorian)."
+     "en": "Wikipedia gives 19 November (Julian calendar), 20 November (Swedish calendar) and 30 November 1700 (Gregorian). Wikidata gives 30 November (Gregorian).",
+     "de": "Wikipedia nennt den 19. November (julianischer Kalender), den 20. November (schwedischer Kalender) und den 30. November 1700 (gregorianisch). Wikidata nennt den 30. November (gregorianisch)."
     }
    },
    "image": {
@@ -5013,25 +5018,30 @@
    },
    "place": {
     "sv": "Poltava, kosackhetmanatet (i dag Ukraina)",
-    "en": "Poltava, Cossack Hetmanate (today Ukraine)"
+    "en": "Poltava, Cossack Hetmanate (today Ukraine)",
+    "de": "Poltawa, Hetmanat der Kosaken (heute Ukraine)"
    },
    "title": {
     "sv": "Slaget vid Poltava",
-    "en": "Battle of Poltava"
+    "en": "Battle of Poltava",
+    "de": "Schlacht bei Poltawa"
    },
    "summary": {
     "sv": "Den 8 juli 1709 besegrar en rysk armé under tsar Peter I den svenska armén vid Poltava. Det är krigets största och mest avgörande slag, och det blir början på slutet för Sverige som stormakt.",
-    "en": "On 8 July 1709, a Russian army under Tsar Peter I defeats the Swedish army at Poltava. It is the largest and most decisive battle of the war, and it becomes the beginning of the end for Sweden as a great power."
+    "en": "On 8 July 1709, a Russian army under Tsar Peter I defeats the Swedish army at Poltava. It is the largest and most decisive battle of the war, and it becomes the beginning of the end for Sweden as a great power.",
+    "de": "Am 8. Juli 1709 besiegt ein russisches Heer unter Zar Peter I. das schwedische Heer bei Poltawa. Es ist die größte und entscheidendste Schlacht des Krieges und der Anfang vom Ende Schwedens als Großmacht."
    },
    "note": {
     "kind": "calendar",
     "title": {
      "sv": "Om kalendern",
-     "en": "About the calendar"
+     "en": "About the calendar",
+     "de": "Zum Kalender"
     },
     "text": {
      "sv": "Wikipedia anger 27 juni (juliansk kalender), 28 juni (svensk kalender) och 8 juli 1709 (gregoriansk). Wikidata anger samma datum i juliansk och gregoriansk kalender.",
-     "en": "Wikipedia gives 27 June (Julian calendar), 28 June (Swedish calendar) and 8 July 1709 (Gregorian). Wikidata gives the same date in the Julian and Gregorian calendars."
+     "en": "Wikipedia gives 27 June (Julian calendar), 28 June (Swedish calendar) and 8 July 1709 (Gregorian). Wikidata gives the same date in the Julian and Gregorian calendars.",
+     "de": "Wikipedia nennt den 27. Juni (julianischer Kalender), den 28. Juni (schwedischer Kalender) und den 8. Juli 1709 (gregorianisch). Wikidata nennt dasselbe Datum im julianischen und im gregorianischen Kalender."
     }
    },
    "image": {
@@ -5040,7 +5050,8 @@
     "style": "barock",
     "caption": {
      "sv": "Slaget vid Poltava i en målning av Pierre-Denis Martin, 1726, i Katarinapalatset. Utsnitt. Licens: Public domain.",
-     "en": "The Battle of Poltava in a painting by Pierre-Denis Martin, 1726, in the Catherine Palace. Detail. Licence: Public domain."
+     "en": "The Battle of Poltava in a painting by Pierre-Denis Martin, 1726, in the Catherine Palace. Detail. Licence: Public domain.",
+     "de": "Die Schlacht bei Poltawa auf einem Gemälde von Pierre-Denis Martin, 1726, im Katharinenpalast. Ausschnitt. Lizenz: Public domain."
     },
     "credit": "Pierre-Denis Martin / Katarinapalatset via Wikimedia Commons",
     "license": "Public domain",
@@ -5071,25 +5082,30 @@
    },
    "place": {
     "sv": "Perevolotjna vid Dnepr (i dag Ukraina)",
-    "en": "Perevolochna on the Dnieper (today Ukraine)"
+    "en": "Perevolochna on the Dnieper (today Ukraine)",
+    "de": "Perewolotschna am Dnjepr (heute Ukraine)"
    },
    "title": {
     "sv": "Kapitulationen vid Perevolotjna",
-    "en": "Surrender at Perevolochna"
+    "en": "Surrender at Perevolochna",
+    "de": "Kapitulation bei Perewolotschna"
    },
    "summary": {
     "sv": "Den 11 juli 1709, tre dagar efter Poltava, kapitulerar nästan hela den svenska armén vid floden Dnepr. Karl XII har redan tagit sig över floden och flyr till Moldavien, en vasallstat under Osmanska riket.",
-    "en": "On 11 July 1709, three days after Poltava, almost the entire Swedish army surrenders at the Dnieper river. Charles XII has already crossed the river and flees to Moldavia, a vassal state under the Ottoman Empire."
+    "en": "On 11 July 1709, three days after Poltava, almost the entire Swedish army surrenders at the Dnieper river. Charles XII has already crossed the river and flees to Moldavia, a vassal state under the Ottoman Empire.",
+    "de": "Am 11. Juli 1709, drei Tage nach Poltawa, kapituliert fast das gesamte schwedische Heer am Fluss Dnjepr. Karl XII. hat den Fluss bereits überquert und flieht in die Moldau, einen Vasallenstaat des Osmanischen Reiches."
    },
    "note": {
     "kind": "disagreement",
     "title": {
      "sv": "Källorna skiljer sig",
-     "en": "The sources differ"
+     "en": "The sources differ",
+     "de": "Die Quellen weichen voneinander ab"
     },
     "text": {
      "sv": "Wikipedia anger 30 juni (juliansk kalender), 1 juli (svensk kalender) och 11 juli 1709 (gregoriansk). Wikidata anger 1 juli 1709 men märker det som juliansk kalender, vilket skulle motsvara 12 juli. År och plats stämmer, men inte dagen.",
-     "en": "Wikipedia gives 30 June (Julian calendar), 1 July (Swedish calendar) and 11 July 1709 (Gregorian). Wikidata gives 1 July 1709 but marks it as the Julian calendar, which would correspond to 12 July. The year and place agree, but not the day."
+     "en": "Wikipedia gives 30 June (Julian calendar), 1 July (Swedish calendar) and 11 July 1709 (Gregorian). Wikidata gives 1 July 1709 but marks it as the Julian calendar, which would correspond to 12 July. The year and place agree, but not the day.",
+     "de": "Wikipedia nennt den 30. Juni (julianischer Kalender), den 1. Juli (schwedischer Kalender) und den 11. Juli 1709 (gregorianisch). Wikidata nennt den 1. Juli 1709, kennzeichnet ihn aber als julianischen Kalender, was dem 12. Juli entsprechen würde. Jahr und Ort stimmen überein, der Tag aber nicht."
     }
    },
    "wikidata": "Q2671292",
@@ -5117,15 +5133,18 @@
    },
    "place": {
     "sv": "Ringstorpshöjden vid Helsingborg, Skåne",
-    "en": "Ringstorp Heights at Helsingborg, Scania"
+    "en": "Ringstorp Heights at Helsingborg, Scania",
+    "de": "Ringstorpshöjden bei Helsingborg, Schonen"
    },
    "title": {
     "sv": "Slaget vid Helsingborg",
-    "en": "Battle of Helsingborg"
+    "en": "Battle of Helsingborg",
+    "de": "Schlacht bei Helsingborg"
    },
    "summary": {
     "sv": "Den 10 mars 1710 slår en svensk armé under Magnus Stenbock en lika stor dansk armé utanför Helsingborg. Danmarks försök att ta tillbaka Skåne misslyckas, och det blir krigets sista stora slag på svensk mark.",
-    "en": "On 10 March 1710, a Swedish army under Magnus Stenbock defeats an equally large Danish army outside Helsingborg. Denmark's attempt to retake Scania fails, and it becomes the last major battle of the war on Swedish soil."
+    "en": "On 10 March 1710, a Swedish army under Magnus Stenbock defeats an equally large Danish army outside Helsingborg. Denmark's attempt to retake Scania fails, and it becomes the last major battle of the war on Swedish soil.",
+    "de": "Am 10. März 1710 schlägt ein schwedisches Heer unter Magnus Stenbock vor Helsingborg ein gleich großes dänisches Heer. Dänemarks Versuch, Schonen zurückzuerobern, scheitert, und es ist die letzte große Schlacht des Krieges auf schwedischem Boden."
    },
    "note": {
     "kind": "calendar",
@@ -5184,25 +5203,30 @@
    },
    "place": {
     "sv": "Wakenstädt vid Gadebusch, Mecklenburg (i dag Tyskland)",
-    "en": "Wakenstädt near Gadebusch, Mecklenburg (today Germany)"
+    "en": "Wakenstädt near Gadebusch, Mecklenburg (today Germany)",
+    "de": "Wakenstädt bei Gadebusch, Mecklenburg (heute Deutschland)"
    },
    "title": {
     "sv": "Slaget vid Gadebusch",
-    "en": "Battle of Gadebusch"
+    "en": "Battle of Gadebusch",
+    "de": "Schlacht bei Gadebusch"
    },
    "summary": {
     "sv": "Den 20 december 1712 besegrar svenska trupper under Magnus Stenbock en dansk och sachsisk armé i Mecklenburg. Det blir Sveriges sista stora seger i kriget.",
-    "en": "On 20 December 1712, Swedish troops under Magnus Stenbock defeat a Danish and Saxon army in Mecklenburg. It becomes Sweden's last major victory in the war."
+    "en": "On 20 December 1712, Swedish troops under Magnus Stenbock defeat a Danish and Saxon army in Mecklenburg. It becomes Sweden's last major victory in the war.",
+    "de": "Am 20. Dezember 1712 besiegen schwedische Truppen unter Magnus Stenbock ein dänisches und sächsisches Heer in Mecklenburg. Es ist Schwedens letzter großer Sieg in dem Krieg."
    },
    "note": {
     "kind": "calendar",
     "title": {
      "sv": "Om kalendern",
-     "en": "About the calendar"
+     "en": "About the calendar",
+     "de": "Zum Kalender"
     },
     "text": {
      "sv": "Wikipedia anger 9 december (juliansk kalender, som Sverige då hade återgått till) och 20 december 1712 (gregoriansk). Wikidata anger 20 december (gregoriansk).",
-     "en": "Wikipedia gives 9 December (Julian calendar, to which Sweden had by then returned) and 20 December 1712 (Gregorian). Wikidata gives 20 December (Gregorian)."
+     "en": "Wikipedia gives 9 December (Julian calendar, to which Sweden had by then returned) and 20 December 1712 (Gregorian). Wikidata gives 20 December (Gregorian).",
+     "de": "Wikipedia nennt den 9. Dezember (julianischer Kalender, zu dem Schweden damals zurückgekehrt war) und den 20. Dezember 1712 (gregorianisch). Wikidata nennt den 20. Dezember (gregorianisch)."
     }
    },
    "image": {
@@ -5245,25 +5269,30 @@
    },
    "place": {
     "sv": "Rilaxfjärden vid Hangö udd, Finland",
-    "en": "Rilax Bay at Hanko Peninsula, Finland"
+    "en": "Rilax Bay at Hanko Peninsula, Finland",
+    "de": "Rilaxfjärden bei Hangö udd, Finnland"
    },
    "title": {
     "sv": "Sjöslaget vid Hangö udd",
-    "en": "Naval Battle of Hanko Peninsula"
+    "en": "Naval Battle of Hanko Peninsula",
+    "de": "Seeschlacht bei Hangö udd"
    },
    "summary": {
     "sv": "Den 7 augusti 1714 besegrar den ryska flottan svenska fartyg vid Hangö udd. Det är den ryska flottans första viktiga seger, och efteråt tar Ryssland Åland.",
-    "en": "On 7 August 1714, the Russian fleet defeats Swedish ships at Hanko Peninsula. It is the Russian fleet's first important victory, and afterwards Russia takes Åland."
+    "en": "On 7 August 1714, the Russian fleet defeats Swedish ships at Hanko Peninsula. It is the Russian fleet's first important victory, and afterwards Russia takes Åland.",
+    "de": "Am 7. August 1714 besiegt die russische Flotte schwedische Schiffe bei Hangö udd. Es ist der erste wichtige Sieg der russischen Flotte, und danach nimmt Russland Åland ein."
    },
    "note": {
     "kind": "disagreement",
     "title": {
      "sv": "Källorna skiljer sig",
-     "en": "The sources differ"
+     "en": "The sources differ",
+     "de": "Die Quellen weichen voneinander ab"
     },
     "text": {
      "sv": "Wikipedia anger 27 juli (juliansk kalender) och 7 augusti 1714 (gregoriansk). Wikidata anger 26 juli 1714 (juliansk), alltså en dag tidigare. År och plats stämmer, men inte dagen.",
-     "en": "Wikipedia gives 27 July (Julian calendar) and 7 August 1714 (Gregorian). Wikidata gives 26 July 1714 (Julian), that is, one day earlier. The year and place agree, but not the day."
+     "en": "Wikipedia gives 27 July (Julian calendar) and 7 August 1714 (Gregorian). Wikidata gives 26 July 1714 (Julian), that is, one day earlier. The year and place agree, but not the day.",
+     "de": "Wikipedia nennt den 27. Juli (julianischer Kalender) und den 7. August 1714 (gregorianisch). Wikidata nennt den 26. Juli 1714 (julianisch), also einen Tag früher. Jahr und Ort stimmen überein, der Tag aber nicht."
     }
    },
    "image": {
@@ -5306,25 +5335,30 @@
    },
    "place": {
     "sv": "Fredrikstens fästning vid Fredrikshald (Halden), Norge",
-    "en": "Fredriksten Fortress at Fredrikshald (Halden), Norway"
+    "en": "Fredriksten Fortress at Fredrikshald (Halden), Norway",
+    "de": "Festung Fredriksten bei Fredrikshald (Halden), Norwegen"
    },
    "title": {
     "sv": "Karl XII stupar vid Fredriksten",
-    "en": "Charles XII is killed at Fredriksten"
+    "en": "Charles XII is killed at Fredriksten",
+    "de": "Karl XII. fällt bei Fredriksten"
    },
    "summary": {
     "sv": "Under belägringen av den norska fästningen Fredriksten träffas Karl XII i huvudet av en projektil, troligen en kula, och dör den 11 december 1718. Svenskarna avbryter anfallet mot Norge, och hans död blir slutet på enväldet i Sverige.",
-    "en": "During the siege of the Norwegian fortress of Fredriksten, Charles XII is hit in the head by a projectile, probably a bullet, and dies on 11 December 1718. The Swedes call off the attack on Norway, and his death marks the end of absolutism in Sweden."
+    "en": "During the siege of the Norwegian fortress of Fredriksten, Charles XII is hit in the head by a projectile, probably a bullet, and dies on 11 December 1718. The Swedes call off the attack on Norway, and his death marks the end of absolutism in Sweden.",
+    "de": "Während der Belagerung der norwegischen Festung Fredriksten wird Karl XII. von einem Geschoss, wahrscheinlich einer Kugel, am Kopf getroffen und stirbt am 11. Dezember 1718. Die Schweden brechen den Angriff auf Norwegen ab, und sein Tod bedeutet das Ende der Alleinherrschaft in Schweden."
    },
    "note": {
     "kind": "disagreement",
     "title": {
      "sv": "Källorna skiljer sig",
-     "en": "The sources differ"
+     "en": "The sources differ",
+     "de": "Die Quellen weichen voneinander ab"
     },
     "text": {
      "sv": "Wikipedia anger att Karl XII dog 30 november 1718 enligt gammal stil, vilket är 11 december enligt ny stil. Enligt Wikipedias sida om den svenska kalendern gick Sverige tillbaka till den julianska kalendern 1712 och bytte till den gregorianska först 1753. Wikidata anger 30 november 1718 men märker det som gregoriansk kalender. År och plats stämmer, men inte kalendern.",
-     "en": "Wikipedia states that Charles XII died on 30 November 1718 Old Style, which is 11 December New Style. According to Wikipedia's page on the Swedish calendar, Sweden returned to the Julian calendar in 1712 and did not switch to the Gregorian calendar until 1753. Wikidata gives 30 November 1718 but marks it as the Gregorian calendar. The year and place agree, but not the calendar."
+     "en": "Wikipedia states that Charles XII died on 30 November 1718 Old Style, which is 11 December New Style. According to Wikipedia's page on the Swedish calendar, Sweden returned to the Julian calendar in 1712 and did not switch to the Gregorian calendar until 1753. Wikidata gives 30 November 1718 but marks it as the Gregorian calendar. The year and place agree, but not the calendar.",
+     "de": "Wikipedia nennt, dass Karl XII. am 30. November 1718 nach altem Stil starb, was dem 11. Dezember nach neuem Stil entspricht. Nach der Wikipedia-Seite über den schwedischen Kalender kehrte Schweden 1712 zum julianischen Kalender zurück und wechselte erst 1753 zum gregorianischen. Wikidata nennt den 30. November 1718, kennzeichnet ihn aber als gregorianischen Kalender. Jahr und Ort stimmen überein, der Kalender aber nicht."
     }
    },
    "image": {
@@ -5370,25 +5404,30 @@
    },
    "place": {
     "sv": "Nystad (Uusikaupunki), Finland",
-    "en": "Nystad (Uusikaupunki), Finland"
+    "en": "Nystad (Uusikaupunki), Finland",
+    "de": "Nystad (Uusikaupunki), Finnland"
    },
    "title": {
     "sv": "Freden i Nystad",
-    "en": "Peace of Nystad"
+    "en": "Peace of Nystad",
+    "de": "Friede von Nystad"
    },
    "summary": {
     "sv": "Ryssland och Sverige sluter fred i Nystad den 10 september 1721, vilket avslutar kriget. Sverige avträder Estland, Livland, Ingermanland och delar av Karelen till Ryssland, och Finland återgår till Sverige.",
-    "en": "Russia and Sweden make peace at Nystad on 10 September 1721, ending the war. Sweden cedes Estonia, Livonia, Ingria and parts of Karelia to Russia, and Finland is returned to Sweden."
+    "en": "Russia and Sweden make peace at Nystad on 10 September 1721, ending the war. Sweden cedes Estonia, Livonia, Ingria and parts of Karelia to Russia, and Finland is returned to Sweden.",
+    "de": "Russland und Schweden schließen am 10. September 1721 in Nystad Frieden und beenden damit den Krieg. Schweden tritt Estland, Livland, Ingermanland und Teile Kareliens an Russland ab, und Finnland kommt zu Schweden zurück."
    },
    "note": {
     "kind": "calendar",
     "title": {
      "sv": "Om kalendern",
-     "en": "About the calendar"
+     "en": "About the calendar",
+     "de": "Zum Kalender"
     },
     "text": {
      "sv": "Wikipedia anger 30 augusti (juliansk kalender) och 10 september 1721 (gregoriansk). Wikidata anger 30 augusti (juliansk), samma dag.",
-     "en": "Wikipedia gives 30 August (Julian calendar) and 10 September 1721 (Gregorian). Wikidata gives 30 August (Julian), the same day."
+     "en": "Wikipedia gives 30 August (Julian calendar) and 10 September 1721 (Gregorian). Wikidata gives 30 August (Julian), the same day.",
+     "de": "Wikipedia nennt den 30. August (julianischer Kalender) und den 10. September 1721 (gregorianisch). Wikidata nennt den 30. August (julianisch), also denselben Tag."
     }
    },
    "image": {
@@ -5432,15 +5471,18 @@
    },
    "place": {
     "sv": "Gamla Goa, Indien",
-    "en": "Old Goa, India"
+    "en": "Old Goa, India",
+    "de": "Alt-Goa, Indien"
    },
    "title": {
     "sv": "Portugal erövrar Goa",
-    "en": "Portugal conquers Goa"
+    "en": "Portugal conquers Goa",
+    "de": "Portugal erobert Goa"
    },
    "summary": {
     "sv": "Den portugisiske guvernören Afonso de Albuquerque tar staden Goa från sultanatet Bijapur, med stöd av Timoji och hans trupper. Soldaterna får plundra den i fyra dagar, och de muslimer som inte har flytt dödas på guvernörens order. Goa blir huvudstad i Portugisiska Indien och förblir portugisiskt i över 450 år, tills Indien tar området i december 1961.",
-    "en": "The Portuguese governor Afonso de Albuquerque takes the city of Goa from the Bijapur Sultanate, with the support of Timoji and his troops. The soldiers are allowed to plunder it for four days, and the Muslims who have not fled are killed on the governor's orders. Goa becomes the capital of Portuguese India and remains Portuguese for over 450 years, until India takes the territory in December 1961."
+    "en": "The Portuguese governor Afonso de Albuquerque takes the city of Goa from the Bijapur Sultanate, with the support of Timoji and his troops. The soldiers are allowed to plunder it for four days, and the Muslims who have not fled are killed on the governor's orders. Goa becomes the capital of Portuguese India and remains Portuguese for over 450 years, until India takes the territory in December 1961.",
+    "de": "Der portugiesische Gouverneur Afonso de Albuquerque nimmt die Stadt Goa dem Sultanat Bijapur ab, unterstützt von Timoji und seinen Truppen. Die Soldaten dürfen die Stadt vier Tage lang plündern, und die Muslime, die nicht geflohen sind, werden auf Befehl des Gouverneurs getötet. Goa wird Hauptstadt von Portugiesisch-Indien und bleibt über 450 Jahre portugiesisch, bis Indien das Gebiet im Dezember 1961 einnimmt."
    },
    "wikidata": "Q2357384",
    "sources": [
@@ -5467,15 +5509,18 @@
    },
    "place": {
     "sv": "Jayakarta, i dag Jakarta, Indonesien",
-    "en": "Jayakarta, today Jakarta, Indonesia"
+    "en": "Jayakarta, today Jakarta, Indonesia",
+    "de": "Jayakarta, heute Jakarta, Indonesien"
    },
    "title": {
     "sv": "Nederländarna grundar Batavia på Jayakartas ruiner",
-    "en": "The Dutch found Batavia on the ruins of Jayakarta"
+    "en": "The Dutch found Batavia on the ruins of Jayakarta",
+    "de": "Die Niederländer gründen Batavia auf den Ruinen von Jayakarta"
    },
    "summary": {
     "sv": "Det nederländska Ostindiska kompaniets guvernör Jan Pieterszoon Coen kommer tillbaka med förstärkningar den 28 maj 1619 och låter två dagar senare jämna staden Jayakarta med marken och driva bort invånarna. På ruinerna byggs ett fort och en stad som får namnet Batavia 1621. Den blir centrum för kompaniets handel i Asien och sedan huvudstad i Nederländska Ostindien. I det självständiga Indonesien heter staden Jakarta.",
-    "en": "The governor of the Dutch East India Company, Jan Pieterszoon Coen, returns with reinforcements on 28 May 1619 and two days later has the city of Jayakarta razed to the ground and its inhabitants driven away. On the ruins a fort and a city are built, which are named Batavia in 1621. It becomes the centre of the Company's trade in Asia and then the capital of the Dutch East Indies. In independent Indonesia the city is called Jakarta."
+    "en": "The governor of the Dutch East India Company, Jan Pieterszoon Coen, returns with reinforcements on 28 May 1619 and two days later has the city of Jayakarta razed to the ground and its inhabitants driven away. On the ruins a fort and a city are built, which are named Batavia in 1621. It becomes the centre of the Company's trade in Asia and then the capital of the Dutch East Indies. In independent Indonesia the city is called Jakarta.",
+    "de": "Der Gouverneur der niederländischen Ostindien-Kompanie, Jan Pieterszoon Coen, kehrt am 28. Mai 1619 mit Verstärkung zurück und lässt zwei Tage später die Stadt Jayakarta dem Erdboden gleichmachen und die Einwohner vertreiben. Auf den Ruinen werden ein Fort und eine Stadt gebaut, die 1621 den Namen Batavia erhält. Sie wird das Zentrum des Handels der Kompanie in Asien und später die Hauptstadt von Niederländisch-Ostindien. Im unabhängigen Indonesien heißt die Stadt Jakarta."
    },
    "image": {
     "file": "images/events/batavia-1619.webp",
@@ -5483,7 +5528,8 @@
     "style": "renassans",
     "caption": {
      "sv": "Batavias grundande som Barend Wijnveld målade det på 1800-talet, inte en bild från 1619. Licens: Public domain.",
-     "en": "The founding of Batavia as Barend Wijnveld painted it in the 19th century, not an image from 1619. Licence: Public domain."
+     "en": "The founding of Batavia as Barend Wijnveld painted it in the 19th century, not an image from 1619. Licence: Public domain.",
+     "de": "Die Gründung Batavias, wie Barend Wijnveld sie im 19. Jahrhundert malte, kein Bild aus dem Jahr 1619. Lizenz: Public domain."
     },
     "credit": "Barend Wijnveld / Amsterdam Museum via Wikimedia Commons",
     "license": "Public domain",
@@ -5514,15 +5560,18 @@
    },
    "place": {
     "sv": "Kapstaden, Sydafrika",
-    "en": "Cape Town, South Africa"
+    "en": "Cape Town, South Africa",
+    "de": "Kapstadt, Südafrika"
    },
    "title": {
     "sv": "Nederländarna grundar Kapkolonin",
-    "en": "The Dutch found the Cape Colony"
+    "en": "The Dutch found the Cape Colony",
+    "de": "Die Niederländer gründen die Kapkolonie"
    },
    "summary": {
     "sv": "En expedition från Ostindiska kompaniet under Jan van Riebeeck grundar 1652 en station vid Godahoppsudden. Den blir Kapstaden och början på Kapkolonin. Marken vid foten av Taffelberget var khoikhoifolkets betesmark, och när nybyggarna tog den började det första av krigen mellan khoikhoi och nederländarna. Krig och smittkoppor, bland annat 1713 och 1755, bröt sedan ner khoikhoisamhällena, och de drevs bort bortom kolonins gränser.",
-    "en": "In 1652 an expedition from the Dutch East India Company under Jan van Riebeeck founds a station at the Cape of Good Hope. It becomes Cape Town and the beginning of the Cape Colony. The land at the foot of Table Mountain was the grazing ground of the Khoikhoi, and when the settlers took it, the first of the wars between the Khoikhoi and the Dutch began. War and smallpox, including in 1713 and 1755, then broke down Khoikhoi societies, and they were driven out beyond the borders of the colony."
+    "en": "In 1652 an expedition from the Dutch East India Company under Jan van Riebeeck founds a station at the Cape of Good Hope. It becomes Cape Town and the beginning of the Cape Colony. The land at the foot of Table Mountain was the grazing ground of the Khoikhoi, and when the settlers took it, the first of the wars between the Khoikhoi and the Dutch began. War and smallpox, including in 1713 and 1755, then broke down Khoikhoi societies, and they were driven out beyond the borders of the colony.",
+    "de": "Eine Expedition der Ostindien-Kompanie unter Jan van Riebeeck gründet 1652 eine Station am Kap der Guten Hoffnung. Sie wird zu Kapstadt und zum Anfang der Kapkolonie. Das Land am Fuß des Tafelbergs war das Weideland der Khoikhoi, und als die Siedler es nahmen, begann der erste der Kriege zwischen den Khoikhoi und den Niederländern. Krieg und Pocken, unter anderem 1713 und 1755, brachen danach die Gesellschaften der Khoikhoi auseinander, und sie wurden über die Grenzen der Kolonie hinaus vertrieben."
    },
    "image": {
     "file": "images/events/kapkolonin-1652.webp",
@@ -5563,15 +5612,18 @@
    },
    "place": {
     "sv": "Jamestown, Virginia, USA",
-    "en": "Jamestown, Virginia, USA"
+    "en": "Jamestown, Virginia, USA",
+    "de": "Jamestown, Virginia, USA"
    },
    "title": {
     "sv": "Engelsmännen grundar Jamestown",
-    "en": "The English found Jamestown"
+    "en": "The English found Jamestown",
+    "de": "Die Engländer gründen Jamestown"
    },
    "summary": {
     "sv": "Virginiakompaniet i London grundar James Fort vid James River den 14 maj 1607 (4 maj enligt den gamla kalendern). Det blir den första bestående engelska bosättningen i Amerika. Ön de valde användes av paspaheghfolket, och bara 60 av de 214 första bosättarna överlevde svältvintern 1609–1610. I augusti 1619 kom de första dokumenterade förslavade afrikanerna till kolonin, och 1622 slog urfolket tillbaka i ett uppror som ödelade bosättningarna runt Jamestown.",
-    "en": "The Virginia Company of London founds James Fort on the James River on 14 May 1607 (4 May according to the old calendar). It becomes the first lasting English settlement in America. The island they chose was used by the Paspahegh people, and only 60 of the first 214 settlers survived the starving winter of 1609–1610. In August 1619 the first documented enslaved Africans arrived in the colony, and in 1622 the indigenous people struck back in an uprising that devastated the settlements around Jamestown."
+    "en": "The Virginia Company of London founds James Fort on the James River on 14 May 1607 (4 May according to the old calendar). It becomes the first lasting English settlement in America. The island they chose was used by the Paspahegh people, and only 60 of the first 214 settlers survived the starving winter of 1609–1610. In August 1619 the first documented enslaved Africans arrived in the colony, and in 1622 the indigenous people struck back in an uprising that devastated the settlements around Jamestown.",
+    "de": "Die Virginia Company of London gründet am 14. Mai 1607 (4. Mai nach dem alten Kalender) James Fort am James River. Es wird die erste dauerhafte englische Siedlung in Amerika. Die Insel, die sie wählten, wurde vom Volk der Paspahegh genutzt, und nur 60 der ersten 214 Siedler überlebten den Hungerwinter 1609–1610. Im August 1619 kamen die ersten dokumentierten versklavten Afrikaner in die Kolonie, und 1622 schlug die indigene Bevölkerung in einem Aufstand zurück, der die Siedlungen rund um Jamestown verwüstete."
    },
    "image": {
     "file": "images/events/jamestown-1607.webp",
@@ -5579,7 +5631,8 @@
     "style": "renassans",
     "caption": {
      "sv": "Engelsmännens ankomst till Jamestown 1607, illustration ur en bok från 1919, inte en bild från händelsens tid. Licens: CC0.",
-     "en": "The English arrival at Jamestown in 1607, illustration from a book of 1919, not an image from the time of the event. Licence: CC0."
+     "en": "The English arrival at Jamestown in 1607, illustration from a book of 1919, not an image from the time of the event. Licence: CC0.",
+     "de": "Die Ankunft der Engländer in Jamestown 1607, Illustration aus einem Buch von 1919, kein Bild aus der Zeit des Ereignisses. Lizenz: CC0."
     },
     "credit": "Alfred R. Waud / Internet Archive Book Images via Wikimedia Commons",
     "license": "CC0",
@@ -5609,25 +5662,30 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Mexikos högland, Nya Spanien (troligen först i trakten kring Puebla)",
-    "en": "The highlands of Mexico, New Spain (probably first in the area around Puebla)"
+    "en": "The highlands of Mexico, New Spain (probably first in the area around Puebla)",
+    "de": "Hochland von Mexiko, Neuspanien (wahrscheinlich zuerst in der Gegend um Puebla)"
    },
    "title": {
     "sv": "Cocoliztli, den stora farsoten i Mexiko",
-    "en": "Cocoliztli, the great epidemic in Mexico"
+    "en": "Cocoliztli, the great epidemic in Mexico",
+    "de": "Cocoliztli, die große Seuche in Mexiko"
    },
    "summary": {
     "sv": "Mellan 1545 och 1548 drabbas Mexikos högland av en farsot med hög feber och blödningar, som aztekerna kallar cocoliztli, \"pest\" på nahuatl. Uppskattningsvis 5–15 miljoner människor dör, upp till 80 procent av urbefolkningen, varav omkring 800 000 i Mexikodalen. Det är en av de värsta befolkningskatastroferna i historien. Bristen på arbetskraft leder till hungersnöd, och spanjorerna lägger beslag på marken som de döda lämnar efter sig.",
-    "en": "Between 1545 and 1548 the highlands of Mexico are struck by an epidemic with high fever and bleeding, which the Aztecs call cocoliztli, “plague” in Nahuatl. An estimated 5–15 million people die, up to 80 per cent of the indigenous population, including about 800,000 in the Valley of Mexico. It is one of the worst population catastrophes in history. The shortage of labour leads to famine, and the Spaniards seize the land left behind by the dead."
+    "en": "Between 1545 and 1548 the highlands of Mexico are struck by an epidemic with high fever and bleeding, which the Aztecs call cocoliztli, “plague” in Nahuatl. An estimated 5–15 million people die, up to 80 per cent of the indigenous population, including about 800,000 in the Valley of Mexico. It is one of the worst population catastrophes in history. The shortage of labour leads to famine, and the Spaniards seize the land left behind by the dead.",
+    "de": "Zwischen 1545 und 1548 wird das Hochland von Mexiko von einer Seuche mit hohem Fieber und Blutungen heimgesucht, die die Azteken cocoliztli nennen, „Pest“ auf Nahuatl. Schätzungsweise 5–15 Millionen Menschen sterben, bis zu 80 Prozent der indigenen Bevölkerung, davon etwa 800.000 im Tal von Mexiko. Es ist eine der schlimmsten Bevölkerungskatastrophen der Geschichte. Der Mangel an Arbeitskräften führt zu Hungersnot, und die Spanier beschlagnahmen das Land, das die Toten hinterlassen."
    },
    "note": {
     "kind": "other",
     "title": {
      "sv": "Vad var cocoliztli?",
-     "en": "What was cocoliztli?"
+     "en": "What was cocoliztli?",
+     "de": "Was war cocoliztli?"
     },
     "text": {
      "sv": "Ingen vet säkert. Forskare har föreslagit en inhemsk virusorsakad blödarfeber som spreds av gnagare och förvärrades av torkan, medan DNA-analyser 2018 av skelett från Oaxaca hittade bakterien Salmonella Paratyphi C, som ger paratyfus. Andra forskare menar att symptomen inte stämmer med paratyfus. Dödssiffrorna är uppskattningar med stor osäkerhet.",
-     "en": "Nobody knows for certain. Researchers have proposed a native virus-caused haemorrhagic fever spread by rodents and made worse by the drought, while DNA analyses in 2018 of skeletons from Oaxaca found the bacterium Salmonella Paratyphi C, which causes paratyphoid fever. Other researchers argue that the symptoms do not match paratyphoid. The death tolls are estimates with great uncertainty."
+     "en": "Nobody knows for certain. Researchers have proposed a native virus-caused haemorrhagic fever spread by rodents and made worse by the drought, while DNA analyses in 2018 of skeletons from Oaxaca found the bacterium Salmonella Paratyphi C, which causes paratyphoid fever. Other researchers argue that the symptoms do not match paratyphoid. The death tolls are estimates with great uncertainty.",
+     "de": "Niemand weiß es sicher. Forschende haben ein einheimisches, durch ein Virus verursachtes hämorrhagisches Fieber vorgeschlagen, das von Nagetieren verbreitet und durch die Dürre verschlimmert wurde, während DNA-Analysen von Skeletten aus Oaxaca im Jahr 2018 das Bakterium Salmonella Paratyphi C fanden, das Paratyphus verursacht. Andere Forschende meinen, die Symptome passten nicht zu Paratyphus. Die Todeszahlen sind Schätzungen mit großer Unsicherheit."
     }
    },
    "sources": [
@@ -5653,25 +5711,30 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Mexikos högland, Nya Spanien",
-    "en": "The highlands of Mexico, New Spain"
+    "en": "The highlands of Mexico, New Spain",
+    "de": "Hochland von Mexiko, Neuspanien"
    },
    "title": {
     "sv": "Cocoliztli slår till igen",
-    "en": "Cocoliztli strikes again"
+    "en": "Cocoliztli strikes again",
+    "de": "Cocoliztli schlägt erneut zu"
    },
    "summary": {
     "sv": "1576 kommer en ny stor cocoliztli-epidemi, efter en torka som sträckte sig från Venezuela till Kanada. Omkring 2–2,5 miljoner människor dör, ungefär hälften av den urbefolkning som fanns kvar efter farsoten 1545–1548. Läkaren Francisco Hernández ser sjukdomen på nära håll och beskriver hög feber, svår huvudvärk, svart tunga, gulsot och kraftiga blödningar. Efter epidemin bestämmer spanjorerna 1577 att skatten från urfolken bara får betalas i majs och pengar. Mexikos befolkning nådde inte samma nivå som före erövringen förrän på 1900-talet.",
-    "en": "In 1576 a new great cocoliztli epidemic comes, after a drought that stretched from Venezuela to Canada. About 2–2.5 million people die, roughly half of the indigenous population that remained after the epidemic of 1545–1548. The physician Francisco Hernández sees the disease at close quarters and describes high fever, severe headache, black tongue, jaundice and heavy bleeding. After the epidemic the Spaniards decide in 1577 that the tax from the indigenous peoples may be paid only in maize and money. The population of Mexico did not reach the same level as before the conquest until the 20th century."
+    "en": "In 1576 a new great cocoliztli epidemic comes, after a drought that stretched from Venezuela to Canada. About 2–2.5 million people die, roughly half of the indigenous population that remained after the epidemic of 1545–1548. The physician Francisco Hernández sees the disease at close quarters and describes high fever, severe headache, black tongue, jaundice and heavy bleeding. After the epidemic the Spaniards decide in 1577 that the tax from the indigenous peoples may be paid only in maize and money. The population of Mexico did not reach the same level as before the conquest until the 20th century.",
+    "de": "1576 kommt eine neue große cocoliztli-Epidemie, nach einer Dürre, die sich von Venezuela bis Kanada erstreckte. Etwa 2–2,5 Millionen Menschen sterben, ungefähr die Hälfte der indigenen Bevölkerung, die nach der Seuche von 1545–1548 übrig war. Der Arzt Francisco Hernández sieht die Krankheit aus der Nähe und beschreibt hohes Fieber, starke Kopfschmerzen, schwarze Zunge, Gelbsucht und heftige Blutungen. Nach der Epidemie beschließen die Spanier 1577, dass die Abgaben der indigenen Völker nur in Mais und Geld gezahlt werden dürfen. Die Bevölkerung Mexikos erreichte erst im 20. Jahrhundert wieder den Stand vor der Eroberung."
    },
    "note": {
     "kind": "disagreement",
     "title": {
      "sv": "Källorna skiljer sig",
-     "en": "The sources differ"
+     "en": "The sources differ",
+     "de": "Die Quellen weichen voneinander ab"
     },
     "text": {
      "sv": "Wikipedia skriver att epidemin varade till omkring 1580 och dödade omkring två miljoner. Artikeln av Acuna-Soto med flera (2002) anger 1576–1578 och 2–2,5 miljoner döda. Vilken sjukdom det var är lika osäkert som för epidemin 1545.",
-     "en": "Wikipedia says the epidemic lasted until about 1580 and killed about two million. The article by Acuna-Soto and others (2002) gives 1576–1578 and 2–2.5 million dead. Which disease it was is as uncertain as for the epidemic of 1545."
+     "en": "Wikipedia says the epidemic lasted until about 1580 and killed about two million. The article by Acuna-Soto and others (2002) gives 1576–1578 and 2–2.5 million dead. Which disease it was is as uncertain as for the epidemic of 1545.",
+     "de": "Wikipedia schreibt, die Epidemie habe bis etwa 1580 gedauert und etwa zwei Millionen Menschen getötet. Der Artikel von Acuna-Soto und anderen (2002) nennt 1576–1578 und 2–2,5 Millionen Tote. Welche Krankheit es war, ist ebenso unsicher wie bei der Epidemie von 1545."
     }
    },
    "sources": [
@@ -5697,15 +5760,18 @@
    },
    "place": {
     "sv": "Barcelona (lagarna gällde de spanska kolonierna i Amerika)",
-    "en": "Barcelona (the laws applied to the Spanish colonies in America)"
+    "en": "Barcelona (the laws applied to the Spanish colonies in America)",
+    "de": "Barcelona (die Gesetze galten für die spanischen Kolonien in Amerika)"
    },
    "title": {
     "sv": "Nya lagarna ska skydda urfolken i Amerika",
-    "en": "The New Laws are meant to protect the indigenous peoples of America"
+    "en": "The New Laws are meant to protect the indigenous peoples of America",
+    "de": "Die Neuen Gesetze sollen die indigenen Völker Amerikas schützen"
    },
    "summary": {
     "sv": "Den 20 november 1542 utfärdar kejsar Karl V de Nya lagarna. Sedan 1502 hade spanska kolonister i Amerika kunnat få rätt att kräva arbete och skatt av grupper av urinvånare, encomienda, ett system som i praktiken blev ett slags slaveri. Efter protester från bland andra dominikanen Bartolomé de las Casas förbjuder nu de Nya lagarna att urinvånare görs till slavar, och encomiendan ska avvecklas genom att den inte längre får gå i arv. Delar av lagarna dras tillbaka 1545, men tusentals arbetare befrias.",
-    "en": "On 20 November 1542 Emperor Charles V issues the New Laws. Since 1502 Spanish colonists in America had been able to obtain the right to demand labour and tribute from groups of indigenous inhabitants, the encomienda, a system that in practice became a kind of slavery. After protests from, among others, the Dominican Bartolomé de las Casas, the New Laws now forbid indigenous people to be made slaves, and the encomienda is to be phased out by no longer being allowed to be inherited. Parts of the laws are withdrawn in 1545, but thousands of workers are freed."
+    "en": "On 20 November 1542 Emperor Charles V issues the New Laws. Since 1502 Spanish colonists in America had been able to obtain the right to demand labour and tribute from groups of indigenous inhabitants, the encomienda, a system that in practice became a kind of slavery. After protests from, among others, the Dominican Bartolomé de las Casas, the New Laws now forbid indigenous people to be made slaves, and the encomienda is to be phased out by no longer being allowed to be inherited. Parts of the laws are withdrawn in 1545, but thousands of workers are freed.",
+    "de": "Am 20. November 1542 erlässt Kaiser Karl V. die Neuen Gesetze. Seit 1502 konnten spanische Kolonisten in Amerika das Recht erhalten, von Gruppen von Ureinwohnern Arbeit und Abgaben zu verlangen, die Encomienda, ein System, das in der Praxis zu einer Art Sklaverei wurde. Nach Protesten unter anderem des Dominikaners Bartolomé de las Casas verbieten die Neuen Gesetze nun, Ureinwohner zu Sklaven zu machen, und die Encomienda soll abgeschafft werden, indem sie nicht mehr vererbt werden darf. Teile der Gesetze werden 1545 zurückgenommen, aber Tausende Arbeiter werden befreit."
    },
    "image": {
     "file": "images/events/nya-lagarna-1542.webp",
@@ -5713,7 +5779,8 @@
     "style": "renassans",
     "caption": {
      "sv": "Titelsidan till 1543 års tryck av Nya lagarna. Licens: Public domain.",
-     "en": "The title page of the 1543 printing of the New Laws. Licence: Public domain."
+     "en": "The title page of the 1543 printing of the New Laws. Licence: Public domain.",
+     "de": "Titelseite des Drucks der Neuen Gesetze von 1543. Lizenz: Public domain."
     },
     "credit": "Juan de Brocar och Jean de Vingles / Biblioteca Digital Hispánica via Wikimedia Commons",
     "license": "Public domain",
@@ -5744,25 +5811,30 @@
    },
    "place": {
     "sv": "Potosí, Vicekungadömet Peru (i dag Bolivia)",
-    "en": "Potosí, Viceroyalty of Peru (today Bolivia)"
+    "en": "Potosí, Viceroyalty of Peru (today Bolivia)",
+    "de": "Potosí, Vizekönigreich Peru (heute Bolivien)"
    },
    "title": {
     "sv": "Tvångsarbetet mit'a börjar i silvergruvorna i Potosí",
-    "en": "The forced labour system mit'a begins in the silver mines of Potosí"
+    "en": "The forced labour system mit'a begins in the silver mines of Potosí",
+    "de": "Die Zwangsarbeit mit'a beginnt in den Silberminen von Potosí"
    },
    "summary": {
     "sv": "Vicekungen Francisco de Toledo gör om inkarikets arbetsplikt, mit'a, till tvångsarbete för Spaniens silvergruvor i berget Cerro Rico. De första arbetarna kommer till Potosí 1573. Byarna måste skicka var sjunde vuxen man, omkring 13 000 män om året. De bär malm i säckar på 45–135 kilo uppför stegar i trånga schakt, och många dör i olyckor, av lunginflammation och av kvicksilverförgiftning. I slutet av 1600-talet har Övre Peru förlorat nästan hälften av sin urbefolkning jämfört med drygt hundra år tidigare.",
-    "en": "The viceroy Francisco de Toledo turns the labour obligation of the Inca Empire, mit'a, into forced labour for Spain's silver mines on the mountain Cerro Rico. The first workers arrive in Potosí in 1573. The villages must send every seventh adult man, about 13,000 men a year. They carry ore in sacks of 45–135 kilograms up ladders in narrow shafts, and many die in accidents, of pneumonia and of mercury poisoning. By the end of the 17th century Upper Peru has lost almost half of its indigenous population compared with a little over a hundred years earlier."
+    "en": "The viceroy Francisco de Toledo turns the labour obligation of the Inca Empire, mit'a, into forced labour for Spain's silver mines on the mountain Cerro Rico. The first workers arrive in Potosí in 1573. The villages must send every seventh adult man, about 13,000 men a year. They carry ore in sacks of 45–135 kilograms up ladders in narrow shafts, and many die in accidents, of pneumonia and of mercury poisoning. By the end of the 17th century Upper Peru has lost almost half of its indigenous population compared with a little over a hundred years earlier.",
+    "de": "Der Vizekönig Francisco de Toledo macht aus der Arbeitspflicht des Inkareichs, mit'a, Zwangsarbeit für Spaniens Silberminen im Berg Cerro Rico. Die ersten Arbeiter kommen 1573 nach Potosí. Die Dörfer müssen jeden siebten erwachsenen Mann schicken, etwa 13.000 Männer im Jahr. Sie tragen Erz in Säcken von 45–135 Kilogramm über Leitern in engen Schächten nach oben, und viele sterben bei Unfällen, an Lungenentzündung und an Quecksilbervergiftung. Ende des 17. Jahrhunderts hat Oberperu im Vergleich zu gut hundert Jahren zuvor fast die Hälfte seiner indigenen Bevölkerung verloren."
    },
    "note": {
     "kind": "disagreement",
     "title": {
      "sv": "Källorna skiljer sig",
-     "en": "The sources differ"
+     "en": "The sources differ",
+     "de": "Die Quellen weichen voneinander ab"
     },
     "text": {
      "sv": "Wikipedia om mit'a och om Potosí anger att de första arbetarna kom 1573, medan artikeln om Cerro Rico skriver att Toledo införde mit'a 1574. Hur många som dog i gruvorna är mycket osäkert: en uppskattning är åtta miljoner, men andra källor talar om hundratusentals och menar att åtta miljoner gäller hela Vicekungadömet Peru.",
-     "en": "Wikipedia on mit'a and on Potosí states that the first workers came in 1573, while the article on Cerro Rico says that Toledo introduced mit'a in 1574. How many died in the mines is very uncertain: one estimate is eight million, but other sources speak of hundreds of thousands and argue that eight million refers to the whole Viceroyalty of Peru."
+     "en": "Wikipedia on mit'a and on Potosí states that the first workers came in 1573, while the article on Cerro Rico says that Toledo introduced mit'a in 1574. How many died in the mines is very uncertain: one estimate is eight million, but other sources speak of hundreds of thousands and argue that eight million refers to the whole Viceroyalty of Peru.",
+     "de": "Wikipedia zu mit'a und zu Potosí nennt, dass die ersten Arbeiter 1573 kamen, während der Artikel zum Cerro Rico schreibt, dass Toledo die mit'a 1574 einführte. Wie viele in den Minen starben, ist sehr unsicher: Eine Schätzung lautet acht Millionen, andere Quellen sprechen aber von Hunderttausenden und meinen, die acht Millionen gälten für das gesamte Vizekönigreich Peru."
     }
    },
    "sources": [
@@ -5789,25 +5861,30 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Port Jackson vid Sydney, eora-folkets land, Australien",
-    "en": "Port Jackson at Sydney, the land of the Eora people, Australia"
+    "en": "Port Jackson at Sydney, the land of the Eora people, Australia",
+    "de": "Port Jackson bei Sydney, Land des Volkes der Eora, Australien"
    },
    "title": {
     "sv": "Smittkoppor drabbar eora-folket vid Sydney",
-    "en": "Smallpox strikes the Eora people at Sydney"
+    "en": "Smallpox strikes the Eora people at Sydney",
+    "de": "Pocken treffen das Volk der Eora bei Sydney"
    },
    "summary": {
     "sv": "Omkring 16 månader efter att den brittiska kolonin grundats bryter en epidemi ut bland urfolken runt Port Jackson. Både guvernören Arthur Phillip och eoramannen Bennelong trodde att ungefär hälften av eora-folket i Sydneytrakten dog. Historikern Peter Dowling menar att epidemin troligen gjorde det omöjligt för urfolken att anfalla och förstöra kolonin under dess första år.",
-    "en": "About 16 months after the British colony was founded, an epidemic breaks out among the indigenous peoples around Port Jackson. Both the governor Arthur Phillip and the Eora man Bennelong believed that about half of the Eora people in the Sydney area died. The historian Peter Dowling argues that the epidemic probably made it impossible for the indigenous peoples to attack and destroy the colony in its first years."
+    "en": "About 16 months after the British colony was founded, an epidemic breaks out among the indigenous peoples around Port Jackson. Both the governor Arthur Phillip and the Eora man Bennelong believed that about half of the Eora people in the Sydney area died. The historian Peter Dowling argues that the epidemic probably made it impossible for the indigenous peoples to attack and destroy the colony in its first years.",
+    "de": "Etwa 16 Monate nach der Gründung der britischen Kolonie bricht unter den indigenen Völkern rund um Port Jackson eine Epidemie aus. Sowohl der Gouverneur Arthur Phillip als auch der Eora Bennelong glaubten, dass etwa die Hälfte des Volkes der Eora in der Gegend von Sydney starb. Der Historiker Peter Dowling meint, die Epidemie habe es den indigenen Völkern wahrscheinlich unmöglich gemacht, die Kolonie in ihren ersten Jahren anzugreifen und zu zerstören."
    },
    "note": {
     "kind": "other",
     "title": {
      "sv": "Osäkert vilken sjukdom det var",
-     "en": "Uncertain which disease it was"
+     "en": "Uncertain which disease it was",
+     "de": "Unsicher, welche Krankheit es war"
     },
     "text": {
      "sv": "De flesta historiker kallar sjukdomen smittkoppor, som kolonisterna själva gjorde. Några läkare och forskare menar att det kan ha varit vattkoppor, som britterna var immuna mot men inte urfolken. Hur sjukdomen kom till Sydney, och hur många som dog, är fortfarande omdebatterat.",
-     "en": "Most historians call the disease smallpox, as the colonists themselves did. Some physicians and researchers argue that it may have been chickenpox, to which the British were immune but the indigenous peoples were not. How the disease reached Sydney, and how many died, is still debated."
+     "en": "Most historians call the disease smallpox, as the colonists themselves did. Some physicians and researchers argue that it may have been chickenpox, to which the British were immune but the indigenous peoples were not. How the disease reached Sydney, and how many died, is still debated.",
+     "de": "Die meisten Historiker nennen die Krankheit Pocken, wie es die Kolonisten selbst taten. Einige Ärzte und Forschende meinen, es könnten Windpocken gewesen sein, gegen die die Briten immun waren, die indigenen Völker aber nicht. Wie die Krankheit nach Sydney kam und wie viele starben, ist weiterhin umstritten."
     }
    },
    "sources": [
@@ -5834,15 +5911,18 @@
    },
    "place": {
     "sv": "Wittenberg, Tysk-romerska riket (i dag Tyskland)",
-    "en": "Wittenberg, Holy Roman Empire (today Germany)"
+    "en": "Wittenberg, Holy Roman Empire (today Germany)",
+    "de": "Wittenberg, Heiliges Römisches Reich (heute Deutschland)"
    },
    "title": {
     "sv": "Luthers 95 teser",
-    "en": "Luther's 95 Theses"
+    "en": "Luther's 95 Theses",
+    "de": "Luthers 95 Thesen"
    },
    "summary": {
     "sv": "Den 31 oktober 1517 skickar Martin Luther sina 95 teser till ärkebiskop Albrekt av Brandenburg. Teserna kritiserar handeln med avlat och hur den hänger ihop med ånger, botgöring och påvens makt. Enligt traditionen spikade Luther också upp dem på dörren till Allhelgonakyrkan i Wittenberg, men det är omstritt. I efterhand räknas teserna som början på den protestantiska reformationen.",
-    "en": "On 31 October 1517 Martin Luther sends his 95 Theses to Archbishop Albrecht of Brandenburg. The theses criticise the trade in indulgences and how it relates to repentance, penance and the power of the pope. According to tradition Luther also nailed them to the door of the All Saints' Church in Wittenberg, but this is disputed. In retrospect the theses are regarded as the beginning of the Protestant Reformation."
+    "en": "On 31 October 1517 Martin Luther sends his 95 Theses to Archbishop Albrecht of Brandenburg. The theses criticise the trade in indulgences and how it relates to repentance, penance and the power of the pope. According to tradition Luther also nailed them to the door of the All Saints' Church in Wittenberg, but this is disputed. In retrospect the theses are regarded as the beginning of the Protestant Reformation.",
+    "de": "Am 31. Oktober 1517 schickt Martin Luther seine 95 Thesen an Erzbischof Albrecht von Brandenburg. Die Thesen kritisieren den Ablasshandel und seinen Zusammenhang mit Reue, Buße und der Macht des Papstes. Der Überlieferung nach schlug Luther sie auch an die Tür der Allerheiligenkirche in Wittenberg, was jedoch umstritten ist. Im Rückblick gelten die Thesen als Beginn der protestantischen Reformation."
    },
    "image": {
     "file": "images/events/luthers-teser.webp",
@@ -5850,7 +5930,8 @@
     "style": "renassans",
     "caption": {
      "sv": "Första sidan av de 95 teserna i en tryckt utgåva från Basel, 1517. Licens: Public domain.",
-     "en": "The first page of the 95 Theses in a printed edition from Basel, 1517. Licence: Public domain."
+     "en": "The first page of the 95 Theses in a printed edition from Basel, 1517. Licence: Public domain.",
+     "de": "Erste Seite der 95 Thesen in einer gedruckten Ausgabe aus Basel, 1517. Lizenz: Public domain."
     },
     "credit": "Martin Luther / e-rara via Wikimedia Commons",
     "license": "Public domain",
@@ -5881,15 +5962,18 @@
    },
    "place": {
     "sv": "Sevilla och Sanlúcar de Barrameda, Spanien (start och mål)",
-    "en": "Seville and Sanlúcar de Barrameda, Spain (start and finish)"
+    "en": "Seville and Sanlúcar de Barrameda, Spain (start and finish)",
+    "de": "Sevilla und Sanlúcar de Barrameda, Spanien (Start und Ziel)"
    },
    "title": {
     "sv": "Den första seglingen jorden runt",
-    "en": "The first voyage around the world"
+    "en": "The first voyage around the world",
+    "de": "Die erste Weltumsegelung"
    },
    "summary": {
     "sv": "Den 10 augusti 1519 lämnar Ferdinand Magellans flotta Sevilla, och den 20 september seglar de fem fartygen med omkring 270 man ut från Sanlúcar de Barrameda. Magellan dödas i strid på Mactan i Filippinerna i april 1521. I september 1522 kommer fartyget Victoria under Juan Sebastián Elcano tillbaka till Spanien med bara 18 av de 270 männen. Det är den första seglingen runt jorden.",
-    "en": "On 10 August 1519 Ferdinand Magellan's fleet leaves Seville, and on 20 September the five ships with about 270 men sail out from Sanlúcar de Barrameda. Magellan is killed in battle on Mactan in the Philippines in April 1521. In September 1522 the ship Victoria under Juan Sebastián Elcano returns to Spain with only 18 of the 270 men. It is the first voyage around the world."
+    "en": "On 10 August 1519 Ferdinand Magellan's fleet leaves Seville, and on 20 September the five ships with about 270 men sail out from Sanlúcar de Barrameda. Magellan is killed in battle on Mactan in the Philippines in April 1521. In September 1522 the ship Victoria under Juan Sebastián Elcano returns to Spain with only 18 of the 270 men. It is the first voyage around the world.",
+    "de": "Am 10. August 1519 verlässt die Flotte Ferdinand Magellans Sevilla, und am 20. September laufen die fünf Schiffe mit etwa 270 Mann aus Sanlúcar de Barrameda aus. Magellan wird im April 1521 bei einem Kampf auf Mactan auf den Philippinen getötet. Im September 1522 kommt das Schiff Victoria unter Juan Sebastián Elcano mit nur 18 der 270 Männer nach Spanien zurück. Es ist die erste Umsegelung der Erde."
    },
    "image": {
     "file": "images/events/magellans-jordenruntsegling.webp",
@@ -5897,7 +5981,8 @@
     "style": "renassans",
     "caption": {
      "sv": "Magellans resa i en allegorisk bild av Johannes Stradanus från omkring 1592. Senare bild. Licens: Public domain.",
-     "en": "Magellan's voyage in an allegorical image by Johannes Stradanus from about 1592. A later image. Licence: Public domain."
+     "en": "Magellan's voyage in an allegorical image by Johannes Stradanus from about 1592. A later image. Licence: Public domain.",
+     "de": "Magellans Reise in einem allegorischen Bild von Johannes Stradanus aus der Zeit um 1592. Späteres Bild. Lizenz: Public domain."
     },
     "credit": "Johannes Stradanus / Wikimedia Commons",
     "license": "Public domain",
@@ -5929,15 +6014,18 @@
    },
    "place": {
     "sv": "Nürnberg, Tysk-romerska riket (i dag Tyskland)",
-    "en": "Nuremberg, Holy Roman Empire (today Germany)"
+    "en": "Nuremberg, Holy Roman Empire (today Germany)",
+    "de": "Nürnberg, Heiliges Römisches Reich (heute Deutschland)"
    },
    "title": {
     "sv": "Kopernikus: jorden kretsar kring solen",
-    "en": "Copernicus: the Earth orbits the Sun"
+    "en": "Copernicus: the Earth orbits the Sun",
+    "de": "Kopernikus: Die Erde kreist um die Sonne"
    },
    "summary": {
     "sv": "År 1543 trycks Nicolaus Copernicus bok De revolutionibus orbium coelestium i Nürnberg, strax före hans död samma år. Boken lägger fram en modell där solen står i mitten och jorden är en av planeterna som kretsar runt den. Övergången till den världsbilden hjälpte till att inleda den vetenskapliga revolutionen.",
-    "en": "In 1543 Nicolaus Copernicus's book De revolutionibus orbium coelestium is printed in Nuremberg, shortly before his death the same year. The book puts forward a model in which the Sun stands in the centre and the Earth is one of the planets orbiting it. The transition to that view of the world helped to start the Scientific Revolution."
+    "en": "In 1543 Nicolaus Copernicus's book De revolutionibus orbium coelestium is printed in Nuremberg, shortly before his death the same year. The book puts forward a model in which the Sun stands in the centre and the Earth is one of the planets orbiting it. The transition to that view of the world helped to start the Scientific Revolution.",
+    "de": "Im Jahr 1543 wird das Buch De revolutionibus orbium coelestium von Nikolaus Kopernikus in Nürnberg gedruckt, kurz vor seinem Tod im selben Jahr. Das Buch legt ein Modell vor, in dem die Sonne in der Mitte steht und die Erde einer der Planeten ist, die sie umkreisen. Der Übergang zu diesem Weltbild trug dazu bei, die wissenschaftliche Revolution einzuleiten."
    },
    "image": {
     "file": "images/events/kopernikus-de-revolutionibus.webp",
@@ -5945,7 +6033,8 @@
     "style": "renassans",
     "caption": {
      "sv": "Kopernikus bild av solsystemet med solen i mitten, ur De revolutionibus (1543). Licens: Public domain.",
-     "en": "Copernicus's image of the solar system with the Sun in the centre, from De revolutionibus (1543). Licence: Public domain."
+     "en": "Copernicus's image of the solar system with the Sun in the centre, from De revolutionibus (1543). Licence: Public domain.",
+     "de": "Das Bild des Sonnensystems von Kopernikus mit der Sonne in der Mitte, aus De revolutionibus (1543). Lizenz: Public domain."
     },
     "credit": "Nicolaus Copernicus / Wikimedia Commons",
     "license": "Public domain",
@@ -5977,15 +6066,18 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Republiken Venedig (i dag Italien)",
-    "en": "Republic of Venice (today Italy)"
+    "en": "Republic of Venice (today Italy)",
+    "de": "Republik Venedig (heute Italien)"
    },
    "title": {
     "sv": "Galileo riktar teleskopet mot himlen",
-    "en": "Galileo points the telescope at the sky"
+    "en": "Galileo points the telescope at the sky",
+    "de": "Galileo richtet das Teleskop auf den Himmel"
    },
    "summary": {
     "sv": "Den 13 mars 1610 ger Galileo Galilei ut Sidereus Nuncius (Stjärnbudbäraren) i Republiken Venedig. Där beskriver han vad han har sett genom sitt teleskop: att månens yta är ojämn och bergig, att Vintergatan består av hundratals stjärnor som inte syns med blotta ögat och att himlakroppar kretsar runt Jupiter. Det är det första vetenskapliga verket som bygger på observationer genom ett teleskop.",
-    "en": "On 13 March 1610 Galileo Galilei publishes Sidereus Nuncius (The Starry Messenger) in the Republic of Venice. In it he describes what he has seen through his telescope: that the surface of the Moon is uneven and mountainous, that the Milky Way consists of hundreds of stars not visible to the naked eye, and that celestial bodies orbit Jupiter. It is the first scientific work based on observations through a telescope."
+    "en": "On 13 March 1610 Galileo Galilei publishes Sidereus Nuncius (The Starry Messenger) in the Republic of Venice. In it he describes what he has seen through his telescope: that the surface of the Moon is uneven and mountainous, that the Milky Way consists of hundreds of stars not visible to the naked eye, and that celestial bodies orbit Jupiter. It is the first scientific work based on observations through a telescope.",
+    "de": "Am 13. März 1610 veröffentlicht Galileo Galilei in der Republik Venedig den Sidereus Nuncius (Sternenbote). Darin beschreibt er, was er durch sein Teleskop gesehen hat: dass die Oberfläche des Mondes uneben und gebirgig ist, dass die Milchstraße aus Hunderten von Sternen besteht, die mit bloßem Auge nicht zu sehen sind, und dass Himmelskörper um den Jupiter kreisen. Es ist das erste wissenschaftliche Werk, das auf Beobachtungen durch ein Teleskop beruht."
    },
    "image": {
     "file": "images/events/galileo-sidereus-nuncius.webp",
@@ -5993,7 +6085,8 @@
     "style": "renassans",
     "caption": {
      "sv": "Två teckningar av månen med skuggor och kratrar, ur Galileos Sidereus nuncius. Licens: CC BY 4.0.",
-     "en": "Two drawings of the Moon with shadows and craters, from Galileo's Sidereus nuncius. Licence: CC BY 4.0."
+     "en": "Two drawings of the Moon with shadows and craters, from Galileo's Sidereus nuncius. Licence: CC BY 4.0.",
+     "de": "Zwei Zeichnungen des Mondes mit Schatten und Kratern, aus Galileos Sidereus nuncius. Lizenz: CC BY 4.0."
     },
     "credit": "Wellcome Collection / Wikimedia Commons",
     "license": "CC BY 4.0",
@@ -6025,15 +6118,18 @@
    "locationPrecision": "region",
    "place": {
     "sv": "England (utgiven i London)",
-    "en": "England (published in London)"
+    "en": "England (published in London)",
+    "de": "England (veröffentlicht in London)"
    },
    "title": {
     "sv": "Newtons Principia",
-    "en": "Newton's Principia"
+    "en": "Newton's Principia",
+    "de": "Newtons Principia"
    },
    "summary": {
     "sv": "I juli 1687 kommer Isaac Newtons bok Principia ut. Den lägger fram Newtons rörelselagar och lagen om den allmänna gravitationen och blir den matematiska grunden för den klassiska mekaniken. Edmond Halley betalade utgivningen på egen risk, eftersom Royal Society hade gjort av med sina pengar för böcker. Boken räknas som ett av de viktigaste verken i vetenskapens historia.",
-    "en": "In July 1687 Isaac Newton's book Principia is published. It sets out Newton's laws of motion and the law of universal gravitation and becomes the mathematical foundation of classical mechanics. Edmond Halley paid for the publication at his own risk, because the Royal Society had used up its money on books. The book is regarded as one of the most important works in the history of science."
+    "en": "In July 1687 Isaac Newton's book Principia is published. It sets out Newton's laws of motion and the law of universal gravitation and becomes the mathematical foundation of classical mechanics. Edmond Halley paid for the publication at his own risk, because the Royal Society had used up its money on books. The book is regarded as one of the most important works in the history of science.",
+    "de": "Im Juli 1687 erscheint Isaac Newtons Buch Principia. Es legt Newtons Bewegungsgesetze und das Gesetz der allgemeinen Gravitation dar und wird zur mathematischen Grundlage der klassischen Mechanik. Edmond Halley bezahlte die Veröffentlichung auf eigenes Risiko, weil die Royal Society ihr Geld für Bücher aufgebraucht hatte. Das Buch gilt als eines der wichtigsten Werke der Wissenschaftsgeschichte."
    },
    "image": {
     "file": "images/events/newtons-principia.webp",
@@ -6041,7 +6137,8 @@
     "style": "barock",
     "caption": {
      "sv": "Titelsidan till första upplagan av Newtons Principia, 1687. Licens: Public domain.",
-     "en": "The title page of the first edition of Newton's Principia, 1687. Licence: Public domain."
+     "en": "The title page of the first edition of Newton's Principia, 1687. Licence: Public domain.",
+     "de": "Titelseite der ersten Ausgabe von Newtons Principia, 1687. Lizenz: Public domain."
     },
     "credit": "Isaac Newton / Wikimedia Commons",
     "license": "Public domain",
@@ -6072,15 +6169,18 @@
    },
    "place": {
     "sv": "Botany Bay, Australien",
-    "en": "Botany Bay, Australia"
+    "en": "Botany Bay, Australia",
+    "de": "Botany Bay, Australien"
    },
    "title": {
     "sv": "James Cook når Australiens östkust",
-    "en": "James Cook reaches the east coast of Australia"
+    "en": "James Cook reaches the east coast of Australia",
+    "de": "James Cook erreicht Australiens Ostküste"
    },
    "summary": {
     "sv": "I april 1770 ser James Cook och besättningen på HMS Endeavour Australiens östkust. Den 29 april går de i land för första gången, vid Botany Bay, där två män från gweagalfolket kommer ned till båten. Cook följer sedan kusten norrut och gör i augusti 1770 anspråk på hela östkusten för Storbritannien, på en ö som han kallar Possession Island.",
-    "en": "In April 1770 James Cook and the crew of HMS Endeavour sight the east coast of Australia. On 29 April they go ashore for the first time, at Botany Bay, where two men of the Gweagal people come down to the boat. Cook then follows the coast northwards and in August 1770 claims the whole east coast for Great Britain, on an island that he calls Possession Island."
+    "en": "In April 1770 James Cook and the crew of HMS Endeavour sight the east coast of Australia. On 29 April they go ashore for the first time, at Botany Bay, where two men of the Gweagal people come down to the boat. Cook then follows the coast northwards and in August 1770 claims the whole east coast for Great Britain, on an island that he calls Possession Island.",
+    "de": "Im April 1770 sichten James Cook und die Besatzung der HMS Endeavour Australiens Ostküste. Am 29. April gehen sie zum ersten Mal an Land, bei Botany Bay, wo zwei Männer des Volkes der Gweagal zum Boot herunterkommen. Cook folgt dann der Küste nach Norden und nimmt im August 1770 die gesamte Ostküste für Großbritannien in Besitz, auf einer Insel, die er Possession Island nennt."
    },
    "image": {
     "file": "images/events/cook-nar-australien.webp",
@@ -6088,7 +6188,8 @@
     "style": "barock",
     "caption": {
      "sv": "Människor i en kanot i Botany Bay, tecknade av Tupaia, som reste med Cook, i april 1770. Licens: Public domain.",
-     "en": "People in a canoe in Botany Bay, drawn by Tupaia, who travelled with Cook, in April 1770. Licence: Public domain."
+     "en": "People in a canoe in Botany Bay, drawn by Tupaia, who travelled with Cook, in April 1770. Licence: Public domain.",
+     "de": "Menschen in einem Kanu in Botany Bay, gezeichnet von Tupaia, der mit Cook reiste, im April 1770. Lizenz: Public domain."
     },
     "credit": "Tupaia / British Library via Wikimedia Commons",
     "license": "Public domain",
@@ -6120,15 +6221,18 @@
    },
    "place": {
     "sv": "Sydney Cove, Port Jackson, Australien",
-    "en": "Sydney Cove, Port Jackson, Australia"
+    "en": "Sydney Cove, Port Jackson, Australia",
+    "de": "Sydney Cove, Port Jackson, Australien"
    },
    "title": {
     "sv": "Första flottan når Sydney",
-    "en": "The First Fleet reaches Sydney"
+    "en": "The First Fleet reaches Sydney",
+    "de": "Die Erste Flotte erreicht Sydney"
    },
    "summary": {
     "sv": "Den 13 maj 1787 lämnar elva brittiska fartyg med omkring 1 420 människor Portsmouth under kapten Arthur Phillip. Den 26 januari ankrar flottan i Sydney Cove och hissar den brittiska flaggan. Där grundas kolonin New South Wales som straffkoloni, början på den brittiska bosättningen i Australien. Snart uppstår konflikter, och eorafolket och Pemulwuy från bidjigalklanen gör motstånd mot kolonisterna.",
-    "en": "On 13 May 1787 eleven British ships with about 1,420 people leave Portsmouth under Captain Arthur Phillip. On 26 January the fleet anchors in Sydney Cove and raises the British flag. There the colony of New South Wales is founded as a penal colony, the beginning of British settlement in Australia. Conflicts soon arise, and the Eora people and Pemulwuy of the Bidjigal clan resist the colonists."
+    "en": "On 13 May 1787 eleven British ships with about 1,420 people leave Portsmouth under Captain Arthur Phillip. On 26 January the fleet anchors in Sydney Cove and raises the British flag. There the colony of New South Wales is founded as a penal colony, the beginning of British settlement in Australia. Conflicts soon arise, and the Eora people and Pemulwuy of the Bidjigal clan resist the colonists.",
+    "de": "Am 13. Mai 1787 verlassen elf britische Schiffe mit etwa 1.420 Menschen unter Kapitän Arthur Phillip Portsmouth. Am 26. Januar ankert die Flotte in Sydney Cove und hisst die britische Flagge. Dort wird die Kolonie New South Wales als Strafkolonie gegründet, der Beginn der britischen Besiedlung Australiens. Bald entstehen Konflikte, und das Volk der Eora und Pemulwuy vom Clan der Bidjigal leisten den Kolonisten Widerstand."
    },
    "image": {
     "file": "images/events/forsta-flottan-sydney.webp",
@@ -6136,7 +6240,8 @@
     "style": "barock",
     "caption": {
      "sv": "Första flottan seglar in i Port Jackson den 27 januari 1788. Lavering av William Bradley, som var med, ur hans resedagbok från omkring 1802. Licens: Public domain.",
-     "en": "The First Fleet sailing into Port Jackson on 27 January 1788. Wash drawing by William Bradley, who was on board, from his journal of about 1802. Licence: Public domain."
+     "en": "The First Fleet sailing into Port Jackson on 27 January 1788. Wash drawing by William Bradley, who was on board, from his journal of about 1802. Licence: Public domain.",
+     "de": "Die Erste Flotte segelt am 27. Januar 1788 in Port Jackson ein. Lavierte Zeichnung von William Bradley, der dabei war, aus seinem Reisetagebuch von etwa 1802. Lizenz: Public domain."
     },
     "credit": "William Bradley / State Library of New South Wales via Wikimedia Commons",
     "license": "Public domain",
@@ -6167,15 +6272,18 @@
    },
    "place": {
     "sv": "Paris, Frankrike",
-    "en": "Paris, France"
+    "en": "Paris, France",
+    "de": "Paris, Frankreich"
    },
    "title": {
     "sv": "Bastiljen stormas",
-    "en": "The Bastille is stormed"
+    "en": "The Bastille is stormed",
+    "de": "Die Bastille wird gestürmt"
    },
    "summary": {
     "sv": "Den 14 juli 1789 stormas Bastiljen i Paris, en medeltida fästning som används som vapenförråd och politiskt fängelse. Där finns bara sju fångar. Fästningens guvernör de Launay dödas efter att ha gett upp. Bastiljens fall blir startskottet för franska revolutionen, och 14 juli är i dag Frankrikes nationaldag.",
-    "en": "On 14 July 1789 the Bastille in Paris is stormed, a medieval fortress used as an arsenal and political prison. There are only seven prisoners there. The fortress's governor de Launay is killed after surrendering. The fall of the Bastille becomes the starting signal of the French Revolution, and 14 July is today France's national day."
+    "en": "On 14 July 1789 the Bastille in Paris is stormed, a medieval fortress used as an arsenal and political prison. There are only seven prisoners there. The fortress's governor de Launay is killed after surrendering. The fall of the Bastille becomes the starting signal of the French Revolution, and 14 July is today France's national day.",
+    "de": "Am 14. Juli 1789 wird die Bastille in Paris gestürmt, eine mittelalterliche Festung, die als Waffenlager und politisches Gefängnis dient. Dort sind nur sieben Gefangene. Der Gouverneur der Festung, de Launay, wird getötet, nachdem er sich ergeben hat. Der Fall der Bastille wird zum Startschuss der Französischen Revolution, und der 14. Juli ist heute Frankreichs Nationalfeiertag."
    },
    "image": {
     "file": "images/events/stormningen-av-bastiljen.webp",
@@ -6183,7 +6291,8 @@
     "style": "barock",
     "caption": {
      "sv": "Stormningen av Bastiljen, målning av en okänd konstnär i Versailles samlingar. Licens: Public domain.",
-     "en": "The storming of the Bastille, painting by an unknown artist in the collections of Versailles. Licence: Public domain."
+     "en": "The storming of the Bastille, painting by an unknown artist in the collections of Versailles. Licence: Public domain.",
+     "de": "Der Sturm auf die Bastille, Gemälde eines unbekannten Künstlers in den Sammlungen von Versailles. Lizenz: Public domain."
     },
     "credit": "Okänd konstnär / Château de Versailles via Wikimedia Commons",
     "license": "Public domain",
@@ -6213,15 +6322,18 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Berkeley, Gloucestershire, England (där Jenner bodde)",
-    "en": "Berkeley, Gloucestershire, England (where Jenner lived)"
+    "en": "Berkeley, Gloucestershire, England (where Jenner lived)",
+    "de": "Berkeley, Gloucestershire, England (wo Jenner lebte)"
    },
    "title": {
     "sv": "Edward Jenner och det första vaccinet",
-    "en": "Edward Jenner and the first vaccine"
+    "en": "Edward Jenner and the first vaccine",
+    "de": "Edward Jenner und der erste Impfstoff"
    },
    "summary": {
     "sv": "Den 14 maj 1796 prövar Edward Jenner sin idé: han ympar in var från kokoppsblåsor hos mjölkerskan Sarah Nelmes på James Phipps, son till hans trädgårdsmästare. När Phipps senare utsätts för smittkoppor blir han inte sjuk. Jenner tar fram smittkoppsvaccinet, världens första vaccin, och kallas ofta immunologins fader.",
-    "en": "On 14 May 1796 Edward Jenner tests his idea: he inoculates pus from cowpox blisters on the milkmaid Sarah Nelmes into James Phipps, the son of his gardener. When Phipps is later exposed to smallpox he does not fall ill. Jenner develops the smallpox vaccine, the world's first vaccine, and is often called the father of immunology."
+    "en": "On 14 May 1796 Edward Jenner tests his idea: he inoculates pus from cowpox blisters on the milkmaid Sarah Nelmes into James Phipps, the son of his gardener. When Phipps is later exposed to smallpox he does not fall ill. Jenner develops the smallpox vaccine, the world's first vaccine, and is often called the father of immunology.",
+    "de": "Am 14. Mai 1796 erprobt Edward Jenner seine Idee: Er impft Eiter aus Kuhpockenbläschen der Melkerin Sarah Nelmes in James Phipps, den Sohn seines Gärtners. Als Phipps später den Pocken ausgesetzt wird, erkrankt er nicht. Jenner entwickelt den Pockenimpfstoff, den ersten Impfstoff der Welt, und wird oft der Vater der Immunologie genannt."
    },
    "image": {
     "file": "images/events/jenners-vaccin.webp",
@@ -6229,7 +6341,8 @@
     "style": "barock",
     "caption": {
      "sv": "Edward Jenner. Mezzotint av John Raphael Smith från 1800. Licens: CC BY 4.0.",
-     "en": "Edward Jenner. Mezzotint by John Raphael Smith from 1800. Licence: CC BY 4.0."
+     "en": "Edward Jenner. Mezzotint by John Raphael Smith from 1800. Licence: CC BY 4.0.",
+     "de": "Edward Jenner. Schabkunstblatt von John Raphael Smith aus dem Jahr 1800. Lizenz: CC BY 4.0."
     },
     "credit": "John Raphael Smith / Wellcome Collection via Wikimedia Commons",
     "license": "CC BY 4.0",
@@ -6260,15 +6373,18 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Väst- och Centralafrika till Amerika (Gorée, Senegal, som exempel)",
-    "en": "West and Central Africa to the Americas (Gorée, Senegal, as an example)"
+    "en": "West and Central Africa to the Americas (Gorée, Senegal, as an example)",
+    "de": "Von West- und Zentralafrika nach Amerika (Gorée, Senegal, als Beispiel)"
    },
    "title": {
     "sv": "Den transatlantiska slavhandeln",
-    "en": "The transatlantic slave trade"
+    "en": "The transatlantic slave trade",
+    "de": "Der transatlantische Sklavenhandel"
    },
    "summary": {
     "sv": "Under mer än 300 år fördes förslavade afrikaner med fartyg över Atlanten till Amerika. Den första kända direkta resan från Afrika gick 1519, och det sista kända slavskeppet till Kuba kom 1867. De flesta kom från Väst- och Centralafrika och tvingades arbeta på plantager, i gruvor och i hushåll. Enligt nuvarande uppskattningar lastades omkring 12,75 miljoner människor på slavskepp, och upp till 2 miljoner av dem dog under resan.",
-    "en": "For more than 300 years enslaved Africans were carried by ship across the Atlantic to the Americas. The first known direct voyage from Africa took place in 1519, and the last known slave ship to Cuba arrived in 1867. Most came from West and Central Africa and were forced to work on plantations, in mines and in households. According to current estimates about 12.75 million people were loaded onto slave ships, and up to 2 million of them died during the voyage."
+    "en": "For more than 300 years enslaved Africans were carried by ship across the Atlantic to the Americas. The first known direct voyage from Africa took place in 1519, and the last known slave ship to Cuba arrived in 1867. Most came from West and Central Africa and were forced to work on plantations, in mines and in households. According to current estimates about 12.75 million people were loaded onto slave ships, and up to 2 million of them died during the voyage.",
+    "de": "Mehr als 300 Jahre lang wurden versklavte Afrikaner mit Schiffen über den Atlantik nach Amerika gebracht. Die erste bekannte direkte Fahrt von Afrika aus fand 1519 statt, und das letzte bekannte Sklavenschiff nach Kuba kam 1867 an. Die meisten stammten aus West- und Zentralafrika und wurden gezwungen, auf Plantagen, in Minen und in Haushalten zu arbeiten. Nach heutigen Schätzungen wurden etwa 12,75 Millionen Menschen auf Sklavenschiffe verladen, und bis zu 2 Millionen von ihnen starben auf der Überfahrt."
    },
    "image": {
     "file": "images/events/atlantiska-slavhandeln.webp",
@@ -6311,25 +6427,30 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Japan (Dejima, Nagasaki)",
-    "en": "Japan (Dejima, Nagasaki)"
+    "en": "Japan (Dejima, Nagasaki)",
+    "de": "Japan (Dejima, Nagasaki)"
    },
    "title": {
     "sv": "Japan stänger sig (sakoku)",
-    "en": "Japan closes itself off (sakoku)"
+    "en": "Japan closes itself off (sakoku)",
+    "de": "Japan schließt sich ab (Sakoku)"
    },
    "summary": {
     "sv": "Med en rad påbud mellan 1633 och 1639 begränsade Tokugawashogunatet Japans kontakter med omvärlden kraftigt. Nästan alla utlänningar förbjöds att komma in i landet, och vanliga japaner fick inte resa ut. Handel fanns ändå kvar, bland annat med Kina i Nagasaki och med nederländarna på ön Dejima, den enda europeiska handelsstationen. Politiken tog slut efter 1853, när en amerikansk flotta under Matthew Perry tvingade Japan att öppna sig för handel.",
-    "en": "With a series of edicts between 1633 and 1639 the Tokugawa shogunate greatly restricted Japan's contacts with the outside world. Almost all foreigners were forbidden to enter the country, and ordinary Japanese were not allowed to travel abroad. Trade nevertheless remained, including with China at Nagasaki and with the Dutch on the island of Dejima, the only European trading post. The policy ended after 1853, when an American fleet under Matthew Perry forced Japan to open up to trade."
+    "en": "With a series of edicts between 1633 and 1639 the Tokugawa shogunate greatly restricted Japan's contacts with the outside world. Almost all foreigners were forbidden to enter the country, and ordinary Japanese were not allowed to travel abroad. Trade nevertheless remained, including with China at Nagasaki and with the Dutch on the island of Dejima, the only European trading post. The policy ended after 1853, when an American fleet under Matthew Perry forced Japan to open up to trade.",
+    "de": "Mit einer Reihe von Erlassen zwischen 1633 und 1639 schränkte das Tokugawa-Shogunat Japans Kontakte zur Außenwelt stark ein. Fast allen Ausländern wurde die Einreise verboten, und gewöhnliche Japaner durften nicht ins Ausland reisen. Handel blieb dennoch bestehen, unter anderem mit China in Nagasaki und mit den Niederländern auf der Insel Dejima, dem einzigen europäischen Handelsposten. Die Politik endete nach 1853, als eine amerikanische Flotte unter Matthew Perry Japan zwang, sich für den Handel zu öffnen."
    },
    "note": {
     "kind": "disagreement",
     "title": {
      "sv": "Källorna skiljer sig",
-     "en": "The sources differ"
+     "en": "The sources differ",
+     "de": "Die Quellen weichen voneinander ab"
     },
     "text": {
      "sv": "Wikipedia anger att politiken infördes 1633–1639 och tog slut efter 1853. Wikidata anger 1639–1854 (då Kanagawafördraget slöts).",
-     "en": "Wikipedia states that the policy was introduced in 1633–1639 and ended after 1853. Wikidata gives 1639–1854 (when the Convention of Kanagawa was concluded)."
+     "en": "Wikipedia states that the policy was introduced in 1633–1639 and ended after 1853. Wikidata gives 1639–1854 (when the Convention of Kanagawa was concluded).",
+     "de": "Wikipedia nennt, dass die Politik 1633–1639 eingeführt wurde und nach 1853 endete. Wikidata nennt 1639–1854 (als der Vertrag von Kanagawa geschlossen wurde)."
     }
    },
    "wikidata": "Q332075",
@@ -6357,15 +6478,18 @@
    },
    "place": {
     "sv": "Glasgow Green, Glasgow, Skottland",
-    "en": "Glasgow Green, Glasgow, Scotland"
+    "en": "Glasgow Green, Glasgow, Scotland",
+    "de": "Glasgow Green, Glasgow, Schottland"
    },
    "title": {
     "sv": "Watt kommer på den separata kondensorn",
-    "en": "Watt devises the separate condenser"
+    "en": "Watt devises the separate condenser",
+    "de": "Watt hat die Idee des separaten Kondensators"
    },
    "summary": {
     "sv": "James Watt arbetade som instrumentmakare vid universitetet i Glasgow och såg att Newcomens ångmaskin slösade energi genom att cylindern kyldes och värmdes om vid varje slag. I maj 1765 fick han idén att låta ångan kondensera i en egen kammare, en kondensor, så att cylindern kunde hållas varm. Han fick patent på uppfinningen 1769. Förbättringen gjorde ångmaskinen mycket effektivare och fick stor betydelse för den industriella revolutionen.",
-    "en": "James Watt worked as an instrument maker at the University of Glasgow and saw that Newcomen's steam engine wasted energy because the cylinder was cooled and reheated at every stroke. In May 1765, he got the idea of letting the steam condense in a separate chamber, a condenser, so that the cylinder could be kept hot. He received a patent for the invention in 1769. The improvement made the steam engine much more efficient and was of great importance for the Industrial Revolution."
+    "en": "James Watt worked as an instrument maker at the University of Glasgow and saw that Newcomen's steam engine wasted energy because the cylinder was cooled and reheated at every stroke. In May 1765, he got the idea of letting the steam condense in a separate chamber, a condenser, so that the cylinder could be kept hot. He received a patent for the invention in 1769. The improvement made the steam engine much more efficient and was of great importance for the Industrial Revolution.",
+    "de": "James Watt arbeitete als Instrumentenbauer an der Universität Glasgow und sah, dass Newcomens Dampfmaschine Energie verschwendete, weil der Zylinder bei jedem Hub abgekühlt und wieder erwärmt wurde. Im Mai 1765 kam er auf die Idee, den Dampf in einer eigenen Kammer, einem Kondensator, kondensieren zu lassen, sodass der Zylinder heiß bleiben konnte. 1769 erhielt er ein Patent auf die Erfindung. Die Verbesserung machte die Dampfmaschine viel effizienter und hatte große Bedeutung für die industrielle Revolution."
    },
    "image": {
     "file": "images/events/watt-separat-kondensor.webp",
@@ -6408,15 +6532,18 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Guam i Marianerna, traditionellt vid Umatac (i dag Guam, USA)",
-    "en": "Guam in the Marianas, traditionally at Umatac (today Guam, USA)"
+    "en": "Guam in the Marianas, traditionally at Umatac (today Guam, USA)",
+    "de": "Guam auf den Marianen, traditionell bei Umatac (heute Guam, USA)"
    },
    "title": {
     "sv": "Magellans flotta når Guam",
-    "en": "Magellan's fleet reaches Guam"
+    "en": "Magellan's fleet reaches Guam",
+    "de": "Magellans Flotte erreicht Guam"
    },
    "summary": {
     "sv": "Den 6 mars 1521 nådde Magellans spanska expedition Marianerna och ankrade vid Guam, efter tre månader och tjugo dagar över Stilla havet. Det var den första kända kontakten mellan européer och chamorrofolket. Efter en sammandrabbning där minst en chamorro dödades lät Magellan bränna 40–50 hus och döda sju män, och den 9 mars seglade flottan vidare. Landstigningsplatsen anges traditionellt som Umatac, men den kan ha varit Tumon.",
-    "en": "On 6 March 1521 Magellan's Spanish expedition reached the Marianas and anchored at Guam, after three months and twenty days across the Pacific. It was the first known contact between Europeans and the Chamorro people. After a clash in which at least one Chamorro was killed, Magellan had 40–50 houses burned and seven men killed, and on 9 March the fleet sailed on. The landing place is traditionally given as Umatac, but it may have been Tumon."
+    "en": "On 6 March 1521 Magellan's Spanish expedition reached the Marianas and anchored at Guam, after three months and twenty days across the Pacific. It was the first known contact between Europeans and the Chamorro people. After a clash in which at least one Chamorro was killed, Magellan had 40–50 houses burned and seven men killed, and on 9 March the fleet sailed on. The landing place is traditionally given as Umatac, but it may have been Tumon.",
+    "de": "Am 6. März 1521 erreichte Magellans spanische Expedition nach drei Monaten und zwanzig Tagen über den Pazifik die Marianen und ankerte bei Guam. Es war der erste bekannte Kontakt zwischen Europäern und dem Volk der Chamorro. Nach einem Zusammenstoß, bei dem mindestens ein Chamorro getötet wurde, ließ Magellan 40–50 Häuser niederbrennen und sieben Männer töten, und am 9. März segelte die Flotte weiter. Als Landungsplatz wird traditionell Umatac angegeben, es kann aber auch Tumon gewesen sein."
    },
    "wikidata": "Q1225170",
    "sources": [
@@ -6443,15 +6570,18 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Santa Isabel (i dag Salomonöarna)",
-    "en": "Santa Isabel (today the Solomon Islands)"
+    "en": "Santa Isabel (today the Solomon Islands)",
+    "de": "Santa Isabel (heute Salomonen)"
    },
    "title": {
     "sv": "Mendaña når Salomonöarna",
-    "en": "Mendaña reaches the Solomon Islands"
+    "en": "Mendaña reaches the Solomon Islands",
+    "de": "Mendaña erreicht die Salomonen"
    },
    "summary": {
     "sv": "Den spanske sjöfararen Álvaro de Mendaña lämnade Callao i Peru i november 1567 med två skepp och omkring 150 personer. Den 7 februari 1568 fick expeditionen syn på Santa Isabel och landsteg där några dagar senare, som de första kända européerna på Salomonöarna. När de försökte byta till sig mat gick mötena med öborna gång på gång från vänligt mottagande till missförstånd, stölder och våldsamma hämnder. I augusti 1568 beslöt de att vända tillbaka till Peru.",
-    "en": "The Spanish navigator Álvaro de Mendaña left Callao in Peru in November 1567 with two ships and about 150 people. On 7 February 1568 the expedition sighted Santa Isabel and landed there a few days later, as the first known Europeans in the Solomon Islands. When they tried to trade for food, the encounters with the islanders time and again went from friendly reception to misunderstandings, thefts and violent reprisals. In August 1568 they decided to turn back to Peru."
+    "en": "The Spanish navigator Álvaro de Mendaña left Callao in Peru in November 1567 with two ships and about 150 people. On 7 February 1568 the expedition sighted Santa Isabel and landed there a few days later, as the first known Europeans in the Solomon Islands. When they tried to trade for food, the encounters with the islanders time and again went from friendly reception to misunderstandings, thefts and violent reprisals. In August 1568 they decided to turn back to Peru.",
+    "de": "Der spanische Seefahrer Álvaro de Mendaña verließ Callao in Peru im November 1567 mit zwei Schiffen und etwa 150 Personen. Am 7. Februar 1568 sichtete die Expedition Santa Isabel und ging einige Tage später dort an Land, als die ersten bekannten Europäer auf den Salomonen. Als sie versuchten, Nahrung einzutauschen, verliefen die Begegnungen mit den Inselbewohnern immer wieder von freundlichem Empfang über Missverständnisse und Diebstähle bis zu gewaltsamer Vergeltung. Im August 1568 beschlossen sie, nach Peru zurückzukehren."
    },
    "wikidata": "Q713182",
    "sources": [
@@ -6477,15 +6607,18 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Espiritu Santo (i dag Vanuatu)",
-    "en": "Espiritu Santo (today Vanuatu)"
+    "en": "Espiritu Santo (today Vanuatu)",
+    "de": "Espiritu Santo (heute Vanuatu)"
    },
    "title": {
     "sv": "Queirós på Espiritu Santo",
-    "en": "Queirós on Espiritu Santo"
+    "en": "Queirós on Espiritu Santo",
+    "de": "Queirós auf Espiritu Santo"
    },
    "summary": {
     "sv": "I maj 1606 nådde Pedro Fernandes de Queirós, en portugisisk sjöfarare i spansk tjänst, de öar som i dag är Vanuatu. Han landsteg på en stor ö som han trodde var en del av det sökta sydlandet och kallade den Austrialia del Espíritu Santo; ön heter fortfarande Espiritu Santo. Queirós ville grunda en koloni där, Nova Jerusalem, men inom några veckor övergavs planen på grund av ni-vanuatus fientlighet och oenighet i besättningen.",
-    "en": "In May 1606 Pedro Fernandes de Queirós, a Portuguese navigator in Spanish service, reached the islands that are today Vanuatu. He landed on a large island that he believed was part of the sought-after southern continent and called it Austrialia del Espíritu Santo; the island is still called Espiritu Santo. Queirós wanted to found a colony there, Nova Jerusalem, but within a few weeks the plan was abandoned because of the hostility of the ni-Vanuatu and disagreement among the crew."
+    "en": "In May 1606 Pedro Fernandes de Queirós, a Portuguese navigator in Spanish service, reached the islands that are today Vanuatu. He landed on a large island that he believed was part of the sought-after southern continent and called it Austrialia del Espíritu Santo; the island is still called Espiritu Santo. Queirós wanted to found a colony there, Nova Jerusalem, but within a few weeks the plan was abandoned because of the hostility of the ni-Vanuatu and disagreement among the crew.",
+    "de": "Im Mai 1606 erreichte Pedro Fernandes de Queirós, ein portugiesischer Seefahrer in spanischen Diensten, die Inseln, die heute Vanuatu sind. Er ging auf einer großen Insel an Land, die er für einen Teil des gesuchten Südlandes hielt, und nannte sie Austrialia del Espíritu Santo; die Insel heißt noch immer Espiritu Santo. Queirós wollte dort eine Kolonie gründen, Nova Jerusalem, doch innerhalb weniger Wochen wurde der Plan wegen der Feindseligkeit der Ni-Vanuatu und der Uneinigkeit der Besatzung aufgegeben."
    },
    "wikidata": "Q337524",
    "sources": [
@@ -6510,25 +6643,30 @@
    },
    "place": {
     "sv": "Pennefather River på Kap Yorkhalvöns västkust (i dag Queensland, Australien)",
-    "en": "Pennefather River on the west coast of the Cape York Peninsula (today Queensland, Australia)"
+    "en": "Pennefather River on the west coast of the Cape York Peninsula (today Queensland, Australia)",
+    "de": "Pennefather River an der Westküste der Kap-York-Halbinsel (heute Queensland, Australien)"
    },
    "title": {
     "sv": "Willem Janszoon och Duyfken når Australien",
-    "en": "Willem Janszoon and the Duyfken reach Australia"
+    "en": "Willem Janszoon and the Duyfken reach Australia",
+    "de": "Willem Janszoon und die Duyfken erreichen Australien"
    },
    "summary": {
     "sv": "Den 26 februari 1606 landsteg nederländaren Willem Janszoon och besättningen på skeppet Duyfken vid Pennefather River på Kap Yorkhalvön. Det är den första kända europeiska landstigningen i Australien. Janszoon kartlade omkring 320 kilometer kust, som han trodde var en del av Nya Guinea, och vände vid en udde som han kallade Kaap Keerweer. Mötet med aboriginerna blev våldsamt: nio av besättningen dödades under resan, men var och när är oklart, och vissa aboriginska muntliga traditioner förlägger alla nio dödsfallen till Kaap Keerweer.",
-    "en": "On 26 February 1606 the Dutchman Willem Janszoon and the crew of the ship Duyfken landed at the Pennefather River on the Cape York Peninsula. It is the first known European landing in Australia. Janszoon charted about 320 kilometres of coast, which he believed was part of New Guinea, and turned back at a cape that he called Kaap Keerweer. The meeting with the Aboriginal people became violent: nine of the crew were killed during the voyage, but where and when is unclear, and some Aboriginal oral traditions place all nine deaths at Kaap Keerweer."
+    "en": "On 26 February 1606 the Dutchman Willem Janszoon and the crew of the ship Duyfken landed at the Pennefather River on the Cape York Peninsula. It is the first known European landing in Australia. Janszoon charted about 320 kilometres of coast, which he believed was part of New Guinea, and turned back at a cape that he called Kaap Keerweer. The meeting with the Aboriginal people became violent: nine of the crew were killed during the voyage, but where and when is unclear, and some Aboriginal oral traditions place all nine deaths at Kaap Keerweer.",
+    "de": "Am 26. Februar 1606 ging der Niederländer Willem Janszoon mit der Besatzung des Schiffes Duyfken am Pennefather River auf der Kap-York-Halbinsel an Land. Es ist die erste bekannte europäische Landung in Australien. Janszoon kartierte etwa 320 Kilometer Küste, die er für einen Teil von Neuguinea hielt, und kehrte an einem Kap um, das er Kaap Keerweer nannte. Die Begegnung mit den Aborigines wurde gewalttätig: Neun der Besatzung wurden während der Reise getötet, doch wo und wann, ist unklar, und einige mündliche Überlieferungen der Aborigines verlegen alle neun Todesfälle nach Kaap Keerweer."
    },
    "note": {
     "kind": "disagreement",
     "title": {
      "sv": "Källorna skiljer sig",
-     "en": "The sources differ"
+     "en": "The sources differ",
+     "de": "Die Quellen weichen voneinander ab"
     },
     "text": {
      "sv": "Var de nio sjömännen dödades är omstritt. Historikern Miriam Estensen menar att åtta dog på ön Yos Sudarso vid Nya Guinea och en vid Australiens kust. Dutch Australian Cultural Centre, som också bygger på berättelser från aboriginska äldste, menar att tre dog vid Kaap Keerweer och fem vid Yos Sudarso på hemvägen. Vissa aboriginska muntliga traditioner placerar alla nio vid Kaap Keerweer.",
-     "en": "Where the nine sailors were killed is disputed. The historian Miriam Estensen argues that eight died on the island of Yos Sudarso near New Guinea and one on the Australian coast. The Dutch Australian Cultural Centre, which also builds on accounts from Aboriginal elders, argues that three died at Kaap Keerweer and five at Yos Sudarso on the way home. Some Aboriginal oral traditions place all nine at Kaap Keerweer."
+     "en": "Where the nine sailors were killed is disputed. The historian Miriam Estensen argues that eight died on the island of Yos Sudarso near New Guinea and one on the Australian coast. The Dutch Australian Cultural Centre, which also builds on accounts from Aboriginal elders, argues that three died at Kaap Keerweer and five at Yos Sudarso on the way home. Some Aboriginal oral traditions place all nine at Kaap Keerweer.",
+     "de": "Wo die neun Seeleute getötet wurden, ist umstritten. Die Historikerin Miriam Estensen meint, acht seien auf der Insel Yos Sudarso bei Neuguinea gestorben und einer an der Küste Australiens. Das Dutch Australian Cultural Centre, das sich ebenfalls auf Berichte von Ältesten der Aborigines stützt, meint, drei seien bei Kaap Keerweer gestorben und fünf auf dem Heimweg bei Yos Sudarso. Einige mündliche Überlieferungen der Aborigines verorten alle neun bei Kaap Keerweer."
     }
    },
    "wikidata": "Q6155580",
@@ -6556,15 +6694,18 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Torressundet mellan Nya Guinea och Kap Yorkhalvön (i dag Papua Nya Guinea och Australien)",
-    "en": "The Torres Strait between New Guinea and the Cape York Peninsula (today Papua New Guinea and Australia)"
+    "en": "The Torres Strait between New Guinea and the Cape York Peninsula (today Papua New Guinea and Australia)",
+    "de": "Torres-Straße zwischen Neuguinea und der Kap-York-Halbinsel (heute Papua-Neuguinea und Australien)"
    },
    "title": {
     "sv": "Torres seglar genom Torressundet",
-    "en": "Torres sails through the Torres Strait"
+    "en": "Torres sails through the Torres Strait",
+    "de": "Torres segelt durch die Torres-Straße"
    },
    "summary": {
     "sv": "Sedan Luís Vaz de Torres skilts från Queirós vid Espiritu Santo seglade han i slutet av juni 1606 mot Manila. Han följde Nya Guineas sydkust, där spanjorerna kom i ibland våldsam kontakt med lokalbefolkningen och tog tjugo människor tillfånga. Därefter tog han sig genom det omkring 150 kilometer breda sundet mellan Nya Guinea och Australien, som i dag bär hans namn. Det är den första kända europeiska seglingen genom sundet, men Duyfken hade varit där några månader tidigare utan att förstå att det var ett sund.",
-    "en": "After Luís Vaz de Torres was separated from Queirós at Espiritu Santo, he sailed towards Manila at the end of June 1606. He followed the south coast of New Guinea, where the Spaniards came into sometimes violent contact with the local population and took twenty people captive. He then made his way through the roughly 150-kilometre-wide strait between New Guinea and Australia, which today bears his name. It is the first known European voyage through the strait, but the Duyfken had been there a few months earlier without realising that it was a strait."
+    "en": "After Luís Vaz de Torres was separated from Queirós at Espiritu Santo, he sailed towards Manila at the end of June 1606. He followed the south coast of New Guinea, where the Spaniards came into sometimes violent contact with the local population and took twenty people captive. He then made his way through the roughly 150-kilometre-wide strait between New Guinea and Australia, which today bears his name. It is the first known European voyage through the strait, but the Duyfken had been there a few months earlier without realising that it was a strait.",
+    "de": "Nachdem Luís Vaz de Torres bei Espiritu Santo von Queirós getrennt worden war, segelte er Ende Juni 1606 Richtung Manila. Er folgte der Südküste Neuguineas, wo die Spanier in teils gewaltsamen Kontakt mit der einheimischen Bevölkerung kamen und zwanzig Menschen gefangen nahmen. Danach fuhr er durch die etwa 150 Kilometer breite Meerenge zwischen Neuguinea und Australien, die heute seinen Namen trägt. Es ist die erste bekannte europäische Fahrt durch die Meerenge, doch die Duyfken war einige Monate zuvor dort gewesen, ohne zu verstehen, dass es eine Meerenge war."
    },
    "wikidata": "Q179188",
    "sources": [
@@ -6590,15 +6731,18 @@
    },
    "place": {
     "sv": "Dirk Hartog Island vid Shark Bay (i dag Västaustralien, Australien)",
-    "en": "Dirk Hartog Island at Shark Bay (today Western Australia, Australia)"
+    "en": "Dirk Hartog Island at Shark Bay (today Western Australia, Australia)",
+    "de": "Dirk Hartog Island bei Shark Bay (heute Westaustralien, Australien)"
    },
    "title": {
     "sv": "Dirk Hartog lämnar en tennplatta vid Shark Bay",
-    "en": "Dirk Hartog leaves a pewter plate at Shark Bay"
+    "en": "Dirk Hartog leaves a pewter plate at Shark Bay",
+    "de": "Dirk Hartog lässt eine Zinnplatte bei Shark Bay zurück"
    },
    "summary": {
     "sv": "Den 25 oktober 1616 kom Nederländska Ostindiska kompaniets skepp Eendracht, med Dirk Hartog som skeppare, till en ö utanför Shark Bay som i dag heter Dirk Hartog Island. Det var den andra kända europeiska landstigningen i Australien och den första på västkusten. Innan skeppet seglade vidare den 27 oktober spikade Hartog upp en tennplatta på en stolpe med en inskription om besöket.",
-    "en": "On 25 October 1616 the Dutch East India Company's ship Eendracht, with Dirk Hartog as skipper, came to an island off Shark Bay that today is called Dirk Hartog Island. It was the second known European landing in Australia and the first on the west coast. Before the ship sailed on on 27 October, Hartog nailed a pewter plate to a post with an inscription about the visit."
+    "en": "On 25 October 1616 the Dutch East India Company's ship Eendracht, with Dirk Hartog as skipper, came to an island off Shark Bay that today is called Dirk Hartog Island. It was the second known European landing in Australia and the first on the west coast. Before the ship sailed on on 27 October, Hartog nailed a pewter plate to a post with an inscription about the visit.",
+    "de": "Am 25. Oktober 1616 kam das Schiff Eendracht der Niederländischen Ostindien-Kompanie mit Dirk Hartog als Schiffsführer zu einer Insel vor Shark Bay, die heute Dirk Hartog Island heißt. Es war die zweite bekannte europäische Landung in Australien und die erste an der Westküste. Bevor das Schiff am 27. Oktober weitersegelte, nagelte Hartog eine Zinnplatte mit einer Inschrift über den Besuch an einen Pfosten."
    },
    "wikidata": "Q2867164",
    "sources": [
@@ -6623,15 +6767,18 @@
    },
    "place": {
     "sv": "Houtman Abrolhos utanför Västaustraliens kust (i dag Australien)",
-    "en": "Houtman Abrolhos off the coast of Western Australia (today Australia)"
+    "en": "Houtman Abrolhos off the coast of Western Australia (today Australia)",
+    "de": "Houtman Abrolhos vor der Küste Westaustraliens (heute Australien)"
    },
    "title": {
     "sv": "Skeppet Batavia förliser vid Houtman Abrolhos",
-    "en": "The ship Batavia is wrecked at Houtman Abrolhos"
+    "en": "The ship Batavia is wrecked at Houtman Abrolhos",
+    "de": "Das Schiff Batavia strandet bei Houtman Abrolhos"
    },
    "summary": {
     "sv": "Den 4 juni 1629 gick Nederländska Ostindiska kompaniets flaggskepp Batavia, på sin första resa, på grund på ett rev vid Houtman Abrolhos utanför Västaustralien. Medan befälhavaren Francisco Pelsaert seglade i en öppen båt till Batavia (i dag Jakarta) efter hjälp tog Jeronimus Cornelisz makten bland de överlevande, och under flera veckor mördades omkring 125 människor, bland dem kvinnor och barn. När Pelsaert kom tillbaka med ett räddningsskepp dömdes Cornelisz och flera av hans män och avrättades.",
-    "en": "On 4 June 1629 the Dutch East India Company's flagship Batavia, on her first voyage, ran aground on a reef at Houtman Abrolhos off Western Australia. While the commander Francisco Pelsaert sailed in an open boat to Batavia (today Jakarta) for help, Jeronimus Cornelisz took power among the survivors, and over several weeks about 125 people were murdered, among them women and children. When Pelsaert returned with a rescue ship, Cornelisz and several of his men were sentenced and executed."
+    "en": "On 4 June 1629 the Dutch East India Company's flagship Batavia, on her first voyage, ran aground on a reef at Houtman Abrolhos off Western Australia. While the commander Francisco Pelsaert sailed in an open boat to Batavia (today Jakarta) for help, Jeronimus Cornelisz took power among the survivors, and over several weeks about 125 people were murdered, among them women and children. When Pelsaert returned with a rescue ship, Cornelisz and several of his men were sentenced and executed.",
+    "de": "Am 4. Juni 1629 lief das Flaggschiff der Niederländischen Ostindien-Kompanie, die Batavia, auf ihrer ersten Reise bei Houtman Abrolhos vor Westaustralien auf ein Riff. Während der Kommandant Francisco Pelsaert in einem offenen Boot nach Batavia (heute Jakarta) segelte, um Hilfe zu holen, übernahm Jeronimus Cornelisz unter den Überlebenden die Macht, und im Lauf mehrerer Wochen wurden etwa 125 Menschen ermordet, darunter Frauen und Kinder. Als Pelsaert mit einem Rettungsschiff zurückkam, wurden Cornelisz und mehrere seiner Männer verurteilt und hingerichtet."
    },
    "wikidata": "Q810735",
    "image": {
@@ -6672,15 +6819,18 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Tasmaniens västkust norr om Macquarie Harbour (i dag Australien)",
-    "en": "The west coast of Tasmania north of Macquarie Harbour (today Australia)"
+    "en": "The west coast of Tasmania north of Macquarie Harbour (today Australia)",
+    "de": "Westküste Tasmaniens nördlich von Macquarie Harbour (heute Australien)"
    },
    "title": {
     "sv": "Abel Tasman når Tasmanien",
-    "en": "Abel Tasman reaches Tasmania"
+    "en": "Abel Tasman reaches Tasmania",
+    "de": "Abel Tasman erreicht Tasmanien"
    },
    "summary": {
     "sv": "Den 24 november 1642 fick Abel Tasman, på en upptäcktsresa för Nederländska Ostindiska kompaniet, syn på Tasmaniens västkust norr om Macquarie Harbour. Han kallade landet Van Diemens land efter generalguvernören i Nederländska Ostindien, och i dag bär ön Tasmans namn. Den 3 december gjorde han formellt anspråk på landet.",
-    "en": "On 24 November 1642 Abel Tasman, on a voyage of discovery for the Dutch East India Company, sighted the west coast of Tasmania north of Macquarie Harbour. He called the land Van Diemen's Land after the governor-general of the Dutch East Indies, and today the island bears Tasman's name. On 3 December he formally claimed the land."
+    "en": "On 24 November 1642 Abel Tasman, on a voyage of discovery for the Dutch East India Company, sighted the west coast of Tasmania north of Macquarie Harbour. He called the land Van Diemen's Land after the governor-general of the Dutch East Indies, and today the island bears Tasman's name. On 3 December he formally claimed the land.",
+    "de": "Am 24. November 1642 sichtete Abel Tasman auf einer Entdeckungsreise für die Niederländische Ostindien-Kompanie die Westküste Tasmaniens nördlich von Macquarie Harbour. Er nannte das Land Van-Diemens-Land nach dem Generalgouverneur von Niederländisch-Ostindien, und heute trägt die Insel Tasmans Namen. Am 3. Dezember nahm er das Land förmlich in Besitz."
    },
    "sources": [
     "wp-abel-tasman"
@@ -6705,15 +6855,18 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Golden Bay / Mohua på Sydöns nordspets (i dag Nya Zeeland)",
-    "en": "Golden Bay / Mohua at the northern tip of the South Island (today New Zealand)"
+    "en": "Golden Bay / Mohua at the northern tip of the South Island (today New Zealand)",
+    "de": "Golden Bay / Mohua an der Nordspitze der Südinsel (heute Neuseeland)"
    },
    "title": {
     "sv": "Tasmans möte med Ngāti Tūmatakōkiri i Mohua",
-    "en": "Tasman's encounter with Ngāti Tūmatakōkiri in Mohua"
+    "en": "Tasman's encounter with Ngāti Tūmatakōkiri in Mohua",
+    "de": "Tasmans Begegnung mit den Ngāti Tūmatakōkiri in Mohua"
    },
    "summary": {
     "sv": "I december 1642 blev Abel Tasman den förste kände europé som nådde Nya Zeeland, och hans två skepp ankrade utanför bukten som i dag heter Golden Bay / Mohua, där maorier hade bott sedan åtminstone 1450. Ngāti Tūmatakōkiri gick ut i en waka (kanot), rammade en av de nederländska båtarna och dödade fyra sjömän. När skeppen lämnade bukten sköt skeppet Zeehaen mot de waka som närmade sig och träffade en man, och Tasman kallade platsen Mördarbukten.",
-    "en": "In December 1642 Abel Tasman became the first known European to reach New Zealand, and his two ships anchored off the bay that today is called Golden Bay / Mohua, where Māori had lived since at least 1450. Ngāti Tūmatakōkiri went out in a waka (canoe), rammed one of the Dutch boats and killed four sailors. When the ships left the bay, the ship Zeehaen fired at the waka approaching and hit one man, and Tasman called the place Murderers' Bay."
+    "en": "In December 1642 Abel Tasman became the first known European to reach New Zealand, and his two ships anchored off the bay that today is called Golden Bay / Mohua, where Māori had lived since at least 1450. Ngāti Tūmatakōkiri went out in a waka (canoe), rammed one of the Dutch boats and killed four sailors. When the ships left the bay, the ship Zeehaen fired at the waka approaching and hit one man, and Tasman called the place Murderers' Bay.",
+    "de": "Im Dezember 1642 wurde Abel Tasman der erste bekannte Europäer, der Neuseeland erreichte, und seine beiden Schiffe ankerten vor der Bucht, die heute Golden Bay / Mohua heißt, wo Māori seit mindestens 1450 gelebt hatten. Die Ngāti Tūmatakōkiri fuhren in einem Waka (Kanu) hinaus, rammten eines der niederländischen Boote und töteten vier Seeleute. Als die Schiffe die Bucht verließen, schoss das Schiff Zeehaen auf die sich nähernden Waka und traf einen Mann, und Tasman nannte den Ort Mörderbucht."
    },
    "wikidata": "Q1512616",
    "image": {
@@ -6756,15 +6909,18 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Marianerna, började i Hagåtña på Guam (i dag Guam och Nordmarianerna, USA)",
-    "en": "The Marianas, began at Hagåtña on Guam (today Guam and the Northern Mariana Islands, USA)"
+    "en": "The Marianas, began at Hagåtña on Guam (today Guam and the Northern Mariana Islands, USA)",
+    "de": "Marianen, begann in Hagåtña auf Guam (heute Guam und Nördliche Marianen, USA)"
    },
    "title": {
     "sv": "De spansk-chamorriska krigen",
-    "en": "The Spanish–Chamorro Wars"
+    "en": "The Spanish–Chamorro Wars",
+    "de": "Die spanisch-chamorrischen Kriege"
    },
    "summary": {
     "sv": "Från 1670 till 1699 gjorde chamorrofolket på Marianerna motstånd mot den spanska koloniseringen. Efter att Matå'pang dödat missionären San Vitores 1672 brände spanjorerna byar, och de flesta invånarna i omkring 180 byar på Guam flyttades till sju orter. Spanjorernas och deras allierades våld mot chamorrofolket har beskrivits som ett brutalt folkmord.",
-    "en": "From 1670 to 1699 the Chamorro people of the Marianas resisted Spanish colonisation. After Matå'pang killed the missionary San Vitores in 1672, the Spaniards burned villages, and most of the inhabitants of about 180 villages on Guam were moved to seven places. The violence of the Spaniards and their allies against the Chamorro people has been described as a brutal genocide."
+    "en": "From 1670 to 1699 the Chamorro people of the Marianas resisted Spanish colonisation. After Matå'pang killed the missionary San Vitores in 1672, the Spaniards burned villages, and most of the inhabitants of about 180 villages on Guam were moved to seven places. The violence of the Spaniards and their allies against the Chamorro people has been described as a brutal genocide.",
+    "de": "Von 1670 bis 1699 leistete das Volk der Chamorro auf den Marianen der spanischen Kolonisierung Widerstand. Nachdem Matå'pang 1672 den Missionar San Vitores getötet hatte, brannten die Spanier Dörfer nieder, und die meisten Bewohner von etwa 180 Dörfern auf Guam wurden in sieben Orte umgesiedelt. Die Gewalt der Spanier und ihrer Verbündeten gegen das Volk der Chamorro ist als brutaler Völkermord beschrieben worden."
    },
    "wikidata": "Q105973572",
    "sources": [
@@ -6789,25 +6945,30 @@
    },
    "place": {
     "sv": "Sennar vid Blå Nilen (i dag Sudan)",
-    "en": "Sennar on the Blue Nile (today Sudan)"
+    "en": "Sennar on the Blue Nile (today Sudan)",
+    "de": "Sennar am Blauen Nil (heute Sudan)"
    },
    "title": {
     "sv": "Funjsultanatet grundas i Sennar",
-    "en": "The Funj Sultanate is founded at Sennar"
+    "en": "The Funj Sultanate is founded at Sennar",
+    "de": "Das Funj-Sultanat wird in Sennar gegründet"
    },
    "summary": {
     "sv": "År 1504 grundade sultanen Amara Dunqas Funjsultanatet, ett islamiskt rike i nuvarande Sudan, med huvudstaden Sennar vid Blå Nilen. Riket efterträdde de kristna nubiska rikena och var som störst i slutet av 1600-talet. Det bjöd in sufiska lärda, vilket spred islam i området. År 1821 gav den siste sultanen upp inför den turkisk-egyptiska erövringen.",
-    "en": "In 1504 Sultan Amara Dunqas founded the Funj Sultanate, an Islamic kingdom in present-day Sudan, with its capital Sennar on the Blue Nile. The kingdom succeeded the Christian Nubian kingdoms and was at its largest at the end of the 17th century. It invited Sufi scholars, which spread Islam in the area. In 1821 the last sultan surrendered to the Turkish-Egyptian conquest."
+    "en": "In 1504 Sultan Amara Dunqas founded the Funj Sultanate, an Islamic kingdom in present-day Sudan, with its capital Sennar on the Blue Nile. The kingdom succeeded the Christian Nubian kingdoms and was at its largest at the end of the 17th century. It invited Sufi scholars, which spread Islam in the area. In 1821 the last sultan surrendered to the Turkish-Egyptian conquest.",
+    "de": "Im Jahr 1504 gründete Sultan Amara Dunqas das Funj-Sultanat, ein islamisches Reich im heutigen Sudan, mit der Hauptstadt Sennar am Blauen Nil. Das Reich folgte auf die christlichen nubischen Reiche und war Ende des 17. Jahrhunderts am größten. Es lud sufische Gelehrte ein, wodurch sich der Islam in der Gegend verbreitete. Im Jahr 1821 gab der letzte Sultan angesichts der türkisch-ägyptischen Eroberung auf."
    },
    "note": {
     "kind": "disagreement",
     "title": {
      "sv": "Källorna skiljer sig",
-     "en": "The sources differ"
+     "en": "The sources differ",
+     "de": "Die Quellen weichen voneinander ab"
     },
     "text": {
      "sv": "Wikipedia anger 1504 som året då sultanatet grundades. Wikidata anger 1505.",
-     "en": "Wikipedia gives 1504 as the year the sultanate was founded. Wikidata gives 1505."
+     "en": "Wikipedia gives 1504 as the year the sultanate was founded. Wikidata gives 1505.",
+     "de": "Wikipedia nennt 1504 als das Jahr, in dem das Sultanat gegründet wurde. Wikidata nennt 1505."
     }
    },
    "wikidata": "Q1475713",
@@ -6834,25 +6995,30 @@
    },
    "place": {
     "sv": "Mbanza Kongo, kungadömet Kongo (i dag Angola)",
-    "en": "Mbanza Kongo, Kingdom of Kongo (today Angola)"
+    "en": "Mbanza Kongo, Kingdom of Kongo (today Angola)",
+    "de": "Mbanza Kongo, Königreich Kongo (heute Angola)"
    },
    "title": {
     "sv": "Afonso I blir kung av Kongo",
-    "en": "Afonso I becomes king of Kongo"
+    "en": "Afonso I becomes king of Kongo",
+    "de": "Afonso I. wird König von Kongo"
    },
    "summary": {
     "sv": "Mvemba a Nzinga, som tog namnet Afonso, blev kung av Kongo 1509 efter ett kort inbördeskrig mot sin bror. Han var katolik hela livet och arbetade för att göra riket kristet. Under hans tid växte utbytet med Portugal, både i handel och religion, men också den atlantiska slavhandeln. Han styrde från huvudstaden Mbanza Kongo till 1542 eller 1543.",
-    "en": "Mvemba a Nzinga, who took the name Afonso, became king of Kongo in 1509 after a short civil war against his brother. He was a Catholic all his life and worked to make the kingdom Christian. During his time exchange with Portugal grew, both in trade and in religion, but so did the Atlantic slave trade. He ruled from the capital Mbanza Kongo until 1542 or 1543."
+    "en": "Mvemba a Nzinga, who took the name Afonso, became king of Kongo in 1509 after a short civil war against his brother. He was a Catholic all his life and worked to make the kingdom Christian. During his time exchange with Portugal grew, both in trade and in religion, but so did the Atlantic slave trade. He ruled from the capital Mbanza Kongo until 1542 or 1543.",
+    "de": "Mvemba a Nzinga, der den Namen Afonso annahm, wurde 1509 nach einem kurzen Bürgerkrieg gegen seinen Bruder König von Kongo. Er war sein Leben lang Katholik und arbeitete daran, das Reich christlich zu machen. Zu seiner Zeit wuchs der Austausch mit Portugal, sowohl im Handel als auch in der Religion, aber auch der atlantische Sklavenhandel. Er regierte von der Hauptstadt Mbanza Kongo aus bis 1542 oder 1543."
    },
    "note": {
     "kind": "date",
     "title": {
      "sv": "Osäkert slutår",
-     "en": "Uncertain final year"
+     "en": "Uncertain final year",
+     "de": "Unsicheres Endjahr"
     },
     "text": {
      "sv": "Wikipedia säger att Afonso dog 1542 eller 1543. Wikidata anger 1543.",
-     "en": "Wikipedia says that Afonso died in 1542 or 1543. Wikidata gives 1543."
+     "en": "Wikipedia says that Afonso died in 1542 or 1543. Wikidata gives 1543.",
+     "de": "Wikipedia sagt, dass Afonso 1542 oder 1543 starb. Wikidata nennt 1543."
     }
    },
    "image": {
@@ -6894,15 +7060,18 @@
    },
    "place": {
     "sv": "Mombasaön (i dag Kenya)",
-    "en": "Mombasa Island (today Kenya)"
+    "en": "Mombasa Island (today Kenya)",
+    "de": "Insel Mombasa (heute Kenia)"
    },
    "title": {
     "sv": "Portugiserna bygger Fort Jesus i Mombasa",
-    "en": "The Portuguese build Fort Jesus in Mombasa"
+    "en": "The Portuguese build Fort Jesus in Mombasa",
+    "de": "Die Portugiesen bauen Fort Jesus in Mombasa"
    },
    "summary": {
     "sv": "Mellan 1593 och 1596 byggdes Fort Jesus på Mombasaön för att skydda den gamla hamnen. Fästningen ritades av den italienske arkitekten Giovanni Battista Cairati, men byggmaterial, murteknik och arbetskraft kom troligen från swahilifolket. Efter en belägring 1696–1698 tog araber från Oman fortet, vilket i stort sett gjorde slut på den portugisiska närvaron på kusten.",
-    "en": "Between 1593 and 1596 Fort Jesus was built on Mombasa Island to protect the old harbour. The fortress was designed by the Italian architect Giovanni Battista Cairati, but building materials, masonry technique and labour probably came from the Swahili people. After a siege in 1696–1698, Arabs from Oman took the fort, which largely put an end to the Portuguese presence on the coast."
+    "en": "Between 1593 and 1596 Fort Jesus was built on Mombasa Island to protect the old harbour. The fortress was designed by the Italian architect Giovanni Battista Cairati, but building materials, masonry technique and labour probably came from the Swahili people. After a siege in 1696–1698, Arabs from Oman took the fort, which largely put an end to the Portuguese presence on the coast.",
+    "de": "Zwischen 1593 und 1596 wurde Fort Jesus auf der Insel Mombasa gebaut, um den alten Hafen zu schützen. Die Festung wurde vom italienischen Architekten Giovanni Battista Cairati entworfen, doch Baumaterial, Mauertechnik und Arbeitskräfte kamen wahrscheinlich vom Volk der Swahili. Nach einer Belagerung 1696–1698 nahmen Araber aus Oman das Fort ein, was die portugiesische Präsenz an der Küste im Großen und Ganzen beendete."
    },
    "image": {
     "file": "images/events/fort-jesus-byggs.webp",
@@ -6943,15 +7112,18 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Kabasa, Ndongos huvudstad (i dag Caculo Cabaça, Angola)",
-    "en": "Kabasa, capital of Ndongo (today Caculo Cabaça, Angola)"
+    "en": "Kabasa, capital of Ndongo (today Caculo Cabaça, Angola)",
+    "de": "Kabasa, Hauptstadt von Ndongo (heute Caculo Cabaça, Angola)"
    },
    "title": {
     "sv": "Nzinga, drottning av Ndongo och Matamba",
-    "en": "Nzinga, queen of Ndongo and Matamba"
+    "en": "Nzinga, queen of Ndongo and Matamba",
+    "de": "Nzinga, Königin von Ndongo und Matamba"
    },
    "summary": {
     "sv": "År 1624 tog Nzinga makten i Ndongo, ett mbundu-rike i nuvarande norra Angola, efter sin bror. Hon kämpade i decennier mot Portugal, som förklarade krig mot Ndongo 1626. Hon erövrade grannriket Matamba 1631–1635 och slöt förbund med nederländarna. Ett fredsavtal med Portugal undertecknades 1656, och hon styrde till sin död den 17 december 1663. I dag ses hon som en viktig historisk gestalt i Angola.",
-    "en": "In 1624 Nzinga took power in Ndongo, a Mbundu kingdom in present-day northern Angola, after her brother. She fought for decades against Portugal, which declared war on Ndongo in 1626. She conquered the neighbouring kingdom of Matamba in 1631–1635 and allied herself with the Dutch. A peace treaty with Portugal was signed in 1656, and she ruled until her death on 17 December 1663. Today she is seen as an important historical figure in Angola."
+    "en": "In 1624 Nzinga took power in Ndongo, a Mbundu kingdom in present-day northern Angola, after her brother. She fought for decades against Portugal, which declared war on Ndongo in 1626. She conquered the neighbouring kingdom of Matamba in 1631–1635 and allied herself with the Dutch. A peace treaty with Portugal was signed in 1656, and she ruled until her death on 17 December 1663. Today she is seen as an important historical figure in Angola.",
+    "de": "Im Jahr 1624 übernahm Nzinga nach ihrem Bruder die Macht in Ndongo, einem Mbundu-Reich im heutigen Nordangola. Sie kämpfte jahrzehntelang gegen Portugal, das Ndongo 1626 den Krieg erklärte. Sie eroberte 1631–1635 das Nachbarreich Matamba und verbündete sich mit den Niederländern. Ein Friedensvertrag mit Portugal wurde 1656 unterzeichnet, und sie regierte bis zu ihrem Tod am 17. Dezember 1663. Heute gilt sie als wichtige historische Gestalt in Angola."
    },
    "image": {
     "file": "images/events/nzinga-drottning-av-ndongo.webp",
@@ -6992,25 +7164,30 @@
    },
    "place": {
     "sv": "Gondar norr om Tanasjön (i dag Etiopien)",
-    "en": "Gondar north of Lake Tana (today Ethiopia)"
+    "en": "Gondar north of Lake Tana (today Ethiopia)",
+    "de": "Gondar nördlich des Tanasees (heute Äthiopien)"
    },
    "title": {
     "sv": "Fasilides gör Gondar till Etiopiens huvudstad",
-    "en": "Fasilides makes Gondar the capital of Ethiopia"
+    "en": "Fasilides makes Gondar the capital of Ethiopia",
+    "de": "Fasilides macht Gondar zur Hauptstadt Äthiopiens"
    },
    "summary": {
     "sv": "Kejsar Fasilides, som styrde Etiopien 1632–1667, valde 1636 Gondar som sitt kungliga läger och gjorde staden till rikets huvudstad. Där lät han bygga borgen som i dag kallas Fasil Ghebbi och är ett världsarv. Fasilides återinförde den etiopisk-ortodoxa kyrkan som statskyrka och förvisade jesuiterna. Tiden därefter kallas den gondarinska perioden.",
-    "en": "Emperor Fasilides, who ruled Ethiopia in 1632–1667, chose Gondar in 1636 as his royal camp and made the town the capital of the kingdom. There he had the fortress built that today is called Fasil Ghebbi and is a World Heritage Site. Fasilides restored the Ethiopian Orthodox Church as the state church and banished the Jesuits. The period afterwards is called the Gondarine period."
+    "en": "Emperor Fasilides, who ruled Ethiopia in 1632–1667, chose Gondar in 1636 as his royal camp and made the town the capital of the kingdom. There he had the fortress built that today is called Fasil Ghebbi and is a World Heritage Site. Fasilides restored the Ethiopian Orthodox Church as the state church and banished the Jesuits. The period afterwards is called the Gondarine period.",
+    "de": "Kaiser Fasilides, der Äthiopien 1632–1667 regierte, wählte 1636 Gondar als sein königliches Lager und machte die Stadt zur Hauptstadt des Reiches. Dort ließ er die Burganlage bauen, die heute Fasil Ghebbi heißt und Weltkulturerbe ist. Fasilides führte die äthiopisch-orthodoxe Kirche als Staatskirche wieder ein und verwies die Jesuiten des Landes. Die Zeit danach heißt die gondarinische Periode."
    },
    "note": {
     "kind": "disagreement",
     "title": {
      "sv": "Källorna skiljer sig",
-     "en": "The sources differ"
+     "en": "The sources differ",
+     "de": "Die Quellen weichen voneinander ab"
     },
     "text": {
      "sv": "Wikipedia säger att Fasilides grundade Gondar 1636. Wikidata anger 1635 som året då staden grundades.",
-     "en": "Wikipedia says that Fasilides founded Gondar in 1636. Wikidata gives 1635 as the year the town was founded."
+     "en": "Wikipedia says that Fasilides founded Gondar in 1636. Wikidata gives 1635 as the year the town was founded.",
+     "de": "Wikipedia sagt, dass Fasilides Gondar 1636 gründete. Wikidata nennt 1635 als das Jahr, in dem die Stadt gegründet wurde."
     }
    },
    "image": {
@@ -7053,25 +7230,30 @@
    "locationPrecision": "region",
    "place": {
     "sv": "Zimbabweplatån (i dag Zimbabwe)",
-    "en": "The Zimbabwe Plateau (today Zimbabwe)"
+    "en": "The Zimbabwe Plateau (today Zimbabwe)",
+    "de": "Simbabwe-Plateau (heute Simbabwe)"
    },
    "title": {
     "sv": "Rozviriket på Zimbabweplatån",
-    "en": "The Rozvi Empire on the Zimbabwe Plateau"
+    "en": "The Rozvi Empire on the Zimbabwe Plateau",
+    "de": "Das Rozvi-Reich auf dem Simbabwe-Plateau"
    },
    "summary": {
     "sv": "Rozviriket var en shonastat som grundades av Changamire Dombo. Han besegrade portugiserna och Mutapariket och erövrade Butua omkring 1683. På 1690-talet drev han ut de portugisiska handelsmännen från platån. Riket försvagades av torka och inbördeskrig och föll på 1830-talet under invasioner från ngunifolk under Mfecane. Det sista motståndet upphörde 1866.",
-    "en": "The Rozvi Empire was a Shona state founded by Changamire Dombo. He defeated the Portuguese and the Mutapa Empire and conquered Butua around 1683. In the 1690s he drove the Portuguese traders out from the plateau. The empire was weakened by drought and civil war and fell in the 1830s under invasions by Nguni peoples during the Mfecane. The last resistance ended in 1866."
+    "en": "The Rozvi Empire was a Shona state founded by Changamire Dombo. He defeated the Portuguese and the Mutapa Empire and conquered Butua around 1683. In the 1690s he drove the Portuguese traders out from the plateau. The empire was weakened by drought and civil war and fell in the 1830s under invasions by Nguni peoples during the Mfecane. The last resistance ended in 1866.",
+    "de": "Das Rozvi-Reich war ein Shona-Staat, der von Changamire Dombo gegründet wurde. Er besiegte die Portugiesen und das Mutapa-Reich und eroberte um 1683 Butua. In den 1690er Jahren vertrieb er die portugiesischen Händler vom Plateau. Das Reich wurde durch Dürre und Bürgerkrieg geschwächt und fiel in den 1830er Jahren unter Invasionen von Nguni-Völkern während der Mfecane. Der letzte Widerstand endete 1866."
    },
    "note": {
     "kind": "disagreement",
     "title": {
      "sv": "Källorna skiljer sig",
-     "en": "The sources differ"
+     "en": "The sources differ",
+     "de": "Die Quellen weichen voneinander ab"
     },
     "text": {
      "sv": "Wikipedia låter riket börja omkring 1683. Wikidata anger 1660. Källorna har få samtida uppgifter, eftersom portugiserna inte släpptes in i riket.",
-     "en": "Wikipedia has the empire begin around 1683. Wikidata gives 1660. The sources have few contemporary accounts, because the Portuguese were not let into the kingdom."
+     "en": "Wikipedia has the empire begin around 1683. Wikidata gives 1660. The sources have few contemporary accounts, because the Portuguese were not let into the kingdom.",
+     "de": "Wikipedia lässt das Reich um 1683 beginnen. Wikidata nennt 1660. Die Quellen enthalten nur wenige zeitgenössische Angaben, weil die Portugiesen nicht in das Reich gelassen wurden."
     }
    },
    "image": {
@@ -7113,25 +7295,30 @@
    },
    "place": {
     "sv": "Kumasi (i dag Ghana)",
-    "en": "Kumasi (today Ghana)"
+    "en": "Kumasi (today Ghana)",
+    "de": "Kumasi (heute Ghana)"
    },
    "title": {
     "sv": "Asanteriket växer fram",
-    "en": "The Asante Empire emerges"
+    "en": "The Asante Empire emerges",
+    "de": "Das Aschantireich entsteht"
    },
    "summary": {
     "sv": "Asantekungen Osei Tutu och hans präst Okomfo Anokye förenade asantefolkets stater kring den gyllene pallen som gemensam symbol. År 1701 besegrade asantehären Denkyira och fick därmed tillgång till kusthandeln med européerna. Riket, med huvudstaden Kumasi, byggde sin rikedom på guld, jordbruk och slavhandel. Det bestod till 1902, då det blev en del av den brittiska kolonin Guldkusten.",
-    "en": "The Asante king Osei Tutu and his priest Okomfo Anokye united the states of the Asante people around the Golden Stool as a common symbol. In 1701 the Asante army defeated Denkyira and thereby gained access to the coastal trade with the Europeans. The kingdom, with its capital Kumasi, built its wealth on gold, agriculture and the slave trade. It lasted until 1902, when it became part of the British colony of the Gold Coast."
+    "en": "The Asante king Osei Tutu and his priest Okomfo Anokye united the states of the Asante people around the Golden Stool as a common symbol. In 1701 the Asante army defeated Denkyira and thereby gained access to the coastal trade with the Europeans. The kingdom, with its capital Kumasi, built its wealth on gold, agriculture and the slave trade. It lasted until 1902, when it became part of the British colony of the Gold Coast.",
+    "de": "Der Asante-König Osei Tutu und sein Priester Okomfo Anokye vereinten die Staaten des Volkes der Asante um den Goldenen Stuhl als gemeinsames Symbol. Im Jahr 1701 besiegte das Asante-Heer Denkyira und erhielt dadurch Zugang zum Küstenhandel mit den Europäern. Das Reich mit der Hauptstadt Kumasi gründete seinen Reichtum auf Gold, Landwirtschaft und Sklavenhandel. Es bestand bis 1902, als es Teil der britischen Kolonie Goldküste wurde."
    },
    "note": {
     "kind": "disagreement",
     "title": {
      "sv": "Källorna skiljer sig",
-     "en": "The sources differ"
+     "en": "The sources differ",
+     "de": "Die Quellen weichen voneinander ab"
     },
     "text": {
      "sv": "Wikipedia anger 1701 som året då riket uppstod. Wikidata anger 1670.",
-     "en": "Wikipedia gives 1701 as the year the kingdom arose. Wikidata gives 1670."
+     "en": "Wikipedia gives 1701 as the year the kingdom arose. Wikidata gives 1670.",
+     "de": "Wikipedia nennt 1701 als das Jahr, in dem das Reich entstand. Wikidata nennt 1670."
     }
    },
    "wikidata": "Q722071",
@@ -7160,15 +7347,18 @@
    },
    "place": {
     "sv": "Ouidah (Whydah) vid kusten (i dag Benin)",
-    "en": "Ouidah (Whydah) on the coast (today Benin)"
+    "en": "Ouidah (Whydah) on the coast (today Benin)",
+    "de": "Ouidah (Whydah) an der Küste (heute Benin)"
    },
    "title": {
     "sv": "Dahomey erövrar hamnstaden Ouidah",
-    "en": "Dahomey conquers the port town of Ouidah"
+    "en": "Dahomey conquers the port town of Ouidah",
+    "de": "Dahomey erobert die Hafenstadt Ouidah"
    },
    "summary": {
     "sv": "Den 26 februari 1727 anföll kung Agaja av Dahomey hamnstaden Whydah, i dag Ouidah, och brände palatset. Enligt rapporter från striderna dödades omkring 5 000 människor och 10 000–11 000 togs till fånga. Erövringen gav Dahomey kontroll över viktiga handelsvägar för den atlantiska slavhandeln. Historiker är oense om Agajas skäl.",
-    "en": "On 26 February 1727 King Agaja of Dahomey attacked the port town of Whydah, today Ouidah, and burned the palace. According to reports from the fighting, about 5,000 people were killed and 10,000–11,000 were taken prisoner. The conquest gave Dahomey control of important trade routes for the Atlantic slave trade. Historians disagree about Agaja's reasons."
+    "en": "On 26 February 1727 King Agaja of Dahomey attacked the port town of Whydah, today Ouidah, and burned the palace. According to reports from the fighting, about 5,000 people were killed and 10,000–11,000 were taken prisoner. The conquest gave Dahomey control of important trade routes for the Atlantic slave trade. Historians disagree about Agaja's reasons.",
+    "de": "Am 26. Februar 1727 griff König Agaja von Dahomey die Hafenstadt Whydah, heute Ouidah, an und brannte den Palast nieder. Nach Berichten von den Kämpfen wurden etwa 5.000 Menschen getötet und 10.000–11.000 gefangen genommen. Die Eroberung gab Dahomey die Kontrolle über wichtige Handelswege des atlantischen Sklavenhandels. Historiker sind sich über Agajas Gründe uneinig."
    },
    "image": {
     "file": "images/events/dahomey-erovrar-ouidah.webp",
@@ -7208,15 +7398,18 @@
    },
    "place": {
     "sv": "Ambohimanga på Madagaskars högland",
-    "en": "Ambohimanga in the highlands of Madagascar"
+    "en": "Ambohimanga in the highlands of Madagascar",
+    "de": "Ambohimanga im Hochland von Madagaskar"
    },
    "title": {
     "sv": "Andrianampoinimerina enar Imerina",
-    "en": "Andrianampoinimerina unites Imerina"
+    "en": "Andrianampoinimerina unites Imerina",
+    "de": "Andrianampoinimerina vereint Imerina"
    },
    "summary": {
     "sv": "Från 1787 styrde Andrianampoinimerina kungadömet Imerina på Madagaskar från den befästa staden Ambohimanga, i dag ett världsarv. Han återförenade Imerina efter 77 år av inbördeskrig och utvidgade sedan riket över höglandet. Hans mål var att ena hela Madagaskar, och sonen Radama I kom långt mot det målet under de följande två decennierna.",
-    "en": "From 1787 Andrianampoinimerina ruled the kingdom of Imerina on Madagascar from the fortified town of Ambohimanga, today a World Heritage Site. He reunited Imerina after 77 years of civil war and then expanded the kingdom across the highlands. His goal was to unite all of Madagascar, and his son Radama I came far towards that goal during the following two decades."
+    "en": "From 1787 Andrianampoinimerina ruled the kingdom of Imerina on Madagascar from the fortified town of Ambohimanga, today a World Heritage Site. He reunited Imerina after 77 years of civil war and then expanded the kingdom across the highlands. His goal was to unite all of Madagascar, and his son Radama I came far towards that goal during the following two decades.",
+    "de": "Ab 1787 regierte Andrianampoinimerina das Königreich Imerina auf Madagaskar von der befestigten Stadt Ambohimanga aus, heute Weltkulturerbe. Er vereinte Imerina nach 77 Jahren Bürgerkrieg wieder und dehnte das Reich dann über das Hochland aus. Sein Ziel war, ganz Madagaskar zu vereinen, und sein Sohn Radama I. kam diesem Ziel in den folgenden zwei Jahrzehnten weit näher."
    },
    "image": {
     "file": "images/events/andrianampoinimerina-enar-imerina.webp",
