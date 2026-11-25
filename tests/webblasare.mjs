@@ -117,14 +117,24 @@ async function utanTitelPaSprak(pp, lang) {
   });
   return borttagna;
 }
-/** Märker språken som ofärdiga i språkväljarens fil (data/ui/sprak.json, complete: false), så att upplysningen vid språkbyte visas. */
-async function ofardigaSprak(pp, langs) {
+/**
+ * Styr språkväljarens fil (data/ui/sprak.json): språken i `langs` blir ofärdiga (complete: false, med beta-text), så att märket i
+ * språklistan och upplysningen vid språkbyte visas, och språken i `fardiga` blir färdiga (complete: true), så att inget märke visas
+ * (#2266). Ger { hamtningar }: hur många gånger filen hämtades och styrdes, så att en kontroll kan falla om styrningen inte fungerade.
+ */
+async function ofardigaSprak(pp, langs, fardiga = []) {
+  const styrning = { hamtningar: 0 };
   await pp.route(u => new URL(u.href).pathname.endsWith('/data/ui/sprak.json'), async route => {
     const res = await route.fetch();
     const doc = await res.json();
-    for (const l of doc.languages ?? []) if (langs.includes(l.id)) { l.complete = false; l.beta ??= 'beta'; }
+    for (const l of doc.languages ?? []) {
+      if (langs.includes(l.id)) { l.complete = false; l.beta ??= 'beta'; }
+      if (fardiga.includes(l.id)) l.complete = true;
+    }
+    styrning.hamtningar++;
     await route.fulfill({ response: res, json: doc });
   });
+  return styrning;
 }
 
 // Kontroller som öppnar förslagsformuläret ska fungera utan Cloudflare Turnstile.
@@ -591,6 +601,55 @@ async function run(browser, vp) {
     return 'Samtidigt och Meny i raden; Enter, mellanslag, Escape och fokus; menyn täcker inte årtal eller tidslinje';
   });
 
+  // Beta-märket i språklistan på en egen sida med styrd språkfil (#2266), så att kontrollen inte beror på vilka språk som just nu är
+  // ofärdiga i data/ui/sprak.json. Första laddningen: de och fr ofärdiga, övriga färdiga, och exakt de två ska ha märke. Andra
+  // laddningen (samma sida): alla färdiga, och då ska inget märke finnas. Faller också om styrningen inte fungerade.
+  async function markeMedStyrtUnderlag() {
+    const pp = await context.newPage();
+    const errors = [];
+    const ppAw = abortWatch(pp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+    pp.on('pageerror', e => { if (!ppAw.defer(e.message)) errors.push(e.message); });
+    pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    const markerade = async () => {
+      await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await pp.click('#btn-lang');
+      await pp.waitForSelector('#lang-menu [data-lang]', { state: 'visible', timeout: T.step });
+      return pp.evaluate(() => [...document.querySelectorAll('#lang-menu [data-lang]')]
+        .map(b => ({ id: b.dataset.lang, text: b.querySelector('.lang-beta')?.textContent.trim() ?? null })));
+    };
+    try {
+      if (THREE_LOCAL) {
+        await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await pp.route(u => isFont(u.href), r => r.abort());
+      }
+      const ALLA = ['sv', 'en', 'de', 'es', 'fr'];
+      const ofardiga = ['de', 'fr'];
+      const delvis = await ofardigaSprak(pp, ofardiga, ALLA.filter(id => !ofardiga.includes(id)));
+      await ppAw.goto(`${BASE}?lang=sv`);
+      const forsta = await markerade();
+      if (!delvis.hamtningar) throw new Error('testets styrning fungerade inte: språkfilen hämtades inte genom styrningen');
+      if (forsta.length !== ALLA.length) throw new Error(`listan har ${forsta.length} språk, inte ${ALLA.length}`);
+      const saknas = forsta.filter(l => ofardiga.includes(l.id) && !l.text).map(l => l.id);
+      if (saknas.length) throw new Error(`ofärdiga språk utan beta-märke: ${saknas.join(', ')}`);
+      const fel = forsta.filter(l => !ofardiga.includes(l.id) && l.text).map(l => l.id);
+      if (fel.length) throw new Error(`färdiga språk med beta-märke: ${fel.join(', ')}`);
+      if (forsta.find(l => l.id === 'sv').text) throw new Error('beta-märket står på svenska');
+      // Motsatsen: när alla språk är färdiga visas inget märke (även 'en' har ett beta-fält i filen men är färdigt)
+      const alla = await ofardigaSprak(pp, [], ALLA); // den senast anmälda styrningen gäller
+      await ppAw.reload();
+      const andra = await markerade();
+      if (!alla.hamtningar) throw new Error('testets styrning fungerade inte: den andra språkfilen hämtades inte genom styrningen');
+      const kvar = andra.filter(l => l.text).map(l => l.id);
+      if (kvar.length) throw new Error(`beta-märke trots att alla språk är färdiga: ${kvar.join(', ')}`);
+      errors.push(...ppAw.settle());
+      if (errors.length) throw new Error(errors[0]);
+      return `med styrd språkfil: märke på ${ofardiga.join(' och ')} men på inga andra, och inget märke när alla är färdiga`;
+    } finally {
+      try { await pp.evaluate(() => localStorage.removeItem('hg-lang')); } catch { /* sidan är redan stängd */ }
+      await pp.close();
+    }
+  }
+
   // #1167: språket väljs med en knapp i översta raden (jordglob och kod), inte i Mer. Listan har språkens egna namn,
   // "beta" för ofärdiga översättningar, tangentbord och stängregistret (en öppnad lista stänger Lager och Meny).
   await check('språkknappen i översta raden (#1167)', async () => {
@@ -625,7 +684,12 @@ async function run(browser, vp) {
     if (list.length !== 5) throw new Error(`listan har ${list.length} språk, inte 5`);
     const cur = list.find(l => l.current);
     if (cur?.id !== 'sv' || !cur.focus) throw new Error('svenska är inte markerad och fokuserad när listan öppnas');
-    if (list.filter(l => l.beta).length < 1 || list.find(l => l.id === 'sv').beta) throw new Error('beta-märket saknas eller står på svenska');
+    // Sidans riktiga språkfil: märket ska följa complete i filen och aldrig stå på svenska. Hur många språk som är ofärdiga just nu
+    // kravställs inte här (det ändras när översättningar blir klara, #2266); det provas med styrt underlag längre ner.
+    const fil = await page.evaluate(async () => (await (await fetch('data/ui/sprak.json')).json()).languages);
+    const avvikande = list.filter(l => l.beta !== !fil.find(f => f.id === l.id)?.complete).map(l => l.id);
+    if (avvikande.length) throw new Error(`beta-märket följer inte complete i data/ui/sprak.json för ${avvikande.join(', ')}`);
+    if (list.find(l => l.id === 'sv').beta) throw new Error('beta-märket står på svenska');
     await page.keyboard.press('ArrowDown');
     if (await page.evaluate(() => document.activeElement?.dataset.lang) !== list[1].id) throw new Error('pil ned flyttar inte fokus i listan');
     await shot('1167-sprakknapp');
@@ -637,7 +701,8 @@ async function run(browser, vp) {
     await visible('#lang-menu');
     await page.evaluate(() => document.body.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true })));
     await hidden('#lang-menu');
-    return `${list.map(l => l.id + (l.beta ? ' (beta)' : '')).join(', ')}; Enter, pilar, Escape och klick utanför; Lager stängs`;
+    const ovrigt = await markeMedStyrtUnderlag();
+    return `${list.map(l => l.id + (l.beta ? ' (beta)' : '')).join(', ')}; Enter, pilar, Escape och klick utanför; Lager stängs; ${ovrigt}`;
   });
 
   await check('hjälpen öppnas bara på begäran', async () => {
