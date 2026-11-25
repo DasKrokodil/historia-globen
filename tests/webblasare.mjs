@@ -96,6 +96,37 @@ fs.mkdirSync(OUT, { recursive: true });
 const stangSida = c => Promise.race([c.close().catch(() => {}), new Promise(r => setTimeout(r, 10000))]);
 const isFont = url => { try { return FONT_HOSTS.includes(new URL(url).hostname); } catch { return false; } };
 
+// Styrt språkunderlag för kontroller som provar reservspråket (#1996). Sidans riktiga data blir allt mer översatt (tyska är klar,
+// spanska och franska pågår), så en kontroll som väntar sig "en titel saknar tyska" eller "tyska är en ofärdig översättning" får inte
+// bero på att luckan finns i data/. Hämtningarna fångas med page.route och svaren ändras i minnet; ingenting i data/ rörs, och kravet
+// på sidan är detsamma som förut. Anropas före pp.goto().
+/**
+ * Tar bort den tyska (eller annat språks) titeln på varannan händelse, så att sidan måste falla tillbaka på engelska för dem.
+ * Ger mängden av id:n som fått sin titel borttagen. Språkfilen heter data/genererat/handelser.<språk>.json (titlarna ligger där, #675).
+ */
+async function utanTitelPaSprak(pp, lang) {
+  const borttagna = new Set();
+  const fil = `/data/genererat/handelser.${lang}.json`;
+  await pp.route(u => new URL(u.href).pathname.endsWith(fil), async route => {
+    const res = await route.fetch();
+    const doc = await res.json();
+    Object.keys(doc.events ?? {}).forEach((id, i) => {
+      if (i % 2 === 0 && doc.events[id]?.title?.[lang]) { delete doc.events[id].title[lang]; borttagna.add(id); }
+    });
+    await route.fulfill({ response: res, json: doc });
+  });
+  return borttagna;
+}
+/** Märker språken som ofärdiga i språkväljarens fil (data/ui/sprak.json, complete: false), så att upplysningen vid språkbyte visas. */
+async function ofardigaSprak(pp, langs) {
+  await pp.route(u => new URL(u.href).pathname.endsWith('/data/ui/sprak.json'), async route => {
+    const res = await route.fetch();
+    const doc = await res.json();
+    for (const l of doc.languages ?? []) if (langs.includes(l.id)) { l.complete = false; l.beta ??= 'beta'; }
+    await route.fulfill({ response: res, json: doc });
+  });
+}
+
 // Kontroller som öppnar förslagsformuläret ska fungera utan Cloudflare Turnstile.
 function stubbaTurnstile() {
   window.turnstile = { render: (el, o) => { o.callback('test-token'); return 1; }, reset() {} };
@@ -10803,6 +10834,10 @@ async function run(browser, vp) {
         await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
         await pp.route(u => isFont(u.href), r => r.abort());
       }
+      // Styrt underlag (#1996): tyska är ofärdig enligt språkfilen och varannan titel saknar tyska, oavsett hur långt översättningen
+      // i data/ har kommit. Kravet nedan är oförändrat: titlar utan tyska visas på engelska och märks lang="en".
+      await ofardigaSprak(pp, ['de']);
+      const utanTyska = await utanTitelPaSprak(pp, 'de');
       await ppAw.goto(`${BASE}?lang=sv#y=1600`);
       await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       if (await pp.locator('.lang-notice').count()) throw new Error('upplysningen syns utan språkbyte');
@@ -10819,9 +10854,16 @@ async function run(browser, vp) {
       // Samtidigt-listan: titlar som saknar tyska visas på engelska och märks lang="en"
       if (await pp.locator('#panel').isHidden()) await pp.click('#btn-panel');
       await pp.waitForSelector('#panel .event-btn .ttl', { timeout: T.load });
-      const marks = await pp.evaluate(() => [...document.querySelectorAll('#panel .event-btn .ttl')].map(el => el.getAttribute('lang')));
+      const rader = await pp.evaluate(() => [...document.querySelectorAll('#panel .event-btn')].map(b => ({ id: b.dataset.id, lang: b.querySelector('.ttl')?.getAttribute('lang') ?? null })));
+      const marks = rader.map(r => r.lang);
+      if (!utanTyska.size) throw new Error('testets styrning fungerade inte: språkfilen på tyska hämtades inte eller har inga titlar');
       if (!marks.includes('en')) throw new Error(`ingen titel med lang="en" år 1600: ${JSON.stringify(marks)}`);
       if (marks.includes('de')) throw new Error('en tysk titel har fått lang="de" fast sidan redan är tysk');
+      // Båda slagen ska finnas i listan, och märkningen ska följa vilken titel som saknar tyska: en tysk titel får inget lang,
+      // en titel som föll tillbaka på engelska får lang="en".
+      const fel = rader.filter(r => utanTyska.has(r.id) ? r.lang !== 'en' : r.lang !== null);
+      if (fel.length) throw new Error(`fel lang-märkning: ${fel.slice(0, 3).map(r => `${r.id} (${utanTyska.has(r.id) ? 'saknar tyska' : 'har tyska'}) lang=${r.lang}`).join(', ')}`);
+      if (!rader.some(r => utanTyska.has(r.id)) || !rader.some(r => !utanTyska.has(r.id))) throw new Error(`listan år 1600 saknar titlar av ett av slagen: ${JSON.stringify(rader)}`);
       // En omladdning utan nytt byte visar inte upplysningen igen
       await ppAw.reload();
       await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
@@ -10852,6 +10894,8 @@ async function run(browser, vp) {
           await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
           await pp.route(u => isFont(u.href), r => r.abort());
         }
+        // Språket är ofärdigt i språkfilen oavsett hur långt översättningen i data/ har kommit (#1996); annars visas ingen upplysning
+        await ofardigaSprak(pp, [lang]);
         // Som efter ett språkbyte: valet är sparat och upplysningen väntar på nästa laddning
         await pp.addInitScript(l => {
           try { localStorage.setItem('hg-lang', l); sessionStorage.setItem('hg-lang-chosen', l); } catch { /* utan lagring */ }
