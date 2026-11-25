@@ -3471,7 +3471,8 @@
    "id": "brittiska-imperiet",
    "name": {
     "sv": "Brittiska imperiet",
-    "en": "British Empire"
+    "en": "British Empire",
+    "es": "Imperio británico"
    },
    "color": "#c2557a",
    "from": 1706,
@@ -3482,7 +3483,8 @@
      "id": "brittiska-imperiet",
      "name": {
       "sv": "Brittiska imperiet",
-      "en": "British Empire"
+      "en": "British Empire",
+      "es": "Imperio británico"
      },
      "sources": [
       "cliopatria"
@@ -3493,7 +3495,8 @@
    "homeland": {
     "name": {
      "sv": "Storbritannien",
-     "en": "Great Britain"
+     "en": "Great Britain",
+     "es": "Gran Bretaña"
     }
    },
    "influence": [
@@ -3501,7 +3504,8 @@
      "polity": "brittiska-imperiet",
      "name": {
       "sv": "Kungariket Hawaii",
-      "en": "Hawaiian Kingdom"
+      "en": "Hawaiian Kingdom",
+      "es": "Reino de Hawái"
      },
      "relation": "allegiance",
      "from": 1811,
@@ -3511,77 +3515,92 @@
    "facts": {
     "summary": {
      "sv": "Brittiska imperiet bestod av dominions, kolonier, protektorat, mandat och andra områden som styrdes av Storbritannien och dess föregångare. Det växte genom handel, kolonisation och erövring, och som störst var det det största riket i historien.",
-     "en": "The British Empire consisted of dominions, colonies, protectorates, mandates and other territories governed by Britain and its predecessors. It grew through trade, colonisation and conquest, and at its largest it was the largest empire in history."
+     "en": "The British Empire consisted of dominions, colonies, protectorates, mandates and other territories governed by Britain and its predecessors. It grew through trade, colonisation and conquest, and at its largest it was the largest empire in history.",
+     "es": "El Imperio británico estaba formado por dominios, colonias, protectorados, mandatos y otros territorios gobernados por Gran Bretaña y sus predecesores. Creció mediante el comercio, la colonización y la conquista y, en su máxima extensión, fue el mayor imperio de la historia."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
-       "en": "When and where it arose"
+       "en": "When and where it arose",
+       "es": "Cuándo y dónde surgió"
       },
       "text": {
        "sv": "Med Englands besittningar och handelsstationer utomlands i slutet av 1500-talet och början av 1600-talet, och Skottlands försök att grunda kolonier på 1600-talet. Krig mot Nederländerna och Frankrike gjorde Storbritannien till den ledande kolonialmakten i Nordamerika.",
-       "en": "With England's possessions and trading posts overseas in the late 16th and early 17th centuries, and Scotland's attempts to found colonies in the 17th century. Wars against the Netherlands and France made Britain the leading colonial power in North America."
+       "en": "With England's possessions and trading posts overseas in the late 16th and early 17th centuries, and Scotland's attempts to found colonies in the 17th century. Wars against the Netherlands and France made Britain the leading colonial power in North America.",
+       "es": "Con las posesiones y factorías comerciales de Inglaterra en ultramar a finales del siglo XVI y principios del siglo XVII, y con los intentos de Escocia de fundar colonias en el siglo XVII. Las guerras contra los Países Bajos y Francia convirtieron a Gran Bretaña en la principal potencia colonial de Norteamérica."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
-       "en": "How it ended"
+       "en": "How it ended",
+       "es": "Cómo terminó"
       },
       "text": {
        "sv": "Efter andra världskriget fick de flesta områdena sin självständighet. Indien, den värdefullaste och folkrikaste besittningen, blev självständigt 1947. Suezkrisen 1956 bekräftade nedgången, och för många markerar överlämnandet av Hongkong till Kina 1 juli 1997 imperiets slut. Fjorton brittiska utomeuropeiska territorier finns kvar.",
-       "en": "After the Second World War most of the territories gained their independence. India, the most valuable and most populous possession, became independent in 1947. The Suez Crisis in 1956 confirmed the decline, and for many the handover of Hong Kong to China on 1 July 1997 marks the end of the empire. Fourteen British Overseas Territories remain."
+       "en": "After the Second World War most of the territories gained their independence. India, the most valuable and most populous possession, became independent in 1947. The Suez Crisis in 1956 confirmed the decline, and for many the handover of Hong Kong to China on 1 July 1997 marks the end of the empire. Fourteen British Overseas Territories remain.",
+       "es": "Tras la Segunda Guerra Mundial, la mayoría de los territorios obtuvieron su independencia. India, la posesión más valiosa y más poblada, se independizó en 1947. La crisis de Suez de 1956 confirmó el declive y, para muchos, la entrega de Hong Kong a China el 1 de julio de 1997 marca el fin del imperio. Aún quedan catorce territorios británicos de ultramar."
       }
      },
      {
       "label": {
        "sv": "Huvudstad",
-       "en": "Capital"
+       "en": "Capital",
+       "es": "Capital"
       },
       "text": {
        "sv": "London. Brittiska parlamentet var högsta lagstiftande makt för alla besittningar.",
-       "en": "London. The British Parliament was the highest legislative power for all possessions."
+       "en": "London. The British Parliament was the highest legislative power for all possessions.",
+       "es": "Londres. El Parlamento británico era el máximo poder legislativo de todas las posesiones."
       }
      },
      {
       "label": {
        "sv": "Kolonialt styre",
-       "en": "Colonial rule"
+       "en": "Colonial rule",
+       "es": "Dominio colonial"
       },
       "text": {
        "sv": "Indien erövrades steg för steg, från Ostindiska kompaniets seger vid Plassey 1757 till segern över Marathariket 1818. Genom sin dominans över världshandeln och haven styrde Storbritannien i praktiken också ekonomin i områden som Asien och Latinamerika. Vita nybyggarkolonier fick allt mer självstyre och blev dominions.",
-       "en": "India was conquered step by step, from the East India Company's victory at Plassey in 1757 to the victory over the Maratha Empire in 1818. Through its dominance of world trade and the seas Britain also in practice governed the economy of areas such as Asia and Latin America. White settler colonies gained increasing self-government and became dominions."
+       "en": "India was conquered step by step, from the East India Company's victory at Plassey in 1757 to the victory over the Maratha Empire in 1818. Through its dominance of world trade and the seas Britain also in practice governed the economy of areas such as Asia and Latin America. White settler colonies gained increasing self-government and became dominions.",
+       "es": "India fue conquistada paso a paso, desde la victoria de la Compañía Británica de las Indias Orientales en Plassey en 1757 hasta la victoria sobre el Imperio maratha en 1818. Gracias a su dominio del comercio mundial y de los mares, Gran Bretaña gobernaba en la práctica también la economía de regiones como Asia y América Latina. Las colonias de colonos blancos obtuvieron cada vez más autogobierno y se convirtieron en dominios."
       }
      },
      {
       "label": {
        "sv": "Största utbredning",
-       "en": "Greatest extent"
+       "en": "Greatest extent",
+       "es": "Mayor extensión"
       },
       "text": {
        "sv": "Strax efter första världskriget: cirka 35,5 miljoner km² år 1920, ungefär 24 procent av jordens landyta. År 1913 levde cirka 412 miljoner människor i imperiet, ungefär 23 procent av jordens befolkning.",
-       "en": "Shortly after the First World War: about 35.5 million km² in 1920, roughly 24 per cent of the Earth's land area. In 1913 about 412 million people lived in the empire, roughly 23 per cent of the world's population."
+       "en": "Shortly after the First World War: about 35.5 million km² in 1920, roughly 24 per cent of the Earth's land area. In 1913 about 412 million people lived in the empire, roughly 23 per cent of the world's population.",
+       "es": "Poco después de la Primera Guerra Mundial: aproximadamente 35,5 millones de km² en 1920, alrededor del 24 % de la superficie terrestre. En 1913 vivían en el imperio unos 412 millones de personas, alrededor del 23 % de la población mundial."
       }
      },
      {
       "label": {
        "sv": "Fler fakta",
-       "en": "More facts"
+       "en": "More facts",
+       "es": "Más datos"
       },
       "text": {
        "sv": "Kallades \"imperiet där solen aldrig går ned\". Arvet i styrelseskick, rätt och språk finns kvar i stora delar av världen, och många tidigare kolonier gick med i Samväldet (Commonwealth of Nations).",
-       "en": "Called “the empire on which the sun never sets”. The legacy in forms of government, law and language remains in large parts of the world, and many former colonies joined the Commonwealth of Nations."
+       "en": "Called “the empire on which the sun never sets”. The legacy in forms of government, law and language remains in large parts of the world, and many former colonies joined the Commonwealth of Nations.",
+       "es": "Se le llamaba «el imperio en el que nunca se pone el sol». Su legado en formas de gobierno, derecho e idioma perdura en gran parte del mundo, y muchas antiguas colonias se unieron a la Mancomunidad de Naciones (Commonwealth of Nations)."
       }
      },
      {
       "label": {
        "sv": "Symbolen på kartan",
-       "en": "The symbol on the map"
+       "en": "The symbol on the map",
+       "es": "El símbolo en el mapa"
       },
       "text": {
        "sv": "Kronan står för monarken som den yttersta källan till statens makt. Den heraldiska kronan i Tudorstil från 1901 gjordes enhetlig i hela Brittiska imperiet och finns på många officiella emblem, i Storbritannien och i det forna imperiet. Redan 1880 fick den heraldiska kronan rundare bågar, efter att Viktoria blivit kejsarinna av Indien.",
-       "en": "The crown stands for the monarch as the ultimate source of the state's power. The heraldic crown in Tudor style from 1901 was made uniform across the whole British Empire and is found on many official emblems, in Britain and in the former empire. As early as 1880 the heraldic crown was given rounder arches, after Victoria had become Empress of India."
+       "en": "The crown stands for the monarch as the ultimate source of the state's power. The heraldic crown in Tudor style from 1901 was made uniform across the whole British Empire and is found on many official emblems, in Britain and in the former empire. As early as 1880 the heraldic crown was given rounder arches, after Victoria had become Empress of India.",
+       "es": "La corona representa al monarca como fuente última del poder del Estado. La corona heráldica de estilo Tudor de 1901 se unificó en todo el Imperio británico y aparece en muchos emblemas oficiales, tanto en Gran Bretaña como en el antiguo imperio. Ya en 1880 la corona heráldica recibió arcos más redondeados, después de que Victoria se convirtiera en emperatriz de la India."
       }
      }
     ],
@@ -3590,37 +3609,44 @@
       "year": 1707,
       "label": {
        "sv": "1707",
-       "en": "1707"
+       "en": "1707",
+       "es": "1707"
       },
       "title": {
        "sv": "Storbritannien och de första kolonierna",
-       "en": "Great Britain and the first colonies"
+       "en": "Great Britain and the first colonies",
+       "es": "Gran Bretaña y las primeras colonias"
       },
       "text": {
        "sv": "England och Skottland förenas till Storbritannien. Imperiet hade börjat ta form under tidigt 1600-tal, med engelska bosättningar i Nordamerika och Karibien och handelskompanier som Ostindiska kompaniet, som skötte kolonier och handel.",
-       "en": "England and Scotland are united as Great Britain. The empire had begun to take shape in the early 17th century, with English settlements in North America and the Caribbean and trading companies such as the East India Company, which managed colonies and trade."
+       "en": "England and Scotland are united as Great Britain. The empire had begun to take shape in the early 17th century, with English settlements in North America and the Caribbean and trading companies such as the East India Company, which managed colonies and trade.",
+       "es": "Inglaterra y Escocia se unen en Gran Bretaña. El imperio había empezado a tomar forma a principios del siglo XVII, con asentamientos ingleses en Norteamérica y el Caribe y compañías comerciales como la Compañía de las Indias Orientales, que administraban colonias y comercio."
       },
       "sources": [
        "wp-british-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar nästan ingen yta 1706–1708. Koloniernas land syns först från 1709.",
-       "en": "The map shows almost no area in 1706–1708. The colonies' land shows up only from 1709."
+       "en": "The map shows almost no area in 1706–1708. The colonies' land shows up only from 1709.",
+       "es": "El mapa casi no muestra superficie en 1706–1708. El territorio de las colonias aparece solo a partir de 1709."
       }
      },
      {
       "year": 1713,
       "label": {
        "sv": "1713",
-       "en": "1713"
+       "en": "1713",
+       "es": "1713"
       },
       "title": {
        "sv": "Freden i Utrecht",
-       "en": "The Peace of Utrecht"
+       "en": "The Peace of Utrecht",
+       "es": "La paz de Utrecht"
       },
       "text": {
        "sv": "Freden i Utrecht avslutar spanska tronföljdskriget. Storbritannien får Newfoundland och Acadia från Frankrike och Gibraltar och Menorca från Spanien, och dessutom rätten att sälja förslavade afrikaner i Spanska Amerika.",
-       "en": "The Peace of Utrecht ends the War of the Spanish Succession. Britain gets Newfoundland and Acadia from France and Gibraltar and Minorca from Spain, and in addition the right to sell enslaved Africans in Spanish America."
+       "en": "The Peace of Utrecht ends the War of the Spanish Succession. Britain gets Newfoundland and Acadia from France and Gibraltar and Minorca from Spain, and in addition the right to sell enslaved Africans in Spanish America.",
+       "es": "La paz de Utrecht pone fin a la guerra de sucesión española. Gran Bretaña obtiene Terranova y Acadia de Francia y Gibraltar y Menorca de España, y además el derecho a vender africanos esclavizados en la América española."
       },
       "sources": [
        "wp-british-empire"
@@ -3630,15 +3656,18 @@
       "year": 1757,
       "label": {
        "sv": "1757",
-       "en": "1757"
+       "en": "1757",
+       "es": "1757"
       },
       "title": {
        "sv": "Slaget vid Plassey",
-       "en": "The Battle of Plassey"
+       "en": "The Battle of Plassey",
+       "es": "La batalla de Plassey"
       },
       "text": {
        "sv": "Ostindiska kompaniet besegrar nawaben av Bengalen och hans franska allierade. Kompaniet tar kontroll över Bengalen och blir en stor militär och politisk makt i Indien, och utökar sedan sitt område steg för steg.",
-       "en": "The East India Company defeats the Nawab of Bengal and his French allies. The Company takes control of Bengal and becomes a major military and political power in India, and then expands its territory step by step."
+       "en": "The East India Company defeats the Nawab of Bengal and his French allies. The Company takes control of Bengal and becomes a major military and political power in India, and then expands its territory step by step.",
+       "es": "La Compañía de las Indias Orientales derrota al nabab de Bengala y a sus aliados franceses. La Compañía toma el control de Bengala, se convierte en una gran potencia militar y política en India y después amplía su territorio paso a paso."
       },
       "sources": [
        "wp-british-empire"
@@ -3648,81 +3677,96 @@
       "year": 1763,
       "label": {
        "sv": "1763",
-       "en": "1763"
+       "en": "1763",
+       "es": "1763"
       },
       "title": {
        "sv": "Freden i Paris",
-       "en": "The Peace of Paris"
+       "en": "The Peace of Paris",
+       "es": "La paz de París"
       },
       "text": {
        "sv": "Efter sjuårskriget får Storbritannien Nya Frankrike (Kanada) och Florida. Frankrikes tid som kolonialmakt i Nordamerika är i stort sett slut, och Storbritannien är världens mäktigaste sjömakt.",
-       "en": "After the Seven Years' War Britain gets New France (Canada) and Florida. France's time as a colonial power in North America is largely over, and Britain is the world's most powerful naval power."
+       "en": "After the Seven Years' War Britain gets New France (Canada) and Florida. France's time as a colonial power in North America is largely over, and Britain is the world's most powerful naval power.",
+       "es": "Tras la guerra de los Siete Años, Gran Bretaña obtiene Nueva Francia (Canadá) y Florida. La época de Francia como potencia colonial en Norteamérica ha terminado en gran medida, y Gran Bretaña es la mayor potencia naval del mundo."
       },
       "sources": [
        "wp-british-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar tillväxten från 1762.",
-       "en": "The map shows the growth from 1762."
+       "en": "The map shows the growth from 1762.",
+       "es": "El mapa muestra el crecimiento a partir de 1762."
       }
      },
      {
       "year": 1783,
       "label": {
        "sv": "1783",
-       "en": "1783"
+       "en": "1783",
+       "es": "1783"
       },
       "title": {
        "sv": "De amerikanska kolonierna förloras",
-       "en": "The American colonies are lost"
+       "en": "The American colonies are lost",
+       "es": "Se pierden las colonias americanas"
       },
       "text": {
        "sv": "Kolonisterna motsatte sig att parlamentet i London styrde och beskattade dem utan deras samtycke, och kriget bröt ut 1775. Vid freden i Paris 1783 erkänns USA:s självständighet. Imperiet vänder sig efter det mer mot Asien, Stilla havet och senare Afrika.",
-       "en": "The colonists objected to Parliament in London governing and taxing them without their consent, and war broke out in 1775. At the Peace of Paris in 1783 the independence of the United States is recognised. After that the empire turns more towards Asia, the Pacific and later Africa."
+       "en": "The colonists objected to Parliament in London governing and taxing them without their consent, and war broke out in 1775. At the Peace of Paris in 1783 the independence of the United States is recognised. After that the empire turns more towards Asia, the Pacific and later Africa.",
+       "es": "Los colonos se oponían a que el Parlamento de Londres los gobernara y les cobrara impuestos sin su consentimiento, y la guerra estalló en 1775. En la paz de París de 1783 se reconoce la independencia de Estados Unidos. Después, el imperio se orienta más hacia Asia, el Pacífico y, más tarde, África."
       },
       "sources": [
        "wp-british-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar minskningen redan från 1775, då kriget började.",
-       "en": "The map shows the decrease already from 1775, when the war began."
+       "en": "The map shows the decrease already from 1775, when the war began.",
+       "es": "El mapa muestra la reducción ya desde 1775, cuando comenzó la guerra."
       }
      },
      {
       "year": 1920,
       "label": {
        "sv": "1919–1920",
-       "en": "1919–1920"
+       "en": "1919–1920",
+       "es": "1919–1920"
       },
       "title": {
        "sv": "Störst efter första världskriget",
-       "en": "Largest after the First World War"
+       "en": "Largest after the First World War",
+       "es": "Su mayor extensión tras la Primera Guerra Mundial"
       },
       "text": {
        "sv": "Genom Versaillesfreden får Storbritannien mandat över bland annat Palestina, Transjordanien, Irak och Tanganyika, tidigare tyska och osmanska områden. Imperiet är som störst, cirka 35,5 miljoner km².",
-       "en": "Through the Treaty of Versailles Britain gets mandates over, among others, Palestine, Transjordan, Iraq and Tanganyika, former German and Ottoman territories. The empire is at its largest, about 35.5 million km²."
+       "en": "Through the Treaty of Versailles Britain gets mandates over, among others, Palestine, Transjordan, Iraq and Tanganyika, former German and Ottoman territories. The empire is at its largest, about 35.5 million km².",
+       "es": "Mediante el Tratado de Versalles, Gran Bretaña obtiene mandatos sobre, entre otros, Palestina, Transjordania, Irak y Tanganica, antiguos territorios alemanes y otomanos. El imperio alcanza su máxima extensión, aproximadamente 35,5 millones de km²."
       },
       "sources": [
        "wp-british-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar störst yta 1918–1931, cirka 29 miljoner km², och nästan en halvering från 1932.",
-       "en": "The map shows the largest area in 1918–1931, about 29 million km², and almost a halving from 1932."
+       "en": "The map shows the largest area in 1918–1931, about 29 million km², and almost a halving from 1932.",
+       "es": "El mapa muestra la mayor superficie en 1918–1931, unos 29 millones de km², y casi una reducción a la mitad a partir de 1932."
       }
      },
      {
       "year": 1947,
       "label": {
        "sv": "1947",
-       "en": "1947"
+       "en": "1947",
+       "es": "1947"
       },
       "title": {
        "sv": "Indien blir självständigt",
-       "en": "India becomes independent"
+       "en": "India becomes independent",
+       "es": "India se independiza"
       },
       "text": {
        "sv": "Efter andra världskriget är Storbritannien nästan bankrutt, och antikoloniala rörelser växer. Indien delas, och Indien och Pakistan blir självständiga 15 augusti 1947, som en del av en större avkolonisering.",
-       "en": "After the Second World War Britain is almost bankrupt, and anti-colonial movements grow. India is partitioned, and India and Pakistan become independent on 15 August 1947, as part of a larger decolonisation."
+       "en": "After the Second World War Britain is almost bankrupt, and anti-colonial movements grow. India is partitioned, and India and Pakistan become independent on 15 August 1947, as part of a larger decolonisation.",
+       "es": "Tras la Segunda Guerra Mundial, Gran Bretaña está casi en bancarrota y los movimientos anticoloniales crecen. India es dividida, y India y Pakistán se independizan el 15 de agosto de 1947, como parte de una descolonización más amplia."
       },
       "sources": [
        "wp-british-empire"
@@ -3732,37 +3776,44 @@
       "year": 1960,
       "label": {
        "sv": "1960-talet",
-       "en": "The 1960s"
+       "en": "The 1960s",
+       "es": "Década de 1960"
       },
       "title": {
        "sv": "Förändringens vindar",
-       "en": "The winds of change"
+       "en": "The winds of change",
+       "es": "Los vientos del cambio"
       },
       "text": {
        "sv": "Premiärminister Macmillan talar 1960 om förändringens vindar i Afrika och vill undvika kolonialkrig. Avkoloniseringen går snabbt: på 1960-talet blir nästan tio gånger så många kolonier självständiga som på 1950-talet.",
-       "en": "Prime Minister Macmillan speaks in 1960 of the winds of change in Africa and wants to avoid colonial wars. Decolonisation moves fast: in the 1960s almost ten times as many colonies become independent as in the 1950s."
+       "en": "Prime Minister Macmillan speaks in 1960 of the winds of change in Africa and wants to avoid colonial wars. Decolonisation moves fast: in the 1960s almost ten times as many colonies become independent as in the 1950s.",
+       "es": "El primer ministro Macmillan habla en 1960 de los vientos del cambio en África y quiere evitar guerras coloniales. La descolonización avanza rápido: en la década de 1960 se independizan casi diez veces más colonias que en la década de 1950."
       },
       "sources": [
        "wp-british-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar de stora minskningarna 1956–1968.",
-       "en": "The map shows the large decreases in 1956–1968."
+       "en": "The map shows the large decreases in 1956–1968.",
+       "es": "El mapa muestra las grandes reducciones en 1956–1968."
       }
      },
      {
       "year": 1997,
       "label": {
        "sv": "1997",
-       "en": "1997"
+       "en": "1997",
+       "es": "1997"
       },
       "title": {
        "sv": "Hongkong lämnas över",
-       "en": "Hong Kong is handed over"
+       "en": "Hong Kong is handed over",
+       "es": "Hong Kong es entregado"
       },
       "text": {
        "sv": "Hongkong lämnas över till Kina, för många slutet på imperiet. Större delen av kolonin hade arrenderats på 99 år från 1898.",
-       "en": "Hong Kong is handed over to China, for many the end of the empire. Most of the colony had been leased for 99 years from 1898."
+       "en": "Hong Kong is handed over to China, for many the end of the empire. Most of the colony had been leased for 99 years from 1898.",
+       "es": "Hong Kong es entregado a China, para muchos el fin del imperio. La mayor parte de la colonia había sido arrendada por 99 años a partir de 1898."
       },
       "sources": [
        "wp-british-empire"
@@ -3807,7 +3858,8 @@
     {
      "name": {
       "sv": "London",
-      "en": "London"
+      "en": "London",
+      "es": "Londres"
      },
      "wikidata": "Q84",
      "at": [
@@ -3882,87 +3934,104 @@
    "facts": {
     "summary": {
      "sv": "Det forntida Egypten hade sitt centrum i Nildalen. Gruppen på kartan visar de tre perioder som kallas riken: gamla riket, pyramidbyggarnas tid, mellersta riket, då landet enades igen efter en tid av splittring, och nya riket, då Egypten var som mäktigast och styrde långt in i Levanten och Nubien. Mellan rikena låg tider av splittring.",
-     "en": "Ancient Egypt had its centre in the Nile Valley. The group on the map shows the three periods called kingdoms: the Old Kingdom, the age of the pyramid builders, the Middle Kingdom, when the land was united again after a time of fragmentation, and the New Kingdom, when Egypt was at its most powerful and ruled far into the Levant and Nubia. Between the kingdoms lay times of fragmentation."
+     "en": "Ancient Egypt had its centre in the Nile Valley. The group on the map shows the three periods called kingdoms: the Old Kingdom, the age of the pyramid builders, the Middle Kingdom, when the land was united again after a time of fragmentation, and the New Kingdom, when Egypt was at its most powerful and ruled far into the Levant and Nubia. Between the kingdoms lay times of fragmentation.",
+     "es": "El antiguo Egipto tenía su centro en el valle del Nilo. El grupo del mapa muestra los tres períodos llamados imperios: el Imperio Antiguo, la época de los constructores de pirámides; el Imperio Medio, cuando el país volvió a unificarse tras un período de fragmentación; y el Imperio Nuevo, cuando Egipto fue más poderoso y gobernó hasta muy adentro del Levante y de Nubia. Entre los imperios hubo épocas de fragmentación."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
-       "en": "When and where it arose"
+       "en": "When and where it arose",
+       "es": "Cuándo y dónde surgió"
       },
       "text": {
        "sv": "Gamla riket räknas oftast från tredje dynastin, cirka 2686 f.Kr., då kung Djoser började bygga i sten i Saqqara. Nya riket började cirka 1570 f.Kr. med Ahmose I, som drev ut hyksos, ett folk som hade styrt norra Egypten. Källorna skiljer sig om gamla rikets början: World History Encyclopedia räknar från fjärde dynastin, cirka 2613 f.Kr.",
-       "en": "The Old Kingdom is most often counted from the Third Dynasty, about 2686 BC, when King Djoser began building in stone at Saqqara. The New Kingdom began about 1570 BC with Ahmose I, who drove out the Hyksos, a people who had ruled northern Egypt. The sources differ about the beginning of the Old Kingdom: World History Encyclopedia counts from the Fourth Dynasty, about 2613 BC."
+       "en": "The Old Kingdom is most often counted from the Third Dynasty, about 2686 BC, when King Djoser began building in stone at Saqqara. The New Kingdom began about 1570 BC with Ahmose I, who drove out the Hyksos, a people who had ruled northern Egypt. The sources differ about the beginning of the Old Kingdom: World History Encyclopedia counts from the Fourth Dynasty, about 2613 BC.",
+       "es": "El Imperio Antiguo se cuenta casi siempre desde la III dinastía, hacia 2686 a. C., cuando el rey Djoser empezó a construir en piedra en Saqqara. El Imperio Nuevo comenzó hacia 1570 a. C. con Amosis I, que expulsó a los hicsos, un pueblo que había gobernado el norte de Egipto. Las fuentes difieren sobre el comienzo del Imperio Antiguo: la World History Encyclopedia lo cuenta desde la IV dinastía, hacia 2613 a. C."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
-       "en": "How it ended"
+       "en": "How it ended",
+       "es": "Cómo terminó"
       },
       "text": {
        "sv": "Under sjätte dynastin blev de regionala guvernörerna allt mer självständiga. Efter Pepi II:s mycket långa regering följde inbördeskrig, och en torka omkring 2200–2150 f.Kr. hindrade Nilens översvämningar. Gamla riket upphörde cirka 2181 f.Kr. Nya riket försvagades av anfall från libyer och sjöfolken och av Amonprästernas växande makt, och upphörde cirka 1069 f.Kr.",
-       "en": "Under the Sixth Dynasty the regional governors became increasingly independent. After Pepi II's very long reign civil war followed, and a drought around 2200–2150 BC prevented the Nile's floods. The Old Kingdom ended about 2181 BC. The New Kingdom was weakened by attacks from Libyans and the Sea Peoples and by the growing power of the priests of Amun, and ended about 1069 BC."
+       "en": "Under the Sixth Dynasty the regional governors became increasingly independent. After Pepi II's very long reign civil war followed, and a drought around 2200–2150 BC prevented the Nile's floods. The Old Kingdom ended about 2181 BC. The New Kingdom was weakened by attacks from Libyans and the Sea Peoples and by the growing power of the priests of Amun, and ended about 1069 BC.",
+       "es": "Durante la VI dinastía, los gobernadores regionales se volvieron cada vez más independientes. Tras el larguísimo reinado de Pepi II siguió una guerra civil, y una sequía hacia 2200–2150 a. C. impidió las crecidas del Nilo. El Imperio Antiguo terminó hacia 2181 a. C. El Imperio Nuevo se debilitó por los ataques de los libios y de los Pueblos del Mar y por el creciente poder de los sacerdotes de Amón, y terminó hacia 1069 a. C."
       }
      },
      {
       "label": {
        "sv": "Huvudstäder",
-       "en": "Capitals"
+       "en": "Capitals",
+       "es": "Capitales"
       },
       "text": {
        "sv": "Gamla riket: Memfis. Nya riket: Thebe, under Akhenaton Amarna (cirka 1352–1336 f.Kr.), under Ramses II Pi-Ramesses och därefter Memfis.",
-       "en": "The Old Kingdom: Memphis. The New Kingdom: Thebes, under Akhenaten Amarna (about 1352–1336 BC), under Ramesses II Pi-Ramesses and afterwards Memphis."
+       "en": "The Old Kingdom: Memphis. The New Kingdom: Thebes, under Akhenaten Amarna (about 1352–1336 BC), under Ramesses II Pi-Ramesses and afterwards Memphis.",
+       "es": "Imperio Antiguo: Menfis. Imperio Nuevo: Tebas; bajo Ajenatón, Amarna (aproximadamente 1352–1336 a. C.); bajo Ramsés II, Pi-Ramsés y después Menfis."
       }
      },
      {
       "label": {
        "sv": "Kända härskare",
-       "en": "Famous rulers"
+       "en": "Famous rulers",
+       "es": "Gobernantes célebres"
       },
       "text": {
        "sv": "Gamla riket: Djoser, Snofru, Cheops (2589–2566 f.Kr.), Chefren och Mykerinos. Nya riket: Ahmose I, Hatshepsut, Thutmosis III (cirka 1479–1425 f.Kr.), Akhenaton, Tutankhamon och Ramses II.",
-       "en": "The Old Kingdom: Djoser, Sneferu, Cheops (2589–2566 BC), Khafre and Menkaure. The New Kingdom: Ahmose I, Hatshepsut, Thutmose III (about 1479–1425 BC), Akhenaten, Tutankhamun and Ramesses II."
+       "en": "The Old Kingdom: Djoser, Sneferu, Cheops (2589–2566 BC), Khafre and Menkaure. The New Kingdom: Ahmose I, Hatshepsut, Thutmose III (about 1479–1425 BC), Akhenaten, Tutankhamun and Ramesses II.",
+       "es": "Imperio Antiguo: Djoser, Snefru, Keops (2589–2566 a. C.), Kefrén y Micerino. Imperio Nuevo: Amosis I, Hatshepsut, Tutmosis III (aproximadamente 1479–1425 a. C.), Ajenatón, Tutankamón y Ramsés II."
       }
      },
      {
       "label": {
        "sv": "Största utbredning",
-       "en": "Greatest extent"
+       "en": "Greatest extent",
+       "es": "Mayor extensión"
       },
       "text": {
        "sv": "Nya riket var som störst efter Thutmosis III:s fälttåg, som nådde från Eufrat till Nubien. Källan anger ingen yta. Under gamla riket omfattade Egypten Nildalen upp till Elefantine, Sinai och oaserna i västra öknen, och styrde Nubien upp till trakten norr om tredje katarakten.",
-       "en": "The New Kingdom was at its largest after Thutmose III's campaigns, which reached from the Euphrates to Nubia. The source gives no area. Under the Old Kingdom Egypt comprised the Nile Valley up to Elephantine, Sinai and the oases of the western desert, and ruled Nubia up to the area north of the Third Cataract."
+       "en": "The New Kingdom was at its largest after Thutmose III's campaigns, which reached from the Euphrates to Nubia. The source gives no area. Under the Old Kingdom Egypt comprised the Nile Valley up to Elephantine, Sinai and the oases of the western desert, and ruled Nubia up to the area north of the Third Cataract.",
+       "es": "El Imperio Nuevo alcanzó su mayor extensión tras las campañas de Tutmosis III, que llegaron desde el Éufrates hasta Nubia. La fuente no indica ninguna superficie. Durante el Imperio Antiguo, Egipto abarcaba el valle del Nilo hasta Elefantina, el Sinaí y los oasis del desierto occidental, y gobernaba Nubia hasta la zona al norte de la tercera catarata."
       }
      },
      {
       "label": {
        "sv": "Språk och religion",
-       "en": "Language and religion"
+       "en": "Language and religion",
+       "es": "Idioma y religión"
       },
       "text": {
        "sv": "Egyptiska och fornegyptisk religion. Under Amarnatiden dyrkade Akhenaton solskivan Aton som sin gud, något som ofta tolkas som historiens första exempel på monoteism.",
-       "en": "Egyptian and ancient Egyptian religion. During the Amarna period Akhenaten worshipped the sun disc Aten as his god, something that is often interpreted as the first example of monotheism in history."
+       "en": "Egyptian and ancient Egyptian religion. During the Amarna period Akhenaten worshipped the sun disc Aten as his god, something that is often interpreted as the first example of monotheism in history.",
+       "es": "Egipcio y religión del antiguo Egipto. Durante el período de Amarna, Ajenatón adoraba al disco solar Atón como su dios, algo que a menudo se interpreta como el primer ejemplo de monoteísmo de la historia."
       }
      },
      {
       "label": {
        "sv": "Fler fakta",
-       "en": "More facts"
+       "en": "More facts",
+       "es": "Más datos"
       },
       "text": {
        "sv": "Gamla riket kallas pyramidernas tid: Cheops lät bygga den stora pyramiden i Giza. Begreppen gamla och nya riket myntades 1845 av den tyske forskaren Christian von Bunsen.",
-       "en": "The Old Kingdom is called the age of the pyramids: Cheops had the Great Pyramid built at Giza. The terms Old and New Kingdom were coined in 1845 by the German scholar Christian von Bunsen."
+       "en": "The Old Kingdom is called the age of the pyramids: Cheops had the Great Pyramid built at Giza. The terms Old and New Kingdom were coined in 1845 by the German scholar Christian von Bunsen.",
+       "es": "El Imperio Antiguo se llama la época de las pirámides: Keops mandó construir la Gran Pirámide de Guiza. Los términos Imperio Antiguo e Imperio Nuevo fueron acuñados en 1845 por el investigador alemán Christian von Bunsen."
       }
      },
      {
       "label": {
        "sv": "Symbolen på kartan",
-       "en": "The symbol on the map"
+       "en": "The symbol on the map",
+       "es": "El símbolo en el mapa"
       },
       "text": {
        "sv": "Den dubbla kronan, pschent, som faraonerna bar. Den förenade Övre Egyptens vita krona med Nedre Egyptens röda och stod för faraos makt över hela det enade landet. Den förste farao som visas med den är Djet under första dynastin. Ingen krona har bevarats; den är känd från statyer, bilder och inskrifter. Kronan bar också en kobra och en gam som stod för två gudinnor; de är inte med på kartans teckning.",
-       "en": "The double crown, the pschent, worn by the pharaohs. It united the white crown of Upper Egypt with the red crown of Lower Egypt and stood for the pharaoh's power over the whole united land. The first pharaoh shown with it is Djet in the First Dynasty. No crown has survived; it is known from statues, images and inscriptions. The crown also bore a cobra and a vulture that stood for two goddesses; they are not included in the map's drawing."
+       "en": "The double crown, the pschent, worn by the pharaohs. It united the white crown of Upper Egypt with the red crown of Lower Egypt and stood for the pharaoh's power over the whole united land. The first pharaoh shown with it is Djet in the First Dynasty. No crown has survived; it is known from statues, images and inscriptions. The crown also bore a cobra and a vulture that stood for two goddesses; they are not included in the map's drawing.",
+       "es": "La doble corona, el pschent, que llevaban los faraones. Unía la corona blanca del Alto Egipto con la corona roja del Bajo Egipto y representaba el poder del faraón sobre todo el país unificado. El primer faraón representado con ella es Djet, de la I dinastía. No se ha conservado ninguna corona; se conoce por estatuas, imágenes e inscripciones. La corona llevaba también una cobra y un buitre que representaban a dos diosas; no aparecen en el dibujo del mapa."
       }
      }
     ],
@@ -3971,37 +4040,44 @@
       "year": -2685,
       "label": {
        "sv": "cirka 2686 f.Kr.",
-       "en": "about 2686 BC"
+       "en": "about 2686 BC",
+       "es": "hacia 2686 a. C."
       },
       "title": {
        "sv": "Gamla riket börjar",
-       "en": "The Old Kingdom begins"
+       "en": "The Old Kingdom begins",
+       "es": "Comienza el Imperio Antiguo"
       },
       "text": {
        "sv": "Djoser blir kung och inleder tredje dynastin. Hans arkitekt Imhotep räknas som skaparen av stegpyramiden i Saqqara och av byggandet i sten.",
-       "en": "Djoser becomes king and begins the Third Dynasty. His architect Imhotep is regarded as the creator of the step pyramid at Saqqara and of building in stone."
+       "en": "Djoser becomes king and begins the Third Dynasty. His architect Imhotep is regarded as the creator of the step pyramid at Saqqara and of building in stone.",
+       "es": "Djoser se convierte en rey e inaugura la III dinastía. Su arquitecto Imhotep es considerado el creador de la pirámide escalonada de Saqqara y de la construcción en piedra."
       },
       "sources": [
        "wp-old-kingdom-egypt"
       ],
       "mapNote": {
        "sv": "Kartan visar gamla riket från 2500 f.Kr., med samma gräns hela tiden.",
-       "en": "The map shows the Old Kingdom from 2500 BC, with the same border throughout."
+       "en": "The map shows the Old Kingdom from 2500 BC, with the same border throughout.",
+       "es": "El mapa muestra el Imperio Antiguo a partir de 2500 a. C., con la misma frontera todo el tiempo."
       }
      },
      {
       "year": -2588,
       "label": {
        "sv": "2589 f.Kr.",
-       "en": "2589 BC"
+       "en": "2589 BC",
+       "es": "2589 a. C."
       },
       "title": {
        "sv": "Cheops blir kung",
-       "en": "Cheops becomes king"
+       "en": "Cheops becomes king",
+       "es": "Keops se convierte en rey"
       },
       "text": {
        "sv": "Under fjärde dynastin når gamla riket sin höjdpunkt. Redan Snofru styr från Libyen till Sinai och Nubien, och hans son Cheops låter bygga den stora pyramiden i Giza.",
-       "en": "Under the Fourth Dynasty the Old Kingdom reaches its peak. Sneferu already rules from Libya to Sinai and Nubia, and his son Cheops has the Great Pyramid built at Giza."
+       "en": "Under the Fourth Dynasty the Old Kingdom reaches its peak. Sneferu already rules from Libya to Sinai and Nubia, and his son Cheops has the Great Pyramid built at Giza.",
+       "es": "Bajo la IV dinastía, el Imperio Antiguo alcanza su apogeo. Ya Snefru gobierna desde Libia hasta el Sinaí y Nubia, y su hijo Keops manda construir la Gran Pirámide de Guiza."
       },
       "sources": [
        "wp-old-kingdom-egypt"
@@ -4014,22 +4090,26 @@
       "year": -2180,
       "label": {
        "sv": "cirka 2181 f.Kr.",
-       "en": "about 2181 BC"
+       "en": "about 2181 BC",
+       "es": "hacia 2181 a. C."
       },
       "title": {
        "sv": "Gamla riket upphör",
-       "en": "The Old Kingdom ends"
+       "en": "The Old Kingdom ends",
+       "es": "Termina el Imperio Antiguo"
       },
       "text": {
        "sv": "Guvernörerna i landskapen har tagit allt mer makt, och efter Pepi II:s död följer inbördeskrig. En torka hindrar Nilens översvämningar, och landet drabbas av svält.",
-       "en": "The governors of the provinces have taken ever more power, and after Pepi II's death civil war follows. A drought prevents the Nile's floods, and the land is struck by famine."
+       "en": "The governors of the provinces have taken ever more power, and after Pepi II's death civil war follows. A drought prevents the Nile's floods, and the land is struck by famine.",
+       "es": "Los gobernadores de las provincias han ido acumulando cada vez más poder, y tras la muerte de Pepi II sigue una guerra civil. Una sequía impide las crecidas del Nilo y el país sufre hambruna."
       },
       "sources": [
        "wp-old-kingdom-egypt"
       ],
       "mapNote": {
        "sv": "Kartan visar gamla riket till och med 2201 f.Kr.",
-       "en": "The map shows the Old Kingdom up to and including 2201 BC."
+       "en": "The map shows the Old Kingdom up to and including 2201 BC.",
+       "es": "El mapa muestra el Imperio Antiguo hasta 2201 a. C. inclusive."
       }
      },
      {
@@ -4104,15 +4184,18 @@
       "year": -1569,
       "label": {
        "sv": "cirka 1570 f.Kr.",
-       "en": "about 1570 BC"
+       "en": "about 1570 BC",
+       "es": "hacia 1570 a. C."
       },
       "title": {
        "sv": "Nya riket börjar",
-       "en": "The New Kingdom begins"
+       "en": "The New Kingdom begins",
+       "es": "Comienza el Imperio Nuevo"
       },
       "text": {
        "sv": "Ahmose I driver ut hyksos och grundar artonde dynastin. Egypten växer sedan in i Levanten och långt söderut i Nubien.",
-       "en": "Ahmose I drives out the Hyksos and founds the Eighteenth Dynasty. Egypt then expands into the Levant and far south into Nubia."
+       "en": "Ahmose I drives out the Hyksos and founds the Eighteenth Dynasty. Egypt then expands into the Levant and far south into Nubia.",
+       "es": "Amosis I expulsa a los hicsos y funda la XVIII dinastía. Egipto se expande entonces hacia el Levante y muy al sur, en Nubia."
       },
       "sources": [
        "wp-new-kingdom-egypt",
@@ -4120,44 +4203,52 @@
       ],
       "mapNote": {
        "sv": "Kartan visar nya riket från 1500 f.Kr.",
-       "en": "The map shows the New Kingdom from 1500 BC."
+       "en": "The map shows the New Kingdom from 1500 BC.",
+       "es": "El mapa muestra el Imperio Nuevo a partir de 1500 a. C."
       }
      },
      {
       "year": -1478,
       "label": {
        "sv": "cirka 1479 f.Kr.",
-       "en": "about 1479 BC"
+       "en": "about 1479 BC",
+       "es": "hacia 1479 a. C."
       },
       "title": {
        "sv": "Thutmosis III",
-       "en": "Thutmose III"
+       "en": "Thutmose III",
+       "es": "Tutmosis III"
       },
       "text": {
        "sv": "Thutmosis III styr först tillsammans med Hatshepsut och sedan ensam. Han gör minst 16 fälttåg på 20 år och erövrar stora delar av Främre Orienten, från Eufrat till Nubien.",
-       "en": "Thutmose III rules first together with Hatshepsut and then alone. He makes at least 16 campaigns in 20 years and conquers large parts of the Near East, from the Euphrates to Nubia."
+       "en": "Thutmose III rules first together with Hatshepsut and then alone. He makes at least 16 campaigns in 20 years and conquers large parts of the Near East, from the Euphrates to Nubia.",
+       "es": "Tutmosis III gobierna primero junto con Hatshepsut y después en solitario. Realiza al menos 16 campañas en 20 años y conquista gran parte del Oriente Próximo, desde el Éufrates hasta Nubia."
       },
       "sources": [
        "wp-new-kingdom-egypt"
       ],
       "mapNote": {
        "sv": "Kartan visar en ökning med cirka 11 procent från 1400 f.Kr.",
-       "en": "The map shows an increase of about 11 per cent from 1400 BC."
+       "en": "The map shows an increase of about 11 per cent from 1400 BC.",
+       "es": "El mapa muestra un aumento de aproximadamente el 11 % a partir de 1400 a. C."
       }
      },
      {
       "year": -1273,
       "label": {
        "sv": "maj 1274 f.Kr.",
-       "en": "May 1274 BC"
+       "en": "May 1274 BC",
+       "es": "mayo de 1274 a. C."
       },
       "title": {
        "sv": "Slaget vid Kadesh",
-       "en": "The Battle of Kadesh"
+       "en": "The Battle of Kadesh",
+       "es": "La batalla de Kadesh"
       },
       "text": {
        "sv": "Ramses II försöker återta områden i Levanten från hettiterna. Slaget vid Kadesh slutar oavgjort, båda sidor gör anspråk på seger, och till sist sluter rikena fred.",
-       "en": "Ramesses II tries to retake territories in the Levant from the Hittites. The Battle of Kadesh ends in a draw, both sides claim victory, and in the end the empires make peace."
+       "en": "Ramesses II tries to retake territories in the Levant from the Hittites. The Battle of Kadesh ends in a draw, both sides claim victory, and in the end the empires make peace.",
+       "es": "Ramsés II intenta recuperar territorios del Levante a los hititas. La batalla de Kadesh termina en tablas, ambos bandos reclaman la victoria y, al final, los imperios firman la paz."
       },
       "sources": [
        "wp-new-kingdom-egypt",
@@ -4172,15 +4263,18 @@
       "year": -1068,
       "label": {
        "sv": "cirka 1069 f.Kr.",
-       "en": "about 1069 BC"
+       "en": "about 1069 BC",
+       "es": "hacia 1069 a. C."
       },
       "title": {
        "sv": "Nya riket upphör",
-       "en": "The New Kingdom ends"
+       "en": "The New Kingdom ends",
+       "es": "Termina el Imperio Nuevo"
       },
       "text": {
        "sv": "Anfall från libyer och sjöfolken har försvagat riket, och Amonprästerna tar till sist kontroll över tronen.",
-       "en": "Attacks from Libyans and the Sea Peoples have weakened the empire, and the priests of Amun finally take control of the throne."
+       "en": "Attacks from Libyans and the Sea Peoples have weakened the empire, and the priests of Amun finally take control of the throne.",
+       "es": "Los ataques de los libios y de los Pueblos del Mar han debilitado el imperio, y los sacerdotes de Amón acaban tomando el control del trono."
       },
       "sources": [
        "wp-new-kingdom-egypt",
@@ -4188,13 +4282,15 @@
       ],
       "mapNote": {
        "sv": "Kartan visar nya riket till och med 801 f.Kr., från 1000 f.Kr. med ungefär halva ytan.",
-       "en": "The map shows the New Kingdom up to and including 801 BC, from 1000 BC with about half the area."
+       "en": "The map shows the New Kingdom up to and including 801 BC, from 1000 BC with about half the area.",
+       "es": "El mapa muestra el Imperio Nuevo hasta 801 a. C. inclusive, y desde 1000 a. C. con aproximadamente la mitad de la superficie."
       }
      }
     ],
     "mapNote": {
      "sv": "Källorna anger gamla riket till cirka 2686–2181 f.Kr. (World History Encyclopedia cirka 2613–2181), mellersta riket till cirka 2055–1650 f.Kr. (eller till cirka 1782 eller 1700, beroende på definition) och nya riket till cirka 1570–1069 f.Kr. Kartan visar gamla riket 2500–2201 f.Kr., mellersta riket 2000–1601 f.Kr. och nya riket 1500–801 f.Kr.",
-     "en": "The sources give the Old Kingdom as about 2686–2181 BC (World History Encyclopedia about 2613–2181), the Middle Kingdom as about 2055–1650 BC (or to about 1782 or 1700, depending on the definition) and the New Kingdom as about 1570–1069 BC. The map shows the Old Kingdom 2500–2201 BC, the Middle Kingdom 2000–1601 BC and the New Kingdom 1500–801 BC."
+     "en": "The sources give the Old Kingdom as about 2686–2181 BC (World History Encyclopedia about 2613–2181), the Middle Kingdom as about 2055–1650 BC (or to about 1782 or 1700, depending on the definition) and the New Kingdom as about 1570–1069 BC. The map shows the Old Kingdom 2500–2201 BC, the Middle Kingdom 2000–1601 BC and the New Kingdom 1500–801 BC.",
+     "es": "Las fuentes sitúan el Imperio Antiguo hacia 2686–2181 a. C. (World History Encyclopedia hacia 2613–2181), el Imperio Medio hacia 2055–1650 a. C. (o hasta hacia 1782 o 1700, según la definición) y el Imperio Nuevo hacia 1570–1069 a. C. El mapa muestra el Imperio Antiguo en 2500–2201 a. C., el Imperio Medio en 2000–1601 a. C. y el Imperio Nuevo en 1500–801 a. C."
     },
     "sources": [
      "wp-old-kingdom-egypt",
@@ -4211,7 +4307,8 @@
     {
      "name": {
       "sv": "Memfis",
-      "en": "Memphis"
+      "en": "Memphis",
+      "es": "Menfis"
      },
      "wikidata": "Q5715",
      "at": [
@@ -4228,7 +4325,8 @@
     {
      "name": {
       "sv": "Thebe",
-      "en": "Thebes"
+      "en": "Thebes",
+      "es": "Tebas"
      },
      "wikidata": "Q101583",
      "at": [
@@ -4246,7 +4344,8 @@
     {
      "name": {
       "sv": "Amarna",
-      "en": "Amarna"
+      "en": "Amarna",
+      "es": "Amarna"
      },
      "wikidata": "Q5736",
      "at": [
@@ -4265,7 +4364,8 @@
     {
      "name": {
       "sv": "Thebe",
-      "en": "Thebes"
+      "en": "Thebes",
+      "es": "Tebas"
      },
      "wikidata": "Q101583",
      "at": [
@@ -4282,13 +4382,15 @@
      "review": "source-checked",
      "note": {
       "sv": "Åren för Thebe efter Amarnatiden, Pi-Ramesses och Memfis kommer bara från Wikidata; faktarutans källa nämner städerna i den ordningen men utan årtal.",
-      "en": "The years for Thebes after the Amarna period, Pi-Ramesses and Memphis come only from Wikidata; the fact box's source mentions the cities in that order but without years."
+      "en": "The years for Thebes after the Amarna period, Pi-Ramesses and Memphis come only from Wikidata; the fact box's source mentions the cities in that order but without years.",
+      "es": "Los años de Tebas después del período de Amarna, de Pi-Ramsés y de Menfis proceden solo de Wikidata; la fuente del recuadro de datos menciona las ciudades en ese orden, pero sin años."
      }
     },
     {
      "name": {
       "sv": "Pi-Ramses",
-      "en": "Pi-Ramesses"
+      "en": "Pi-Ramesses",
+      "es": "Pi-Ramsés"
      },
      "wikidata": "Q937930",
      "at": [
@@ -4305,13 +4407,15 @@
      "review": "source-checked",
      "note": {
       "sv": "Åren för Thebe efter Amarnatiden, Pi-Ramesses och Memfis kommer bara från Wikidata; faktarutans källa nämner städerna i den ordningen men utan årtal.",
-      "en": "The years for Thebes after the Amarna period, Pi-Ramesses and Memphis come only from Wikidata; the fact box's source mentions the cities in that order but without years."
+      "en": "The years for Thebes after the Amarna period, Pi-Ramesses and Memphis come only from Wikidata; the fact box's source mentions the cities in that order but without years.",
+      "es": "Los años de Tebas después del período de Amarna, de Pi-Ramsés y de Menfis proceden solo de Wikidata; la fuente del recuadro de datos menciona las ciudades en ese orden, pero sin años."
      }
     },
     {
      "name": {
       "sv": "Memfis",
-      "en": "Memphis"
+      "en": "Memphis",
+      "es": "Menfis"
      },
      "wikidata": "Q5715",
      "at": [
@@ -4327,7 +4431,8 @@
      "review": "source-checked",
      "note": {
       "sv": "Åren för Thebe efter Amarnatiden, Pi-Ramesses och Memfis kommer bara från Wikidata; faktarutans källa nämner städerna i den ordningen men utan årtal.",
-      "en": "The years for Thebes after the Amarna period, Pi-Ramesses and Memphis come only from Wikidata; the fact box's source mentions the cities in that order but without years."
+      "en": "The years for Thebes after the Amarna period, Pi-Ramesses and Memphis come only from Wikidata; the fact box's source mentions the cities in that order but without years.",
+      "es": "Los años de Tebas después del período de Amarna, de Pi-Ramsés y de Menfis proceden solo de Wikidata; la fuente del recuadro de datos menciona las ciudades en ese orden, pero sin años."
      }
     }
    ]
@@ -4336,7 +4441,8 @@
    "id": "assyriska-riket",
    "name": {
     "sv": "Assyriska riket",
-    "en": "Assyria"
+    "en": "Assyria",
+    "es": "Imperio asirio"
    },
    "color": "#6170bd",
    "from": -1799,
@@ -4347,7 +4453,8 @@
      "id": "assyrien",
      "name": {
       "sv": "Assyrien",
-      "en": "Assyria"
+      "en": "Assyria",
+      "es": "Asiria"
      },
      "sources": [
       "cliopatria"
@@ -4358,7 +4465,8 @@
      "id": "nyassyriska-riket",
      "name": {
       "sv": "Nyassyriska riket",
-      "en": "Neo-Assyrian Empire"
+      "en": "Neo-Assyrian Empire",
+      "es": "Imperio neoasirio"
      },
      "sources": [
       "cliopatria"
@@ -4369,77 +4477,92 @@
    "facts": {
     "summary": {
      "sv": "Assyrien var en stormakt med centrum kring staden Assur i norra Mesopotamien, i dagens Irak. Under den nyassyriska tiden (911–609 f.Kr.) blev det det största rike världen dittills hade sett. Kartan visar både det äldre Assyrien och det nyassyriska riket.",
-     "en": "Assyria was a great power centred on the city of Assur in northern Mesopotamia, in present-day Iraq. During the Neo-Assyrian period (911–609 BC) it became the largest empire the world had seen up to then. The map shows both the older Assyria and the Neo-Assyrian Empire."
+     "en": "Assyria was a great power centred on the city of Assur in northern Mesopotamia, in present-day Iraq. During the Neo-Assyrian period (911–609 BC) it became the largest empire the world had seen up to then. The map shows both the older Assyria and the Neo-Assyrian Empire.",
+     "es": "Asiria fue una gran potencia con centro en la ciudad de Assur, en el norte de Mesopotamia, en el actual Irak. Durante el período neoasirio (911–609 a. C.) se convirtió en el mayor imperio que el mundo había visto hasta entonces. El mapa muestra tanto la Asiria más antigua como el Imperio neoasirio."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
-       "en": "When and where it arose"
+       "en": "When and where it arose",
+       "es": "Cuándo y dónde surgió"
       },
       "text": {
        "sv": "Staden Assur grundades cirka 2600 f.Kr. men blev självständig först omkring 2025 f.Kr. Under Ashur-uballit I på 1300-talet f.Kr. växte det mellanassyriska riket fram. Den nyassyriska tiden räknas från Adad-nirari II:s trontillträde 911 f.Kr.; World History Encyclopedia anger 912 f.Kr.",
-       "en": "The city of Assur was founded about 2600 BC but became independent only around 2025 BC. Under Ashur-uballit I in the 14th century BC the Middle Assyrian Empire emerged. The Neo-Assyrian period is counted from Adad-nirari II's accession in 911 BC; World History Encyclopedia gives 912 BC."
+       "en": "The city of Assur was founded about 2600 BC but became independent only around 2025 BC. Under Ashur-uballit I in the 14th century BC the Middle Assyrian Empire emerged. The Neo-Assyrian period is counted from Adad-nirari II's accession in 911 BC; World History Encyclopedia gives 912 BC.",
+       "es": "La ciudad de Assur fue fundada hacia 2600 a. C., pero se hizo independiente solo hacia 2025 a. C. Bajo Ashur-uballit I, en el siglo XIV a. C., surgió el Imperio medioasirio. El período neoasirio se cuenta desde el ascenso al trono de Adad-nirari II en 911 a. C.; la World History Encyclopedia indica 912 a. C."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
-       "en": "How it ended"
+       "en": "How it ended",
+       "es": "Cómo terminó"
       },
       "text": {
        "sv": "Försvagat av inbördeskrig erövrades riket av babylonier och meder: Assur föll 614, Nineve 612 och Harran 609 f.Kr. Varför ett så mäktigt rike föll så snabbt diskuteras fortfarande.",
-       "en": "Weakened by civil wars, the empire was conquered by Babylonians and Medes: Assur fell in 614, Nineveh in 612 and Harran in 609 BC. Why such a mighty empire fell so quickly is still debated."
+       "en": "Weakened by civil wars, the empire was conquered by Babylonians and Medes: Assur fell in 614, Nineveh in 612 and Harran in 609 BC. Why such a mighty empire fell so quickly is still debated.",
+       "es": "Debilitado por guerras civiles, el imperio fue conquistado por babilonios y medos: Assur cayó en 614, Nínive en 612 y Harrán en 609 a. C. Por qué un imperio tan poderoso cayó tan rápido sigue debatiéndose."
       }
      },
      {
       "label": {
        "sv": "Huvudstäder",
-       "en": "Capitals"
+       "en": "Capitals",
+       "es": "Capitales"
       },
       "text": {
        "sv": "Assur, Nimrud (från 879 f.Kr.), Dur-Sharrukin (706–705 f.Kr.), Nineve (705–612 f.Kr.) och till sist Harran (612–609 f.Kr.).",
-       "en": "Assur, Nimrud (from 879 BC), Dur-Sharrukin (706–705 BC), Nineveh (705–612 BC) and finally Harran (612–609 BC)."
+       "en": "Assur, Nimrud (from 879 BC), Dur-Sharrukin (706–705 BC), Nineveh (705–612 BC) and finally Harran (612–609 BC).",
+       "es": "Assur, Nimrud (desde 879 a. C.), Dur-Sharrukin (706–705 a. C.), Nínive (705–612 a. C.) y, por último, Harrán (612–609 a. C.)."
       }
      },
      {
       "label": {
        "sv": "Kända härskare",
-       "en": "Famous rulers"
+       "en": "Famous rulers",
+       "es": "Gobernantes célebres"
       },
       "text": {
        "sv": "Shamshi-Adad I (cirka 1808–1776 f.Kr.), Tukulti-Ninurta I (cirka 1243–1207 f.Kr.), Ashurnasirpal II (883–859), Tiglath-Pileser III (745–727), Sargon II (722–705), Sanherib (705–681), Asarhaddon (681–669) och Assurbanipal (669–631 f.Kr.).",
-       "en": "Shamshi-Adad I (about 1808–1776 BC), Tukulti-Ninurta I (about 1243–1207 BC), Ashurnasirpal II (883–859), Tiglath-Pileser III (745–727), Sargon II (722–705), Sennacherib (705–681), Esarhaddon (681–669) and Ashurbanipal (669–631 BC)."
+       "en": "Shamshi-Adad I (about 1808–1776 BC), Tukulti-Ninurta I (about 1243–1207 BC), Ashurnasirpal II (883–859), Tiglath-Pileser III (745–727), Sargon II (722–705), Sennacherib (705–681), Esarhaddon (681–669) and Ashurbanipal (669–631 BC).",
+       "es": "Shamshi-Adad I (aproximadamente 1808–1776 a. C.), Tukulti-Ninurta I (aproximadamente 1243–1207 a. C.), Ashurnasirpal II (883–859), Tiglatpileser III (745–727), Sargón II (722–705), Senaquerib (705–681), Asarhadón (681–669) y Asurbanipal (669–631 a. C.)."
       }
      },
      {
       "label": {
        "sv": "Största utbredning",
-       "en": "Greatest extent"
+       "en": "Greatest extent",
+       "es": "Mayor extensión"
       },
       "text": {
        "sv": "Under Asarhaddon, som erövrade Egypten 671 f.Kr. Wikipedias faktaruta anger cirka 1,4 miljoner km² år 670 f.Kr. Riket styrde då hela Mesopotamien, Levanten och Egypten och delar av Anatolien, Arabien och dagens Iran och Armenien.",
-       "en": "Under Esarhaddon, who conquered Egypt in 671 BC. Wikipedia's fact box gives about 1.4 million km² in 670 BC. The empire then ruled all of Mesopotamia, the Levant and Egypt and parts of Anatolia, Arabia and present-day Iran and Armenia."
+       "en": "Under Esarhaddon, who conquered Egypt in 671 BC. Wikipedia's fact box gives about 1.4 million km² in 670 BC. The empire then ruled all of Mesopotamia, the Levant and Egypt and parts of Anatolia, Arabia and present-day Iran and Armenia.",
+       "es": "Bajo Asarhadón, que conquistó Egipto en 671 a. C. El recuadro de datos de Wikipedia indica aproximadamente 1,4 millones de km² en 670 a. C. El imperio gobernaba entonces toda Mesopotamia, el Levante y Egipto, y partes de Anatolia, Arabia y de los actuales Irán y Armenia."
       }
      },
      {
       "label": {
        "sv": "Språk och religion",
-       "en": "Language and religion"
+       "en": "Language and religion",
+       "es": "Idioma y religión"
       },
       "text": {
        "sv": "Akkadiska och rikssarameiska. Arameiskan blev regionens gemensamma språk, bland annat för att riket flyttade delar av erövrade folk till andra provinser. Mesopotamisk religion.",
-       "en": "Akkadian and Imperial Aramaic. Aramaic became the common language of the region, among other reasons because the empire moved parts of conquered peoples to other provinces. Mesopotamian religion."
+       "en": "Akkadian and Imperial Aramaic. Aramaic became the common language of the region, among other reasons because the empire moved parts of conquered peoples to other provinces. Mesopotamian religion.",
+       "es": "Acadio y arameo imperial. El arameo se convirtió en el idioma común de la región, entre otras razones porque el imperio trasladaba a parte de los pueblos conquistados a otras provincias. Religión mesopotámica."
       }
      },
      {
       "label": {
        "sv": "Fler fakta",
-       "en": "More facts"
+       "en": "More facts",
+       "es": "Más datos"
       },
       "text": {
        "sv": "Riket hade ett system av vägar och reläposter för budbärare, och officiella meddelanden gick inte fortare i Mellanöstern förrän på 1800-talet. Assurbanipals bibliotek, det största i Mesopotamiens historia, hade mer än 30 000 dokument.",
-       "en": "The empire had a system of roads and relay posts for messengers, and official messages did not travel faster in the Middle East until the 19th century. Ashurbanipal's library, the largest in the history of Mesopotamia, held more than 30,000 documents."
+       "en": "The empire had a system of roads and relay posts for messengers, and official messages did not travel faster in the Middle East until the 19th century. Ashurbanipal's library, the largest in the history of Mesopotamia, held more than 30,000 documents.",
+       "es": "El imperio tenía un sistema de caminos y postas de relevo para mensajeros, y los mensajes oficiales no viajaron más rápido en Oriente Medio hasta el siglo XIX. La biblioteca de Asurbanipal, la mayor de la historia de Mesopotamia, contenía más de 30 000 documentos."
       }
      }
     ],
@@ -4448,37 +4571,44 @@
       "year": -1362,
       "label": {
        "sv": "cirka 1363 f.Kr.",
-       "en": "about 1363 BC"
+       "en": "about 1363 BC",
+       "es": "hacia 1363 a. C."
       },
       "title": {
        "sv": "Mellanassyriska riket",
-       "en": "The Middle Assyrian Empire"
+       "en": "The Middle Assyrian Empire",
+       "es": "El Imperio medioasirio"
       },
       "text": {
        "sv": "Under Ashur-uballit I växer Assyrien från stadsstat till stormakt, ett av de två stora rikena i Mesopotamien vid sidan av Babylonien.",
-       "en": "Under Ashur-uballit I Assyria grows from a city-state into a great power, one of the two major empires in Mesopotamia alongside Babylonia."
+       "en": "Under Ashur-uballit I Assyria grows from a city-state into a great power, one of the two major empires in Mesopotamia alongside Babylonia.",
+       "es": "Bajo Ashur-uballit I, Asiria pasa de ciudad-estado a gran potencia, uno de los dos grandes imperios de Mesopotamia junto con Babilonia."
       },
       "sources": [
        "wp-assyria"
       ],
       "mapNote": {
        "sv": "Kartan visar den stora tillväxten först från 1300 f.Kr.",
-       "en": "The map shows the great growth only from 1300 BC."
+       "en": "The map shows the great growth only from 1300 BC.",
+       "es": "El mapa muestra el gran crecimiento solo a partir de 1300 a. C."
       }
      },
      {
       "year": -910,
       "label": {
        "sv": "911 f.Kr.",
-       "en": "911 BC"
+       "en": "911 BC",
+       "es": "911 a. C."
       },
       "title": {
        "sv": "Nyassyriska tiden börjar",
-       "en": "The Neo-Assyrian period begins"
+       "en": "The Neo-Assyrian period begins",
+       "es": "Comienza el período neoasirio"
       },
       "text": {
        "sv": "Adad-nirari II blir kung. Han och hans efterträdare återtar de områden i norra Mesopotamien, östra Anatolien och Levanten som gått förlorade på 1000-talet f.Kr.",
-       "en": "Adad-nirari II becomes king. He and his successors retake the territories in northern Mesopotamia, eastern Anatolia and the Levant that had been lost in the 11th century BC."
+       "en": "Adad-nirari II becomes king. He and his successors retake the territories in northern Mesopotamia, eastern Anatolia and the Levant that had been lost in the 11th century BC.",
+       "es": "Adad-nirari II se convierte en rey. Él y sus sucesores recuperan los territorios del norte de Mesopotamia, el este de Anatolia y el Levante que se habían perdido en el siglo XI a. C."
       },
       "sources": [
        "wp-neo-assyrian-empire",
@@ -4486,66 +4616,78 @@
       ],
       "mapNote": {
        "sv": "Kartan visar Assyrien mycket litet 1000–901 f.Kr. och det nyassyriska riket från 900 f.Kr.",
-       "en": "The map shows Assyria as very small in 1000–901 BC and the Neo-Assyrian Empire from 900 BC."
+       "en": "The map shows Assyria as very small in 1000–901 BC and the Neo-Assyrian Empire from 900 BC.",
+       "es": "El mapa muestra Asiria muy pequeña en 1000–901 a. C. y el Imperio neoasirio a partir de 900 a. C."
       }
      },
      {
       "year": -744,
       "label": {
        "sv": "745 f.Kr.",
-       "en": "745 BC"
+       "en": "745 BC",
+       "es": "745 a. C."
       },
       "title": {
        "sv": "Tiglath-Pileser III",
-       "en": "Tiglath-Pileser III"
+       "en": "Tiglath-Pileser III",
+       "es": "Tiglatpileser III"
       },
       "text": {
        "sv": "Efter en tid då generaler och ämbetsmän styrt återställer Tiglath-Pileser III kungamakten och mer än fördubblar riket. Han erövrar Babylonien och stora delar av Levanten.",
-       "en": "After a time when generals and officials had ruled, Tiglath-Pileser III restores royal power and more than doubles the empire. He conquers Babylonia and large parts of the Levant."
+       "en": "After a time when generals and officials had ruled, Tiglath-Pileser III restores royal power and more than doubles the empire. He conquers Babylonia and large parts of the Levant.",
+       "es": "Tras una época en que gobernaron generales y funcionarios, Tiglatpileser III restablece el poder real y más que duplica el imperio. Conquista Babilonia y gran parte del Levante."
       },
       "sources": [
        "wp-neo-assyrian-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar tillväxten först från 700 f.Kr., då ytan nästan fördubblas.",
-       "en": "The map shows the growth only from 700 BC, when the area almost doubles."
+       "en": "The map shows the growth only from 700 BC, when the area almost doubles.",
+       "es": "El mapa muestra el crecimiento solo a partir de 700 a. C., cuando la superficie casi se duplica."
       }
      },
      {
       "year": -670,
       "label": {
        "sv": "671 f.Kr.",
-       "en": "671 BC"
+       "en": "671 BC",
+       "es": "671 a. C."
       },
       "title": {
        "sv": "Egypten erövras",
-       "en": "Egypt is conquered"
+       "en": "Egypt is conquered",
+       "es": "Egipto es conquistado"
       },
       "text": {
        "sv": "Asarhaddon erövrar Egypten, och riket når sin största utbredning. Under Sanherib har huvudstaden flyttats till Nineve.",
-       "en": "Esarhaddon conquers Egypt, and the empire reaches its greatest extent. Under Sennacherib the capital had been moved to Nineveh."
+       "en": "Esarhaddon conquers Egypt, and the empire reaches its greatest extent. Under Sennacherib the capital had been moved to Nineveh.",
+       "es": "Asarhadón conquista Egipto y el imperio alcanza su mayor extensión. Bajo Senaquerib, la capital había sido trasladada a Nínive."
       },
       "sources": [
        "wp-neo-assyrian-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar riket som störst 675–616 f.Kr., men utan Egypten. Cliopatria visar det assyriska Egypten som ett eget område 650–616 f.Kr., som inte ingår här.",
-       "en": "The map shows the empire at its largest in 675–616 BC, but without Egypt. Cliopatria shows Assyrian Egypt as a separate area in 650–616 BC, which is not included here."
+       "en": "The map shows the empire at its largest in 675–616 BC, but without Egypt. Cliopatria shows Assyrian Egypt as a separate area in 650–616 BC, which is not included here.",
+       "es": "El mapa muestra el imperio en su máxima extensión en 675–616 a. C., pero sin Egipto. Cliopatria muestra el Egipto asirio como un territorio aparte en 650–616 a. C., que no se incluye aquí."
       }
      },
      {
       "year": -611,
       "label": {
        "sv": "612 f.Kr.",
-       "en": "612 BC"
+       "en": "612 BC",
+       "es": "612 a. C."
       },
       "title": {
        "sv": "Nineve faller",
-       "en": "Nineveh falls"
+       "en": "Nineveh falls",
+       "es": "Cae Nínive"
       },
       "text": {
        "sv": "Babylonier och meder intar Nineve. Den siste kungen, Ashur-uballit II, håller ut i Harran till 609 f.Kr.",
-       "en": "Babylonians and Medes take Nineveh. The last king, Ashur-uballit II, holds out in Harran until 609 BC."
+       "en": "Babylonians and Medes take Nineveh. The last king, Ashur-uballit II, holds out in Harran until 609 BC.",
+       "es": "Babilonios y medos toman Nínive. El último rey, Ashur-uballit II, resiste en Harrán hasta 609 a. C."
       },
       "sources": [
        "wp-neo-assyrian-empire",
@@ -4553,13 +4695,15 @@
       ],
       "mapNote": {
        "sv": "Kartan visar ett kraftigt minskat rike 615–601 f.Kr.",
-       "en": "The map shows a greatly reduced empire in 615–601 BC."
+       "en": "The map shows a greatly reduced empire in 615–601 BC.",
+       "es": "El mapa muestra un imperio muy reducido en 615–601 a. C."
       }
      }
     ],
     "mapNote": {
      "sv": "Källorna anger Assyrien som självständig stat från omkring 2025 till 609 f.Kr. Kartan visar Assyrien från 1800 f.Kr. och det nyassyriska riket till och med 601 f.Kr., några år efter källornas slutår.",
-     "en": "The sources give Assyria as an independent state from around 2025 to 609 BC. The map shows Assyria from 1800 BC and the Neo-Assyrian Empire up to and including 601 BC, a few years after the sources' end year."
+     "en": "The sources give Assyria as an independent state from around 2025 to 609 BC. The map shows Assyria from 1800 BC and the Neo-Assyrian Empire up to and including 601 BC, a few years after the sources' end year.",
+     "es": "Las fuentes sitúan a Asiria como Estado independiente desde hacia 2025 hasta 609 a. C. El mapa muestra Asiria desde 1800 a. C. y el Imperio neoasirio hasta 601 a. C. inclusive, unos años después del último año que indican las fuentes."
     },
     "sources": [
      "wp-assyria",
@@ -4572,7 +4716,8 @@
     {
      "name": {
       "sv": "Ashur",
-      "en": "Assur"
+      "en": "Assur",
+      "es": "Ashur"
      },
      "wikidata": "Q200200",
      "at": [
@@ -4589,7 +4734,8 @@
     {
      "name": {
       "sv": "Nimrud",
-      "en": "Nimrud"
+      "en": "Nimrud",
+      "es": "Nimrud"
      },
      "wikidata": "Q237614",
      "at": [
@@ -4607,7 +4753,8 @@
     {
      "name": {
       "sv": "Dur-Sharrukin",
-      "en": "Dur-Sharrukin"
+      "en": "Dur-Sharrukin",
+      "es": "Dur-Sharrukin"
      },
      "wikidata": "Q253208",
      "at": [
@@ -4625,7 +4772,8 @@
     {
      "name": {
       "sv": "Nineve",
-      "en": "Nineveh"
+      "en": "Nineveh",
+      "es": "Nínive"
      },
      "wikidata": "Q5680",
      "at": [
@@ -4643,7 +4791,8 @@
     {
      "name": {
       "sv": "Harran",
-      "en": "Harran"
+      "en": "Harran",
+      "es": "Harrán"
      },
      "wikidata": "Q199547",
      "at": [
