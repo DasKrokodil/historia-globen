@@ -4813,7 +4813,8 @@
    "id": "nybabyloniska-riket",
    "name": {
     "sv": "Nybabyloniska riket",
-    "en": "Neo-Babylonian Empire"
+    "en": "Neo-Babylonian Empire",
+    "es": "Imperio neobabilónico"
    },
    "color": "#c7568a",
    "from": -599,
@@ -4824,7 +4825,8 @@
      "id": "nybabyloniska-riket",
      "name": {
       "sv": "Nybabyloniska riket",
-      "en": "Neo-Babylonian Empire"
+      "en": "Neo-Babylonian Empire",
+      "es": "Imperio neobabilónico"
      },
      "sources": [
       "cliopatria"
@@ -4835,77 +4837,92 @@
    "facts": {
     "summary": {
      "sv": "Nybabyloniska riket, även kallat kaldeiska riket, var det sista riket som styrdes av kungar från det forntida Mesopotamien. Det hade sitt centrum i Babylon och tog över stora delar av det assyriska riket.",
-     "en": "The Neo-Babylonian Empire, also called the Chaldean Empire, was the last empire ruled by kings from ancient Mesopotamia. It had its centre in Babylon and took over large parts of the Assyrian Empire."
+     "en": "The Neo-Babylonian Empire, also called the Chaldean Empire, was the last empire ruled by kings from ancient Mesopotamia. It had its centre in Babylon and took over large parts of the Assyrian Empire.",
+     "es": "El Imperio neobabilónico, también llamado Imperio caldeo, fue el último imperio gobernado por reyes de la antigua Mesopotamia. Tenía su centro en Babilonia y se hizo con gran parte del Imperio asirio."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
-       "en": "When and where it arose"
+       "en": "When and where it arose",
+       "es": "Cuándo y dónde surgió"
       },
       "text": {
        "sv": "Nabopolassar kröntes till kung i Babylon 626 f.Kr. Riket blev en stormakt när det tillsammans med mederna störtade Assyrien 612–609 f.Kr.",
-       "en": "Nabopolassar was crowned king in Babylon in 626 BC. The empire became a great power when, together with the Medes, it overthrew Assyria in 612–609 BC."
+       "en": "Nabopolassar was crowned king in Babylon in 626 BC. The empire became a great power when, together with the Medes, it overthrew Assyria in 612–609 BC.",
+       "es": "Nabopolasar fue coronado rey en Babilonia en 626 a. C. El imperio se convirtió en una gran potencia cuando, junto con los medos, derrocó a Asiria en 612–609 a. C."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
-       "en": "How it ended"
+       "en": "How it ended",
+       "es": "Cómo terminó"
       },
       "text": {
        "sv": "Perserkungen Kyros den store erövrade riket 539 f.Kr., efter slaget vid Opis. Den siste kungen, Nabonidus, hade gynnat månguden Sin framför Babylons skyddsgud Marduk, och Kyros framställde sig som Marduks beskyddare.",
-       "en": "The Persian king Cyrus the Great conquered the empire in 539 BC, after the Battle of Opis. The last king, Nabonidus, had favoured the moon god Sin over Babylon's patron god Marduk, and Cyrus presented himself as Marduk's protector."
+       "en": "The Persian king Cyrus the Great conquered the empire in 539 BC, after the Battle of Opis. The last king, Nabonidus, had favoured the moon god Sin over Babylon's patron god Marduk, and Cyrus presented himself as Marduk's protector.",
+       "es": "El rey persa Ciro el Grande conquistó el imperio en 539 a. C., tras la batalla de Opis. El último rey, Nabonido, había favorecido al dios lunar Sin por encima de Marduk, dios protector de Babilonia, y Ciro se presentó como protector de Marduk."
       }
      },
      {
       "label": {
        "sv": "Huvudstad",
-       "en": "Capital"
+       "en": "Capital",
+       "es": "Capital"
       },
       "text": {
        "sv": "Babylon.",
-       "en": "Babylon."
+       "en": "Babylon.",
+       "es": "Babilonia."
       }
      },
      {
       "label": {
        "sv": "Kända härskare",
-       "en": "Famous rulers"
+       "en": "Famous rulers",
+       "es": "Gobernantes célebres"
       },
       "text": {
        "sv": "Nabopolassar (626–605 f.Kr.), Nebukadnessar II (605–562 f.Kr.) och Nabonidus (556–539 f.Kr.).",
-       "en": "Nabopolassar (626–605 BC), Nebuchadnezzar II (605–562 BC) and Nabonidus (556–539 BC)."
+       "en": "Nabopolassar (626–605 BC), Nebuchadnezzar II (605–562 BC) and Nabonidus (556–539 BC).",
+       "es": "Nabopolasar (626–605 a. C.), Nabucodonosor II (605–562 a. C.) y Nabonido (556–539 a. C.)."
       }
      },
      {
       "label": {
        "sv": "Största utbredning",
-       "en": "Greatest extent"
+       "en": "Greatest extent",
+       "es": "Mayor extensión"
       },
       "text": {
        "sv": "Under Nebukadnessar II. Wikipedias faktaruta anger cirka 500 000 km² år 562 f.Kr.",
-       "en": "Under Nebuchadnezzar II. Wikipedia's fact box gives about 500,000 km² in 562 BC."
+       "en": "Under Nebuchadnezzar II. Wikipedia's fact box gives about 500,000 km² in 562 BC.",
+       "es": "Bajo Nabucodonosor II. El recuadro de datos de Wikipedia indica aproximadamente 500 000 km² en 562 a. C."
       }
      },
      {
       "label": {
        "sv": "Språk och religion",
-       "en": "Language and religion"
+       "en": "Language and religion",
+       "es": "Idioma y religión"
       },
       "text": {
        "sv": "Akkadiska och rikssarameiska. Babylonisk religion, med Marduk som Babylons skyddsgud.",
-       "en": "Akkadian and Imperial Aramaic. Babylonian religion, with Marduk as Babylon's patron god."
+       "en": "Akkadian and Imperial Aramaic. Babylonian religion, with Marduk as Babylon's patron god.",
+       "es": "Acadio y arameo imperial. Religión babilónica, con Marduk como dios protector de Babilonia."
       }
      },
      {
       "label": {
        "sv": "Fler fakta",
-       "en": "More facts"
+       "en": "More facts",
+       "es": "Más datos"
       },
       "text": {
        "sv": "Nebukadnessar II byggde om Babylon med bland annat Ishtarporten och Processionsgatan. Han belägrade Jerusalem 587 f.Kr., då Salomos tempel förstördes och den babyloniska fångenskapen började. Enligt vissa källor lät han anlägga Babylons hängande trädgårdar, men om de alls fanns är omdiskuterat.",
-       "en": "Nebuchadnezzar II rebuilt Babylon with, among other things, the Ishtar Gate and the Processional Way. He besieged Jerusalem in 587 BC, when Solomon's temple was destroyed and the Babylonian captivity began. According to some sources he had the Hanging Gardens of Babylon laid out, but whether they existed at all is debated."
+       "en": "Nebuchadnezzar II rebuilt Babylon with, among other things, the Ishtar Gate and the Processional Way. He besieged Jerusalem in 587 BC, when Solomon's temple was destroyed and the Babylonian captivity began. According to some sources he had the Hanging Gardens of Babylon laid out, but whether they existed at all is debated.",
+       "es": "Nabucodonosor II reconstruyó Babilonia con, entre otras obras, la Puerta de Ishtar y la Vía Procesional. Asedió Jerusalén en 587 a. C., cuando fue destruido el templo de Salomón y comenzó el cautiverio de Babilonia. Según algunas fuentes mandó construir los Jardines Colgantes de Babilonia, pero se debate si llegaron a existir."
       }
      }
     ],
@@ -4914,15 +4931,18 @@
       "year": -625,
       "label": {
        "sv": "626 f.Kr.",
-       "en": "626 BC"
+       "en": "626 BC",
+       "es": "626 a. C."
       },
       "title": {
        "sv": "Nabopolassar blir kung",
-       "en": "Nabopolassar becomes king"
+       "en": "Nabopolassar becomes king",
+       "es": "Nabopolasar se convierte en rey"
       },
       "text": {
        "sv": "Nabopolassar kröns till kung i Babylon, som länge har stått under assyriskt styre.",
-       "en": "Nabopolassar is crowned king in Babylon, which has long been under Assyrian rule."
+       "en": "Nabopolassar is crowned king in Babylon, which has long been under Assyrian rule.",
+       "es": "Nabopolasar es coronado rey en Babilonia, que lleva mucho tiempo bajo dominio asirio."
       },
       "sources": [
        "wp-neo-babylonian-empire",
@@ -4930,22 +4950,26 @@
       ],
       "mapNote": {
        "sv": "Kartan visar riket först från 600 f.Kr. Före dess visar Cliopatria Babylonien som ett eget rike, som inte ingår här.",
-       "en": "The map shows the empire only from 600 BC. Before that Cliopatria shows Babylonia as a separate empire, which is not included here."
+       "en": "The map shows the empire only from 600 BC. Before that Cliopatria shows Babylonia as a separate empire, which is not included here.",
+       "es": "El mapa muestra el imperio solo a partir de 600 a. C. Antes de esa fecha, Cliopatria muestra a Babilonia como un imperio aparte, que no se incluye aquí."
       }
      },
      {
       "year": -611,
       "label": {
        "sv": "612 f.Kr.",
-       "en": "612 BC"
+       "en": "612 BC",
+       "es": "612 a. C."
       },
       "title": {
        "sv": "Nineve faller",
-       "en": "Nineveh falls"
+       "en": "Nineveh falls",
+       "es": "Cae Nínive"
       },
       "text": {
        "sv": "Babylonier och meder intar den assyriska huvudstaden Nineve. Assyriens sista fäste, Harran, faller 609 f.Kr.",
-       "en": "Babylonians and Medes take the Assyrian capital Nineveh. Assyria's last stronghold, Harran, falls in 609 BC."
+       "en": "Babylonians and Medes take the Assyrian capital Nineveh. Assyria's last stronghold, Harran, falls in 609 BC.",
+       "es": "Babilonios y medos toman la capital asiria, Nínive. El último bastión de Asiria, Harrán, cae en 609 a. C."
       },
       "sources": [
        "wp-neo-babylonian-empire"
@@ -4955,15 +4979,18 @@
       "year": -604,
       "label": {
        "sv": "605 f.Kr.",
-       "en": "605 BC"
+       "en": "605 BC",
+       "es": "605 a. C."
       },
       "title": {
        "sv": "Nebukadnessar II blir kung",
-       "en": "Nebuchadnezzar II becomes king"
+       "en": "Nebuchadnezzar II becomes king",
+       "es": "Nabucodonosor II se convierte en rey"
       },
       "text": {
        "sv": "Nebukadnessar besegrar farao Necho II vid Karkemish. Kort därefter dör hans far, och Nebukadnessar blir kung. Under hans 43 år som kung blir Babylon Mellanösterns mäktigaste rike.",
-       "en": "Nebuchadnezzar defeats Pharaoh Necho II at Carchemish. Shortly afterwards his father dies, and Nebuchadnezzar becomes king. During his 43 years as king Babylon becomes the most powerful empire in the Middle East."
+       "en": "Nebuchadnezzar defeats Pharaoh Necho II at Carchemish. Shortly afterwards his father dies, and Nebuchadnezzar becomes king. During his 43 years as king Babylon becomes the most powerful empire in the Middle East.",
+       "es": "Nabucodonosor derrota al faraón Necao II en Carquemis. Poco después muere su padre y Nabucodonosor se convierte en rey. Durante sus 43 años de reinado, Babilonia se convierte en el imperio más poderoso de Oriente Medio."
       },
       "sources": [
        "wp-neo-babylonian-empire",
@@ -4974,15 +5001,18 @@
       "year": -586,
       "label": {
        "sv": "587 f.Kr.",
-       "en": "587 BC"
+       "en": "587 BC",
+       "es": "587 a. C."
       },
       "title": {
        "sv": "Jerusalem belägras",
-       "en": "Jerusalem is besieged"
+       "en": "Jerusalem is besieged",
+       "es": "Asedio de Jerusalén"
       },
       "text": {
        "sv": "Babylonierna belägrar Jerusalem, och Salomos tempel förstörs. Händelsen inleder den babyloniska fångenskapen.",
-       "en": "The Babylonians besiege Jerusalem, and Solomon's temple is destroyed. The event begins the Babylonian captivity."
+       "en": "The Babylonians besiege Jerusalem, and Solomon's temple is destroyed. The event begins the Babylonian captivity.",
+       "es": "Los babilonios asedian Jerusalén y el templo de Salomón es destruido. El hecho inicia el cautiverio de Babilonia."
       },
       "sources": [
        "wp-neo-babylonian-empire"
@@ -4992,15 +5022,18 @@
       "year": -538,
       "label": {
        "sv": "539 f.Kr.",
-       "en": "539 BC"
+       "en": "539 BC",
+       "es": "539 a. C."
       },
       "title": {
        "sv": "Persien erövrar riket",
-       "en": "Persia conquers the empire"
+       "en": "Persia conquers the empire",
+       "es": "Persia conquista el imperio"
       },
       "text": {
        "sv": "Kyros den store besegrar babylonierna vid Opis, och riket faller. Riket har funnits i mindre än hundra år.",
-       "en": "Cyrus the Great defeats the Babylonians at Opis, and the empire falls. The empire had existed for less than a hundred years."
+       "en": "Cyrus the Great defeats the Babylonians at Opis, and the empire falls. The empire had existed for less than a hundred years.",
+       "es": "Ciro el Grande derrota a los babilonios en Opis y el imperio cae. El imperio había existido durante menos de cien años."
       },
       "sources": [
        "wp-neo-babylonian-empire",
@@ -5008,13 +5041,15 @@
       ],
       "mapNote": {
        "sv": "Kartan visar riket till och med 531 f.Kr.",
-       "en": "The map shows the empire up to and including 531 BC."
+       "en": "The map shows the empire up to and including 531 BC.",
+       "es": "El mapa muestra el imperio hasta 531 a. C. inclusive."
       }
      }
     ],
     "mapNote": {
      "sv": "Källorna anger 626–539 f.Kr. Kartan visar riket 600–531 f.Kr. Kartans yta, cirka 700 000 km² 600–551 f.Kr., är större än faktarutans uppskattning.",
-     "en": "The sources give 626–539 BC. The map shows the empire 600–531 BC. The map's area, about 700,000 km² in 600–551 BC, is larger than the fact box's estimate."
+     "en": "The sources give 626–539 BC. The map shows the empire 600–531 BC. The map's area, about 700,000 km² in 600–551 BC, is larger than the fact box's estimate.",
+     "es": "Las fuentes sitúan el imperio en 626–539 a. C. El mapa lo muestra en 600–531 a. C. La superficie del mapa, de aproximadamente 700 000 km² en 600–551 a. C., es mayor que la estimación del recuadro de datos."
     },
     "sources": [
      "wp-neo-babylonian-empire",
@@ -5027,7 +5062,8 @@
     {
      "name": {
       "sv": "Babylon",
-      "en": "Babylon"
+      "en": "Babylon",
+      "es": "Babilonia"
      },
      "wikidata": "Q5684",
      "at": [
@@ -5046,7 +5082,8 @@
    "id": "kartago",
    "name": {
     "sv": "Kartago",
-    "en": "Carthage"
+    "en": "Carthage",
+    "es": "Cartago"
    },
    "color": "#7b5fc0",
    "from": -649,
@@ -5057,7 +5094,8 @@
      "id": "kartago",
      "name": {
       "sv": "Kartago",
-      "en": "Carthage"
+      "en": "Carthage",
+      "es": "Cartago"
      },
      "sources": [
       "cliopatria"
@@ -5068,87 +5106,104 @@
    "facts": {
     "summary": {
      "sv": "Kartago var en stad i dagens Tunisien som grundades av fenicier från Tyros. Den växte till ett handelsimperium som dominerade västra Medelhavet, tills Rom förstörde staden 146 f.Kr.",
-     "en": "Carthage was a city in present-day Tunisia founded by Phoenicians from Tyre. It grew into a trading empire that dominated the western Mediterranean, until Rome destroyed the city in 146 BC."
+     "en": "Carthage was a city in present-day Tunisia founded by Phoenicians from Tyre. It grew into a trading empire that dominated the western Mediterranean, until Rome destroyed the city in 146 BC.",
+     "es": "Cartago fue una ciudad en la actual Túnez, fundada por fenicios de Tiro. Se convirtió en un imperio comercial que dominó el Mediterráneo occidental, hasta que Roma destruyó la ciudad en 146 a. C."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
-       "en": "When and where it arose"
+       "en": "When and where it arose",
+       "es": "Cuándo y dónde surgió"
       },
       "text": {
        "sv": "Köpmän från Tyros, i dagens Libanon, grundade Kartago omkring 814 f.Kr. Enligt Wikipedias text blev staden självständig på 600-talet f.Kr., efter att Assyrien erövrat Fenicien; samma artikels faktaruta anger mitten av 500-talet f.Kr.",
-       "en": "Merchants from Tyre, in present-day Lebanon, founded Carthage around 814 BC. According to Wikipedia's text the city became independent in the 7th century BC, after Assyria had conquered Phoenicia; the same article's fact box gives the middle of the 6th century BC."
+       "en": "Merchants from Tyre, in present-day Lebanon, founded Carthage around 814 BC. According to Wikipedia's text the city became independent in the 7th century BC, after Assyria had conquered Phoenicia; the same article's fact box gives the middle of the 6th century BC.",
+       "es": "Comerciantes de Tiro, en el actual Líbano, fundaron Cartago hacia 814 a. C. Según el texto de Wikipedia, la ciudad se hizo independiente en el siglo VII a. C., después de que Asiria conquistara Fenicia; el recuadro de datos del mismo artículo indica mediados del siglo VI a. C."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
-       "en": "How it ended"
+       "en": "How it ended",
+       "es": "Cómo terminó"
       },
       "text": {
        "sv": "Konflikten med Rom ledde till de puniska krigen 264–146 f.Kr. Efter det andra kriget förlorade Kartago sin flotta och allt utom sitt område i Nordafrika. Efter det tredje kriget förstörde romarna staden 146 f.Kr.",
-       "en": "The conflict with Rome led to the Punic Wars of 264–146 BC. After the second war Carthage lost its fleet and everything except its territory in North Africa. After the third war the Romans destroyed the city in 146 BC."
+       "en": "The conflict with Rome led to the Punic Wars of 264–146 BC. After the second war Carthage lost its fleet and everything except its territory in North Africa. After the third war the Romans destroyed the city in 146 BC.",
+       "es": "El conflicto con Roma condujo a las guerras púnicas de 264–146 a. C. Tras la segunda guerra, Cartago perdió su flota y todo salvo su territorio en el norte de África. Tras la tercera guerra, los romanos destruyeron la ciudad en 146 a. C."
       }
      },
      {
       "label": {
        "sv": "Huvudstad",
-       "en": "Capital"
+       "en": "Capital",
+       "es": "Capital"
       },
       "text": {
        "sv": "Kartago.",
-       "en": "Carthage."
+       "en": "Carthage.",
+       "es": "Cartago."
       }
      },
      {
       "label": {
        "sv": "Kända ledare",
-       "en": "Famous leaders"
+       "en": "Famous leaders",
+       "es": "Líderes célebres"
       },
       "text": {
        "sv": "Kartago var först en monarki och blev sedan en republik som leddes av sufeter. Hamilkar Barkas erövrade delar av Iberiska halvön 237–228 f.Kr., och hans son Hannibal gick över Alperna under andra puniska kriget.",
-       "en": "Carthage was first a monarchy and then became a republic led by suffetes. Hamilcar Barca conquered parts of the Iberian Peninsula in 237–228 BC, and his son Hannibal crossed the Alps during the Second Punic War."
+       "en": "Carthage was first a monarchy and then became a republic led by suffetes. Hamilcar Barca conquered parts of the Iberian Peninsula in 237–228 BC, and his son Hannibal crossed the Alps during the Second Punic War.",
+       "es": "Cartago fue primero una monarquía y luego se convirtió en una república dirigida por sufetes. Amílcar Barca conquistó partes de la península ibérica en 237–228 a. C., y su hijo Aníbal cruzó los Alpes durante la Segunda Guerra Púnica."
       }
      },
      {
       "label": {
        "sv": "Största utbredning",
-       "en": "Greatest extent"
+       "en": "Greatest extent",
+       "es": "Mayor extensión"
       },
       "text": {
        "sv": "År 300 f.Kr. styrde Kartago Nordafrikas nordvästra kust, södra och östra Iberiska halvön och öarna Sicilien (på ett annat ställe säger källan västra halvan), Sardinien, Korsika, Malta och Balearerna. Källan anger ingen yta.",
-       "en": "In 300 BC Carthage ruled the north-western coast of North Africa, the southern and eastern Iberian Peninsula and the islands of Sicily (in another place the source says the western half), Sardinia, Corsica, Malta and the Balearic Islands. The source gives no area."
+       "en": "In 300 BC Carthage ruled the north-western coast of North Africa, the southern and eastern Iberian Peninsula and the islands of Sicily (in another place the source says the western half), Sardinia, Corsica, Malta and the Balearic Islands. The source gives no area.",
+       "es": "En 300 a. C., Cartago gobernaba la costa noroccidental del norte de África, el sur y el este de la península ibérica y las islas de Sicilia (en otro lugar la fuente dice la mitad occidental), Cerdeña, Córcega, Malta y las islas Baleares. La fuente no indica ninguna superficie."
       }
      },
      {
       "label": {
        "sv": "Språk och religion",
-       "en": "Language and religion"
+       "en": "Language and religion",
+       "es": "Idioma y religión"
       },
       "text": {
        "sv": "Puniska och punisk religion.",
-       "en": "Punic and Punic religion."
+       "en": "Punic and Punic religion.",
+       "es": "Púnico y religión púnica."
       }
      },
      {
       "label": {
        "sv": "Fler fakta",
-       "en": "More facts"
+       "en": "More facts",
+       "es": "Más datos"
       },
       "text": {
        "sv": "Kartagos flotta var en av antikens största, och armén bestod till stor del av legosoldater från bland annat Iberiska halvön, Gallien, Grekland och Nordafrika. Nästan alla kartagiska texter förstördes, så det mesta vi vet kommer från grekiska och romerska författare.",
-       "en": "Carthage's fleet was one of the largest of antiquity, and the army consisted largely of mercenaries from, among other places, the Iberian Peninsula, Gaul, Greece and North Africa. Almost all Carthaginian texts were destroyed, so most of what we know comes from Greek and Roman authors."
+       "en": "Carthage's fleet was one of the largest of antiquity, and the army consisted largely of mercenaries from, among other places, the Iberian Peninsula, Gaul, Greece and North Africa. Almost all Carthaginian texts were destroyed, so most of what we know comes from Greek and Roman authors.",
+       "es": "La flota de Cartago fue una de las mayores de la Antigüedad, y el ejército estaba formado en gran parte por mercenarios de, entre otros lugares, la península ibérica, la Galia, Grecia y el norte de África. Casi todos los textos cartagineses fueron destruidos, así que la mayor parte de lo que sabemos procede de autores griegos y romanos."
       }
      },
      {
       "label": {
        "sv": "Symbolen på kartan",
-       "en": "The symbol on the map"
+       "en": "The symbol on the map",
+       "es": "El símbolo del mapa"
       },
       "text": {
        "sv": "Dadelpalmen från Kartagos mynt. Hästen och palmen fanns på mynten från de första präglingarna omkring 410 f.Kr. och sedan genom hela myntningens historia. Vad de betydde är omstritt. Den vanligaste tolkningen av palmen är en ordlek: det grekiska ordet phoinix betyder både palm och fenicisk, och palmen visade alltså vem som präglade myntet. Hästen tolkas av en del forskare som en guds tecken, och därför valdes palmen.",
-       "en": "The date palm from Carthage's coins. The horse and the palm were on the coins from the first minting around 410 BC and then throughout the history of the coinage. What they meant is disputed. The most common interpretation of the palm is a pun: the Greek word phoinix means both palm and Phoenician, so the palm showed who minted the coin. The horse is interpreted by some scholars as a god's emblem, and therefore the palm was chosen."
+       "en": "The date palm from Carthage's coins. The horse and the palm were on the coins from the first minting around 410 BC and then throughout the history of the coinage. What they meant is disputed. The most common interpretation of the palm is a pun: the Greek word phoinix means both palm and Phoenician, so the palm showed who minted the coin. The horse is interpreted by some scholars as a god's emblem, and therefore the palm was chosen.",
+       "es": "La palmera datilera de las monedas de Cartago. El caballo y la palmera aparecían en las monedas desde las primeras acuñaciones, hacia 410 a. C., y después durante toda la historia de la moneda. Qué significaban es objeto de debate. La interpretación más habitual de la palmera es un juego de palabras: la palabra griega phoinix significa tanto palmera como fenicio, de modo que la palmera mostraba quién acuñaba la moneda. Algunos investigadores interpretan el caballo como emblema de un dios, y por eso se eligió la palmera."
       }
      }
     ],
@@ -5157,15 +5212,18 @@
       "year": -813,
       "label": {
        "sv": "cirka 814 f.Kr.",
-       "en": "about 814 BC"
+       "en": "about 814 BC",
+       "es": "hacia 814 a. C."
       },
       "title": {
        "sv": "Kartago grundas",
-       "en": "Carthage is founded"
+       "en": "Carthage is founded",
+       "es": "Fundación de Cartago"
       },
       "text": {
        "sv": "Köpmän från den feniciska staden Tyros grundar Kartago på Nordafrikas kust.",
-       "en": "Merchants from the Phoenician city of Tyre found Carthage on the coast of North Africa."
+       "en": "Merchants from the Phoenician city of Tyre found Carthage on the coast of North Africa.",
+       "es": "Comerciantes de la ciudad fenicia de Tiro fundan Cartago en la costa del norte de África."
       },
       "sources": [
        "wp-ancient-carthage",
@@ -5173,44 +5231,52 @@
       ],
       "mapNote": {
        "sv": "Kartan visar Kartago från 650 f.Kr., först bara staden och dess närmaste omgivning.",
-       "en": "The map shows Carthage from 650 BC, at first only the city and its immediate surroundings."
+       "en": "The map shows Carthage from 650 BC, at first only the city and its immediate surroundings.",
+       "es": "El mapa muestra Cartago a partir de 650 a. C., al principio solo la ciudad y sus alrededores inmediatos."
       }
      },
      {
       "year": -479,
       "label": {
        "sv": "480 f.Kr.",
-       "en": "480 BC"
+       "en": "480 BC",
+       "es": "480 a. C."
       },
       "title": {
        "sv": "Nederlaget vid Himera",
-       "en": "The defeat at Himera"
+       "en": "The defeat at Himera",
+       "es": "La derrota de Hímera"
       },
       "text": {
        "sv": "Kartago försöker hindra Syrakusa från att ena Sicilien men förlorar vid Himera, där kung Hamilkar dör. Kartago växer sedan i Nordafrika och på Iberiska halvön i stället för på Sicilien.",
-       "en": "Carthage tries to stop Syracuse from uniting Sicily but loses at Himera, where King Hamilcar dies. Carthage then grows in North Africa and on the Iberian Peninsula instead of in Sicily."
+       "en": "Carthage tries to stop Syracuse from uniting Sicily but loses at Himera, where King Hamilcar dies. Carthage then grows in North Africa and on the Iberian Peninsula instead of in Sicily.",
+       "es": "Cartago intenta impedir que Siracusa unifique Sicilia, pero pierde en Hímera, donde muere el rey Amílcar. Después Cartago crece en el norte de África y en la península ibérica en lugar de en Sicilia."
       },
       "sources": [
        "wp-ancient-carthage"
       ],
       "mapNote": {
        "sv": "Kartan visar Kartago tio gånger större redan från 500 f.Kr.",
-       "en": "The map shows Carthage ten times larger already from 500 BC."
+       "en": "The map shows Carthage ten times larger already from 500 BC.",
+       "es": "El mapa muestra a Cartago diez veces más grande ya desde 500 a. C."
       }
      },
      {
       "year": -263,
       "label": {
        "sv": "264 f.Kr.",
-       "en": "264 BC"
+       "en": "264 BC",
+       "es": "264 a. C."
       },
       "title": {
        "sv": "Första puniska kriget",
-       "en": "The First Punic War"
+       "en": "The First Punic War",
+       "es": "Primera Guerra Púnica"
       },
       "text": {
        "sv": "Kriget mot Rom börjar. Kartago förlorar och måste be om fred, och strax efter tar Rom också Sardinien och Korsika.",
-       "en": "The war against Rome begins. Carthage loses and has to ask for peace, and soon afterwards Rome also takes Sardinia and Corsica."
+       "en": "The war against Rome begins. Carthage loses and has to ask for peace, and soon afterwards Rome also takes Sardinia and Corsica.",
+       "es": "Comienza la guerra contra Roma. Cartago pierde y tiene que pedir la paz, y poco después Roma toma también Cerdeña y Córcega."
       },
       "sources": [
        "wp-ancient-carthage"
@@ -5223,37 +5289,44 @@
       "year": -236,
       "label": {
        "sv": "237–228 f.Kr.",
-       "en": "237–228 BC"
+       "en": "237–228 BC",
+       "es": "237–228 a. C."
       },
       "title": {
        "sv": "Hamilkar Barkas i Iberien",
-       "en": "Hamilcar Barca in Iberia"
+       "en": "Hamilcar Barca in Iberia",
+       "es": "Amílcar Barca en Iberia"
       },
       "text": {
        "sv": "Efter förlusten mot Rom erövrar Hamilkar Barkas stora delar av Iberiska halvön, som är rik på ädla metaller.",
-       "en": "After the loss to Rome, Hamilcar Barca conquers large parts of the Iberian Peninsula, which is rich in precious metals."
+       "en": "After the loss to Rome, Hamilcar Barca conquers large parts of the Iberian Peninsula, which is rich in precious metals.",
+       "es": "Tras la derrota ante Roma, Amílcar Barca conquista grandes partes de la península ibérica, rica en metales preciosos."
       },
       "sources": [
        "wp-ancient-carthage"
       ],
       "mapNote": {
        "sv": "Kartan visar tillväxten från 230 f.Kr.",
-       "en": "The map shows the growth from 230 BC."
+       "en": "The map shows the growth from 230 BC.",
+       "es": "El mapa muestra el crecimiento a partir de 230 a. C."
       }
      },
      {
       "year": -217,
       "label": {
        "sv": "218–201 f.Kr.",
-       "en": "218–201 BC"
+       "en": "218–201 BC",
+       "es": "218–201 a. C."
       },
       "title": {
        "sv": "Andra puniska kriget",
-       "en": "The Second Punic War"
+       "en": "The Second Punic War",
+       "es": "Segunda Guerra Púnica"
       },
       "text": {
        "sv": "Hannibal går över Alperna och vinner stora segrar i Italien. Romarna under Scipio Africanus tvingar honom till sist tillbaka till Afrika, där Kartago förlorar vid Zama och bara får behålla sitt område i Nordafrika.",
-       "en": "Hannibal crosses the Alps and wins great victories in Italy. The Romans under Scipio Africanus finally force him back to Africa, where Carthage loses at Zama and may keep only its territory in North Africa."
+       "en": "Hannibal crosses the Alps and wins great victories in Italy. The Romans under Scipio Africanus finally force him back to Africa, where Carthage loses at Zama and may keep only its territory in North Africa.",
+       "es": "Aníbal cruza los Alpes y obtiene grandes victorias en Italia. Los romanos, al mando de Escipión el Africano, lo obligan finalmente a regresar a África, donde Cartago pierde en Zama y solo puede conservar su territorio en el norte de África."
       },
       "sources": [
        "wp-ancient-carthage"
@@ -5263,22 +5336,26 @@
       ],
       "mapNote": {
        "sv": "Kartan visar Kartago som störst 218–217 f.Kr. och kraftigt minskat från 202 f.Kr.",
-       "en": "The map shows Carthage at its largest in 218–217 BC and greatly reduced from 202 BC."
+       "en": "The map shows Carthage at its largest in 218–217 BC and greatly reduced from 202 BC.",
+       "es": "El mapa muestra a Cartago en su mayor extensión en 218–217 a. C. y muy reducida a partir de 202 a. C."
       }
      },
      {
       "year": -145,
       "label": {
        "sv": "146 f.Kr.",
-       "en": "146 BC"
+       "en": "146 BC",
+       "es": "146 a. C."
       },
       "title": {
        "sv": "Kartago förstörs",
-       "en": "Carthage is destroyed"
+       "en": "Carthage is destroyed",
+       "es": "Destrucción de Cartago"
       },
       "text": {
        "sv": "Efter det tredje puniska kriget förstör romarna Kartago. Senare grundar de en ny stad på platsen.",
-       "en": "After the Third Punic War the Romans destroy Carthage. Later they found a new city on the site."
+       "en": "After the Third Punic War the Romans destroy Carthage. Later they found a new city on the site.",
+       "es": "Tras la Tercera Guerra Púnica, los romanos destruyen Cartago. Más tarde fundan una nueva ciudad en el lugar."
       },
       "sources": [
        "wp-ancient-carthage",
@@ -5289,13 +5366,15 @@
       ],
       "mapNote": {
        "sv": "Kartan visar Kartago till och med 145 f.Kr., alltså ett år efter källornas slutår 146 f.Kr.: Cliopatrias sista period för Kartago slutar 145 f.Kr. och Romerska republikens nästa period börjar 144 f.Kr.",
-       "en": "The map shows Carthage up to and including 145 BC, one year after the end year in the sources, 146 BC: Cliopatria's last period for Carthage ends in 145 BC and the Roman Republic's next period begins in 144 BC."
+       "en": "The map shows Carthage up to and including 145 BC, one year after the end year in the sources, 146 BC: Cliopatria's last period for Carthage ends in 145 BC and the Roman Republic's next period begins in 144 BC.",
+       "es": "El mapa muestra Cartago hasta 145 a. C. inclusive, es decir, un año después del año final de las fuentes, 146 a. C.: el último período de Cartago en Cliopatria termina en 145 a. C. y el siguiente período de la República romana comienza en 144 a. C."
       }
      }
     ],
     "mapNote": {
      "sv": "Källorna anger cirka 814–146 f.Kr. Kartan visar Kartago 650–145 f.Kr., alltså ett år efter källornas slutår 146 f.Kr.: Cliopatrias sista period för Kartago slutar 145 f.Kr. och Romerska republikens nästa period börjar 144 f.Kr.",
-     "en": "The sources give about 814–146 BC. The map shows Carthage 650–145 BC, one year after the end year in the sources, 146 BC: Cliopatria's last period for Carthage ends in 145 BC and the Roman Republic's next period begins in 144 BC."
+     "en": "The sources give about 814–146 BC. The map shows Carthage 650–145 BC, one year after the end year in the sources, 146 BC: Cliopatria's last period for Carthage ends in 145 BC and the Roman Republic's next period begins in 144 BC.",
+     "es": "Las fuentes sitúan Cartago hacia 814–146 a. C. El mapa muestra Cartago en 650–145 a. C., es decir, un año después del año final de las fuentes, 146 a. C.: el último período de Cartago en Cliopatria termina en 145 a. C. y el siguiente período de la República romana comienza en 144 a. C."
     },
     "sources": [
      "wp-ancient-carthage",
@@ -5309,7 +5388,8 @@
     {
      "name": {
       "sv": "Karthago",
-      "en": "Carthage"
+      "en": "Carthage",
+      "es": "Cartago"
      },
      "wikidata": "Q6343",
      "at": [
@@ -5328,7 +5408,8 @@
    "id": "seleukidriket",
    "name": {
     "sv": "Seleukidriket",
-    "en": "Seleucid Empire"
+    "en": "Seleucid Empire",
+    "es": "Imperio seléucida"
    },
    "color": "#4aa8c8",
    "from": -317,
@@ -5339,7 +5420,8 @@
      "id": "seleukidriket",
      "name": {
       "sv": "Seleukidriket",
-      "en": "Seleucid Empire"
+      "en": "Seleucid Empire",
+      "es": "Imperio seléucida"
      },
      "sources": [
       "cliopatria"
@@ -5350,87 +5432,104 @@
    "facts": {
     "summary": {
      "sv": "Seleukidriket var en grekisk stat i Västasien, grundad av Alexander den stores general Seleukos I efter att Alexanders rike delats. Det var ett centrum för hellenistisk kultur.",
-     "en": "The Seleucid Empire was a Greek state in Western Asia, founded by Alexander the Great's general Seleucus I after Alexander's empire was divided. It was a centre of Hellenistic culture."
+     "en": "The Seleucid Empire was a Greek state in Western Asia, founded by Alexander the Great's general Seleucus I after Alexander's empire was divided. It was a centre of Hellenistic culture.",
+     "es": "El Imperio seléucida fue un Estado griego en Asia occidental, fundado por Seleuco I, general de Alejandro Magno, después de que el imperio de Alejandro se dividiera. Fue un centro de la cultura helenística."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
-       "en": "When and where it arose"
+       "en": "When and where it arose",
+       "es": "Cuándo y dónde surgió"
       },
       "text": {
        "sv": "Seleukos I fick Babylonien 321 f.Kr. och grundade riket 312 f.Kr., under krigen mellan Alexanders generaler. Han utvidgade det till dagens Irak, Iran, Afghanistan, Syrien och Libanon.",
-       "en": "Seleucus I received Babylonia in 321 BC and founded the empire in 312 BC, during the wars between Alexander's generals. He extended it to present-day Iraq, Iran, Afghanistan, Syria and Lebanon."
+       "en": "Seleucus I received Babylonia in 321 BC and founded the empire in 312 BC, during the wars between Alexander's generals. He extended it to present-day Iraq, Iran, Afghanistan, Syria and Lebanon.",
+       "es": "Seleuco I recibió Babilonia en 321 a. C. y fundó el imperio en 312 a. C., durante las guerras entre los generales de Alejandro. Lo amplió hasta los actuales Irak, Irán, Afganistán, Siria y Líbano."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
-       "en": "How it ended"
+       "en": "How it ended",
+       "es": "Cómo terminó"
       },
       "text": {
        "sv": "Efter nederlaget mot Rom vid Magnesia förlorade riket områdena väster om Taurusbergen, och partherna erövrade de östra delarna med Mesopotamien. Efter ett inbördeskrig återstod en stat i Syrien, som Tigranes den store av Armenien erövrade 83 f.Kr. Romarna under Pompejus gjorde slut på riket 63 f.Kr.",
-       "en": "After the defeat by Rome at Magnesia the empire lost the territories west of the Taurus Mountains, and the Parthians conquered the eastern parts including Mesopotamia. After a civil war a state remained in Syria, which Tigranes the Great of Armenia conquered in 83 BC. The Romans under Pompey ended the empire in 63 BC."
+       "en": "After the defeat by Rome at Magnesia the empire lost the territories west of the Taurus Mountains, and the Parthians conquered the eastern parts including Mesopotamia. After a civil war a state remained in Syria, which Tigranes the Great of Armenia conquered in 83 BC. The Romans under Pompey ended the empire in 63 BC.",
+       "es": "Tras la derrota ante Roma en Magnesia, el imperio perdió los territorios al oeste de los montes Tauro, y los partos conquistaron las partes orientales, incluida Mesopotamia. Después de una guerra civil quedó un Estado en Siria, que Tigranes el Grande de Armenia conquistó en 83 a. C. Los romanos, bajo Pompeyo, pusieron fin al imperio en 63 a. C."
       }
      },
      {
       "label": {
        "sv": "Huvudstäder",
-       "en": "Capitals"
+       "en": "Capitals",
+       "es": "Capitales"
       },
       "text": {
        "sv": "Babylon (312–305 f.Kr.), Seleukia (305–240 f.Kr.) och Antiochia (240–63 f.Kr.).",
-       "en": "Babylon (312–305 BC), Seleucia (305–240 BC) and Antioch (240–63 BC)."
+       "en": "Babylon (312–305 BC), Seleucia (305–240 BC) and Antioch (240–63 BC).",
+       "es": "Babilonia (312–305 a. C.), Seleucia (305–240 a. C.) y Antioquía (240–63 a. C.)."
       }
      },
      {
       "label": {
        "sv": "Kända härskare",
-       "en": "Famous rulers"
+       "en": "Famous rulers",
+       "es": "Gobernantes célebres"
       },
       "text": {
        "sv": "Seleukos I (305–281 f.Kr.), Antiochos III den store och, som den siste, Filip II (65–63 f.Kr.).",
-       "en": "Seleucus I (305–281 BC), Antiochus III the Great and, as the last, Philip II (65–63 BC)."
+       "en": "Seleucus I (305–281 BC), Antiochus III the Great and, as the last, Philip II (65–63 BC).",
+       "es": "Seleuco I (305–281 a. C.), Antíoco III el Grande y, como último, Filipo II (65–63 a. C.)."
       }
      },
      {
       "label": {
        "sv": "Största utbredning",
-       "en": "Greatest extent"
+       "en": "Greatest extent",
+       "es": "Mayor extensión"
       },
       "text": {
        "sv": "Wikipedias faktaruta anger cirka 3,9 miljoner km² år 301 f.Kr., och sedan 2,6 miljoner år 240, 800 000 år 175 och 100 000 km² år 100 f.Kr. Som störst omfattade riket Anatolien, Persien, Levanten, Mesopotamien och delar av Centralasien.",
-       "en": "Wikipedia's fact box gives about 3.9 million km² in 301 BC, and then 2.6 million in 240, 800,000 in 175 and 100,000 km² in 100 BC. At its largest the empire comprised Anatolia, Persia, the Levant, Mesopotamia and parts of Central Asia."
+       "en": "Wikipedia's fact box gives about 3.9 million km² in 301 BC, and then 2.6 million in 240, 800,000 in 175 and 100,000 km² in 100 BC. At its largest the empire comprised Anatolia, Persia, the Levant, Mesopotamia and parts of Central Asia.",
+       "es": "El recuadro de datos de Wikipedia indica aproximadamente 3,9 millones de km² en 301 a. C., y después 2,6 millones en 240, 800 000 en 175 y 100 000 km² en 100 a. C. En su mayor extensión, el imperio abarcaba Anatolia, Persia, el Levante, Mesopotamia y partes de Asia central."
       }
      },
      {
       "label": {
        "sv": "Språk och religion",
-       "en": "Language and religion"
+       "en": "Language and religion",
+       "es": "Idioma y religión"
       },
       "text": {
        "sv": "Grekiska var officiellt språk; också fornpersiska och arameiska talades. Grekisk och babylonisk religion, judendom och zoroastrism.",
-       "en": "Greek was the official language; Old Persian and Aramaic were also spoken. Greek and Babylonian religion, Judaism and Zoroastrianism."
+       "en": "Greek was the official language; Old Persian and Aramaic were also spoken. Greek and Babylonian religion, Judaism and Zoroastrianism.",
+       "es": "El griego era el idioma oficial; también se hablaban persa antiguo y arameo. Religión griega y babilónica, judaísmo y zoroastrismo."
       }
      },
      {
       "label": {
        "sv": "Fler fakta",
-       "en": "More facts"
+       "en": "More facts",
+       "es": "Más datos"
       },
       "text": {
        "sv": "Grekiska seder och grekiska språket gynnades, och en grekisk stadselit styrde. Riket stred upprepade gånger med det ptolemaiska Egypten om sina västra områden. I öster slöt Seleukos förbund med Chandragupta i Mauryariket och lämnade över områden vid Indus.",
-       "en": "Greek customs and the Greek language were favoured, and a Greek urban elite ruled. The empire repeatedly fought the Ptolemaic Kingdom of Egypt over its western territories. In the east Seleucus concluded an alliance with Chandragupta of the Maurya Empire and ceded territories at the Indus."
+       "en": "Greek customs and the Greek language were favoured, and a Greek urban elite ruled. The empire repeatedly fought the Ptolemaic Kingdom of Egypt over its western territories. In the east Seleucus concluded an alliance with Chandragupta of the Maurya Empire and ceded territories at the Indus.",
+       "es": "Se favorecían las costumbres griegas y el idioma griego, y gobernaba una élite urbana griega. El imperio luchó repetidamente con el Reino ptolemaico de Egipto por sus territorios occidentales. En el este, Seleuco selló una alianza con Chandragupta, del Imperio maurya, y cedió territorios junto al Indo."
       }
      },
      {
       "label": {
        "sv": "Symbolen på kartan",
-       "en": "The symbol on the map"
+       "en": "The symbol on the map",
+       "es": "El símbolo del mapa"
       },
       "text": {
        "sv": "Ankaret var ett av den seleukidiska kungaättens vanligaste tecken, tillsammans med den behornade hästen, elefanten och gudinnorna Nike och Tyche. Det finns på mynt redan från Seleukos I, rikets grundare.",
-       "en": "The anchor was one of the most common emblems of the Seleucid dynasty, together with the horned horse, the elephant and the goddesses Nike and Tyche. It is found on coins as early as Seleucus I, the founder of the empire."
+       "en": "The anchor was one of the most common emblems of the Seleucid dynasty, together with the horned horse, the elephant and the goddesses Nike and Tyche. It is found on coins as early as Seleucus I, the founder of the empire.",
+       "es": "El ancla era uno de los emblemas más comunes de la dinastía seléucida, junto con el caballo con cuernos, el elefante y las diosas Nike y Tique. Aparece en monedas ya desde Seleuco I, el fundador del imperio."
       }
      }
     ],
@@ -5439,15 +5538,18 @@
       "year": -311,
       "label": {
        "sv": "312 f.Kr.",
-       "en": "312 BC"
+       "en": "312 BC",
+       "es": "312 a. C."
       },
       "title": {
        "sv": "Seleukos grundar riket",
-       "en": "Seleucus founds the empire"
+       "en": "Seleucus founds the empire",
+       "es": "Seleuco funda el imperio"
       },
       "text": {
        "sv": "Seleukos I grundar riket med Babylonien som bas, under krigen mellan Alexanders generaler.",
-       "en": "Seleucus I founds the empire with Babylonia as its base, during the war between Alexander's generals."
+       "en": "Seleucus I founds the empire with Babylonia as its base, during the war between Alexander's generals.",
+       "es": "Seleuco I funda el imperio con Babilonia como base, durante la guerra entre los generales de Alejandro."
       },
       "sources": [
        "wp-seleucid-empire",
@@ -5455,66 +5557,78 @@
       ],
       "mapNote": {
        "sv": "Kartan visar ett litet område redan 318–316 f.Kr. och sedan riket från 307 f.Kr.",
-       "en": "The map shows a small area already in 318–316 BC and then the empire from 307 BC."
+       "en": "The map shows a small area already in 318–316 BC and then the empire from 307 BC.",
+       "es": "El mapa muestra una pequeña zona ya en 318–316 a. C. y luego el imperio a partir de 307 a. C."
       }
      },
      {
       "year": -300,
       "label": {
        "sv": "301 f.Kr.",
-       "en": "301 BC"
+       "en": "301 BC",
+       "es": "301 a. C."
       },
       "title": {
        "sv": "Slaget vid Ipsos",
-       "en": "The Battle of Ipsus"
+       "en": "The Battle of Ipsus",
+       "es": "La batalla de Ipsos"
       },
       "text": {
        "sv": "Efter slaget vid Ipsos är riket som störst enligt Wikipedias faktaruta, cirka 3,9 miljoner km².",
-       "en": "After the Battle of Ipsus the empire is at its largest according to Wikipedia's fact box, about 3.9 million km²."
+       "en": "After the Battle of Ipsus the empire is at its largest according to Wikipedia's fact box, about 3.9 million km².",
+       "es": "Tras la batalla de Ipsos, el imperio alcanza su mayor extensión según el recuadro de datos de Wikipedia, aproximadamente 3,9 millones de km²."
       },
       "sources": [
        "wp-seleucid-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar riket som störst 301–292 f.Kr., cirka 3,0 miljoner km².",
-       "en": "The map shows the empire at its largest in 301–292 BC, about 3.0 million km²."
+       "en": "The map shows the empire at its largest in 301–292 BC, about 3.0 million km².",
+       "es": "El mapa muestra el imperio en su mayor extensión en 301–292 a. C., aproximadamente 3,0 millones de km²."
       }
      },
      {
       "year": -191,
       "label": {
        "sv": "192–188 f.Kr.",
-       "en": "192–188 BC"
+       "en": "192–188 BC",
+       "es": "192–188 a. C."
       },
       "title": {
        "sv": "Kriget mot Rom",
-       "en": "The war against Rome"
+       "en": "The war against Rome",
+       "es": "La guerra contra Roma"
       },
       "text": {
        "sv": "Antiochos III den store för kriget in i Grekland men besegras av Rom och dess grekiska allierade vid Magnesia. Riket måste betala krigsskadestånd och ge upp sina områden väster om Taurusbergen.",
-       "en": "Antiochus III the Great takes the war into Greece but is defeated by Rome and its Greek allies at Magnesia. The empire has to pay war reparations and give up its territories west of the Taurus Mountains."
+       "en": "Antiochus III the Great takes the war into Greece but is defeated by Rome and its Greek allies at Magnesia. The empire has to pay war reparations and give up its territories west of the Taurus Mountains.",
+       "es": "Antíoco III el Grande lleva la guerra a Grecia, pero es derrotado en Magnesia por Roma y sus aliados griegos. El imperio tiene que pagar una indemnización de guerra y renunciar a sus territorios al oeste de los montes Tauro."
       },
       "sources": [
        "wp-seleucid-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar en minskning med cirka 19 procent från 188 f.Kr.",
-       "en": "The map shows a decrease of about 19 per cent from 188 BC."
+       "en": "The map shows a decrease of about 19 per cent from 188 BC.",
+       "es": "El mapa muestra una reducción de aproximadamente un 19 % a partir de 188 a. C."
       }
      },
      {
       "year": -140,
       "label": {
        "sv": "148–141 f.Kr.",
-       "en": "148–141 BC"
+       "en": "148–141 BC",
+       "es": "148–141 a. C."
       },
       "title": {
        "sv": "Partherna tar Mesopotamien",
-       "en": "The Parthians take Mesopotamia"
+       "en": "The Parthians take Mesopotamia",
+       "es": "Los partos toman Mesopotamia"
       },
       "text": {
        "sv": "Partherkungen Mithridates I intar Medien och sedan Babylonien, där han präglar mynt i Seleukia 141 f.Kr.",
-       "en": "The Parthian king Mithridates I takes Media and then Babylonia, where he mints coins at Seleucia in 141 BC."
+       "en": "The Parthian king Mithridates I takes Media and then Babylonia, where he mints coins at Seleucia in 141 BC.",
+       "es": "El rey parto Mitrídates I toma Media y luego Babilonia, donde acuña moneda en Seleucia en 141 a. C."
       },
       "sources": [
        "wp-seleucid-empire",
@@ -5522,44 +5636,52 @@
       ],
       "mapNote": {
        "sv": "Kartan visar förlusten redan från 164 f.Kr., då riket krymper med cirka 73 procent.",
-       "en": "The map shows the loss already from 164 BC, when the empire shrinks by about 73 per cent."
+       "en": "The map shows the loss already from 164 BC, when the empire shrinks by about 73 per cent.",
+       "es": "El mapa muestra la pérdida ya desde 164 a. C., cuando el imperio se reduce aproximadamente un 73 %."
       }
      },
      {
       "year": -82,
       "label": {
        "sv": "83 f.Kr.",
-       "en": "83 BC"
+       "en": "83 BC",
+       "es": "83 a. C."
       },
       "title": {
        "sv": "Tigranes erövrar Syrien",
-       "en": "Tigranes conquers Syria"
+       "en": "Tigranes conquers Syria",
+       "es": "Tigranes conquista Siria"
       },
       "text": {
        "sv": "Tigranes den store av Armenien erövrar det som är kvar av riket i Syrien.",
-       "en": "Tigranes the Great of Armenia conquers what remains of the empire in Syria."
+       "en": "Tigranes the Great of Armenia conquers what remains of the empire in Syria.",
+       "es": "Tigranes el Grande de Armenia conquista lo que queda del imperio en Siria."
       },
       "sources": [
        "wp-seleucid-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar riket till och med 78 f.Kr. och sedan igen 66–64 f.Kr.",
-       "en": "The map shows the empire up to and including 78 BC and then again 66–64 BC."
+       "en": "The map shows the empire up to and including 78 BC and then again 66–64 BC.",
+       "es": "El mapa muestra el imperio hasta 78 a. C. inclusive y luego de nuevo en 66–64 a. C."
       }
      },
      {
       "year": -62,
       "label": {
        "sv": "63 f.Kr.",
-       "en": "63 BC"
+       "en": "63 BC",
+       "es": "63 a. C."
       },
       "title": {
        "sv": "Rom tar över",
-       "en": "Rome takes over"
+       "en": "Rome takes over",
+       "es": "Roma toma el control"
       },
       "text": {
        "sv": "Den romerske fältherren Pompejus gör slut på riket, och Syrien blir romersk provins.",
-       "en": "The Roman general Pompey ends the empire, and Syria becomes a Roman province."
+       "en": "The Roman general Pompey ends the empire, and Syria becomes a Roman province.",
+       "es": "El general romano Pompeyo pone fin al imperio, y Siria se convierte en provincia romana."
       },
       "sources": [
        "wp-seleucid-empire",
@@ -5567,13 +5689,15 @@
       ],
       "mapNote": {
        "sv": "Kartan visar riket till och med 64 f.Kr.",
-       "en": "The map shows the empire up to and including 64 BC."
+       "en": "The map shows the empire up to and including 64 BC.",
+       "es": "El mapa muestra el imperio hasta 64 a. C. inclusive."
       }
      }
     ],
     "mapNote": {
      "sv": "Källorna anger 312–63 f.Kr. Kartan visar riket 318–64 f.Kr., med uppehåll 315–308 och 77–67 f.Kr.",
-     "en": "The sources give 312–63 BC. The map shows the empire 318–64 BC, with gaps in 315–308 and 77–67 BC."
+     "en": "The sources give 312–63 BC. The map shows the empire 318–64 BC, with gaps in 315–308 and 77–67 BC.",
+     "es": "Las fuentes sitúan el imperio en 312–63 a. C. El mapa lo muestra en 318–64 a. C., con interrupciones en 315–308 y 77–67 a. C."
     },
     "sources": [
      "wp-seleucid-empire",
@@ -5586,7 +5710,8 @@
     {
      "name": {
       "sv": "Babylon",
-      "en": "Babylon"
+      "en": "Babylon",
+      "es": "Babilonia"
      },
      "wikidata": "Q5684",
      "at": [
@@ -5604,7 +5729,8 @@
     {
      "name": {
       "sv": "Seleukia",
-      "en": "Seleucia"
+      "en": "Seleucia",
+      "es": "Seleucia"
      },
      "wikidata": "Q1136681",
      "at": [
@@ -5622,7 +5748,8 @@
     {
      "name": {
       "sv": "Antiochia",
-      "en": "Antioch"
+      "en": "Antioch",
+      "es": "Antioquía"
      },
      "wikidata": "Q200441",
      "at": [
@@ -5638,7 +5765,8 @@
      "review": "source-checked",
      "note": {
       "sv": "Källorna skiljer sig med ett år om slutet: Wikipedia anger 63 f.Kr., Wikidata 64 f.Kr. Wikidata nämner också Lysimachia som huvudstad, utan årtal.",
-      "en": "The sources differ by a year about the end: Wikipedia gives 63 BC, Wikidata 64 BC. Wikidata also mentions Lysimachia as a capital, without years."
+      "en": "The sources differ by a year about the end: Wikipedia gives 63 BC, Wikidata 64 BC. Wikidata also mentions Lysimachia as a capital, without years.",
+      "es": "Las fuentes difieren en un año sobre el final: Wikipedia indica 63 a. C. y Wikidata 64 a. C. Wikidata menciona también a Lisimaquia como capital, sin años."
      }
     }
    ]
@@ -5647,7 +5775,8 @@
    "id": "partherriket",
    "name": {
     "sv": "Partherriket",
-    "en": "Parthian Empire"
+    "en": "Parthian Empire",
+    "es": "Imperio parto"
    },
    "color": "#9a9433",
    "from": -238,
@@ -5658,7 +5787,8 @@
      "id": "partherriket",
      "name": {
       "sv": "Partherriket",
-      "en": "Parthian Empire"
+      "en": "Parthian Empire",
+      "es": "Imperio parto"
      },
      "sources": [
       "cliopatria"
@@ -5669,87 +5799,104 @@
    "facts": {
     "summary": {
      "sv": "Partherriket, eller arsakidernas rike, var en iransk stormakt från 247 f.Kr. till 224 e.Kr. Det låg på Sidenvägen mellan Romarriket och Hanriket och var Roms stora rival i öster.",
-     "en": "The Parthian Empire, or the empire of the Arsacids, was an Iranian great power from 247 BC to 224 AD. It lay on the Silk Road between the Roman Empire and the Han Empire and was Rome's great rival in the east."
+     "en": "The Parthian Empire, or the empire of the Arsacids, was an Iranian great power from 247 BC to 224 AD. It lay on the Silk Road between the Roman Empire and the Han Empire and was Rome's great rival in the east.",
+     "es": "El Imperio parto, o imperio de los arsácidas, fue una gran potencia iraní desde 247 a. C. hasta 224 d. C. Estaba en la Ruta de la Seda, entre el Imperio romano y el Imperio Han, y fue el gran rival de Roma en Oriente."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
-       "en": "When and where it arose"
+       "en": "When and where it arose",
+       "es": "Cuándo y dónde surgió"
       },
       "text": {
        "sv": "Arsakes I ledde parnerstammen när de erövrade Parthien i nordöstra Iran, en provins vars guvernör hade gjort uppror mot Seleukidriket. Riket räknas från 247 f.Kr.",
-       "en": "Arsaces I led the Parni tribe when they conquered Parthia in north-eastern Iran, a province whose governor had rebelled against the Seleucid Empire. The empire is counted from 247 BC."
+       "en": "Arsaces I led the Parni tribe when they conquered Parthia in north-eastern Iran, a province whose governor had rebelled against the Seleucid Empire. The empire is counted from 247 BC.",
+       "es": "Arsaces I dirigía a la tribu de los parnos cuando conquistaron Partia, en el noreste de Irán, una provincia cuyo gobernador se había rebelado contra el Imperio seléucida. El imperio se cuenta desde 247 a. C."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
-       "en": "How it ended"
+       "en": "How it ended",
+       "es": "Cómo terminó"
       },
       "text": {
        "sv": "Inbördeskrig om tronen var farligare för riket än anfall utifrån. Ardashir I från Persis gjorde uppror och dödade den siste kungen, Artabanos IV, 224 e.Kr., och grundade Sasanidriket.",
-       "en": "Civil war over the throne was more dangerous to the empire than attacks from outside. Ardashir I of Persis rebelled and killed the last king, Artabanus IV, in 224 AD, and founded the Sasanian Empire."
+       "en": "Civil war over the throne was more dangerous to the empire than attacks from outside. Ardashir I of Persis rebelled and killed the last king, Artabanus IV, in 224 AD, and founded the Sasanian Empire.",
+       "es": "La guerra civil por el trono era más peligrosa para el imperio que los ataques exteriores. Ardashir I de Persis se rebeló y mató al último rey, Artabano IV, en 224 d. C., y fundó el Imperio sasánida."
       }
      },
      {
       "label": {
        "sv": "Huvudstäder",
-       "en": "Capitals"
+       "en": "Capitals",
+       "es": "Capitales"
       },
       "text": {
        "sv": "Riket hade flera huvudstäder. Maktens centrum flyttade från Nisa till Ktesifon vid Tigris, söder om dagens Bagdad; också Ekbatana, Hekatompylos och Susa var huvudstäder.",
-       "en": "The empire had several capitals. The centre of power moved from Nisa to Ctesiphon on the Tigris, south of present-day Baghdad; Ecbatana, Hecatompylos and Susa were also capitals."
+       "en": "The empire had several capitals. The centre of power moved from Nisa to Ctesiphon on the Tigris, south of present-day Baghdad; Ecbatana, Hecatompylos and Susa were also capitals.",
+       "es": "El imperio tuvo varias capitales. El centro del poder se trasladó de Nisa a Ctesifonte, junto al Tigris, al sur de la actual Bagdad; también Ecbatana, Hecatompilos y Susa fueron capitales."
       }
      },
      {
       "label": {
        "sv": "Kända härskare",
-       "en": "Famous rulers"
+       "en": "Famous rulers",
+       "es": "Gobernantes célebres"
       },
       "text": {
        "sv": "Arsakes I (247–211 f.Kr.), Mithridates I (cirka 171–132 f.Kr.), Mithridates II, Orodes II och Artabanos IV (213–224 e.Kr.).",
-       "en": "Arsaces I (247–211 BC), Mithridates I (about 171–132 BC), Mithridates II, Orodes II and Artabanus IV (213–224 AD)."
+       "en": "Arsaces I (247–211 BC), Mithridates I (about 171–132 BC), Mithridates II, Orodes II and Artabanus IV (213–224 AD).",
+       "es": "Arsaces I (247–211 a. C.), Mitrídates I (hacia 171–132 a. C.), Mitrídates II, Orodes II y Artabano IV (213–224 d. C.)."
       }
      },
      {
       "label": {
        "sv": "Största utbredning",
-       "en": "Greatest extent"
+       "en": "Greatest extent",
+       "es": "Mayor extensión"
       },
       "text": {
        "sv": "Från Eufrats norra lopp, i dagens östra Turkiet, till dagens Afghanistan och västra Pakistan. Wikipedias faktaruta anger cirka 2,8 miljoner km² år 1 e.Kr.",
-       "en": "From the northern course of the Euphrates, in present-day eastern Turkey, to present-day Afghanistan and western Pakistan. Wikipedia's fact box gives about 2.8 million km² in 1 AD."
+       "en": "From the northern course of the Euphrates, in present-day eastern Turkey, to present-day Afghanistan and western Pakistan. Wikipedia's fact box gives about 2.8 million km² in 1 AD.",
+       "es": "Desde el curso norte del Éufrates, en el actual este de Turquía, hasta el actual Afganistán y el oeste de Pakistán. El recuadro de datos de Wikipedia indica aproximadamente 2,8 millones de km² en 1 d. C."
       }
      },
      {
       "label": {
        "sv": "Språk och religion",
-       "en": "Language and religion"
+       "en": "Language and religion",
+       "es": "Idioma y religión"
       },
       "text": {
        "sv": "Partiska och grekiska som officiella språk, arameiska som gemensamt språk. Zoroastrism, babylonisk religion och buddhism.",
-       "en": "Parthian and Greek as official languages, Aramaic as a common language. Zoroastrianism, Babylonian religion and Buddhism."
+       "en": "Parthian and Greek as official languages, Aramaic as a common language. Zoroastrianism, Babylonian religion and Buddhism.",
+       "es": "Parto y griego como idiomas oficiales, arameo como idioma común. Zoroastrismo, religión babilónica y budismo."
       }
      },
      {
       "label": {
        "sv": "Fler fakta",
-       "en": "More facts"
+       "en": "More facts",
+       "es": "Más datos"
       },
       "text": {
        "sv": "Partherna förintade Crassus armé vid Carrhae 53 f.Kr., ett av Roms värsta nederlag. Riket blev rikt på att beskatta karavanhandeln, bland annat med siden, och Hanriket sände en delegation till Mithridates II:s hov 121 f.Kr.",
-       "en": "The Parthians annihilated Crassus's army at Carrhae in 53 BC, one of Rome's worst defeats. The empire grew rich by taxing the caravan trade, among other things in silk, and the Han Empire sent a delegation to Mithridates II's court in 121 BC."
+       "en": "The Parthians annihilated Crassus's army at Carrhae in 53 BC, one of Rome's worst defeats. The empire grew rich by taxing the caravan trade, among other things in silk, and the Han Empire sent a delegation to Mithridates II's court in 121 BC.",
+       "es": "Los partos aniquilaron el ejército de Craso en Carras en 53 a. C., una de las peores derrotas de Roma. El imperio se enriqueció gravando el comercio de caravanas, entre otras cosas de seda, y el Imperio Han envió una delegación a la corte de Mitrídates II en 121 a. C."
       }
      },
      {
       "label": {
        "sv": "Symbolen på kartan",
-       "en": "The symbol on the map"
+       "en": "The symbol on the map",
+       "es": "El símbolo del mapa"
       },
       "text": {
        "sv": "Den sittande bågskytten med bågen i handen finns på baksidan av de parthiska kungarnas mynt, redan från rikets grundare Arsakes I. Han ersatte guden Apollon som satt med en båge på seleukidernas mynt. Forskarna är oense om vem bågskytten är: kungen själv eller en upphöjd anfader till kungaätten.",
-       "en": "The seated archer with the bow in his hand is found on the reverse of the Parthian kings' coins, from the empire's founder Arsaces I onward. He replaced the god Apollo, who sat with a bow on the Seleucids' coins. Scholars disagree about who the archer is: the king himself or an exalted ancestor of the royal house."
+       "en": "The seated archer with the bow in his hand is found on the reverse of the Parthian kings' coins, from the empire's founder Arsaces I onward. He replaced the god Apollo, who sat with a bow on the Seleucids' coins. Scholars disagree about who the archer is: the king himself or an exalted ancestor of the royal house.",
+       "es": "El arquero sentado con el arco en la mano aparece en el reverso de las monedas de los reyes partos, ya desde el fundador del imperio, Arsaces I. Sustituyó al dios Apolo, que aparecía sentado con un arco en las monedas de los seléucidas. Los investigadores no se ponen de acuerdo sobre quién es el arquero: el propio rey o un antepasado divinizado de la dinastía real."
       }
      }
     ],
@@ -5758,15 +5905,18 @@
       "year": -246,
       "label": {
        "sv": "247 f.Kr.",
-       "en": "247 BC"
+       "en": "247 BC",
+       "es": "247 a. C."
       },
       "title": {
        "sv": "Riket grundas",
-       "en": "The empire is founded"
+       "en": "The empire is founded",
+       "es": "Fundación del imperio"
       },
       "text": {
        "sv": "Arsakes I och parnerna erövrar Parthien i nordöstra Iran från Seleukidriket.",
-       "en": "Arsaces I and the Parni conquer Parthia in north-eastern Iran from the Seleucid Empire."
+       "en": "Arsaces I and the Parni conquer Parthia in north-eastern Iran from the Seleucid Empire.",
+       "es": "Arsaces I y los parnos conquistan Partia, en el noreste de Irán, al Imperio seléucida."
       },
       "sources": [
        "wp-parthian-empire",
@@ -5774,44 +5924,52 @@
       ],
       "mapNote": {
        "sv": "Kartan visar riket från 239 f.Kr.",
-       "en": "The map shows the empire from 239 BC."
+       "en": "The map shows the empire from 239 BC.",
+       "es": "El mapa muestra el imperio a partir de 239 a. C."
       }
      },
      {
       "year": -147,
       "label": {
        "sv": "148–141 f.Kr.",
-       "en": "148–141 BC"
+       "en": "148–141 BC",
+       "es": "148–141 a. C."
       },
       "title": {
        "sv": "Mithridates I tar Medien och Mesopotamien",
-       "en": "Mithridates I takes Media and Mesopotamia"
+       "en": "Mithridates I takes Media and Mesopotamia",
+       "es": "Mitrídates I toma Media y Mesopotamia"
       },
       "text": {
        "sv": "Mithridates I intar Ekbatana i Medien 148 eller 147 f.Kr. och erövrar sedan Babylonien, där han präglar mynt i Seleukia 141 f.Kr.",
-       "en": "Mithridates I takes Ecbatana in Media in 148 or 147 BC and then conquers Babylonia, where he mints coins at Seleucia in 141 BC."
+       "en": "Mithridates I takes Ecbatana in Media in 148 or 147 BC and then conquers Babylonia, where he mints coins at Seleucia in 141 BC.",
+       "es": "Mitrídates I toma Ecbatana, en Media, en 148 o 147 a. C. y conquista después Babilonia, donde acuña moneda en Seleucia en 141 a. C."
       },
       "sources": [
        "wp-parthian-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar riket sju gånger större redan från 164 f.Kr.",
-       "en": "The map shows the empire seven times larger already from 164 BC."
+       "en": "The map shows the empire seven times larger already from 164 BC.",
+       "es": "El mapa muestra el imperio siete veces mayor ya desde 164 a. C."
       }
      },
      {
       "year": -52,
       "label": {
        "sv": "53 f.Kr.",
-       "en": "53 BC"
+       "en": "53 BC",
+       "es": "53 a. C."
       },
       "title": {
        "sv": "Slaget vid Carrhae",
-       "en": "The Battle of Carrhae"
+       "en": "The Battle of Carrhae",
+       "es": "La batalla de Carras"
       },
       "text": {
        "sv": "Den romerske fältherren Crassus invaderar riket men besegras vid Carrhae, i dagens sydöstra Turkiet. Omkring 20 000 romare dör.",
-       "en": "The Roman general Crassus invades the empire but is defeated at Carrhae, in present-day south-eastern Turkey. About 20,000 Romans die."
+       "en": "The Roman general Crassus invades the empire but is defeated at Carrhae, in present-day south-eastern Turkey. About 20,000 Romans die.",
+       "es": "El general romano Craso invade el imperio, pero es derrotado en Carras, en el actual sureste de Turquía. Mueren unos 20 000 romanos."
       },
       "sources": [
        "wp-parthian-empire"
@@ -5821,37 +5979,44 @@
       "year": -39,
       "label": {
        "sv": "40–39 f.Kr.",
-       "en": "40–39 BC"
+       "en": "40–39 BC",
+       "es": "40–39 a. C."
       },
       "title": {
        "sv": "Partherna tar Levanten",
-       "en": "The Parthians take the Levant"
+       "en": "The Parthians take the Levant",
+       "es": "Los partos toman el Levante"
       },
       "text": {
        "sv": "Parthiska styrkor erövrar hela Levanten utom Tyros från romarna, men Marcus Antonius leder ett romerskt motanfall.",
-       "en": "Parthian forces conquer the whole Levant except Tyre from the Romans, but Mark Antony leads a Roman counterattack."
+       "en": "Parthian forces conquer the whole Levant except Tyre from the Romans, but Mark Antony leads a Roman counterattack.",
+       "es": "Fuerzas partas conquistan a los romanos todo el Levante salvo Tiro, pero Marco Antonio dirige un contraataque romano."
       },
       "sources": [
        "wp-parthian-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar bara en liten ökning, cirka 5 procent, 40–37 f.Kr.",
-       "en": "The map shows only a small increase, about 5 per cent, in 40–37 BC."
+       "en": "The map shows only a small increase, about 5 per cent, in 40–37 BC.",
+       "es": "El mapa muestra solo un pequeño aumento, de aproximadamente un 5 %, en 40–37 a. C."
       }
      },
      {
       "year": 224,
       "label": {
        "sv": "224",
-       "en": "224"
+       "en": "224",
+       "es": "224"
       },
       "title": {
        "sv": "Riket faller",
-       "en": "The empire falls"
+       "en": "The empire falls",
+       "es": "El imperio cae"
       },
       "text": {
        "sv": "Ardashir I besegrar och dödar Artabanos IV och grundar Sasanidriket.",
-       "en": "Ardashir I defeats and kills Artabanus IV and founds the Sasanian Empire."
+       "en": "Ardashir I defeats and kills Artabanus IV and founds the Sasanian Empire.",
+       "es": "Ardashir I derrota y mata a Artabano IV y funda el Imperio sasánida."
       },
       "sources": [
        "wp-parthian-empire",
@@ -5859,13 +6024,15 @@
       ],
       "mapNote": {
        "sv": "Kartan visar ett mindre partherrike till och med 237, samtidigt som Sasanidriket.",
-       "en": "The map shows a smaller Parthian empire up to and including 237, alongside the Sasanian Empire."
+       "en": "The map shows a smaller Parthian empire up to and including 237, alongside the Sasanian Empire.",
+       "es": "El mapa muestra un Imperio parto más pequeño hasta 237 inclusive, al mismo tiempo que el Imperio sasánida."
       }
      }
     ],
     "mapNote": {
      "sv": "Källorna anger 247 f.Kr.–224 e.Kr. Kartan visar riket från 239 f.Kr. till 237 e.Kr.",
-     "en": "The sources give 247 BC–224 AD. The map shows the empire from 239 BC to 237 AD."
+     "en": "The sources give 247 BC–224 AD. The map shows the empire from 239 BC to 237 AD.",
+     "es": "Las fuentes sitúan el imperio en 247 a. C.–224 d. C. El mapa lo muestra desde 239 a. C. hasta 237 d. C."
     },
     "sources": [
      "wp-parthian-empire",
