@@ -916,6 +916,7 @@
   "sources.uncertainBorder": "{name}: unsichere Grenze (weicher Rand)",
   "sources.factBox": "{name}: Faktenfeld",
   "sources.christianisation": "{name} (Christianisierung)",
+  "sources.conversion": "{name} (Religionswechsel)",
   "sources.religionOverride": "{name} (Religion in der Ebene)",
   "sources.religionAreas": "Religionen: Gebiete folgen den Reichsgrenzen in Cliopatria",
   "sources.religionWiki": "Religionen: Religion jedes Reiches (Wikipedia-Infobox)",

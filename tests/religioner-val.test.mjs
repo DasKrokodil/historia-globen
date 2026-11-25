@@ -1,7 +1,7 @@
 // Religionslagret (#2140): handplockat val av religion per rike (religionOverride i registret i data/religions.json).
 // Valet gäller bara när en öppnad källa uttryckligen säger vilken religion faktarutans allmännare ord betyder, och
 // varje val har sin källa i sources.json. Hwicce visas med germansk religion, Zapotekerna med mesoamerikansk.
-// Visigoterna fick i stället christianSince 390 efter källgranskningen (Gothic Christianity: 376–390). Chimor och
+// Visigoterna fick i stället kristendomen från 390 (conversion, tidigare christianSince, #2162) efter källgranskningen (Gothic Christianity: 376–390). Chimor och
 // Kanem-Bornu har inget val (beslut 2026-11-22). Läser data/religions.json som tools/religioner.py har byggt.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -48,12 +48,11 @@ test('valen i #2140: Hwicce germansk, Zapotekerna mesoamerikansk', () => {
   }
 });
 
-test('Visigoterna: kristna från 390 (christianSince med källa), inget handplockat val', () => {
+test('Visigoterna: kristna från 390 (conversion med källa), inget handplockat val', () => {
   const p = register.get('Visigoths');
   assert.equal(p?.religionOverride, undefined, 'Visigoths har religionOverride');
-  assert.equal(p?.christianSince, 390);
-  assert.equal(p?.source, 'wp-gothic-christianity');
-  assert.ok(sourceIds.has(p.source), 'källan wp-gothic-christianity finns inte i sources.json');
+  assert.deepEqual(p?.conversion, { religion: 'kristendom', since: 390, sources: ['wp-gothic-christianity'] });
+  assert.ok(sourceIds.has(p.conversion.sources[0]), 'källan wp-gothic-christianity finns inte i sources.json');
   assert.deepEqual(religionsAt('Visigoths', 420), [{ id: 'kristendom', sure: true }]);
 });
 

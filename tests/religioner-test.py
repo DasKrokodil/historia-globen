@@ -4,7 +4,8 @@
 Faktarutornas texter är delade i stycken vid ";" och ",". En rubrik som "State and majority" eller "Official:" står då
 som eget stycke och religionen i nästa. Provet kontrollerar att sådana rubriker ger regeln "officiell" (säker), och att
 stycken som inte betyder statsreligion inte gör det. Texterna nedan är faktarutornas egna texter ur data/religions.json.
-Provet kontrollerar också rutan som klipper bort Cliopatrias USA-del över södra Vietnam (KLIPP, #2162).
+Provet kontrollerar också rutan som klipper bort Cliopatrias USA-del över södra Vietnam (KLIPP, #2162) och religionsbytet
+per rike (conversion, #2162).
 Körs i CI utan shapely: python3 -I tests/religioner-test.py
 """
 import importlib.util
@@ -100,7 +101,38 @@ for bad in ({'religion': 'okand', 'sources': ['a']}, {'religion': 'germansk'}, {
     except ValueError:
         pass
 
+# Religionsbyte per rike (conversion, #2162): en känd religion, ett år och minst en källa, annars stoppas bygget
+conversion = religioner.conversion
+check(conversion('X', {'religion': 'islam', 'since': 1076, 'sources': ['wp-ghana-empire']}) == ('islam', 1076),
+      'conversion med religion, år och källa ger inte (religion, år)')
+for bad in ({'religion': 'okand', 'since': 1, 'sources': ['a']}, {'religion': 'islam', 'sources': ['a']},
+            {'religion': 'islam', 'since': '1076', 'sources': ['a']}, {'religion': 'islam', 'since': True, 'sources': ['a']},
+            {'religion': 'islam', 'since': 1076}, {'religion': 'islam', 'since': 1076, 'sources': []},
+            {'religion': 'islam', 'since': 1076, 'sources': ['a'], 'note': {'en': 'x'}}):
+    try:
+        conversion('X', bad)
+        fel.append(f'conversion {bad!r} stoppar inte bygget')
+    except ValueError:
+        pass
+
+
+def rad(text, conv=None):
+    entry = {'name': 'X', **({'conversion': conv} if conv else {})}
+    return religioner.Row({'FromYear': 0, 'ToYear': 2000, 'Name': 'X'}, None, {'text': text}, entry)
+
+
+# Samma regel som det äldre christianSince: före året texten, utom när texten redan gav samma religion
+ghana = rad('African traditional religion ; Later Islam', {'religion': 'islam', 'since': 1076, 'sources': ['a']})
+check(ghana.religion_at(1050) == ('afrikansk', False), f'Ghana 1050 gav {ghana.religion_at(1050)}')
+check(ghana.religion_at(1100) == ('islam', True), f'Ghana 1100 gav {ghana.religion_at(1100)}')
+check(rad('African traditional religion ; Later Islam').religion_at(1100) == ('afrikansk', False),
+      'Ghana utan conversion ändras')
+alodia = rad('Coptic Orthodox Christianity ; Traditional African religion', {'religion': 'kristendom', 'since': 580, 'sources': ['a']})
+check(alodia.religion_at(500) == (None, False), f'Alodia 500 gav {alodia.religion_at(500)}')
+check(alodia.religion_at(600) == ('kristendom', True), f'Alodia 600 gav {alodia.religion_at(600)}')
+
 if fel:
     print('\n'.join(fel))
     sys.exit(1)
-print(f'religioner: {len(FALL)} faktarutor och rubrikerna klassas rätt, och USA:s del över södra Vietnam klipps bort')
+print(f'religioner: {len(FALL)} faktarutor och rubrikerna klassas rätt, USA:s del över södra Vietnam klipps bort, '
+      'och religionsbytet (conversion) följer regeln')

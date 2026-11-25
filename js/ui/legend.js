@@ -265,6 +265,7 @@ export class ReligionLegend {
       <div class="rp-head"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<strong>${head}</strong></div>
       ${where}
       ${snapshot.inherited ? this.inheritedNote(hit, name) : snapshot.sure === false ? `<p class="rp-note">${esc(ui('legend.unsureArea'))}</p>` : ''}
+      ${this.conversionNote(hit)}
       ${r.facts ? `<button type="button" class="info-btn rp-more" data-facts="${esc(r.id)}">${esc(ui('legend.moreReligion', { religion: religionName(r) }))}</button>` : ''}
       ${here?.[0]?.wikipedia && /^https:\/\/[a-z]+\.wikipedia\.org\//.test(here[0].wikipedia) ? `<a class="rp-wiki" href="${esc(here[0].wikipedia)}" target="_blank" rel="noopener noreferrer">${esc(ui('legend.empireWikipedia', { empire: name(here[0]) }))}<span class="sr-only"> ${esc(ui('legend.newTab'))}</span><span aria-hidden="true"> ↗</span></a>` : ''}`;
     this.pop.hidden = false;
@@ -276,13 +277,24 @@ export class ReligionLegend {
   }
 
   /**
+   * Meningen om rikets religionsbyte (conversion.note i religions.json, #2162), till exempel att källorna skiljer sig om
+   * hur Ghanariket blev muslimskt. Den visas bara när området har religionen som riket bytte till, från bytets år.
+   */
+  conversionNote(hit) {
+    const { religion: r, snapshot: s, polities, here } = hit;
+    if (s.inherited) return '';
+    const c = (here?.[0] ?? (polities.length === 1 ? polities[0] : null))?.conversion;
+    return c?.note && c.religion === r.id && s.start >= c.since ? `<p class="rp-note">${esc(t(c.note))}</p>` : '';
+  }
+
+  /**
    * Förklaringen för ett ärvt område (#269): varför riket på platsen inte har någon religion i lagret, och
    * att området visas med religionen det hade tidigare, med året och rikena där den senast stod i faktarutan.
    */
   inheritedNote(hit, name) {
     const { religion: r, snapshot: s, polities, here } = hit;
     const p = here?.[0] ?? (polities.length === 1 ? polities[0] : null);
-    const later = p && [p.since, p.christianSince].find(y => y > s.start);
+    const later = p && [p.since, p.conversion?.since].find(y => y > s.start);
     const reason = !p ? ui('legend.missingReligionHere')
       : p.rule === 'saknas' ? ui('legend.missingReligion', { empire: name(p) })
       : later ? ui('legend.laterReligion', { empire: name(p), year: formatYear(later) })

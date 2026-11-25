@@ -61,8 +61,10 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
   }
   if (religionsDoc) {
     const rp = religionsDoc.polities ?? [];
-    // Riken med kontrollerat år för kristnandet har en egen källa
-    for (const p of rp.filter(p => p.source)) add('religions', [p.source], ui('sources.christianisation', { name: p.name }), 'source-checked');
+    // Riken med ett kontrollerat religionsbyte (conversion, #2162), till exempel kristnandet, har en egen källa
+    for (const p of rp.filter(p => p.conversion?.sources?.length)) {
+      add('religions', p.conversion.sources, ui(p.conversion.religion === 'kristendom' ? 'sources.christianisation' : 'sources.conversion', { name: p.name }), 'source-checked');
+    }
     // Riken med ett handplockat val av religion (religionOverride, #2140) har källan som säger vilken religion det är
     for (const p of rp.filter(p => p.religionOverride?.sources?.length)) add('religions', p.religionOverride.sources, ui('sources.religionOverride', { name: p.name }), 'source-checked');
     // Källor för hela religionsfilen (se notes i data/religions.json): de räknas inte som egna uppgifter
@@ -150,8 +152,8 @@ export class SourcesDialog {
       ...empireGroups.filter(g => g.uncertainBorder).map(g => g.uncertainBorder)];
     const religionsDoc = this.data.religionsDoc;
     const total = doc => {
-      // Religionslagrets riken: med kontrollerat år för kristnandet har de en egen källa
-      const states = (doc?.polities ?? []).filter(p => p.source).map(() => ({ review: 'source-checked' }));
+      // Religionslagrets riken: med kontrollerat religionsbyte (conversion, #2162) har de en egen källa
+      const states = (doc?.polities ?? []).filter(p => p.conversion?.sources?.length).map(() => ({ review: 'source-checked' }));
       const counts = { checked: 0, two: 0, draft: 0 };
       for (const x of [...events, ...funfacts, ...polities, ...empireFacts, ...states]) {
         if (x.review === 'two-sources') counts.two++;
