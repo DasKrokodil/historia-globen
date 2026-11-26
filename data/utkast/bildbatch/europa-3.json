@@ -1,0 +1,1626 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "europa-3",
+  "datum": "2026-11-26",
+  "urval": "ids=34 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "slaget-vid-karkemish",
+      "titel": "Slaget vid Karkemish",
+      "start": -604,
+      "plats": "Karkemish vid Eufrat, på gränsen mellan dagens Syrien och Turkiet",
+      "wikidata": "Q633560",
+      "kandidater": [
+        {
+          "fil": "File:The Battle of Carchemish.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Battle_of_Carchemish.png",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Egisto C.",
+          "datum": "1915",
+          "datum_original": "1915",
+          "datum_fil": "2022-01-17 13:49:33",
+          "kredit": "Internet Archive identifier: hutchinsonsstory00londuoft 'Hutchinson's History of the Nations', 1915",
+          "beskrivning": "Illustration from 'Hutchinson's History of the Nations', 1915",
+          "bredd": 1255,
+          "hojd": 893,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/The_Battle_of_Carchemish.png/960px-The_Battle_of_Carchemish.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "7th-century BC battles",
+            "Hebrew Bible battles",
+            "Hutchinson's story of the nations"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art-two"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "delfinmynt-i-olbia",
+      "titel": "Olbia gjuter mynt formade som delfiner",
+      "start": -499,
+      "plats": "Olbia vid Södra Bugs mynningsvik, Mykolajiv oblast, Ukraina",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Olbian dolphin coins.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Olbian_dolphin_coins.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Krigore",
+          "datum": "2026-10-19 00:47:24",
+          "datum_original": "2026-10-19 00:47:24",
+          "datum_fil": "2026-10-20 11:45:08",
+          "kredit": "Own work",
+          "beskrivning": "Olbian dolphin coins – early forms of money shaped like dolphins, cast in bronze and used in Olbia Pontica, a Greek colony on the Black Sea near the mouth of the Boh River in present-day Ukraine, close to Mykolaiv. They are dated to the period from the late 6th to the 4th century BC, with examples from the 5th century BC being particularly numerous. Photograph of four specimens, shown from both sides. Maximum dimensions and weights, from top to bottom: 24.4 × 5.6 × 2 mm, 0.95 g; 29.6 × 8.7 × 2.3 mm, 1.82 g; 24.4 × 7 × 2.2 mm, 1.51 g; 22 × 7.7 × 1.9 mm, 0.87 g.",
+          "bredd": 8096,
+          "hojd": 4337,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Olbian_dolphin_coins.jpg/960px-Olbian_dolphin_coins.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Greek coins of Olbia",
+            "Dolphin coins",
+            "Focus stacked image"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "joniska-upproret",
+      "titel": "Joniska upproret",
+      "start": -498,
+      "plats": "Miletos och Jonien i västra Mindre Asien, i dagens Turkiet",
+      "wikidata": "Q208261",
+      "kandidater": [
+        {
+          "fil": "File:Map Anatolia ancient regions-en.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Map_Anatolia_ancient_regions-en.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Asia_Minor_Political_500BC.svg : * Mysia.svg : Emok derivative work: Mysia_map_ancient_community.jpg : User:Roke derivative work: MinisterForBadTimes ( talk ) derivative work: MinisterForBadTimes ( talk )",
+          "datum": "2009-04-22 17:00",
+          "datum_original": "2009-04-22 17:00",
+          "datum_fil": "2024-11-30 21:15:57",
+          "kredit": "Asia_Minor_Political_500BC.svg",
+          "beskrivning": "Regional map of Asia Minor in the 2nd Century BC",
+          "bredd": 921,
+          "hojd": 596,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Map_Anatolia_ancient_regions-en.svg/960px-Map_Anatolia_ancient_regions-en.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Epirotes",
+            "Catalan-language SVG maps showing history",
+            "English-language SVG maps showing history of Asia",
+            "English-language SVG maps showing history of Europe",
+            "Maps of ancient Anatolia",
+            "Multilingual SVG with Catalan language (ca) option",
+            "Multilingual SVG with French language (fr) option",
+            "Multilingual SVG with undetermined language language (und) as default"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|Cc-by-sa-3.0}}, {{self|GFDL}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|Cc-by-sa-3.0",
+              "self|GFDL"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "slaget-vid-lade",
+      "titel": "Sjöslaget vid Lade",
+      "start": -493,
+      "plats": "Ön Lade utanför Miletos, i dagens Turkiet",
+      "wikidata": "Q427565",
+      "kandidater": [
+        {
+          "fil": "File:Mycale map.gif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mycale_map.gif",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Marco Prins and Jona Lendering",
+          "datum": "2008-07-01 08:23:02",
+          "datum_original": null,
+          "datum_fil": "2008-07-01 08:23:02",
+          "kredit": "http://www.livius.org/a/turkey/mycale/mycale_map.gif",
+          "beskrivning": "Map of Mycale, Lade, and Miletus.",
+          "bredd": 366,
+          "hojd": 315,
+          "mime": "image/gif",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Mycale_map.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "datum-osakert",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{GFDL}}, {{GFDL|migration=relicense}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "GFDL",
+              "GFDL|migration=relicense"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "slaget-vid-marathon",
+      "titel": "Slaget vid Marathon",
+      "start": -489,
+      "plats": "Slätten vid Marathon i Attika, nordost om Aten",
+      "wikidata": "Q31900",
+      "kandidater": [
+        {
+          "fil": "File:Scene of the Battle of Marathon.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Scene_of_the_Battle_of_Marathon.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "John Steeple Davis",
+          "datum": "1900-01-01",
+          "datum_original": "1900-01-01",
+          "datum_fil": "2018-12-15 20:08:24",
+          "kredit": "The story of the greatest nations, from the dawn of history to the twentieth century (published in 1900)",
+          "beskrivning": "Scene of the Battle of Marathon",
+          "bredd": 1452,
+          "hojd": 952,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Scene_of_the_Battle_of_Marathon.jpg/960px-Scene_of_the_Battle_of_Marathon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Achaemenid navy",
+            "Battle of Marathon"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old"
+            ]
+          }
+        },
+        {
+          "fil": "File:Trophee bataille marathon.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Trophee_bataille_marathon.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "karta24",
+          "datum": "2006-08-15",
+          "datum_original": "2006-08-15",
+          "datum_fil": "2007-01-03 12:24:07",
+          "kredit": "Own work",
+          "beskrivning": "Trophée de la bataille de Marathon",
+          "bredd": 2112,
+          "hojd": 2816,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Trophee_bataille_marathon.JPG/960px-Trophee_bataille_marathon.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2006 in Marathonas",
+            "Ancient Roman trophies",
+            "August 2006 Greece photographs",
+            "Battle of Marathon",
+            "Monuments and memorials in Marathonas",
+            "Triumph columns"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY 2.5",
+            "skal": [
+              "flera licenser: CC BY-SA 3.0, CC BY 2.5",
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{Self|GFDL}}, {{Self|Cc-by-sa-3.0-migrated}}, {{Self|Cc-by-2.5}}. Commons API (LicenseShortName): \"CC BY 2.5\". Flera licenser anges (CC BY-SA 3.0 och CC BY 2.5); bilden används under CC BY 2.5. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under CC BY 2.5.",
+            "risker": [],
+            "mallar": [
+              "Self|GFDL",
+              "Self|Cc-by-sa-3.0-migrated",
+              "Self|Cc-by-2.5"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "slaget-vid-plataiai",
+      "titel": "Slaget vid Plataiai",
+      "start": -478,
+      "plats": "Nära staden Plataiai i Boiotien, Grekland (den exakta platsen är osäker)",
+      "wikidata": "Q204636",
+      "kandidater": [
+        {
+          "fil": "File:Scene of the Battle of Plataea.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Scene_of_the_Battle_of_Plataea.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "John Steeple Davis",
+          "datum": "2018-12-15",
+          "datum_original": "2018-12-15",
+          "datum_fil": "2018-12-15 09:39:53",
+          "kredit": "The story of the greatest nations, from the dawn of history to the twentieth century (published in 1900)",
+          "beskrivning": "Scene of the Battle of Plataea",
+          "bredd": 1484,
+          "hojd": 981,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Scene_of_the_Battle_of_Plataea.jpg/960px-Scene_of_the_Battle_of_Plataea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Plataea"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Old-100"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "slaget-vid-eurymedon",
+      "titel": "Slaget vid Eurymedon",
+      "start": -468,
+      "plats": "Floden Eurymedons mynning (i dag Köprüçay) i Pamfylien, södra Turkiet",
+      "wikidata": "Q607987",
+      "kandidater": [
+        {
+          "fil": "File:Eurymedon Bridge, Aspendos, Turkey. Pic 01.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Eurymedon_Bridge,_Aspendos,_Turkey._Pic_01.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Adam Franco",
+          "datum": "2005-06-25 12:51:56",
+          "datum_original": "2005-06-25 12:51:56",
+          "datum_fil": "2009-03-14 00:42:54",
+          "kredit": "originally posted to Flickr as IMG_6663.jpg",
+          "beskrivning": "The Eurymedon Bridge ( Köprüpazar Köprüsü ) near Aspendos, Pamphylia, Turkey",
+          "bredd": 3072,
+          "hojd": 2048,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Eurymedon_Bridge%2C_Aspendos%2C_Turkey._Pic_01.jpg/960px-Eurymedon_Bridge%2C_Aspendos%2C_Turkey._Pic_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Eurymedon Bridge (Aspendos)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "slaget-vid-allia",
+      "titel": "Slaget vid Allia",
+      "start": -386,
+      "plats": "Floden Allia norr om Rom, Italien",
+      "wikidata": "Q655777",
+      "kandidater": [
+        {
+          "fil": "File:Paul Jamin - Le Brenn et sa part de butin 1893.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Paul_Jamin_-_Le_Brenn_et_sa_part_de_butin_1893.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Paul Joseph Jamin",
+          "datum": "1893 date QS:P571,+1893-00-00T00:00:00Z/9",
+          "datum_original": "1893 date QS:P571,+1893-00-00T00:00:00Z/9",
+          "datum_fil": "2016-11-21 17:01:39",
+          "kredit": "http://www.shafe.co.uk/crystal/images/lshafe/Jamin_Brenn_and_his_share_of_the_spoils_1893.jpg",
+          "beskrivning": null,
+          "bredd": 709,
+          "hojd": 843,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Paul_Jamin_-_Le_Brenn_et_sa_part_de_butin_1893.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1890s oil on canvas paintings",
+            "1890s paintings in private collections",
+            "1893 paintings",
+            "Academic paintings by artist",
+            "Ancient Rome in history paintings",
+            "Brennus (4th century BC)",
+            "Clothed male, nude female in art",
+            "Gauls in history paintings",
+            "Golden objects",
+            "Group paintings of nude females",
+            "Paintings of people with sculptures",
+            "Paintings of soldiers",
+            "Paul Jamin",
+            "People at doors in art",
+            "Sack of Rome (4th century BC)"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "alexanders-faltag",
+      "titel": "Alexander den stores fälttåg",
+      "start": -335,
+      "plats": "Makedonien (började när Alexander blev kung i Pella, i dagens Grekland)",
+      "wikidata": "Q551888",
+      "kandidater": [
+        {
+          "fil": "File:Alexander and Bucephalus - Battle of Issus mosaic - Museo Archeologico Nazionale - Naples BW.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Alexander_and_Bucephalus_-_Battle_of_Issus_mosaic_-_Museo_Archeologico_Nazionale_-_Naples_BW.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown creator Unknown creator",
+          "datum": "circa 100 BC",
+          "datum_original": "circa 100 BC",
+          "datum_fil": "2025-04-10 09:13:45",
+          "kredit": "This image has been extracted from another file",
+          "beskrivning": "Alexander Mosaic (detail), House of the Faun , Pompeii",
+          "bredd": 3905,
+          "hojd": 2766,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Alexander_and_Bucephalus_-_Battle_of_Issus_mosaic_-_Museo_Archeologico_Nazionale_-_Naples_BW.jpg/960px-Alexander_and_Bucephalus_-_Battle_of_Issus_mosaic_-_Museo_Archeologico_Nazionale_-_Naples_BW.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aegis",
+            "Battle of Issus mosaic (from Pompeii) - Details"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "flera licenser: Public domain, CC BY-SA 3.0"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-art}}, {{cc-by-sa 3.0}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (Public domain och CC BY-SA 3.0); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto).",
+            "risker": [],
+            "mallar": [
+              "PD-art",
+              "cc-by-sa 3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "thebe-forstors",
+      "titel": "Alexander förstör Thebe",
+      "start": -334,
+      "plats": "Thebe i Boiotien, Grekland",
+      "wikidata": "Q2237798",
+      "kandidater": [
+        {
+          "fil": "File:Charles R. Stantonː Alexander at the Sack of Thebes in 335 BC (illustration from Hutchinsons History of the Nations, 1915).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Charles_R._Stanton%CB%90_Alexander_at_the_Sack_of_Thebes_in_335_BC_(illustration_from_Hutchinsons_History_of_the_Nations,_1915).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Charles Rebel Stanton",
+          "datum": "1 January 1915 date QS:P571,+1915-01-01T00:00:00Z/11",
+          "datum_original": "1 January 1915 date QS:P571,+1915-01-01T00:00:00Z/11",
+          "datum_fil": "2023-09-10 14:34:41",
+          "kredit": "Public domainː https://www.meisterdrucke.uk/fine-art-prints/Charles-R.-Stanton/186451/Alexander-at-the-Sack-of-Thebes-in-335-BC%2C-illustration-from-Hutchinsons-History-of-the-Nations%2C-1915-.html",
+          "beskrivning": "Charles R. Stantonː Alexander at the Sack of Thebes in 335 BC (illustration from Hutchinsons History of the Nations, 1915)",
+          "bredd": 1024,
+          "hojd": 739,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Charles_R._Stanton%CB%90_Alexander_at_the_Sack_of_Thebes_in_335_BC_%28illustration_from_Hutchinsons_History_of_the_Nations%2C_1915%29.jpg/960px-Charles_R._Stanton%CB%90_Alexander_at_the_Sack_of_Thebes_in_335_BC_%28illustration_from_Hutchinsons_History_of_the_Nations%2C_1915%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1915 engravings",
+            "Battle of Thebes",
+            "Bucephalus (horse of Alexander)",
+            "Charles Rebel Stanton",
+            "Engravings of Greece",
+            "Hutchinson's History of the Nations",
+            "Paintings of Alexander the Great",
+            "Thebes, Greece in art"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-scan"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "slaget-vid-granikos",
+      "titel": "Slaget vid Granikos",
+      "start": -333,
+      "plats": "Floden Granikos (i dag Biga Çayı) i Troas, nordvästra Turkiet",
+      "wikidata": "Q192938",
+      "kandidater": [
+        {
+          "fil": "File:Charles Le Brun, Le Passage du Granique, 1665.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Charles_Le_Brun,_Le_Passage_du_Granique,_1665.png",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Charles Le Brun / Abraham Genoels",
+          "datum": "1665 date QS:P571,+1665-00-00T00:00:00Z/9",
+          "datum_original": "1665 date QS:P571,+1665-00-00T00:00:00Z/9",
+          "datum_fil": "2015-04-26 12:00:53",
+          "kredit": "http://cartelen.louvre.fr/cartelen/visite?srv=car_not_frame&idNotice=28684 http://forum.artinvestment.ru/blog.php?b=273473&langid=5",
+          "beskrivning": "Les Grecs franchissent le Granique qui leur fermait l'entrée de l'Asie, malgré les troncs d'arbres amassés sur les bords du fleuve. Le tableau mêle des éléments de la Bataille de Cascina de Michel-Ange (disparue ; connue par la gravure), ainsi que des fresques de Raphaël et de ses élèves au Vatican : la Victoire de Constantin et Héliodore chassé du temple.",
+          "bredd": 2817,
+          "hojd": 1276,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Charles_Le_Brun%2C_Le_Passage_du_Granique%2C_1665.png/960px-Charles_Le_Brun%2C_Le_Passage_du_Granique%2C_1665.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Le passage du Granique (Louvre INV 2894)"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "arkimedes-i-syrakusa",
+      "titel": "Arkimedes verkar i Syrakusa",
+      "start": -286,
+      "plats": "Syrakusa, Sicilien, Italien",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Tolley Building, Syracuse University (north west view).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tolley_Building,_Syracuse_University_(north_west_view).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Kiran891",
+          "datum": "2022-04-17 16:50:32",
+          "datum_original": "2022-04-17 16:50:32",
+          "datum_fil": "2023-07-10 09:06:58",
+          "kredit": "Own work",
+          "beskrivning": "Tolley Administration Building (also Tolley Humanities Building & formerly von Ranke Library) is located on the west side of Crouse Drive on the main campus of Syracuse University in Syracuse, New York. The three-story brick and stone masonry building was originally constructed in 1889. The building was originally the von Ranke Library. It was remodeled in 1907 as the Administration Building. In 1985, the building was renamed Tolley Administration Building. In 2005, the administrative offices were moved to another building. Between 2003 and 2006, the building underwent major renovations, including restructuring the roof and repairing the foundations. The building currently houses offices and classrooms for the Center for Public and Collaborative Humanities. In its current configuration, the building contains about 25,419 square feet of space. Address: 120 Crouse Drive Syracuse, NY 13244 Plans Begun: June 1887 Cornerstone Laid: June 25, 1888 Cost: $35,000 Funding: Sixty-nine contributors including $12,500 contributed by John D. Archbold and $1,250 from Chancellor Charles N. Sims Style: Romanesque Architect: Archimedes Russell Materials: Red brick and terra cotta West Wing Addition Occupied: October 30, 1903 Remodeled and Renamed: 1907 as Administration Building Rededicated and Renamed: September 14, 1985 as The Tolley Administration Building Rededicated and Renamed: October 6, 2010 as Tolley Humanities Building Cost of 2003 Renovations: $6.8 million Cost of 2006 Renovations: $2 million Location: Crouse Drive, Main Campus Notes: The Library Building Committee initiated plans for a new library during the 1887 commencement ceremonies. The building was erected to house the library collection of German historian Leopold von Ranke, purchased for the University though the generosity of the Rev. and Mrs. John M. Reid, former president of Genesee College and trustee of SU from 1888 to 1896. Dr. Reid purchased the collection in 1887 with the condition that a library be built to house it. In 1903 the west wing was added. In 1907 the library collection was transferred to the newly opened Carnegie Library and the building was remodeled and renamed the Administration Building, housing the offices of Chancellor, Treasurer, Registrar, and other administrators. The first cafeteria was located in the basement of the building. In 1985 the building was rededicated to former Chancellor William Pearson Tolley. The Tolley Administration Building housed the Offices of the Chancellor, Vice Chancellors, and many of the Chancellor's immediate support staff until the fall of 2005 when they were relocated to Crouse Hinds Hall. In November 2003 the building's roof was lifted and suspended 1/16th inch above the walls, held in place by eight steel towers that also support the building's walls. Repairs were also made to the foundation. Additional renovations in 2006 created faculty offices, seminar rooms, classrooms, a lecture hall and social spaces for visitors. The renamed Tolley Humanities Building was rededicated as the Center for Public and Collaborative Humanities, hosting humanities classes, seminars and campus organizations.",
+          "bredd": 9248,
+          "hojd": 6936,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Tolley_Building%2C_Syracuse_University_%28north_west_view%29.jpg/960px-Tolley_Building%2C_Syracuse_University_%28north_west_view%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "April 2022 in New York (state)",
+            "Libraries in the United States photographed in 2022",
+            "Syracuse University in 2022",
+            "Tolley Administration Building"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Jewish Museum, Syracuse, Sicily, 121665x.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Jewish_Museum,_Syracuse,_Sicily,_121665x.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Zde",
+          "datum": "2012-09-15 13:25:27",
+          "datum_original": "2012-09-15 13:25:27",
+          "datum_fil": "2016-12-15 19:01:18",
+          "kredit": "Own work",
+          "beskrivning": "Small Jewish Museum over mikvah in Syracuse, Sicily.",
+          "bredd": 2777,
+          "hojd": 1851,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Jewish_Museum%2C_Syracuse%2C_Sicily%2C_121665x.jpg/960px-Jewish_Museum%2C_Syracuse%2C_Sicily%2C_121665x.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Mikvah (Syracuse)",
+            "The works of Archimedes"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Monument to Archimedes in the Syracuse. Sicily, Italy.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Monument_to_Archimedes_in_the_Syracuse._Sicily,_Italy.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Ввласенко",
+          "datum": "2018-05-17 13:50:31",
+          "datum_original": "2018-05-17 13:50:31",
+          "datum_fil": "2024-01-19 16:29:34",
+          "kredit": "Own work",
+          "beskrivning": "Monument to Archimedes in the Syracuse. Sculptor Pietro Marchese, architect Virginia Rossello. Sicily, Italy",
+          "bredd": 1792,
+          "hojd": 2953,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Monument_to_Archimedes_in_the_Syracuse._Sicily%2C_Italy.jpg/960px-Monument_to_Archimedes_in_the_Syracuse._Sicily%2C_Italy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Monument to Archimedes by Pietro Marchese",
+            "Sculptures of Archimedes",
+            "Statues in Syracuse",
+            "Works by Pietro Marchese"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "puniska-krigen",
+      "titel": "De puniska krigen",
+      "start": -263,
+      "plats": "Sicilien (började vid Messana, dagens Messina)",
+      "wikidata": "Q124988",
+      "kandidater": [
+        {
+          "fil": "File:Map of Rome and Carthage at the start of the Second Punic War.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Map_of_Rome_and_Carthage_at_the_start_of_the_Second_Punic_War.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "William Robert Shepherd",
+          "datum": "2012-04-29 12:43",
+          "datum_original": "2012-04-29 12:43",
+          "datum_fil": "2024-09-30 07:44:03",
+          "kredit": "This file was derived from: Rome carthage 218.jpg : Shepherd, William R. (1923) \"Rome and Carthage at the Beginning of the Second Punic War, 218 B.C.\" in Historical Atlas , Category:New York : Henry Holt and Company, p. 32 OCLC : 1980660 .",
+          "beskrivning": "Map showing Rome and Carthage at the start of the Second Punic War and the theatre of the Punic Wars .",
+          "bredd": 1067,
+          "hojd": 768,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Map_of_Rome_and_Carthage_at_the_start_of_the_Second_Punic_War.svg/960px-Map_of_Rome_and_Carthage_at_the_start_of_the_Second_Punic_War.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "English-language SVG maps showing history",
+            "Map of Rome and Carthage at the start of the Second Punic War, by William R. Shepherd",
+            "Maps based on maps by William R. Shepherd",
+            "Maps of the Iberian Peninsula in the 3rd century BC",
+            "Multilingual SVG with Basque language (eu) option",
+            "Multilingual SVG with English language (en) as default"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "slaget-vid-mylae",
+      "titel": "Sjöslaget vid Mylae",
+      "start": -259,
+      "plats": "Utanför Mylae (dagens Milazzo) på norra Sicilien",
+      "wikidata": "Q277345",
+      "kandidater": [
+        {
+          "fil": "File:The story of the greatest nations, from the dawn of history to the twentieth century - a comprehensive history, founded upon the leading authorities, including a complete chronology of the world, and (14578958927).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_story_of_the_greatest_nations,_from_the_dawn_of_history_to_the_twentieth_century_-_a_comprehensive_history,_founded_upon_the_leading_authorities,_including_a_complete_chronology_of_the_world,_and_(14578958927).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Ellis, Edward Sylvester, 1840-1916; Horne, Charles F. (Charles Francis), 1870-1942",
+          "datum": "1900",
+          "datum_original": "1900",
+          "datum_fil": "2015-11-08 12:02:52",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14578958927/ Source book page: https://archive.org/stream/storyofgreatestn02elli/storyofgreatestn02elli#page/n288/mode/1up",
+          "beskrivning": "Identifier : storyofgreatestn02elli ( find matches ) Title : The story of the greatest nations, from the dawn of history to the twentieth century : a comprehensive history, founded upon the leading authorities, including a complete chronology of the world, and a pronouncing vocabulary of each nation Year : 1900 ( 1900s ) Authors : Ellis, Edward Sylvester, 1840-1916 Horne, Charles F. (Charles Francis), 1870-1942 Subjects : World history Publisher : New York : F.R. Niglutsch Contributing Library : University of California Libraries Digitizing Sponsor : Internet Archive View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: method used is said to have been thatof placing him in a barrel filled with nails projecting inward, and rolling himabout until he died. The best authorities believe this horrible story was aninvention of the Romans to excuse their own atrocities to Carthaginian prison-ers, though it is hardly to be doubted that Regulus actually suffered deathfor his patriotic fortitude. The final victory of the Romans at the ^^gates Islands made them mastersof the situation, and led the Carthaginians to seek peace in B.C. 241. By theterms which closed the first Punic War, the Carthaginians were required toevacuate Sicily and the adjacent islands, to pay a large indemnity, and to recog-nize the independence of Hiero, king of Syracuse. The war had lasted twenty-four years, and, according to Polybius the historian, cost Carthage five hundredand Rome seven hundred galleys; but Rome had gained an immense prestigeand had taken the first step that was to win for her the proud title of Mistressof the World. Text Appearing After Image: Rome—Conquest of the Islands 327 It should be noted that that part of Sicily which was wrested from the Car-thaginians was now organized into 2iprovince, this being the commencementof the new system which Rome adopted, of the institution of provincial govern-ment in her possessions outside of Italy. An immense advantage was held byRome over Carthage from the first: <:his lay in the difference of their system orpolicy toward their conquered subjects. The Romans associated them in theirown enterprises on equal terms, not only paying for their services, but sharingthe booty obtained, and allowing them to retain their own laws, customs, andnational identity. The system, in brief, was similar in the main to that whichhas made England the greatest colonizing Power of modern times. But whilethose who fought beside the Romans were her allies, the soldiers of the Car-thaginians were simply servants who risked their lives for wages. As a con-sequence, Carthage soon became involvea in a des Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 3008,
+          "hojd": 2024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/The_story_of_the_greatest_nations%2C_from_the_dawn_of_history_to_the_twentieth_century_-_a_comprehensive_history%2C_founded_upon_the_leading_authorities%2C_including_a_complete_chronology_of_the_world%2C_and_%2814578958927%29.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Mylae",
+            "John Steeple Davis",
+            "The story of the greatest nations, from the dawn of history to the twentieth century (1900)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "slaget-vid-egadiska-oarna",
+      "titel": "Slaget vid Egadiska öarna",
+      "start": -240,
+      "plats": "Egadiska öarna utanför västra Sicilien",
+      "wikidata": "Q1134649",
+      "kandidater": [
+        {
+          "fil": "File:Aegadian Islands map.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Aegadian_Islands_map.png",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2016-02-26 22:24:00",
+          "datum_original": null,
+          "datum_fil": "2016-02-26 22:24:00",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 690,
+          "hojd": 528,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Aegadian_Islands_map.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of the Aegates",
+            "Favignana",
+            "Favignana (comune)",
+            "Levanzo",
+            "Locator maps of Italian islands",
+            "Maps of Aegadian Islands",
+            "Marettimo"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "datum-osakert",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "belagringen-av-saguntum",
+      "titel": "Hannibal belägrar Saguntum",
+      "start": -218,
+      "plats": "Saguntum, i dag Sagunto i provinsen Valencia, Spanien",
+      "wikidata": "Q815210",
+      "kandidater": [
+        {
+          "fil": "File:Castillo02 Sagunto.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Castillo02_Sagunto.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": null,
+          "datum": "2006-05-01 11:28:09",
+          "datum_original": null,
+          "datum_fil": "2006-05-01 11:28:09",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 1984,
+          "hojd": 1488,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Castillo02_Sagunto.JPG/960px-Castillo02_Sagunto.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Castell de Sagunt"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{GFDL-self}}, {{GFDL-self|migration=relicense}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "GFDL-self",
+              "GFDL-self|migration=relicense"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "hannibal-over-alperna",
+      "titel": "Hannibal går över Alperna",
+      "start": -217,
+      "plats": "Alperna mellan dagens Frankrike och Italien (den exakta vägen är okänd)",
+      "wikidata": "Q1337302",
+      "kandidater": [
+        {
+          "fil": "File:Hannibal route of invasion-en.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Hannibal_route_of_invasion-en.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Pinpin",
+          "datum": "2008-02-10",
+          "datum_original": "2008-02-10",
+          "datum_fil": "2026-07-12 09:46:42",
+          "kredit": "Own work based on: Europe topography map.png : , Hannibal route of invasion.gif : and Second Punic War full-en.svg : , Carthage: Punic Wars . Encyclopædia Britannica . Archived from the original on 2007-12-04 . and \"Hannibal\" in (1964) Encyclopaedia Britannica , 11: Halicarnassus to Hydroxylamine, London : William Benton, pp. 65–67 OCLC : 248498748 .",
+          "beskrivning": "Map in english of Hannibal's route of invasion",
+          "bredd": 764,
+          "hojd": 479,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Hannibal_route_of_invasion-en.svg/960px-Hannibal_route_of_invasion-en.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of Hannibal's campaign"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "smal",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 3.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "slaget-vid-cannae",
+      "titel": "Slaget vid Cannae",
+      "start": -215,
+      "plats": "Cannae i Apulien, sydöstra Italien",
+      "wikidata": "Q179591",
+      "kandidater": [
+        {
+          "fil": "File:Battle cannae destruction.-ca.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Battle_cannae_destruction.-ca.svg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "File:Battle cannae destruction.gif : Frank Martini. Cartographer, Department of History, United States Military Academy. File:Battle cannae destruction.-fr.svg : User:Mr H. translation: SMP ( talk page )",
+          "datum": "2009-02-26 17:41:06",
+          "datum_original": null,
+          "datum_fil": "2009-02-26 17:41:06",
+          "kredit": "From File:Battle cannae destruction.-fr.svg which came from File:Battle cannae destruction.gif which came from The Department of History, United States Military Academy [1]",
+          "beskrivning": "Battle of Cannae, in Catalan",
+          "bredd": 737,
+          "hojd": 515,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Battle_cannae_destruction.-ca.svg/960px-Battle_cannae_destruction.-ca.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Catalan-language SVG maps showing history of Europe",
+            "Maps of the Battle of Cannae",
+            "Maps of the United States Military Academy"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "datum-osakert",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "karthago-forstors",
+      "titel": "Karthago förstörs",
+      "start": -145,
+      "plats": "Karthago, nordost om dagens Tunis i Tunisien",
+      "wikidata": "Q815160",
+      "kandidater": [
+        {
+          "fil": "File:Carthage villas-romaines 1950.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Carthage_villas-romaines_1950.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2008-03-15 10:57:19",
+          "datum_original": null,
+          "datum_fil": "2008-03-15 10:57:19",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 1740,
+          "hojd": 1195,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Carthage_villas-romaines_1950.jpg/960px-Carthage_villas-romaines_1950.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1950 in Tunisia",
+            "Aerial photographs of Carthage",
+            "Roman villas of Carthage"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Tunisia"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "etnas-utbrott-122-fkr",
+      "titel": "Etnas våldsamma utbrott 122 f.Kr.",
+      "start": -121,
+      "plats": "Etna, Sicilien, Italien (punkten är toppen)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Mount Etna Volcano Dawn at Paternò Sicilia Italy - Creative Commons by gnuckx (4773785162).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mount_Etna_Volcano_Dawn_at_Patern%C3%B2_Sicilia_Italy_-_Creative_Commons_by_gnuckx_(4773785162).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "gnuckx",
+          "datum": "2010-07-07 06:11",
+          "datum_original": "2010-07-07 06:11",
+          "datum_fil": "2013-02-08 15:24:30",
+          "kredit": "Mount Etna Volcano Dawn at Paternò Sicilia Italy - Creative Commons by gnuckx",
+          "beskrivning": "News Etna, the Forge of Hephaestus - Etna, la fucina di Efesto by Francesco Pappalardo. This is an excellent Photography book recently published by this great photographer and flickr friend cicciofarmaco . This book is a collection of the most beautiful pictures of the Etna volcano paroxysmal eruptions of 2011. As you can see, Francesco has a natural talent in photography and his work is truly inspirational, so through this book you can live again the most spectacular and fascinating moments of the eruptions of the Etna volcano of 2011. Buy this magnificent Photography book easily online through this link Etna, la fucina di Efesto. by Francesco Pappalardo and enjoy these historic events of nature forever. ======================================================== Mount Etna Mount Etna, also known as Muncibeḍḍu in Sicilian and Mongibello in Italian, a combination of Latin mons and Arabic gibel, both meaning mountain) is an active stratovolcano on the east coast of Sicily, close to Messina and Catania. Its Arabic name was Jebel Utlamat (the Mountain of Fire). It is the second largest active volcano in Europe, currently standing 3,329 metres (10,922 ft) high, though this varies with summit eruptions; the mountain is 21 m (69 ft) lower now than it was in 1981. It is the highest mountain in Italy south of the Alps. Etna covers an area of 1,190 km² (460 sq mi) with a basal circumference of 140 km. This makes it by far the largest of the three active volcanoes in Italy, being about two and a half times the height of the next largest, Mount Vesuvius. Only Mount Teide in Tenerife surpasses it in the whole of the European region (though geographically Tenerife is an island of Africa). Mount Etna is one of the most active volcanoes in the world and is in an almost constant state of eruption. It is also believed to be the world’s oldest active volcano. The fertile volcanic soils support extensive agriculture, with vineyards and orchards spread across the lower slopes of the mountain and the broad Plain of Catania to the south. Due to its history of recent activity and nearby population, Mount Etna has been designated a Decade Volcano by the United Nations. Geological history Volcanic activity at Etna began about half a million years ago, with eruptions occurring beneath the sea off the coastline of Sicily. 300,000 years ago, volcanism began occurring to the southwest of the present-day summit, before activity moved towards the present center 170,000 years ago. Eruptions at this time built up the first major volcanic edifice, forming a strato-volcano in alternating explosive and effusive eruptions. The growth of the mountain was occasionally interrupted by major eruptions leading to the collapse of the summit to form calderas. Etna seen from Spot Satellite. From about 35,000 to 15,000 years ago, Etna experienced some highly explosive eruptions, generating large pyroclastic flows which left extensive ignimbrite deposits. Ash from these eruptions has been found as far away as Rome, 800 km to the north. A crater near the Torre del Filosofo, about 450 metres below Etna’s summit. Thousands of years ago, the eastern flank of the mountain experienced a catastrophic collapse, generating an enormous landslide in an event similar to that seen in the 1980 eruption of Mount St. Helens. The landslide left a large depression in the side of the volcano, known as ‘Valle del Bove’ (Valley of the Ox). Research published in 2006 suggests that this occurred around 6000 BC, and caused a huge tsunami which left its mark in several places in the eastern Mediterranean. It may have been the reason that the settlement of Atlit Yam (Israel), now below sea level, was suddenly abandoned around that time. The steep walls of the Valley have suffered subsequent collapse on numerous occasions. The strata exposed in the valley walls provide an important and easily accessible record of Etna’s eruptive history. The most recent collapse event at the summit of Etna is thought to have occurred about 2,000 years ago, forming what is known as the Piano Caldera. This caldera has been almost entirely filled by subsequent lava eruptions, but is still visible as a distinct break in the slope of the mountain near the base of the present-day summit cone. Historical eruptions Eruptions of Etna are not all the same. Some occur at the summit, where there are currently (as of 2008) four distinct craters – the Northeast Crater, the Voragine, the Bocca Nuova, and the Southeast Crater. Other eruptions occur on the flanks, where there are more than 300 vents, ranging in size from small holes in the ground to large craters hundreds of meters across. Summit eruptions can be highly explosive and are extremely spectacular, but are rarely threatening for the inhabited areas around the volcano. On the contrary, flank eruptions can occur down to a few hundred meters altitude, close to or even well within the populated areas. Numerous villages and small towns lie around or on cones of past flank eruptions. Since the year 1600 A.D., there have been at least 60 flank eruptions and countless summit eruptions; nearly half of these have occurred since the start of the 20th century, and the 3rd millennium has seen five flank eruptions of Etna so far, in 2001, 2002-2003, 2004-2005,2007 and 2008. The first known record of an eruption at Etna is that of Diodorus Siculus. The Roman poet Virgil gave what was probably a first-hand description of an eruption in the Aeneid: “ Portus ab accessu ventorum immotus et ingens ipse; sed horrificis iuxta tonat Aetna ruinis; interdumque atram prorumpit ad aethera nubem, turbine fumantem piceo et candente favilla, attollitque globos flammarum et sidera lambit; interdum scopulos avolsaque viscera montis erigit eructans, liquefactaque saxa sub auras cum gemitu glomerat, fundoque exaestuat imo. (3.39) “ A spreading bay is there, impregnable To all invading storms; and Aetna’s throat With roar of frightful ruin thunders nigh. Now to the realm of light it lifts a cloud Of pitch-black, whirling smoke, and fiery dust, Shooting out globes of flame, with monster tongues That lick the stars; now huge crags of itself, Out of the bowels of the mountain torn, Its maw disgorges, while the molten rock Rolls screaming skyward; from the nether deep The fathomless abyss makes ebb and flow. In 396 BC, an eruption of Etna is said to have thwarted the Carthaginians in their attempt to advance on Syracuse during the First Sicilian War. A particularly violent explosive (Plinian) summit eruption occurred in 122 BC, and caused heavy tephra falls to the southeast, including the town of Catania, where many roofs collapsed. To help with reconstruction and dealing with the devastating effects of the eruption, the Roman government exempted the population of Catania from paying taxes for ten years. Recent eruptions Etna’s 2002 eruption, photographed from the ISS. Same, seen in a wider field. Etna’s south east crater 2006 eruption, photographed from Torre del Filosofo. Another large lava flow from an eruption in 1928 led to the first (and only) destruction of a population center since the 1669 eruption. The eruption started high on Etna’s northeast flank on 2 November, then new eruptive fissures opened at ever lower elevation down the flank of the volcano. The third and most vigorous of these fissures opened late on 4 November at unusually low elevation (1200 m above the sea-level), in a zone known as Ripe della Naca. The village of Mascali, lying downslope of the Ripe della Naca, was obliterated in just two days, with the lava destroying nearly every building. Only a church and a few surrounding buildings survived in the north part of the village, called Sant’Antonino or “il quartiere”. During the last days of the eruption, the flow interrupted the Messina-Catania railway line and destroyed the train station of Mascali. The event was used by Benito Mussolini’s Fascist regime for propaganda purposes, with the evacuation, aid and rebuilding operations being presented as models of fascist planning. Mascali was rebuilt on a new site, and its church contains the Italian fascist symbol of the torch, placed above the statue of Jesus Christ. In early November 2008, the town of Mascali commemorated the 80th anniversary of the eruption and destruction of the village with a number of public manifestations and conferences, where, amongst others, still living eyewitnesses of the eruptions recalled their impressions of that experience. Other major 20th-century eruptions occurred in 1949, 1971, 1981, 1983 and 1991-1993. In 1971, lava buried the Etna Observatory (built in the late 19th century), destroyed the first generation of the Etna cable-car, and seriously threatened several small villages on Etna’s east flank. In March 1981, the town of Randazzo on the northwestern flank of Etna narrowly escaped from destruction by unusually fast-moving lava flows – that eruption was remarkably similar to the one of 1928 that destroyed Mascali. The 1991-1993 eruption saw the town of Zafferana threatened by a lava flow, but successful diversion efforts saved the town with the loss of only one building a few hundred metres from the town’s margin. Initially, such efforts consisted of the construction of earth barriers built perpendicularly to the flow direction; it was hoped that the eruption would stop before the artificial basins created behind the barriers would be completely filled. Instead, the eruption continued, and lava surmounted the barriers, heading directly toward Zafferana. It was then decided to use explosives near the source of the lava flow, to disrupt a very efficient lava tube system through which the lava traveled for up to 7 km without essentially losing heat and fluidity. The main explosion on 23 May 1992 destroyed the lava tube and forced the lava into a new artificial channel, far from Zafferana, and it would have taken months to re-establish a long lava tube. Shortly after the blasting, the rate of lava emission dropped and during the remainder of the eruption (until 30 March 1993) the lava never advanced close to the town again. Following six years (1995-2001) of unusually intense activity at the four summit craters of Etna, the volcano produced its first flank eruption since 1991-1993 in July-August 2001. This eruption, which involved activity from seven distinct eruptive fissures mostly on the south slope of the volcano, was a mass-media eruption, because it occurred at the height of the tourist season and numerous reporters and journalists were already in Italy to cover the G8 summit in Genoa. It also occurred close to one of the tourist areas on the volcano, and thus was easily accessible. Part of the “Etna Sud” tourist area, including the arrival station of the Etna cable car, were damaged by this eruption, which otherwise was a rather modest-sized event for Etna standards. In 2002-2003, a much larger eruption threw up a huge column of ash that could easily be seen from space and fell as far away as Libya, 600 km south across the Mediterranean Sea. Seismic activity in this eruption caused the eastern flanks of the volcano to slip by up to two metres, and many houses on the flanks of the volcano experienced structural damage. The eruption also completely destroyed the tourist station Piano Provenzana, on the northeastern flank of the volcano, and part of the tourist station “Etna Spud” around the Rifugio Sapienza on the south flank. Footage from the eruptions was recorded by Lucasfilm and integrated into the landscape of the planet Mustafar in the 2005 film Star Wars Episode III: Revenge of the Sith. The Rifugio Sapienza is near the site of a cable car station which had previously been destroyed in the 1983 eruption; it has now been rebuilt. Etna’s Sept. 2007 eruption as seen from the southeast crater ridgeline. Following a rather silent, slow and non-destructive lava outflow on the upper southeastern flank between September 2004 and March 2005, intense eruptions occurred at the Southeast Crater in July-December 2006. These were followed by four episodes of lava fountaining, again at the Southeast Crater, on 29 March, 11 April, 29 April and 7 May 2007. Ash emissions and Strombolian explosions started from a vent on the eastern side of the Southeast Crater in mid-August 2007. House destroyed by lava on the slopes of Etna. On 4 September 2007 Etna violently erupted at around 8:00 p.m. local time, spewing lava up to 400 m into the air along with strong winds that sent ash and smoke into the underlying towns. This Southeast Crater eruption was visible far into the plains of Sicily, ending the following morning between the hours of 5 to 7 am local time. Catania-Fontanarossa Airport shut down operations during the night for safety precautions. A similar paroxysm occurred during the night of 23-24 November 2007, lasting for 6 hours and causing ash and lapilli falls to the north of the volcano. Again, the source of the activity was the Southeast Crater. Following several months of rather minor activity from the Southeast Crater and flurries of seismic activity especially in the eastern sector of the mountain, a new powerful eruptive paroxysm occurred on the late afternoon of 10 May 2008. Due to bad weather, it was not possible to see much of the activity at the vent, but several branches of lava traveled down the eastern flank of the volcano, into the Valle del Bove depression. This latest paroxysm lasted about 4 hours, ending on the evening of 10 May 2008. A new eruption started on the morning of 13 May 2008 immediately to the east of Etna’s summit craters, accompanied by a swarm of more than 200 earthquakes and significant ground deformation in the summit area. On the afternoon of the same day, a new eruptive fissure opened at about 2800 m above sea-level, with a number of vents displaying Strombolian activity and emission of lava flows toward the Valle del Bove. During the following 24 hours the lava traveled approximately 6 km to the east, but thereafter its advance slowed and stopped, the most distant lava fronts stagnating about 3 km from the nearest village, Milo. Ash emissions became more frequent between 16 and 18 May and produced small but spectacular clouds, whereas the rate of lava emission showed a gradual diminution. During late May and the first week of June, the activity continued at low levels, with lava flows advancing only a few hundred meters from the vents as of 4 June. Four days later, on 8 June, there was a considerable increase in the vigor of Strombolian activity and lava output rate. During the following week, lava flows advanced up to 5 km from the source vents. In June and July, the eruption continued with mild Strombolian activity from two vents at about 2800 m elevation, and lava advancing up to 4 km eastward, remaining confined to the Valle del Bove collapse depression. Activity in mid-July produced loud detonations that were well audible in numerous population centers around the volcano. In late-July, explosive activity waned, but lava emission continued at a fairly low rate, feeding short lava flows that advanced little more than 1 km. On 13 November 2008, six months after its onset, the 2008 flank eruption of Etna was continuing, at a relatively low rate, and it thus became the longest of the four flank eruptions of Etna so far in the 3rd millennium. Previous eruptions, in 2001, 2002-2003, and 2004-2005 had lasted 3 weeks, 3 months, and 6 months, respectively. Unusual characteristics In the 1970s Etna erupted smoke rings, one of the first captured events of this type, which is extremely rare. This happened again in 2000. Monte Etna L'Etna (Mungibeddu o semplicemente 'a Muntagna in siciliano) è un vulcano attivo che si trova sulla costa orientale della Sicilia, tra Catania e Messina. È il vulcano attivo più alto del continente europeo[1] e uno dei maggiori al mondo. La sua altezza varia nel tempo a causa delle sue eruzioni, ma si aggira attualmente sui 3.340 m. s.l.m. Il suo diametro è di circa 45 chilometri. Un tempo era noto anche come Mongibello. Leggende A proposito del dio Eolo, il re dei venti, si diceva che avesse imprigionato i venti sotto le caverne dell'Etna. Secondo il poeta Eschilo, il gigante Tifone fu confinato nell'Etna e fu motivo di eruzioni. Un altro gigante, Encelado, si ribellò contro gli dei, venne ucciso e fu bruciato nell'Etna. Su Efesto o Vulcano, dio del fuoco e della metallurgia e fabbro degli dei, venne detto di aver avuto la sua fucina sotto l'Etna e di aver domato il demone del fuoco Adranos e di averlo guidato fuori dalla montagna, mentre i Ciclopi vi tenevano un'officina di forgiatura nella quale producevano le saette usate come armi da Zeus. Si supponeva che il mondo dei morti greco, Tartaro, fosse situato sotto l'Etna. Su Empedocle, un importante filosofo presocratico e uomo politico greco del V secolo a.C., venne detto che si buttò nel cratere del vulcano, anche se in realtà sembra che sia morto in Grecia. Si dice che quando l'Etna eruttò nel 252, un anno dopo il martirio di Santa Agata, il popolo di Catania prese il velo rosso della Santa, rimasto intatto dalle fiamme del suo martirio, e né invocò il nome. Si dice che a seguito di ciò l'eruzione finì e che per questo motivo i devoti invocano il suo nome contro il fuoco e lampi. Secondo una leggenda inglese l'anima della regina Elisabetta I d'Inghilterra ora risiede nell'Etna, a causa di un patto che lei fece col diavolo in cambio del suo aiuto durante il suo regno. Turismo e ambiente Il territorio del vulcano è tutto un mondo di ambienti differenti per morfologia e tipologia. Coltivato fino ai mille metri s.l.m. e fortemente urbanizzato sui versanti est e sud si presenta selvaggio e brullo soprattutto dal lato ovest dove dai mille metri in poi predominano le \"sciare\", specie nella zona di Bronte. Poco urbanizzato, ma di aspetto più dolce il versante nord con il predominio dei boschi al di sopra di Linguaglossa. Il versante est è dominato dall'aspetto inquietante della Valle del Bove sui margini della quale si inerpicano i fitti boschi. Al di sopra dei 1000 m, in inverno, è presente la neve che spesso dura fin quasi all'estate. Questa è raggiungibile agevolmente dai versanti sud e nord. Di conseguenza sull'Etna si trovavano anche due stazioni sciistiche la cui particolarità è quella di poter sciare sulla neve potendo osservare il mare. Da quella Sud del Rifugio Sapienza, nel territorio di Nicolosi, è possibile ammirare tutto il golfo di Catania e la valle del Simeto. Nelle piste a Nord, quelle di Piano Provenzana in territorio di Linguaglossa, lo scenario che si apre d'innanzi comprende Taormina e le coste della Calabria. Le piste di Nicolosi sono state danneggiate dall'eruzione dell'estate del 2001, quando una colata lavica ha distrutto la stazione d'arrivo della funivia ed il centro servizi passando a pochi metri dallo stesso \"Rifugio Sapienza\". Le piste di Piano Provenzana sono state colpite dalla colata dell'Autunno del 2002. L'Etna visto da sud in autunno Negli anni settanta del XX secolo le piste del versante sud,Nicolosi, sono state protagoniste della \"Tre giorni Internazionale dell'Etna\" gara di sci alpino che vedeva alla partenza i grandi nomi dello sci alla fine delle gare della coppa del mondo. Poi con il passare degli anni e con l'avvento del professionismo esasperato in tutte le discipline sportive, questa gara non ha più avuto luogo. L'Etna è anche meta ininterrotta delle visite di turisti interessati al vulcano e alle sue manifestazioni in virtù del fatto che è uno dei pochi vulcani attivi al mondo ad essere a portata di mano di chiunque avendo a supporto ogni tipo di mezzo di comunicazione per raggiungerlo. Sono presenti infatti anche guide specializzate e mezzi fuoristrada che in sicurezza portano fino ai crateri sommitali. Il circondario ha caratteristiche che ne rendono le terre ottime per produzioni agricole, grazie alla particolare fertilità dei detriti vulcanici. La zona abitata giunge fino ai 1000 m.s.l.m. mentre le zone coltivate e boschive vanno fin oltre i 1500 metri. Ampie parti delle sue pendici sono comprese nell'omonimo parco naturale che è meta di turisti amanti della natura e di un sano relax. Volcan Etna El Etna (37°45.304′N 14°59.715′E﻿ / ﻿37.755067, 14.99525) es un volcán activo en la costa este de Sicilia, entre las provincias de Messina y Catania. Tiene alrededor de 3.322 metros de altura, aunque ésta varía debido a las constantes erupciones. La montaña es hoy en día 21,6 metros menor que en 1865. Es el mayor volcán activo de Europa y la montaña más alta de Italia al sur de los Alpes. El Etna cubre un área de 1.190 km2, con una circunferencia basal de 140 kilómetros. Hasta inicios de s XX, por lo menos, era frecuente que la población siciliana llamara Gibellu a este célebre volcán; tal denominación local deriva de la presencia árabe en el lugar durante la edad media. En efecto, Gibellu o Gibello deriva de la palabra árabe جبل ŷébel (monte, montaña). Aún en 2005, se llama en Sicilia Gibello o Mongibelo a la montaña; quedando la denominación Etna para el cono volcánico. En la mitología griega, el Etna era el volcán en cuyo interior se situaban las fraguas de Hefesto, que trabajaba en compañía de cíclopes y gigantes. El monstruoso Tifón yacía debajo de esta montaña, lo que causaba frecuentes terremotos y erupciones de humo y lava. Su nombre derivaba de la ninfa Etna, hija del gigante Briareo y de Cimopolia, o de Urano y Gea, que se convirtió en la deidad de este famoso volcán. Por ello, fue la juez que resolvió la disputa sobre la posesión de Sicilia entre Deméter y Hefestos. Uniéndose con éste último fue madre de los pálicos, los dos dioses de sendos géiseres famosos en la isla. Haciendo abstracción de la mitología, el nombre deriva de la palabra cananea (o del fenicio) attanu (arder) y luego de la griega aithos (con el mismo significado de arder). Durante la ocupación árabe de Sicilia en la Edad Media, el Etna fue llamado Ŷébel Uhamat (Montaña de Fuego), pasando a ser llamado durante siglos por gran parte de los italianos con la palabra mixta (románica-arábiga): Mongibello. El Etna es uno de los volcanes más activos del mundo, y está casi en constante erupción. Aunque en ocasiones puede ser muy destructivo, no está contemplado como un volcán particularmente peligroso y miles de personas viven en sus alrededores e incluso en sus faldas. La fertilidad de la tierra volcánica hace que la agricultura extensiva, con viñas y huertos, se extiende a lo largo de las laderas de la montaña. Debido a la reciente actividad volcánica y a su población, el Etna ha sido designado como uno de los 16 volcanes de la década por las Naciones Unidas. etna vulcan vulcano volcan catania katane sicily sicilia italy italia europe europa eu nature landscape author michael castielli free license creative commons high resolution copyright patent wallpaper graphical design disegno new sky travel viaje viaggio trip vacation vacanze vacaciones holiday site web",
+          "bredd": 4288,
+          "hojd": 2704,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Mount_Etna_Volcano_Dawn_at_Patern%C3%B2_Sicilia_Italy_-_Creative_Commons_by_gnuckx_%284773785162%29.jpg/960px-Mount_Etna_Volcano_Dawn_at_Patern%C3%B2_Sicilia_Italy_-_Creative_Commons_by_gnuckx_%284773785162%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Etna 2010 eruptions",
+            "July 2010 in Sicily",
+            "Mount Etna at dawn",
+            "Sunrises of Sicily"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Mount Etna Volcano Dawn at Paternò Sicilia Italy - Creative Commons by gnuckx (4772940241).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mount_Etna_Volcano_Dawn_at_Patern%C3%B2_Sicilia_Italy_-_Creative_Commons_by_gnuckx_(4772940241).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "gnuckx",
+          "datum": "2010-07-07 06:36",
+          "datum_original": "2010-07-07 06:36",
+          "datum_fil": "2013-02-08 15:24:30",
+          "kredit": "Mount Etna Volcano Dawn at Paternò Sicilia Italy - Creative Commons by gnuckx",
+          "beskrivning": "News Etna, the Forge of Hephaestus - Etna, la fucina di Efesto by Francesco Pappalardo. This is an excellent Photography book recently published by this great photographer and flickr friend cicciofarmaco . This book is a collection of the most beautiful pictures of the Etna volcano paroxysmal eruptions of 2011. As you can see, Francesco has a natural talent in photography and his work is truly inspirational, so through this book you can live again the most spectacular and fascinating moments of the eruptions of the Etna volcano of 2011. Buy this magnificent Photography book easily online through this link Etna, la fucina di Efesto. by Francesco Pappalardo and enjoy these historic events of nature forever. ======================================================== Mount Etna Mount Etna, also known as Muncibeḍḍu in Sicilian and Mongibello in Italian, a combination of Latin mons and Arabic gibel, both meaning mountain) is an active stratovolcano on the east coast of Sicily, close to Messina and Catania. Its Arabic name was Jebel Utlamat (the Mountain of Fire). It is the second largest active volcano in Europe, currently standing 3,329 metres (10,922 ft) high, though this varies with summit eruptions; the mountain is 21 m (69 ft) lower now than it was in 1981. It is the highest mountain in Italy south of the Alps. Etna covers an area of 1,190 km² (460 sq mi) with a basal circumference of 140 km. This makes it by far the largest of the three active volcanoes in Italy, being about two and a half times the height of the next largest, Mount Vesuvius. Only Mount Teide in Tenerife surpasses it in the whole of the European region (though geographically Tenerife is an island of Africa). Mount Etna is one of the most active volcanoes in the world and is in an almost constant state of eruption. It is also believed to be the world’s oldest active volcano. The fertile volcanic soils support extensive agriculture, with vineyards and orchards spread across the lower slopes of the mountain and the broad Plain of Catania to the south. Due to its history of recent activity and nearby population, Mount Etna has been designated a Decade Volcano by the United Nations. Geological history Volcanic activity at Etna began about half a million years ago, with eruptions occurring beneath the sea off the coastline of Sicily. 300,000 years ago, volcanism began occurring to the southwest of the present-day summit, before activity moved towards the present center 170,000 years ago. Eruptions at this time built up the first major volcanic edifice, forming a strato-volcano in alternating explosive and effusive eruptions. The growth of the mountain was occasionally interrupted by major eruptions leading to the collapse of the summit to form calderas. Etna seen from Spot Satellite. From about 35,000 to 15,000 years ago, Etna experienced some highly explosive eruptions, generating large pyroclastic flows which left extensive ignimbrite deposits. Ash from these eruptions has been found as far away as Rome, 800 km to the north. A crater near the Torre del Filosofo, about 450 metres below Etna’s summit. Thousands of years ago, the eastern flank of the mountain experienced a catastrophic collapse, generating an enormous landslide in an event similar to that seen in the 1980 eruption of Mount St. Helens. The landslide left a large depression in the side of the volcano, known as ‘Valle del Bove’ (Valley of the Ox). Research published in 2006 suggests that this occurred around 6000 BC, and caused a huge tsunami which left its mark in several places in the eastern Mediterranean. It may have been the reason that the settlement of Atlit Yam (Israel), now below sea level, was suddenly abandoned around that time. The steep walls of the Valley have suffered subsequent collapse on numerous occasions. The strata exposed in the valley walls provide an important and easily accessible record of Etna’s eruptive history. The most recent collapse event at the summit of Etna is thought to have occurred about 2,000 years ago, forming what is known as the Piano Caldera. This caldera has been almost entirely filled by subsequent lava eruptions, but is still visible as a distinct break in the slope of the mountain near the base of the present-day summit cone. Historical eruptions Eruptions of Etna are not all the same. Some occur at the summit, where there are currently (as of 2008) four distinct craters – the Northeast Crater, the Voragine, the Bocca Nuova, and the Southeast Crater. Other eruptions occur on the flanks, where there are more than 300 vents, ranging in size from small holes in the ground to large craters hundreds of meters across. Summit eruptions can be highly explosive and are extremely spectacular, but are rarely threatening for the inhabited areas around the volcano. On the contrary, flank eruptions can occur down to a few hundred meters altitude, close to or even well within the populated areas. Numerous villages and small towns lie around or on cones of past flank eruptions. Since the year 1600 A.D., there have been at least 60 flank eruptions and countless summit eruptions; nearly half of these have occurred since the start of the 20th century, and the 3rd millennium has seen five flank eruptions of Etna so far, in 2001, 2002-2003, 2004-2005,2007 and 2008. The first known record of an eruption at Etna is that of Diodorus Siculus. The Roman poet Virgil gave what was probably a first-hand description of an eruption in the Aeneid: “ Portus ab accessu ventorum immotus et ingens ipse; sed horrificis iuxta tonat Aetna ruinis; interdumque atram prorumpit ad aethera nubem, turbine fumantem piceo et candente favilla, attollitque globos flammarum et sidera lambit; interdum scopulos avolsaque viscera montis erigit eructans, liquefactaque saxa sub auras cum gemitu glomerat, fundoque exaestuat imo. (3.39) “ A spreading bay is there, impregnable To all invading storms; and Aetna’s throat With roar of frightful ruin thunders nigh. Now to the realm of light it lifts a cloud Of pitch-black, whirling smoke, and fiery dust, Shooting out globes of flame, with monster tongues That lick the stars; now huge crags of itself, Out of the bowels of the mountain torn, Its maw disgorges, while the molten rock Rolls screaming skyward; from the nether deep The fathomless abyss makes ebb and flow. In 396 BC, an eruption of Etna is said to have thwarted the Carthaginians in their attempt to advance on Syracuse during the First Sicilian War. A particularly violent explosive (Plinian) summit eruption occurred in 122 BC, and caused heavy tephra falls to the southeast, including the town of Catania, where many roofs collapsed. To help with reconstruction and dealing with the devastating effects of the eruption, the Roman government exempted the population of Catania from paying taxes for ten years. Recent eruptions Etna’s 2002 eruption, photographed from the ISS. Same, seen in a wider field. Etna’s south east crater 2006 eruption, photographed from Torre del Filosofo. Another large lava flow from an eruption in 1928 led to the first (and only) destruction of a population center since the 1669 eruption. The eruption started high on Etna’s northeast flank on 2 November, then new eruptive fissures opened at ever lower elevation down the flank of the volcano. The third and most vigorous of these fissures opened late on 4 November at unusually low elevation (1200 m above the sea-level), in a zone known as Ripe della Naca. The village of Mascali, lying downslope of the Ripe della Naca, was obliterated in just two days, with the lava destroying nearly every building. Only a church and a few surrounding buildings survived in the north part of the village, called Sant’Antonino or “il quartiere”. During the last days of the eruption, the flow interrupted the Messina-Catania railway line and destroyed the train station of Mascali. The event was used by Benito Mussolini’s Fascist regime for propaganda purposes, with the evacuation, aid and rebuilding operations being presented as models of fascist planning. Mascali was rebuilt on a new site, and its church contains the Italian fascist symbol of the torch, placed above the statue of Jesus Christ. In early November 2008, the town of Mascali commemorated the 80th anniversary of the eruption and destruction of the village with a number of public manifestations and conferences, where, amongst others, still living eyewitnesses of the eruptions recalled their impressions of that experience. Other major 20th-century eruptions occurred in 1949, 1971, 1981, 1983 and 1991-1993. In 1971, lava buried the Etna Observatory (built in the late 19th century), destroyed the first generation of the Etna cable-car, and seriously threatened several small villages on Etna’s east flank. In March 1981, the town of Randazzo on the northwestern flank of Etna narrowly escaped from destruction by unusually fast-moving lava flows – that eruption was remarkably similar to the one of 1928 that destroyed Mascali. The 1991-1993 eruption saw the town of Zafferana threatened by a lava flow, but successful diversion efforts saved the town with the loss of only one building a few hundred metres from the town’s margin. Initially, such efforts consisted of the construction of earth barriers built perpendicularly to the flow direction; it was hoped that the eruption would stop before the artificial basins created behind the barriers would be completely filled. Instead, the eruption continued, and lava surmounted the barriers, heading directly toward Zafferana. It was then decided to use explosives near the source of the lava flow, to disrupt a very efficient lava tube system through which the lava traveled for up to 7 km without essentially losing heat and fluidity. The main explosion on 23 May 1992 destroyed the lava tube and forced the lava into a new artificial channel, far from Zafferana, and it would have taken months to re-establish a long lava tube. Shortly after the blasting, the rate of lava emission dropped and during the remainder of the eruption (until 30 March 1993) the lava never advanced close to the town again. Following six years (1995-2001) of unusually intense activity at the four summit craters of Etna, the volcano produced its first flank eruption since 1991-1993 in July-August 2001. This eruption, which involved activity from seven distinct eruptive fissures mostly on the south slope of the volcano, was a mass-media eruption, because it occurred at the height of the tourist season and numerous reporters and journalists were already in Italy to cover the G8 summit in Genoa. It also occurred close to one of the tourist areas on the volcano, and thus was easily accessible. Part of the “Etna Sud” tourist area, including the arrival station of the Etna cable car, were damaged by this eruption, which otherwise was a rather modest-sized event for Etna standards. In 2002-2003, a much larger eruption threw up a huge column of ash that could easily be seen from space and fell as far away as Libya, 600 km south across the Mediterranean Sea. Seismic activity in this eruption caused the eastern flanks of the volcano to slip by up to two metres, and many houses on the flanks of the volcano experienced structural damage. The eruption also completely destroyed the tourist station Piano Provenzana, on the northeastern flank of the volcano, and part of the tourist station “Etna Spud” around the Rifugio Sapienza on the south flank. Footage from the eruptions was recorded by Lucasfilm and integrated into the landscape of the planet Mustafar in the 2005 film Star Wars Episode III: Revenge of the Sith. The Rifugio Sapienza is near the site of a cable car station which had previously been destroyed in the 1983 eruption; it has now been rebuilt. Etna’s Sept. 2007 eruption as seen from the southeast crater ridgeline. Following a rather silent, slow and non-destructive lava outflow on the upper southeastern flank between September 2004 and March 2005, intense eruptions occurred at the Southeast Crater in July-December 2006. These were followed by four episodes of lava fountaining, again at the Southeast Crater, on 29 March, 11 April, 29 April and 7 May 2007. Ash emissions and Strombolian explosions started from a vent on the eastern side of the Southeast Crater in mid-August 2007. House destroyed by lava on the slopes of Etna. On 4 September 2007 Etna violently erupted at around 8:00 p.m. local time, spewing lava up to 400 m into the air along with strong winds that sent ash and smoke into the underlying towns. This Southeast Crater eruption was visible far into the plains of Sicily, ending the following morning between the hours of 5 to 7 am local time. Catania-Fontanarossa Airport shut down operations during the night for safety precautions. A similar paroxysm occurred during the night of 23-24 November 2007, lasting for 6 hours and causing ash and lapilli falls to the north of the volcano. Again, the source of the activity was the Southeast Crater. Following several months of rather minor activity from the Southeast Crater and flurries of seismic activity especially in the eastern sector of the mountain, a new powerful eruptive paroxysm occurred on the late afternoon of 10 May 2008. Due to bad weather, it was not possible to see much of the activity at the vent, but several branches of lava traveled down the eastern flank of the volcano, into the Valle del Bove depression. This latest paroxysm lasted about 4 hours, ending on the evening of 10 May 2008. A new eruption started on the morning of 13 May 2008 immediately to the east of Etna’s summit craters, accompanied by a swarm of more than 200 earthquakes and significant ground deformation in the summit area. On the afternoon of the same day, a new eruptive fissure opened at about 2800 m above sea-level, with a number of vents displaying Strombolian activity and emission of lava flows toward the Valle del Bove. During the following 24 hours the lava traveled approximately 6 km to the east, but thereafter its advance slowed and stopped, the most distant lava fronts stagnating about 3 km from the nearest village, Milo. Ash emissions became more frequent between 16 and 18 May and produced small but spectacular clouds, whereas the rate of lava emission showed a gradual diminution. During late May and the first week of June, the activity continued at low levels, with lava flows advancing only a few hundred meters from the vents as of 4 June. Four days later, on 8 June, there was a considerable increase in the vigor of Strombolian activity and lava output rate. During the following week, lava flows advanced up to 5 km from the source vents. In June and July, the eruption continued with mild Strombolian activity from two vents at about 2800 m elevation, and lava advancing up to 4 km eastward, remaining confined to the Valle del Bove collapse depression. Activity in mid-July produced loud detonations that were well audible in numerous population centers around the volcano. In late-July, explosive activity waned, but lava emission continued at a fairly low rate, feeding short lava flows that advanced little more than 1 km. On 13 November 2008, six months after its onset, the 2008 flank eruption of Etna was continuing, at a relatively low rate, and it thus became the longest of the four flank eruptions of Etna so far in the 3rd millennium. Previous eruptions, in 2001, 2002-2003, and 2004-2005 had lasted 3 weeks, 3 months, and 6 months, respectively. Unusual characteristics In the 1970s Etna erupted smoke rings, one of the first captured events of this type, which is extremely rare. This happened again in 2000. Monte Etna L'Etna (Mungibeddu o semplicemente 'a Muntagna in siciliano) è un vulcano attivo che si trova sulla costa orientale della Sicilia, tra Catania e Messina. È il vulcano attivo più alto del continente europeo[1] e uno dei maggiori al mondo. La sua altezza varia nel tempo a causa delle sue eruzioni, ma si aggira attualmente sui 3.340 m. s.l.m. Il suo diametro è di circa 45 chilometri. Un tempo era noto anche come Mongibello. Leggende A proposito del dio Eolo, il re dei venti, si diceva che avesse imprigionato i venti sotto le caverne dell'Etna. Secondo il poeta Eschilo, il gigante Tifone fu confinato nell'Etna e fu motivo di eruzioni. Un altro gigante, Encelado, si ribellò contro gli dei, venne ucciso e fu bruciato nell'Etna. Su Efesto o Vulcano, dio del fuoco e della metallurgia e fabbro degli dei, venne detto di aver avuto la sua fucina sotto l'Etna e di aver domato il demone del fuoco Adranos e di averlo guidato fuori dalla montagna, mentre i Ciclopi vi tenevano un'officina di forgiatura nella quale producevano le saette usate come armi da Zeus. Si supponeva che il mondo dei morti greco, Tartaro, fosse situato sotto l'Etna. Su Empedocle, un importante filosofo presocratico e uomo politico greco del V secolo a.C., venne detto che si buttò nel cratere del vulcano, anche se in realtà sembra che sia morto in Grecia. Si dice che quando l'Etna eruttò nel 252, un anno dopo il martirio di Santa Agata, il popolo di Catania prese il velo rosso della Santa, rimasto intatto dalle fiamme del suo martirio, e né invocò il nome. Si dice che a seguito di ciò l'eruzione finì e che per questo motivo i devoti invocano il suo nome contro il fuoco e lampi. Secondo una leggenda inglese l'anima della regina Elisabetta I d'Inghilterra ora risiede nell'Etna, a causa di un patto che lei fece col diavolo in cambio del suo aiuto durante il suo regno. Turismo e ambiente Il territorio del vulcano è tutto un mondo di ambienti differenti per morfologia e tipologia. Coltivato fino ai mille metri s.l.m. e fortemente urbanizzato sui versanti est e sud si presenta selvaggio e brullo soprattutto dal lato ovest dove dai mille metri in poi predominano le \"sciare\", specie nella zona di Bronte. Poco urbanizzato, ma di aspetto più dolce il versante nord con il predominio dei boschi al di sopra di Linguaglossa. Il versante est è dominato dall'aspetto inquietante della Valle del Bove sui margini della quale si inerpicano i fitti boschi. Al di sopra dei 1000 m, in inverno, è presente la neve che spesso dura fin quasi all'estate. Questa è raggiungibile agevolmente dai versanti sud e nord. Di conseguenza sull'Etna si trovavano anche due stazioni sciistiche la cui particolarità è quella di poter sciare sulla neve potendo osservare il mare. Da quella Sud del Rifugio Sapienza, nel territorio di Nicolosi, è possibile ammirare tutto il golfo di Catania e la valle del Simeto. Nelle piste a Nord, quelle di Piano Provenzana in territorio di Linguaglossa, lo scenario che si apre d'innanzi comprende Taormina e le coste della Calabria. Le piste di Nicolosi sono state danneggiate dall'eruzione dell'estate del 2001, quando una colata lavica ha distrutto la stazione d'arrivo della funivia ed il centro servizi passando a pochi metri dallo stesso \"Rifugio Sapienza\". Le piste di Piano Provenzana sono state colpite dalla colata dell'Autunno del 2002. L'Etna visto da sud in autunno Negli anni settanta del XX secolo le piste del versante sud,Nicolosi, sono state protagoniste della \"Tre giorni Internazionale dell'Etna\" gara di sci alpino che vedeva alla partenza i grandi nomi dello sci alla fine delle gare della coppa del mondo. Poi con il passare degli anni e con l'avvento del professionismo esasperato in tutte le discipline sportive, questa gara non ha più avuto luogo. L'Etna è anche meta ininterrotta delle visite di turisti interessati al vulcano e alle sue manifestazioni in virtù del fatto che è uno dei pochi vulcani attivi al mondo ad essere a portata di mano di chiunque avendo a supporto ogni tipo di mezzo di comunicazione per raggiungerlo. Sono presenti infatti anche guide specializzate e mezzi fuoristrada che in sicurezza portano fino ai crateri sommitali. Il circondario ha caratteristiche che ne rendono le terre ottime per produzioni agricole, grazie alla particolare fertilità dei detriti vulcanici. La zona abitata giunge fino ai 1000 m.s.l.m. mentre le zone coltivate e boschive vanno fin oltre i 1500 metri. Ampie parti delle sue pendici sono comprese nell'omonimo parco naturale che è meta di turisti amanti della natura e di un sano relax. Volcan Etna El Etna (37°45.304′N 14°59.715′E﻿ / ﻿37.755067, 14.99525) es un volcán activo en la costa este de Sicilia, entre las provincias de Messina y Catania. Tiene alrededor de 3.322 metros de altura, aunque ésta varía debido a las constantes erupciones. La montaña es hoy en día 21,6 metros menor que en 1865. Es el mayor volcán activo de Europa y la montaña más alta de Italia al sur de los Alpes. El Etna cubre un área de 1.190 km2, con una circunferencia basal de 140 kilómetros. Hasta inicios de s XX, por lo menos, era frecuente que la población siciliana llamara Gibellu a este célebre volcán; tal denominación local deriva de la presencia árabe en el lugar durante la edad media. En efecto, Gibellu o Gibello deriva de la palabra árabe جبل ŷébel (monte, montaña). Aún en 2005, se llama en Sicilia Gibello o Mongibelo a la montaña; quedando la denominación Etna para el cono volcánico. En la mitología griega, el Etna era el volcán en cuyo interior se situaban las fraguas de Hefesto, que trabajaba en compañía de cíclopes y gigantes. El monstruoso Tifón yacía debajo de esta montaña, lo que causaba frecuentes terremotos y erupciones de humo y lava. Su nombre derivaba de la ninfa Etna, hija del gigante Briareo y de Cimopolia, o de Urano y Gea, que se convirtió en la deidad de este famoso volcán. Por ello, fue la juez que resolvió la disputa sobre la posesión de Sicilia entre Deméter y Hefestos. Uniéndose con éste último fue madre de los pálicos, los dos dioses de sendos géiseres famosos en la isla. Haciendo abstracción de la mitología, el nombre deriva de la palabra cananea (o del fenicio) attanu (arder) y luego de la griega aithos (con el mismo significado de arder). Durante la ocupación árabe de Sicilia en la Edad Media, el Etna fue llamado Ŷébel Uhamat (Montaña de Fuego), pasando a ser llamado durante siglos por gran parte de los italianos con la palabra mixta (románica-arábiga): Mongibello. El Etna es uno de los volcanes más activos del mundo, y está casi en constante erupción. Aunque en ocasiones puede ser muy destructivo, no está contemplado como un volcán particularmente peligroso y miles de personas viven en sus alrededores e incluso en sus faldas. La fertilidad de la tierra volcánica hace que la agricultura extensiva, con viñas y huertos, se extiende a lo largo de las laderas de la montaña. Debido a la reciente actividad volcánica y a su población, el Etna ha sido designado como uno de los 16 volcanes de la década por las Naciones Unidas. etna vulcan vulcano volcan catania katane sicily sicilia italy italia europe europa eu nature landscape author michael castielli free license creative commons high resolution copyright patent wallpaper graphical design disegno new sky travel viaje viaggio trip vacation vacanze vacaciones holiday site web",
+          "bredd": 4288,
+          "hojd": 2848,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Mount_Etna_Volcano_Dawn_at_Patern%C3%B2_Sicilia_Italy_-_Creative_Commons_by_gnuckx_%284772940241%29.jpg/960px-Mount_Etna_Volcano_Dawn_at_Patern%C3%B2_Sicilia_Italy_-_Creative_Commons_by_gnuckx_%284772940241%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Etna 2010 eruptions",
+            "July 2010 in Sicily",
+            "Mount Etna at dawn",
+            "Sunrises of Sicily"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Volcano Etna-Sicily-Italy - Creative Commons by gnuckx (3492495940).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Volcano_Etna-Sicily-Italy_-_Creative_Commons_by_gnuckx_(3492495940).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "gnuckx",
+          "datum": "2008-10-27 07:43",
+          "datum_original": "2008-10-27 07:43",
+          "datum_fil": "2013-02-08 18:04:00",
+          "kredit": "Volcano Etna-Sicily-Italy - Creative Commons by gnuckx",
+          "beskrivning": "News Etna, the Forge of Hephaestus - Etna, la fucina di Efesto by Francesco Pappalardo. This is an excellent Photography book recently published by this great photographer and flickr friend cicciofarmaco . This book is a collection of the most beautiful pictures of the Etna volcano paroxysmal eruptions of 2011. As you can see, Francesco has a natural talent in photography and his work is truly inspirational, so through this book you can live again the most spectacular and fascinating moments of the eruptions of the Etna volcano of 2011. Buy this magnificent Photography book easily online through this link Etna, la fucina di Efesto. by Francesco Pappalardo and enjoy these historic events of nature forever. ======================================================== Mount Etna Mount Etna, also known as Muncibeḍḍu in Sicilian and Mongibello in Italian, a combination of Latin mons and Arabic gibel, both meaning mountain) is an active stratovolcano on the east coast of Sicily, close to Messina and Catania. Its Arabic name was Jebel Utlamat (the Mountain of Fire). It is the second largest active volcano in Europe, currently standing 3,329 metres (10,922 ft) high, though this varies with summit eruptions; the mountain is 21 m (69 ft) lower now than it was in 1981. It is the highest mountain in Italy south of the Alps. Etna covers an area of 1,190 km² (460 sq mi) with a basal circumference of 140 km. This makes it by far the largest of the three active volcanoes in Italy, being about two and a half times the height of the next largest, Mount Vesuvius. Only Mount Teide in Tenerife surpasses it in the whole of the European region (though geographically Tenerife is an island of Africa). Mount Etna is one of the most active volcanoes in the world and is in an almost constant state of eruption. It is also believed to be the world’s oldest active volcano. The fertile volcanic soils support extensive agriculture, with vineyards and orchards spread across the lower slopes of the mountain and the broad Plain of Catania to the south. Due to its history of recent activity and nearby population, Mount Etna has been designated a Decade Volcano by the United Nations. Geological history Volcanic activity at Etna began about half a million years ago, with eruptions occurring beneath the sea off the coastline of Sicily. 300,000 years ago, volcanism began occurring to the southwest of the present-day summit, before activity moved towards the present center 170,000 years ago. Eruptions at this time built up the first major volcanic edifice, forming a strato-volcano in alternating explosive and effusive eruptions. The growth of the mountain was occasionally interrupted by major eruptions leading to the collapse of the summit to form calderas. Etna seen from Spot Satellite. From about 35,000 to 15,000 years ago, Etna experienced some highly explosive eruptions, generating large pyroclastic flows which left extensive ignimbrite deposits. Ash from these eruptions has been found as far away as Rome, 800 km to the north. A crater near the Torre del Filosofo, about 450 metres below Etna’s summit. Thousands of years ago, the eastern flank of the mountain experienced a catastrophic collapse, generating an enormous landslide in an event similar to that seen in the 1980 eruption of Mount St. Helens. The landslide left a large depression in the side of the volcano, known as ‘Valle del Bove’ (Valley of the Ox). Research published in 2006 suggests that this occurred around 6000 BC, and caused a huge tsunami which left its mark in several places in the eastern Mediterranean. It may have been the reason that the settlement of Atlit Yam (Israel), now below sea level, was suddenly abandoned around that time. The steep walls of the Valley have suffered subsequent collapse on numerous occasions. The strata exposed in the valley walls provide an important and easily accessible record of Etna’s eruptive history. The most recent collapse event at the summit of Etna is thought to have occurred about 2,000 years ago, forming what is known as the Piano Caldera. This caldera has been almost entirely filled by subsequent lava eruptions, but is still visible as a distinct break in the slope of the mountain near the base of the present-day summit cone. Historical eruptions Eruptions of Etna are not all the same. Some occur at the summit, where there are currently (as of 2008) four distinct craters – the Northeast Crater, the Voragine, the Bocca Nuova, and the Southeast Crater. Other eruptions occur on the flanks, where there are more than 300 vents, ranging in size from small holes in the ground to large craters hundreds of meters across. Summit eruptions can be highly explosive and are extremely spectacular, but are rarely threatening for the inhabited areas around the volcano. On the contrary, flank eruptions can occur down to a few hundred meters altitude, close to or even well within the populated areas. Numerous villages and small towns lie around or on cones of past flank eruptions. Since the year 1600 A.D., there have been at least 60 flank eruptions and countless summit eruptions; nearly half of these have occurred since the start of the 20th century, and the 3rd millennium has seen five flank eruptions of Etna so far, in 2001, 2002-2003, 2004-2005,2007 and 2008. The first known record of an eruption at Etna is that of Diodorus Siculus. The Roman poet Virgil gave what was probably a first-hand description of an eruption in the Aeneid: “ Portus ab accessu ventorum immotus et ingens ipse; sed horrificis iuxta tonat Aetna ruinis; interdumque atram prorumpit ad aethera nubem, turbine fumantem piceo et candente favilla, attollitque globos flammarum et sidera lambit; interdum scopulos avolsaque viscera montis erigit eructans, liquefactaque saxa sub auras cum gemitu glomerat, fundoque exaestuat imo. (3.39) “ A spreading bay is there, impregnable To all invading storms; and Aetna’s throat With roar of frightful ruin thunders nigh. Now to the realm of light it lifts a cloud Of pitch-black, whirling smoke, and fiery dust, Shooting out globes of flame, with monster tongues That lick the stars; now huge crags of itself, Out of the bowels of the mountain torn, Its maw disgorges, while the molten rock Rolls screaming skyward; from the nether deep The fathomless abyss makes ebb and flow. In 396 BC, an eruption of Etna is said to have thwarted the Carthaginians in their attempt to advance on Syracuse during the First Sicilian War. A particularly violent explosive (Plinian) summit eruption occurred in 122 BC, and caused heavy tephra falls to the southeast, including the town of Catania, where many roofs collapsed. To help with reconstruction and dealing with the devastating effects of the eruption, the Roman government exempted the population of Catania from paying taxes for ten years. Recent eruptions Etna’s 2002 eruption, photographed from the ISS. Same, seen in a wider field. Etna’s south east crater 2006 eruption, photographed from Torre del Filosofo. Another large lava flow from an eruption in 1928 led to the first (and only) destruction of a population center since the 1669 eruption. The eruption started high on Etna’s northeast flank on 2 November, then new eruptive fissures opened at ever lower elevation down the flank of the volcano. The third and most vigorous of these fissures opened late on 4 November at unusually low elevation (1200 m above the sea-level), in a zone known as Ripe della Naca. The village of Mascali, lying downslope of the Ripe della Naca, was obliterated in just two days, with the lava destroying nearly every building. Only a church and a few surrounding buildings survived in the north part of the village, called Sant’Antonino or “il quartiere”. During the last days of the eruption, the flow interrupted the Messina-Catania railway line and destroyed the train station of Mascali. The event was used by Benito Mussolini’s Fascist regime for propaganda purposes, with the evacuation, aid and rebuilding operations being presented as models of fascist planning. Mascali was rebuilt on a new site, and its church contains the Italian fascist symbol of the torch, placed above the statue of Jesus Christ. In early November 2008, the town of Mascali commemorated the 80th anniversary of the eruption and destruction of the village with a number of public manifestations and conferences, where, amongst others, still living eyewitnesses of the eruptions recalled their impressions of that experience. Other major 20th-century eruptions occurred in 1949, 1971, 1981, 1983 and 1991-1993. In 1971, lava buried the Etna Observatory (built in the late 19th century), destroyed the first generation of the Etna cable-car, and seriously threatened several small villages on Etna’s east flank. In March 1981, the town of Randazzo on the northwestern flank of Etna narrowly escaped from destruction by unusually fast-moving lava flows – that eruption was remarkably similar to the one of 1928 that destroyed Mascali. The 1991-1993 eruption saw the town of Zafferana threatened by a lava flow, but successful diversion efforts saved the town with the loss of only one building a few hundred metres from the town’s margin. Initially, such efforts consisted of the construction of earth barriers built perpendicularly to the flow direction; it was hoped that the eruption would stop before the artificial basins created behind the barriers would be completely filled. Instead, the eruption continued, and lava surmounted the barriers, heading directly toward Zafferana. It was then decided to use explosives near the source of the lava flow, to disrupt a very efficient lava tube system through which the lava traveled for up to 7 km without essentially losing heat and fluidity. The main explosion on 23 May 1992 destroyed the lava tube and forced the lava into a new artificial channel, far from Zafferana, and it would have taken months to re-establish a long lava tube. Shortly after the blasting, the rate of lava emission dropped and during the remainder of the eruption (until 30 March 1993) the lava never advanced close to the town again. Following six years (1995-2001) of unusually intense activity at the four summit craters of Etna, the volcano produced its first flank eruption since 1991-1993 in July-August 2001. This eruption, which involved activity from seven distinct eruptive fissures mostly on the south slope of the volcano, was a mass-media eruption, because it occurred at the height of the tourist season and numerous reporters and journalists were already in Italy to cover the G8 summit in Genoa. It also occurred close to one of the tourist areas on the volcano, and thus was easily accessible. Part of the “Etna Sud” tourist area, including the arrival station of the Etna cable car, were damaged by this eruption, which otherwise was a rather modest-sized event for Etna standards. In 2002-2003, a much larger eruption threw up a huge column of ash that could easily be seen from space and fell as far away as Libya, 600 km south across the Mediterranean Sea. Seismic activity in this eruption caused the eastern flanks of the volcano to slip by up to two metres, and many houses on the flanks of the volcano experienced structural damage. The eruption also completely destroyed the tourist station Piano Provenzana, on the northeastern flank of the volcano, and part of the tourist station “Etna Spud” around the Rifugio Sapienza on the south flank. Footage from the eruptions was recorded by Lucasfilm and integrated into the landscape of the planet Mustafar in the 2005 film Star Wars Episode III: Revenge of the Sith. The Rifugio Sapienza is near the site of a cable car station which had previously been destroyed in the 1983 eruption; it has now been rebuilt. Etna’s Sept. 2007 eruption as seen from the southeast crater ridgeline. Following a rather silent, slow and non-destructive lava outflow on the upper southeastern flank between September 2004 and March 2005, intense eruptions occurred at the Southeast Crater in July-December 2006. These were followed by four episodes of lava fountaining, again at the Southeast Crater, on 29 March, 11 April, 29 April and 7 May 2007. Ash emissions and Strombolian explosions started from a vent on the eastern side of the Southeast Crater in mid-August 2007. House destroyed by lava on the slopes of Etna. On 4 September 2007 Etna violently erupted at around 8:00 p.m. local time, spewing lava up to 400 m into the air along with strong winds that sent ash and smoke into the underlying towns. This Southeast Crater eruption was visible far into the plains of Sicily, ending the following morning between the hours of 5 to 7 am local time. Catania-Fontanarossa Airport shut down operations during the night for safety precautions. A similar paroxysm occurred during the night of 23-24 November 2007, lasting for 6 hours and causing ash and lapilli falls to the north of the volcano. Again, the source of the activity was the Southeast Crater. Following several months of rather minor activity from the Southeast Crater and flurries of seismic activity especially in the eastern sector of the mountain, a new powerful eruptive paroxysm occurred on the late afternoon of 10 May 2008. Due to bad weather, it was not possible to see much of the activity at the vent, but several branches of lava traveled down the eastern flank of the volcano, into the Valle del Bove depression. This latest paroxysm lasted about 4 hours, ending on the evening of 10 May 2008. A new eruption started on the morning of 13 May 2008 immediately to the east of Etna’s summit craters, accompanied by a swarm of more than 200 earthquakes and significant ground deformation in the summit area. On the afternoon of the same day, a new eruptive fissure opened at about 2800 m above sea-level, with a number of vents displaying Strombolian activity and emission of lava flows toward the Valle del Bove. During the following 24 hours the lava traveled approximately 6 km to the east, but thereafter its advance slowed and stopped, the most distant lava fronts stagnating about 3 km from the nearest village, Milo. Ash emissions became more frequent between 16 and 18 May and produced small but spectacular clouds, whereas the rate of lava emission showed a gradual diminution. During late May and the first week of June, the activity continued at low levels, with lava flows advancing only a few hundred meters from the vents as of 4 June. Four days later, on 8 June, there was a considerable increase in the vigor of Strombolian activity and lava output rate. During the following week, lava flows advanced up to 5 km from the source vents. In June and July, the eruption continued with mild Strombolian activity from two vents at about 2800 m elevation, and lava advancing up to 4 km eastward, remaining confined to the Valle del Bove collapse depression. Activity in mid-July produced loud detonations that were well audible in numerous population centers around the volcano. In late-July, explosive activity waned, but lava emission continued at a fairly low rate, feeding short lava flows that advanced little more than 1 km. On 13 November 2008, six months after its onset, the 2008 flank eruption of Etna was continuing, at a relatively low rate, and it thus became the longest of the four flank eruptions of Etna so far in the 3rd millennium. Previous eruptions, in 2001, 2002-2003, and 2004-2005 had lasted 3 weeks, 3 months, and 6 months, respectively. Unusual characteristics In the 1970s Etna erupted smoke rings, one of the first captured events of this type, which is extremely rare. This happened again in 2000. Monte Etna L'Etna (Mungibeddu o semplicemente 'a Muntagna in siciliano) è un vulcano attivo che si trova sulla costa orientale della Sicilia, tra Catania e Messina. È il vulcano attivo più alto del continente europeo[1] e uno dei maggiori al mondo. La sua altezza varia nel tempo a causa delle sue eruzioni, ma si aggira attualmente sui 3.340 m. s.l.m. Il suo diametro è di circa 45 chilometri. Un tempo era noto anche come Mongibello. Leggende A proposito del dio Eolo, il re dei venti, si diceva che avesse imprigionato i venti sotto le caverne dell'Etna. Secondo il poeta Eschilo, il gigante Tifone fu confinato nell'Etna e fu motivo di eruzioni. Un altro gigante, Encelado, si ribellò contro gli dei, venne ucciso e fu bruciato nell'Etna. Su Efesto o Vulcano, dio del fuoco e della metallurgia e fabbro degli dei, venne detto di aver avuto la sua fucina sotto l'Etna e di aver domato il demone del fuoco Adranos e di averlo guidato fuori dalla montagna, mentre i Ciclopi vi tenevano un'officina di forgiatura nella quale producevano le saette usate come armi da Zeus. Si supponeva che il mondo dei morti greco, Tartaro, fosse situato sotto l'Etna. Su Empedocle, un importante filosofo presocratico e uomo politico greco del V secolo a.C., venne detto che si buttò nel cratere del vulcano, anche se in realtà sembra che sia morto in Grecia. Si dice che quando l'Etna eruttò nel 252, un anno dopo il martirio di Santa Agata, il popolo di Catania prese il velo rosso della Santa, rimasto intatto dalle fiamme del suo martirio, e né invocò il nome. Si dice che a seguito di ciò l'eruzione finì e che per questo motivo i devoti invocano il suo nome contro il fuoco e lampi. Secondo una leggenda inglese l'anima della regina Elisabetta I d'Inghilterra ora risiede nell'Etna, a causa di un patto che lei fece col diavolo in cambio del suo aiuto durante il suo regno. Turismo e ambiente Il territorio del vulcano è tutto un mondo di ambienti differenti per morfologia e tipologia. Coltivato fino ai mille metri s.l.m. e fortemente urbanizzato sui versanti est e sud si presenta selvaggio e brullo soprattutto dal lato ovest dove dai mille metri in poi predominano le \"sciare\", specie nella zona di Bronte. Poco urbanizzato, ma di aspetto più dolce il versante nord con il predominio dei boschi al di sopra di Linguaglossa. Il versante est è dominato dall'aspetto inquietante della Valle del Bove sui margini della quale si inerpicano i fitti boschi. Al di sopra dei 1000 m, in inverno, è presente la neve che spesso dura fin quasi all'estate. Questa è raggiungibile agevolmente dai versanti sud e nord. Di conseguenza sull'Etna si trovavano anche due stazioni sciistiche la cui particolarità è quella di poter sciare sulla neve potendo osservare il mare. Da quella Sud del Rifugio Sapienza, nel territorio di Nicolosi, è possibile ammirare tutto il golfo di Catania e la valle del Simeto. Nelle piste a Nord, quelle di Piano Provenzana in territorio di Linguaglossa, lo scenario che si apre d'innanzi comprende Taormina e le coste della Calabria. Le piste di Nicolosi sono state danneggiate dall'eruzione dell'estate del 2001, quando una colata lavica ha distrutto la stazione d'arrivo della funivia ed il centro servizi passando a pochi metri dallo stesso \"Rifugio Sapienza\". Le piste di Piano Provenzana sono state colpite dalla colata dell'Autunno del 2002. L'Etna visto da sud in autunno Negli anni settanta del XX secolo le piste del versante sud,Nicolosi, sono state protagoniste della \"Tre giorni Internazionale dell'Etna\" gara di sci alpino che vedeva alla partenza i grandi nomi dello sci alla fine delle gare della coppa del mondo. Poi con il passare degli anni e con l'avvento del professionismo esasperato in tutte le discipline sportive, questa gara non ha più avuto luogo. L'Etna è anche meta ininterrotta delle visite di turisti interessati al vulcano e alle sue manifestazioni in virtù del fatto che è uno dei pochi vulcani attivi al mondo ad essere a portata di mano di chiunque avendo a supporto ogni tipo di mezzo di comunicazione per raggiungerlo. Sono presenti infatti anche guide specializzate e mezzi fuoristrada che in sicurezza portano fino ai crateri sommitali. Il circondario ha caratteristiche che ne rendono le terre ottime per produzioni agricole, grazie alla particolare fertilità dei detriti vulcanici. La zona abitata giunge fino ai 1000 m.s.l.m. mentre le zone coltivate e boschive vanno fin oltre i 1500 metri. Ampie parti delle sue pendici sono comprese nell'omonimo parco naturale che è meta di turisti amanti della natura e di un sano relax. Volcan Etna El Etna (37°45.304′N 14°59.715′E﻿ / ﻿37.755067, 14.99525) es un volcán activo en la costa este de Sicilia, entre las provincias de Messina y Catania. Tiene alrededor de 3.322 metros de altura, aunque ésta varía debido a las constantes erupciones. La montaña es hoy en día 21,6 metros menor que en 1865. Es el mayor volcán activo de Europa y la montaña más alta de Italia al sur de los Alpes. El Etna cubre un área de 1.190 km2, con una circunferencia basal de 140 kilómetros. Hasta inicios de s XX, por lo menos, era frecuente que la población siciliana llamara Gibellu a este célebre volcán; tal denominación local deriva de la presencia árabe en el lugar durante la edad media. En efecto, Gibellu o Gibello deriva de la palabra árabe جبل ŷébel (monte, montaña). Aún en 2005, se llama en Sicilia Gibello o Mongibelo a la montaña; quedando la denominación Etna para el cono volcánico. En la mitología griega, el Etna era el volcán en cuyo interior se situaban las fraguas de Hefesto, que trabajaba en compañía de cíclopes y gigantes. El monstruoso Tifón yacía debajo de esta montaña, lo que causaba frecuentes terremotos y erupciones de humo y lava. Su nombre derivaba de la ninfa Etna, hija del gigante Briareo y de Cimopolia, o de Urano y Gea, que se convirtió en la deidad de este famoso volcán. Por ello, fue la juez que resolvió la disputa sobre la posesión de Sicilia entre Deméter y Hefestos. Uniéndose con éste último fue madre de los pálicos, los dos dioses de sendos géiseres famosos en la isla. Haciendo abstracción de la mitología, el nombre deriva de la palabra cananea (o del fenicio) attanu (arder) y luego de la griega aithos (con el mismo significado de arder). Durante la ocupación árabe de Sicilia en la Edad Media, el Etna fue llamado Ŷébel Uhamat (Montaña de Fuego), pasando a ser llamado durante siglos por gran parte de los italianos con la palabra mixta (románica-arábiga): Mongibello. El Etna es uno de los volcanes más activos del mundo, y está casi en constante erupción. Aunque en ocasiones puede ser muy destructivo, no está contemplado como un volcán particularmente peligroso y miles de personas viven en sus alrededores e incluso en sus faldas. La fertilidad de la tierra volcánica hace que la agricultura extensiva, con viñas y huertos, se extiende a lo largo de las laderas de la montaña. Debido a la reciente actividad volcánica y a su población, el Etna ha sido designado como uno de los 16 volcanes de la década por las Naciones Unidas. etna vulcan vulcano volcan catania katane sicily sicilia italy italia europe europa eu nature landscape author michael castielli free license creative commons high resolution copyright patent wallpaper graphical design disegno new sky travel viaje viaggio trip vacation vacanze vacaciones holiday site web",
+          "bredd": 1440,
+          "hojd": 1080,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Volcano_Etna-Sicily-Italy_-_Creative_Commons_by_gnuckx_%283492495940%29.jpg/960px-Volcano_Etna-Sicily-Italy_-_Creative_Commons_by_gnuckx_%283492495940%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2008 aerial photographs of Italy",
+            "Aerial views of Mount Etna",
+            "Ash fall at Mount Etna",
+            "Mount Etna eruption columns",
+            "October 2008 Italy photographs"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "biatec-mynten",
+      "titel": "Bojerna präglar Biatecmynt",
+      "start": -99,
+      "plats": "Bratislava, Slovakien (punkten är staden)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:NBS, Biatec, informačná tabuľa.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:NBS,_Biatec,_informa%C4%8Dn%C3%A1_tabu%C4%BEa.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "TomphanTK",
+          "datum": "2023-09-08 11:26:36",
+          "datum_original": "2023-09-08 11:26:36",
+          "datum_fil": "2023-09-10 10:19:39",
+          "kredit": "Own work",
+          "beskrivning": "Informačná tabuľa pod plastikou Biateca pri NBS v Bratislave.",
+          "bredd": 5184,
+          "hojd": 3888,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/NBS%2C_Biatec%2C_informa%C4%8Dn%C3%A1_tabu%C4%BEa.jpg/960px-NBS%2C_Biatec%2C_informa%C4%8Dn%C3%A1_tabu%C4%BEa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Biatec"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Web Biatec.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Web_Biatec.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "matissek",
+          "datum": "2006",
+          "datum_original": "2006",
+          "datum_fil": "2013-08-16 20:27:40",
+          "kredit": "Own work",
+          "beskrivning": "left: Celtic coin of BIATEC found in Slovakia; right: coin of 5 Slovak korunas",
+          "bredd": 824,
+          "hojd": 408,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/64/Web_Biatec.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Coins of Biatec",
+            "Coins of Slovakia",
+            "Coins on coins",
+            "Coins with a face value of 5",
+            "Nude horsemen on coins",
+            "Silver coins"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning",
+            "licens-risk"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "flera licenser: Public domain, CC BY-SA 2.5",
+              "risk: PD-self, men filsidan nämner också en annan licens: skriv båda i källans note och i bildtexten"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-self}}, {{self|cc-by-sa-2.5}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (Public domain och CC BY-SA 2.5); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Att kontrollera: PD-self, men filsidan nämner också en annan licens: skriv båda i källans note och i bildtexten.",
+            "risker": [
+              "PD-self, men filsidan nämner också en annan licens: skriv båda i källans note och i bildtexten"
+            ],
+            "mallar": [
+              "PD-self",
+              "self|cc-by-sa-2.5"
+            ]
+          }
+        },
+        {
+          "fil": "File:BIATEC pri NBS 4.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:BIATEC_pri_NBS_4.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Wizzard",
+          "datum": "2008-12-30",
+          "datum_original": "2008-12-30",
+          "datum_fil": "2008-12-30 12:03:46",
+          "kredit": "Own work",
+          "beskrivning": "Unknown description Unknown description",
+          "bredd": 2560,
+          "hojd": 1920,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/BIATEC_pri_NBS_4.jpg/960px-BIATEC_pri_NBS_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Sculpture of Biatec"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk",
+            "ur-sokning",
+            "licens-risk"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "risk: filsidan har en mall om frihet för panorama: kontrollera upphovsrätten för konstverket i bilden"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-self}}. Commons API (LicenseShortName): \"Public domain\". Att kontrollera: filsidan har en mall om frihet för panorama: kontrollera upphovsrätten för konstverket i bilden.",
+            "risker": [
+              "filsidan har en mall om frihet för panorama: kontrollera upphovsrätten för konstverket i bilden"
+            ],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "slaget-vid-gindarus",
+      "titel": "Slaget vid berget Gindarus",
+      "start": -37,
+      "plats": "Berget Gindarus i Kyrrhestike, norra Syrien",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:J-m-dent-and-sons atlas-of-ancient-and-classical-geography 1912 syria-mesopotamia-assyria-etc-northern-middle-east 3296 2114 600.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:J-m-dent-and-sons_atlas-of-ancient-and-classical-geography_1912_syria-mesopotamia-assyria-etc-northern-middle-east_3296_2114_600.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Samuel Butler",
+          "datum": "1907",
+          "datum_original": "1907",
+          "datum_fil": "2019-01-03 07:07:54",
+          "kredit": "The Atlas of Ancient and Classical Geography by Samuel Butler",
+          "beskrivning": "Greater Syria region",
+          "bredd": 3171,
+          "hojd": 2077,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/J-m-dent-and-sons_atlas-of-ancient-and-classical-geography_1912_syria-mesopotamia-assyria-etc-northern-middle-east_3296_2114_600.jpg/960px-J-m-dent-and-sons_atlas-of-ancient-and-classical-geography_1912_syria-mesopotamia-assyria-etc-northern-middle-east_3296_2114_600.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1900s maps of Iraq",
+            "1900s maps of Syria",
+            "1900s maps of the Levant",
+            "Old maps of Mesopotamia",
+            "Old maps of the Neo-Assyrian Empire",
+            "The Atlas of Ancient and Classical Geography by Samuel Butler"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-auto-expired"
+            ]
+          }
+        },
+        {
+          "fil": "File:Heinrich Kiepert. Asia citerior.Syria.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Heinrich_Kiepert._Asia_citerior.Syria.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Heinrich Kiepert",
+          "datum": "1903",
+          "datum_original": "1903",
+          "datum_fil": "2012-11-29 13:57:56",
+          "kredit": "This image has been extracted from another file",
+          "beskrivning": "Syria. Asia citerior. Auctore Henrico Kiepert Berolinensi. Geographische Verlagshandlung Dietrich Reimer (Ernst Vohsen) Berlin, Wilhemlstr. 29. (1903)",
+          "bredd": 1678,
+          "hojd": 2216,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Heinrich_Kiepert._Asia_citerior.Syria.jpg/960px-Heinrich_Kiepert._Asia_citerior.Syria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1903 map of Asia citerior by Heinrich Kiepert",
+            "Details of old maps of Syria",
+            "Maps of Roman Syria"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        },
+        {
+          "fil": "File:Coin of Pacorus I of Parthia.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Coin_of_Pacorus_I_of_Parthia.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Gdr at en.wikipedia",
+          "datum": "3 April 2005 (original upload date)",
+          "datum_original": "3 April 2005 (original upload date)",
+          "datum_fil": "2011-09-29 09:32:06",
+          "kredit": "From https://www.parthia.com/coins/pdc_21580.jpg Transferred from en.wikipedia by SreeBot see https://www.cngcoins.com/Coin.aspx?CoinID=43263",
+          "beskrivning": "Coin of Pacorus I of Parthia . Avers King, crowned with a wreath by the Greek goddess of victory Nike. Reverse shows a seated archer holding a bow. Greek inscription reads ΒΑΣΙΛ[ΕΩΣ] ΒΑΣΙΛΕ[ΩΝ] [ΑΡΣΑΚΟΥ] [Ε]ΥΕΡΓΕΤΟΥ ΔΙΚΑΙΟΥ ΕΠΙΦΑΝΟΥΣ ΦΙΛΕΛΛΗΝΟΣ (king of kings Arsaces , bringer of plenty, the just, the illustrious, friend of the Greeks).",
+          "bredd": 500,
+          "hojd": 253,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Coin_of_Pacorus_I_of_Parthia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Archer king on coins",
+            "Coins of Pacorus I",
+            "Coins on white background"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "biskupin-byggs",
+      "titel": "Den befästa byn i Biskupin byggs",
+      "start": -747,
+      "plats": "Biskupin vid Żnin, Kujavien-Pommern, Polen",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "lydiska-mynt",
+      "titel": "Lydierna präglar några av världens första mynt",
+      "start": -699,
+      "plats": "Lydien i västra Anatolien, med huvudstaden Sardis (dagens Turkiet)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "mjolkproteiner-i-skyternas-tandsten",
+      "titel": "Mjölkproteiner i tandsten från skytisk tid",
+      "start": -699,
+      "plats": "Bilsk i Poltava oblast och Mamai-Gora vid Dnepr, Ukraina; punkten är borgen i Bilsk",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "alkmaion-fran-kroton",
+      "titel": "Alkmaion från Kroton och hälsan som jämvikt",
+      "start": -499,
+      "plats": "Kroton (i dag Crotone), Kalabrien, Italien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "hannos-resa-langs-afrika",
+      "titel": "Hanno seglar längs Västafrikas kust",
+      "start": -499,
+      "plats": "Från Kartago (i dag Tunisien) längs Västafrikas kust",
+      "wikidata": "Q296478",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "offerplatsen-skedemosse",
+      "titel": "Offerplatsen Skedemosse på Öland",
+      "start": -499,
+      "plats": "Skedemosse, Gärdslösa socken, Öland, Sverige",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "trakiska-graven-i-kazanlak",
+      "titel": "Den trakiska graven i Kazanlak målas",
+      "start": -399,
+      "plats": "Kazanlak, Stara Zagora, Bulgarien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "pytheas-seglar-norrut",
+      "titel": "Pytheas seglar till norra Europa",
+      "start": -324,
+      "plats": "Norra spetsen av Storbritannien, som Pytheas kallade Orcas (punkten är Dunnet Head; han reste från Massalia, i dag Marseille)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "handelsstaden-tanais-grundas",
+      "titel": "Handelsstaden Tanais grundas vid Don",
+      "start": -299,
+      "plats": "Tanais vid Nedvigovka, Rostov oblast, Ryssland",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "corlea-vagen-byggs",
+      "titel": "Vägen över mossen vid Corlea byggs",
+      "start": -147,
+      "plats": "Corlea nära Keenagh, grevskapet Longford, Irland",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "damhjortar-fors-till-britannien",
+      "titel": "Damhjortar förs till Britannien",
+      "start": 1,
+      "plats": "Fishbourne nära Chichester, England (där fynden gjordes)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "gravar-av-estnisk-typ-vid-kroggardsmalmen",
+      "titel": "Gravar av estnisk typ vid Kroggårdsmalmen",
+      "start": 1,
+      "plats": "Kroggårdsmalmen i Karis (Raseborg), Nyland, Finland",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    }
+  ]
+}

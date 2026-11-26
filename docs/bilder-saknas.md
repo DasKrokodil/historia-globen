@@ -874,3 +874,39 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `hastutrustningen-fran-eskelhem` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
 | `faltnabbmus-i-aalborg` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
 | `barnsten-och-brons-i-kukuliskiai` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+
+
+## Europa 748 f.Kr.–1 (#2079 och #2080, 2026-11-26)
+
+12 av 40 händelser fick bild i den här omgången. Följande 28 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/europa-3.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `biskupin-byggs` | 2026-11-26: Ingen kandidat i listan; sökningen efter den rekonstruerade byn gav inga träffar; ingen egen vidare sökning hann göras. |
+| `mjolkproteiner-i-skyternas-tandsten` | 2026-11-26: Ingen kandidat i listan; gäller tandsten från människor (kvarlevor); ingen egen sökning hann göras. |
+| `hannos-resa-langs-afrika` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `offerplatsen-skedemosse` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `alkmaion-fran-kroton` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `perserkrigen` | 2026-11-26: Händelsen saknades i den automatiska listan; sökningen efter målningar av sjöslaget vid Salamis gav inga träffar (HTTP 429); ingen egen vidare sökning hann göras. Slagen vid Marathon, Plataiai och Lade har egna händelser. |
+| `joniska-upproret` | 2026-11-26: Enda kandidaten är en karta (Map Anatolia ancient regions); används inte. |
+| `slaget-vid-lade` | 2026-11-26: Enda kandidaten är en liten karta (366 px); används inte. |
+| `kalliasfreden` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `tollundmannen` | 2026-11-26: Händelsen saknades i den automatiska listan och gäller en välbevarad människa (mänskliga kvarlevor); bilder avstås och ingen sökning gjordes. |
+| `medracen` | 2026-11-26: Händelsen saknades i den automatiska listan; sökningen gav foton av Medghacen-mausoleet men filnamnet kunde inte öppnas inom tiden (HTTP 429); gäller en kunglig grav; ingen egen vidare sökning hann göras. |
+| `slaget-vid-allia` | 2026-11-26: Enda kandidaten (Paul Jamin, Le Brenn et sa part de butin, 1893) är bara 709 px bred och är en senare målning av en annan scen; används inte. |
+| `pytheas-seglar-norrut` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `handelsstaden-tanais-grundas` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `arkimedes-i-syrakusa` | 2026-11-26: Kandidaterna (Syracuse University, en judisk museibyggnad) har inget med Arkimedes att göra; en egen sökning gav bara en montage av 25 greker; används inte. |
+| `puniska-krigen` | 2026-11-26: Enda kandidaten är en karta; används inte. |
+| `slaget-vid-mylae` | 2026-11-26: Enda kandidaten (plansch ur "The story of the greatest nations", "No restrictions") har licensflagga: verktyget kunde inte avgöra licensen; används inte. |
+| `slaget-vid-egadiska-oarna` | 2026-11-26: Enda kandidaten är en liten karta; används inte. |
+| `hannibal-over-alperna` | 2026-11-26: Enda kandidaten är en karta med licensflagga; används inte. |
+| `slaget-vid-cannae` | 2026-11-26: Enda kandidaten är ett litet diagram (737 px); används inte. |
+| `corlea-vagen-byggs` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `karthago-forstors` | 2026-11-26: Enda kandidaten (Carthage villas-romaines 1950.jpg, PD-Tunisia) saknar upphovsperson och beskrivning och visar romerska villor; används inte. |
+| `uppakra` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `biatec-mynten` | 2026-11-26: Kandidaterna är en informationstavla vid en skulptur i Bratislava och en liten bild med licensrisk; används inte. |
+| `antikytheravraket` | 2026-11-26: Händelsen saknades i den automatiska listan. Kandidat utsedd (Logg Tandys foto av fragment A av Antikytheramekanismen, CC BY 4.0, 2025) men verktyget flaggade den (ingen igenkänd licensmall); används inte utan närmare kontroll. |
+| `slaget-vid-gindarus` | 2026-11-26: Kandidaterna är kartor; används inte. |
+| `damhjortar-fors-till-britannien` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `gravar-av-estnisk-typ-vid-kroggardsmalmen` | 2026-11-26: Ingen kandidat i listan; gäller gravar; ingen egen sökning hann göras. |
