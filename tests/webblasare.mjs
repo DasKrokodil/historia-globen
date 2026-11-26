@@ -5029,14 +5029,27 @@ async function run(browser, vp) {
   await check('tryck på konturen av en plats öppnar kortet, bara inzoomat och i vanligt läge (#1161)', async () => {
     // #2178 (fynd 2): i Firefox mobil gav någon av väntorna här bara "Timeout 15000ms exceeded". Varje väntan har nu ett namn, och felet
     // säger vad sidan visade när tiden gick ut (handen, adressen, om Fokus och kortet var öppna, pekartyp och fönster).
-    const vanta = async (pg, vad, fn) => {
-      try { await pg.waitForFunction(fn, null, { timeout: T.step }); } catch (err) {
+    const vanta = async (pg, vad, fn, ms = T.step) => {
+      try { await pg.waitForFunction(fn, null, { timeout: ms }); } catch (err) {
         const st = await pg.evaluate(() => {
           const c = document.getElementById('globe-canvas');
           return { glob: c?.className, hash: location.hash, fokus: !document.getElementById('focus-bar').hidden, titel: document.getElementById('focus-title')?.textContent, kort: !document.getElementById('detail').hidden,
             fonster: [innerWidth, innerHeight], pekare: { fin: matchMedia('(pointer: fine)').matches, grov: matchMedia('(pointer: coarse)').matches, hover: matchMedia('(hover: hover)').matches } };
         }).catch(() => ({ okant: true }));
         throw new Error(`väntan på ${vad}: ${String(err.message).split('\n')[0]} ${JSON.stringify(st)}`);
+      }
+    };
+    // Handen räknas bara ut när musen rör sig (js/controllers/places.js, pointermove). Efter att Fokus följt platsen flyger globen dit, och i Firefox
+    // kom musrörelsen mitt i flygningen: handen räknades ut mot en punkt som då inte var Grönland, och kom aldrig, eftersom ingen ny rörelse
+    // följde (#2178, fynd 2: klassen on-place uteblev i 15 s trots att globen stod rätt). Rörelsen upprepas därför, en bildpunkt åt sidan,
+    // tills handen kommer (högst lika länge som förut), som när man för musen lite. Kravet är oförändrat: handen ska komma över platsen.
+    const handOver = async (pg, x, y, vad) => {
+      const hand = () => pg.evaluate(() => document.getElementById('globe-canvas').classList.contains('on-place'));
+      const slut = Date.now() + T.step;
+      for (let i = 0; !(await hand()); i++) {
+        if (Date.now() > slut) await vanta(pg, vad, () => document.getElementById('globe-canvas').classList.contains('on-place'), 1);
+        await pg.mouse.move(x + (i % 2), y);
+        await pg.waitForTimeout(150);
       }
     };
     // Utzoomat syns ingen kontur och ett tryck på Grönland öppnar ingenting
@@ -5054,7 +5067,7 @@ async function run(browser, vp) {
     try {
       const at = await centreOf(tp, 0.18);
       await tp.mouse.move(at.x, at.y);
-      await vanta(tp, 'handen över konturen inzoomat', () => document.getElementById('globe-canvas').classList.contains('on-place'));
+      await handOver(tp, at.x, at.y, 'handen över konturen inzoomat');
       await tp.mouse.click(at.x, at.y);
       await vanta(tp, 'att Grönland följs och kortet öppnas', () => !document.getElementById('focus-bar').hidden && /Grönland/.test(document.getElementById('focus-title').textContent)
         && !!document.querySelector('#detail .place-type'));
@@ -5065,7 +5078,7 @@ async function run(browser, vp) {
       // När Fokus har följt platsen ligger den mitt på globen (på mobil flyttas den alltså från det första träffläget högre upp).
       const followedAt = await centreOf(tp);
       await tp.mouse.move(followedAt.x, followedAt.y);
-      await vanta(tp, 'handen över den följda platsen', () => document.getElementById('globe-canvas').classList.contains('on-place'));
+      await handOver(tp, followedAt.x, followedAt.y, 'handen över den följda platsen');
       await tp.mouse.click(followedAt.x, followedAt.y);
       await tp.waitForSelector('#detail', { state: 'visible', timeout: T.step });
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
@@ -5436,17 +5449,38 @@ async function run(browser, vp) {
       const box = await pg.locator(canvas).boundingBox(), pts = [];
       // #2178 (fynd 4): i Firefox hittades ingen hand i Platt karta 800 × 360. Kartan sätter on-place bara för pekare av typen mus
       // (js/ui/flatmap.js, _hover), så räknaren säger vilka pekartyper kartan fick och hur många rörelser som nådde den.
+      // Räknare också på dokumentet: noll där betyder att inga musrörelser levererades alls, noll bara på kartan att något låg ovanpå.
       await pg.evaluate(sel => {
-        const c = document.querySelector(sel), seen = (window.__handDiag = { rorelser: 0, typer: {}, knappar: 0 });
+        const c = document.querySelector(sel), seen = (window.__handDiag = { rorelser: 0, typer: {}, knappar: 0, dokument: { pointermove: 0, mousemove: 0, typer: {} } });
         c.addEventListener('pointermove', e => { seen.rorelser++; seen.typer[e.pointerType] = (seen.typer[e.pointerType] ?? 0) + 1; if (e.buttons) seen.knappar++; }, true);
+        document.addEventListener('pointermove', e => { seen.dokument.pointermove++; seen.dokument.typer[e.pointerType] = (seen.dokument.typer[e.pointerType] ?? 0) + 1; }, true);
+        document.addEventListener('mousemove', () => { seen.dokument.mousemove++; }, true);
       }, canvas);
-      for (let r = 0; r < 16; r++) for (let c = 0; c < 16; c++) {
-        const x = box.x + box.width * (0.08 + 0.84 * c / 15), y = box.y + box.height * (0.04 + 0.76 * r / 15);
+      const grid = [];
+      for (let r = 0; r < 16; r++) for (let c = 0; c < 16; c++) grid.push([box.x + box.width * (0.08 + 0.84 * c / 15), box.y + box.height * (0.04 + 0.76 * r / 15)]);
+      for (const [x, y] of grid) {
         await pg.mouse.move(x, y);
         await pg.waitForTimeout(25);
         if (await pg.evaluate(s => document.querySelector(s).classList.contains('on-place'), canvas)) pts.push([x, y]);
       }
-      return { pts, box };
+      // Firefox med isMobile (en liggande telefon, 800 × 360) skickar ingen mushändelse alls till sidan: Playwrights page.mouse blir en pekning
+      // som saknar rörelse utan knapp (#2178, fynd 1: noll rörelser på dokumentet). Då kan handen inte mätas med musen. Samma
+      // pekarrörelser skickas i så fall som PointerEvent av typen mus rakt till kartan, så att samma lyssnare (_hover) räknar ut handen,
+      // och kravet är detsamma: handen (klassen on-place, som ger cursor: pointer) ska uppstå över platsen man följer. Där musen når sidan
+      // används den som förut; bara när inga mushändelser kommit fram byter provet väg, och det står i resultatet.
+      let via = 'mus';
+      const levererat = await pg.evaluate(() => window.__handDiag.dokument.pointermove + window.__handDiag.dokument.mousemove);
+      if (!pts.length && levererat === 0) {
+        via = 'skickade pekarrörelser';
+        for (const [x, y] of grid) {
+          await pg.evaluate(([sel, px, py]) => {
+            document.querySelector(sel).dispatchEvent(new PointerEvent('pointermove', { pointerType: 'mouse', pointerId: 1, isPrimary: true, clientX: px, clientY: py, buttons: 0, bubbles: true, cancelable: true }));
+            return new Promise(done => requestAnimationFrame(() => requestAnimationFrame(done))); // globens hand räknas ut i nästa bildruta
+          }, [canvas, x, y]);
+          if (await pg.evaluate(s => { const c = document.querySelector(s); return c.classList.contains('on-place') && getComputedStyle(c).cursor === 'pointer'; }, canvas)) pts.push([x, y]);
+        }
+      }
+      return { pts, box, via };
     };
     const tapAt = (pg, kind, x, y) => (kind === 'mus' ? pg.mouse.click(x, y) : pg.touchscreen.tap(x, y));
     try {
@@ -5470,15 +5504,22 @@ async function run(browser, vp) {
           if (!row.shown || !row.text.includes(sv['regionView.tap']) || row.right > row.vw + 1) throw new Error(`${sc.name}: rutan säger inte "${sv['regionView.tap']}" synligt (${JSON.stringify(row)})`);
         }
         await closeCard(tp);
-        const { pts, box } = await handPoints(tp, canvas);
+        const { pts, box, via } = await handPoints(tp, canvas);
         if (!pts.length) {
           const diag = await tp.evaluate(sel => {
             const c = document.querySelector(sel), r = c.getBoundingClientRect(), mid = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
-            return { rorelser: window.__handDiag, klass: c.className, ovanpa: mid ? `${mid.id || mid.className || mid.tagName}` : 'inget', canvas: [Math.round(r.width), Math.round(r.height)], fonster: [innerWidth, innerHeight],
+            // Vad som ligger överst i rutnätet av mätpunkter (samma punkter som skannades): ett namn per element och antal punkter
+            const tally = {};
+            for (let rr = 0; rr < 16; rr++) for (let cc = 0; cc < 16; cc++) {
+              const el = document.elementFromPoint(r.x + r.width * (0.08 + 0.84 * cc / 15), r.y + r.height * (0.04 + 0.76 * rr / 15));
+              const key = el ? `${el.id || (typeof el.className === 'string' ? el.className.trim().split(/\s+/)[0] : '') || el.tagName}` : 'inget';
+              tally[key] = (tally[key] ?? 0) + 1;
+            }
+            return { rorelser: window.__handDiag, rutnat: tally, klass: c.className, ovanpa: mid ? `${mid.id || mid.className || mid.tagName}` : 'inget', canvas: [Math.round(r.width), Math.round(r.height)], fonster: [innerWidth, innerHeight],
               pekare: { fin: matchMedia('(pointer: fine)').matches, grov: matchMedia('(pointer: coarse)').matches, hover: matchMedia('(hover: hover)').matches },
               regionvy: document.getElementById('flat-view').dataset.region ?? null, vy: document.getElementById('flat-view').dataset.view ?? null, foljer: document.getElementById('focus-title')?.textContent };
           }, canvas).catch(() => ({ okant: true }));
-          throw new Error(`${sc.name}: pekaren blir ingen hand över platsen man följer (${JSON.stringify(diag)})`);
+          throw new Error(`${sc.name}: pekaren blir ingen hand över platsen man följer (provad med ${via}; ${JSON.stringify(diag)})`);
         }
         const place = sc.id === 'danmark' ? 'Danmark' : 'Skåne';
         for (const kind of sc.kinds) {
@@ -5522,7 +5563,7 @@ async function run(browser, vp) {
           const after = await tp.evaluate(() => ({ hash: location.hash, card: !document.getElementById('detail').hidden }));
           if (after.card || !after.hash.includes(`f=place:${sc.id}`)) throw new Error(`${sc.name}: ett tryck bredvid platsen öppnade ett kort eller ändrade Fokus (${JSON.stringify(after)})`);
         }
-        out.push(`${sc.name}: ${sc.kinds.join(' och ')}, ${pts.length} handpunkter`);
+        out.push(`${sc.name}: ${sc.kinds.join(' och ')}, ${pts.length} handpunkter${via === 'mus' ? '' : ` (hittade med ${via}: musen når inte sidan i den här webbläsaren)`}`);
       }
       const errs = errLists.flat();
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
@@ -6847,7 +6888,22 @@ async function run(browser, vp) {
           if (await p.isHidden('#btn-flat') && await p.isVisible('#btn-more')) await p.click('#btn-more');
           await p.click('#btn-flat');
         }
+        // #2178 (fynd 4): data-view skrivs först när Platt karta har ritats, och i Firefox saknas den en stund (#2171). Kameran lästes här för tidigt
+        // (null eller ett mellanläge), och avslutet jämfördes sedan mot en kamera som aldrig varit utgångsläget: "Platt kartas kamera återställdes
+        // inte" för Grönland i två körningar. Läget läses nu först när data-view finns och stått still i tre avläsningar. Jämförelsen är densamma.
+        if (origin === 'flat') {
+          const view = () => p.getAttribute('#flat-view', 'data-view');
+          let last = null, same = 0;
+          const stop = Date.now() + T.step;
+          while (same < 3 && Date.now() < stop) {
+            await p.waitForTimeout(150);
+            const now = await view();
+            same = now && now === last ? same + 1 : 0;
+            last = now;
+          }
+        }
         const flatBefore = await p.getAttribute('#flat-view', 'data-view');
+        if (origin === 'flat' && !flatBefore) throw new Error(`${id}: Platt kartas kamera (data-view) fanns inte efter ${T.step} ms, så utgångsläget kan inte jämföras`);
         await p.click('#detail [data-selection-action]');
         if (id === 'gronland') await globeRegionSettled(p, id);
         else await p.waitForFunction(x => document.getElementById('flat-view').dataset.region === x, id, { timeout: T.step });
@@ -6871,7 +6927,8 @@ async function run(browser, vp) {
           const expected = origin === 'globe' ? 'Platsens karta är stängd. Tillbaka till globen.' : 'Platsens karta är stängd. Tillbaka till Platt karta.';
           const status = (await p.textContent('#screen-reader-status')).trim();
           if (status !== expected) throw new Error(`${id}/${origin}: statusraden säger "${status}"`);
-          if (origin === 'flat' && await p.getAttribute('#flat-view', 'data-view') !== flatBefore) throw new Error(`${id}: Platt kartas kamera återställdes inte`);
+          const flatAfter = origin === 'flat' ? await p.getAttribute('#flat-view', 'data-view') : null;
+          if (origin === 'flat' && flatAfter !== flatBefore) throw new Error(`${id}: Platt kartas kamera återställdes inte (före "${flatBefore}", efter "${flatAfter}", regionbox "${await p.getAttribute('#flat-view', 'data-region-box')}")`);
           if (!(await p.isHidden('#focus-bar'))) throw new Error(`${id}: fokusraden står kvar efter avslut`);
         } else {
           if (!(await p.isVisible('#detail .place-type'))) throw new Error(`${id}: det nya platskortet öppnades inte`);
@@ -10312,14 +10369,25 @@ async function run(browser, vp) {
       for (const text of ['Guanahaní', 'La Navidad']) { // La Navidad har den längsta texten
         await sp.click('#pause-next-stop');
         await waitStop(sp, text);
-        const m = await sp.evaluate(() => {
+        const mat = () => sp.evaluate(() => {
           const box = id => { const b = document.getElementById(id).getBoundingClientRect(); return { top: b.top, bottom: b.bottom, left: b.left, right: b.right, height: b.height }; };
+          const app = document.getElementById('app');
           return { note: box('pause-note'), focus: box('focus-bar'), prev: box('pause-prev-stop'), next: box('pause-next-stop'), go: box('pause-go'),
-            width: innerWidth, height: innerHeight, scroll: document.documentElement.scrollWidth };
+            width: innerWidth, height: innerHeight, scroll: document.documentElement.scrollWidth,
+            pauseTop: app.style.getPropertyValue('--pause-top'), focusBottom: getComputedStyle(document.getElementById('focus-bar')).bottom, klasser: app.className };
         });
+        // #2178 (fynd 3): Firefox gav "fokusraden ligger över pausraden (730 > 712,4)", 17,6 px: avståndet --pause-top (js/main.js, trackPauseNote)
+        // uppdateras av en ResizeObserver först i nästa bildruta efter att pausraden fick ny text, och mätningen kunde komma före den.
+        // Kravet är oförändrat och gäller fortfarande: provet väntar nu bildruta för bildruta (högst cirka en sekund) på att läget står
+        // still innan det mäts, och om raderna fortfarande överlappar säger felet vad som var inställt.
+        let m = await mat(), ramar = 0;
+        while (m.focus.bottom > m.note.top + 1 && ramar < 30) {
+          await sp.evaluate(() => new Promise(done => requestAnimationFrame(() => requestAnimationFrame(done))));
+          m = await mat(); ramar++;
+        }
+        if (m.focus.bottom > m.note.top + 1) throw new Error(`${text}: fokusraden ligger över pausraden även efter ${ramar} omritningar (${m.focus.bottom} > ${m.note.top}; --pause-top "${m.pauseTop}", fokusradens bottom ${m.focusBottom}, fönstret ${m.width}×${m.height}, pausradens höjd ${m.note.height}, fokusradens höjd ${m.focus.height}, klasser "${m.klasser}")`);
         if (m.scroll > m.width) throw new Error(`${text}: sidan får horisontell scroll (${m.scroll} > ${m.width})`);
         if (m.note.left < 0 || m.note.right > m.width || m.note.bottom > m.height) throw new Error(`${text}: pausraden ryms inte: ${JSON.stringify(m.note)}`);
-        if (m.focus.bottom > m.note.top + 1) throw new Error(`${text}: fokusraden ligger över pausraden (${m.focus.bottom} > ${m.note.top})`);
         // Mobil: minst 44 px (jump-back-mönstret); dator: 32 px
         const min = narrow ? 44 : 32;
         for (const key of ['prev', 'next', 'go']) if (m[key].height < min - 0.5) throw new Error(`${text}: knappen ${key} är ${m[key].height} px, under ${min}`);
@@ -14614,26 +14682,29 @@ async function run(browser, vp) {
       const summary = tp.locator('#detail.frame-grotta .detail-note > summary').filter({ hasText: 'Om slutet' });
       await summary.waitFor({ state: 'visible', timeout: T.step });
       await summary.evaluate(el => el.scrollIntoView({ block: 'center' }));
-      // Vänta tills rubriken står still (kortets rullning och inflygning): Firefox och WebKit rullar och ritar om asynkront, och en ruta som
-      // klipptes före det visade bokstäverna i stället för bakgrunden (#2178: 1,00:1 i Firefox, 2,18:1 i WebKit, 5,24:1 i Chromium)
+      // Vänta tills rubriken står still (kortets rullning och inflygning): Firefox och WebKit rullar och ritar om asynkront.
       const place = () => summary.evaluate(el => {
         const range = document.createRange();
         range.selectNodeContents(el);
-        const { x, y, width, height } = range.getBoundingClientRect();
-        return { color: getComputedStyle(el).color.match(/[0-9.]+/g).slice(0, 3).map(Number), clip: { x, y, width, height } };
+        const t = range.getBoundingClientRect(), r = el.getBoundingClientRect();
+        return { color: getComputedStyle(el).color.match(/[0-9.]+/g).slice(0, 3).map(Number), text: { x: t.x, y: t.y, width: t.width, height: t.height }, box: { x: r.x, y: r.y, width: r.width, height: r.height } };
       });
-      let { color, clip } = await place();
+      let { color, text, box } = await place();
       for (let i = 0; i < 20; i++) {
         await tp.evaluate(() => new Promise(done => requestAnimationFrame(() => requestAnimationFrame(done))));
         const next = await place();
-        const same = ['x', 'y', 'width', 'height'].every(k => Math.abs(next.clip[k] - clip[k]) < 0.5);
-        ({ color, clip } = next);
+        const same = ['x', 'y', 'width', 'height'].every(k => Math.abs(next.text[k] - text[k]) < 0.5);
+        ({ color, text, box } = next);
         if (same) break;
       }
-      // Dölj bara bokstäverna så att provet mäter den tonade bakgrunden där rubriken verkligen står. Stilen läggs på av själva
-      // skärmbilden (`style`), inte av en inline-ändring före den: den ändringen hann inte ritas före bilden i Firefox och WebKit.
-      const hideText = '.detail-note > summary, .detail-note > summary * { color: transparent !important; -webkit-text-fill-color: transparent !important; text-shadow: none !important; }';
-      const shot = await tp.screenshot({ clip, style: hideText });
+      // Mät bakgrunden på samma rad som rubriken, men på den fria delen av noten till höger om texten (före vinkeln i högerkanten). Att gömma
+      // bokstäverna och mäta under dem gav 1,00:1 i Firefox, också med skärmbildens egen stil (color, -webkit-text-fill-color och text-shadow
+      // transparenta): bokstäverna fanns kvar i bilden (#2178). Notens bakgrund är en jämn ton över stenen, så den fria delen på samma
+      // rad har samma bakgrund som den under bokstäverna. Kravet 4,5:1 mot rubrikens färg är oförändrat.
+      const bandX = text.x + text.width + 8, bandRight = Math.min(box.x + box.width - 32, bandX + 200);
+      if (bandRight - bandX < 20) throw new Error(`Om slutet: ingen fri del av raden att mäta bakgrunden på (text ${JSON.stringify(text)}, rad ${JSON.stringify(box)})`);
+      const clip = { x: bandX, y: text.y, width: bandRight - bandX, height: text.height };
+      const shot = await tp.screenshot({ clip });
       const { data } = PNG.sync.read(shot);
       let min = Infinity, at = -1;
       let sameAsText = 0;
@@ -14643,17 +14714,18 @@ async function run(browser, vp) {
         if (c < 1.05) sameAsText++;
       }
       if (min < 4.5) {
-        // Bilden sparas (CI laddar upp skärmbilderna) och felet säger var det sämsta bildpunkten låg och hur många som har textens färg,
-        // så att nästa körning visar om bokstäverna fanns kvar i bilden eller om bakgrunden verkligen är för ljus
+        // Bilden sparas (CI laddar upp skärmbilderna). Felet säger var den sämsta bildpunkten låg, hur många som har textens färg och vad som
+        // ligger ovanpå raden, så att nästa körning visar om något annat än bakgrunden fanns i bilden.
         fs.writeFileSync(path.join(OUT, `${vp.name}-2153-om-slutet.png`), shot);
         const w = Math.max(1, Math.round(clip.width));
         const px = i => [data[i * 4], data[i * 4 + 1], data[i * 4 + 2]];
-        const stat = await summary.evaluate(el => {
-          const cs = getComputedStyle(el), card = el.closest('#detail'), r = el.getBoundingClientRect();
-          return { text: cs.color, fill: cs.webkitTextFillColor, bakgrund: getComputedStyle(el.parentElement).backgroundColor, ruta: [Math.round(r.x), Math.round(r.y), Math.round(r.width), Math.round(r.height)],
-            kortets_rullning: card ? Math.round(card.scrollTop) : null, fonster: [innerWidth, innerHeight], oppen: el.parentElement.open };
-        });
-        throw new Error(`Om slutet: ${min.toFixed(2)}:1 understiger 4,5:1 (sämsta bildpunkt ${at % w},${Math.floor(at / w)} av ${w}×${Math.round(clip.height)} har färgen ${px(at)} mot textens ${color}; ${sameAsText} bildpunkter har textens färg; ${JSON.stringify(stat)}; bilden ligger i ${vp.name}-2153-om-slutet.png)`);
+        const stat = await summary.evaluate((el, c) => {
+          const cs = getComputedStyle(el), card = el.closest('#detail');
+          const stack = (x, y) => document.elementsFromPoint(x, y).slice(0, 4).map(n => `${n.nodeName}${n.id ? `#${n.id}` : ''}${typeof n.className === 'string' && n.className ? `.${n.className.trim().split(/\s+/)[0]}` : ''}`);
+          return { text: cs.color, bakgrund: getComputedStyle(el.parentElement).backgroundColor, kortets_rullning: card ? Math.round(card.scrollTop) : null, fonster: [innerWidth, innerHeight],
+            ovanpaBandet: stack(c.x + c.width / 2, c.y + c.height / 2), ovanpaTexten: stack(c.tx, c.ty) };
+        }, { x: clip.x, y: clip.y, width: clip.width, height: clip.height, tx: text.x + text.width / 2, ty: text.y + text.height / 2 });
+        throw new Error(`Om slutet: ${min.toFixed(2)}:1 understiger 4,5:1 (sämsta bildpunkt ${at % w},${Math.floor(at / w)} av ${w}×${Math.round(clip.height)} har färgen ${px(at)} mot textens ${color}; ${sameAsText} bildpunkter har textens färg; text ${JSON.stringify(text)}, rad ${JSON.stringify(box)}, band ${JSON.stringify(clip)}; ${JSON.stringify(stat)}; bilden ligger i ${vp.name}-2153-om-slutet.png)`);
       }
       if (errs.length) throw new Error(errs.join(' | '));
       return `Om slutet: minst ${min.toFixed(2)}:1 över notens bakgrund`;
