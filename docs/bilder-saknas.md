@@ -700,3 +700,36 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `papua-nya-guinea-blir-sjalvstandigt` | 2026-11-26: Kandidaterna är kartor; används inte. |
 | `aryabhata-indiens-forsta-satellit` | 2026-11-26: Enda kandidaten (Aryabhata Satellite.jpg) är bara 484 × 381 px; används inte. |
 | `folkmordet-i-kambodja` | 2026-11-26: Enda kandidaten visar skallar från "killing fields" (mänskliga kvarlevor); bilder av kvarlevor avstås. |
+
+
+## Asien 1978–2021 (#2072 och #2073, 2026-11-26)
+
+13 av 38 händelser fick bild i den här omgången. Följande 25 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-9.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `iranska-revolutionen` | 2026-11-26: Kandidaterna (demonstrationsbilder 1979) är under 800 px eller har oklar licens (GFDL ensamt, okänd fotograf); används inte. |
+| `iran-irak-kriget` | 2026-11-26: Enda kandidaten är en montage (380 px); används inte. |
+| `tankerkriget` | 2026-11-26: Händelsen saknades i den automatiska listan; egen sökning gav inga lämpliga bilder. |
+| `operation-ramadan` | 2026-11-26: Enda kandidaten är en liten karta (328 px); används inte. |
+| `svalten-i-etiopien-1983-1985` | 2026-11-26: Enda kandidaten (Opbushel.jpg) är bara 500 px bred och har licensflagga; bilder av hungersnöden avstås tills en människa bedömt om en värdig bild finns. |
+| `forsta-slaget-om-al-faw` | 2026-11-26: Enda kandidaten (Al-faw.jpg) är bara 495 px bred; används inte. |
+| `halabja-1988` | 2026-11-26: Enda kandidaten visar familjegravar för offren (gravar); bilder av gravar avstås. |
+| `vapenvilan-iran-irak-1988` | 2026-11-26: Enda kandidaten är en liten montage (572 px); används inte. |
+| `bougainvillekonflikten` | 2026-11-26: Händelsen saknades i den automatiska listan; egen sökning efter Panguna gav inga träffar. |
+| `upproret-vid-panguna` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `panguna-gruvan-stangs` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `himmelska-fridens-torg-1989` | 2026-11-26: Enda kandidaten (CC BY 2.5, 550 × 749 px) är liten och stående; används inte. Pressbilder från protesterna är inte fria. |
+| `irak-invaderar-kuwait` | 2026-11-26: Enda kandidaten visar ett övergivet irakiskt stridsvagn på vägen till Kuwait City i februari 1991, alltså efter befrielsen och inte invasionen 1990; används inte. |
+| `slaget-vid-khafji` | 2026-11-26: Kandidaterna är en bred bild (1000 × 442) och en bild (Cleaning up Khafji.jpg) som efter konvertering ser konstgjord ut; används inte utan närmare kontroll. |
+| `slaget-vid-73-easting` | 2026-11-26: Enda kandidaten (Type 69 Operation Desert Storm.jpg) visar enligt filsidan en irakisk stridsvagn som brinner efter en attack av brittiska 1:a pansardivisionen och hör inte till slaget vid 73 Easting; används inte. |
+| `vapenvila-i-gulfkriget` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `arawa-aterintas` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `sandlineaffaren` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `asienkrisen-1997` | 2026-11-26: Enda kandidaten är en karta (PIIGS Mk 4 map.png) och hör inte till Asienkrisen; används inte. |
+| `kriget-i-afghanistan-2001` | 2026-11-26: Enda kandidaten är en collage (926 px); används inte. |
+| `slaget-vid-tora-bora` | 2026-11-26: Enda kandidaten är en liten karta (450 px) med licensflagga; används inte. |
+| `operation-anaconda` | 2026-11-26: Enda kandidaten är en karta (AnacondaAreaOfOperations.jpg); används inte. |
+| `saddam-hussein-tillfangatas` | 2026-11-26: Enda kandidaten (SaddamSpiderHole.jpg) är 640 × 480 px och blir suddig i kortet; används inte. |
+| `folkomrostning-om-bougainvilles-sjalvstandighet` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `talibanerna-intar-kabul-2021` | 2026-11-26: Enda kandidaten (Crowds in front of Kabul International Airport) har licensflagga; används inte. |
