@@ -381,6 +381,21 @@
       }
     },
     {
+      "eventId": "atta-hjort-jaguarklo",
+      "eventTitle": "Mixtekhärskaren Åtta Hjort Jaguarklo",
+      "file": "images/events/atta-hjort-jaguarklo.webp",
+      "kind": "historisk",
+      "credit": "Okänd mixtekisk skrivare (cirka 1500) / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-atta-hjort-jaguarklo",
+        "title": "Codex Zouche-Nuttall - 8 Deer of Tilantongo – An author from the Mixteca region c.1500 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Codex_Zouche-Nuttall_-_8_Deer_of_Tilantongo.png",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "attacken-mot-pearl-harbor",
       "eventTitle": "Attacken mot Pearl Harbor",
       "file": "images/events/attacken-mot-pearl-harbor.webp",
@@ -984,6 +999,21 @@
       }
     },
     {
+      "eventId": "casa-grande-hohokam",
+      "eventTitle": "Hohokamfolket bygger Casa Grande och bevattnar öknen",
+      "file": "images/events/casa-grande-hohokam.webp",
+      "kind": "historisk",
+      "credit": "Greg Hume / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-casa-grande-hohokam",
+        "title": "CasaGrandeRuin – Greg Hume (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:CasaGrandeRuin.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "celsius-temperaturskala",
       "eventTitle": "Anders Celsius föreslår sin temperaturskala",
       "file": "images/events/celsius-temperaturskala.webp",
@@ -1011,6 +1041,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Cervantes_J%C3%A1uregui.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "chaco-canyon",
+      "eventTitle": "De stora husen i Chaco Canyon",
+      "file": "images/events/chaco-canyon.webp",
+      "kind": "historisk",
+      "credit": "National Park Service (USA) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-chaco-canyon",
+        "title": "Chaco Canyon Chetro Ketl great kiva plaza NPS – National Park Service (United States) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Chaco_Canyon_Chetro_Ketl_great_kiva_plaza_NPS.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -1356,6 +1401,21 @@
       }
     },
     {
+      "eventId": "dresdenkodexen",
+      "eventTitle": "Dresdenkodexen, en mayabok om astronomi",
+      "file": "images/events/dresdenkodexen.webp",
+      "kind": "historisk",
+      "credit": "Okänd mayaskrivare / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-dresdenkodexen",
+        "title": "CodexPages6 8 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:CodexPages6_8.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "dronten-sista-gangen",
       "eventTitle": "Dronten ses för sista gången",
       "file": "images/events/dronten-sista-gangen.webp",
@@ -1503,6 +1563,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Encyclopedie_de_D%27Alembert_et_Diderot_-_Premiere_Page_-_ENC_1-NA5.jpg",
         "license": "Public domain",
         "checked": "2026-11-21"
+      }
+    },
+    {
+      "eventId": "erik-den-rode-utforskar-gronland",
+      "eventTitle": "Erik den röde utforskar Grönland",
+      "file": "images/events/erik-den-rode-utforskar-gronland.webp",
+      "kind": "historisk",
+      "credit": "Algkalv / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-erik-den-rode-utforskar-gronland",
+        "title": "Tunulliarfik-qassiarsuk – Algkalv ( talk ) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tunulliarfik-qassiarsuk.jpg",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2022,6 +2097,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Fasil_Ghebbi_(6821473537).jpg",
         "license": "CC BY 2.0",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "gronland-far-egen-biskop",
+      "eventTitle": "Grönland får en egen biskop",
+      "file": "images/events/gronland-far-egen-biskop.webp",
+      "kind": "historisk",
+      "credit": "Svickova / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-gronland-far-egen-biskop",
+        "title": "Igaliku – Svickova (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Igaliku.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -3909,6 +3999,21 @@
       }
     },
     {
+      "eventId": "moundville-hovdingadome",
+      "eventTitle": "Moundville blir ett regionalt hövdingadöme",
+      "file": "images/events/moundville-hovdingadome.webp",
+      "kind": "historisk",
+      "credit": "Altairisfar (Jeffrey Reed) / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-moundville-hovdingadome",
+        "title": "Moundville Archaeological Park 03 – Altairisfar (Jeffrey Reed) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Moundville_Archaeological_Park_03.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "mount-gambiers-utbrott",
       "eventTitle": "Vulkanen Mount Gambier får utbrott",
       "file": "images/events/mount-gambiers-utbrott.webp",
@@ -4152,6 +4257,21 @@
       }
     },
     {
+      "eventId": "nordborna-bosatter-sig-pa-gronland",
+      "eventTitle": "Nordbor bosätter sig på Grönland",
+      "file": "images/events/nordborna-bosatter-sig-pa-gronland.webp",
+      "kind": "historisk",
+      "credit": "NASA/METI/AIST/Japan Space Systems och U.S./Japan ASTER Science Team / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-nordborna-bosatter-sig-pa-gronland",
+        "title": "Qassiarsuk, Greenland (ASTER) – NASA/METI/AIST/Japan Space Systems, and U.S./Japan ASTER Science Team (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Qassiarsuk,_Greenland_(ASTER).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "nya-lagarna-1542",
       "eventTitle": "Nya lagarna ska skydda urfolken i Amerika",
       "file": "images/events/nya-lagarna-1542.webp",
@@ -4356,6 +4476,21 @@
       }
     },
     {
+      "eventId": "ormhogen-i-ohio",
+      "eventTitle": "Ormhögen i Ohio byggs eller byggs om",
+      "file": "images/events/ormhogen-i-ohio.webp",
+      "kind": "historisk",
+      "credit": "Timothy A. Price och Nichole I. / Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "source": {
+        "id": "commons-bild-ormhogen-i-ohio",
+        "title": "Serpent Mound (aerial view) – Timothy A. Price and Nichole I.; uploaded by the authors. (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Serpent_Mound_(aerial_view).jpg",
+        "license": "CC BY 2.5",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "oruanuiutbrottet",
       "eventTitle": "Superutbrottet i Taupō",
       "file": "images/events/oruanuiutbrottet.webp",
@@ -4419,6 +4554,21 @@
       "source": null
     },
     {
+      "eventId": "pakal-i-palenque",
+      "eventTitle": "Pakal den store styr Palenque",
+      "file": "images/events/pakal-i-palenque.webp",
+      "kind": "historisk",
+      "credit": "Jami Dwyer / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-pakal-i-palenque",
+        "title": "K'inich Janaab Pakal I – Jami Dwyer (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:K%27inich_Janaab_Pakal_I.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "pakistan-kapitulerar-i-dhaka",
       "eventTitle": "Pakistan kapitulerar i Dhaka",
       "file": "images/events/pakistan-kapitulerar-i-dhaka.webp",
@@ -4431,6 +4581,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Pakistan_Instrument_of_Surrender_signed_by_A_A_K_Niazi_and_Jagjit_Singh_Aurora_at_Ramna_Race_Course_Maidan_1971-12-16_(PID-h0029).jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "paquime",
+      "eventTitle": "Paquimé (Casas Grandes)",
+      "file": "images/events/paquime.webp",
+      "kind": "historisk",
+      "credit": "Iker Merodio / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-paquime",
+        "title": "Paquimé (ruinas) (3451489543) – Iker Merodio from Bilbao, Basque Country (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Paquim%C3%A9_(ruinas)_(3451489543).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -4539,6 +4704,51 @@
       }
     },
     {
+      "eventId": "polynesier-nar-marquesas",
+      "eventTitle": "Polynesier når Marquesasöarna",
+      "file": "images/events/polynesier-nar-marquesas.webp",
+      "kind": "historisk",
+      "credit": "Sémhur / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-polynesier-nar-marquesas",
+        "title": "HivaOa BaieDesTraitres 20061110 – Sémhur · ✉ · ✍ · (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:HivaOa_BaieDesTraitres_20061110.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "polynesier-nar-rapa-nui",
+      "eventTitle": "Polynesier når Rapa Nui (påskön)",
+      "file": "images/events/polynesier-nar-rapa-nui.webp",
+      "kind": "historisk",
+      "credit": "kallerna / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-polynesier-nar-rapa-nui",
+        "title": "Easter Island 5 – kallerna (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Easter_Island_5.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "polynesier-nar-sallskapsoarna",
+      "eventTitle": "Polynesier når Sällskapsöarna",
+      "file": "images/events/polynesier-nar-sallskapsoarna.webp",
+      "kind": "historisk",
+      "credit": "Edward Gennys Fanshawe / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-polynesier-nar-sallskapsoarna",
+        "title": "Edward Gennys Fanshawe, Matavai Bay and Point Venus, Tahiti, Augt 24th 1849 (Society Islands) – Admiral Edward Gennys Fanshawe (27 November 1814 – 21 October 1906). (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Edward_Gennys_Fanshawe,_Matavai_Bay_and_Point_Venus,_Tahiti,_Augt_24th_1849_(Society_Islands).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "polynesier-pa-aucklandoarna",
       "eventTitle": "Polynesier når Aucklandöarna",
       "file": "images/events/polynesier-pa-aucklandoarna.webp",
@@ -4549,6 +4759,36 @@
         "id": "commons-bild-polynesier-pa-aucklandoarna",
         "title": "EnderbyIsland1 – M. Murphy (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:EnderbyIsland1.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "polynesier-pa-henderson",
+      "eventTitle": "Polynesier bor på Henderson och Pitcairn",
+      "file": "images/events/polynesier-pa-henderson.webp",
+      "kind": "historisk",
+      "credit": "Makemake (tyskspråkiga Wikipedia) / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-polynesier-pa-henderson",
+        "title": "Henderson – Makemake at German Wikipedia (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Henderson.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "polynesier-pa-mangareva",
+      "eventTitle": "Polynesier bosätter sig på Mangareva",
+      "file": "images/events/polynesier-pa-mangareva.webp",
+      "kind": "historisk",
+      "credit": "NASA Johnson Space Center, Earth Sciences and Image Analysis / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-polynesier-pa-mangareva",
+        "title": "Mangareva – NASA Johnson Space Center - Earth Sciences and Image Analysis (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mangareva.JPG",
         "license": "Public domain",
         "checked": "2026-11-26"
       }
@@ -4664,6 +4904,21 @@
         "title": "Hessel Gerritsz - Worldmap of 1612 including the discovery of La Austrialia del Espiritu Santo by Pedro Fernandes de Queirós – Hessel Gherrijtszoon van Assum (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Hessel_Gerritsz_-_Worldmap_of_1612_including_the_discovery_of_La_Austrialia_del_Espiritu_Santo_by_Pedro_Fernandes_de_Queir%C3%B3s.png",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "quirigua-besegrar-copan",
+      "eventTitle": "Quiriguá tar Copáns kung till fånga",
+      "file": "images/events/quirigua-besegrar-copan.webp",
+      "kind": "historisk",
+      "credit": "HJPD / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-quirigua-besegrar-copan",
+        "title": "Copan St H – HJPD (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Copan_St_H.jpg",
+        "license": "CC BY 3.0",
         "checked": "2026-11-26"
       }
     },
@@ -6285,6 +6540,21 @@
       }
     },
     {
+      "eventId": "taputapuatea-marae",
+      "eventTitle": "Tempelplatsen Taputapuātea på Raiatea",
+      "file": "images/events/taputapuatea-marae.webp",
+      "kind": "historisk",
+      "credit": "Sur la route / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-taputapuatea-marae",
+        "title": "Taputapuatea marae Raiatea – Sur la route (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Taputapuatea_marae_Raiatea.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "taraweras-utbrott",
       "eventTitle": "Vulkanen Tarawera får utbrott",
       "file": "images/events/taraweras-utbrott.webp",
@@ -6498,6 +6768,21 @@
       }
     },
     {
+      "eventId": "thulefolket-nar-gronland",
+      "eventTitle": "Thulefolket når Grönland",
+      "file": "images/events/thulefolket-nar-gronland.webp",
+      "kind": "historisk",
+      "credit": "Alan Sim / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-thulefolket-nar-gronland",
+        "title": "Thule tent rings - panoramio – Alan Sim (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Thule_tent_rings_-_panoramio.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "tiangong-kaiwu-1637",
       "eventTitle": "Song Yingxing ger ut Tiangong Kaiwu",
       "file": "images/events/tiangong-kaiwu-1637.webp",
@@ -6645,6 +6930,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:US_Navy_050102-N-9593M-040_A_village_near_the_coast_of_Sumatra_lays_in_ruin_after_the_Tsunami_that_struck_South_East_Asia.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "tula-toltekernas-huvudstad",
+      "eventTitle": "Tula, toltekernas stad, på sin höjdpunkt",
+      "file": "images/events/tula-toltekernas-huvudstad.webp",
+      "kind": "historisk",
+      "credit": "Luidger / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-tula-toltekernas-huvudstad",
+        "title": "Telamones Tula – User:Luidger (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Telamones_Tula.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {

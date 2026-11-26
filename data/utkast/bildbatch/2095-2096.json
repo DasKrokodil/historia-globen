@@ -1,0 +1,1882 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "2095-2096",
+  "datum": "2026-11-26",
+  "urval": "ids=37 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "pakal-i-palenque",
+      "titel": "Pakal den store styr Palenque",
+      "start": 615,
+      "plats": "Palenque i Chiapas (i dag Mexiko)",
+      "wikidata": "Q371384",
+      "kandidater": [
+        {
+          "fil": "File:K'inich Janaab Pakal I.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:K%27inich_Janaab_Pakal_I.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Jami Dwyer",
+          "datum": "2008-08-21 10:04:20",
+          "datum_original": "2008-08-21 10:04:20",
+          "datum_fil": "2009-02-06 21:45:05",
+          "kredit": "originally posted to Flickr as National Museum of Anthropology",
+          "beskrivning": "Stucco head of K'inich Janaab Pakal I ( 603-683 AD ), king of Palenque. National Museum of Anthropology, Mexico-City.",
+          "bredd": 2128,
+          "hojd": 2832,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/K%27inich_Janaab_Pakal_I.jpg/960px-K%27inich_Janaab_Pakal_I.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "National Museum of Anthropology - Pakal Tomb"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "quirigua-besegrar-copan",
+      "titel": "Quiriguá tar Copáns kung till fånga",
+      "start": 738,
+      "plats": "Quiriguá i Motaguadalen (i dag Guatemala)",
+      "wikidata": "Q6644671",
+      "kandidater": [
+        {
+          "fil": "File:Copan St H.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Copan_St_H.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "HJPD",
+          "datum": "1977-08",
+          "datum_original": "1977-08",
+          "datum_fil": "2010-02-07 22:03:22",
+          "kredit": "Own work",
+          "beskrivning": "Copán, Honduras: Stela H",
+          "bredd": 1838,
+          "hojd": 3617,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Copan_St_H.jpg/960px-Copan_St_H.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Stela H of Copán"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-3.0}}. Commons API (LicenseShortName): \"CC BY 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "polynesier-pa-henderson",
+      "titel": "Polynesier bor på Henderson och Pitcairn",
+      "start": 800,
+      "plats": "Henderson Island, Pitcairnöarna (i dag Storbritannien)",
+      "wikidata": "Q379759",
+      "kandidater": [
+        {
+          "fil": "File:Henderson.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Henderson.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Makemake at German Wikipedia",
+          "datum": "2000-03",
+          "datum_original": "2000-03",
+          "datum_fil": "2005-05-22 20:28:33",
+          "kredit": "Own work",
+          "beskrivning": "On Henderson Island, Pitcairn Islands",
+          "bredd": 1500,
+          "hojd": 1024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Henderson.JPG/960px-Henderson.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2000 in the Pitcairn Islands",
+            "Henderson Island"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{GFDL-user}}, {{GFDL-user|migration=relicense}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "GFDL-user",
+              "GFDL-user|migration=relicense"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "polynesier-pa-mangareva",
+      "titel": "Polynesier bosätter sig på Mangareva",
+      "start": 800,
+      "plats": "Mangareva, Gambieröarna (i dag Franska Polynesien)",
+      "wikidata": "Q616662",
+      "kandidater": [
+        {
+          "fil": "File:Mangareva.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mangareva.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA Johnson Space Center - Earth Sciences and Image Analysis",
+          "datum": "2001-06-16",
+          "datum_original": "2001-06-16",
+          "datum_fil": "2016-02-26 14:31:41",
+          "kredit": "http://www.oceandots.com/pacific/tuamotu/mangareva3.php",
+          "beskrivning": "NASA astronaut image of Mangareva, Gambier Islands, French Polynesia",
+          "bredd": 3060,
+          "hojd": 2036,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Mangareva.JPG/960px-Mangareva.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "ISS Expedition 2 Crew Earth Observations",
+            "Mangareva",
+            "PD NASA-AP",
+            "Rikitea",
+            "Satellite pictures of the Gambier Islands",
+            "Totegegie"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA-AP"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "chaco-canyon",
+      "titel": "De stora husen i Chaco Canyon",
+      "start": 900,
+      "plats": "Chaco Canyon i New Mexico (i dag USA)",
+      "wikidata": "Q732463",
+      "kandidater": [
+        {
+          "fil": "File:Chaco Canyon Chetro Ketl great kiva plaza NPS.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chaco_Canyon_Chetro_Ketl_great_kiva_plaza_NPS.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "National Park Service (United States)",
+          "datum": "2006-08-14",
+          "datum_original": "2006-08-14",
+          "datum_fil": "2007-01-07 03:36:21",
+          "kredit": "Chaco Canyon National Historical Park: Photo Gallery",
+          "beskrivning": "An image of the ruins of Chetro Ketl in Chaco Canyon (New Mexico, United States); shown is the complex's great kiva .",
+          "bredd": 2272,
+          "hojd": 1704,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Chaco_Canyon_Chetro_Ketl_great_kiva_plaza_NPS.jpg/960px-Chaco_Canyon_Chetro_Ketl_great_kiva_plaza_NPS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Chetro Ketl Great Kiva"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Interior-NPS"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "tula-toltekernas-huvudstad",
+      "titel": "Tula, toltekernas stad, på sin höjdpunkt",
+      "start": 900,
+      "plats": "Tula i Hidalgo, norr om Mexico City (i dag Mexiko)",
+      "wikidata": "Q568672",
+      "kandidater": [
+        {
+          "fil": "File:Telamones Tula.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Telamones_Tula.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "User:Luidger",
+          "datum": "25 December 2004",
+          "datum_original": "25 December 2004",
+          "datum_fil": "2006-11-11 16:43:06",
+          "kredit": "Own work",
+          "beskrivning": "Telamones , Tula , Mexico",
+          "bredd": 2592,
+          "hojd": 1944,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Telamones_Tula.jpg/960px-Telamones_Tula.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Atlante-Tollan-Xicocotitlan",
+            "Nahua culture in Hidalgo",
+            "Post-classical history",
+            "Pre-Columbian stone sculpture"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{Self|GFDL}}, {{Self|Cc-by-sa-3.0-migrated}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "Self|GFDL",
+              "Self|Cc-by-sa-3.0-migrated"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "taputapuatea-marae",
+      "titel": "Tempelplatsen Taputapuātea på Raiatea",
+      "start": 1000,
+      "plats": "Opoa på östra Raiatea (i dag Franska Polynesien)",
+      "wikidata": "Q3287362",
+      "kandidater": [
+        {
+          "fil": "File:Taputapu marae Raiatea little man.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Taputapu_marae_Raiatea_little_man.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Kulia Petz",
+          "datum": "2007-08-24 06:24:59",
+          "datum_original": "2007-08-24 06:24:59",
+          "datum_fil": "2008-06-28 11:25:05",
+          "kredit": "originally posted to Flickr as Face",
+          "beskrivning": "Close-up of an anthropomorphic statue on the ancient marae of Taputapuatea, Ra'iatea, French Polynesia.",
+          "bredd": 600,
+          "hojd": 800,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Taputapu_marae_Raiatea_little_man.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Taputapuatea marae",
+            "Tiki"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "polynesier-nar-sallskapsoarna",
+      "titel": "Polynesier når Sällskapsöarna",
+      "start": 1025,
+      "plats": "Sällskapsöarna, med Tahiti (i dag Franska Polynesien)",
+      "wikidata": "Q118920",
+      "kandidater": [
+        {
+          "fil": "File:Society kingdoms.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Society_kingdoms.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "ArnoldPlaton",
+          "datum": "2012-10-02",
+          "datum_original": "2012-10-02",
+          "datum_fil": "2012-10-02 19:48:45",
+          "kredit": "Own work , with elements from Leeward Islands (Society Islands) topographic map-fr.svg",
+          "beskrivning": "Kingdoms in the Society Islands (Oceania)",
+          "bredd": 711,
+          "hojd": 250,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Society_kingdoms.svg/960px-Society_kingdoms.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "History of Bora Bora",
+            "History of Huahine",
+            "History of Raiatea",
+            "Kingdom of Tahiti",
+            "Maps of Huahine",
+            "SVG maps of the Society Islands"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "atta-hjort-jaguarklo",
+      "titel": "Mixtekhärskaren Åtta Hjort Jaguarklo",
+      "start": 1063,
+      "plats": "Tilantongo i Mixteca Alta, Oaxaca (i dag Mexiko)",
+      "wikidata": "Q1189098",
+      "kandidater": [
+        {
+          "fil": "File:Oaxaca ocho venado.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Oaxaca_ocho_venado.png",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "11 th century date QS:P,+1050-00-00T00:00:00Z/7",
+          "datum_original": "11 th century date QS:P,+1050-00-00T00:00:00Z/7",
+          "datum_fil": "2006-05-13 05:09:52",
+          "kredit": "http://juxtlahuaca.org/esp/index.php?action=view&id=126&module=newsmodule&src=%40random42979da2728b3",
+          "beskrivning": "8 Deer Claw of Jaguar, Unifier of the Mixteca, receives the visit of 4 Jaguar",
+          "bredd": 600,
+          "hojd": 452,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/27/Oaxaca_ocho_venado.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Lord 4 Jaguar 'Face of the Night'",
+            "Lord 8 Deer 'Jaguar Claw'"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "ormhogen-i-ohio",
+      "titel": "Ormhögen i Ohio byggs eller byggs om",
+      "start": 1100,
+      "plats": "Ohio Brush Creek, Adams County, Ohio (i dag USA)",
+      "wikidata": "Q968802",
+      "kandidater": [
+        {
+          "fil": "File:26 of 'A School History of the United States ...Serpent Mound in Ohio\"' no cap (11303842305) (cropped).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:26_of_%27A_School_History_of_the_United_States_...Serpent_Mound_in_Ohio%22%27_no_cap_(11303842305)_(cropped).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "The British Library",
+          "datum": "2013-12-10 07:40",
+          "datum_original": "2013-12-10 07:40",
+          "datum_fil": "2024-05-16 11:00:15",
+          "kredit": "Image taken from page 26 of 'A School History of the United States ... Being a revision and rewriting of Swinton's \"Condensed School History of the United States.\"'",
+          "beskrivning": "View this map on the BL Georeferencer service. Image taken from: Title : \"A School History of the United States ... Being a revision and rewriting of Swinton's \"Condensed School History of the United States.\"\" Author : Swinton, William Shelfmark : \"British Library HMNTS 9605.c.13.\" Page : 26 Place of Publishing : New York Date of Publishing : 1893 Publisher : American Book Co. Issuance : monographic Identifier : 003558892 Explore: Find this item in the British Library catalogue, 'Explore'. Download the PDF for this book (volume: 0) Image found on book scan 26 (NB not necessarily a page number) Download the OCR-derived text for this volume: (plain text) or (json) Click here to see all the illustrations in this book and click here to browse other illustrations published in books in the same year. Order a higher quality version from here .",
+          "bredd": 1112,
+          "hojd": 791,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/26_of_%27A_School_History_of_the_United_States_...Serpent_Mound_in_Ohio%22%27_no_cap_%2811303842305%29_%28cropped%29.jpg/960px-26_of_%27A_School_History_of_the_United_States_...Serpent_Mound_in_Ohio%22%27_no_cap_%2811303842305%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "A School History of the United States (1893)",
+            "Old maps of Adams County, Ohio",
+            "Serpent Mound"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "polynesier-nar-rapa-nui",
+      "titel": "Polynesier når Rapa Nui (påskön)",
+      "start": 1100,
+      "plats": "Rapa Nui, påskön (i dag Chile)",
+      "wikidata": "Q14452",
+      "kandidater": [
+        {
+          "fil": "File:Easter Island 5.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Easter_Island_5.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "kallerna",
+          "datum": "2018-09-20 00:44:50",
+          "datum_original": "2018-09-20 00:44:50",
+          "datum_fil": "2018-12-28 08:10:15",
+          "kredit": "Own work",
+          "beskrivning": "Ahu in Easter Island. Hanga Roa seen in the background.",
+          "bredd": 6000,
+          "hojd": 4000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Easter_Island_5.jpg/960px-Easter_Island_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ahu in Easter Island",
+            "Hanga Roa"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "casa-grande-hohokam",
+      "titel": "Hohokamfolket bygger Casa Grande och bevattnar öknen",
+      "start": 1150,
+      "plats": "Coolidge vid Gilafloden, Arizona (i dag USA)",
+      "wikidata": "Q1435779",
+      "kandidater": [
+        {
+          "fil": "File:CasaGrandeRuin.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:CasaGrandeRuin.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Greg Hume",
+          "datum": "Taken on 10 July 2006",
+          "datum_original": "Taken on 10 July 2006",
+          "datum_fil": "2012-01-03 05:13:10",
+          "kredit": "Own work",
+          "beskrivning": "Casa Grande Ruins - Casa Grande AZ.",
+          "bredd": 2273,
+          "hojd": 1820,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/CasaGrandeRuin.jpg/960px-CasaGrandeRuin.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "July 2006 in Arizona",
+            "Sivan Vah'Ki"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "moundville-hovdingadome",
+      "titel": "Moundville blir ett regionalt hövdingadöme",
+      "start": 1150,
+      "plats": "Moundville vid Black Warrior River, Alabama (i dag USA)",
+      "wikidata": "Q1320821",
+      "kandidater": [
+        {
+          "fil": "File:Moundville Archaeological Park 03.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Moundville_Archaeological_Park_03.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Altairisfar (Jeffrey Reed)",
+          "datum": "2010-08-06",
+          "datum_original": "2010-08-06",
+          "datum_fil": "2010-08-07 02:13:16",
+          "kredit": "Own work",
+          "beskrivning": "Partial view of the plaza and surrounding mounds, with Mound A in the foreground, from the top of Mound B at the Moundville Archaeological Park in Moundville, Hale County, Alabama, United States.",
+          "bredd": 2256,
+          "hojd": 1504,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Moundville_Archaeological_Park_03.JPG/960px-Moundville_Archaeological_Park_03.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Moundville Archaeological Site"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "polynesier-nar-marquesas",
+      "titel": "Polynesier når Marquesasöarna",
+      "start": 1190,
+      "plats": "Marquesasöarna (i dag Franska Polynesien)",
+      "wikidata": "Q172697",
+      "kandidater": [
+        {
+          "fil": "File:HivaOa BaieDesTraitres 20061110.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:HivaOa_BaieDesTraitres_20061110.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Sémhur · ✉ · ✍ ·",
+          "datum": "2006-11-10",
+          "datum_original": "2006-11-10",
+          "datum_fil": "2007-03-24 19:54:35",
+          "kredit": "Own work",
+          "beskrivning": "Vegetation at the edge of the road from Atuona to Puamau, Hiva Oa , Marquesas Islands, French Polynesia . Sight on the \"Baie des Traitres\" ( Traitors Bay ) and the Hanakee rock.",
+          "bredd": 3888,
+          "hojd": 2430,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/HivaOa_BaieDesTraitres_20061110.jpg/960px-HivaOa_BaieDesTraitres_20061110.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bays of French Polynesia",
+            "Foreground flowers",
+            "Hiva Oa",
+            "Landscapes with flowers"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "flera licenser: CC BY-SA 3.0, CC BY-SA 2.5",
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|Cc-by-sa-3.0-migrated}}, {{self|Cc-by-sa-2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Flera licenser anges (CC BY-SA 3.0 och CC BY-SA 2.5); bilden används under CC BY-SA 3.0. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|Cc-by-sa-3.0-migrated",
+              "self|Cc-by-sa-2.5,2.0,1.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "thulefolket-nar-gronland",
+      "titel": "Thulefolket når Grönland",
+      "start": 1200,
+      "plats": "Nordvästra Grönland, vid Pituffik (Grönland)",
+      "wikidata": "Q72813",
+      "kandidater": [
+        {
+          "fil": "File:Bye to Thule, For Now (5588722815).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bye_to_Thule,_For_Now_(5588722815).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA Goddard Space Flight Center from Greenbelt, MD, USA",
+          "datum": "2011-04-04 11:38",
+          "datum_original": "2011-04-04 11:38",
+          "datum_fil": "2018-05-12 03:15:05",
+          "kredit": "Bye to Thule, For Now",
+          "beskrivning": "On March 31, the P-3 departed Thule, Greenland. IceBridge teams flew a science transit flight to Kangerlussaq, Greenland, where missions will be based for the next several weeks before returning to Thule. Along the route, instruments surveyed several targets of opportunity including two ground tracks of the Ice, Cloud and land Elevation Satellite (ICESat) and several glaciers (Rink, Kangerdlugssuaq, Jakobshavn and Russell), turning up great data and spectacular views. March 29 was another perfect day for a land ice flight. The P-3 flew between deep canyons and over glaciers along the northwest coast of Greenland. But before the start of land ice flights, IceBridge reached a key milestone over sea ice. On March 28, IceBridge flew its eighth sea ice flight marking the completion of all high- and medium-priority sea ice missions planned from Thule. Among the sea ice missions was a science transit back from Fairbanks to Thule on March 25, during which the P-3 surveyed in complete darkness. Researchers watched the scanning pattern of the green lasers on the sea ice below and the beautiful Aurora Borealis above. To learn more about Ice Bridge go to: <a href=\" http://www.nasa.gov/mission_pages/icebridge/news/spr11/index.html \" rel=\"nofollow\">www.nasa.gov/mission_pages/icebridge/news/spr11/index.html</a> <a href=\" http://www.nasa.gov/centers/goddard/home/index.html \" rel=\"nofollow\">NASA Goddard Space Flight Center</a> enables NASA’s mission through four scientific endeavors: Earth Science, Heliophysics, Solar System Exploration, and Astrophysics. Goddard plays a leading role in NASA’s accomplishments by contributing compelling scientific knowledge to advance the Agency’s mission. Follow us on <a href=\" https://twitter.com/NASA_GoddardPix \" rel=\"nofollow\">Twitter</a> Join us on <a href=\" http://www.facebook.com/pages/Greenbelt-MD/NASA-Goddard/395013845897?ref=tsd \" rel=\"nofollow\">Facebook</a>",
+          "bredd": 1200,
+          "hojd": 900,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Bye_to_Thule%2C_For_Now_%285588722815%29.jpg/960px-Bye_to_Thule%2C_For_Now_%285588722815%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aerial photographs of coasts of Greenland",
+            "Cliffs of Greenland",
+            "ICESat",
+            "Kalaallit Nunaat High Arctic Tundra Ecoregion",
+            "Media from Goddard Space Flight Center",
+            "Nature of Avannaata",
+            "Operation IceBridge"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "flera licenser: Public domain, CC BY 2.0"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-NASA}}, {{cc-by-2.0}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (Public domain och CC BY 2.0); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto).",
+            "risker": [],
+            "mallar": [
+              "PD-NASA",
+              "cc-by-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:The American Museum journal (c1900-(1918)) (18135018756).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_American_Museum_journal_(c1900-(1918))_(18135018756).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1918",
+          "datum_original": "1918",
+          "datum_fil": "2015-09-20 10:04:44",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/18135018756/ Source book page: https://archive.org/stream/americanmuseumjo18amer/#page/n455/mode/1up",
+          "beskrivning": "Title : The American Museum journal Identifier : americanmuseumjo18amer ( find matches ) Year : c1900-(1918) ( c190s ) Authors : American Museum of Natural History Subjects : Natural history Publisher : New York : American Museum of Natural History Contributing Library : American Museum of Natural History Library Digitizing Sponsor : Biodiversity Heritage Library View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: ' Text Appearing After Image: Second Thule Expedition under Rasmussen DURING the stay of the Crocker Land Expedition in the Arctic, the Jour- nal was privileged to report from time to time various courtesies extended to this expedition by Mr. Knud Rasmussen, Danish explorer. It now wishes to call at- tention to the Second Thule Expedition, un- der Rasmussen, which has returned to its base in Northwest Greenland, reporting success- ful explorations of the fjords of the North Greenland coast. A telegram received on May 27 by Presi- dent Henry Fairfield Osborn at the Ameri- can Museum reads: \"Knud Rasmussen on his way back from Greenland. Carried out his expedition and reached DeLong's Fjord. Has mapped all great fjords (extreme North Greenland coast). No traces found of for- mer (Eskimo) immigration. No game and generally very bad conditions. The Swedish Dr. Wulff and one Greenlander perished.\" A Reuter's Copenhagen correspondent trans- mits a further telegram in which the Danish explorer says that his advance was attended with greatest difficulties; that after Hen- drik Olsen's death \"we started on our home- ward journey and reached land on August :J90 24 at Cape Agassiz, in bad plight, without provisions.\" After Etah was reached sledges with supplies were sent back to the rest of the party but too late to save Dr. Wulff. The telegrams have been sent out by Mr. M. lb Nyeboe, chairman of the committee in charge of the Thule Station, Northwest Greenland, and imply that Rasmussen re- turned from his expedition in the fall of 1917 and probably wintered at Thule, sending let- ters from there to Copenhagen. Letters sent out from Thule in January by Eskimo mes- senger across Melville Bay to Upernivik, would catch the regular mail sledge going southward through the Danish colonies to Holstensborg and the steamer there for Co- penhagen. Thule, situated on North Star Bay, Northwest Greenland, is the northern- most trading station of the world, and was established by Mr. Rasmussen in 1910 for special service to the Smith Sound Eskimos as well as a scientific base for Danish polar exploration. The First Thule Expedition under the leadership of Rasmussen left this station in 1912. It crossed the inland ice cap of Greenland, somewhat south of the routes fol- Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 2152,
+          "hojd": 1156,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/The_American_Museum_journal_%28c1900-%281918%29%29_%2818135018756%29.jpg/960px-The_American_Museum_journal_%28c1900-%281918%29%29_%2818135018756%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Crocker Land Expedition",
+            "The American Museum Journal (1918)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "gronland-under-norge",
+      "titel": "Grönland under den norske kungen",
+      "start": 1261,
+      "plats": "De norröna bygderna på södra Grönland",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Glacier King et Baie Cross (Spitzberg) (Ifremer 00816-92765).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Glacier_King_et_Baie_Cross_(Spitzberg)_(Ifremer_00816-92765).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": null,
+          "datum": "1 January 1907 (upload date)",
+          "datum_original": "1 January 1907 (upload date)",
+          "datum_fil": "2024-10-07 23:12:14",
+          "kredit": "Glacier King et Baie Cross (Spitzberg)",
+          "beskrivning": "These images come from the Isachsen mission, which aimed to explore the northwest of Spitsbergen. It is one of the expeditions carried out with the support of Prince Albert I, sovereign of Monaco, on his yacht. West Spitsbergen, 500 kilometres east of Greenland, is the largest island in the Svalbard archipelago in the Arctic Ocean. It has a surface area of 37,673 km2 and dimensions of 280 km long and 40 to 225 km wide. Its geological layers and fossils provide insight into continental drift. The original Scandinavian name \"Spitsbergen\" (with an s) was historically given to the entire archipelago (literally the word means \"pointed mountains\") and is often still used incorrectly today. The German spelling (with a z) is the most commonly used in French. The entire archipelago depends on Norway. However, the archipelago is governed by a treaty signed in Paris in 1920 by thirty countries which grants certain rights of access to other countries. Coal mines operated by Russian interests in Barentsburg are a consequence of this treaty.",
+          "bredd": 3533,
+          "hojd": 2960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Glacier_King_et_Baie_Cross_%28Spitzberg%29_%28Ifremer_00816-92765%29.jpg/960px-Glacier_King_et_Baie_Cross_%28Spitzberg%29_%28Ifremer_00816-92765%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "History of Spitsbergen"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-zero"
+            ]
+          }
+        },
+        {
+          "fil": "File:Atlas Van der Hagen-KW1049B10 007-NORVEGIA REGNUM, Vulgo NOR-RYKE.jpeg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Atlas_Van_der_Hagen-KW1049B10_007-NORVEGIA_REGNUM,_Vulgo_NOR-RYKE.jpeg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Dirk Jansz van Santen",
+          "datum": "1662 date QS:P571,+1662-00-00T00:00:00Z/9",
+          "datum_original": "1662 date QS:P571,+1662-00-00T00:00:00Z/9",
+          "datum_fil": "2015-07-19 08:45:44",
+          "kredit": "This digital media file - and/or the physical objects depicted on it - originates from the digital and/or physical collections of the Koninklijke Bibliotheek , national library of the Netherlands.",
+          "beskrivning": "In 1631 king Christian IV of Denmark ordered to map the complete kingdom of Denmark including Norway and part of Sweden. Joan Blaeu (1598-1673) was the only publisher who had access to the results of this topographical survey. In 1662 he published an important part of those maps in the first volume of the Atlas Maior . This map of Norway was among them, a rare image of an early representation of the area.",
+          "bredd": 5500,
+          "hojd": 4653,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Atlas_Van_der_Hagen-KW1049B10_007-NORVEGIA_REGNUM%2C_Vulgo_NOR-RYKE.jpeg/960px-Atlas_Van_der_Hagen-KW1049B10_007-NORVEGIA_REGNUM%2C_Vulgo_NOR-RYKE.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1662 maps of Europe",
+            "1662 maps of Norway",
+            "Atlas van der Hagen",
+            "Atlas van der Hagen (Volume 1)",
+            "Joan Blaeu"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-art"
+            ]
+          }
+        },
+        {
+          "fil": "File:Vinland Map HiRes.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Vinland_Map_HiRes.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Yale University Press",
+          "datum": "29 July 2002",
+          "datum_original": "29 July 2002",
+          "datum_fil": "2007-09-07 21:15:06",
+          "kredit": "\" Vinland Map \". Yale University Press, Beinecke Rare Book and Manuscript Library. Via: \" Scientists Determine Age of New World Map \". July 29, 2002. Brookhaven National Laboratory. Archived from original .",
+          "beskrivning": "The Vinland map / chart is purportedly a 15th century Mappa Mundi, redrawn from a 13th century original. Drawn with black ink on animal skin, if authentic the map is the first known depiction of the North American coastline, created before Columbus' 1492 voyage. The upper left caption reads: “By God's will, after a long voyage from the island of Greenland to the south toward the most distant remaining parts of the western ocean sea, sailing southward amidst the ice, the companions Bjarni and Leif riksson discovered a new land, extremely fertile and even having vines, ... which island they named Vinland.” Most scholars and scientists who have studied the map have concluded that it is a fake, probably drawn on old parchment in the 20th century.",
+          "bredd": 3038,
+          "hojd": 2103,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Vinland_Map_HiRes.jpg/960px-Vinland_Map_HiRes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Drawings in the Yale University Library",
+            "Fake Vinland Maps"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "caguana-ceremoniplats",
+      "titel": "Taínofolket bygger ceremoniplatsen i Caguana",
+      "start": 1270,
+      "plats": "Caguana, Utuado, Puerto Rico",
+      "wikidata": "Q3649808",
+      "kandidater": [
+        {
+          "fil": "File:Caguana Ceremonial Ball Courts Site - Utuado Puerto Rico.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Caguana_Ceremonial_Ball_Courts_Site_-_Utuado_Puerto_Rico.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "The original uploader was Jbermudez at English Wikipedia .",
+          "datum": "5 July 2006 (original upload date)",
+          "datum_original": "5 July 2006 (original upload date)",
+          "datum_fil": "2008-02-23 01:43:32",
+          "kredit": "Transferred from en.wikipedia to Commons by Werewombat .",
+          "beskrivning": "a view of the park",
+          "bredd": 1000,
+          "hojd": 750,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Caguana_Ceremonial_Ball_Courts_Site_-_Utuado_Puerto_Rico.jpg/960px-Caguana_Ceremonial_Ball_Courts_Site_-_Utuado_Puerto_Rico.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Caguana Indigenous Ceremonial Center"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY 2.5",
+            "skal": [
+              "flera licenser: CC BY 2.5, CC BY-SA 3.0",
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{Cc-by-2.5}}, {{GFDL}}, {{GFDL|migration=relicense}}. Commons API (LicenseShortName): \"CC BY 2.5\". Flera licenser anges (CC BY 2.5 och CC BY-SA 3.0); bilden används under CC BY 2.5. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under CC BY 2.5.",
+            "risker": [],
+            "mallar": [
+              "Cc-by-2.5",
+              "GFDL",
+              "GFDL|migration=relicense"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "kalla-somrar-pa-baffinon",
+      "titel": "Kalla somrar och växande isar på Baffinön",
+      "start": 1275,
+      "plats": "Baffinön (i dag Kanada) och Island",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:The continent we live on (1961) (20497624779).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_continent_we_live_on_(1961)_(20497624779).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1961",
+          "datum_original": "1961",
+          "datum_fil": "2015-10-03 08:53:59",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/20497624779/ Source book page: https://archive.org/stream/continentweliveo00sandrich/#page/n23/mode/1up",
+          "beskrivning": "Title : The continent we live on Identifier : continentweliveo00sandrich ( find matches ) Year : 1961 ( 1960s ) Authors : Sanderson, Ivan Terence, 1911-1973 Subjects : Physical geography ; Natural history Publisher : New York : Random House Contributing Library : New College of California Digitizing Sponsor : Internet Archive View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: A herd of musk ox in full flight.These\"sheep-oxen\" are true relics of the Ice Age and. though they look lumpish, can out- pace most other animals. squeezed out underneath as taffy would be in a shallow bowl if a large solid weight were placed upon it. Thus an icecap grows in both depth and area and pushes out in all directions. If it comes against a substantial mountain range, it pushes up and over the lower passes or flows around the ob- stacle, scouring its sides with millions of tons of pressure and billion-foot-pound scooping actions. It finally covers the whole land and leaves only the peaks of the tallest mountains sticking out. These are called nunataks. Such are strewn all around the edge of Greenland. But finally its edge reaches some seacoast. If the coast is a rocky barrier with cliffs, the ice, in the form of glaciers or rivers of ice, cascades down these through whatever gaps there are and, on reaching the sea below, becomes water-borne— ice being lighter than water. As a result, the front ends or \"tongues\" of these break off in great bits by being bent upward, often with thunderous noises like gunfire, and then go drifting away as icebergs. This is called calving. If. on the other hand, the coast is low but wide, the ice front may push slowly out onto it, building up a mountainous and bulbous front, actually thicker at that front than just behind it, so that the whole curls over like a vast wave and huge masses of ice crash to the bare ground ahead of it. Then the ice slowly creeps over these chunks and reabsorbs them. In still other cir- cumstances, where the coastal plain is narrow and only just above sea level and extends out under the water to form a very shallow sea, the vast ice mass may move slowly out from the land—sometimes for hundreds of miles as in the Antarctic— before its buoyancy counteracts its weight and vast slices of it snap off and become water-borne. This is known as shelf ice; and it is prevalent around enormous stretches of the Antarctic coast but it is not found in the Arctic. When this shelf ice— sometimes hundreds of feet thick—breaks away, it forms flat- topped icebergs that have been recorded up to two hundred miles long and a hundred miles wide. Sooner or later, however, the climate changes once more and the icecap begins to suffer starvation. Perhaps nothing more than a diminution in annual precipitation takes place, so that no new snow piles up on the center or it does so in such small quantities that it cannot keep up with the summer thaw. Then the move- ment of the ice ceases; its peripheral glaciers melt backward up their gorges; on low land, its bulbous front flattens out into a thin, tapering sheet and develops melt caves beneath it; and the great ice shelves begin to slant downward to the sea and then slowly retreat back onto the land. Such is Greenland today— though perhaps only temporarily—a really vast and fairly an- cient icecap just a little past its prime, shrinking visibly almost all around and with considerably reduced edges on land but still calving icebergs along both its northwestern and eastern coasts. An icy blanket of air still pours off its edges in most places force- fully enough to be termed idiabatic winds, but it is not nearly so formidable or aggressive as it was even a century ago. Things have been warming up generally in those parts for some time now, so that all manner of animals once found only in temperate seas now occur there. Codfish, which only fifty years ago were never caught north of 64 degrees north, now form com- mercial catches north of 73 degrees north. This is a tremendous movement for fish, which are ultrasensitive to water tempera- tures, being nearly six hundred miles of latitude. All kinds of other changes have been taking place, too. The sea ice has Text Appearing After Image: become thinner and narrower, and it melts sooner and stays away for longer periods than it did previously. This has upset the inshore habits of such marine mammals as whales and seals. The graves of the Norse settlers of pre-Columbian times have thawed out of the permafrost; quite a number of new plants have appeared on the coastal fringe in summer; and birds not seen before are now common in many areas. These are not unalloyed blessings: rather the contrary, for they have removed far to the north many of the natural products, such as whales and seals, on which the Greenlanders relied for food and cloth- ing. Much the same is happening on the Canadian islands, but the change there is not so apparent and is possibly not so pro- found. In Greenland it seems to be caused primarily by changes in the warmer ocean currents and the wilting of the icecap, and it is believed that it is not an increase of warm water but of cold that is causing the latter, for as the warm water goes farther away it carries the moisture-laden air that brings precipitation. GARDENS BY THE ICE The coastal strips of Greenland are very unlike what most of us suppose. Even in midwinter the climate is not really any colder than that of the northern United States, and in summer it can be very (though never disagreeably) hot, so that people go swim- ming in lakes and wander about in shorts even as far north as upper Baffin Bay. There are places within the Arctic Circle that 20 Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 1352,
+          "hojd": 1888,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/The_continent_we_live_on_%281961%29_%2820497624779%29.jpg/960px-The_continent_we_live_on_%281961%29_%2820497624779%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "The continent we live on (1961)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "staende",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "codex-zouche-nuttall",
+      "titel": "Codex Zouche-Nuttall målas",
+      "start": 1300,
+      "plats": "Mixtekernas område i Oaxaca (i dag Mexiko); boken handlar om Tilantongo, men var den målades är inte känt",
+      "wikidata": "Q1106134",
+      "kandidater": [
+        {
+          "fil": "File:Codex Zouche-Nuttall - perspective modified.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Codex_Zouche-Nuttall_-_perspective_modified.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Szilas",
+          "datum": "2010-08-01",
+          "datum_original": "2010-08-01",
+          "datum_fil": "2023-02-16 14:18:00",
+          "kredit": "Own work",
+          "beskrivning": "Pre-Columbian mixtec screen fold book made of deer skin, British Library",
+          "bredd": 3354,
+          "hojd": 1287,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Codex_Zouche-Nuttall_-_perspective_modified.jpg/960px-Codex_Zouche-Nuttall_-_perspective_modified.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Codex Zouche-Nuttall"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Codex Zouche-Nuttall, page 20.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Codex_Zouche-Nuttall,_page_20.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "Unknown date",
+          "datum_original": "Unknown date",
+          "datum_fil": "2007-04-06 15:24:17",
+          "kredit": "Unknown source Unknown source ; file originally uploaded to the Polish-language Wikipedia by Adamt",
+          "beskrivning": "Codex Zouche-Nuttall, page 20.",
+          "bredd": 515,
+          "hojd": 375,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Codex_Zouche-Nuttall%2C_page_20.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Codex Zouche-Nuttall"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art-100"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "aztekisk-kodex"
+    },
+    {
+      "id": "templo-mayor-forsta-templet",
+      "titel": "Det första templet på Templo Mayor byggs",
+      "start": 1325,
+      "plats": "Tenochtitlan (i dag Mexico City, Mexiko)",
+      "wikidata": "Q774021",
+      "kandidater": [
+        {
+          "fil": "File:Templo Mayor 2015 019.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Templo_Mayor_2015_019.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Photograph by Mike Peel ( www.mikepeel.net ).",
+          "datum": "2015-07-14 21:08:50",
+          "datum_original": "2015-07-14 21:08:50",
+          "datum_fil": "2023-11-10 09:38:32",
+          "kredit": "Own work",
+          "beskrivning": "Templo Mayor, Mexico City, Mexico.",
+          "bredd": 5114,
+          "hojd": 3300,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Templo_Mayor_2015_019.jpg/960px-Templo_Mayor_2015_019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Coatepantli at Templo Mayor"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 4.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 4.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Templo Mayor 50.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Templo_Mayor_50.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "GAED",
+          "datum": "2012-09-08 11:57:15",
+          "datum_original": "2012-09-08 11:57:15",
+          "datum_fil": "2012-09-10 04:09:20",
+          "kredit": "Own work",
+          "beskrivning": "This is a photo of a monument in Mexico, identified by ID",
+          "bredd": 3280,
+          "hojd": 2460,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Templo_Mayor_50.jpg/960px-Templo_Mayor_50.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Museo del Templo Mayor - Building",
+            "Templo Mayor - Main Pyramid"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "aztekisk-kodex"
+    },
+    {
+      "id": "vasterbygden-overges",
+      "titel": "Västerbygden överges",
+      "start": 1350,
+      "plats": "Västerbygden, i fjordarna innanför dagens Nuuk",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:122143 moshav alkosh in the western galilee PikiWiki Israel.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:122143_moshav_alkosh_in_the_western_galilee_PikiWiki_Israel.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "שלמה רודד",
+          "datum": "2.12.2024",
+          "datum_original": "2.12.2024",
+          "datum_fil": "2024-12-14 01:25:24",
+          "kredit": "Shlomo Roded via the PikiWiki - Israel free image collection project",
+          "beskrivning": "Name: Moshav Alkosh in the western Galilee Description: The al-Kush settlement was established in 1949 by Kurdistan immigrants, belonging to the moshavim movement, in the Ma'ale Yosef regional council, at an altitude of about 650 meters, on the lands of the Arab village of Deir al-Kassi that was abandoned during the War of Independence in the background of ridges in the Upper Galilee: from left to right-Adir, Hiram, Yaron",
+          "bredd": 5712,
+          "hojd": 4284,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/122143_moshav_alkosh_in_the_western_galilee_PikiWiki_Israel.jpg/960px-122143_moshav_alkosh_in_the_western_galilee_PikiWiki_Israel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Elkosh"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.5",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.5"
+            ]
+          }
+        },
+        {
+          "fil": "File:Babchor, Aegean Macedonia.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Babchor,_Aegean_Macedonia.JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "between 1903 and 1908 date QS:P,+1903-00-00T00:00:00Z/8,P1319,+1903-00-00T00:00:00Z/9,P1326,+1908-00-00T00:00:00Z/9",
+          "datum_original": "between 1903 and 1908 date QS:P,+1903-00-00T00:00:00Z/8,P1319,+1903-00-00T00:00:00Z/9,P1326,+1908-00-00T00:00:00Z/9",
+          "datum_fil": "2010-01-13 04:57:02",
+          "kredit": "http://promacedonia.org/podporuchik/il_il/Illustration%20Ilinden,%20year%20VI,%20issue%205-6.pdf",
+          "beskrivning": "Village of Babchor, today Vapsorion, Greece",
+          "bredd": 477,
+          "hojd": 252,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/15/Babchor%2C_Aegean_Macedonia.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Poimeniko"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-anon-70-EU"
+            ]
+          }
+        },
+        {
+          "fil": "File:Christ Icon from Lagoura 17th Century.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Christ_Icon_from_Lagoura_17th_Century.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "17-th century",
+          "datum_original": "17-th century",
+          "datum_fil": "2020-03-20 08:05:22",
+          "kredit": "http://fos-kastoria.blogspot.com/2020/03/19.html",
+          "beskrivning": "Christ Icon from Lagoura 17th Century",
+          "bredd": 488,
+          "hojd": 766,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/07/Christ_Icon_from_Lagoura_17th_Century.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "17th-century icons of Greece",
+            "Assumption of Mary Church, Lagoura"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "osterbygden-overges",
+      "titel": "Österbygden överges",
+      "start": 1400,
+      "plats": "Österbygden, södra Grönland",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Abandoned church in Vinogradovo 2020-03 07.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Abandoned_church_in_Vinogradovo_2020-03_07.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Artyom Svetlov",
+          "datum": "Taken on 29 March 2020, 10:31:20 (according to Exif data)",
+          "datum_original": "Taken on 29 March 2020, 10:31:20 (according to Exif data)",
+          "datum_fil": "2026-10-15 18:34:58",
+          "kredit": "Own work",
+          "beskrivning": "Abandoned church in Vinogradovo",
+          "bredd": 4608,
+          "hojd": 3072,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Abandoned_church_in_Vinogradovo_2020-03_07.JPG/960px-Abandoned_church_in_Vinogradovo_2020-03_07.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Vinogradovo abandoned church"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Sopalj (Crikvenica) eastern building 2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sopalj_(Crikvenica)_eastern_building_2.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Schreckgespenst",
+          "datum": "2025-10-13 12:46:47",
+          "datum_original": "2025-10-13 12:46:47",
+          "datum_fil": "2025-11-16 17:36:49",
+          "kredit": "Own work",
+          "beskrivning": "Building at the eastern end of the abandoned settlement of Sopalj.",
+          "bredd": 3000,
+          "hojd": 4000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Sopalj_%28Crikvenica%29_eastern_building_2.jpg/960px-Sopalj_%28Crikvenica%29_eastern_building_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Sopalj (Crikvenica)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Sopalj (Crikvenica) eastern building 1.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sopalj_(Crikvenica)_eastern_building_1.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Schreckgespenst",
+          "datum": "2025-10-13 12:46:25",
+          "datum_original": "2025-10-13 12:46:25",
+          "datum_fil": "2025-11-16 17:37:11",
+          "kredit": "Own work",
+          "beskrivning": "Building at the eastern end of the abandoned settlement of Sopalj.",
+          "bredd": 3072,
+          "hojd": 4096,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Sopalj_%28Crikvenica%29_eastern_building_1.jpg/960px-Sopalj_%28Crikvenica%29_eastern_building_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Sopalj (Crikvenica)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "pachacuti-inkariket",
+      "titel": "Pachacuti gör Cusco till Inkariket",
+      "start": 1438,
+      "plats": "Cusco (i dag Peru)",
+      "wikidata": "Q213758",
+      "kandidater": [
+        {
+          "fil": "File:Brooklyn Museum - Pachacuti, Tenth Inca, 1 of 14 Portraits of Inca Kings (cropped).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Brooklyn_Museum_-_Pachacuti,_Tenth_Inca,_1_of_14_Portraits_of_Inca_Kings_(cropped).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "between 1750 and 1800 date QS:P571,+1500-00-00T00:00:00Z/6,P1319,+1750-00-00T00:00:00Z/9,P1326,+1800-00-00T00:00:00Z/9",
+          "datum_original": "between 1750 and 1800 date QS:P571,+1500-00-00T00:00:00Z/6,P1319,+1750-00-00T00:00:00Z/9,P1326,+1800-00-00T00:00:00Z/9",
+          "datum_fil": "2024-05-18 00:51:19",
+          "kredit": "Online Collection of Brooklyn Museum ; Photo: Brooklyn Museum, 1995.29.10_PS6.jpg",
+          "beskrivning": null,
+          "bredd": 1317,
+          "hojd": 1437,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Brooklyn_Museum_-_Pachacuti%2C_Tenth_Inca%2C_1_of_14_Portraits_of_Inca_Kings_%28cropped%29.jpg/960px-Brooklyn_Museum_-_Pachacuti%2C_Tenth_Inca%2C_1_of_14_Portraits_of_Inca_Kings_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Dick S. Ramsay Fund",
+            "Fourteen Portraits of Inca Kings (Brooklyn Museum)",
+            "Frank L. Babbott Fund",
+            "Marie Bernice Bitzer Fund",
+            "Mary Smith Dorward Fund",
+            "Pachacútec"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-art-100"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "inka"
+    },
+    {
+      "id": "la-isabela-columbianska-utbytet",
+      "titel": "La Isabela: ett tidigt exempel på det columbianska utbytet",
+      "start": 1493,
+      "plats": "La Isabela, provinsen Puerto Plata, Dominikanska republiken",
+      "wikidata": "Q1543031",
+      "kandidater": [
+        {
+          "fil": "File:La Isabela SDQ 10 2019 1144.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:La_Isabela_SDQ_10_2019_1144.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Mariordo (Mario Roberto Durán Ortiz)",
+          "datum": "2019-10-04 12:39:32",
+          "datum_original": "2019-10-04 12:39:32",
+          "datum_fil": "2019-10-06 03:13:37",
+          "kredit": "Own work",
+          "beskrivning": "La Isabela Historical and Archaeological National Park, Luperón, Dominican Republic",
+          "bredd": 3000,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/La_Isabela_SDQ_10_2019_1144.jpg/960px-La_Isabela_SDQ_10_2019_1144.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "La Isabela"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "renassans"
+    },
+    {
+      "id": "cortes-moter-moctezuma",
+      "titel": "Cortés möter Moctezuma i Tenochtitlan",
+      "start": 1519,
+      "plats": "Tenochtitlan (i dag Mexico City)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Cortez & La Malinche.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cortez_%26_La_Malinche.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "unknown Tlaxcalan artists",
+          "datum": "Original: ca. 1550 AD. This facsimile published c. 1890.",
+          "datum_original": "Original: ca. 1550 AD. This facsimile published c. 1890.",
+          "datum_fil": "2009-01-26 04:49:00",
+          "kredit": "http://bancroft.berkeley.edu/Exhibits/nativeamericans/lg25_1.html Bancroft Library",
+          "beskrivning": "Tenochtitlan, Entrance of Hernan Cortes. Cortez and La Malinche meet Moctezuma II. , November 8, 1519 This image is from the \"Lienzo de Tlaxcala\", created by the Tlaxcalans to remind the Spanish of their loyalty to Castile and the importance of Tlaxcala during the Conquest. The text mixes European and native styles and includes anachronisms, such as the European-style chairs included in this image.",
+          "bredd": 618,
+          "hojd": 495,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Cortez_%26_La_Malinche.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1519 events",
+            "16th-century art",
+            "Hernán Cortés in art",
+            "La Malinche",
+            "Lienzo de Tlaxcala",
+            "Moctezuma II in art",
+            "Spanish conquest of the Aztec Empire"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "aztekisk-kodex"
+    },
+    {
+      "id": "massakern-i-cholula",
+      "titel": "Massakern i Cholula",
+      "start": 1519,
+      "plats": "Cholula, centrala Mexiko",
+      "wikidata": "Q3297424",
+      "kandidater": [
+        {
+          "fil": "File:Felix Parra Episodios de la conquista La matanza de Cholula.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Felix_Parra_Episodios_de_la_conquista_La_matanza_de_Cholula.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Félix Parra (1845-1919)",
+          "datum": "1877 date QS:P571,+1877-00-00T00:00:00Z/9",
+          "datum_original": "1877 date QS:P571,+1877-00-00T00:00:00Z/9",
+          "datum_fil": "2014-06-03 07:51:56",
+          "kredit": "Université Paris-Sorbonne",
+          "beskrivning": "Episodes of the Conquest [of Mexico]: The massacre of Cholula (1519) (oil on canvas).",
+          "bredd": 2026,
+          "hojd": 1252,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Felix_Parra_Episodios_de_la_conquista_La_matanza_de_Cholula.jpg/960px-Felix_Parra_Episodios_de_la_conquista_La_matanza_de_Cholula.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Episodios de la Conquista: La matanza de Cholula"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-auto"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "aztekisk-kodex"
+    },
+    {
+      "id": "spanska-erovringen-av-aztekriket",
+      "titel": "Spanska erövringen av Aztekriket",
+      "start": 1519,
+      "plats": "Centrala Mexiko (började vid golfkusten nära San Juan de Ulúa)",
+      "wikidata": "Q828435",
+      "kandidater": [
+        {
+          "fil": "File:Codex Mendoza folio 67r bottom.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Codex_Mendoza_folio_67r_bottom.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "early 1540s",
+          "datum_original": "early 1540s",
+          "datum_fil": "2007-10-28 16:06:50",
+          "kredit": "Foundation for the Advancement of Mesoamerican Studies, Inc. [1] Original document held at the Bodleian Library , Oxford. Shelfmark: MS. Arch. Selden. A. 1.",
+          "beskrivning": "Aztec warriors. Six differing levels of military achievement are depicted in Codex Mendoza for young men who are destined to become priests. The first is a novice who has had made one capture. He wears a simple ichcahuipilli or quilted armour jacket. Those who had made two captures were awarded a white feather ornamented tlahuiztli, a tightly fitting body suit. A third capture entitled the warrior-priest to a wear a green tlahuiztli. A fourth capture entitles a priest to wear a remarkable black and white conical hat adopted from the Huaxtec people of Veracruz. The white dots and swirl on his shield signify a constellation of stars. Five captures entitles the warrior to carry a special shield ornamented with an eagle's foot while the highest ranking soldiers were awarded a yellow tlahuiztli and a helmet carved in the shape of a mountain lion.",
+          "bredd": 1656,
+          "hojd": 1074,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Codex_Mendoza_folio_67r_bottom.jpg/960px-Codex_Mendoza_folio_67r_bottom.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aztec costumes",
+            "Aztec feather shields",
+            "Aztec warriors",
+            "Aztec weapons",
+            "Codex Mendoza",
+            "Mexican feather art"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "aztekisk-kodex"
+    },
+    {
+      "id": "tlaxcala-forbund-1519",
+      "titel": "Tlaxcala sluter förbund med spanjorerna",
+      "start": 1519,
+      "plats": "Tlaxcala, centrala Mexiko",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Guerreros tlaxcaltecas junto a sus aliados españoles Lienzo de Tlaxcala. Siglo XVI.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Guerreros_tlaxcaltecas_junto_a_sus_aliados_espa%C3%B1oles_Lienzo_de_Tlaxcala._Siglo_XVI.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1600",
+          "datum_original": "1600",
+          "datum_fil": "2015-06-28 06:43:52",
+          "kredit": "Lienzo de Tlaxcala",
+          "beskrivning": "Tlaxcalan warriors together with their spaniard allies. Lienzo de Tlaxcala. XVI Century",
+          "bredd": 1044,
+          "hojd": 950,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Guerreros_tlaxcaltecas_junto_a_sus_aliados_espa%C3%B1oles_Lienzo_de_Tlaxcala._Siglo_XVI.jpg/960px-Guerreros_tlaxcaltecas_junto_a_sus_aliados_espa%C3%B1oles_Lienzo_de_Tlaxcala._Siglo_XVI.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Conquest of the Americas",
+            "Lienzo de Tlaxcala",
+            "Men wearing armour in art",
+            "People with weapons"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "aztekisk-kodex"
+    },
+    {
+      "id": "massakern-vid-toxcatl",
+      "titel": "Massakern vid Toxcatl-festen",
+      "start": 1520,
+      "plats": "Stora templet (Templo Mayor), Tenochtitlan",
+      "wikidata": "Q1131442",
+      "kandidater": [
+        {
+          "fil": "File:Matanza templo2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Matanza_templo2.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Autor desconocido",
+          "datum": "Entre 1521 y 1530",
+          "datum_original": "Entre 1521 y 1530",
+          "datum_fil": "2022-03-13 10:09:51",
+          "kredit": "Códice Durán",
+          "beskrivning": "Imagen del códice durán donde se logra ver la masacre del templo Mayor",
+          "bredd": 1243,
+          "hojd": 791,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Matanza_templo2.jpg/960px-Matanza_templo2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1520 in art",
+            "Tóxcatl Massacre"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "aztekisk-kodex"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "erik-den-rode-utforskar-gronland",
+      "titel": "Erik den röde utforskar Grönland",
+      "start": 982,
+      "plats": "Sydvästra Grönland, vid Eriksfjorden (Qassiarsuk)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "nordborna-bosatter-sig-pa-gronland",
+      "titel": "Nordbor bosätter sig på Grönland",
+      "start": 985,
+      "plats": "Brattahlíð i Österbygden, i dag Qassiarsuk",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "gronland-far-egen-biskop",
+      "titel": "Grönland får en egen biskop",
+      "start": 1124,
+      "plats": "Garðar, i dag Igaliku, i Österbygden",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "stadsstaten-cusco-grundas",
+      "titel": "Inkafolket grundar stadsstaten Cusco",
+      "start": 1200,
+      "plats": "Cusco (i dag Peru)",
+      "wikidata": "Q2314963",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "inka"
+    },
+    {
+      "id": "tariacuri-purepecharriket",
+      "titel": "Tariácuri lägger grunden till purépecharriket",
+      "start": 1300,
+      "plats": "Pátzcuaro vid Pátzcuarosjön, Michoacán (i dag Mexiko)",
+      "wikidata": "Q2605410",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "aztekisk-kodex"
+    },
+    {
+      "id": "brollopet-i-hvalsey",
+      "titel": "Bröllopet i Hvalsey kyrka",
+      "start": 1408,
+      "plats": "Hvalsey kyrka (Qaqortukulooq) i Österbygden",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "aztekiska-trippelalliansen",
+      "titel": "Trippelalliansen bildas i Mexikodalen",
+      "start": 1427,
+      "plats": "Tenochtitlan, Texcoco och Tlacopan i Mexikodalen (i dag Mexiko)",
+      "wikidata": "Q2608489",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "aztekisk-kodex"
+    },
+    {
+      "id": "piilani-enar-maui",
+      "titel": "Piʻilani enar Maui",
+      "start": 1475,
+      "plats": "Maui (i dag Hawaii, USA)",
+      "wikidata": "Q18158323",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "renassans"
+    }
+  ]
+}

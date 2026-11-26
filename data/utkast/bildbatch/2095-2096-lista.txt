@@ -1,0 +1,35 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+File:K'inich Janaab Pakal I.jpg	pakal-i-palenque	passa-in
+File:Copan St H.jpg	quirigua-besegrar-copan	passa-in
+File:Henderson.JPG	polynesier-pa-henderson
+File:Mangareva.JPG	polynesier-pa-mangareva
+File:Chaco Canyon Chetro Ketl great kiva plaza NPS.jpg	chaco-canyon
+File:Telamones Tula.jpg	tula-toltekernas-huvudstad
+File:Tunulliarfik-qassiarsuk.jpg	erik-den-rode-utforskar-gronland
+File:Qassiarsuk, Greenland (ASTER).jpg	nordborna-bosatter-sig-pa-gronland
+File:Taputapuatea marae Raiatea.jpg	taputapuatea-marae
+File:Edward Gennys Fanshawe, Matavai Bay and Point Venus, Tahiti, Augt 24th 1849 (Society Islands).jpg	polynesier-nar-sallskapsoarna
+File:Codex Zouche-Nuttall - 8 Deer of Tilantongo.png	atta-hjort-jaguarklo	passa-in
+File:Easter Island 5.jpg	polynesier-nar-rapa-nui
+File:Serpent Mound (aerial view).jpg	ormhogen-i-ohio	passa-in
+File:Igaliku.JPG	gronland-far-egen-biskop
+File:Moundville Archaeological Park 03.JPG	moundville-hovdingadome
+File:CasaGrandeRuin.jpg	casa-grande-hohokam
+File:HivaOa BaieDesTraitres 20061110.jpg	polynesier-nar-marquesas
+File:Thule tent rings - panoramio.jpg	thulefolket-nar-gronland
+File:CodexPages6 8.jpg	dresdenkodexen
+# File:Glacier King et Baie Cross (Spitzberg) (Ifremer 00816-92765).jpg	gronland-under-norge
+# File:Caguana Ceremonial Ball Courts Site - Utuado Puerto Rico.jpg	caguana-ceremoniplats
+# File:The continent we live on (1961) (20497624779).jpg	kalla-somrar-pa-baffinon
+# File:Codex Zouche-Nuttall - perspective modified.jpg	codex-zouche-nuttall
+# File:Templo Mayor 2015 019.jpg	templo-mayor-forsta-templet
+# File:122143 moshav alkosh in the western galilee PikiWiki Israel.jpg	vasterbygden-overges
+# File:Abandoned church in Vinogradovo 2020-03 07.JPG	osterbygden-overges
+# File:Brooklyn Museum - Pachacuti, Tenth Inca, 1 of 14 Portraits of Inca Kings (cropped).jpg	pachacuti-inkariket
+# File:La Isabela SDQ 10 2019 1144.jpg	la-isabela-columbianska-utbytet
+# File:Cortez & La Malinche.jpg	cortes-moter-moctezuma
+# File:Felix Parra Episodios de la conquista La matanza de Cholula.jpg	massakern-i-cholula
+# File:Codex Mendoza folio 67r bottom.jpg	spanska-erovringen-av-aztekriket
+# File:Guerreros tlaxcaltecas junto a sus aliados españoles Lienzo de Tlaxcala. Siglo XVI.jpg	tlaxcala-forbund-1519
+# File:Matanza templo2.jpg	massakern-vid-toxcatl
