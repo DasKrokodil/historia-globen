@@ -1,0 +1,1116 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "2098",
+  "datum": "2026-11-26",
+  "urval": "ids=20 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "dunmores-proklamation",
+      "titel": "Dunmores proklamation",
+      "start": 1775,
+      "plats": "Ombord på skeppet William utanför Norfolk, Virginia",
+      "wikidata": "Q5315497",
+      "kandidater": [
+        {
+          "fil": "File:A discourse relating to the expedition of Lord Dunmore (IA discourserelatin00whit).pdf",
+          "filsida": "https://commons.wikimedia.org/wiki/File:A_discourse_relating_to_the_expedition_of_Lord_Dunmore_(IA_discourserelatin00whit).pdf",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Whittlesey, Charles. [from old catalog]",
+          "datum": "2020-06-22 23:26:35",
+          "datum_original": null,
+          "datum_fil": "2020-06-22 23:26:35",
+          "kredit": "https://archive.org/details/discourserelatin00whit https://archive.org/download/discourserelatin00whit/discourserelatin00whit.pdf",
+          "beskrivning": "Subjects:",
+          "bredd": 762,
+          "hojd": 1214,
+          "mime": "application/pdf",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/A_discourse_relating_to_the_expedition_of_Lord_Dunmore_%28IA_discourserelatin00whit%29.pdf/page1-500px-A_discourse_relating_to_the_expedition_of_Lord_Dunmore_%28IA_discourserelatin00whit%29.pdf.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "John Murray, 4th Earl of Dunmore"
+          ],
+          "smal": true,
+          "flaggor": [
+            "datum-osakert",
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-US-expired"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "barock"
+    },
+    {
+      "id": "lexington-och-concord",
+      "titel": "Striderna vid Lexington och Concord",
+      "start": 1775,
+      "plats": "Lexington och Concord, Massachusetts",
+      "wikidata": "Q778010",
+      "kandidater": [
+        {
+          "fil": "File:The Battle of Lexington.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Battle_of_Lexington.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "William Barnes Wollen",
+          "datum": "1910 date QS:P571,+1910-00-00T00:00:00Z/9",
+          "datum_original": "1910 date QS:P571,+1910-00-00T00:00:00Z/9",
+          "datum_fil": "2025-10-07 18:50:04",
+          "kredit": "National Army Museum website , 3 March 2019 (upload date) by Muhranoff",
+          "beskrivning": "Battle of Lexington",
+          "bredd": 4964,
+          "hojd": 3350,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/The_Battle_of_Lexington.jpg/960px-The_Battle_of_Lexington.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battles of Lexington and Concord",
+            "Buckman Tavern",
+            "Paintings in the National Army Museum, London",
+            "Works by William Barnes Wollen"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "barock"
+    },
+    {
+      "id": "slaget-vid-bunker-hill",
+      "titel": "Slaget vid Bunker Hill",
+      "start": 1775,
+      "plats": "Charlestown vid Boston, Massachusetts",
+      "wikidata": "Q334029",
+      "kandidater": [
+        {
+          "fil": "File:The Death of General Warren at the Battle of Bunker's Hill.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Death_of_General_Warren_at_the_Battle_of_Bunker%27s_Hill.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "John Trumbull",
+          "datum": "1786 date QS:P571,+1786-00-00T00:00:00Z/9",
+          "datum_original": "1786 date QS:P571,+1786-00-00T00:00:00Z/9",
+          "datum_fil": "2016-06-17 14:59:15",
+          "kredit": "From the Boston Museum of Fine Arts, accession #1977.853: http://www.mfa.org/collections/object/the-death-of-general-warren-at-the-battle-of-bunker-s-hill-17-june-1775-34260",
+          "beskrivning": null,
+          "bredd": 1600,
+          "hojd": 1070,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/The_Death_of_General_Warren_at_the_Battle_of_Bunker%27s_Hill.jpg/960px-The_Death_of_General_Warren_at_the_Battle_of_Bunker%27s_Hill.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "American paintings in the Museum of Fine Arts, Boston",
+            "The Death of General Warren at the Battle of Bunker's Hill by John Trumbull"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "barock"
+    },
+    {
+      "id": "slaget-vid-moores-creek-bridge",
+      "titel": "Slaget vid Moore's Creek Bridge",
+      "start": 1776,
+      "plats": "Moore's Creek Bridge nära Wilmington, North Carolina",
+      "wikidata": "Q1518787",
+      "kandidater": [
+        {
+          "fil": "File:MOCR earthworks 0948.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:MOCR_earthworks_0948.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NPS Photo",
+          "datum": "2009-02-21 11:52:53",
+          "datum_original": null,
+          "datum_fil": "2009-02-21 11:52:53",
+          "kredit": "National Park Service, Digital Image Archive: http://photo.itc.nps.gov/storage/images/mocr/mocr-Thumb.00001.html",
+          "beskrivning": "Moores Creek National Battlefield, North Carolina, USA. The picture shows the restored earthworks of the patriotic militia in the Battle of Moores Creek Bridge on 1776-02-27 (February 27th 1776) in the American Revolutionary War.",
+          "bredd": 2048,
+          "hojd": 1372,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/MOCR_earthworks_0948.jpg/960px-MOCR_earthworks_0948.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Moore's Creek Bridge",
+            "Geography of North Carolina",
+            "Moores Creek National Battlefield"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NPS"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "barock"
+    },
+    {
+      "id": "slaget-vid-oriskany",
+      "titel": "Slaget vid Oriskany",
+      "start": 1777,
+      "plats": "Nära Oriskany, New York",
+      "wikidata": "Q1375813",
+      "kandidater": [
+        {
+          "fil": "File:Battle of Oriskany.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Battle_of_Oriskany.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "John R. Chapin",
+          "datum": "2 May 1857 date QS:P571,+1857-05-02T00:00:00Z/11",
+          "datum_original": "2 May 1857 date QS:P571,+1857-05-02T00:00:00Z/11",
+          "datum_fil": "2014-01-05 05:35:11",
+          "kredit": "Illus. in: Ballou's pictorial , v. 12, no. 18 (1857 May 2), p. 280.",
+          "beskrivning": "Battle of Oriskany. Print shows scene during the battle at Oriskany, N.Y., with American patriots combating the combined forces of the British, Loyalists, and Natives. General Nicholas Herkimer, commander of the American forces, is shown (on the left) giving orders from his saddle which is on the ground after his horse was shot from beneath him.",
+          "bredd": 4649,
+          "hojd": 3337,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Battle_of_Oriskany.jpg/960px-Battle_of_Oriskany.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1857 engravings",
+            "Ballou's Pictorial 1857",
+            "Battle of Oriskany",
+            "Illustrations of Native Americans",
+            "Works by John R. Chapin"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-100-1923"
+            ]
+          }
+        },
+        {
+          "fil": "File:Herkimer at oriskany.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Herkimer_at_oriskany.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Frederick Coffay Yohn",
+          "datum": "circa 1901 date QS:P571,+1901-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1901 date QS:P571,+1901-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2011-03-07 19:59:22",
+          "kredit": "Painting at the public library of Utica, New York . Images widely available on the web.",
+          "beskrivning": "An oil painting titled Herkimer at the Battle of Oriskany . Although wounded, General Nicholas Herkimer rallies the Tryon County militia at the Battle of Oriskany on August 6, 1777.",
+          "bredd": 810,
+          "hojd": 513,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/98/Herkimer_at_oriskany.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Oriskany",
+            "Frederick Coffay Yohn",
+            "Nicholas Herkimer"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        },
+        {
+          "fil": "File:Herkimer at Battle of Oriskany 1777.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Herkimer_at_Battle_of_Oriskany_1777.png",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "This file is lacking author information.",
+          "datum": "2006-06-06 02:05:22",
+          "datum_original": null,
+          "datum_fil": "2006-06-06 02:05:22",
+          "kredit": "The Picture Collection of the New York Public Library",
+          "beskrivning": "Illustration of General Nicholas Herkimer at the Battle of Oriskany , New York, 1777.",
+          "bredd": 751,
+          "hojd": 693,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Herkimer_at_Battle_of_Oriskany_1777.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Oriskany",
+            "Nicholas Herkimer"
+          ],
+          "smal": true,
+          "flaggor": [
+            "datum-osakert",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "barock"
+    },
+    {
+      "id": "belagringen-av-charleston-1780",
+      "titel": "Belägringen av Charleston",
+      "start": 1780,
+      "plats": "Charleston, South Carolina",
+      "wikidata": "Q3235083",
+      "kandidater": [
+        {
+          "fil": "File:Sullivans-island-1050x777.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sullivans-island-1050x777.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Alonzo Chappel",
+          "datum": "1862",
+          "datum_original": "1862",
+          "datum_fil": "2015-12-02 20:47:14",
+          "kredit": "https://library.brown.edu/collections/askb/",
+          "beskrivning": "A depiction of the Siege of Charleston (1780) by Alonzo Chappel.",
+          "bredd": 1050,
+          "hojd": 777,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Sullivans-island-1050x777.jpg/960px-Sullivans-island-1050x777.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "American Revolutionary War in art",
+            "Charleston, South Carolina in art",
+            "History of Sullivan's Island, South Carolina",
+            "Paintings by Alonzo Chappel",
+            "Siege of Charleston (1780)"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-100-1923"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "barock"
+    },
+    {
+      "id": "slaget-vid-eutaw-springs",
+      "titel": "Slaget vid Eutaw Springs",
+      "start": 1781,
+      "plats": "Eutaw Springs, South Carolina",
+      "wikidata": "Q2888486",
+      "kandidater": [
+        {
+          "fil": "File:Eutaw Springs Battlefield Park - 1.jpeg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Eutaw_Springs_Battlefield_Park_-_1.jpeg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Ser Amantio di Nicolao",
+          "datum": "2 April 2015 (according to Exif data)",
+          "datum_original": "2 April 2015 (according to Exif data)",
+          "datum_fil": "2015-04-03 00:02:42",
+          "kredit": "Own work",
+          "beskrivning": null,
+          "bredd": 2560,
+          "hojd": 1920,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Eutaw_Springs_Battlefield_Park_-_1.jpeg/960px-Eutaw_Springs_Battlefield_Park_-_1.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Eutaw Springs Battleground Park"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "barock"
+    },
+    {
+      "id": "hawaiis-enande",
+      "titel": "Kamehamehas krig och Hawaiis enande",
+      "start": 1782,
+      "plats": "Hawaiiöarna (började vid Kealakekuabukten på ön Hawaiʻi)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Hawaiian unification.gif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Hawaiian_unification.gif",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Justinkunimune",
+          "datum": "2024-12-24",
+          "datum_original": "2024-12-24",
+          "datum_fil": "2024-12-25 07:28:03",
+          "kredit": "Own work",
+          "beskrivning": "An animated map of the kingdoms in the Hawaiian islands between covering from Kalaniʻōpuʻu's death in 1782 and Kaumaliʻi's acknowledgement of Kamehameha in 1810. Based on the account of the unification given in chapter 3 of The Hawaiian Kingdom volume 1 by R. S. Kuykendall (1938). Coastline data taken from the US Census Bureau, moku bondaries on the Big Island based on data from the Hawaiʻi Office of Planning and Sustainable Development, and hill shading taken from Natural Earth.",
+          "bredd": 902,
+          "hojd": 567,
+          "mime": "image/gif",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/20/Hawaiian_unification.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Animations of history",
+            "Kingdom of Hawaii",
+            "Maps of territorial evolution of Oceania",
+            "Maps of the history of Hawaii"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-zero"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "stilla-havet-gravyr"
+    },
+    {
+      "id": "slaget-vid-mokuohai",
+      "titel": "Slaget vid Mokuʻōhai",
+      "start": 1782,
+      "plats": "Mokuʻōhai söder om Kealakekuabukten, ön Hawaiʻi",
+      "wikidata": "Q4871763",
+      "kandidater": [
+        {
+          "fil": "File:Kamehameha I head to waist 5111.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kamehameha_I_head_to_waist_5111.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "User:J JMesserly",
+          "datum": "2009-04-17",
+          "datum_original": "2009-04-17",
+          "datum_fil": "2009-04-18 05:40:59",
+          "kredit": "Self-photographed",
+          "beskrivning": "Statue of King Kamehameha I , standing in front of Ali'iolani Hale in Honolulu. Cast: 1881, bronze with gold leaf. Approx 8½ feet tall on a 10 foot concrete base. The pedestal has four bronze and gold leaf plaques with scenes from Kamehameha's life. Sculptor: Thomas Ridgeway Gould (1818–1881).",
+          "bredd": 1869,
+          "hojd": 1974,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Kamehameha_I_head_to_waist_5111.jpg/960px-Kamehameha_I_head_to_waist_5111.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Columns in Hawaii",
+            "Kamehameha Statue (Honolulu)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-sa-3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-3.0,2.5,2.0,1.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "stilla-havet-gravyr"
+    },
+    {
+      "id": "slaget-vid-kepaniwai",
+      "titel": "Slaget vid Kepaniwai",
+      "start": 1790,
+      "plats": "ʻĪaodalen, Maui",
+      "wikidata": "Q4871415",
+      "kandidater": [
+        {
+          "fil": "File:Iaovalley sm.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Iaovalley_sm.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Lee Daniel Crocker at English Wikipedia",
+          "datum": "13 August 2002 (original upload date)",
+          "datum_original": "13 August 2002 (original upload date)",
+          "datum_fil": "2007-08-01 23:48:19",
+          "kredit": "Transferred from en.wikipedia to Commons.",
+          "beskrivning": "en:Iao Valley , in Maui . Photo by LDC , released to the public domain.",
+          "bredd": 240,
+          "hojd": 180,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Iaovalley_sm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Iao Valley",
+            "Valleys of the United States"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-user-en"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "stilla-havet-gravyr"
+    },
+    {
+      "id": "keoua-dodas-vid-puukohola",
+      "titel": "Keōua dödas vid Puʻukoholā",
+      "start": 1791,
+      "plats": "Puʻukoholā Heiau vid Kawaihae, ön Hawaiʻi",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Building the Heiau Pu'ukohola Heiau National Historic Site, Kawaihae, Hawaii.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Building_the_Heiau_Pu%27ukohola_Heiau_National_Historic_Site,_Kawaihae,_Hawaii.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Ken Lund",
+          "datum": "2010-04-15 11:16:31",
+          "datum_original": "2010-04-15 11:16:31",
+          "datum_fil": "2011-12-29 05:51:32",
+          "kredit": "Flickr : Building the Heiau: Pu'ukohola Heiau National Historic Site, Kawaihae, Hawaii",
+          "beskrivning": "These historic signs are really interesting. Pu'ukohola Heiau is a place of destiny. It is here that Keoua Ku'ahu'ula offered himself to his fate and where Kamehameha rose to power, and ultimately, immortality. Today, this National Historic Site stands in memory to Kamehameha I--a ruler regarded as the most celebrated Hawaiian who ever lived. The kahuna (priest) Kapoukahi told Kamehameha that he would conquer all the islands of Hawai'i if he built the temple at Pu'ukohola and dedicated it to the war god Kuku'ilimoku. He also prophesied that war would end on Hawai'i when a sacrifice was made there. Kamehameha built the heiau, then invited his rival, Keoua Ku'ahu'ula, to Pu'ukohola. Keoua knew that if he accepted the invitation he would be killed so the heiau could be consecrated with the sacrifice of his body. Strong belief in spirituality and fate led to their meeting a Pu'ukohala. Keoua was slain and sacrificed, fulfilling the prophecy and paving the way for Kamehameha I to consolidate the islands.",
+          "bredd": 2816,
+          "hojd": 2112,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Building_the_Heiau_Pu%27ukohola_Heiau_National_Historic_Site%2C_Kawaihae%2C_Hawaii.jpg/960px-Building_the_Heiau_Pu%27ukohola_Heiau_National_Historic_Site%2C_Kawaihae%2C_Hawaii.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Heiau",
+            "Kahuna",
+            "Kamehameha I",
+            "Keōua Kūʻahuʻula",
+            "Kū",
+            "Puʻukoholā Heiau National Historic Site"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Looking Towards Stone Leaning Post, Pu'ukohola Heiau National Historic Site, Hawaii (4527363439).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Looking_Towards_Stone_Leaning_Post,_Pu%27ukohola_Heiau_National_Historic_Site,_Hawaii_(4527363439).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Ken Lund from Reno, Nevada, USA",
+          "datum": "2010-04-15 11:22",
+          "datum_original": "2010-04-15 11:22",
+          "datum_fil": "2017-01-08 21:13:01",
+          "kredit": "Looking Towards Stone Leaning Post, Pu'ukohala Heiau National Historic Site, Hawaii",
+          "beskrivning": "The stone leaning post overlooks the the site of the now-submerged shark temple. Kawaihae is an unincorporated community on the west side of the island of Hawaiʻi in the U.S. state of Hawaiʻi, 35 miles (56 km) north of Kailua-Kona. Its harbor includes a fuel depot, shipping terminal and military landing site. Outside of the man-made breakwall of the harbor is a popular surf spot and the Pua Kailima o Kawaihae Cultural Surf Park. The small town features a handful of restaurants and art galleries. To the south is Puʻukoholā Heiau national historic site, built by King Kamehameha I in 1791. Also to the south is the smaller Mailekini Heiau and the Hale o Kapuni Heiau (shark heiau), which is submerged. Kawaihae served as the seat of kingdom of Hawaii island during the reign of the usurper king Alapaʻinuiakauaua whose family, the Mahi's, hailed from the Kohala district; he was the king that sought to kill the infant Kamehameha at his birth. His successor Kalaniʻōpuʻu, who overthrew Alapaʻi's son Keaweʻopala, moved the capital back to the Kona district where his family originated. In the late 1700s, Kawaihae's naturally sheltered bay was considered one of the more suitable commercial harbor for western ships on the Big Island. It's harbor and proximity to the fertile uplands of Waimea ensured its status as an important stopover for many early European voyagers and merchantmen needing to make repairs and resupply their ships during the early period of the Kingdom of Hawaii. Kawaihae or \"Too-yah-yah\" was first sighted by James King, serving under Captain Cook, in February 6, 1779, after departing from Cook's initial visit to Kealakekua Bay. Failure to find anchorage prompt them to return to Kealakekua Bay, where Cook met his demise. King returned a few months later after Cook's death, but was not impressed with the area he deemed \"little cultivated\" or the people whom he called \"of the lowest class that inhabited [the islands]\". It became the principal residence of King Kamehameha I from 1790 to 1794 where he build the Puʻukoholā Heiau and sacrificed Keōua Kuahuʻula, his last opponent on the Big Island, and where he plotted out his conquest of the remaining islands in the archipelago. He lived in the royal compound of \"Pelekane\" on the shoreline northwest of Mailekini Heiau, which he named after the Hawaiianized name for England. Kamehameha's British advisor John Young also resided in the vicinity of Kawaihae with his family, and the ruins of their homestead, the remains of what is believed to be the first western-style house in Hawaii, could still be seen today near the Puʻukoholā Heiau. Another British explorer George Vancouver, the first to successfully anchored off Kawaihae Bay in February 14, 1793, paid a visit to king Kamehameha and John Young and gave the king cattle, introducing the species for the first time to Hawaii. After the development of Parker Ranch by John Palmer Parker, Kawaihae served as the main center for loading and shipping cattle and beef in Hawaii. It was in Kawaihae, in April 1, 1820, that the first company of American missionaries to Hawaii led by arrived aboard the Thaddeus set foot on the islands. Kawaihae thrived for the duration of the sandalwood trade, which depleted its forest, and the whaling age. Whalers and merchant ships visit its harbor annually where they would stock up on agricultural products and beef from the region. But by the late 1800s, Kawaihae had decline in importance due the end of whaling, the decimation of its population by foreign diseases and migration of its people to other parts of Hawaii; it became a sleeping and forgotten village serving mainly as a cattle landing. en.wikipedia.org/wiki/Kawaihae,_Hawaii en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_...",
+          "bredd": 2816,
+          "hojd": 2112,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Looking_Towards_Stone_Leaning_Post%2C_Pu%27ukohola_Heiau_National_Historic_Site%2C_Hawaii_%284527363439%29.jpg/960px-Looking_Towards_Stone_Leaning_Post%2C_Pu%27ukohola_Heiau_National_Historic_Site%2C_Hawaii_%284527363439%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Puʻukoholā Heiau National Historic Site"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "stilla-havet-gravyr"
+    },
+    {
+      "id": "slavupproret-1791",
+      "titel": "Slavupproret i Saint-Domingue",
+      "start": 1791,
+      "plats": "Norra slätten vid Le Cap (i dag Cap-Haïtien), Saint-Domingue",
+      "wikidata": "Q109236571",
+      "kandidater": [
+        {
+          "fil": "File:Incendie de la Plaine du Cap. Massacre des Blancs par les esclaves noirs révoltés. France militaire. Martinet et Masson.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Incendie_de_la_Plaine_du_Cap._Massacre_des_Blancs_par_les_esclaves_noirs_r%C3%A9volt%C3%A9s._France_militaire._Martinet_et_Masson.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Aaron Martinet / Alphonse-Charles Masson",
+          "datum": "1833",
+          "datum_original": "1833",
+          "datum_fil": "2024-02-26 16:53:31",
+          "kredit": null,
+          "beskrivning": "Burning of the Plaine du Cap. Massacre of whites by the blacks . On August 22 1791, slaves revolted against their white masters, set fire to plantations and torched cities.",
+          "bredd": 1388,
+          "hojd": 941,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Incendie_de_la_Plaine_du_Cap._Massacre_des_Blancs_par_les_esclaves_noirs_r%C3%A9volt%C3%A9s._France_militaire._Martinet_et_Masson.jpg/960px-Incendie_de_la_Plaine_du_Cap._Massacre_des_Blancs_par_les_esclaves_noirs_r%C3%A9volt%C3%A9s._France_militaire._Martinet_et_Masson.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aaron Martinet",
+            "Alphonse-Charles Masson",
+            "Imagens participantes do Wikiconcurso Mais Revolução Haitiana na Wiki 2026",
+            "Men wearing military uniforms",
+            "Slave Revolt of Saint Domingue (1791)",
+            "Slave uprisings and rebellions",
+            "Slavery in art"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-70"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "barock"
+    },
+    {
+      "id": "humboldt-i-amerika",
+      "titel": "Alexander von Humboldts resa i Amerika",
+      "start": 1799,
+      "plats": "Spanska Amerika (markören vid vulkanen Chimborazo, Ecuador)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Francisco jose de Caldas.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Francisco_jose_de_Caldas.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Sebastián Palechor",
+          "datum": "2016-01-01 09:17:20",
+          "datum_original": "2016-01-01 09:17:20",
+          "datum_fil": "2016-01-02 17:55:23",
+          "kredit": "Own work",
+          "beskrivning": "(Francisco Jose de Caldas and Tenorio, Popayan, 1768 - Bogota, 1816) Colombian geographer and naturalist. Hardly have adequate means of work, \"darkness\" surrounding America, in his own words, he conducted research and discoveries that surprised men as illustrious as Mutis, and Humboldt, of which he was a friend and companion. Member of the second generation of Hispanic illustrated, Francisco Jose de Caldas, called \"the Wise\" showed a child great interest in mathematics, the physical sciences and astronomy. After studying in his homeland, he moved to Santa Fe and graduated as a lawyer just to please his family, he soon returned to Popayan and decided to pursue what interested him most: astronomy, mathematics and the physical sciences. In 1795 he had to engage in trade of clothes in Quito, La Plata and Timaná, opportunity seized to determine the geographical position of the places he visited and for observation of nature and the customs of different peoples. His basic work team consisted of a barometer, compass and thermometer. When not getting the needed tools built himself: he built a gnomon a sundial and other measuring instruments. After many experiments he observed that \"the temperature of distilled water, boiling is proportional to atmospheric pressure\", new physical law that allowed him to measure the heights through new procedures that would be used later by Humboldt, who surprisingly was forgotten in this If the inventor. The so-called hipsómetro, he invented instrument, used to measure the altitude of a place, noting the temperature reached at that site when the water begins to boil. In 1801 he published the article \"The real height of the Cerro de Guadalupe\" in the Curious and Commercial Mail. Interested in botany, Caldas was related to the scholar José Celestino Mutis and, through it, with the German Alexander von Humboldt, who was preparing a trip to Quito. The German was surprised at the accuracy of the instruments of Cauca, but rejected his proposal to accompany him on the trip planned by America. After three and a half of study and research in Ecuador years, published in 1804 Caldas Travel Quito to the Pacific Ocean by Malbucho and Journey to the Heart of Barnuevo. In 1805 he joined as an astronomer at the Royal Botanical Expedition and was appointed director of the Astronomical Observatory of Santa Fe. The Royal Botanical Expedition of 1805 contributed Francisco Jose de Caldas sixteen loads of different materials and volumes two descriptive uses, customs, industry, agriculture, dyes, resources, population, endemic diseases, vices and literature of the area who had traveled from March and December of that year: left Quito north, explored the region between the Chota rivers and Guáitara, the province of Pasto, Popayan to the Quilichao, near Cali in the west and up to the moor Guanacas North, La Plata, Timaná, Neiva and other districts of the Upper Magdalena. The year 1808 was the most important of his life: he started the weekly publication of the New Kingdom of Granada, later completed with the Memoirs, where he appeared the bulk of his scientific work. In 1810 he married Maria Manuela Barona. With the advent of Independence, Caldas dedicated to the study of military science, as the president Nariño named captain of the Corps of Engineers cosmographers. Then he commissioned the publication of the Almanac of the United Provinces of the New Kingdom of Granada and other missions. But the war against the Spaniards counted him among their victims. When the city fell into the hands of the royalists, he fled south and took refuge in the family estate of Paispamba, where he was arrested and sent, along with other patriots, to Santa Fe. The first Colombian scientist was sentenced to be shot in the back, running that was applied on 29 October 1816. The President of the trial court said that by his account that \"Spain does not need wise\"; Spain but later felt ashamed of ignorance and cruelty of his representative and the illustrious Caldas dedicated a marble plaque in the National Library in Madrid.",
+          "bredd": 6016,
+          "hojd": 4000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Francisco_jose_de_Caldas.JPG/960px-Francisco_jose_de_Caldas.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Francisco José de Caldas",
+            "Popayán",
+            "Wikivacaciones 2015"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Researches, concerning the institutions and monuments of the ancient inhabitants of America - with descriptions and views of some of the most striking scenes in the Cordilleras! (1814) (14595291208).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Researches,_concerning_the_institutions_and_monuments_of_the_ancient_inhabitants_of_America_-_with_descriptions_and_views_of_some_of_the_most_striking_scenes_in_the_Cordilleras!_(1814)_(14595291208).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1814",
+          "datum_original": "1814",
+          "datum_fil": "2020-04-27 06:01:15",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14595291208/ Source book page: https://archive.org/stream/researchesconcer02humb/researchesconcer02humb#page/n186/mode/1up",
+          "beskrivning": "Identifier : researchesconcer02humb ( find matches ) Title : Researches, concerning the institutions & monuments of the ancient inhabitants of America : with descriptions and views of some of the most striking scenes in the Cordilleras! Year : 1814 ( 1810s ) Authors : Humboldt, Alexander von, 1769-1859 Williams, Helen Maria, 1762-1827 Subjects : Indians of Mexico Indians of South America Publisher : London : Published by Longman, Hurst, Rees, Orme & Brown, J. Murray & H. Colburn Contributing Library : Getty Research Institute Digitizing Sponsor : Getty Research Institute View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: tec-ture. We are absolutely ignorant of the anti-quity of these edifices, but it is scarcely pro-bable, that it goes back farther than the thir-teenth or fourteenth century of our era. The Greek ornaments of the palace of Mitlaoffer, no doubt, a striking analogy with those ofthe vases of lower Italy, and with others whichwe find spread over the surface of almost thewhole of the old continent: but I have alreadyobserved in another place, that analogies of thiskind are very limited proofs of the ancientcommunications of nations; and that, underevery zone, men are pleased with a rythmicrepetition of the same forms, a repetition whichconstitutes the principal character of what wevaguely call grecques, meanders, and arabes-ques. Still more, the perfection of these or-naments is no indication of any great progressin civilization among the people where theyare in use. Mr. Krusenstern * gives a de- * Kniseustern, Reise um die Welt, Petersburg, 1MO,torn, i, page 168, Atlas, Tafel 8, iO, and 16 Text Appearing After Image: $ 159 seription of arabesques of great elegance fixed by means of tatooing on the skins of the most ferocious inhabitants of Washingtonsislands. 160 VIEW CORAZON. PLATE LI. The mountain of Corazon, covered with perpe-tual snow, derived its name from the form of itssummit, which is nearly that of a heart. Ihave sketched it, as it appears from the Alto dePoingasi, near the city of Quito. This Nevadois found in the western Cordillera, between thesummits of Pichincha and Ilinissa. One of thepyramids of the mountain last mentioned is seenon the left, above the eastern slope of Corazon.The apparent proximity of these two summits,and the contrast of their forms, present a verysingular point of view. It was on the summit of Corazon, that, beforeour voyage to America, the greatest depressionof the mercury in the barometer had been ob-served. M. Bbuguer and myself, says M. 161 de la Condamine in his Historical Introduction* began our journey in very fine weather. Thepersons whom we had left in Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 3184,
+          "hojd": 1814,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Researches%2C_concerning_the_institutions_and_monuments_of_the_ancient_inhabitants_of_America_-_with_descriptions_and_views_of_some_of_the_most_striking_scenes_in_the_Cordilleras%21_%281814%29_%2814595291208%29.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Researches concerning the institutions & monuments of the ancient inhabitants of America 1814"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:The Americana; a universal reference library, comprising the arts and sciences, literature, history, biography, geography, commerce, etc., of the world (1908) (14578933417).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Americana;_a_universal_reference_library,_comprising_the_arts_and_sciences,_literature,_history,_biography,_geography,_commerce,_etc.,_of_the_world_(1908)_(14578933417).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1908",
+          "datum_original": "1908",
+          "datum_fil": "2015-10-01 04:05:51",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14578933417/ Source book page: https://archive.org/stream/americanaunivers08newy/americanaunivers08newy#page/n666/mode/1up",
+          "beskrivning": "Identifier : americanaunivers08newy ( find matches ) Title : The Americana; a universal reference library, comprising the arts and sciences, literature, history, biography, geography, commerce, etc., of the world Year : 1908 ( 1900s ) Authors : Subjects : Encyclopedias and dictionaries Publisher : New York : Scientific American Compiling Dept. Contributing Library : University of California Libraries Digitizing Sponsor : Internet Archive View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: Goethe andSchiller. In 1797 he went, in company withhis brother, Karl Wilhelm. a Prussian ministerof state, to Paris, where he became acquaintedwith Aime Bonpland, a pupil of the medicalschool and botanic garden in Paris. He thenwent to Madrid, and having obtained permissionfrom the crown to travel through the Spanishcolonies in America, immediately sent for hisfriend Bonpland, and sailed with him fromCorunna. They landed at Teneriffe. where theyascended to the crater in Pico, in order to ana-lyze the atmospheric air, and to make geologicalobservations. In July they arrived at Cumanain South .\\merica. For five years they wereoccupied incessantly in traveling throughtracts of the earth rich in all that could interestthe scientific observer, and till then never scien-tifically described. They explored the regions ofSouth .America watered by the Orinoco andthe upper part of the Rio Negro, fully tracingthe connection between the Orinoco and theAmazon; then returned to the coast and sailed Text Appearing After Image: FRIEDRICH HEIXRICH ALEXANDER VOX HUMBOLDT. HUMBOLDT for Cuba, where they remained some months.Leaving Cuba in 1801, they returned to theSoutli American continent, sailed up the Magda-lena as far as they could, pursued their routeI)y land to Popayan and Quito, and thence asfar south as Lima, crossing the Andes no fewerthan live times in the course of their journey,and, besides other mountain ascents, climbingChimborazo (23 June 1802) to an elevationof 19,300 feet, being the highest point of theAndes then reached by man; from Lima theysailed to Guayaquil, and thence to Acapulco,Mexico (January 1803). Some months werespent in examining the city of Mexico and thesurrounding countrj-, and in a visit to the UnitedStates; and in January 1804, they set sail forEurope, taking Cuba again on their way. On3 .Aug. 1804, they arrived at Bordeaux, bringingwith them, as the result of their labors, an im-mense mass of fresh knowledge in geography,geology, climatology, meteorologj, botany, zool-ogy, an Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 1526,
+          "hojd": 2126,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/The_Americana%3B_a_universal_reference_library%2C_comprising_the_arts_and_sciences%2C_literature%2C_history%2C_biography%2C_geography%2C_commerce%2C_etc.%2C_of_the_world_%281908%29_%2814578933417%29.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Alexander von Humboldt in art",
+            "The Americana - a universal reference library (1908)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "staende",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "barock"
+    },
+    {
+      "id": "slaget-vid-crete-a-pierrot",
+      "titel": "Slaget vid Crête-à-Pierrot",
+      "start": 1802,
+      "plats": "Fortet Crête-à-Pierrot öster om Saint-Marc, Artibonitedalen",
+      "wikidata": "Q3486058",
+      "kandidater": [
+        {
+          "fil": "File:Combat et prise de la Crête-à-Pierrot - Auguste Raffet.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Combat_et_prise_de_la_Cr%C3%AAte-%C3%A0-Pierrot_-_Auguste_Raffet.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Auguste Raffet / Ernest Hébert",
+          "datum": "1839",
+          "datum_original": "1839",
+          "datum_fil": "2011-09-28 02:26:53",
+          "kredit": "[1] Histoire de Napoleon , M. de Norvins, 1839, page 239",
+          "beskrivning": "Attack and take of the Crête-à-Pierrot (4 - 24 March 24, 1802). Original illustration by Auguste Raffet, engraving by Ernst Hébert.",
+          "bredd": 1395,
+          "hojd": 1032,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Combat_et_prise_de_la_Cr%C3%AAte-%C3%A0-Pierrot_-_Auguste_Raffet.jpg/960px-Combat_et_prise_de_la_Cr%C3%AAte-%C3%A0-Pierrot_-_Auguste_Raffet.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1802 events",
+            "1802 in Haiti",
+            "1839 in art",
+            "Africans in 19th-century art",
+            "Battle of Crête-à-Pierrot",
+            "DDBstudio Black lives in Europe",
+            "Ernest Hébert",
+            "Illustrations of slaves",
+            "Imagens participantes do Wikiconcurso Mais Revolução Haitiana na Wiki 2026",
+            "Infantry weapons",
+            "Men wearing military uniforms",
+            "Men with swords in art",
+            "Military uniforms in art",
+            "Napoleonic Wars in art",
+            "Slavery in Saint-Domingue (Haiti)",
+            "Toussaint Louverture",
+            "Works after Auguste Raffet"
+          ],
+          "smal": false,
+          "flaggor": [
+            "samma-fil"
+          ],
+          "samma_fil_som": [
+            "slaget-vid-vertieres"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-100"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "slaget-vid-vertieres",
+      "titel": "Slaget vid Vertières",
+      "start": 1803,
+      "plats": "Vertières söder om Cap-Français (i dag Cap-Haïtien)",
+      "wikidata": "Q2484240",
+      "kandidater": [
+        {
+          "fil": "File:Combat et prise de la Crête-à-Pierrot - Auguste Raffet.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Combat_et_prise_de_la_Cr%C3%AAte-%C3%A0-Pierrot_-_Auguste_Raffet.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Auguste Raffet / Ernest Hébert",
+          "datum": "1839",
+          "datum_original": "1839",
+          "datum_fil": "2011-09-28 02:26:53",
+          "kredit": "[1] Histoire de Napoleon , M. de Norvins, 1839, page 239",
+          "beskrivning": "Attack and take of the Crête-à-Pierrot (4 - 24 March 24, 1802). Original illustration by Auguste Raffet, engraving by Ernst Hébert.",
+          "bredd": 1395,
+          "hojd": 1032,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Combat_et_prise_de_la_Cr%C3%AAte-%C3%A0-Pierrot_-_Auguste_Raffet.jpg/960px-Combat_et_prise_de_la_Cr%C3%AAte-%C3%A0-Pierrot_-_Auguste_Raffet.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1802 events",
+            "1802 in Haiti",
+            "1839 in art",
+            "Africans in 19th-century art",
+            "Battle of Crête-à-Pierrot",
+            "DDBstudio Black lives in Europe",
+            "Ernest Hébert",
+            "Illustrations of slaves",
+            "Imagens participantes do Wikiconcurso Mais Revolução Haitiana na Wiki 2026",
+            "Infantry weapons",
+            "Men wearing military uniforms",
+            "Men with swords in art",
+            "Military uniforms in art",
+            "Napoleonic Wars in art",
+            "Slavery in Saint-Domingue (Haiti)",
+            "Toussaint Louverture",
+            "Works after Auguste Raffet"
+          ],
+          "smal": false,
+          "flaggor": [
+            "samma-fil"
+          ],
+          "samma_fil_som": [
+            "slaget-vid-crete-a-pierrot"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-100"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "lewis-och-clarks-expedition",
+      "titel": "Lewis och Clarks expedition",
+      "start": 1804,
+      "plats": "Från Camp Dubois i Illinois till Stilla havet, USA",
+      "wikidata": "Q505802",
+      "kandidater": [
+        {
+          "fil": "File:Lewis and clark-expedition.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lewis_and_clark-expedition.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Charles Marion Russell",
+          "datum": "1905 date QS:P571,+1905-00-00T00:00:00Z/9",
+          "datum_original": "1905 date QS:P571,+1905-00-00T00:00:00Z/9",
+          "datum_fil": "2016-09-01 14:05:28",
+          "kredit": "Humanities Texas",
+          "beskrivning": "Painting Lewis and Clark on the Lower Columbia (height: 24 in (60.9 cm); width: 28 in (71.1 cm) dimensions QS:P2048,24U218593 dimensions QS:P2049,28U218593 ) by Charles Marion Russell; Opaque and transparent watercolor over graphite underdrawing on paper",
+          "bredd": 3000,
+          "hojd": 2346,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Lewis_and_clark-expedition.jpg/960px-Lewis_and_clark-expedition.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1805 in Oregon",
+            "1905 paintings",
+            "Chinookan",
+            "Lewis and Clark Expedition",
+            "Lewis and Clark on the Lower Columbia (Charles M. Russell)",
+            "Monoxylons of North America",
+            "Paintings by Charles Marion Russell",
+            "Paintings of people",
+            "Paintings of people in nature",
+            "People with watercraft in art",
+            "Sacagawea",
+            "Water transport in the Columbia River Gorge",
+            "Wild West in art"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "spanskamerikanska-sjalvstandighetskrigen",
+      "titel": "De spanskamerikanska självständighetskrigen",
+      "start": 1808,
+      "plats": "Spanska Amerika, från Mexiko till Río de la Plata (punkten: Dolores i Mexiko, där upproret 1810 började)",
+      "wikidata": "Q1123201",
+      "kandidater": [
+        {
+          "fil": "File:Independencia.gif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Independencia.gif",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Resvoluci",
+          "datum": "2007",
+          "datum_original": "2007",
+          "datum_fil": "2012-10-18 19:25:15",
+          "kredit": "Own work",
+          "beskrivning": "Guerra independencia hispanoamericana",
+          "bredd": 470,
+          "hojd": 608,
+          "mime": "image/gif",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Independencia.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battles involving the United States",
+            "Maps of the Spanish American wars of independence",
+            "Maps of the Spanish Americas"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "kgh-far-handelsmonopol",
+      "titel": "Den Kongelige Grønlandske Handel får monopol",
+      "start": 1776,
+      "plats": "Grönlands västkust (bolaget styrdes från Köpenhamn)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "barock"
+    },
+    {
+      "id": "slaveriet-avskaffas-1793",
+      "titel": "Slaveriet avskaffas i Saint-Domingue",
+      "start": 1793,
+      "plats": "Norra provinsen i Saint-Domingue (Le Cap, i dag Cap-Haïtien)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "barock"
+    },
+    {
+      "id": "toussaint-louverture-kapitulerar",
+      "titel": "Toussaint Louverture ger upp och grips",
+      "start": 1802,
+      "plats": "Cap-Français (i dag Cap-Haïtien)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    }
+  ]
+}

@@ -600,6 +600,21 @@
       }
     },
     {
+      "eventId": "belagringen-av-charleston-1780",
+      "eventTitle": "Belägringen av Charleston",
+      "file": "images/events/belagringen-av-charleston-1780.webp",
+      "kind": "historisk",
+      "credit": "Alonzo Chappel / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-belagringen-av-charleston-1780",
+        "title": "Sullivans-island-1050x777 – Alonzo Chappel (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Sullivans-island-1050x777.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "belagringen-av-delhi-1857",
       "eventTitle": "Belägringen av Delhi",
       "file": "images/events/belagringen-av-delhi-1857.webp",
@@ -1212,21 +1227,6 @@
       }
     },
     {
-      "eventId": "cortes-moter-moctezuma",
-      "eventTitle": "Cortés möter Moctezuma i Tenochtitlan",
-      "file": "images/events/cortes-moter-moctezuma.webp",
-      "kind": "historisk",
-      "credit": "Okända tlaxcalanska konstnärer / Wikimedia Commons",
-      "license": "Public domain",
-      "source": {
-        "id": "commons-bild-cortes-moter-moctezuma",
-        "title": "Cortez & La Malinche – unknown Tlaxcalan artists (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Cortez_%26_La_Malinche.jpg",
-        "license": "Public domain",
-        "checked": "2026-11-26"
-      }
-    },
-    {
       "eventId": "covid-19-pandemin",
       "eventTitle": "Covid-19-pandemin",
       "file": "images/events/covid-19-pandemin.webp",
@@ -1503,6 +1503,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Edwards%27_Dodo.jpg",
         "license": "Public domain",
         "checked": "2026-11-12"
+      }
+    },
+    {
+      "eventId": "dunmores-proklamation",
+      "eventTitle": "Dunmores proklamation",
+      "file": "images/events/dunmores-proklamation.webp",
+      "kind": "historisk",
+      "credit": "Joshua Reynolds; National Galleries of Scotland / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-dunmores-proklamation",
+        "title": "Sir Joshua Reynolds - John Murray, 4th Earl of Dunmore - Google Art Project – Joshua Reynolds (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Sir_Joshua_Reynolds_-_John_Murray,_4th_Earl_of_Dunmore_-_Google_Art_Project.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2382,6 +2397,21 @@
       }
     },
     {
+      "eventId": "hawaiis-enande",
+      "eventTitle": "Kamehamehas krig och Hawaiis enande",
+      "file": "images/events/hawaiis-enande.webp",
+      "kind": "historisk",
+      "credit": "Louis Choris; Honolulu Museum of Art / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-hawaiis-enande",
+        "title": "Louis Choris (1795-1828) - Kamehameha, King of the Sandwich Islands by Louis Choris, (Russian), pen and watercolor – Louis Choris (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Louis_Choris_(1795-1828)_-_Kamehameha,_King_of_the_Sandwich_Islands_by_Louis_Choris,_(Russian),_pen_and_watercolor.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "hawaiis-monarki-stortas",
       "eventTitle": "Monarkin på Hawaiʻi störtas",
       "file": "images/events/hawaiis-monarki-stortas.webp",
@@ -2477,6 +2507,21 @@
         "title": "Hopewell Culture National Historical Park – Ɱ (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Hopewell_Culture_National_Historical_Park.jpg",
         "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "humboldt-i-amerika",
+      "eventTitle": "Alexander von Humboldts resa i Amerika",
+      "file": "images/events/humboldt-i-amerika.webp",
+      "kind": "historisk",
+      "credit": "Friedrich Georg Weitsch; Alte Nationalgalerie / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-humboldt-i-amerika",
+        "title": "Alexander von Humboldt by Friedrich Georg Weitsch – Friedrich Georg Weitsch (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Alexander_von_Humboldt_by_Friedrich_Georg_Weitsch.jpg",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
@@ -3045,6 +3090,21 @@
       }
     },
     {
+      "eventId": "keoua-dodas-vid-puukohola",
+      "eventTitle": "Keōua dödas vid Puʻukoholā",
+      "file": "images/events/keoua-dodas-vid-puukohola.webp",
+      "kind": "historisk",
+      "credit": "Ken Lund / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-keoua-dodas-vid-puukohola",
+        "title": "Looking Towards Stone Leaning Post, Pu'ukohola Heiau National Historic Site, Hawaii (4527363439) – Ken Lund from Reno, Nevada, USA (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Looking_Towards_Stone_Leaning_Post,_Pu%27ukohola_Heiau_National_Historic_Site,_Hawaii_(4527363439).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "kermariket",
       "eventTitle": "Kermariket i Nubien",
       "file": "images/events/kermariket.webp",
@@ -3573,6 +3633,36 @@
       }
     },
     {
+      "eventId": "lewis-och-clarks-expedition",
+      "eventTitle": "Lewis och Clarks expedition",
+      "file": "images/events/lewis-och-clarks-expedition.webp",
+      "kind": "historisk",
+      "credit": "Charles Marion Russell / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-lewis-och-clarks-expedition",
+        "title": "Lewis and clark-expedition – Charles Marion Russell (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lewis_and_clark-expedition.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "lexington-och-concord",
+      "eventTitle": "Striderna vid Lexington och Concord",
+      "file": "images/events/lexington-och-concord.webp",
+      "kind": "historisk",
+      "credit": "Amos Doolittle efter Ralph Earl / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-lexington-och-concord",
+        "title": "Battle of Lexington Detail – Amos Doolittle (engraver), Ralph Earl (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Lexington_Detail.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "lincoln-fods",
       "eventTitle": "Abraham Lincoln föds",
       "file": "images/events/lincoln-fods.webp",
@@ -3882,36 +3972,6 @@
         "url": "https://commons.wikimedia.org/wiki/File:Civil_Rights_March_on_Washington%2C_D.C._%28Leaders_marching_from_the_Washington_Monument_to_the_Lincoln_Memorial%29_-_NARA_-_542010.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
-      }
-    },
-    {
-      "eventId": "massakern-i-cholula",
-      "eventTitle": "Massakern i Cholula",
-      "file": "images/events/massakern-i-cholula.webp",
-      "kind": "historisk",
-      "credit": "Félix Parra / Wikimedia Commons",
-      "license": "Public domain",
-      "source": {
-        "id": "commons-bild-massakern-i-cholula",
-        "title": "Felix Parra Episodios de la conquista La matanza de Cholula – Félix Parra (1845-1919) (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Felix_Parra_Episodios_de_la_conquista_La_matanza_de_Cholula.jpg",
-        "license": "Public domain",
-        "checked": "2026-11-26"
-      }
-    },
-    {
-      "eventId": "massakern-vid-toxcatl",
-      "eventTitle": "Massakern vid Toxcatl-festen",
-      "file": "images/events/massakern-vid-toxcatl.webp",
-      "kind": "historisk",
-      "credit": "Okänd konstnär (Códice Durán) / Wikimedia Commons",
-      "license": "Public domain",
-      "source": {
-        "id": "commons-bild-massakern-vid-toxcatl",
-        "title": "Matanza templo2 – Autor desconocido (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Matanza_templo2.jpg",
-        "license": "Public domain",
-        "checked": "2026-11-26"
       }
     },
     {
@@ -5691,6 +5751,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-bunker-hill",
+      "eventTitle": "Slaget vid Bunker Hill",
+      "file": "images/events/slaget-vid-bunker-hill.webp",
+      "kind": "historisk",
+      "credit": "John Trumbull; Museum of Fine Arts, Boston / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-bunker-hill",
+        "title": "The Death of General Warren at the Battle of Bunker's Hill – John Trumbull (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Death_of_General_Warren_at_the_Battle_of_Bunker%27s_Hill.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-cajamarca",
       "eventTitle": "Atahualpa tillfångatas i Cajamarca",
       "file": "images/events/slaget-vid-cajamarca.webp",
@@ -5703,6 +5778,36 @@
         "url": "https://commons.wikimedia.org/wiki/File:La_Captura_de_Atahualpa_-_Juan_Lepiani_1920s.png",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-crete-a-pierrot",
+      "eventTitle": "Slaget vid Crête-à-Pierrot",
+      "file": "images/events/slaget-vid-crete-a-pierrot.webp",
+      "kind": "historisk",
+      "credit": "Auguste Raffet och Hébert / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-crete-a-pierrot",
+        "title": "Combat et prise de la Crête-à-Pierrot - Auguste Raffet – Auguste Raffet / Ernest Hébert (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Combat_et_prise_de_la_Cr%C3%AAte-%C3%A0-Pierrot_-_Auguste_Raffet.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "slaget-vid-eutaw-springs",
+      "eventTitle": "Slaget vid Eutaw Springs",
+      "file": "images/events/slaget-vid-eutaw-springs.webp",
+      "kind": "historisk",
+      "credit": "Ser Amantio di Nicolao / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-slaget-vid-eutaw-springs",
+        "title": "Eutaw Springs Battlefield Park - 1 – Ser Amantio di Nicolao (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Eutaw_Springs_Battlefield_Park_-_1.jpeg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5910,6 +6015,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-kepaniwai",
+      "eventTitle": "Slaget vid Kepaniwai",
+      "file": "images/events/slaget-vid-kepaniwai.webp",
+      "kind": "historisk",
+      "credit": "Bernard Spragg / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-slaget-vid-kepaniwai",
+        "title": "Iao Valley State Park Maui. (11248131064) – Bernard Spragg. NZ from Christchurch, New Zealand (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Iao_Valley_State_Park_Maui._(11248131064).jpg",
+        "license": "CC0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-kororareka",
       "eventTitle": "Slaget vid Kororāreka",
       "file": "images/events/slaget-vid-kororareka.webp",
@@ -6000,6 +6120,36 @@
       }
     },
     {
+      "eventId": "slaget-vid-mokuohai",
+      "eventTitle": "Slaget vid Mokuʻōhai",
+      "file": "images/events/slaget-vid-mokuohai.webp",
+      "kind": "historisk",
+      "credit": "J JMesserly / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-slaget-vid-mokuohai",
+        "title": "Kamehameha I head to waist 5111 – User:J JMesserly (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kamehameha_I_head_to_waist_5111.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "slaget-vid-moores-creek-bridge",
+      "eventTitle": "Slaget vid Moore's Creek Bridge",
+      "file": "images/events/slaget-vid-moores-creek-bridge.webp",
+      "kind": "historisk",
+      "credit": "NPS Photo / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-moores-creek-bridge",
+        "title": "MOCR earthworks 0948 – NPS Photo (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:MOCR_earthworks_0948.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-narva-1700",
       "eventTitle": "Slaget vid Narva",
       "file": "images/events/slaget-vid-narva-1700.webp",
@@ -6036,6 +6186,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ngati_maniapoto_survivors_of_the_war.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-oriskany",
+      "eventTitle": "Slaget vid Oriskany",
+      "file": "images/events/slaget-vid-oriskany.webp",
+      "kind": "historisk",
+      "credit": "John Reuben Chapin / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-oriskany",
+        "title": "Battle of Oriskany – John R. Chapin (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Oriskany.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -6363,6 +6528,21 @@
       }
     },
     {
+      "eventId": "slavupproret-1791",
+      "eventTitle": "Slavupproret i Saint-Domingue",
+      "file": "images/events/slavupproret-1791.webp",
+      "kind": "historisk",
+      "credit": "Aaron Martinet och Alphonse-Charles Masson / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slavupproret-1791",
+        "title": "Incendie de la Plaine du Cap. Massacre des Blancs par les esclaves noirs révoltés. France militaire. Martinet et Masson – Aaron Martinet / Alphonse-Charles Masson (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Incendie_de_la_Plaine_du_Cap._Massacre_des_Blancs_par_les_esclaves_noirs_r%C3%A9volt%C3%A9s._France_militaire._Martinet_et_Masson.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "smittkoppor-sydney-1789",
       "eventTitle": "Smittkoppor drabbar eora-folket vid Sydney",
       "file": "images/events/smittkoppor-sydney-1789.webp",
@@ -6432,21 +6612,6 @@
       }
     },
     {
-      "eventId": "spanska-erovringen-av-aztekriket",
-      "eventTitle": "Spanska erövringen av Aztekriket",
-      "file": "images/events/spanska-erovringen-av-aztekriket.webp",
-      "kind": "historisk",
-      "credit": "Okänd konstnär (mexikansk skola); fotograf ej angiven / Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "source": {
-        "id": "commons-bild-spanska-erovringen-av-aztekriket",
-        "title": "Museo de América Conquest of Mexico 04 (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Museo_de_Am%C3%A9rica_Conquest_of_Mexico_04.jpg",
-        "license": "CC BY-SA 3.0",
-        "checked": "2026-11-26"
-      }
-    },
-    {
       "eventId": "spanska-sjukan",
       "eventTitle": "Spanska sjukan",
       "file": "images/events/spanska-sjukan.webp",
@@ -6454,6 +6619,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "spanskamerikanska-sjalvstandighetskrigen",
+      "eventTitle": "De spanskamerikanska självständighetskrigen",
+      "file": "images/events/spanskamerikanska-sjalvstandighetskrigen.webp",
+      "kind": "historisk",
+      "credit": "Slevinr / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-spanskamerikanska-sjalvstandighetskrigen",
+        "title": "Dolores Hidalgo Guanajuato MexicoDSC04904 – Slevinr (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Dolores_Hidalgo_Guanajuato_MexicoDSC04904.JPG",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "sputnik",
@@ -7113,21 +7293,6 @@
       }
     },
     {
-      "eventId": "tlaxcala-forbund-1519",
-      "eventTitle": "Tlaxcala sluter förbund med spanjorerna",
-      "file": "images/events/tlaxcala-forbund-1519.webp",
-      "kind": "historisk",
-      "credit": "Okänd konstnär (Lienzo de Tlaxcala) / Wikimedia Commons",
-      "license": "Public domain",
-      "source": {
-        "id": "commons-bild-tlaxcala-forbund-1519",
-        "title": "Guerreros tlaxcaltecas junto a sus aliados españoles Lienzo de Tlaxcala. Siglo XVI (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Guerreros_tlaxcaltecas_junto_a_sus_aliados_espa%C3%B1oles_Lienzo_de_Tlaxcala._Siglo_XVI.jpg",
-        "license": "Public domain",
-        "checked": "2026-11-26"
-      }
-    },
-    {
       "eventId": "torressundsoarna-befolkas",
       "eventTitle": "Torressundsöarna befolkas",
       "file": "images/events/torressundsoarna-befolkas.webp",
@@ -7140,6 +7305,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:TorresStraitIslandsMap.png",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "toussaint-louverture-kapitulerar",
+      "eventTitle": "Toussaint Louverture ger upp och grips",
+      "file": "images/events/toussaint-louverture-kapitulerar.webp",
+      "kind": "historisk",
+      "credit": "Alexandre-François-Louis de Girardin / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-toussaint-louverture-kapitulerar",
+        "title": "Toussaint Louverture - Girardin – Alexandre-François-Louis, comte de Girardin (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Toussaint_Louverture_-_Girardin.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {

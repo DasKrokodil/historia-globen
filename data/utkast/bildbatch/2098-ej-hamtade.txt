@@ -1,0 +1,2 @@
+# Ej hämtade av tools/bild_hamta.py; kör igen med --lista
+File:Sonthonax.jpg	slaveriet-avskaffas-1793	passa-in
