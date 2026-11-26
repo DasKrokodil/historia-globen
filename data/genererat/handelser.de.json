@@ -763,6 +763,7 @@
 "knut-blir-kung-av-england":{"place":{"de":"England"},"title":{"de":"Knut der Große wird König von England"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "slaget-vid-stiklestad":{"place":{"de":"Stiklestad in Verdal, Trøndelag, Norwegen"},"title":{"de":"Die Schlacht bei Stiklestad"},"note":{"title":{"de":"Zum Datum"}}},
 "slaget-vid-hastings":{"place":{"de":"Battle bei Hastings, England"},"title":{"de":"Die Schlacht bei Hastings"},"note":{"title":{"de":"Zum Kalender"}}},
+"abo-domkyrka-invigs":{"place":{"de":"Turku (Åbo), Finnland"},"title":{"de":"Der Dom von Turku wird geweiht"}},
 "imjinkriget":{"place":{"de":"Korea und die Meere um die Koreanische Halbinsel (begann bei Busan)"},"title":{"de":"Der Imjin-Krieg"},"note":{"title":{"de":"Zum Kalender"}}},
 "belagringen-av-busan-1592":{"place":{"de":"Busan, Korea"},"title":{"de":"Die Japaner stürmen Busan"}},
 "slaget-vid-chungju-1592":{"place":{"de":"Tangeumdae bei Chungju, Korea"},"title":{"de":"Die Schlacht bei Chungju"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
@@ -956,6 +957,8 @@
 "encyclopedien-ges-ut":{"place":{"de":"Paris, Frankreich"},"title":{"de":"Die Encyclopédie beginnt zu erscheinen"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "kant-vad-ar-upplysning":{"place":{"de":"Berlin, Preußen (heute Deutschland)"},"title":{"de":"Kant beantwortet die Frage „Was ist Aufklärung?“"}},
 "jordbavningen-i-lissabon-1755":{"place":{"de":"Lissabon, Portugal"},"title":{"de":"Das Erdbeben von Lissabon"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
+"agricolas-abc-bok":{"place":{"de":"Turku (Åbo), Finnland, wo Agricola Rektor der Domschule war; die Markierung steht am Dom"},"title":{"de":"Agricolas ABC-Buch, das erste Buch auf Finnisch"}},
+"kungliga-akademien-i-abo":{"place":{"de":"Turku (Åbo), Finnland"},"title":{"de":"Finnlands erste Universität wird in Turku gegründet"}},
 "forsta-opiumkriget":{"place":{"de":"Küste Chinas von der Perlflussmündung bis zum Jangtse (begann bei Kowloon, im heutigen Hongkong)"},"title":{"de":"Erster Opiumkrieg"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
 "skarmytslingen-vid-kowloon-1839":{"place":{"de":"Kowloon, heute Hongkong"},"title":{"de":"Scharmützel bei Kowloon"}},
 "britterna-intar-zhoushan-1840":{"place":{"de":"Dinghai auf der Insel Zhoushan (Chusan), Zhejiang"},"title":{"de":"Die Briten nehmen Zhoushan ein"}},
@@ -1135,6 +1138,9 @@
 "revolutionerna-1848":{"place":{"de":"Europa (die Markierung liegt in Palermo auf Sizilien, wo die erste Revolution begann)"},"title":{"de":"Die Revolutionen von 1848/1849"}},
 "kungariket-italien-utropas":{"place":{"de":"Palazzo Carignano, Turin, Italien"},"title":{"de":"Das Königreich Italien wird ausgerufen"}},
 "tyska-kejsardomet-utropas":{"place":{"de":"Spiegelsaal, Versailles, Frankreich"},"title":{"de":"Die Proklamation des Deutschen Kaiserreichs"}},
+"lantdagen-i-borga-1809":{"place":{"de":"Finnland (die Markierung steht in Porvoo, wo der Landtag tagte)"},"title":{"de":"Der Landtag von Porvoo: Finnland wird Großfürstentum unter Russland"}},
+"kalevala-ges-ut":{"place":{"de":"Kajaani, Finnland, wo Lönnrot Kreisarzt war"},"title":{"de":"Das Kalevala erscheint"}},
+"hungersnoden-i-finland-1866-1868":{"place":{"de":"Finnland (die Markierung steht in Hämeenlinna, im Herzen von Häme, einer der am stärksten betroffenen Landschaften)"},"title":{"de":"Die große Hungersnot in Finnland"}},
 "rifkriget":{"place":{"de":"Rif im Norden Marokkos, damals spanisches Protektorat (begann bei Annual)"},"title":{"de":"Rifkrieg"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "slaget-vid-annual":{"place":{"de":"Annual im Nordosten Marokkos, etwa 60 km westlich von Melilla"},"title":{"de":"Die Rifkämpfer besiegen Spanien bei Annual"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "massakern-vid-monte-arruit":{"place":{"de":"Monte Arruit bei Al Aaroui, etwa 35 km südlich von Melilla"},"title":{"de":"Das Massaker von Monte Arruit"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
@@ -1265,6 +1271,8 @@
 "jordbavningen-i-san-juan-1944":{"place":{"de":"San Juan, Westargentinien"},"title":{"de":"Das Erdbeben von San Juan"}},
 "brasiliens-arbetsratt-clt-1943":{"place":{"de":"Brasilien (Hauptstadt war damals Rio de Janeiro)"},"title":{"de":"Brasilien fasst seine Arbeitsgesetze zusammen"}},
 "malariamyggan-utrotas-i-brasilien-1940":{"place":{"de":"Nordosten Brasiliens"},"title":{"de":"Eine afrikanische Malariamücke wird in Brasilien ausgerottet"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
+"lantdagsreformen-i-finland-1906":{"place":{"de":"Finnland (die Markierung steht in Helsinki)"},"title":{"de":"Allgemeines und gleiches Wahlrecht in Finnland, auch für Frauen"}},
+"finlands-sjalvstandighetsforklaring":{"place":{"de":"Finnland (die Markierung steht in Helsinki, wo das Parlament tagte)"},"title":{"de":"Finnland erklärt seine Unabhängigkeit"}},
 "bangladeshs-befrielsekrig":{"place":{"de":"Ostpakistan, heute Bangladesch (Beginn in Dhaka)"},"title":{"de":"Bangladesch-Befreiungskrieg"},"note":{"title":{"de":"Zum Beginn des Krieges"}}},
 "operation-searchlight":{"place":{"de":"Dhaka und andere Städte in Ostpakistan"},"title":{"de":"Operation Searchlight"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "bangladeshs-sjalvstandighet-utropas":{"place":{"de":"Dhaka"},"title":{"de":"Die Unabhängigkeit Bangladeschs wird ausgerufen"},"note":{"title":{"de":"Nur eine Quelle für den Ort"}}},
@@ -1500,5 +1508,6 @@
 "klimatkonventionen-rio-1992":{"place":{"de":"Rio de Janeiro, Brasilien"},"title":{"de":"Die Klimarahmenkonvention wird in Rio unterzeichnet"}},
 "kyotoprotokollet":{"place":{"de":"Kyōto, Japan"},"title":{"de":"Das Kyoto-Protokoll wird angenommen"}},
 "baijin-forklaras-funktionellt-utdod":{"place":{"de":"Jangtsekiang, China"},"title":{"de":"Der Chinesische Flussdelfin Baiji wird für funktionell ausgestorben erklärt"}},
-"himmelska-fridens-torg-1989":{"place":{"de":"Tian’anmen-Platz, Peking, China"},"title":{"de":"Die Proteste auf dem Tian’anmen-Platz und das Massaker"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}}
+"himmelska-fridens-torg-1989":{"place":{"de":"Tian’anmen-Platz, Peking, China"},"title":{"de":"Die Proteste auf dem Tian’anmen-Platz und das Massaker"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
+"sametinget-i-finland-1996":{"place":{"de":"Inari, Finnland; die Markierung steht bei Sajos, dem Sitz des Sámi-Parlaments seit 2012"},"title":{"de":"Das Sámi-Parlament Finnlands wird gegründet"}}
 }}

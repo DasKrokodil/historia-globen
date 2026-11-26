@@ -655,6 +655,7 @@
 "knut-blir-kung-av-england":{"place":{"fr":"Angleterre"},"title":{"fr":"Knut le Grand devient roi d'Angleterre"},"note":{"title":{"fr":"Les sources divergent"}}},
 "slaget-vid-stiklestad":{"place":{"fr":"Stiklestad, à Verdal, Trøndelag, Norvège"},"title":{"fr":"La bataille de Stiklestad"},"note":{"title":{"fr":"À propos de la date"}}},
 "slaget-vid-hastings":{"place":{"fr":"Battle, près de Hastings, Angleterre"},"title":{"fr":"La bataille de Hastings"},"note":{"title":{"fr":"À propos du calendrier"}}},
+"abo-domkyrka-invigs":{"place":{"fr":"Turku (Åbo), Finlande"},"title":{"fr":"La cathédrale de Turku est consacrée"}},
 "slaget-vid-landskrona":{"note":{"title":{"fr":"À propos du calendrier"}}},
 "slaget-vid-helsingborg":{"note":{"title":{"fr":"À propos du calendrier"}}},
 "agadez-mosken":{"place":{"fr":"Agadez, Niger"},"title":{"fr":"La mosquée d'Agadez est construite"}},
@@ -717,6 +718,8 @@
 "encyclopedien-ges-ut":{"place":{"fr":"Paris, France"},"title":{"fr":"L'Encyclopédie commence à paraître"},"note":{"title":{"fr":"Les sources divergent"}}},
 "kant-vad-ar-upplysning":{"place":{"fr":"Berlin, Prusse (aujourd'hui Allemagne)"},"title":{"fr":"Kant répond à la question « Qu'est-ce que les Lumières ? »"}},
 "jordbavningen-i-lissabon-1755":{"place":{"fr":"Lisbonne, Portugal"},"title":{"fr":"Le séisme de Lisbonne"},"note":{"title":{"fr":"Les sources divergent"}}},
+"agricolas-abc-bok":{"place":{"fr":"Turku (Åbo), Finlande, où Agricola était recteur de l’école cathédrale ; le repère est à la cathédrale"},"title":{"fr":"L’abécédaire d’Agricola, le premier livre en finnois"}},
+"kungliga-akademien-i-abo":{"place":{"fr":"Turku (Åbo), Finlande"},"title":{"fr":"La première université de Finlande est fondée à Turku"}},
 "nya-zeelandkrigen":{"note":{"title":{"fr":"Les sources divergent"}}},
 "forsta-missionen-rangihoua":{"place":{"fr":"Oihi, à Rangihoua, Bay of Islands, Nouvelle-Zélande"},"title":{"fr":"La première mission chrétienne en Nouvelle-Zélande"}},
 "muskotkrigen":{"place":{"fr":"Toute la Nouvelle-Zélande, y compris les îles Chatham (la première bataille connue avec des mousquets eut lieu à Moremonui, dans le Northland)"},"title":{"fr":"Guerres des mousquets"},"note":{"title":{"fr":"Les sources divergent"}}},
@@ -767,6 +770,9 @@
 "revolutionerna-1848":{"place":{"fr":"Europe (le repère est à Palerme, en Sicile, où commença la première révolution)"},"title":{"fr":"Les révolutions de 1848"}},
 "kungariket-italien-utropas":{"place":{"fr":"Palais Carignan, Turin, Italie"},"title":{"fr":"Proclamation du royaume d’Italie"}},
 "tyska-kejsardomet-utropas":{"place":{"fr":"Galerie des Glaces, Versailles, France"},"title":{"fr":"Proclamation de l’Empire allemand"}},
+"lantdagen-i-borga-1809":{"place":{"fr":"Finlande (le repère est à Porvoo, où se tint la Diète)"},"title":{"fr":"La Diète de Porvoo : la Finlande devient un grand-duché sous la Russie"}},
+"kalevala-ges-ut":{"place":{"fr":"Kajaani, Finlande, où Lönnrot était médecin de district"},"title":{"fr":"Publication du Kalevala"}},
+"hungersnoden-i-finland-1866-1868":{"place":{"fr":"Finlande (le repère est à Hämeenlinna, au cœur du Tavastland, l’une des provinces les plus touchées)"},"title":{"fr":"La grande famine en Finlande"}},
 "rifkriget":{"place":{"fr":"Rif, dans le nord du Maroc, alors protectorat espagnol (la guerre commença près d'Annual)"},"title":{"fr":"Guerre du Rif"},"note":{"title":{"fr":"Les sources divergent"}}},
 "slaget-vid-annual":{"place":{"fr":"Annual, dans le nord-est du Maroc, à environ 60 km à l'ouest de Melilla"},"title":{"fr":"Les Rifains battent l'Espagne à Annual"},"note":{"title":{"fr":"Les sources divergent"}}},
 "massakern-vid-monte-arruit":{"place":{"fr":"Monte Arruit, à Al Aaroui, à environ 35 km au sud de Melilla"},"title":{"fr":"Le massacre de Monte Arruit"},"note":{"title":{"fr":"Les sources divergent"}}},
@@ -897,6 +903,8 @@
 "jordbavningen-i-san-juan-1944":{"place":{"fr":"San Juan, ouest de l’Argentine"},"title":{"fr":"Le séisme de San Juan"}},
 "brasiliens-arbetsratt-clt-1943":{"place":{"fr":"Brésil (la capitale était alors Rio de Janeiro)"},"title":{"fr":"Le Brésil réunit ses lois du travail"}},
 "malariamyggan-utrotas-i-brasilien-1940":{"place":{"fr":"Nordeste du Brésil"},"title":{"fr":"Un moustique africain du paludisme est éradiqué au Brésil"},"note":{"title":{"fr":"Les sources divergent"}}},
+"lantdagsreformen-i-finland-1906":{"place":{"fr":"Finlande (le repère est à Helsinki)"},"title":{"fr":"Suffrage universel et égal en Finlande, femmes comprises"}},
+"finlands-sjalvstandighetsforklaring":{"place":{"fr":"Finlande (le repère est à Helsinki, où siégeait le Parlement)"},"title":{"fr":"La Finlande proclame son indépendance"}},
 "bangladeshs-befrielsekrig":{"place":{"fr":"Pakistan oriental, aujourd’hui Bangladesh (la guerre commença à Dacca)"},"title":{"fr":"Guerre de libération du Bangladesh"},"note":{"title":{"fr":"Sur le début de la guerre"}}},
 "operation-searchlight":{"place":{"fr":"Dacca et d’autres villes du Pakistan oriental"},"title":{"fr":"Opération Searchlight"},"note":{"title":{"fr":"Les sources divergent"}}},
 "bangladeshs-sjalvstandighet-utropas":{"place":{"fr":"Dacca"},"title":{"fr":"L’indépendance du Bangladesh est proclamée"},"note":{"title":{"fr":"Une seule source pour le lieu"}}},
@@ -1042,5 +1050,6 @@
 "klimatkonventionen-rio-1992":{"place":{"fr":"Rio de Janeiro, Brésil"},"title":{"fr":"La convention sur le climat est signée à Rio"}},
 "kyotoprotokollet":{"place":{"fr":"Kyoto, Japon"},"title":{"fr":"Le protocole de Kyoto est adopté"}},
 "baijin-forklaras-funktionellt-utdod":{"place":{"fr":"Yangzi Jiang, Chine"},"title":{"fr":"Le baiji, dauphin du Yangzi, est déclaré fonctionnellement éteint"}},
-"himmelska-fridens-torg-1989":{"place":{"fr":"Place Tian’anmen, Pékin, Chine"},"title":{"fr":"Les manifestations de la place Tian’anmen et le massacre"},"note":{"title":{"fr":"Les sources divergent"}}}
+"himmelska-fridens-torg-1989":{"place":{"fr":"Place Tian’anmen, Pékin, Chine"},"title":{"fr":"Les manifestations de la place Tian’anmen et le massacre"},"note":{"title":{"fr":"Les sources divergent"}}},
+"sametinget-i-finland-1996":{"place":{"fr":"Inari, Finlande ; le repère est à Sajos, siège du Parlement sâme depuis 2012"},"title":{"fr":"Création du Parlement sâme de Finlande"}}
 }}
