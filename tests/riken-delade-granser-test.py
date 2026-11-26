@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Prov för de delade gränserna i tools/riken.py (#1765, pilot bakom flaggan --delade-granser).
+"""Prov för de delade gränserna i tools/riken.py (#1765, regionerna i SHARED_REGIONS, steg 2).
 
-Enhetsprov med små påhittade polygoner (inga riktiga gränser): grannar som förenklas tillsammans överlappar inte, riken som
-överlappar i underlaget hålls utanför, en ö tas bort bara när den inte rör en granne, och en liten ändring behåller förra
-gränsen medan en granne som annars skulle överlappa får en ny. Kräver shapely 2.1 eller senare (som rikesverktyget); saknas den
-hoppas provet över, eftersom CI inte har shapely.
+Enhetsprov med små påhittade polygoner (inga riktiga gränser): grannar som förenklas tillsammans överlappar inte, en yta som två
+riken delar i underlaget blir en egen bit som ritas i båda (och smala remsor går till den som står först), x kan skalas med cos
+för breddgraden, en ö tas bort bara när den inte rör en granne, och en liten ändring behåller förra gränsen medan en granne som
+annars skulle överlappa får en ny. Kräver shapely 2.1 eller senare (som rikesverktyget). I CI installeras den (#1765, steg 2);
+saknas den lokalt hoppas provet över.
 
-Med miljövariabeln CLIOPATRIA=<cliopatria_polities_only_v021.geojson> körs också hela verktyget två gånger i en tillfällig mapp
-(cirka två minuter): utan flaggan ska varje fil vara exakt som i data/empires (#1220), och med flaggan ska grannarna i piloten
-inte överlappa mer än TROSKEL kvadratgrader något år 500–1700 (riken som överlappar något annat i underlaget det
-året räknas inte, eftersom de hålls utanför täckningen).
+Med miljövariabeln CLIOPATRIA=<cliopatria_polities_only_v021.geojson> körs också hela verktyget i en tillfällig mapp (cirka en
+minut): varje fil ska vara exakt som i data/empires (#1220), och grannarna i varje region ska inte överlappa mer än TROSKEL
+kvadratgrader något år utöver det de delar i underlaget (med en marginal på MARGINAL grader runt den delade ytan, som förenklas).
     python3 tests/riken-delade-granser-test.py
     CLIOPATRIA=/sökväg/cliopatria_polities_only_v021.geojson python3 tests/riken-delade-granser-test.py
 """
@@ -22,6 +22,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 TROSKEL = 0.005  # kvadratgrader (cirka 35 km2 på Brittiska öarnas breddgrad), summan för alla grannpar ett år
+MARGINAL = 0.05  # grader runt en yta som två riken delar i underlaget; den delade biten förenklas och kan flytta så här mycket
 
 try:
     import shapely
@@ -83,12 +84,33 @@ check(all(600 in new.get(k, ()) for k in raws), 'en ny delad gräns ska ge en ny
 got, new, notes = R.cover_years({k: [(400, 450, v[0][2])] for k, v in raws.items()}, (500, 1700), 0.1, ones, ones)
 check(not got and not new, 'perioder före 500 ska inte få delade gränser')
 
-# 4. Överlapp i underlaget större än SHARED_SLIVER: de två hålls utanför, den tredje har ingen att dela med
+# 4. Överlapp i underlaget större än SHARED_SLIVER (punkt 2 i pilotrapporten): den gemensamma ytan blir en egen bit som läggs
+# till båda, så den ritas i båda, men gränserna mot övriga grannar blir ändå gemensamma
 big = box(0.5, 0, 2, 2)  # överlappar a mycket
 got, new, notes = R.cover_years({('g', 'a'): [(600, 700, a)], ('g', 'x'): [(600, 700, big)], ('g', 'c'): [(600, 700, c)]},
                                 (500, 1700), 0.1, {('g', k): 0.02 for k in 'axc'}, {('g', k): 0.02 for k in 'axc'})
-check(not got, f'riken som överlappar i underlaget ska hållas utanför täckningen, fick {sorted(got)}')
-check(any('överlappar' in n for n in notes), 'överlappet i underlaget ska skrivas ut')
+check(set(got) == {(('g', k), 600) for k in 'axc'}, f'alla tre ska få en delad gräns trots överlappet, fick {sorted(got)}')
+if len(got) == 3:
+    ga, gx, gc = (got[(('g', k), 600)] for k in 'axc')
+    delad = a.intersection(big)
+    check(abs(ga.intersection(gx).area - delad.area) < 0.05 * delad.area, 'den gemensamma ytan ska ritas i båda')
+    check(ga.intersection(gx).difference(delad.buffer(0.2)).area < 1e-9, 'utanför den gemensamma ytan ska de inte överlappa')
+    check(overlap([ga, gc]) < 1e-9 and overlap([gx, gc]) < 1e-9, 'grannen utan överlapp i underlaget ska inte överlappa någon')
+check(any('överlappar' in n and 'ritas i båda' in n for n in notes), 'överlappet i underlaget ska skrivas ut')
+
+# 4b. En smal remsa (under cirka 2 * SLIVER grader bred) räknas inte som delad yta fast den är större än SHARED_SLIVER
+smal = box(0, 0, 2.03, 2)  # 0,06 kv.grader men 0,03 grader bred in i c
+got, new, notes = R.cover_years({('g', 's'): [(600, 700, smal)], ('g', 'c'): [(600, 700, c)]}, (500, 1700), 0.1,
+                                {('g', 's'): 0.02, ('g', 'c'): 0.02}, {('g', 's'): 0.02, ('g', 'c'): 0.02})
+check(len(got) == 2 and overlap(list(got.values())) < 1e-9, 'en smal remsa i underlaget ska gå till den som står först')
+check(not any('ritas i båda' in n for n in notes), 'en smal remsa ska inte skrivas ut som delad yta')
+
+# 4c. Skalning med cos för breddgraden (punkt 4): grannarna överlappar inte heller då, och gränsen ligger kvar på rätt ställe
+got, new, notes = R.cover_years(raws, (500, 1700), 0.1, ones, ones, xscale=0.5)
+check(set(got) == {(k, 600) for k in raws}, 'med skalning ska alla tre få en delad gräns')
+check(overlap([got[(k, 600)] for k in raws if (k, 600) in got]) < 1e-9, 'med skalning ska grannarna inte överlappa')
+check(all(abs(got[(k, 600)].area - raws[k][0][2].area) < 0.1 * raws[k][0][2].area for k in raws if (k, 600) in got),
+      'skalningen ska räknas tillbaka efter förenklingen')
 
 # 5. En remsa under SHARED_SLIVER går till den som står först, och täckningen blir ändå giltig
 remsa = box(0, 0, 2.002, 2)  # 0,004 kv.grader in i c
@@ -133,16 +155,18 @@ p = box(0, 0, 1, 1)
 check(R.split_at([(600, 700, p, 5)], {650, 600, 800}) == [(600, 649, p, 5), (650, 700, p, 5)], 'split_at delar fel')
 check(R.split_at([(600, 700, p, 5)], set()) == [(600, 700, p, 5)], 'split_at utan år ska inte ändra något')
 
-# 9. Versionskontrollen gäller bara flaggan: med en shapely utan coverage_simplify kommer main utan flaggan förbi kontrollen
+# 9. Versionskontrollen: de delade gränserna är på (steg 2), så verktyget stannar med en shapely utan coverage_simplify och går
+# förbi kontrollen med en som har den
 KOD = '''import sys
 sys.path.insert(0, sys.argv[1])
 import shapely
-del shapely.coverage_simplify
+if sys.argv[2] == 'gammal':
+    del shapely.coverage_simplify
 import riken as R
 def fake(path):
     raise RuntimeError('förbi')
 R.las_cliopatria = fake
-sys.argv = ['riken.py', 'x.geojson'] + sys.argv[2:]
+sys.argv = ['riken.py', 'x.geojson']
 try:
     R.main()
 except RuntimeError:
@@ -150,22 +174,31 @@ except RuntimeError:
 except SystemExit:
     print('stopp')
 '''
-for flaggor, vant in (([], 'förbi'), (['--delade-granser'], 'stopp')):
-    r = subprocess.run([sys.executable, '-c', KOD, str(ROOT / 'tools')] + flaggor, capture_output=True, text=True)
-    check(r.stdout.strip() == vant, f'med äldre shapely och flaggorna {flaggor} ska verktyget ge "{vant}", gav {r.stdout.strip()!r} {r.stderr[-200:]}')
+for version, vant in (('gammal', 'stopp'), ('ny', 'förbi')):
+    r = subprocess.run([sys.executable, '-c', KOD, str(ROOT / 'tools'), version], capture_output=True, text=True)
+    check(r.stdout.strip() == vant, f'med {version} shapely ska verktyget ge "{vant}", gav {r.stdout.strip()!r} {r.stderr[-200:]}')
+
+# 10. Regionerna: varje grupp och del finns, och ingen del står i två regioner
+sett = {}
+for region in R.SHARED_REGIONS:
+    for key in R.region_keys(region):
+        check(key not in sett, f'{key} står i både {sett.get(key)} och {region}')
+        sett[key] = region
+    for item in R.SHARED_REGIONS[region]['groups']:
+        gid = item if isinstance(item, str) else item[0]
+        check(gid in R.GROUPS and any(k[0] == gid for k in R.region_keys(region)), f'{item} i {region} finns inte i GROUPS')
 
 # Hela verktyget (valfritt, med Cliopatria-filen)
 clio = os.environ.get('CLIOPATRIA')
 heavy = ''
 if clio:
     with tempfile.TemporaryDirectory() as tmp:
-        av, pa = Path(tmp) / 'av', Path(tmp) / 'pa'
-        for args in (['--ut=' + str(av)], ['--delade-granser', '--ut=' + str(pa)]):
-            r = subprocess.run([sys.executable, str(ROOT / 'tools/riken.py'), clio] + args, capture_output=True, text=True)
-            check(r.returncode == 0, f'riken.py {" ".join(args)} misslyckades: {r.stderr[-500:]}')
+        ut = Path(tmp) / 'ut'
+        r = subprocess.run([sys.executable, str(ROOT / 'tools/riken.py'), clio, '--ut=' + str(ut)], capture_output=True, text=True)
+        check(r.returncode == 0, f'riken.py misslyckades: {r.stderr[-500:]}')
         olika = [f.name for f in sorted((ROOT / 'data/empires').glob('*.json'))
-                 if not (av / f.name).exists() or (av / f.name).read_bytes() != f.read_bytes()]
-        check(not olika, f'utan flaggan skiljer sig {len(olika)} filer från data/empires: {olika[:5]}')
+                 if not (ut / f.name).exists() or (ut / f.name).read_bytes() != f.read_bytes()]
+        check(not olika, f'{len(olika)} filer skiljer sig från data/empires: {olika[:5]}')
         # Underlagets överlapp, för att räkna bara det som förenklingen lägger till
         src = R.las_cliopatria(clio)
         by_name = {}
@@ -175,39 +208,45 @@ if clio:
         R.fix_swapped_shapes(by_name)
         R.drop_remnants(by_name)
         disputed, ne = R.disputed_areas(by_name), R.ne_shapes()
-        raw = {}
-        for gid in R.SHARED_GROUPS:
-            for cname, pid, _s, _c, *rest in R.GROUPS[gid][2]:
+        worst = {}
+        for region, reg in R.SHARED_REGIONS.items():
+            keys = R.region_keys(region)
+            raw, per = {}, []
+            for gid, pid in keys:
+                cname, _p, _s, _c, *rest = next(m for m in R.GROUPS[gid][2] if m[1] == pid)
                 raw[(gid, pid)] = R.raw_periods(gid, cname, rest[0] if rest else {}, by_name, disputed, ne)
-        per = []
-        for gid in R.SHARED_GROUPS:
-            for pol in json.loads((pa / f'{gid}.json').read_text())['polities']:
-                for q in pol['periods']:
-                    per.append(((gid, pol['id']), q['start'], q['end'], shapely.make_valid(shape(q['geometry']))))
-        cache, worst = {}, (0, None)
-        for y in range(R.SHARED_YEARS[0], R.SHARED_YEARS[1] + 1):
-            act = [(k, s, g) for k, s, e, g in per if s <= y <= e]
-            key = (tuple((k, s) for k, s, g in act), tuple((k, s) for k, v in raw.items() for s, e, g, _a in v if s <= y <= e))
-            if key not in cache:
+                for pol in json.loads((ut / f'{gid}.json').read_text())['polities']:
+                    if pol['id'] == pid:
+                        per += [((gid, pid), q['start'], q['end'], shapely.make_valid(shape(q['geometry']))) for q in pol['periods']]
+            cache, worst[region] = {}, (0, None)
+            for y in range(reg['years'][0], reg['years'][1] + 1):
+                act = [(k, g) for k, s, e, g in per if s <= y <= e]
                 rg = {k: g for k, v in raw.items() for s, e, g, _a in v if s <= y <= e}
-                # Riken som överlappar något annat i underlaget det året hålls utanför täckningen och förenklas för sig som förut;
-                # deras gränser räknas inte här (de står i rapporten, docs/granskningar/2026-11-20-delade-granser-pilot.md)
-                held = {a for a in rg for b in rg if a != b and rg[a].intersection(rg[b]).area > R.SHARED_SLIVER}
-                t = 0.0
-                for i in range(len(act)):
-                    for j in range(i + 1, len(act)):
-                        if act[i][0] in held or act[j][0] in held:
-                            continue
-                        t += act[i][2].intersection(act[j][2]).area
-                cache[key] = t
-            if cache[key] > worst[0]:
-                worst = (cache[key], y)
-        check(worst[0] < TROSKEL, f'med flaggan överlappar grannarna {worst[0]:.4f} kv.grader år {worst[1]} (gräns {TROSKEL})')
-        heavy = f'; hela verktyget: utan flaggan samma filer, med flaggan högst {worst[0]:.4f} kv.grader överlapp ett år'
+                key = (tuple(id(g) for k, g in act), tuple(id(g) for g in rg.values()))
+                if key not in cache:
+                    t = 0.0
+                    for i in range(len(act)):
+                        for j in range(i + 1, len(act)):
+                            (ka, ga), (kb, gb) = act[i], act[j]
+                            if not ga.intersects(gb):
+                                continue
+                            ov = ga.intersection(gb)
+                            # Det de delar i underlaget ritas i båda (punkt 2); bara överlapp utöver det räknas
+                            if ka in rg and kb in rg and rg[ka].intersection(rg[kb]).area > R.SHARED_SLIVER:
+                                ov = ov.difference(rg[ka].intersection(rg[kb]).buffer(MARGINAL))
+                            t += ov.area
+                    cache[key] = t
+                if cache[key] > worst[region][0]:
+                    worst[region] = (cache[key], y)
+            check(worst[region][0] < TROSKEL,
+                  f'{region}: grannarna överlappar {worst[region][0]:.4f} kv.grader år {worst[region][1]} utöver underlaget (gräns {TROSKEL})')
+        heavy = '; hela verktyget: samma filer som data/empires, största överlapp ett år utöver underlaget ' + \
+            ', '.join(f'{r} {w[0]:.4f}' for r, w in worst.items())
 
 if fel:
     print(f'{len(fel)} fel:')
     for f in fel:
         print(' -', f)
     sys.exit(1)
-print('ok: delade gränser utan överlapp, överlapp i underlaget hålls utanför, öar och sammanslagning som de ska' + heavy)
+print('ok: delade gränser utan överlapp, delad yta i underlaget ritas i båda, smala remsor och skalning, öar och sammanslagning '
+      'som de ska, regionerna' + heavy)
