@@ -38,7 +38,7 @@ test('Grönland och Aotearoa hittas på riktiga punkter i datan, och havet runt 
   assert.equal(placeAt(real, -40, 72)?.id, 'gronland', 'inlandsisen');
   // 1:50m-kusten är grov: Nuuk ligger 1 km utanför linjen. Ett tryck räknar bara det som konturen visar (ingen kustmarginal).
   assert.equal(placeAt(real, -51.72, 64.18), null, 'Nuuk ligger precis utanför den ritade gränsen');
-  assert.equal(placeAt(real, -21.9, 64.15), null, 'Reykjavik ligger på Island');
+  assert.equal(placeAt(real, -21.9, 64.15)?.id, 'island', 'Reykjavik ligger på Island, inte på Grönland');
   assert.equal(placeAt(real, -30, 60), null, 'Atlanten sydost om Grönland');
   assert.equal(placeAt(real, 174.76, -36.85)?.id, 'aotearoa', 'Auckland');
   assert.equal(placeAt(real, 174.78, -41.29)?.id, 'aotearoa', 'Wellington');

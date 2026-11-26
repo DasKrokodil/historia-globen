@@ -11,11 +11,11 @@ const json = path => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.u
 const places = json('data/platser.json').places;
 const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
 
-test('länderna kommer ur platsernas periods: Sverige för Sverige-gruppen, Danmark för Konungariket Danmark, båda för Kalmarunionen', () => {
+test('länderna kommer ur platsernas periods: Sverige för Sverige-gruppen, Danmark och Island för Konungariket Danmark, alla tre för Kalmarunionen', () => {
   const ids = empire => empirePlaces(places, empire).map(p => p.id);
   assert.deepEqual(ids('svenska-stormaktsvaldet'), ['sverige']);
-  assert.deepEqual(ids('konungariket-danmark'), ['danmark']);
-  assert.deepEqual(ids('kalmarunionen'), ['sverige', 'danmark']);
+  assert.deepEqual(ids('konungariket-danmark'), ['danmark', 'island']);
+  assert.deepEqual(ids('kalmarunionen'), ['sverige', 'danmark', 'island']);
   assert.deepEqual(ids('romarriket'), [], 'ett rike som inget landskort nämner får ingen lista');
 });
 
