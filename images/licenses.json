@@ -471,6 +471,21 @@
       }
     },
     {
+      "eventId": "aztekiska-trippelalliansen",
+      "eventTitle": "Trippelalliansen bildas i Mexikodalen",
+      "file": "images/events/aztekiska-trippelalliansen.webp",
+      "kind": "historisk",
+      "credit": "Okänd (Codex Osuna) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-aztekiska-trippelalliansen",
+        "title": "Codex Osuna Triple Alliance (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Codex_Osuna_Triple_Alliance.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "bagdads-fall-1258",
       "eventTitle": "Bagdads fall",
       "file": "images/events/bagdads-fall-1258.webp",
@@ -864,6 +879,21 @@
       }
     },
     {
+      "eventId": "brollopet-i-hvalsey",
+      "eventTitle": "Bröllopet i Hvalsey kyrka",
+      "file": "images/events/brollopet-i-hvalsey.webp",
+      "kind": "historisk",
+      "credit": "jtstewart / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-brollopet-i-hvalsey",
+        "title": "Hvalsey Church 2014 08 – jtstewart (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Hvalsey_Church_2014_08.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "brottare-i-beni-hasan",
       "eventTitle": "Brottarna i Baqet III:s grav i Beni Hasan",
       "file": "images/events/brottare-i-beni-hasan.webp",
@@ -951,6 +981,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Vincenzo_Camuccini_-_La_morte_di_Cesare.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "caguana-ceremoniplats",
+      "eventTitle": "Taínofolket bygger ceremoniplatsen i Caguana",
+      "file": "images/events/caguana-ceremoniplats.webp",
+      "kind": "historisk",
+      "credit": "Jbermudez (engelskspråkiga Wikipedia) / Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "source": {
+        "id": "commons-bild-caguana-ceremoniplats",
+        "title": "Caguana Ceremonial Ball Courts Site - Utuado Puerto Rico – The original uploader was Jbermudez at English Wikipedia . (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Caguana_Ceremonial_Ball_Courts_Site_-_Utuado_Puerto_Rico.jpg",
+        "license": "CC BY 2.5",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -1113,6 +1158,21 @@
       }
     },
     {
+      "eventId": "codex-zouche-nuttall",
+      "eventTitle": "Codex Zouche-Nuttall målas",
+      "file": "images/events/codex-zouche-nuttall.webp",
+      "kind": "historisk",
+      "credit": "Szilas / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-codex-zouche-nuttall",
+        "title": "Codex Zouche-Nuttall - perspective modified – Szilas (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Codex_Zouche-Nuttall_-_perspective_modified.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "columbus",
       "eventTitle": "Columbus når Amerika",
       "file": "images/events/columbus.webp",
@@ -1149,6 +1209,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:People_in_a_canoe,_Botany_Bay,_April_1770.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "cortes-moter-moctezuma",
+      "eventTitle": "Cortés möter Moctezuma i Tenochtitlan",
+      "file": "images/events/cortes-moter-moctezuma.webp",
+      "kind": "historisk",
+      "credit": "Okända tlaxcalanska konstnärer / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-cortes-moter-moctezuma",
+        "title": "Cortez & La Malinche – unknown Tlaxcalan artists (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cortez_%26_La_Malinche.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2820,6 +2895,21 @@
       "source": null
     },
     {
+      "eventId": "kalla-somrar-pa-baffinon",
+      "eventTitle": "Kalla somrar och växande isar på Baffinön",
+      "file": "images/events/kalla-somrar-pa-baffinon.webp",
+      "kind": "historisk",
+      "credit": "NASA / Michael Studinger / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kalla-somrar-pa-baffinon",
+        "title": "Penny Ice Cap – NASA / Michael Studinger (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Penny_Ice_Cap.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "kaminaljuyu-blomstring",
       "eventTitle": "Kaminaljuyu blomstrar i mayahöglandet",
       "file": "images/events/kaminaljuyu-blomstring.webp",
@@ -3333,6 +3423,21 @@
       }
     },
     {
+      "eventId": "la-isabela-columbianska-utbytet",
+      "eventTitle": "La Isabela: ett tidigt exempel på det columbianska utbytet",
+      "file": "images/events/la-isabela-columbianska-utbytet.webp",
+      "kind": "historisk",
+      "credit": "Mariordo (Mario Roberto Durán Ortiz) / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-la-isabela-columbianska-utbytet",
+        "title": "La Isabela SDQ 10 2019 1144 – Mariordo (Mario Roberto Durán Ortiz) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:La_Isabela_SDQ_10_2019_1144.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "lalibelas-klippkyrkor",
       "eventTitle": "Klippkyrkorna i Lalibela huggs ut",
       "file": "images/events/lalibelas-klippkyrkor.webp",
@@ -3780,6 +3885,36 @@
       }
     },
     {
+      "eventId": "massakern-i-cholula",
+      "eventTitle": "Massakern i Cholula",
+      "file": "images/events/massakern-i-cholula.webp",
+      "kind": "historisk",
+      "credit": "Félix Parra / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-massakern-i-cholula",
+        "title": "Felix Parra Episodios de la conquista La matanza de Cholula – Félix Parra (1845-1919) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Felix_Parra_Episodios_de_la_conquista_La_matanza_de_Cholula.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "massakern-vid-toxcatl",
+      "eventTitle": "Massakern vid Toxcatl-festen",
+      "file": "images/events/massakern-vid-toxcatl.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär (Códice Durán) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-massakern-vid-toxcatl",
+        "title": "Matanza templo2 – Autor desconocido (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Matanza_templo2.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "massblekning-stora-barriarrevet-2016",
       "eventTitle": "Massblekning av koraller på Stora barriärrevet",
       "file": "images/events/massblekning-stora-barriarrevet-2016.webp",
@@ -3790,6 +3925,21 @@
         "id": "commons-bild-massblekning-stora-barriarrevet-2016",
         "title": "Coral Reef Bleaching – Jay Galvin (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Coral_Reef_Bleaching.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "mayapan",
+      "eventTitle": "Mayapán blir mayafolkets huvudstad i Yucatán",
+      "file": "images/events/mayapan.webp",
+      "kind": "historisk",
+      "credit": "Arian Zwegers / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-mayapan",
+        "title": "Mayapan, Kukulcan Temple (14179882219) – Arian Zwegers from Brussels, Belgium (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mayapan,_Kukulcan_Temple_(14179882219).jpg",
         "license": "CC BY 2.0",
         "checked": "2026-11-26"
       }
@@ -4530,6 +4680,21 @@
       "source": null
     },
     {
+      "eventId": "osterbygden-overges",
+      "eventTitle": "Österbygden överges",
+      "file": "images/events/osterbygden-overges.webp",
+      "kind": "historisk",
+      "credit": "jtstewart / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-osterbygden-overges",
+        "title": "Hvalsey Church 2014 10 – jtstewart (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Hvalsey_Church_2014_10.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "ounjougou-keramik",
       "eventTitle": "Afrikas äldsta keramik i Ounjougou",
       "file": "images/events/ounjougou-keramik.webp",
@@ -4552,6 +4717,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "pachacuti-inkariket",
+      "eventTitle": "Pachacuti gör Cusco till Inkariket",
+      "file": "images/events/pachacuti-inkariket.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär; Brooklyn Museum / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-pachacuti-inkariket",
+        "title": "Brooklyn Museum - Pachacuti, Tenth Inca, 1 of 14 Portraits of Inca Kings (cropped) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Brooklyn_Museum_-_Pachacuti,_Tenth_Inca,_1_of_14_Portraits_of_Inca_Kings_(cropped).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "pakal-i-palenque",
@@ -4626,6 +4806,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Professor_Alexander_Fleming_at_work_in_his_laboratory_at_St_Mary%27s_Hospital%2C_London%2C_during_the_Second_World_War._D17801_%28cropped%29.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "piilani-enar-maui",
+      "eventTitle": "Piʻilani enar Maui",
+      "file": "images/events/piilani-enar-maui.webp",
+      "kind": "historisk",
+      "credit": "Joel Bradshaw / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-piilani-enar-maui",
+        "title": "Maui-Piilanihale-Heiau-corner – Joel Bradshaw (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Maui-Piilanihale-Heiau-corner.JPG",
+        "license": "CC0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -6237,6 +6432,21 @@
       }
     },
     {
+      "eventId": "spanska-erovringen-av-aztekriket",
+      "eventTitle": "Spanska erövringen av Aztekriket",
+      "file": "images/events/spanska-erovringen-av-aztekriket.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär (mexikansk skola); fotograf ej angiven / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-spanska-erovringen-av-aztekriket",
+        "title": "Museo de América Conquest of Mexico 04 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Museo_de_Am%C3%A9rica_Conquest_of_Mexico_04.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "spanska-sjukan",
       "eventTitle": "Spanska sjukan",
       "file": "images/events/spanska-sjukan.webp",
@@ -6253,6 +6463,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "stadsstaten-cusco-grundas",
+      "eventTitle": "Inkafolket grundar stadsstaten Cusco",
+      "file": "images/events/stadsstaten-cusco-grundas.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär; Brooklyn Museum / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-stadsstaten-cusco-grundas",
+        "title": "Brooklyn Museum - Manco Capac, First Inca, 1 of 14 Portraits of Inca Kings (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Brooklyn_Museum_-_Manco_Capac,_First_Inca,_1_of_14_Portraits_of_Inca_Kings.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "star-wars",
@@ -6570,6 +6795,21 @@
       }
     },
     {
+      "eventId": "tariacuri-purepecharriket",
+      "eventTitle": "Tariácuri lägger grunden till purépecharriket",
+      "file": "images/events/tariacuri-purepecharriket.webp",
+      "kind": "historisk",
+      "credit": "LBM1948 / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-tariacuri-purepecharriket",
+        "title": "Tzintzuntzan 09 – LBM1948 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tzintzuntzan_09.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "tarikh-al-sudan",
       "eventTitle": "Tarikh al-Sudan, krönikan om Songhai",
       "file": "images/events/tarikh-al-sudan.webp",
@@ -6664,6 +6904,21 @@
         "id": "commons-bild-telegraflinjen-genom-australien",
         "title": "Alice Springs Telegraph Station 4 – Reinhard Dietrich (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Alice_Springs_Telegraph_Station_4.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "templo-mayor-forsta-templet",
+      "eventTitle": "Det första templet på Templo Mayor byggs",
+      "file": "images/events/templo-mayor-forsta-templet.webp",
+      "kind": "historisk",
+      "credit": "Okänd nahuaskrivare för vicekungen Antonio de Mendoza / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-templo-mayor-forsta-templet",
+        "title": "First page of the Codex Mendoza, ca. 1541 restored (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:First_page_of_the_Codex_Mendoza,_ca._1541_restored.jpeg",
         "license": "Public domain",
         "checked": "2026-11-26"
       }
@@ -6855,6 +7110,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Zonnepoort_tiwanaku.jpg",
         "license": "Public domain",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "tlaxcala-forbund-1519",
+      "eventTitle": "Tlaxcala sluter förbund med spanjorerna",
+      "file": "images/events/tlaxcala-forbund-1519.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär (Lienzo de Tlaxcala) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tlaxcala-forbund-1519",
+        "title": "Guerreros tlaxcaltecas junto a sus aliados españoles Lienzo de Tlaxcala. Siglo XVI (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Guerreros_tlaxcaltecas_junto_a_sus_aliados_espa%C3%B1oles_Lienzo_de_Tlaxcala._Siglo_XVI.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {

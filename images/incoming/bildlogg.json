@@ -5118,5 +5118,293 @@
     "source": "commons-bild-paquime",
     "id": "paquime",
     "file": "paquime.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "inka",
+    "caption": {
+      "sv": "Porträtt \"Manco Capac, första inkan\" (oljemålning, mellan 1750 och 1800) ur serien Fjorton porträtt av inkakungar på Brooklyn Museum. Ett senare porträtt, gjort mer än 500 år efter händelsen (1200); det är inte en samtida avbildning. Licens: Public domain.",
+      "en": "Portrait \"Manco Capac, First Inca\" (oil painting, between 1750 and 1800) from the series Fourteen Portraits of Inca Kings at the Brooklyn Museum. A later portrait, made more than 500 years after the event (1200); it is not a contemporary depiction. Licence: Public domain.",
+      "de": "Porträt „Manco Capac, erster Inka\" (Ölgemälde, zwischen 1750 und 1800) aus der Reihe Vierzehn Porträts von Inkakönigen im Brooklyn Museum. Ein späteres Porträt, mehr als 500 Jahre nach dem Ereignis (1200) entstanden; es ist keine zeitgenössische Darstellung. Lizenz: gemeinfrei.",
+      "es": "Retrato «Manco Cápac, primer inca» (óleo sobre lienzo, entre 1750 y 1800) de la serie Catorce retratos de reyes incas del Brooklyn Museum. Un retrato posterior, hecho más de 500 años después del acontecimiento (1200); no es una representación de la época. Licencia: dominio público.",
+      "fr": "Portrait « Manco Capac, premier Inca » (huile sur toile, entre 1750 et 1800) de la série Quatorze portraits de rois incas du Brooklyn Museum. Un portrait postérieur, réalisé plus de 500 ans après l'événement (1200) ; ce n'est pas une représentation de l'époque. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär; Brooklyn Museum / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-stadsstaten-cusco-grundas",
+    "id": "stadsstaten-cusco-grundas",
+    "file": "stadsstaten-cusco-grundas.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Nutida foto (2013) av Arian Zwegers av El Castillo, Kukulcántemplet, i Mayapán på Yucatán. Enligt filsidan var Mayapán mayafolkets politiska och kulturella huvudstad på Yucatán från 1220-talet till 1440-talet. Inte från händelsens tid. Licens: CC BY 2.0.",
+      "en": "Modern photo (2013) by Arian Zwegers of El Castillo, the Temple of Kukulcan, at Mayapán in Yucatán. According to the file page Mayapán was the political and cultural capital of the Maya in the Yucatán from the 1220s to the 1440s. Not from the time of the event. Licence: CC BY 2.0.",
+      "de": "Heutiges Foto (2013) von Arian Zwegers von El Castillo, dem Kukulcán-Tempel, in Mayapán auf Yucatán. Laut Dateiseite war Mayapán von den 1220er- bis in die 1440er-Jahre die politische und kulturelle Hauptstadt der Maya auf Yucatán. Nicht aus der Zeit des Ereignisses. Lizenz: CC BY 2.0.",
+      "es": "Foto actual (2013) de Arian Zwegers de El Castillo, el templo de Kukulcán, en Mayapán (Yucatán). Según la página del archivo, Mayapán fue la capital política y cultural de los mayas en Yucatán desde la década de 1220 hasta la de 1440. No es de la época del acontecimiento. Licencia: CC BY 2.0.",
+      "fr": "Photo actuelle (2013) d'Arian Zwegers d'El Castillo, le temple de Kukulcán, à Mayapán, au Yucatán. Selon la page du fichier, Mayapán fut la capitale politique et culturelle des Mayas du Yucatán des années 1220 aux années 1440. Pas de l'époque de l'événement. Licence : CC BY 2.0."
+    },
+    "credit": "Arian Zwegers / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-mayapan",
+    "id": "mayapan",
+    "file": "mayapan.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Nutida foto (uppladdat 2006) av Jbermudez (engelskspråkiga Wikipedia): parken vid ceremonicentret Caguana (Parque Ceremonial Caguana) i Puerto Rico. Inte från händelsens tid. Licens: CC BY 2.5.",
+      "en": "Modern photo (uploaded in 2006) by Jbermudez (English Wikipedia): the park at the Caguana Ceremonial Center (Parque Ceremonial Caguana) in Puerto Rico. Not from the time of the event. Licence: CC BY 2.5.",
+      "de": "Heutiges Foto (2006 hochgeladen) von Jbermudez (englischsprachige Wikipedia): der Park am Zeremonialzentrum Caguana (Parque Ceremonial Caguana) in Puerto Rico. Nicht aus der Zeit des Ereignisses. Lizenz: CC BY 2.5.",
+      "es": "Foto actual (subida en 2006) de Jbermudez (Wikipedia en inglés): el parque del Centro Ceremonial de Caguana (Parque Ceremonial Caguana), en Puerto Rico. No es de la época del acontecimiento. Licencia: CC BY 2.5.",
+      "fr": "Photo actuelle (mise en ligne en 2006) de Jbermudez (Wikipédia en anglais) : le parc du centre cérémoniel de Caguana (Parque Ceremonial Caguana), à Porto Rico. Pas de l'époque de l'événement. Licence : CC BY 2.5."
+    },
+    "credit": "Jbermudez (engelskspråkiga Wikipedia) / Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "source": "commons-bild-caguana-ceremoniplats",
+    "id": "caguana-ceremoniplats",
+    "file": "caguana-ceremoniplats.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Flygfoto (2013) av NASA/Michael Studinger av en utloppsglaciär från Penny Ice Cap och en tillflödesglaciär till Coronation Glacier på Baffinön i Nunavut i Kanada. Nutida foto, inte från händelsens tid. Licens: Public domain.",
+      "en": "Aerial photo (2013) by NASA/Michael Studinger of an outlet glacier of the Penny Ice Cap and a tributary glacier of Coronation Glacier on Baffin Island, Nunavut, Canada. A modern photo, not from the time of the event. Licence: Public domain.",
+      "de": "Luftaufnahme (2013) von NASA/Michael Studinger eines Auslassgletschers der Penny-Eiskappe und eines Nebengletschers des Coronation-Gletschers auf Baffin Island in Nunavut, Kanada. Heutiges Foto, nicht aus der Zeit des Ereignisses. Lizenz: gemeinfrei.",
+      "es": "Foto aérea (2013) de NASA/Michael Studinger de un glaciar de descarga del casquete glaciar Penny y de un glaciar tributario del glaciar Coronation, en la isla de Baffin (Nunavut, Canadá). Foto actual, no de la época del acontecimiento. Licencia: dominio público.",
+      "fr": "Photo aérienne (2013) de NASA/Michael Studinger d'un glacier émissaire de la calotte Penny et d'un glacier tributaire du glacier Coronation, sur l'île de Baffin (Nunavut, Canada). Photo actuelle, pas de l'époque de l'événement. Licence : domaine public."
+    },
+    "credit": "NASA / Michael Studinger / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-kalla-somrar-pa-baffinon",
+    "id": "kalla-somrar-pa-baffinon",
+    "file": "kalla-somrar-pa-baffinon.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+      "sv": "Nutida foto (2013) av LBM1948 av en yácata, en pyramid, i Tzintzuntzan i Michoacán, med trakten kring Pátzcuarosjön i bakgrunden. Inte från händelsens tid. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2013) by LBM1948 of a yácata pyramid at Tzintzuntzan in Michoacán, with the area around Lake Pátzcuaro in the background. Not from the time of the event. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2013) von LBM1948 einer Yácata-Pyramide in Tzintzuntzan in Michoacán, im Hintergrund die Umgebung des Pátzcuaro-Sees. Nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2013) de LBM1948 de una pirámide yácata de Tzintzuntzan, en Michoacán, con el entorno del lago de Pátzcuaro al fondo. No es de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2013) de LBM1948 d'une pyramide yácata à Tzintzuntzan, dans le Michoacán, avec les environs du lac de Pátzcuaro à l'arrière-plan. Pas de l'époque de l'événement. Licence : CC BY-SA 4.0."
+    },
+    "credit": "LBM1948 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-tariacuri-purepecharriket",
+    "id": "tariacuri-purepecharriket",
+    "file": "tariacuri-purepecharriket.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+      "sv": "Nutida foto (2010) av Szilas av Codex Zouche-Nuttall, en förcolumbiansk mixtekisk bok av hjorthud i dragspelsform, utställd på British Library i London. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2010) by Szilas of the Codex Zouche-Nuttall, a pre-Columbian Mixtec screenfold book made of deerskin, on display at the British Library in London. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2010) von Szilas des Codex Zouche-Nuttall, eines präkolumbischen mixtekischen Leporellos aus Hirschleder, ausgestellt in der British Library in London. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2010) de Szilas del Códice Zouche-Nuttall, un libro plegado mixteco precolombino de piel de venado, expuesto en la British Library de Londres. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2010) de Szilas du Codex Zouche-Nuttall, un livre-paravent mixtèque précolombien en peau de cerf, exposé à la British Library à Londres. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Szilas / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-codex-zouche-nuttall",
+    "id": "codex-zouche-nuttall",
+    "file": "codex-zouche-nuttall.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+      "sv": "Första sidan i Codex Mendoza (omkring 1541): grundandet av den aztekiska huvudstaden Tenochtitlan. Färgerna är återställda och nivåerna justerade av en Commons-användare 2021. Gjord mer än 200 år efter händelsen (1325). Licens: Public domain.",
+      "en": "First page of the Codex Mendoza (about 1541): the founding of the Aztec capital Tenochtitlan. Colours restored and levels adjusted by a Commons user in 2021. Made more than 200 years after the event (1325). Licence: Public domain.",
+      "de": "Erste Seite des Codex Mendoza (um 1541): die Gründung der aztekischen Hauptstadt Tenochtitlan. Farben von einem Commons-Nutzer 2021 wiederhergestellt und Tonwerte angepasst. Mehr als 200 Jahre nach dem Ereignis (1325) entstanden. Lizenz: gemeinfrei.",
+      "es": "Primera página del Códice Mendoza (hacia 1541): la fundación de la capital azteca Tenochtitlan. Colores restaurados y niveles ajustados por un usuario de Commons en 2021. Hecha más de 200 años después del acontecimiento (1325). Licencia: dominio público.",
+      "fr": "Première page du Codex Mendoza (vers 1541) : la fondation de la capitale aztèque Tenochtitlan. Couleurs restaurées et niveaux ajustés par un utilisateur de Commons en 2021. Réalisée plus de 200 ans après l'événement (1325). Licence : domaine public."
+    },
+    "credit": "Okänd nahuaskrivare för vicekungen Antonio de Mendoza / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-templo-mayor-forsta-templet",
+    "id": "templo-mayor-forsta-templet",
+    "file": "templo-mayor-forsta-templet.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Nutida foto (2014) av jtstewart av ruinen av Hvalsey kyrka på Grönland. Inte från händelsens tid. Licens: CC BY-SA 2.0.",
+      "en": "Modern photo (2014) by jtstewart of the ruin of Hvalsey Church in Greenland. Not from the time of the event. Licence: CC BY-SA 2.0.",
+      "de": "Heutiges Foto (2014) von jtstewart der Ruine der Hvalsey-Kirche in Grönland. Nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 2.0.",
+      "es": "Foto actual (2014) de jtstewart de las ruinas de la iglesia de Hvalsey, en Groenlandia. No es de la época del acontecimiento. Licencia: CC BY-SA 2.0.",
+      "fr": "Photo actuelle (2014) de jtstewart des ruines de l'église de Hvalsey, au Groenland. Pas de l'époque de l'événement. Licence : CC BY-SA 2.0."
+    },
+    "credit": "jtstewart / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-brollopet-i-hvalsey",
+    "id": "brollopet-i-hvalsey",
+    "file": "brollopet-i-hvalsey.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Nutida foto (2014) av jtstewart av Hvalsey kyrka på Grönland, sedd inifrån ruinen; i bilden syns två besökare. Kyrkan stod i Österbygden. Inte från händelsens tid. Licens: CC BY-SA 2.0.",
+      "en": "Modern photo (2014) by jtstewart of Hvalsey Church in Greenland, seen from inside the ruin; two visitors can be seen. The church stood in the Eastern Settlement. Not from the time of the event. Licence: CC BY-SA 2.0.",
+      "de": "Heutiges Foto (2014) von jtstewart der Hvalsey-Kirche in Grönland, von innerhalb der Ruine aufgenommen; zwei Besucher sind zu sehen. Die Kirche stand in der Ostsiedlung. Nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 2.0.",
+      "es": "Foto actual (2014) de jtstewart de la iglesia de Hvalsey, en Groenlandia, vista desde el interior de las ruinas; se ven dos visitantes. La iglesia se encontraba en el Asentamiento Oriental. No es de la época del acontecimiento. Licencia: CC BY-SA 2.0.",
+      "fr": "Photo actuelle (2014) de jtstewart de l'église de Hvalsey, au Groenland, vue de l'intérieur des ruines ; deux visiteurs sont visibles. L'église se trouvait dans l'Établissement de l'Est. Pas de l'époque de l'événement. Licence : CC BY-SA 2.0."
+    },
+    "credit": "jtstewart / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-osterbygden-overges",
+    "id": "osterbygden-overges",
+    "file": "osterbygden-overges.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+      "sv": "Del av sidan 34 i Codex Osuna från 1565: bildsymbolerna för Texcoco, Tenochtitlan (Mexiko) och Tlacopán. Gjord mer än 130 år efter händelsen (1427). Licens: Public domain.",
+      "en": "Section of page 34 of the Codex Osuna from 1565: the pictorial symbols for Texcoco, Tenochtitlan (Mexico) and Tlacopán. Made more than 130 years after the event (1427). Licence: Public domain.",
+      "de": "Ausschnitt von Seite 34 des Codex Osuna von 1565: die Bildsymbole für Texcoco, Tenochtitlan (Mexiko) und Tlacopán. Mehr als 130 Jahre nach dem Ereignis (1427) entstanden. Lizenz: gemeinfrei.",
+      "es": "Fragmento de la página 34 del Códice Osuna, de 1565: los símbolos pictóricos de Texcoco, Tenochtitlan (México) y Tlacopan. Hecho más de 130 años después del acontecimiento (1427). Licencia: dominio público.",
+      "fr": "Détail de la page 34 du Codex Osuna, de 1565 : les symboles pictographiques de Texcoco, Tenochtitlan (Mexico) et Tlacopan. Réalisé plus de 130 ans après l'événement (1427). Licence : domaine public."
+    },
+    "credit": "Okänd (Codex Osuna) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-aztekiska-trippelalliansen",
+    "id": "aztekiska-trippelalliansen",
+    "file": "aztekiska-trippelalliansen.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "inka",
+    "caption": {
+      "sv": "Porträtt \"Pachacuti, tionde inkan\" (oljemålning, mellan 1750 och 1800) ur serien Fjorton porträtt av inkakungar på Brooklyn Museum. Ett senare porträtt, gjort mer än 300 år efter händelsen (1438); det är inte en samtida avbildning. Licens: Public domain.",
+      "en": "Portrait \"Pachacuti, Tenth Inca\" (oil painting, between 1750 and 1800) from the series Fourteen Portraits of Inca Kings at the Brooklyn Museum. A later portrait, made more than 300 years after the event (1438); it is not a contemporary depiction. Licence: Public domain.",
+      "de": "Porträt „Pachacuti, zehnter Inka\" (Ölgemälde, zwischen 1750 und 1800) aus der Reihe Vierzehn Porträts von Inkakönigen im Brooklyn Museum. Ein späteres Porträt, mehr als 300 Jahre nach dem Ereignis (1438) entstanden; es ist keine zeitgenössische Darstellung. Lizenz: gemeinfrei.",
+      "es": "Retrato «Pachacuti, décimo inca» (óleo sobre lienzo, entre 1750 y 1800) de la serie Catorce retratos de reyes incas del Brooklyn Museum. Un retrato posterior, hecho más de 300 años después del acontecimiento (1438); no es una representación de la época. Licencia: dominio público.",
+      "fr": "Portrait « Pachacuti, dixième Inca » (huile sur toile, entre 1750 et 1800) de la série Quatorze portraits de rois incas du Brooklyn Museum. Un portrait postérieur, réalisé plus de 300 ans après l'événement (1438) ; ce n'est pas une représentation de l'époque. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär; Brooklyn Museum / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-pachacuti-inkariket",
+    "id": "pachacuti-inkariket",
+    "file": "pachacuti-inkariket.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Nutida foto (2013) av Joel Bradshaw av ett hörn av Piʻilanihale Heiau i Kahanu Garden nära Hana på Maui. Filsidan anger inte vem som byggde heiaun eller när. Inte från händelsens tid. Licens: CC0.",
+      "en": "Modern photo (2013) by Joel Bradshaw of a corner of Piʻilanihale Heiau in Kahanu Garden near Hana, Maui. The file page does not say who built the heiau or when. Not from the time of the event. Licence: CC0.",
+      "de": "Heutiges Foto (2013) von Joel Bradshaw einer Ecke des Piʻilanihale Heiau im Kahanu Garden bei Hana auf Maui. Die Dateiseite nennt nicht, wer den Heiau erbaut hat oder wann. Nicht aus der Zeit des Ereignisses. Lizenz: CC0.",
+      "es": "Foto actual (2013) de Joel Bradshaw de una esquina del Piʻilanihale Heiau, en el Kahanu Garden, cerca de Hana (Maui). La página del archivo no indica quién construyó el heiau ni cuándo. No es de la época del acontecimiento. Licencia: CC0.",
+      "fr": "Photo actuelle (2013) de Joel Bradshaw d'un angle du Piʻilanihale Heiau, dans le Kahanu Garden près de Hana, à Maui. La page du fichier n'indique pas qui a construit le heiau ni quand. Pas de l'époque de l'événement. Licence : CC0."
+    },
+    "credit": "Joel Bradshaw / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-piilani-enar-maui",
+    "id": "piilani-enar-maui",
+    "file": "piilani-enar-maui.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Nutida foto (2019) av Mariordo av nationalparken La Isabela (Parque Nacional Histórico y Arqueológico) i Luperón i Dominikanska republiken. Inte från händelsens tid. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2019) by Mariordo of La Isabela Historical and Archaeological National Park in Luperón, Dominican Republic. Not from the time of the event. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2019) von Mariordo des Historischen und Archäologischen Nationalparks La Isabela in Luperón in der Dominikanischen Republik. Nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2019) de Mariordo del Parque Nacional Histórico y Arqueológico de La Isabela, en Luperón (República Dominicana). No es de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2019) de Mariordo du parc national historique et archéologique de La Isabela, à Luperón, en République dominicaine. Pas de l'époque de l'événement. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Mariordo (Mario Roberto Durán Ortiz) / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-la-isabela-columbianska-utbytet",
+    "id": "la-isabela-columbianska-utbytet",
+    "file": "la-isabela-columbianska-utbytet.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+      "sv": "Detalj ur en målning på Museo de América i Madrid (1676–1700, mexikansk skola, Nya Spanien): under belägringen av Tenochtitlan undkom Hernán Cortés med knapp nöd tillfångatagande av aztekiska krigare. Målad mer än 150 år efter händelsen. Licens: CC BY-SA 3.0.",
+      "en": "Detail of a painting at the Museo de América in Madrid (1676–1700, Mexican school, New Spain): during the siege of Tenochtitlan Hernán Cortés nearly escaped capture by Aztec warriors. Painted more than 150 years after the events. Licence: CC BY-SA 3.0.",
+      "de": "Ausschnitt eines Gemäldes im Museo de América in Madrid (1676–1700, mexikanische Schule, Neuspanien): Während der Belagerung von Tenochtitlan entkam Hernán Cortés nur knapp der Gefangennahme durch aztekische Krieger. Mehr als 150 Jahre nach den Ereignissen gemalt. Lizenz: CC BY-SA 3.0.",
+      "es": "Detalle de una pintura del Museo de América de Madrid (1676–1700, escuela mexicana, Nueva España): durante el asedio de Tenochtitlan, Hernán Cortés estuvo a punto de ser capturado por guerreros aztecas. Pintada más de 150 años después de los hechos. Licencia: CC BY-SA 3.0.",
+      "fr": "Détail d'un tableau du Museo de América à Madrid (1676–1700, école mexicaine, Nouvelle-Espagne) : pendant le siège de Tenochtitlan, Hernán Cortés échappa de peu à la capture par des guerriers aztèques. Peint plus de 150 ans après les faits. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Okänd konstnär (mexikansk skola); fotograf ej angiven / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-spanska-erovringen-av-aztekriket",
+    "id": "spanska-erovringen-av-aztekriket",
+    "file": "spanska-erovringen-av-aztekriket.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+      "sv": "Tlaxcalakrigare tillsammans med sina spanska allierade, ur Lienzo de Tlaxcala. Beskrivningen på filsidan anger 1500-talet. En avbildning av tlaxcalaner själva, gjord efter händelsen. Licens: Public domain.",
+      "en": "Tlaxcalan warriors together with their Spanish allies, from the Lienzo de Tlaxcala. The file page description gives the 16th century. A depiction by Tlaxcalans themselves, made after the event. Licence: Public domain.",
+      "de": "Tlaxcalteken-Krieger zusammen mit ihren spanischen Verbündeten, aus dem Lienzo de Tlaxcala. Die Beschreibung der Dateiseite nennt das 16. Jahrhundert. Eine Darstellung der Tlaxcalteken selbst, nach dem Ereignis entstanden. Lizenz: gemeinfrei.",
+      "es": "Guerreros tlaxcaltecas junto con sus aliados españoles, del Lienzo de Tlaxcala. La descripción de la página del archivo indica el siglo XVI. Una representación hecha por los propios tlaxcaltecas, posterior al acontecimiento. Licencia: dominio público.",
+      "fr": "Guerriers tlaxcaltèques avec leurs alliés espagnols, tiré du Lienzo de Tlaxcala. La description de la page du fichier indique le XVIe siècle. Une représentation réalisée par les Tlaxcaltèques eux-mêmes, postérieure à l'événement. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär (Lienzo de Tlaxcala) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-tlaxcala-forbund-1519",
+    "id": "tlaxcala-forbund-1519",
+    "file": "tlaxcala-forbund-1519.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+      "sv": "Oljemålning av Félix Parra (1845–1919), daterad 1877: Episoder ur erövringen, massakern i Cholula (1519). Målad drygt 350 år efter händelsen; en senare, tolkande framställning av ett våldsamt övergrepp. Licens: Public domain.",
+      "en": "Oil painting by Félix Parra (1845–1919), dated 1877: Episodes of the Conquest, the massacre of Cholula (1519). Painted more than 350 years after the event; a later, interpretive depiction of a violent atrocity. Licence: Public domain.",
+      "de": "Ölgemälde von Félix Parra (1845–1919), datiert 1877: Episoden der Eroberung, das Massaker von Cholula (1519). Mehr als 350 Jahre nach dem Ereignis gemalt; eine spätere, deutende Darstellung einer gewaltsamen Gräueltat. Lizenz: gemeinfrei.",
+      "es": "Óleo sobre lienzo de Félix Parra (1845–1919), fechado en 1877: Episodios de la Conquista, la matanza de Cholula (1519). Pintado más de 350 años después del acontecimiento; una representación posterior e interpretativa de una atrocidad violenta. Licencia: dominio público.",
+      "fr": "Huile sur toile de Félix Parra (1845–1919), datée de 1877 : Épisodes de la Conquête, le massacre de Cholula (1519). Peint plus de 350 ans après l'événement ; une représentation postérieure et interprétative d'une atrocité violente. Licence : domaine public."
+    },
+    "credit": "Félix Parra / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-massakern-i-cholula",
+    "id": "massakern-i-cholula",
+    "file": "massakern-i-cholula.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+      "sv": "Cortés och La Malinche möter Moctezuma II i Tenochtitlan, 8 november 1519, ur Lienzo de Tlaxcala (original omkring 1550; faksimil utgiven omkring 1890). Filsidan påpekar anakronismer, till exempel europeiska stolar. Licens: Public domain.",
+      "en": "Cortés and La Malinche meet Moctezuma II at Tenochtitlan, 8 November 1519, from the Lienzo de Tlaxcala (original about 1550; facsimile published about 1890). The file page points out anachronisms, such as European-style chairs. Licence: Public domain.",
+      "de": "Cortés und La Malinche treffen Moctezuma II. in Tenochtitlan, 8. November 1519, aus dem Lienzo de Tlaxcala (Original um 1550; Faksimile um 1890 veröffentlicht). Die Dateiseite weist auf Anachronismen hin, etwa europäische Stühle. Lizenz: gemeinfrei.",
+      "es": "Cortés y La Malinche se encuentran con Moctezuma II en Tenochtitlan, el 8 de noviembre de 1519, del Lienzo de Tlaxcala (original hacia 1550; facsímil publicado hacia 1890). La página del archivo señala anacronismos, como las sillas de estilo europeo. Licencia: dominio público.",
+      "fr": "Cortés et La Malinche rencontrent Moctezuma II à Tenochtitlan, le 8 novembre 1519, d'après le Lienzo de Tlaxcala (original vers 1550 ; fac-similé publié vers 1890). La page du fichier signale des anachronismes, comme les chaises de style européen. Licence : domaine public."
+    },
+    "credit": "Okända tlaxcalanska konstnärer / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-cortes-moter-moctezuma",
+    "id": "cortes-moter-moctezuma",
+    "file": "cortes-moter-moctezuma.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+      "sv": "Bild ur Códice Durán som visar massakern vid Stora templet; filsidan anger \"mellan 1521 och 1530\", men en kodex av detta slag kan inte dateras säkert ur filsidan. En avbildning gjord efter händelsen (1520), med våldsskildring. Licens: Public domain.",
+      "en": "Image from the Durán Codex showing the massacre at the Great Temple; the file page says \"between 1521 and 1530\", but the file page alone cannot date such a codex reliably. A depiction made after the event (1520), showing violence. Licence: Public domain.",
+      "de": "Bild aus dem Codex Durán, die das Massaker am Großen Tempel zeigt; die Dateiseite nennt „zwischen 1521 und 1530\", doch die Dateiseite allein erlaubt keine sichere Datierung eines solchen Kodex. Eine nach dem Ereignis (1520) entstandene Darstellung mit Gewaltszenen. Lizenz: gemeinfrei.",
+      "es": "Imagen del Códice Durán que muestra la matanza del Templo Mayor; la página del archivo indica «entre 1521 y 1530», pero la página sola no permite datar con seguridad un códice así. Una representación hecha después del acontecimiento (1520), con escenas de violencia. Licencia: dominio público.",
+      "fr": "Image du Codex Durán montrant le massacre du Grand Temple ; la page du fichier indique « entre 1521 et 1530 », mais la page seule ne permet pas de dater avec certitude un tel codex. Une représentation réalisée après l'événement (1520), avec des scènes de violence. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär (Códice Durán) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-massakern-vid-toxcatl",
+    "id": "massakern-vid-toxcatl",
+    "file": "massakern-vid-toxcatl.webp"
   }
 ]
