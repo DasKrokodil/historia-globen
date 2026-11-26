@@ -3470,8 +3470,9 @@ span.theme-event:hover { background: none; outline: none; }
    med mus (pointer: fine) är allt oförändrat. */
 @media (pointer: coarse) {
   .top-actions .chip-btn, #btn-lang { min-height: 44px; min-width: 44px; box-sizing: border-box; }
-  .controls :is(.step, .play, .speed) { min-height: 44px; box-sizing: border-box; }
-  .controls .step { min-width: 44px; }
+  /* Inte i en tur eller lektion: pausraden och turkortet ovanför mäts mot tidsradens höjd och har ingen plats att ge i låg höjd (#2147, #1694) */
+  .app:not(.touring) .controls :is(.step, .play, .speed) { min-height: 44px; box-sizing: border-box; }
+  .app:not(.touring) .controls .step { min-width: 44px; }
   .funfact .ff-foot .link-btn { min-height: 44px; min-width: 44px; justify-content: center; box-sizing: border-box; }
   .funfact .ff-chip { min-height: 44px; box-sizing: border-box; }
 }
@@ -3487,8 +3488,8 @@ span.theme-event:hover { background: none; outline: none; }
    bokstavsavståndet mindre). Kortet rullar inuti som förut. */
 @media (min-width: 761px) and (max-width: 1100px) and (max-height: 480px) and (orientation: landscape) and (pointer: coarse) {
   .top-actions { top: calc(env(safe-area-inset-top, 0px) + 4px); row-gap: 2px; }
-  .app:not(.lesson):not(.lesson-notice):not(.focusing) .masthead { top: calc(env(safe-area-inset-top, 0px) + 4px + var(--tablet-actions-height, 98px) + 2px); }
-  .app:not(.lesson):not(.lesson-notice):not(.focusing) .masthead .segment-note { margin-top: 2px; }
+  .app:not(.lesson):not(.lesson-notice):not(.touring):not(.focusing) .masthead { top: calc(env(safe-area-inset-top, 0px) + 4px + var(--tablet-actions-height, 98px) + 2px); }
+  .app:not(.lesson):not(.lesson-notice):not(.touring):not(.focusing) .masthead .segment-note { margin-top: 2px; }
   .app:not(.lesson):not(.touring):not(.focusing) .detail-card { bottom: 160px; } /* stegknapparna är 12 px högre */
   .app:not(.lesson):not(.touring):not(.focusing) :is(.funfact, .ff-tab) { left: calc(var(--gut) + 316px); } /* till höger om årtalets förklaring, som nu ligger högre */
   .app:not(.lesson):not(.touring):not(.focusing) .funfact { width: min(460px, calc(100vw - var(--gut) - 316px - var(--gut-r))); }
