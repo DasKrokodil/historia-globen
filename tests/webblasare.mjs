@@ -5027,6 +5027,18 @@ async function run(browser, vp) {
   const followsGreenland = pg => pg.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Grönland/.test(document.getElementById('focus-title').textContent)
     && !!document.querySelector('#detail .place-type'), null, { timeout: T.step });
   await check('tryck på konturen av en plats öppnar kortet, bara inzoomat och i vanligt läge (#1161)', async () => {
+    // #2178 (fynd 2): i Firefox mobil gav någon av väntorna här bara "Timeout 15000ms exceeded". Varje väntan har nu ett namn, och felet
+    // säger vad sidan visade när tiden gick ut (handen, adressen, om Fokus och kortet var öppna, pekartyp och fönster).
+    const vanta = async (pg, vad, fn) => {
+      try { await pg.waitForFunction(fn, null, { timeout: T.step }); } catch (err) {
+        const st = await pg.evaluate(() => {
+          const c = document.getElementById('globe-canvas');
+          return { glob: c?.className, hash: location.hash, fokus: !document.getElementById('focus-bar').hidden, titel: document.getElementById('focus-title')?.textContent, kort: !document.getElementById('detail').hidden,
+            fonster: [innerWidth, innerHeight], pekare: { fin: matchMedia('(pointer: fine)').matches, grov: matchMedia('(pointer: coarse)').matches, hover: matchMedia('(hover: hover)').matches } };
+        }).catch(() => ({ okant: true }));
+        throw new Error(`väntan på ${vad}: ${String(err.message).split('\n')[0]} ${JSON.stringify(st)}`);
+      }
+    };
     // Utzoomat syns ingen kontur och ett tryck på Grönland öppnar ingenting
     const far = await placeTapPage('#y=1000&c=76,-40,1', 'platstryck1');
     try {
@@ -5042,17 +5054,18 @@ async function run(browser, vp) {
     try {
       const at = await centreOf(tp, 0.18);
       await tp.mouse.move(at.x, at.y);
-      await tp.waitForFunction(() => document.getElementById('globe-canvas').classList.contains('on-place'), null, { timeout: T.step });
+      await vanta(tp, 'handen över konturen inzoomat', () => document.getElementById('globe-canvas').classList.contains('on-place'));
       await tp.mouse.click(at.x, at.y);
-      await followsGreenland(tp);
-      await tp.waitForFunction(() => location.hash.includes('f=place:gronland'), null, { timeout: T.step });
+      await vanta(tp, 'att Grönland följs och kortet öppnas', () => !document.getElementById('focus-bar').hidden && /Grönland/.test(document.getElementById('focus-title').textContent)
+        && !!document.querySelector('#detail .place-type'));
+      await vanta(tp, 'adressen f=place:gronland', () => location.hash.includes('f=place:gronland'));
       // I Fokus är den följda platsens kontur fortfarande en genväg till kortet (#1791): stäng kortet, och öppna det igen från kartan.
       await tp.click('#detail [data-close]');
       await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
       // När Fokus har följt platsen ligger den mitt på globen (på mobil flyttas den alltså från det första träffläget högre upp).
       const followedAt = await centreOf(tp);
       await tp.mouse.move(followedAt.x, followedAt.y);
-      await tp.waitForFunction(() => document.getElementById('globe-canvas').classList.contains('on-place'), null, { timeout: T.step });
+      await vanta(tp, 'handen över den följda platsen', () => document.getElementById('globe-canvas').classList.contains('on-place'));
       await tp.mouse.click(followedAt.x, followedAt.y);
       await tp.waitForSelector('#detail', { state: 'visible', timeout: T.step });
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
@@ -5421,6 +5434,12 @@ async function run(browser, vp) {
     /** Punkter där pekaren blir en hand (on-place): hittas med musen över ett rutnät. */
     const handPoints = async (pg, canvas) => {
       const box = await pg.locator(canvas).boundingBox(), pts = [];
+      // #2178 (fynd 4): i Firefox hittades ingen hand i Platt karta 800 × 360. Kartan sätter on-place bara för pekare av typen mus
+      // (js/ui/flatmap.js, _hover), så räknaren säger vilka pekartyper kartan fick och hur många rörelser som nådde den.
+      await pg.evaluate(sel => {
+        const c = document.querySelector(sel), seen = (window.__handDiag = { rorelser: 0, typer: {}, knappar: 0 });
+        c.addEventListener('pointermove', e => { seen.rorelser++; seen.typer[e.pointerType] = (seen.typer[e.pointerType] ?? 0) + 1; if (e.buttons) seen.knappar++; }, true);
+      }, canvas);
       for (let r = 0; r < 16; r++) for (let c = 0; c < 16; c++) {
         const x = box.x + box.width * (0.08 + 0.84 * c / 15), y = box.y + box.height * (0.04 + 0.76 * r / 15);
         await pg.mouse.move(x, y);
@@ -5452,7 +5471,15 @@ async function run(browser, vp) {
         }
         await closeCard(tp);
         const { pts, box } = await handPoints(tp, canvas);
-        if (!pts.length) throw new Error(`${sc.name}: pekaren blir ingen hand över platsen man följer`);
+        if (!pts.length) {
+          const diag = await tp.evaluate(sel => {
+            const c = document.querySelector(sel), r = c.getBoundingClientRect(), mid = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+            return { rorelser: window.__handDiag, klass: c.className, ovanpa: mid ? `${mid.id || mid.className || mid.tagName}` : 'inget', canvas: [Math.round(r.width), Math.round(r.height)], fonster: [innerWidth, innerHeight],
+              pekare: { fin: matchMedia('(pointer: fine)').matches, grov: matchMedia('(pointer: coarse)').matches, hover: matchMedia('(hover: hover)').matches },
+              regionvy: document.getElementById('flat-view').dataset.region ?? null, vy: document.getElementById('flat-view').dataset.view ?? null, foljer: document.getElementById('focus-title')?.textContent };
+          }, canvas).catch(() => ({ okant: true }));
+          throw new Error(`${sc.name}: pekaren blir ingen hand över platsen man följer (${JSON.stringify(diag)})`);
+        }
         const place = sc.id === 'danmark' ? 'Danmark' : 'Skåne';
         for (const kind of sc.kinds) {
           let opened = false;
@@ -9490,10 +9517,35 @@ async function run(browser, vp) {
     return `${r.group}: ${r.checks.map(c => `${c.year} ${c.want}`).join(', ')}; inga utan Fokus; namnet viker för en markör`;
   });
 
-  await check('Upptäcktsvyns förklaring går att fälla ihop', async () => {
-    await setLayer('discovery', true);
+  // #2178 (fynd 7): Escape stänger Lager-menyn (en lyssnare på dokumentet i js/ui/layers.js, utan krav på fokus på knappen). I WebKit låg menyn
+  // kvar i 15 s efter Escape. Kravet är oförändrat; felet säger nu om tangenttrycket nådde sidan och dokumentet, var fokus stod, vad som var
+  // öppet, och om samma tryck skickat från sidan stänger menyn (då är det leveransen av tangenttrycket som felar, inte menyn).
+  // Lyssnarna sätts före lagerklicket, så att Escape trycks direkt efter klicket som förut (en extra rundtur dit ändrade tidsförloppet).
+  const escapeLyssna = () => page.evaluate(() => {
+    window.__esc ??= (() => {
+      const e = { logg: [] };
+      const name = n => (n ? `${n.nodeName}${n.id ? `#${n.id}` : ''}` : 'inget');
+      window.addEventListener('keydown', ev => { if (ev.key === 'Escape') e.logg.push(`fångad av fönstret, mål ${name(ev.target)}`); }, true);
+      document.addEventListener('keydown', ev => { if (ev.key === 'Escape') e.logg.push(`nådde dokumentet${ev.defaultPrevented ? ', avbruten' : ''}`); });
+      return e;
+    })();
+  });
+  const escapeStanger = async sel => {
     await page.keyboard.press('Escape');
-    await hidden('#layer-menu');
+    try { await hidden(sel); } catch (err) {
+      const d = await page.evaluate(id => {
+        const a = document.activeElement, menu = document.querySelector(id);
+        return { sidanHarFokus: document.hasFocus(), aktivt: a ? `${a.nodeName}${a.id ? `#${a.id}` : ''}` : 'inget', menyDold: menu?.hidden, knappExpanderad: document.getElementById('btn-layers')?.getAttribute('aria-expanded'),
+          tangent: window.__esc?.logg, oppna: ['detail', 'focus-menu', 'layer-menu', 'help', 'teacher', 'settings', 'feedback', 'sources-dialog', 'jump-pop', 'religion-pop', 'route-pop'].filter(x => document.getElementById(x) && !document.getElementById(x).hidden) };
+      }, sel).catch(() => ({ okant: true }));
+      const fran = await page.evaluate(id => { document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); return document.querySelector(id)?.hidden ?? null; }, sel).catch(() => null);
+      throw new Error(`${sel} låg kvar efter Escape: ${JSON.stringify(d)}; ett Escape skickat från sidan gav menyDold=${fran} (${String(err.message).split('\n')[0]})`);
+    }
+  };
+  await check('Upptäcktsvyns förklaring går att fälla ihop', async () => {
+    await escapeLyssna();
+    await setLayer('discovery', true);
+    await escapeStanger('#layer-menu');
     const legend = page.locator('#religion-legend');
     const toggle = legend.locator('.rl-toggle');
     const body = legend.locator('#rl-body');
@@ -9537,8 +9589,7 @@ async function run(browser, vp) {
     await sect('images').locator('summary').click();
     await shot('4b-upptacktsvy');
     await setLayer('discovery', false);
-    await page.keyboard.press('Escape');
-    await hidden('#layer-menu');
+    await escapeStanger('#layer-menu');
     await hidden('#religion-legend');
     return 'fälls ihop och ut; valet sparas i sessionen';
   });
@@ -14563,26 +14614,47 @@ async function run(browser, vp) {
       const summary = tp.locator('#detail.frame-grotta .detail-note > summary').filter({ hasText: 'Om slutet' });
       await summary.waitFor({ state: 'visible', timeout: T.step });
       await summary.evaluate(el => el.scrollIntoView({ block: 'center' }));
-      const { color, clip } = await summary.evaluate(el => {
+      // Vänta tills rubriken står still (kortets rullning och inflygning): Firefox och WebKit rullar och ritar om asynkront, och en ruta som
+      // klipptes före det visade bokstäverna i stället för bakgrunden (#2178: 1,00:1 i Firefox, 2,18:1 i WebKit, 5,24:1 i Chromium)
+      const place = () => summary.evaluate(el => {
         const range = document.createRange();
         range.selectNodeContents(el);
         const { x, y, width, height } = range.getBoundingClientRect();
         return { color: getComputedStyle(el).color.match(/[0-9.]+/g).slice(0, 3).map(Number), clip: { x, y, width, height } };
       });
-      // Dölj bara bokstäverna så att provet mäter den tonade bakgrunden där rubriken verkligen står.
-      const original = await summary.evaluate(el => {
-        const inlineColor = el.style.color;
-        el.style.color = 'transparent';
-        return inlineColor;
-      });
-      let data;
-      try { ({ data } = PNG.sync.read(await tp.screenshot({ clip }))); }
-      finally { await summary.evaluate((el, color) => { el.style.color = color; }, original); }
-      let min = Infinity;
-      for (let i = 0; i < data.length; i += 4) {
-        min = Math.min(min, kontrast(color, [data[i], data[i + 1], data[i + 2]]));
+      let { color, clip } = await place();
+      for (let i = 0; i < 20; i++) {
+        await tp.evaluate(() => new Promise(done => requestAnimationFrame(() => requestAnimationFrame(done))));
+        const next = await place();
+        const same = ['x', 'y', 'width', 'height'].every(k => Math.abs(next.clip[k] - clip[k]) < 0.5);
+        ({ color, clip } = next);
+        if (same) break;
       }
-      if (min < 4.5) throw new Error(`Om slutet: ${min.toFixed(2)}:1 understiger 4,5:1`);
+      // Dölj bara bokstäverna så att provet mäter den tonade bakgrunden där rubriken verkligen står. Stilen läggs på av själva
+      // skärmbilden (`style`), inte av en inline-ändring före den: den ändringen hann inte ritas före bilden i Firefox och WebKit.
+      const hideText = '.detail-note > summary, .detail-note > summary * { color: transparent !important; -webkit-text-fill-color: transparent !important; text-shadow: none !important; }';
+      const shot = await tp.screenshot({ clip, style: hideText });
+      const { data } = PNG.sync.read(shot);
+      let min = Infinity, at = -1;
+      let sameAsText = 0;
+      for (let i = 0; i < data.length; i += 4) {
+        const c = kontrast(color, [data[i], data[i + 1], data[i + 2]]);
+        if (c < min) { min = c; at = i / 4; }
+        if (c < 1.05) sameAsText++;
+      }
+      if (min < 4.5) {
+        // Bilden sparas (CI laddar upp skärmbilderna) och felet säger var det sämsta bildpunkten låg och hur många som har textens färg,
+        // så att nästa körning visar om bokstäverna fanns kvar i bilden eller om bakgrunden verkligen är för ljus
+        fs.writeFileSync(path.join(OUT, `${vp.name}-2153-om-slutet.png`), shot);
+        const w = Math.max(1, Math.round(clip.width));
+        const px = i => [data[i * 4], data[i * 4 + 1], data[i * 4 + 2]];
+        const stat = await summary.evaluate(el => {
+          const cs = getComputedStyle(el), card = el.closest('#detail'), r = el.getBoundingClientRect();
+          return { text: cs.color, fill: cs.webkitTextFillColor, bakgrund: getComputedStyle(el.parentElement).backgroundColor, ruta: [Math.round(r.x), Math.round(r.y), Math.round(r.width), Math.round(r.height)],
+            kortets_rullning: card ? Math.round(card.scrollTop) : null, fonster: [innerWidth, innerHeight], oppen: el.parentElement.open };
+        });
+        throw new Error(`Om slutet: ${min.toFixed(2)}:1 understiger 4,5:1 (sämsta bildpunkt ${at % w},${Math.floor(at / w)} av ${w}×${Math.round(clip.height)} har färgen ${px(at)} mot textens ${color}; ${sameAsText} bildpunkter har textens färg; ${JSON.stringify(stat)}; bilden ligger i ${vp.name}-2153-om-slutet.png)`);
+      }
       if (errs.length) throw new Error(errs.join(' | '));
       return `Om slutet: minst ${min.toFixed(2)}:1 över notens bakgrund`;
     } finally { await stangSida(tctx); }
