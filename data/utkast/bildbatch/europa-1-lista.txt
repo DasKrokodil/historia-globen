@@ -1,0 +1,15 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:Paleolithic, obsidian, Franchthi Cave, 202046.jpg	obsidian-fran-melos-i-franchthi
+# File:Close-up of the Wingertsbergwand.jpg	laacher-see-utbrottet
+# File:Partin 2015 YD global map.jpg	yngre-dryas
+# File:AntreaNet.jpg	natet-fran-antrea
+# File:Urfa museum Nevalı Çori Temple in 2025 1225.jpg	nevali-cori-kultbyggnad
+# File:Doggerland.svg	doggerland-drankes
+# File:Tybrind Vig bow tips.jpg	tybrind-vig
+# File:NalchikJewishCemetery.jpg	gravfaltet-i-naltjik
+# File:Or de Varna - Nécropole.jpg	varna-gravfaltet
+# File:Neolithic Flint Mines at Spiennes 2.jpg	flintgruvorna-i-spiennes
+# File:Alta-Carvings-2012-07-17-12-15-018.jpg	hallristningarna-i-alta
+# File:Astuvansalmen kalliolippa.jpg	hallmalningarna-i-astuvansalmi
+# File:Neolithic polished stone axe fragment, Langdale stone (FindID 430451).jpg	stenyxorna-fran-langdale

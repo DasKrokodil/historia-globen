@@ -802,3 +802,40 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `decena-tragica` | 2026-11-26: Kandidaten (Decena trágica.JPG: 1913 års foto av Osuna) har enligt filsidan licensen GFDL/CC BY-SA 3.0 satt av uppladdaren på ett foto från 1913; licensen är overifierad och bilden används inte. |
 | `slaget-vid-zacatecas-1914` | 2026-11-26: Enda kandidaten (TakingofZacatecas.JPG) är ett verk från 1965 (en senare avbildning, troligen ett modernt konstverk); används inte. |
 | `vandringsduvan-dor-ut` | 2026-11-26: Enda kandidaten (Martha, den sista vandringsduvan, 1912) har licensrisk (PD-US); verktyget flaggade att fotot kanske bara är fritt i USA; används inte utan närmare kontroll. |
+
+
+## Europa 208000 f.Kr.–3600 f.Kr. (#2074 och #2076, 2026-11-26)
+
+11 av 40 händelser fick bild i den här omgången. Följande 29 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/europa-1.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `apidima` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras (gäller fossil av människoarter: riktiga fynd först, ingen rekonstruktion). |
+| `ranis-zlaty-kun` | 2026-11-26: Ingen kandidat i listan; gäller människoben; ingen egen sökning hann göras. |
+| `kampanska-ignimbriten` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `lascaux` | 2026-11-26: Händelsen saknades i den automatiska listan; sökningen efter repliker av Lascaux stoppades av HTTP 429. |
+| `tandingreppet-i-villabruna` | 2026-11-26: Händelsen gäller en människas tänder och begravning (mänskliga kvarlevor); bilder avstås och ingen sökning gjordes. |
+| `yngre-dryas` | 2026-11-26: Enda kandidaten är en liten karta (582 px); används inte. |
+| `baltiska-issjon-tappas-ut` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `pessekanoten` | 2026-11-26: Kandidaten (Drents Museum, prehistoriska rummet) visar kanoten bara som en liten del längst ned i en mörk museisal med besökare; används inte. En bättre bild (Boomstamkano van Pesse, 730 × 430 px) är för liten. |
+| `doggerland-drankes` | 2026-11-26: Enda kandidaten är en karta (Doggerland.svg) med licensflagga; används inte. |
+| `akermyrapaddeln` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `barumkvinnan` | 2026-11-26: Händelsen gäller en kvinnas grav (mänskliga kvarlevor); bilder avstås och ingen sökning gjordes. |
+| `ladoga-blir-en-egen-sjo` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `storeggaskredet` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `bar-och-fisk-i-zamostje` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `tybrind-vig` | 2026-11-26: Kandidaten (Tybrind Vig bow tips, CC BY 3.0) är en bearbetad bild med en vit effekt över fotot; används inte. |
+| `ilumetsakratrarna` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `rodockragraven-i-manjarv` | 2026-11-26: Händelsen gäller en grav; bilder av gravar och kvarlevor avstås och ingen sökning gjordes. |
+| `koppargruvan-i-rudna-glava` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `gravfaltet-i-naltjik` | 2026-11-26: Enda kandidaten (NalchikJewishCemetery.jpg) är en modern judisk kyrkogård och hör inte till gravfältet; används inte. |
+| `hepatit-b-i-sachtysj` | 2026-11-26: Händelsen gäller gravar och människoben; bilder av kvarlevor avstås och ingen sökning gjordes. |
+| `varna-gravfaltet` | 2026-11-26: Enda kandidaten (Or de Varna - Nécropole.jpg, CC BY-SA 3.0) visar en rekonstruerad grav med ett skelett (mänskliga kvarlevor); avstås. |
+| `variscitgruvorna-i-gava` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kamkeramikernas-byteshandel` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `saimen-bryter-igenom-salpausselka` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `hallmalningarna-i-astuvansalmi` | 2026-11-26: Enda kandidaten (Astuvansalmen kalliolippa.jpg) är bara 768 px bred och datumet är osäkert; används inte. |
+| `trypillias-jatteboplatser` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `lillberget` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `majkopkurganen` | 2026-11-26: Händelsen saknades i den automatiska listan; gäller en gravhög; ingen egen sökning hann göras. |
+| `ggantija` | 2026-11-26: Händelsen saknades i den automatiska listan; sökningen gav inga träffar. |
