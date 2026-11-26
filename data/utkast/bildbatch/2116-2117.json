@@ -1,0 +1,2002 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "2116-2117",
+  "datum": "2026-11-26",
+  "urval": "ids=35 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "coniston-massakern",
+      "titel": "Coniston-massakern",
+      "start": 1928,
+      "plats": "Kring Coniston nordväst om Alice Springs, Northern Territory",
+      "wikidata": "Q653857",
+      "kandidater": [
+        {
+          "fil": "File:Dowling 145.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Dowling_145.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Donald and Isabel Dowling",
+          "datum": "between 1938 and 1948 date QS:P571,+1950-00-00T00:00:00Z/7,P1319,+1938-00-00T00:00:00Z/9,P1326,+1948-00-00T00:00:00Z/9",
+          "datum_original": "between 1938 and 1948 date QS:P571,+1950-00-00T00:00:00Z/7,P1319,+1938-00-00T00:00:00Z/9,P1326,+1948-00-00T00:00:00Z/9",
+          "datum_fil": "2024-01-29 03:23:26",
+          "kredit": null,
+          "beskrivning": "\"[Frederick] Brook’s grave near Coniston\"",
+          "bredd": 3788,
+          "hojd": 7016,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Dowling_145.jpg/960px-Dowling_145.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Donald and Isabel Dowling Collection",
+            "Northern Territory in the 1930s",
+            "Northern Territory in the 1940s"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "CC-BY-SA-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "ostgronlandsmalet",
+      "titel": "Östgrönlandsmålet",
+      "start": 1931,
+      "plats": "Östgrönland mellan 71° och 75° nordlig bredd (”Eirik Raudes Land”)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Lockheed 8 Sirius 'Tingmissartoq' at the National Air and Space Museum, Washington DC.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lockheed_8_Sirius_%27Tingmissartoq%27_at_the_National_Air_and_Space_Museum,_Washington_DC.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Cliff from I now live in Arlington, VA (Outside Washington DC), USA",
+          "datum": "2008-11-25 15:10",
+          "datum_original": "2008-11-25 15:10",
+          "datum_fil": "2009-11-15 18:01:44",
+          "kredit": "Lockheed 8 Sirius \"Tingmissartoq\"",
+          "beskrivning": "Every possible space in the aircraft was utilized, including the wings and floats, which contained the gasoline tanks. There was plenty of emergency equipment in case the Lindberghs had to make a forced landing in the frozen wilderness. From New York, the Lindberghs flew up the eastern border of Canada to Hopedale, Labrador. From Hopedale they made the first major overwater hop, 650 miles to Godthaab, Greenland, where the Sirius acquired its name—Tingmissartoq, which in Eskimo means \"one who flies like a big bird.\" After crisscrossing Greenland to Baffin Island and back, and then on to Iceland, the Lindberghs proceeded to the major cities of Europe and as far east as Moscow, down the west coast of Africa, and across the South Atlantic to South America. where they flew down the Amazon, and then north through Trinidad and Barbados and back to the United States. They returned to New York on December 19, having traveled 30,000 miles to four continents and twenty-one countries. The information gained from the trip proved invaluable in planning commercial air transport routes for the North and South Atlantic. The aircraft was in the American Museum of Natural History in New York City until 1955. The AirForce Museum in Dayton, Ohio, then acquired it and transferred it to the Smithsonian in 1959. collections.nasm.si.edu/code/emuseum.asp?profile=objects&...",
+          "bredd": 1600,
+          "hojd": 1066,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Lockheed_8_Sirius_%27Tingmissartoq%27_at_the_National_Air_and_Space_Museum%2C_Washington_DC.jpg/960px-Lockheed_8_Sirius_%27Tingmissartoq%27_at_the_National_Air_and_Space_Museum%2C_Washington_DC.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Lockheed Sirius at National Air and Space Museum",
+            "Lockheed general aviation aircraft facing left"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Aluminum Pot and Lid, Lockheed Sirius \"Tingmissartoq\", Lindbergh - DPLA - c2db2ffe9c603fe6192090efb3424f26 (page 1).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Aluminum_Pot_and_Lid,_Lockheed_Sirius_%22Tingmissartoq%22,_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_(page_1).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": null,
+          "datum": "1931-1933",
+          "datum_original": "1931-1933",
+          "datum_fil": "2025-07-09 22:42:12",
+          "kredit": "File URL Catalog record",
+          "beskrivning": "Aluminum cooking pot, with bail & lid This aluminum cooking pot was among the equipment Charles Lindbergh and his wife, Anne Morrow Lindbergh, took on their 1931 flight to the Orient and 1933 survey flights across the North and South Atlantic. Lodging and meals were provided at the Lindberghs' planned stops, but they still had to consider what they would eat in case of an emergency landing. They took enough canned rations to last them several weeks, but even that might not have been enough. They were traveling over vast expanses of uninhabited territory and there was no telling how long it would take to find the nearest outpost after an emergency landing. If their canned rations ran out, they would need a way to cook whatever food they could find (or catch with their fishing gear). For that reason, they took along this cooking pot plus a frying pan and portable stove. They planned to use gasoline from the plane as fuel for the stove. A vacation flight with \"no start or finish, no diplomatic or commercial significance, and no records to be sought.\" So Charles A. Lindbergh described the flight that he and his wife, Anne Morrow Lindbergh, were planning to make to the Orient in 1931. Their choice of route, however, showed the feasibility of using the great circle to reach the Far East. The Lindberghs flew in a Lockheed Sirius low-wing monoplane, powered by a 680-hp Wright Cyclone. The Sirius had been designed in 1929 by John K. Northrop and Gerard Vultee, and this model was specially fitted with Edo floats, since most of the Lindberghs flight was to be over water. Their route took them from North Haven, Maine, to Ottawa, Moose Factory, Churchill, Baker Lake, and Aklavik, all in Canada; Point Barrow, Shismaref, and Nome, Alaska; Petropavlosk. Siberia; and on over the Kurile Islands to Japan. After receiving an enthusiastic welcome in Tokyo, they flew to China. They landed on Lotus Lake near Nanking on September 19, thus completing the first flight from the West to the East by way of the North. At Hankow, the Sirius, with the Lindberghs aboard, was being lowered into the Yangtze River from the British aircraft carrier Hermes, when the aircraft accidentally capsized. One of the wings was damaged when it hit a ship's cable, and the aircraft had to be returned to the United States for repairs. Their next venture in the Sirius came as a result of the five countries' interest in the development of commercial air transport. In 1933 Pan American Airways, Imperial Airways of Great Britain, Lufthansa of Germany, KLM of Holland, and Air France undertook a cooperative study of possible Atlantic routes. Each was assigned the responsibility for one of the following areas: New Newfoundland to Europe via Greenland; Newfoundland via the great circle route to Ireland; Newfoundland southeast to the Azores and Lisbon; Miami, Bermuda, the Azores, and Lisbon; and across the South Atlantic from Natal, Brazil, to Cape Verde, Africa. Pan American was to survey the Newfoundland to Europe via Greenland route. Ground survey and weather crews in Greenland were already hard at work when Lindbergh, Pan Am's technical advisor, took off from New York on July 9 in the rebuilt Lockheed Sirius, again accompanied by his wife, who would serve as copilot and radio operator. A Sperry artificial horizon and a directional gyro had been added to the instrument panel since the previous flight, and a new Wright Cyclone SR1820-F2 engine of 710 horsepower was installed. Lindbergh's plan was not to set up a particular route but to gather as much information as possible on the area to be covered. The Jellinge, a Danish ship, was chartered by Pan Am to maintain radio contact with the Lindberghs in the Labrador-Greenland-Iceland area. The ship also delivered advance supplies for them to Halifax, Saint John's, Cartwright, Greenland, and Iceland. Every possible space in the aircraft was utilized, including the wings and floats, which contained the gasoline tanks. There was plenty of emergency equipment in case the Lindberghs had to make a forced landing in the frozen wilderness. From New York, the Lindberghs flew up the eastern border of Canada to Hopedale, Labrador. From Hopedale they made the first major overwater hop, 650 miles to Godthaab, Greenland, where the Sirius acquired its name-Tingmissartoq, which in Eskimo means \"one who flies like a big bird.\" After crisscrossing Greenland to Baffin Island and back, and then on to Iceland, the Lindberghs proceeded to the major cities of Europe and as far east as Moscow, down the west coast of Africa, and across the South Atlantic to South America, where they flew down the Amazon, and then north through Trinidad and Barbados and back to the United States. They returned to New York on December 19, having traveled 30,000 miles to four continents and twenty-one countries. The information gained from the trip proved invaluable in planning commercial air transport routes for the North and South Atlantic. The aircraft was in the American Museum of Natural History in New York City until 1955. The Air Force Museum in Dayton, Ohio, then acquired it and transferred it to the Smithsonian in 1959.",
+          "bredd": 2000,
+          "hojd": 1487,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Aluminum_Pot_and_Lid%2C_Lockheed_Sirius_%22Tingmissartoq%22%2C_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_%28page_1%29.jpg/960px-Aluminum_Pot_and_Lid%2C_Lockheed_Sirius_%22Tingmissartoq%22%2C_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_%28page_1%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC0",
+            "skal": [
+              "API:et säger \"CC0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Aluminum Pot and Lid, Lockheed Sirius \"Tingmissartoq\", Lindbergh - DPLA - c2db2ffe9c603fe6192090efb3424f26 (page 3).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Aluminum_Pot_and_Lid,_Lockheed_Sirius_%22Tingmissartoq%22,_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_(page_3).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": null,
+          "datum": "1931-1933",
+          "datum_original": "1931-1933",
+          "datum_fil": "2026-05-23 05:54:48",
+          "kredit": "File URL Catalog record",
+          "beskrivning": "Aluminum cooking pot, with bail & lid This aluminum cooking pot was among the equipment Charles Lindbergh and his wife, Anne Morrow Lindbergh, took on their 1931 flight to the Orient and 1933 survey flights across the North and South Atlantic. Lodging and meals were provided at the Lindberghs' planned stops, but they still had to consider what they would eat in case of an emergency landing. They took enough canned rations to last them several weeks, but even that might not have been enough. They were traveling over vast expanses of uninhabited territory and there was no telling how long it would take to find the nearest outpost after an emergency landing. If their canned rations ran out, they would need a way to cook whatever food they could find (or catch with their fishing gear). For that reason, they took along this cooking pot plus a frying pan and portable stove. They planned to use gasoline from the plane as fuel for the stove. A vacation flight with \"no start or finish, no diplomatic or commercial significance, and no records to be sought.\" So Charles A. Lindbergh described the flight that he and his wife, Anne Morrow Lindbergh, were planning to make to the Orient in 1931. Their choice of route, however, showed the feasibility of using the great circle to reach the Far East. The Lindberghs flew in a Lockheed Sirius low-wing monoplane, powered by a 680-hp Wright Cyclone. The Sirius had been designed in 1929 by John K. Northrop and Gerard Vultee, and this model was specially fitted with Edo floats, since most of the Lindberghs flight was to be over water. Their route took them from North Haven, Maine, to Ottawa, Moose Factory, Churchill, Baker Lake, and Aklavik, all in Canada; Point Barrow, Shismaref, and Nome, Alaska; Petropavlosk. Siberia; and on over the Kurile Islands to Japan. After receiving an enthusiastic welcome in Tokyo, they flew to China. They landed on Lotus Lake near Nanking on September 19, thus completing the first flight from the West to the East by way of the North. At Hankow, the Sirius, with the Lindberghs aboard, was being lowered into the Yangtze River from the British aircraft carrier Hermes, when the aircraft accidentally capsized. One of the wings was damaged when it hit a ship's cable, and the aircraft had to be returned to the United States for repairs. Their next venture in the Sirius came as a result of the five countries' interest in the development of commercial air transport. In 1933 Pan American Airways, Imperial Airways of Great Britain, Lufthansa of Germany, KLM of Holland, and Air France undertook a cooperative study of possible Atlantic routes. Each was assigned the responsibility for one of the following areas: New Newfoundland to Europe via Greenland; Newfoundland via the great circle route to Ireland; Newfoundland southeast to the Azores and Lisbon; Miami, Bermuda, the Azores, and Lisbon; and across the South Atlantic from Natal, Brazil, to Cape Verde, Africa. Pan American was to survey the Newfoundland to Europe via Greenland route. Ground survey and weather crews in Greenland were already hard at work when Lindbergh, Pan Am's technical advisor, took off from New York on July 9 in the rebuilt Lockheed Sirius, again accompanied by his wife, who would serve as copilot and radio operator. A Sperry artificial horizon and a directional gyro had been added to the instrument panel since the previous flight, and a new Wright Cyclone SR1820-F2 engine of 710 horsepower was installed. Lindbergh's plan was not to set up a particular route but to gather as much information as possible on the area to be covered. The Jellinge, a Danish ship, was chartered by Pan Am to maintain radio contact with the Lindberghs in the Labrador-Greenland-Iceland area. The ship also delivered advance supplies for them to Halifax, Saint John's, Cartwright, Greenland, and Iceland. Every possible space in the aircraft was utilized, including the wings and floats, which contained the gasoline tanks. There was plenty of emergency equipment in case the Lindberghs had to make a forced landing in the frozen wilderness. From New York, the Lindberghs flew up the eastern border of Canada to Hopedale, Labrador. From Hopedale they made the first major overwater hop, 650 miles to Godthaab, Greenland, where the Sirius acquired its name-Tingmissartoq, which in Eskimo means \"one who flies like a big bird.\" After crisscrossing Greenland to Baffin Island and back, and then on to Iceland, the Lindberghs proceeded to the major cities of Europe and as far east as Moscow, down the west coast of Africa, and across the South Atlantic to South America, where they flew down the Amazon, and then north through Trinidad and Barbados and back to the United States. They returned to New York on December 19, having traveled 30,000 miles to four continents and twenty-one countries. The information gained from the trip proved invaluable in planning commercial air transport routes for the North and South Atlantic. The aircraft was in the American Museum of Natural History in New York City until 1955. The Air Force Museum in Dayton, Ohio, then acquired it and transferred it to the Smithsonian in 1959.",
+          "bredd": 1333,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Aluminum_Pot_and_Lid%2C_Lockheed_Sirius_%22Tingmissartoq%22%2C_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_%28page_3%29.jpg/960px-Aluminum_Pot_and_Lid%2C_Lockheed_Sirius_%22Tingmissartoq%22%2C_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_%28page_3%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC0",
+            "skal": [
+              "API:et säger \"CC0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "caledon-bay-krisen",
+      "titel": "Caledon Bay-krisen",
+      "start": 1932,
+      "plats": "Caledon Bay, Arnhem Land, Northern Territory",
+      "wikidata": "Q1026558",
+      "kandidater": [
+        {
+          "fil": "File:Image-Arnhem Land topographic sketch.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Image-Arnhem_Land_topographic_sketch.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Arapaima",
+          "datum": "2009-01-15",
+          "datum_original": "2009-01-15",
+          "datum_fil": "2009-02-01 12:23:47",
+          "kredit": "travail personnel (own work) d'aprés atlas",
+          "beskrivning": "Topographic sketch of Arnhem Land (Northern Territories, Australia). Note the indigenous, dutch, and english toponymy.",
+          "bredd": 2438,
+          "hojd": 1694,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Image-Arnhem_Land_topographic_sketch.jpg/960px-Image-Arnhem_Land_topographic_sketch.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of the Northern Territory",
+            "Maps of the exploration of Australia"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-sa-3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-3.0,2.5,2.0,1.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "emukriget",
+      "titel": "Emukriget",
+      "start": 1932,
+      "plats": "Campion i vetebältet, Västaustralien",
+      "wikidata": "Q14665",
+      "kandidater": [
+        {
+          "fil": "File:TheGreatEmuWarcolage.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:TheGreatEmuWarcolage.png",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "子ファース",
+          "datum": "2021-06-09",
+          "datum_original": "2021-06-09",
+          "datum_fil": "2021-12-12 16:23:52",
+          "kredit": "This file was derived from: Ray Owen during Emu War.jpg : Lewis Gun during Emu War.jpg : Fallow caused by emus.jpg : Australian soldiers resting during Emu War.jpg : The Emu volume 13 plate 20.png : Deceased emu during Emu War.jpg :",
+          "beskrivning": "A collage created by me using following images found in the Wikimedia Commons: (From top left, clockwise)",
+          "bredd": 2441,
+          "hojd": 3037,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/TheGreatEmuWarcolage.png/960px-TheGreatEmuWarcolage.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Emu War"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "flera licenser: Public domain, CC BY-SA 4.0"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{Licensed-PD}}, {{self|cc-by-sa-4.0}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (Public domain och CC BY-SA 4.0); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto).",
+            "risker": [],
+            "mallar": [
+              "Licensed-PD",
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "den-sista-pungvargen-dor",
+      "titel": "Den sista kända pungvargen dör",
+      "start": 1936,
+      "plats": "Hobarts djurpark (Beaumaris Zoo), Hobart, Tasmanien, Australien",
+      "wikidata": "Q123102",
+      "kandidater": [
+        {
+          "fil": "File:Thylacinus.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Thylacinus.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Baker; E.J. Keller.",
+          "datum": "circa 1904 date QS:P571,+1904-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1904 date QS:P571,+1904-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2026-09-07 19:42:28",
+          "kredit": "Report of the Smithsonian Institution. 1904 from the Smithsonian Institution archives. Published example other information: [1] Additional information: Female thylacine (front) with juvenile male offspring (rear). ( 30 September 2020 ). \" A Catalogue of the Thylacine captured on film \". Australian Zoologist 41 (2): 143–178. DOI : 10.7882/AZ.2020.032 .",
+          "beskrivning": "This photo is of a pair of Thylacines, a male and female, received from Dr. Goding in 1902. The Thylacine (Thylacinus cynocephalus) is a large, carnivorous marsupial also known as the Tasmanian Tiger or Tasmanian Wolf. It is now believed to be extinct. This photograph of a zoo specimen is important in recording the history of the zoo's collecting, and in some cases, such as this image of these Thylacines, they show species that are now extinct. The National Zoo opened in 1891 in an area of Rock Creek Park in Washington, D.C.",
+          "bredd": 3000,
+          "hojd": 2145,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Thylacinus.jpg/960px-Thylacinus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1904 in Washington, D.C.",
+            "Live Thylacinus cynocephalus",
+            "Mammals in Smithsonian National Zoological Park",
+            "Smithsonian Institution Archives"
+          ],
+          "smal": false,
+          "flaggor": [
+            "licens-risk"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "risk: public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-US}}. Commons API (LicenseShortName): \"Public domain\". Att kontrollera: public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet.",
+            "risker": [
+              "public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet"
+            ],
+            "mallar": [
+              "PD-US"
+            ]
+          }
+        },
+        {
+          "fil": "File:Thylacines.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Thylacines.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1910",
+          "datum_original": "1910",
+          "datum_fil": "2008-07-15 10:43:34",
+          "kredit": "http://www.naa.gov.au/whats-on/online/pic-of-the-week/pow_36_enlargement.aspx",
+          "beskrivning": "Thylacines at the Beaumaris Zoo in Hobart, 1910.",
+          "bredd": 699,
+          "hojd": 456,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/52/Thylacines.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1910 black and white photographs",
+            "1910 in Hobart",
+            "Beaumaris Zoo",
+            "Live Thylacinus cynocephalus"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Australia"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "black-friday-skogsbranderna-1939",
+      "titel": "Skogsbränderna på ”Black Friday” i Australien",
+      "start": 1939,
+      "plats": "Delstaten Victoria, Australien",
+      "wikidata": "Q1017328",
+      "kandidater": [
+        {
+          "fil": "File:Black Friday 1939.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Black_Friday_1939.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1940s date QS:P,+1940-00-00T00:00:00Z/8",
+          "datum_original": "1940s date QS:P,+1940-00-00T00:00:00Z/8",
+          "datum_fil": "2018-02-14 09:24:28",
+          "kredit": "State Library of Victoria",
+          "beskrivning": "Nearly two million hectares of the State burned on Black Friday 1939. Source State Library of Vict",
+          "bredd": 3250,
+          "hojd": 2273,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Black_Friday_1939.jpg/960px-Black_Friday_1939.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Forests Commission Victoria"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "flera licenser: Public domain, CC BY-SA 4.0"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-Australia-CC}}, {{cc-by-sa-4.0}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (Public domain och CC BY-SA 4.0); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto).",
+            "risker": [],
+            "mallar": [
+              "PD-Australia-CC",
+              "cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "nya-zeelands-hundraarsutstallning-1939",
+      "titel": "Nya Zeelands hundraårsutställning",
+      "start": 1939,
+      "plats": "Rongotai, Wellington, Nya Zeeland",
+      "wikidata": "Q7015256",
+      "kandidater": [
+        {
+          "fil": "File:New Zealand Centennial Exhibition (10654042046).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:New_Zealand_Centennial_Exhibition_(10654042046).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2013-11-04 09:02",
+          "datum_original": "2013-11-04 09:02",
+          "datum_fil": "2016-02-18 10:48:07",
+          "kredit": "New Zealand Centennial Exhibition",
+          "beskrivning": "The New Zealand Centennial Exhibition took place in Rongotai, Wellington between the 8th of November 1939 and the 4th of May 1940. Around 2,641,043 visited the exhibition. This was extraordinary considering the population of New Zealand was 1,641,600 and it was overshadowed by World War II. Many communities throughout the country staged parades and pageants. There was a large celebration at Waitangi on the 6th February and there was a Centennial Historic Pageant at the Petone Recreation Ground. The focus of the exhibition was the pioneering spirit – past, present and future – and the wonders of material progress. Government Departments contributed exhibits to the Government court which was intended to show the benevolence of the benevolent state. Some of the exhibits were quite innovative. The health Dept had a walking, talking robot doctor, Dr Wellandstrong. The first building was the United Kingdom Court, which showed how closely attached New Zealand still was to “the mother country”. Despite this the main attractions for most people were to be found in Playland which featured a Crazy House and a roller coaster. After the exhibition the site was used for Air Force accommodation and then as a wool store before burning down in 1946. Archives Reference: ACGO 8333 IA1 2007 62/4/38 R14987186",
+          "bredd": 12757,
+          "hojd": 8708,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/New_Zealand_Centennial_Exhibition_%2810654042046%29.jpg/960px-New_Zealand_Centennial_Exhibition_%2810654042046%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archive of the Moment",
+            "History of Wellington",
+            "New Zealand Centennial Exhibition",
+            "Wool stores in New Zealand"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Aerial view of Rongotai, Wellington, 1939.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Rongotai,_Wellington,_1939.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "National Library NZ on The Commons",
+          "datum": "1939-01-01 00:00:00",
+          "datum_original": "1939-01-01 00:00:00",
+          "datum_fil": "2017-10-23 14:54:15",
+          "kredit": "originally posted to Flickr as Aerial view of Rongotai, Wellington, 1939",
+          "beskrivning": "Aerial view of Rongotai, Wellington, including buildings for the New Zealand Centennial Exhibition, 1939 Reference Number: 1/4-019697-F Photographer: William Hall Raine Film negative Photographic Archive, Alexander Turnbull Library Image information at National Library website",
+          "bredd": 9940,
+          "hojd": 7449,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Aerial_view_of_Rongotai%2C_Wellington%2C_1939.jpg/960px-Aerial_view_of_Rongotai%2C_Wellington%2C_1939.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1939 in Wellington",
+            "Aerial photographs of Wellington",
+            "History of Wellington",
+            "New Zealand Centennial Exhibition"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "pd-old"
+            ]
+          }
+        },
+        {
+          "fil": "File:New Zealand Centennial Exhibition 1939 - 1940 (10599009786).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:New_Zealand_Centennial_Exhibition_1939_-_1940_(10599009786).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2013-10-23 11:51",
+          "datum_original": "2013-10-23 11:51",
+          "datum_fil": "2016-02-18 10:47:45",
+          "kredit": "New Zealand Centennial Exhibition 1939 - 1940",
+          "beskrivning": "The New Zealand Centennial Exhibition took place in Rongotai, Wellington between the 8th of November 1939 and the 4th of May 1940. Around 2,641,043 visited the exhibition. This was extraordinary considering the population of New Zealand was 1,641,600 and it was overshadowed by World War II. Many communities throughout the country staged parades and pageants. There was a large celebration at Waitangi on the 6th February and there was a Centennial Historic Pageant at the Petone Recreation Ground. The focus of the exhibition was the pioneering spirit – past, present and future – and the wonders of material progress. Government Departments contributed exhibits to the Government court which was intended to show the benevolence of the benevolent state. Some of the exhibits were quite innovative. The health Dept had a walking, talking robot doctor, Dr Wellandstrong. The first building was the United Kingdom Court, which showed how closely attached New Zealand still was to “the mother country”. Despite this the main attractions for most people were to be found in Playland which featured a Crazy House and a roller coaster. After the exhibition the site was used for Air Force accommodation and then as a wool store before burning down in 1946. Archives Reference: ADQD W2476 17422 1641922/2177/11 (R10624057)",
+          "bredd": 1900,
+          "hojd": 2948,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/New_Zealand_Centennial_Exhibition_1939_-_1940_%2810599009786%29.jpg/960px-New_Zealand_Centennial_Exhibition_1939_-_1940_%2810599009786%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1939 in Wellington",
+            "Exhibition posters",
+            "History of Wellington",
+            "New Zealand Centennial Exhibition"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "slaget-vid-milne-bay",
+      "titel": "Slaget vid Milne Bay",
+      "start": 1942,
+      "plats": "Milne Bay på Nya Guineas östspets, Papua Nya Guinea",
+      "wikidata": "Q113621",
+      "kandidater": [
+        {
+          "fil": "File:Australian troops at Milne Bay.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Australian_troops_at_Milne_Bay.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Bagnall, Frank N",
+          "datum": "Taken on 1 October 1942",
+          "datum_original": "Taken on 1 October 1942",
+          "datum_fil": "2026-11-19 19:05:15",
+          "kredit": "This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing for more information.",
+          "beskrivning": "AWM Caption : Australian troops plough through the mud at Milne Bay, New Guinea, shortly after the unsuccessful Japanese invasion attempt.",
+          "bredd": 15292,
+          "hojd": 11406,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Australian_troops_at_Milne_Bay.jpg/960px-Australian_troops_at_Milne_Bay.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1937 Pattern Web Equipment",
+            "1942 black and white photographs of people",
+            "Battle of Milne Bay",
+            "Black and white photographs of topless men",
+            "Brodie helmets",
+            "Foliage as camouflage",
+            "Lee-Enfield SMLE Mk III",
+            "Pacific War in October 1942",
+            "Thompson M1928",
+            "Thompson SMG in Australian service",
+            "Topless male soldiers",
+            "World War II forces of Australia in New Guinea"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Australia"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "ruapehus-utbrott-1945",
+      "titel": "Vulkanen Ruapehu får utbrott",
+      "start": 1945,
+      "plats": "Vulkanen Ruapehu, Nordön, Nya Zeeland",
+      "wikidata": "Q207284",
+      "kandidater": [
+        {
+          "fil": "File:00 1100 Ruapehu volcano.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:00_1100_Ruapehu_volcano.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "W. Bulach",
+          "datum": "2009-03-18 10:15:59",
+          "datum_original": "2009-03-18 10:15:59",
+          "datum_fil": "2019-12-25 13:30:38",
+          "kredit": "Own work",
+          "beskrivning": "Vulkanmassiv Ruapehu (2797 Meter) im Tongariro-Nationalpark. Der Park mit den Vulkanberge: der Tongariro (1968 m), der Ngauruhoe (2291 m) und der Ruapehu (2797 m) liegt in Manawatu-Wanganui, Neuseeland.",
+          "bredd": 3168,
+          "hojd": 2112,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/00_1100_Ruapehu_volcano.jpg/960px-00_1100_Ruapehu_volcano.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Mount Ruapehu",
+            "Volcanoes in New Zealand in 2009"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Ruapehu Dawn n.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ruapehu_Dawn_n.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "The original uploader was JShook at English Wikipedia .",
+          "datum": "18 October 2005 (original upload date)",
+          "datum_original": "18 October 2005 (original upload date)",
+          "datum_fil": "2007-11-19 09:52:07",
+          "kredit": "Transferred from en.wikipedia to Commons.",
+          "beskrivning": "Ruapehu at dawn (29 January 2005.) Photograph by James Shook, who retains copyright and releases the image under the license shown below.",
+          "bredd": 993,
+          "hojd": 660,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Ruapehu_Dawn_n.jpg/960px-Ruapehu_Dawn_n.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Landscapes of New Zealand",
+            "Mount Ruapehu in 2005",
+            "Sunrises of New Zealand"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.5",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-by-2.5"
+            ]
+          }
+        },
+        {
+          "fil": "File:00 0901 Mount Ruapehu, volcano in New Zealand.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:00_0901_Mount_Ruapehu,_volcano_in_New_Zealand.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "W. Bulach",
+          "datum": "2009-03-18 10:22:53",
+          "datum_original": "2009-03-18 10:22:53",
+          "datum_fil": "2021-04-20 12:20:10",
+          "kredit": "Own work",
+          "beskrivning": "Mount Ruapehu (2797 Meter) im Tongariro-Nationalpark. Ruapehu ist ein Vulkanmassiv, das sich aus 4 Vulkankegel zusammensetzt. Es ist der aktivste Vulkan Neuseelands. In den letzten 150 Jahren ereigneten sich 23 Eruptionen - die letzten 1995 und 1996.",
+          "bredd": 3494,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/00_0901_Mount_Ruapehu%2C_volcano_in_New_Zealand.jpg/960px-00_0901_Mount_Ruapehu%2C_volcano_in_New_Zealand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Mount Ruapehu"
+          ],
+          "smal": false,
+          "flaggor": [
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 4.0",
+            "skal": [
+              "licensmallen (action=raw) kunde inte hämtas, så API:ets licens är inte korskontrollerad",
+              "licensmallen (action=raw) ej hämtad: HTTP 429 efter 3 försök"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "tangiwaiolyckan",
+      "titel": "Tangiwaiolyckan",
+      "start": 1953,
+      "plats": "Tangiwai vid floden Whangaehu, Nordön (Nya Zeeland)",
+      "wikidata": "Q625316",
+      "kandidater": [
+        {
+          "fil": "File:In remembrance of the Tangiwai disaster, 60 years ago on 24 December 1953. (11440593993).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:In_remembrance_of_the_Tangiwai_disaster,_60_years_ago_on_24_December_1953._(11440593993).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2013-12-11 17:06",
+          "datum_original": "2013-12-11 17:06",
+          "datum_fil": "2016-09-08 21:39:37",
+          "kredit": "In remembrance of the Tangiwai disaster, 60 years ago on 24 December 1953.",
+          "beskrivning": "The Tangiwai disaster is New Zealand's worst ever rail accident. It occurred on 24 December 1953 when the Whangaehu River bridge collapsed beneath a Wellington to Auckland express passenger train at Tangiwai, in the central North Island of New Zealand. The locomotive and first six carriages derailed into the river, killing 151 people. The Board of Inquiry into the accident found that it was caused by the collapse of the tephra dam holding back nearby Mount Ruapehu's crater lake creating a large lahar in the Whangaehu River, which destroyed one of the bridge piers at Tangiwai only minutes before the train reached the bridge. Queen Elizabeth II and Prince Philip were visiting New Zealand on their first royal tour when the disaster occurred. The Queen made her Christmas broadcast from Auckland, finishing with a message of sympathy to the people of New Zealand. Prince Philip attended a state funeral for many of the victims. Image is from our New Zealand Railways Corporation collection. Archives Reference: AAVK W3493 D1027, dated 25 December 1953. Close up of wrecked 1st class car ‘Z’ lying on south bank of the Whangaehu River.",
+          "bredd": 3711,
+          "hojd": 3583,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/In_remembrance_of_the_Tangiwai_disaster%2C_60_years_ago_on_24_December_1953._%2811440593993%29.jpg/960px-In_remembrance_of_the_Tangiwai_disaster%2C_60_years_ago_on_24_December_1953._%2811440593993%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "December 1953 in New Zealand",
+            "Tangiwai disaster",
+            "Tangiwai disaster (1953) at Archives New Zealand"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "os-i-melbourne-1956",
+      "titel": "Olympiska spelen i Melbourne",
+      "start": 1956,
+      "plats": "Melbourne (Australien)",
+      "wikidata": "Q8411",
+      "kandidater": [
+        {
+          "fil": "File:Thailand Football Team at 1956 Summer Olympics.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Thailand_Football_Team_at_1956_Summer_Olympics.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1956",
+          "datum_original": "1956",
+          "datum_fil": "2026-02-02 14:12:15",
+          "kredit": "Pantip - https://pantip.com/topic/33013303",
+          "beskrivning": "Thailand Football Team at 1956 Summer Olympics photo. Going back to 1956, Australia was chosen to host the Olympic Games, held in Melbourne. Thailand was granted the right to send representatives to compete in four sports: athletics, men's football, men's basketball, and boxing. (Basketball and football were the first team sports from Thailand to participate in a world-class sporting event.) Note: fixed some blemishes on the low resolution photo.",
+          "bredd": 1600,
+          "hojd": 922,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Thailand_Football_Team_at_1956_Summer_Olympics.png/960px-Thailand_Football_Team_at_1956_Summer_Olympics.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Association football at the 1956 Summer Olympics",
+            "Group photographs of Thailand national association football team"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Thailand"
+            ]
+          }
+        },
+        {
+          "fil": "File:Melbourne, Australia - Flickr - NASA Goddard Photo and Video.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Melbourne,_Australia_-_Flickr_-_NASA_Goddard_Photo_and_Video.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA Goddard Space Flight Center from Greenbelt, MD, USA",
+          "datum": "2012-07-26 13:49",
+          "datum_original": "2012-07-26 13:49",
+          "datum_fil": "2012-08-17 20:09:21",
+          "kredit": "Melbourne, Australia",
+          "beskrivning": "Clouds over Australia The clouds are derived from the Goddard Earth Observing System Model, Version 5 (GEOS-5). GEOS-5 is a system of models integrated using the Earth System Modeling Framework and used to help refine atmospheric weather models. NASA/Goddard Space Flight Center Scientific Visualization Studio -- NASA Goes to the Olympics – View all the cities that have hosted the modern Summer Olympics, starting with Athens in 1896 thru London in 2012. There have been 29 Summer Olympic Games held in 22 different cities. Repeating host cities include Athens, Paris, London and Los Angeles. NASA image use policy. NASA Goddard Space Flight Center enables NASA’s mission through four scientific endeavors: Earth Science, Heliophysics, Solar System Exploration, and Astrophysics. Goddard plays a leading role in NASA’s accomplishments by contributing compelling scientific knowledge to advance the Agency’s mission. Follow us on Twitter Like us on Facebook Find us on Instagram",
+          "bredd": 1920,
+          "hojd": 1080,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Melbourne%2C_Australia_-_Flickr_-_NASA_Goddard_Photo_and_Video.jpg/960px-Melbourne%2C_Australia_-_Flickr_-_NASA_Goddard_Photo_and_Video.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "GOES 5",
+            "Satellite pictures of Australia"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "flera licenser: CC BY 2.0, Public domain"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{cc-by-2.0}}, {{PD NASA}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (CC BY 2.0 och Public domain); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto).",
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0",
+              "PD NASA"
+            ]
+          }
+        },
+        {
+          "fil": "File:MRF-D Marines tour Melbourne Cricket Ground (9923777).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:MRF-D_Marines_tour_Melbourne_Cricket_Ground_(9923777).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S. Marine Corps photo by Cpl. Caleb Goodwin",
+          "datum": "Taken on 8 September 2026, 14:30:00",
+          "datum_original": "Taken on 8 September 2026, 14:30:00",
+          "datum_fil": "2026-09-10 12:55:25",
+          "kredit": "This image was released by the United States Marine Corps with the ID 260909-M-GL456-1182 (next) . This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing . العربية ∙ বাংলা ∙ Bahasa Indonesia ∙ Bahaso Jambi ∙ Deutsch ∙ Deutsch (Sie-Form) ∙ English ∙ español ∙ euskara ∙ فارسی ∙ français ∙ italiano ∙ 日本語 ∙ 한국어 ∙ македонски ∙ മലയാളം ∙ Plattdüütsch ∙ Nederlands ∙ polski ∙ پښتو ∙ português ∙ русский ∙ slovenščina ∙ svenska ∙ Türkçe ∙ українська ∙ 简体中文 ∙ 繁體中文 ∙ +/−",
+          "beskrivning": "U.S. Marines with Marine Rotational Force – Darwin 26, observe a display detailing the Melbourne Cricket Ground stadium’s impact during the 1956 Olympic Games in Melbourne, Australia, Sept. 9, 2026. The Melbourne Cricket Ground once served as a rest and recuperation base for the U.S. forces during World War II. MRF-D is an annual six-month rotational deployment to enhance interoperability with the Australian Defence Force and allies and partners and provide a forward-postured crisis response force in the Indo-Pacific. (U.S. Marine Corps photo by Cpl. Caleb Goodwin)",
+          "bredd": 8004,
+          "hojd": 5339,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/MRF-D_Marines_tour_Melbourne_Cricket_Ground_%289923777%29.jpg/960px-MRF-D_Marines_tour_Melbourne_Cricket_Ground_%289923777%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Melbourne Cricket Ground",
+            "Milimedia files, Australia (review needed)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military-Marines"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "samoa-blir-sjalvstandigt",
+      "titel": "Samoa blir självständigt",
+      "start": 1962,
+      "plats": "Apia (Samoa)",
+      "wikidata": "Q683",
+      "kandidater": [
+        {
+          "fil": "File:Beach on Upolu Island, Samoa, 2009.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Beach_on_Upolu_Island,_Samoa,_2009.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Stephen Glauser",
+          "datum": "2009-08-14 14:24:10",
+          "datum_original": "2009-08-14 14:24:10",
+          "datum_fil": "2009-12-07 06:30:07",
+          "kredit": "originally posted to Flickr as August 2009 066",
+          "beskrivning": "Beach view on Upolu Island, Samoa, 2009",
+          "bredd": 3648,
+          "hojd": 2736,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Beach_on_Upolu_Island%2C_Samoa%2C_2009.jpg/960px-Beach_on_Upolu_Island%2C_Samoa%2C_2009.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2009 in Samoa",
+            "Beaches of Samoa",
+            "Landforms of Samoa",
+            "Views of Samoa",
+            "Villages in Samoa"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "wave-hill-strejken",
+      "titel": "Gurindjifolket lämnar Wave Hill",
+      "start": 1966,
+      "plats": "Boskapsstationen Wave Hill, Kalkarindji, Northern Territory (Australien)",
+      "wikidata": "Q246080",
+      "kandidater": [
+        {
+          "fil": "File:Cattle Creek outstation, Wave Hill.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cattle_Creek_outstation,_Wave_Hill.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Ellen Sarah Kettle",
+          "datum": "1962",
+          "datum_original": "1962",
+          "datum_fil": "2026-07-05 23:41:57",
+          "kredit": "https://hdl.handle.net/10070/723483 Territory Stories website",
+          "beskrivning": "\"A black-and-white photograph of Cattle Creek, then an outstation of Wave Hill Station in the Victoria River District of the Northern Territory. The photograph shows living quarters and various outbuildings, and also gives an impression of the flat dry landscape in this part of NT. A water reservoir, possibly for use by cattle, is visible in the foreground.\" ( http://tlf.dlr.det.nsw.edu.au/learningobjects/Content/R11294/object/r7756.htm )",
+          "bredd": 5451,
+          "hojd": 3061,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Cattle_Creek_outstation%2C_Wave_Hill.jpg/960px-Cattle_Creek_outstation%2C_Wave_Hill.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Farm buildings in Australia",
+            "Homesteads in Australia",
+            "Northern Territory in the 1960s",
+            "Wave Hill Station"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "fiji-blir-sjalvstandigt",
+      "titel": "Fiji blir självständigt",
+      "start": 1970,
+      "plats": "Suva (Fiji)",
+      "wikidata": "Q712",
+      "kandidater": [
+        {
+          "fil": "File:Куинс-роуд, город Нанди (Queens Rd., Nadi).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%D0%9A%D1%83%D0%B8%D0%BD%D1%81-%D1%80%D0%BE%D1%83%D0%B4,_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4_%D0%9D%D0%B0%D0%BD%D0%B4%D0%B8_(Queens_Rd.,_Nadi).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Виктор Пинчук",
+          "datum": "2019-01-21 12:01:48",
+          "datum_original": "2019-01-21 12:01:48",
+          "datum_fil": "2020-08-10 19:28:37",
+          "kredit": "Own work",
+          "beskrivning": "Photo from the book \"Two months of wanderings ...\", p. 43., ISBN 978-5-9909912-5-5 © Pinchuk V.., 2020",
+          "bredd": 1393,
+          "hojd": 1015,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/%D0%9A%D1%83%D0%B8%D0%BD%D1%81-%D1%80%D0%BE%D1%83%D0%B4%2C_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4_%D0%9D%D0%B0%D0%BD%D0%B4%D0%B8_%28Queens_Rd.%2C_Nadi%29.jpg/960px-%D0%9A%D1%83%D0%B8%D0%BD%D1%81-%D1%80%D0%BE%D1%83%D0%B4%2C_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4_%D0%9D%D0%B0%D0%BD%D0%B4%D0%B8_%28Queens_Rd.%2C_Nadi%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Materials of the \"Expedition to Oceania\" by Viktor Pinchuk",
+            "Nadi",
+            "Pedestrian crossing warning road signs in Fiji",
+            "Photos from the book «Two months of wanderings and 14 days unfreedom» (Два месяца странствий и 14 дней за решеткой)",
+            "Queens Road, Fiji"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "prospero-black-arrow",
+      "titel": "Prospero, Storbritanniens satellit med egen raket",
+      "start": 1971,
+      "plats": "Woomera, South Australia, Australien",
+      "wikidata": "Q282184",
+      "kandidater": [
+        {
+          "fil": "File:Prospero X-3 model 2012.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Prospero_X-3_model_2012.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Geni",
+          "datum": "2012-06",
+          "datum_original": "2012-06",
+          "datum_fil": "2012-06-11 17:27:55",
+          "kredit": "Photo by user:geni",
+          "beskrivning": "Photo of the Prospero X-3 satellite flight spare in London's Science Museum",
+          "bredd": 3360,
+          "hojd": 3152,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Prospero_X-3_model_2012.JPG/960px-Prospero_X-3_model_2012.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Prospero (satellite)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 4.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-sa-all}}. Commons API (LicenseShortName): \"CC BY-SA 4.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 4.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-all"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "sydneyoperan-invigs",
+      "titel": "Operahuset i Sydney invigs",
+      "start": 1973,
+      "plats": "Bennelong Point, Sydney (Australien)",
+      "wikidata": "Q45178",
+      "kandidater": [
+        {
+          "fil": "File:Sydney Opera House Sails.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sydney_Opera_House_Sails.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "No machine-readable author provided. Roybb95~commonswiki assumed (based on copyright claims).",
+          "datum": "27 March 2005 (original upload date)",
+          "datum_original": "27 March 2005 (original upload date)",
+          "datum_fil": "2006-04-11 13:51:50",
+          "kredit": "No machine-readable source provided. Own work assumed (based on copyright claims).",
+          "beskrivning": "añade un texto que diga Sidney en una foto",
+          "bredd": 2125,
+          "hojd": 1405,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Sydney_Opera_House_Sails.jpg/960px-Sydney_Opera_House_Sails.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Sydney Opera House from the west"
+          ],
+          "smal": false,
+          "flaggor": [
+            "licens-risk"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "flera licenser: CC BY-SA 3.0, CC BY-SA 2.5",
+              "GFDL anges också (dubbellicens)",
+              "risk: filsidan har en mall om frihet för panorama: kontrollera upphovsrätten för konstverket i bilden"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|Cc-by-sa-3.0-migrated}}, {{self|Cc-by-sa-2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Flera licenser anges (CC BY-SA 3.0 och CC BY-SA 2.5); bilden används under CC BY-SA 3.0. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0. Att kontrollera: filsidan har en mall om frihet för panorama: kontrollera upphovsrätten för konstverket i bilden.",
+            "risker": [
+              "filsidan har en mall om frihet för panorama: kontrollera upphovsrätten för konstverket i bilden"
+            ],
+            "mallar": [
+              "self|GFDL",
+              "self|Cc-by-sa-3.0-migrated",
+              "self|Cc-by-sa-2.5,2.0,1.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:00 1375 Sydney Opera House (Australia).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:00_1375_Sydney_Opera_House_(Australia).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "W. Bulach",
+          "datum": "2006-04-17 13:56:50",
+          "datum_original": "2006-04-17 13:56:50",
+          "datum_fil": "2021-05-15 12:12:27",
+          "kredit": "Own work",
+          "beskrivning": "Sydney Opera House. The striking building was erected between 1959 and 1973. Its unique roof with a height of 67 meters is clad with 1.1 million white ceramic tiles. The opera house is a UNESCO heritage site.",
+          "bredd": 3063,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/00_1375_Sydney_Opera_House_%28Australia%29.jpg/960px-00_1375_Sydney_Opera_House_%28Australia%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Sydney Opera House from the west",
+            "Sydney Opera House in 2006"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "cyklonen-tracy",
+      "titel": "Cyklonen Tracy ödelägger Darwin",
+      "start": 1974,
+      "plats": "Darwin, Northern Territory (Australien)",
+      "wikidata": "Q245544",
+      "kandidater": [
+        {
+          "fil": "File:Houses-after-tracy.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Houses-after-tracy.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Billbeee . You can contact him through his website . He mentionned to feel free to use it, just credit him as the photographer.",
+          "datum": "2007-04-06 02:25",
+          "datum_original": "2007-04-06 02:25",
+          "datum_fil": "2008-12-22 22:02:19",
+          "kredit": "en:File:Houses-after-tracy.jpg",
+          "beskrivning": "Damaged houses after the passage of Cyclone Tracy on Christmas day 1974 in Darwin, Australia.",
+          "bredd": 1064,
+          "hojd": 700,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Houses-after-tracy.jpg/960px-Houses-after-tracy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Black and white photographs of Australia in the 1970s",
+            "Black and white photographs of the Northern Territory",
+            "Cyclone Tracy"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{GFDL-user-w}}, {{GFDL-user-w|migration=relicense}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "GFDL-user-w",
+              "GFDL-user-w|migration=relicense"
+            ]
+          }
+        },
+        {
+          "fil": "File:Cyclone Tracy.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cyclone_Tracy.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NOAA",
+          "datum": "1974-12-25",
+          "datum_original": "1974-12-25",
+          "datum_fil": "2005-12-27 18:22:14",
+          "kredit": "http://www.ntlib.nt.gov.au/tracy/advanced/Met/25am.html",
+          "beskrivning": "This picture shows Cyclone Tracy near landfall on Darwin, Australia in late December of 1974.",
+          "bredd": 220,
+          "hojd": 215,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Cyclone_Tracy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Cyclone Tracy",
+            "NOAA 4"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NOAA"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "stora-barriarrevets-marinpark",
+      "titel": "Stora barriärrevet blir marinpark",
+      "start": 1975,
+      "plats": "Stora barriärrevet, Queensland, Australien",
+      "wikidata": "Q938159",
+      "kandidater": [
+        {
+          "fil": "File:Jack Barnes Bicentennial Mangrove Boardwalk.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Jack_Barnes_Bicentennial_Mangrove_Boardwalk.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "SimoneV87",
+          "datum": "Taken on 19 October 2014 09:06:44",
+          "datum_original": "Taken on 19 October 2014 09:06:44",
+          "datum_fil": "2016-05-26 10:29:50",
+          "kredit": "Own work",
+          "beskrivning": "Boardwalk through a beautiful mangrove forest featured in Estuarine Conservation Zone as part of The Great Barrier Reef Marine Park. Mangroves are vital for keeping good health of marine ecosystems in tropical areas.",
+          "bredd": 1448,
+          "hojd": 2172,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Jack_Barnes_Bicentennial_Mangrove_Boardwalk.jpg/960px-Jack_Barnes_Bicentennial_Mangrove_Boardwalk.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Boardwalks in Cairns"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "vanuatu-blir-sjalvstandigt",
+      "titel": "Vanuatu blir självständigt",
+      "start": 1980,
+      "plats": "Port Vila (Vanuatu)",
+      "wikidata": "Q686",
+      "kandidater": [
+        {
+          "fil": "File:Satellite image of Vanuatu in October 1998.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Satellite_image_of_Vanuatu_in_October_1998.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2005-05-06 12:51:40",
+          "datum_original": null,
+          "datum_fil": "2005-05-06 12:51:40",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 482,
+          "hojd": 596,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Satellite_image_of_Vanuatu_in_October_1998.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1998 in Vanuatu",
+            "Satellite pictures of Vanuatu"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA"
+            ]
+          }
+        },
+        {
+          "fil": "File:Vanuatu Provinces.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Vanuatu_Provinces.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2005-07-25 00:10:09",
+          "datum_original": null,
+          "datum_fil": "2005-07-25 00:10:09",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 558,
+          "hojd": 609,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Vanuatu_Provinces.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Malampa Province",
+            "Maps of the provinces of Vanuatu",
+            "Penama Province",
+            "Sanma Province",
+            "Shefa Province",
+            "Tafea Province",
+            "Torba Province"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-author"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "rainbow-warrior-sanks",
+      "titel": "Rainbow Warrior sänks i Auckland",
+      "start": 1985,
+      "plats": "Aucklands hamn (Nya Zeeland)",
+      "wikidata": "Q460731",
+      "kandidater": [
+        {
+          "fil": "File:Pacific Nuclear Testing- a French letter to the NZ Embassy in Paris (27726454900).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Pacific_Nuclear_Testing-_a_French_letter_to_the_NZ_Embassy_in_Paris_(27726454900).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2016-06-30 14:18",
+          "datum_original": "2016-06-30 14:18",
+          "datum_fil": "2016-09-08 20:34:55",
+          "kredit": "Pacific Nuclear Testing: a French letter to the NZ Embassy in Paris",
+          "beskrivning": "On 10 July, 1985, Greenpeace’s flagship Rainbow Warrior was purposely sunk while docked at Auckland harbour. Just before midnight dual explosions punctured the ship’s hull, claiming the life of Greenpeace crew member Fernando Pereira. It was later found that French Secret Service agents had planted explosives on the boat. The act of espionage by the French government was in response to Greenpeace's intentions to interfere in a nuclear test in the Pacific. Anti-nuclear sentiment in New Zealand ran high in the 1980s, and New Zealand's nuclear-free zone as enacted in 1987 is still intact today. This file, created at the New Zealand Embassy in Paris, is a formerly secret record opened in 2007 by MFAT, as it does not contain any classified material. The thick file consists of mail from mainly French individuals to the Ambassador and Prime Minister David Lange between July and December 1985; mostly in sympathy and support. The letter featured above was received by the Embassy in Paris on 28 November 1985, and consists of paper pasted on to card as a collage, with hand drawn pictures and annotations. It discusses French nuclear power, testing in Mururoa Atoll, and the French government’s involvement in the sinking of the Rainbow Warrior. Archives Reference: ABHS 22310 W5631 Box74/ 44/6/1 www.archway.archives.govt.nz/ViewFullItem.do?code=22444656 For further enquiries please email Research.Archives@dia.govt.nz For updates on our On This Day series and news from Archives New Zealand, follow us on Twitter www.twitter.com/ArchivesNZ Caption information from NZ History: www.nzhistory.net.nz/politics/nuclear-free-new-zealand/ra... Material from Archives New Zealand",
+          "bredd": 3519,
+          "hojd": 5000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Pacific_Nuclear_Testing-_a_French_letter_to_the_NZ_Embassy_in_Paris_%2827726454900%29.jpg/960px-Pacific_Nuclear_Testing-_a_French_letter_to_the_NZ_Embassy_in_Paris_%2827726454900%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1985 letters",
+            "Rainbow Warrior (ship, 1955)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "maori-officiellt-sprak",
+      "titel": "Maori blir officiellt språk",
+      "start": 1987,
+      "plats": "Nya Zeeland",
+      "wikidata": "Q1164759",
+      "kandidater": [
+        {
+          "fil": "File:Another Puff from Whakaari (153818).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Another_Puff_from_Whakaari_(153818).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA Earth Observatory image by Michala Garrison, using Landsat data from the U.S. Geological Survey. Story by Adam Voiland.",
+          "datum": "Taken on 7 January 2025",
+          "datum_original": "Taken on 7 January 2025",
+          "datum_fil": "2025-10-25 22:39:03",
+          "kredit": "This image or video was catalogued by Goddard Space Flight Center of the United States National Aeronautics and Space Administration (NASA) under Photo ID: 153818 .",
+          "beskrivning": "The partially submerged volcano in New Zealand’s Bay of Plenty is called Whakaari/White Island. It’s a fitting name for the perpetually puffing and occasionally explosive stratovolcano offshore from North Island. The volcano’s name is a combination of Te Puia o Whakaari (a Māori phrase for “dramatic volcano”) and White Island, which the British explorer James Cook started calling the feature in 1769 after noticing that it puffed steam almost continuously. Conditions were on the calm side when the OLI-2 (Operational Land Imager-2) on Landsat 9 captured this image of the volcano on January 7, 2025. In an update on January 13, the local hazards monitoring group GeoNet noted that the volcano was undergoing a period of “heightened unrest” and has been emitting weak-to-moderate steam and gas plume emissions and “small amounts of ash” for the past two-to-three weeks. Due to the ash, authorities have elevated the aviation color code to orange. “Currently, this activity is not affecting air traffic as the dominant wind is blowing the ash away from the mainland and the plume is very low elevation—a few thousand feet,” said Craig Miller, a geophysicist at GNS Science. He added that while this type of passive ash emission is technically an eruption, events need to be more explosive to be classified as a minor eruption (level 3 on the regional system for Volcanic Alert Levels). GeoNet geologists think magma is quite close to the surface based on high vent temperatures. When magma is near the surface, it becomes easier for rising gases to pull small bits of cooled magma into the plume as ash fragments, he said. Sometimes hot gases rising through the vent also cause bits of the crater wall to flake off into the plume and become an additional source of ash, he added. NASA Earth Observatory image by Michala Garrison, using Landsat data from the U.S. Geological Survey. Story by Adam Voiland.",
+          "bredd": 1308,
+          "hojd": 872,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Another_Puff_from_Whakaari_%28153818%29.jpg/960px-Another_Puff_from_Whakaari_%28153818%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Landsat images of New Zealand",
+            "NASA Earth Observatory in 2025",
+            "Satellite pictures by Landsat 9",
+            "Satellite pictures of Whakaari/White Island"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA"
+            ]
+          }
+        },
+        {
+          "fil": "File:Mount Taranaki’s Ring of Forest (153342).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mount_Taranaki%E2%80%99s_Ring_of_Forest_(153342).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA Earth Observatory image by Wanmei Liang, using Landsat data from the U.S. Geological Survey. Photo by Kathrin & Stefan Marks, used under the Creative Commons Attribution-Noncommercial-Noderivs 2.0 Generic. Story by Lindsey Doermann.",
+          "datum": "Taken on 10 June 2023",
+          "datum_original": "Taken on 10 June 2023",
+          "datum_fil": "2025-11-28 23:14:58",
+          "kredit": "This image or video was catalogued by Goddard Space Flight Center of the United States National Aeronautics and Space Administration (NASA) under Photo ID: 153342 .",
+          "beskrivning": "On New Zealand’s North Island, a conical snow-capped volcano ringed by dark green forest rises above dairy pasture. The often-snowcapped peak of Mount Taranaki (dubbed Mount Egmont by Captain Cook) is the centerpiece of Egmont National Park. A circular piece of land—with a 9.6-kilometer (6-mile) radius from the volcano’s summit—was first formally protected as a forest reserve in 1881. With some subsequent additions, it became New Zealand’s second national park in 1900. The OLI (Operational Land Imager) on Landsat 8 acquired this image of Mount Taranaki in June 2023. Two older and extinct volcanoes, Kaitake and Pouakai, lie to the northwest of its peak. At 2,518 meters (8,261 feet) tall, Taranaki is the second-highest peak on New Zealand’s North Island after Ruapehu. At the widest part of the ring around the mountain, forests of rimu and kāmahi, tall evergreen trees native to New Zealand, dominate. Stands of kāmahi have also found a niche at higher elevations in what’s known as the “Goblin Forest.” Here, they grow gnarled and twisted around trees that have been destroyed in volcanic eruptions. Moving higher, forests give way to progressively smaller bands of subalpine and alpine habitat. Despite its neat appearance from above, the volcano has a history of dramatic change. By one count, the mountain’s edifice has collapsed and rebuilt 16 times, with each cycle sending large debris avalanches down its flanks. Steep slopes, loose sediments, high rainfall rates, and buried faults all contribute to its tendency to collapse. Avalanche deposits have accumulated to form the peninsula on which the mountain sits, and debris has even been found to extend up to 8 kilometers (5 miles) offshore. Mount Taranaki’s last volcanic eruption was over 200 years ago, and scientists give it a 30 to 50 percent chance of erupting in the next 50 years. Hazards such as mudflows, or lahars, are still present and have occurred occasionally in the past several decades. A present-day eruption could have serious and costly consequences, researchers say, as the region is home to more than 110,000 people and economic activities such as farming, manufacturing, and energy production. Despite its inherent threats, the towering, symmetrical cone has become iconic in New Zealand culture. It has served not only as an inspiration for artwork but also as a symbol depicted on product labels, postage stamps, and even the country’s currency. In 2017, the mountain attained a new level of protection when it was granted the same legal rights as a person, according to news reports. The status is an acknowledgment of the Indigenous Māori people’s relationship to the mountain and means that harming the mountain has the same legal implications as harming the tribe. NASA Earth Observatory image by Wanmei Liang, using Landsat data from the U.S. Geological Survey. Photo by Kathrin & Stefan Marks, used under the Creative Commons Attribution-Noncommercial-Noderivs 2.0 Generic. Story by Lindsey Doermann.",
+          "bredd": 1658,
+          "hojd": 1105,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Mount_Taranaki%E2%80%99s_Ring_of_Forest_%28153342%29.jpg/960px-Mount_Taranaki%E2%80%99s_Ring_of_Forest_%28153342%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2023 satellite pictures",
+            "Landsat images of New Zealand",
+            "Mount Taranaki in 2023",
+            "NASA Earth Observatory in 2024",
+            "Satellite pictures by Landsat 8",
+            "Satellite pictures of Mount Taranaki"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA"
+            ]
+          }
+        },
+        {
+          "fil": "File:Submission on the New Zealand Sign Language Bill (16984050221).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Submission_on_the_New_Zealand_Sign_Language_Bill_(16984050221).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2015-03-31 15:22",
+          "datum_original": "2015-03-31 15:22",
+          "datum_fil": "2016-09-08 21:10:06",
+          "kredit": "Submission on the New Zealand Sign Language Bill",
+          "beskrivning": "In April 2006, New Zealand Sign Language (NZSL) became an official language of New Zealand, joining English and Te Reo Māori. The parliamentary bill to approve this passed its third reading on 6 April 2006, and received Royal Assent, a constitutional formality, on 10 April 2006. NZSL became an official language of New Zealand the day after Royal Assent. The use of NZSL as a valid medium of instruction has not always been accepted by the government, the Association of Teachers of the Deaf, or many parents of deaf children. However, in light of much research into its validity as a language and much advocacy by deaf adults, parents of deaf children (both hearing and deaf), and educationalists, NZSL has since become part of the bilingual/ bicultural approach used in New Zealand public schools. The importance of NZSL to children is shown in this anonymous submission to the Justice and Electoral Committee. It comes from a larger record of submissions on the bill, including two delivered in video format from Kelston Day Education Centre and Freyberg High School. Archives Reference: ABGX W5397 16127 Box 388/ JE 2/8/2 Part 1 archway.archives.govt.nz/ViewFullItem.do?code=23617572 For updates on our On This Day series and news from Archives New Zealand, follow us on Twitter www.twitter.com/ArchivesNZ Material from Archives New Zealand",
+          "bredd": 2419,
+          "hojd": 3448,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Submission_on_the_New_Zealand_Sign_Language_Bill_%2816984050221%29.jpg/960px-Submission_on_the_New_Zealand_Sign_Language_Bill_%2816984050221%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2006 documents of New Zealand",
+            "April 2006 in New Zealand",
+            "New Zealand Sign Language"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "olympiska-sommarspelen-i-sydney-2000",
+      "titel": "Olympiska sommarspelen i Sydney",
+      "start": 2000,
+      "plats": "Sydney, med Stadium Australia som huvudarena (Australien)",
+      "wikidata": "Q8544",
+      "kandidater": [
+        {
+          "fil": "File:2000 Summer Olympics opening ceremony 1.JPEG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2000_Summer_Olympics_opening_ceremony_1.JPEG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "TSGT Rick Sforza",
+          "datum": "Taken on 15 September 2000",
+          "datum_original": "Taken on 15 September 2000",
+          "datum_fil": "2010-02-09 23:09:39",
+          "kredit": "http://www.defenseimagery.mil/imagery.html#guid=ac15e53896549fc77521df97805b58cbe52c9e98 (deadlink)",
+          "beskrivning": "High angle view down onto the Sydney Olympic Stadium floor as thousands of performers take part in the opening ceremonies for the 2000 Olympic games before an audience of 110,000 on September 15th, 2000.",
+          "bredd": 2880,
+          "hojd": 1870,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/2000_Summer_Olympics_opening_ceremony_1.JPEG/960px-2000_Summer_Olympics_opening_ceremony_1.JPEG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2000 Summer Olympics opening ceremony"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military-Air Force"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "black-saturday-branderna-2009",
+      "titel": "Black Saturday-bränderna i Victoria",
+      "start": 2009,
+      "plats": "Delstaten Victoria (Australien)",
+      "wikidata": "Q838278",
+      "kandidater": [
+        {
+          "fil": "File:February 7 Victoria Bushfires - MODIS Aqua.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:February_7_Victoria_Bushfires_-_MODIS_Aqua.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "National Aeronautics and Space Administration (NASA)",
+          "datum": "2009-02-07",
+          "datum_original": "2009-02-07",
+          "datum_fil": "2009-02-07 11:57:57",
+          "kredit": "Cropped image of - Australia6 Subset - Aqua 250m True Color image for 2009/038 (02/07/09) .",
+          "beskrivning": "7 February 2009 MODIS Aqua satellite image of smoke plumes from bushfires burning in Victoria .",
+          "bredd": 800,
+          "hojd": 530,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/4e/February_7_Victoria_Bushfires_-_MODIS_Aqua.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "2009 Victorian bushfires",
+            "2009 wildfires in Australia"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "jordbavningen-i-christchurch-2011",
+      "titel": "Jordbävningen i Christchurch",
+      "start": 2011,
+      "plats": "Port Hills nära Christchurch, Canterbury (Nya Zeeland)",
+      "wikidata": "Q151850",
+      "kandidater": [
+        {
+          "fil": "File:Colombo St looking south to Tuam.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Colombo_St_looking_south_to_Tuam.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Schwede66",
+          "datum": "2011-03-02 15:15:35",
+          "datum_original": "2011-03-02 15:15:35",
+          "datum_fil": "2016-04-27 18:33:29",
+          "kredit": "Own work",
+          "beskrivning": "Colombo Street looking south to Tuam Street",
+          "bredd": 1024,
+          "hojd": 768,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Colombo_St_looking_south_to_Tuam.JPG/960px-Colombo_St_looking_south_to_Tuam.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Buildings damaged by the 2011 Canterbury earthquake",
+            "Colombo Street"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "massblekning-stora-barriarrevet-2016",
+      "titel": "Massblekning av koraller på Stora barriärrevet",
+      "start": 2016,
+      "plats": "Stora barriärrevet utanför Queenslands kust (Australien)",
+      "wikidata": "Q7343",
+      "kandidater": [
+        {
+          "fil": "File:GreatBarrierReef-EO.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:GreatBarrierReef-EO.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA, by MISR",
+          "datum": "2000-08-26",
+          "datum_original": "2000-08-26",
+          "datum_fil": "2005-05-23 12:52:58",
+          "kredit": "probably http://photojournal.jpl.nasa.gov/catalog/pia03401",
+          "beskrivning": "Satelite image of the Great Barrier Reef",
+          "bredd": 540,
+          "hojd": 540,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/1b/GreatBarrierReef-EO.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Capricorn Group, Queensland",
+            "Coral Sea",
+            "Photos of Australia by MISR",
+            "Satellite pictures of the Great Barrier Reef",
+            "Whitsunday Islands"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "attentaten-mot-moskeerna-i-christchurch",
+      "titel": "Terrorattackerna mot två moskéer i Christchurch",
+      "start": 2019,
+      "plats": "Al Noor-moskén och Linwood Islamic Centre, Christchurch (Nya Zeeland)",
+      "wikidata": "Q62066211",
+      "kandidater": [
+        {
+          "fil": "File:Christchurch Mosque, New Zealand.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Christchurch_Mosque,_New_Zealand.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Michal Klajban",
+          "datum": "2019-08-25 08:37:13",
+          "datum_original": "2019-08-25 08:37:13",
+          "datum_fil": "2019-09-27 02:42:57",
+          "kredit": "Own work",
+          "beskrivning": "Christchurch Mosque (Al Noor Mosque (Arabic: مسجد النور‎‎, Masjid al-Noor)), Christchurch, New Zealand",
+          "bredd": 4013,
+          "hojd": 3247,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Christchurch_Mosque%2C_New_Zealand.jpg/960px-Christchurch_Mosque%2C_New_Zealand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Christchurch Mosque",
+            "Clouds and blue sky in New Zealand",
+            "Mosques in New Zealand photographed in 2019",
+            "Trees in Christchurch"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "utbrottet-i-hunga-tonga-2022",
+      "titel": "Vulkanutbrottet i Hunga Tonga–Hunga Haʻapai",
+      "start": 2022,
+      "plats": "Undervattensvulkanen Hunga Tonga–Hunga Haʻapai, 65 km norr om Tongatapu (Tonga)",
+      "wikidata": "Q110567218",
+      "kandidater": [
+        {
+          "fil": "File:Tonga Volcano Eruption 2022-01-15 0320Z to 0610Z Himawari-8 visible.gif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tonga_Volcano_Eruption_2022-01-15_0320Z_to_0610Z_Himawari-8_visible.gif",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Japan Meteorological Agency (satellite), Digital Typhoon (website)",
+          "datum": "Taken on 15 January 2022 03:40Z",
+          "datum_original": "Taken on 15 January 2022 03:40Z",
+          "datum_fil": "2022-02-25 07:46:59",
+          "kredit": "Digital Typhoon: 2022 Hunga Tonga-Hunga Haʻapai Eruption Source archived at Internet Archive . Using MP4 to GIF Converter at ezgif.com/video-to-gif .",
+          "beskrivning": "Himawari-8 satellite images of the 15 January 2022 eruption of Hunga Tonga-Hunga Haʻapai.",
+          "bredd": 850,
+          "hojd": 850,
+          "mime": "image/gif",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Tonga_Volcano_Eruption_2022-01-15_0320Z_to_0610Z_Himawari-8_visible.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Himawari 8 images",
+            "Media of the day",
+            "Satellite pictures of 2022-01-15 Hunga Tonga–Hunga Ha'apai eruption",
+            "Umbrella cloud (volcanism)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 4.0",
+            "skal": [
+              "API:et säger \"CC BY 4.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Tonga Eruption GOES-17 1-15-2022.gif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tonga_Eruption_GOES-17_1-15-2022.gif",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NOAA",
+          "datum": "Taken on 15 January 2022",
+          "datum_original": "Taken on 15 January 2022",
+          "datum_fil": "2022-01-15 23:49:58",
+          "kredit": "https://console.cloud.google.com/marketplace/details/noaa-public/goes-17",
+          "beskrivning": "Hunga Tonga eruption late (local time) on January 15, 2022, taken from the GOES-17 weather satellite. Acquisition period is approximately 10 minutes for each image.",
+          "bredd": 1000,
+          "hojd": 1000,
+          "mime": "image/gif",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Tonga_Eruption_GOES-17_1-15-2022.gif/960px-Tonga_Eruption_GOES-17_1-15-2022.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Base surges (volcanism)",
+            "GOES 17 pictures",
+            "Hydrovolcanism",
+            "Satellite pictures of 2022-01-15 Hunga Tonga–Hunga Ha'apai eruption",
+            "Umbrella cloud (volcanism)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NOAA"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "westminsterstadgan-antas-i-australien-1942",
+      "titel": "Australien antar Westminsterstadgan",
+      "start": 1942,
+      "plats": "Provisoriska parlamentshuset (Old Parliament House), parlamentets säte 1927–1988, Canberra, Australien",
+      "wikidata": "Q7604669",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "westminsterstadgan-antas-1947",
+      "titel": "Nya Zeeland antar Westminsterstadgan",
+      "start": 1947,
+      "plats": "Wellington, Nya Zeeland",
+      "wikidata": "Q7604668",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "waitangitribunalen-inrattas",
+      "titel": "Waitangitribunalen inrättas",
+      "start": 1975,
+      "plats": "Wellington, Nya Zeeland",
+      "wikidata": "Q10296620",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "constitution-act-1986",
+      "titel": "Nya Zeeland får en egen konstitutionslag",
+      "start": 1986,
+      "plats": "Wellington, Nya Zeeland",
+      "wikidata": "Q2995062",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "mabodomen",
+      "titel": "Mabodomen erkänner urfolkens rätt till land",
+      "start": 1992,
+      "plats": "High Court of Australia, Canberra (Australien)",
+      "wikidata": "Q1501525",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "waikato-tainui-uppgorelsen",
+      "titel": "Kronan ber Waikato-Tainui om ursäkt",
+      "start": 1995,
+      "plats": "Waikato, Nya Zeeland",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "fredssamtalen-i-nya-zeeland",
+      "titel": "Fredssamtalen i Burnham och Lincoln",
+      "start": 1997,
+      "plats": "Burnham och Christchurch, Nya Zeeland",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "samoa-hoppar-over-en-dag-2011",
+      "titel": "Samoa hoppar över en dag och byter sida om datumlinjen",
+      "start": 2011,
+      "plats": "Samoa, med huvudstaden Apia (Samoa)",
+      "wikidata": "Q4127134",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    }
+  ]
+}
