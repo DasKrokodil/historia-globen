@@ -1003,3 +1003,37 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `rodding-folkhogskola` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
 | `wienkongressen` | 2026-11-26: Verktyget `tools/bildbatch.py` hoppar över händelser med `start` i stället för `year`; ingen kandidatlista togs fram och ingen egen sökning hann göras. |
 | `representationsreformen` | 2026-11-26: Verktyget `tools/bildbatch.py` hoppar över händelser med `start` i stället för `year`; ingen kandidatlista togs fram och ingen egen sökning hann göras. |
+
+## Europa 1896–1936 och 1938–1993 (#2088 och #2089, 2026-11-26)
+
+13 av 40 händelser fick bild i den här omgången och 2 har en utsedd bild som inte kunde hämtas. Följande 27 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/europa-7.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `de-forsta-nobelprisen` | 2026-11-26: Enda kandidaterna gäller Ig Nobel-ceremonin och senare Nobelpris (2011–2013), inte 1901 års utdelning; den egna sökningen gav inga träffar. Ingen bild vald. |
+| `einsteins-artiklar-1905` | 2026-11-26: Enda träffarna var innehållsförteckningen för Annalen der Physik, juni 1905 (CC0, bara 397 × 544 px, för liten) och digitaliserade artiklar som inte är bilder. Ingen bild vald. |
+| `sveriges-forsta-nationalparker` | 2026-11-26: Kandidaterna i listan gäller litauiska nationalparker; den egna sökningen gav bara en karta (181 × 364 px). Ingen bild vald. |
+| `allman-rostratt-for-man-1911` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `kvinnlig-rostratt-danmark-1915` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `armeniska-folkmordet` | 2026-11-26: Enda kandidaten (Ambassador Morgenthau's Story p314.jpg) visar enligt filsidan dödade armenier längs en väg; bilder av döda lämnas utan vidare granskning av en människa (värdighet). Ingen bild vald. |
+| `turkiska-frihetskriget` | 2026-11-26: Enda kandidaten är en collage på 404 × 404 px; för liten, används inte. |
+| `massakern-vid-monte-arruit` | 2026-11-26: Enda kandidaten (Guerra del Rif 1922 - 2.jpg, 711 × 607 px) är liten och gäller läget efter slaget vid Annual enligt filsidan; bilder från platsen kan visa dödade och bedömdes inte som värdiga utan granskning. Ingen bild vald. |
+| `kvinnor-rostar-1921` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `abd-el-krim-ger-upp` | 2026-11-26: Porträttet av Abd el-Krim används redan för `rifrepubliken-utropas`; ingen annan bild hittades. |
+| `gulag` | 2026-11-26: Utsedd men inte hämtad: Gulag drivers licence.jpg (PD-Russia-2008, förarbevis från ett arbetsläger 1941), HTTP 429. Står i `data/utkast/bildbatch/europa-7-ej-hamtade.txt`. |
+| `holodomor` | 2026-11-26: Träffarna är nutida minnesmärken (skulpturer) i flera länder, med oklar upphovsrätt för skulpturerna, och bilder av offer lämnas av värdighetsskäl. Ingen bild vald. |
+| `lego-grundas` | 2026-11-26: Enda kandidaten (Legoland Miniland London) visar inte LEGO:s början; den egna sökningen gav inga träffar. Ingen bild vald. |
+| `saltsjobadsavtalet` | 2026-11-26: Utsedd men inte hämtad: Saltsjobadsavtalet.jpg (pressfoto av Meyerhöffer från undertecknandet 20 december 1938, PD-Sweden-photo), HTTP 429. Står i `data/utkast/bildbatch/europa-7-ej-hamtade.txt`. |
+| `jordbavningen-i-erzincan-1939` | 2026-11-26: Kandidaterna är en karta över internationell hjälp, en collage över 1939 och en staty av İnönü i Erzincan (nutida skulptur); ingen visar jordbävningen. Ingen bild vald. |
+| `algeriska-frihetskriget` | 2026-11-26: Enda kandidaten är en collage (960 × 960 px) gjord av en Commons-användare av skärmbilder; används inte. |
+| `toussaint-rouge` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `philippeville-1955` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `slaget-om-alger` | 2026-11-26: Kandidaterna är ett foto av en gömma i Casbah (licensrisk enligt verktyget), ett foto av Ali la Pointe efter hans död och ett litet porträtt; bilder av döda lämnas utan granskning av en människa. Ingen bild vald. |
+| `majkrisen-1958` | 2026-11-26: Ingen kandidat i listan; sökningen efter de Gaulle i Alger gav bara en collage och tidskrifts-PDF:er. Ingen bild vald. |
+| `generalskuppen-1961` | 2026-11-26: Enda kandidaten är en karta över Alger från 1830 (Boutin), som inte visar kuppen. Ingen bild vald. |
+| `pragvaren` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `stockholmskonferensen-1972` | 2026-11-26: Kandidaten UN-environment-in-Stockholm-1972.jpg är ett anonymt pressfoto från 1972 med licensmallen PD-Sweden; skyddstiden, särskilt i USA, är osäker för ett foto från 1972, så bilden används inte tills en människa bedömt licensen. |
+| `danmark-gar-med-i-eg` | 2026-11-26: Kandidaterna är foton från toppmöten 2024–2025, inte från 1973. Ingen bild vald. |
+| `esa-bildas` | 2026-11-26: Enda kandidaten (ESA Headquarters in Paris.jpg, CC BY-SA 3.0 IGO) flaggades av verktyget; licensen bedöms av en människa innan bilden används. Ingen bild vald. |
+| `ipcc-bildas` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `sametinget-inrattas` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
