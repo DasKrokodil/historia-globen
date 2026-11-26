@@ -1,0 +1,25 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# Godkända efter kontroll av filsidan (action=raw) 2026-11-26. Övriga kandidater i 2113-2114.md valdes bort, se avsnittet Val.
+File:Lake taupo landsat.jpg	hatepeutbrottet
+File:Fele's Cave.jpg	roi-mata-hovdingarna
+File:View from Pulemelei Mound - Samoa.jpg	pulemelei
+File:EnderbyIsland1.JPG	polynesier-pa-aucklandoarna
+File:Dusk on Norfolk Island.jpg	polynesier-pa-norfolkon
+File:Upland moa skeleton, Otago Museum, 2016-01-29.jpg	moafaglarna-dor-ut
+File:Raoul Island, New Zealand (STS008-36-1403, cropped rotated).jpg	polynesier-pa-raoul
+File:Rangitoto02.jpg	rangitoto-bildas
+File:Duyfken replica at Fremantle Harbour 2015.jpg	duyfken-nar-australien
+File:Hessel Gerritsz - Worldmap of 1612 including the discovery of La Austrialia del Espiritu Santo by Pedro Fernandes de Queirós.png	queiros-pa-espiritu-santo	passa-in
+File:Ac dirkhartogplate.jpg	hartogs-tennplatta
+File:Abel Tasman Tasmania 1642 SLNSW FL3174899.jpg	tasman-nar-tasmanien	passa-in
+File:Sydney Cove Port Jackson 1788.jpg	smittkoppor-sydney-1789
+File:View over Poverty Bay from Kaiti Hill lookout.jpg	cook-gar-i-land-turanganui
+File:Oihi Bay, Bay of Islands (15416431034).jpg	forsta-missionen-rangihoua
+File:Sylviornis neocaledoniae skull.JPG	sylviornis-dor-ut
+File:Piper methysticum (kava, awa).jpg	kavan-odlas-fram
+File:Decorated piece of Lapita pottery from the Bourewa site in Fiji.jpg	lapitafolket-pa-fiji
+File:Display of objects of the Lapita culture, Otago Museum, 2016-01-29.jpg	fyndplatsen-lapita	passa-in
+File:Fanga‘uta-Lagune (Ostarm).jpg	lapitafolket-nar-tonga
+File:Cape Verde Pico do Fogo wide.jpg	fogo-utbrottet-1680
+File:Ambrym ali 2012348 lrg.jpg	ambryms-kaldera

@@ -1,0 +1,4 @@
+# Ej hämtade av tools/bild_hamta.py; kör igen med --lista
+File:Raoul Island, New Zealand (STS008-36-1403, cropped rotated).jpg	polynesier-pa-raoul
+File:Rangitoto02.jpg	rangitoto-bildas
+File:Ambrym ali 2012348 lrg.jpg	ambryms-kaldera
