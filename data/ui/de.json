@@ -1126,5 +1126,8 @@
   "feedback.cancel": "Abbrechen",
   "feedback.submit": "Vorschlag senden",
   "feedback.thanks": "Vielen Dank für Ihren Vorschlag! Er ist zur Prüfung eingegangen. Historische Angaben werden mit verlässlichen Quellen abgeglichen, bevor sie veröffentlicht werden.",
-  "feedback.again": "Einen weiteren Vorschlag senden"
+  "feedback.again": "Einen weiteren Vorschlag senden",
+  "focus.places.sample": ["Eine Auswahl: {count} Land. Weitere folgen.", "Eine Auswahl: {count} Länder. Weitere folgen."],
+  "focus.places.missing": "Das Land „{query}“ hat noch keinen Eintrag in dieser Liste. Ereignisse in der Nähe eines Ortes können Sie trotzdem suchen.",
+  "focus.places.toNear": "Zu „In der Nähe eines Ortes“"
 }

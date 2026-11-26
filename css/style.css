@@ -3497,3 +3497,11 @@ span.theme-event:hover { background: none; outline: none; }
   .ff-eyebrow { letter-spacing: .06em; }
   .ff-kind { white-space: nowrap; }
 }
+
+/* Länder och landskap (#1261): urvalsraden överst i fliken, och "Landet finns inte bland korten ännu" med knappen till Nära en plats. Knappen är en
+   .focus-clear (44 px i smal skärm) som får ligga på egen rad. */
+.focus-sample { margin: 0 4px 4px; padding: 6px 10px; border-left: 2px solid var(--brass); font: 500 13px/1.35 var(--f-body); color: var(--parchment); }
+.focus-missing { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 0 4px 6px; }
+.focus-missing .layer-note { padding-left: 10px; font-size: 12px; }
+.focus-missing-link { margin-left: 10px; }
+@media (pointer: coarse) { .focus-missing-link { min-height: 44px; } }
