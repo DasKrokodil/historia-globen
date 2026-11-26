@@ -60,7 +60,7 @@ test('rikets egen rad Om kartan står vid raden bara när gruppen har en enda de
 });
 
 test('Skåne (landskap) och platser utan beslut har inga perioder', () => {
-  for (const pl of places.filter(p => !['sverige', 'danmark', 'finland'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
+  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
 });
 
 test('raderna får rikets eget namn ur indexet och en lucka för år som ingen period täcker', () => {
