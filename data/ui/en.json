@@ -916,6 +916,7 @@
   "sources.uncertainBorder": "{name}: uncertain boundary (soft edge)",
   "sources.factBox": "{name}: fact box",
   "sources.christianisation": "{name} (Christianisation)",
+  "sources.conversion": "{name} (change of religion)",
   "sources.religionOverride": "{name} (religion in the layer)",
   "sources.religionAreas": "Religions: areas follow empire boundaries in Cliopatria",
   "sources.religionWiki": "Religions: each empire’s religion (Wikipedia infobox)",

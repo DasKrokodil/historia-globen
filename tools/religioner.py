@@ -13,7 +13,10 @@ Regler för ett rikes religion ett visst år (religion_at):
   "Official:" eller "State and majority" (OFFICIAL_HEADER, #1609); annars en över 50 procent eller
   under rubriken Majority; annars den enda som nämns (sure = true). Nämns flera utan markering
   väljs den först nämnda (sure = false).
-- Riken med kontrollerat år för kristnandet (christianSince, med källa) är kristna från det året.
+- Riken med ett kontrollerat religionsbyte (conversion = {"religion": id, "since": år, "sources": [källor]}, med en valfri
+  mening "note" per språk för rutan, #2162, beslut 2026-11-25) har den religionen från det året. Före året visas texten
+  som vanligt, utom när texten redan gav samma religion (då visas ingen religion före bytet). Fältet ersätter det äldre
+  christianSince och source (samma regel, religionen kristendom).
 - Ett handplockat val per rike (religionOverride = {"religion": id, "sources": [källor]}, #2140) ersätter religionen som
   texten gav, när en öppnad källa uttryckligen säger vilken religion faktarutans allmännare ord betyder (till exempel
   Zapotekernas "Polytheistic" = mesoamerikansk religion). Regeln och säkerheten (sure) är desamma som för texten, och årtalet (since)
@@ -198,6 +201,24 @@ def override_religion(name, override):
     return rel
 
 
+def conversion(name, conv):
+    """(religion, år) i ett rikes religionsbyte (conversion, #2162). Kastar ValueError när bytet saknar en känd religion,
+    ett år (heltal) eller en källa, eller när meningen note saknar svenska, så att ett trasigt byte stoppar bygget."""
+    rel = conv.get('religion')
+    if rel not in RELIGION_IDS:
+        raise ValueError(f'{name}: conversion.religion {rel!r} är ingen religion i RELIGIONS')
+    since = conv.get('since')
+    if not isinstance(since, int) or isinstance(since, bool):
+        raise ValueError(f'{name}: conversion.since {since!r} är inget år (heltal)')
+    srcs = conv.get('sources')
+    if not isinstance(srcs, list) or not srcs or not all(isinstance(x, str) and x for x in srcs):
+        raise ValueError(f'{name}: conversion saknar sources (minst en källa i sources.json)')
+    note = conv.get('note')
+    if note is not None and not (isinstance(note, dict) and isinstance(note.get('sv'), str) and note['sv']):
+        raise ValueError(f'{name}: conversion.note saknar svensk text')
+    return rel, since
+
+
 def steps():
     """Ögonblicksbildernas startår: tätare ju närmare nutiden. Stegen räknas i Cliopatrias år (3400 f.Kr., 3300 f.Kr. …,
     år 0, 50, 100 …) och lämnas som astronomiska år, så att 3400 f.Kr. blir -3399 (#1989)."""
@@ -251,13 +272,13 @@ def merge(snaps):
 
 class Row:
     """En period av ett rike i Cliopatria med uppgifterna om religion."""
-    __slots__ = ('a', 'b', 'name', 'g', 'text', 'rel', 'sure', 'rule', 'adopted', 'modern', 'since', '_s')
+    __slots__ = ('a', 'b', 'name', 'g', 'text', 'rel', 'sure', 'rule', 'conv', 'modern', 'since', '_s')
 
     def __init__(self, props, geometry, rec, entry):
         self.a, self.b, self.name, self.g = props['FromYear'], props['ToYear'], props['Name'], geometry
         self.text = rec.get('text')
         self.rel, self.sure, self.rule = classify(self.text)
-        self.adopted = entry.get('christianSince')
+        self.conv = conversion(entry['name'], entry['conversion']) if 'conversion' in entry else None  # (religion, år)
         self.modern = rec.get('modern') if self.rule in ('saknas', 'okänd') else None
         self.since = since(self.text, self.rel)
         override = entry.get('religionOverride')
@@ -275,15 +296,16 @@ class Row:
         if self.modern and y >= CENSUS_FROM:
             return self.modern['religion'], self.modern['majority']
         text = self.text or ''
-        if '%' in text and y < CENSUS_FROM and not (self.adopted and y >= self.adopted):
+        if '%' in text and y < CENSUS_FROM and not (self.conv and y >= self.conv[1]):
             # Procentsiffror: en folkräkning, ofta nutida. Undantag: religionen anges som officiell utan årtal.
             off = OFFICIAL_FROM.search(text)
             if not (self.rule == 'officiell' and (not off or y >= int(off.group(1)))):
                 return None, False
-        if self.adopted:
-            if y >= self.adopted:
-                return 'kristendom', True
-            if self.rel == 'kristendom':
+        if self.conv:
+            rel, year = self.conv
+            if y >= year:
+                return rel, True
+            if self.rel == rel:
                 return None, False
         if self.since and y < self.since:
             return None, False
@@ -323,7 +345,7 @@ def main():
             info['since'] = r.since
         if r.modern:
             info['modern'] = r.modern
-        for k in ('christianSince', 'source', 'religionOverride', 'variants'):
+        for k in ('conversion', 'religionOverride', 'variants'):
             if k in e:
                 info[k] = e[k]
         polities[r.name] = info
@@ -407,8 +429,9 @@ def main():
              'eller huvudreligion ur faktarutan på rikets Wikipedia-sida (raden Religion), kontrollerat 2026-10-28. Regler: en religion '
              'markerad som statlig eller officiell väljs först; annars en religion över 50 procent eller under rubriken Majority; annars '
              'den enda religionen som nämns (sure = true). Där flera religioner nämns utan att någon är markerad väljs den först nämnda '
-             '(regel "först nämnd", sure = false), och området visas ljusare med streckad kant. För riken med ett kontrollerat år för '
-             'kristnandet (source) visas kristendomen från det året. Ett handplockat val med källa (religionOverride, #2140) ersätter '
+             '(regel "först nämnd", sure = false), och området visas ljusare med streckad kant. För riken med ett kontrollerat '
+             'religionsbyte med källa (conversion: religion, since, sources, #2162) visas den religionen från det året, till exempel '
+             'kristendomen efter kristnandet och islam i Ghanariket från 1076. Ett handplockat val med källa (religionOverride, #2140) ersätter '
              'religionen som faktarutans text gav när en öppnad källa uttryckligen säger vilken religion faktarutans ord betyder; '
              'regeln och säkerheten är desamma som för texten. '
              'Områdena är sammanslagna per religion i ögonblicksbilder (start–end) och förenklade (0.25 grader, avrundat till 0.1 grad). '
