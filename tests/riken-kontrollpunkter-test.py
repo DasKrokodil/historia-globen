@@ -210,6 +210,19 @@ ISTANBUL = (28.955, 41.014)
 TIRASPOL = (29.643, 46.84)
 BANJUL = (-16.575, 13.454)
 BASSE = (-14.219, 13.309)  # Basse Santa Su, en.wikipedia, öppnad 2026-11-22
+# #1444, ur Wikidata (Special:EntityData, öppnade 2026-11-26)
+CHAN_CHAN = (-79.075, -8.111)  # Q277540
+TRUJILLO = (-79.029, -8.112)  # Q214173
+TUMBES = (-80.46, -3.571)  # Q827640
+DUNADD = (-5.479, 56.086)  # Q233579
+MARRAKECH = (-7.981, 31.629)  # Q101625
+RABAT = (-6.841, 34.021)  # Q3551
+SALE = (-6.818, 34.046)  # Q466046
+SEVILLA = (-5.995, 37.389)  # Q8717
+ALMERIA = (-2.464, 36.842)  # Q10400
+ESSAOUIRA = (-9.769, 31.513)  # Q216939
+MUSCAT_WD = (58.592, 23.614)  # Q3826
+SUR_OMAN = (59.529, 22.567)  # Q737270
 
 PUNKTER = [
     # Mexikodalen (#1443, DasKrokodils svar A 2026-11-14). Punkterna visar läget som det är, inte som det borde vara: Cliopatrias
@@ -531,6 +544,24 @@ PUNKTER = [
     # Utanför Rhenlandet är Frankrike och Belgien som förut
     *[('franska-kolonialvaldet', STRASBOURG, 'Strasbourg', y, True) for y in (1920, 1925, 1929)],
     *[('belgien', p, n, y, True) for p, n in (((4.352, 50.847), 'Bryssel'), ((5.571, 50.64), 'Liège')) for y in (1920, 1925, 1929)],
+    # Kustriken klippta mot land (#1444, KUST_KLIPP i tools/riken.py): kustorterna ligger kvar i riket, och havet längre ut än
+    # marginalen (0,05 grader) är borta. Orterna ur Wikidata (Special:EntityData, öppnade 2026-11-26); havspunkterna ligger
+    # 0,10–0,19 grader från land i Natural Earth 1:10m och låg i riket före klippningen
+    *[('chimor', p, n, y, True) for p, n in ((CHAN_CHAN, 'Chan Chan'), (TRUJILLO, 'Trujillo')) for y in (950, 1300, 1350, 1400, 1478)],
+    *[('chimor', TUMBES, 'Tumbes', y, True) for y in (1400, 1478)],
+    *[('chimor', p, n, y, False) for p, n, y in (((-79.18, -8.24), 'havet utanför Chan Chan', 1100),
+                                                 ((-79.2, -8.24), 'havet utanför Chan Chan', 1300),
+                                                 ((-78.83, -8.98), 'havet utanför Chimbote', 1400))],
+    *[('dal-riata', DUNADD, 'Dunadd', y, True) for y in (550, 600, 650, 800, 870)],
+    ('dal-riata', (-5.85, 55.66), 'Kilbrannansundet', 650, False),
+    *[('almoravider', MARRAKECH, 'Marrakech', y, True) for y in (1070, 1100, 1140)],
+    *[('almoravider', p, n, y, True) for p, n in ((RABAT, 'Rabat'), (SALE, 'Salé'), (SEVILLA, 'Sevilla'), (ALMERIA, 'Almería'))
+      for y in (1100, 1120, 1140)],
+    *[('almoravider', ESSAOUIRA, 'Essaouira', y, True) for y in (1070, 1100, 1140)],
+    ('almoravider', (2.38, 39.42), 'havet söder om Mallorca', 1170, False),
+    *[('oman', MUSCAT_WD, 'Muskat (Wikidata)', y, True) for y in (1750, 1800, 1850, 1900, 1914, 1973, 2024)],
+    *[('oman', SUR_OMAN, 'Sur', y, True) for y in (1750, 1800, 1850, 1900, 1930, 1950, 2024)],
+    *[('oman', p, n, y, False) for p, n, y in (((56.7, 24.67), 'Omanviken vid Sohar', 1914), ((56.97, 24.39), 'Omanviken', 1800))],
 ]
 
 # Punkter som ligger precis utanför den förenklade kusten men som uppslaget hittar inom marginalen (AREA_MARGIN_DEG i
