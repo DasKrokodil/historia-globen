@@ -3870,5 +3870,37 @@
     "source": "commons-bild-fogo-utbrottet-1680",
     "id": "fogo-utbrottet-1680",
     "file": "fogo-utbrottet-1680.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Nutida foto från rymdfärjan (september 1983) av Raoul Island, NASA, inte från händelsens tid. Licens: Public domain.",
+      "en": "Modern photo from the Space Shuttle (September 1983) of Raoul Island, NASA, not from the time of the event. Licence: Public domain.",
+      "de": "Heutiges Foto vom Space Shuttle (September 1983) der Raoul-Insel, NASA, nicht aus der Zeit des Ereignisses. Lizenz: gemeinfrei.",
+      "es": "Foto actual desde el transbordador espacial (septiembre de 1983) de la isla Raoul, NASA, no de la época del acontecimiento. Licencia: dominio público.",
+      "fr": "Photo actuelle prise depuis la navette spatiale (septembre 1983) de l’île Raoul, NASA, pas de l’époque de l’événement. Licence : domaine public."
+    },
+    "credit": "NASA / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-polynesier-pa-raoul",
+    "id": "polynesier-pa-raoul",
+    "file": "polynesier-pa-raoul.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Nutida foto (2005) av Rangitoto sett från One Tree Hill i Auckland, inte från händelsens tid. Licens: Public domain.",
+      "en": "Modern photo (2005) of Rangitoto Island seen from One Tree Hill in Auckland, not from the time of the event. Licence: Public domain.",
+      "de": "Heutiges Foto (2005) von Rangitoto Island, gesehen vom One Tree Hill in Auckland, nicht aus der Zeit des Ereignisses. Lizenz: gemeinfrei.",
+      "es": "Foto actual (2005) de la isla Rangitoto vista desde One Tree Hill, en Auckland, no de la época del acontecimiento. Licencia: dominio público.",
+      "fr": "Photo actuelle (2005) de l’île Rangitoto vue depuis One Tree Hill, à Auckland, pas de l’époque de l’événement. Licence : domaine public."
+    },
+    "credit": "Grutness / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-rangitoto-bildas",
+    "id": "rangitoto-bildas",
+    "file": "rangitoto-bildas.webp"
   }
 ]
