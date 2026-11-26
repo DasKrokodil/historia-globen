@@ -15,17 +15,19 @@ utan gräns i Cliopatria, en punkt, och uncertainBorder för osäkra gränser (#
 Kör från projektets rot, med Cliopatria-filen (cliopatria_polities_only_v021.geojson ur cliopatria.geojson.zip
 i version 0.2.1 på Zenodo, https://zenodo.org/records/23128623, doi:10.5281/zenodo.23128623, CC BY 4.0;
 posten 13363121 är version 0.0.1 och ger andra riken, #1616):
-    python3 tools/riken.py <cliopatria.geojson> [--delade-granser] [--ut=<mapp>]
-Kräver shapely (pip install shapely). Flaggan --delade-granser kräver shapely 2.1 eller senare med GEOS 3.12 eller senare
-(pip install 'shapely>=2.1'; DasKrokodils ja i #1765 2026-11-20), för shapely.coverage_simplify och coverage_invalid_edges.
+    python3 tools/riken.py <cliopatria.geojson> [--ut=<mapp>]
+Kräver shapely 2.1 eller senare med GEOS 3.12 eller senare (pip install 'shapely>=2.1'; DasKrokodils ja i #1765 2026-11-20
+och 2026-11-26), för shapely.coverage_simplify och coverage_invalid_edges. Verktyget stannar med ett tydligt fel med en äldre.
 
---delade-granser (#1765, pilot, av som standard): grupperna i SHARED_GROUPS förenklas tillsammans som en täckning, så att
-grannar får samma gräns där de möts (docs/granskningar/2026-11-20-delade-granser-pilot.md). Piloten gäller England, Skottland
-och Man med föregångarna 500–1700 (Wessex, Mercia, Northumbria, Dalriada, Strathclyde, Alba och Nordsjöväldet). Englands gräns
-i Cliopatria omfattar Wales och från 1210 delar av Irland, och Dalriadas nordöstra Irland 540–643; egna irländska eller
-walesiska riken finns inte i data/empires. Vid Isle of Man, som Cliopatria vissa år räknar till två riken, är gränsen inte
-delad. Utan flaggan blir filerna exakt som förut. --ut=<mapp> skriver filerna i en annan mapp än data/empires, till exempel för att jämföra
-piloten med dagens filer; de handskrivna fälten läses ändå ur data/empires.
+Delade gränser (#1765, steg 2, docs/beslut/2026-11-26-delade-granser-steg-2.md): grupperna i en region i SHARED_REGIONS
+förenklas tillsammans som en täckning, så att grannar får samma gräns där de möts. Det är alltid på; en vanlig körning bygger
+alltså samma filer som i repot. Regionerna är Brittiska öarna (England, Skottland och Man med föregångarna, Nordsjöväldet och
+Angevinska riket, 500–1708) och Ryssland och Sibirien (Moskvariket, Novgorod, Ryska tsardömet, Gyllene horden, khanaten och
+grannarna i Centralasien och Kalmarunionen, 1294–1600). Övriga riken förenklas var för sig som förut. Englands gräns i
+Cliopatria omfattar Wales och från 1210 delar av Irland, och Dalriadas nordöstra Irland 540–643; egna irländska eller walesiska
+riken finns inte i data/empires. En yta som två riken i en region delar i Cliopatria (Isle of Man vissa år) ritas i båda.
+Mätningen: docs/granskningar/2026-11-26-delade-granser-steg-2.md. --ut=<mapp> skriver filerna i en annan mapp än data/empires,
+till exempel för att jämföra en ny region med dagens filer; de handskrivna fälten läses ändå ur data/empires.
 """
 import json
 import re
@@ -3353,12 +3355,14 @@ SHARED_REGIONS = {
     'brittiska-oarna': {'groups': ('wessex', 'mercia', 'northumbria', 'dal-riata', 'strathclyde', 'kungariket-skottland',
                                    'kungariket-man', 'kungariket-england', 'nordsjovaldet', 'angevinska-riket'),
                         'years': (500, 1708), 'tol': 0.1, 'lat': None},
-    # Ryssland och Sibirien (#1743): Moskvariket från början (1294), Sibirkhanatet, Kazakkhanatet och deras grannar till 1600
+    # Ryssland och Sibirien (#1743): Moskvariket från början (1294), Sibirkhanatet, Kazakkhanatet och deras grannar till 1600.
+    # Kalmarunionen är med för Karelen (#1743); utan den överlappar Kalmarunionen och Moskvariket där upp till 0,24 kv.grader.
+    # Toleransen 0,15: med 0,2 hamnar Köpenhamn utanför Kalmarunionen också med marginalen (tests/area-lookup.test.mjs, #1524)
     'ryssland-sibirien': {'groups': ('moskvariket', 'republiken-novgorod', ('ryska-imperiet', 'ryska-tsardomet'),
                                      ('mongolriket', 'gyllene-horden'), 'kazankhanatet', 'astrachankhanatet', 'nogajhorden',
                                      'sibirkhanatet', 'kazakkhanatet', 'mogulistan', 'timuridriket', 'buchara', 'khanatet-khiva',
                                      'kalmarunionen'),
-                          'years': (1294, 1600), 'tol': 0.2, 'lat': 55},
+                          'years': (1294, 1600), 'tol': 0.15, 'lat': 55},
 }
 SHARED_DECIMALS = 2  # alla perioder i täckningen avrundas lika (DECIMALS), annars flyttas en gemensam hörnpunkt olika
 # Överlapp i underlaget (kvadratgrader): en yta som två riken delar ett år och som är större än så här (Isle of Man i både
