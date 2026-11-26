@@ -1,0 +1,18 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:Dolores hidalgo.jpg	grito-de-dolores
+# File:Cabildoabierto-Subercaseaux.jpg	majrevolutionen-1810
+# File:BatallaDeMaipu.jpg	slaget-vid-maipu
+# File:Batalla de Boyaca de Martin Tovar y Tovar.jpg	slaget-vid-boyaca
+# File:Tratados de Córdoba.JPG	freden-i-cordoba-1821
+# File:BatallaCarabobo01.JPG	slaget-vid-carabobo
+# File:07.09.2022 - Prefeita Paula Mascarenhas participa do desfile cívico militar de Sete de Setembro - Foto- Gustavo Vara (52340953141).jpg	brasiliens-sjalvstandighet
+# File:Capitulacionquitosalas.png	slaget-vid-pichincha
+# File:Marguerite Brezil with Bird.jpg	callaos-fall-1826
+# File:Peter whitmer log home.JPG	kristi-kyrka-grundas-1830
+# File:Trail of Tears - New overlook.jpg	tararnas-vag
+# File:Ether Dome Daguerreotype No. 4.png	eterdagen-1846
+# File:California Gold Rush handbill.jpg	guldrushen-i-kalifornien
+# File:Battle of Bull Run.jpg	forsta-slaget-vid-bull-run
+# File:Kurz & Allison - Battle of Antietam.jpg	slaget-vid-antietam
+# File:Siege of Vicksburg-13, 15, & 17 Corps, Commanded by Gen. U.S. Grant, assisted by the Navy under Admiral Porter-Surrender, July 4, 1863 LCCN91481552.jpg	belagringen-av-vicksburg
