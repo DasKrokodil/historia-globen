@@ -4483,6 +4483,37 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #2281: varje flik i Sök och följ har ett eget namn i alla fem språk. Före rättningen hette både Riken och Försvunna länder "Riken" (och "Empires",
+  // "Reiche", "Imperios"), så besökaren kunde inte skilja dem åt och en skärmläsare läste upp samma namn två gånger. Provet läser namnen ur sidan
+  // (det som syns på knapparna), kräver att inga två flikar har samma namn på något språk och att namnet är det som står i data/ui.
+  await check('Sök och följ: varje flik har ett eget namn på alla fem språk (#2281)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      const ui = lang => JSON.parse(fs.readFileSync(new URL(`../data/ui/${lang}.json`, import.meta.url), 'utf8'));
+      const out = [];
+      for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+        await openLander(tp, '#y=1600', `flikar2281${lang}&lang=${lang}`);
+        const tabs = await tp.evaluate(() => [...document.querySelectorAll('#focus-menu .focus-tabs [data-tab]')].map(b => ({ id: b.dataset.tab, text: b.textContent.trim(), hidden: b.hidden || !b.getClientRects().length })));
+        const shown = tabs.filter(t => !t.hidden);
+        if (shown.length < 8) throw new Error(`${lang}: bara ${shown.length} flikar syns (${shown.map(t => t.text).join(', ')})`);
+        for (const need of ['Riken', 'Försvunna länder']) if (!shown.some(t => t.id === need)) throw new Error(`${lang}: fliken "${need}" syns inte, så provet mäter inte det som #2281 gäller`);
+        const seen = new Map();
+        for (const t of shown) {
+          const key = t.text.toLocaleLowerCase(lang);
+          if (!key) throw new Error(`${lang}: fliken ${t.id} saknar namn`);
+          if (seen.has(key)) throw new Error(`${lang}: flikarna ${seen.get(key)} och ${t.id} heter båda "${t.text}"`);
+          seen.set(key, t.id);
+        }
+        const strings = ui(lang);
+        const empires = shown.find(t => t.id === 'Riken').text, vanished = shown.find(t => t.id === 'Försvunna länder').text;
+        if (empires !== strings['focus.tab.empires'] || vanished !== strings['focus.tab.vanished']) throw new Error(`${lang}: flikarna heter "${empires}" och "${vanished}", men data/ui har "${strings['focus.tab.empires']}" och "${strings['focus.tab.vanished']}"`);
+        out.push(`${lang}: ${empires} / ${vanished}`);
+      }
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `${out.join('; ')}; alla flikar har olika namn`;
+    } finally { await tctx.close(); }
+  });
+
   // #1261, #1947: ett land som saknas ger "Landet finns inte bland korten ännu" och en knapp till Nära en plats, så att sökningen inte är en
   // återvändsgränd. Texten sägs en gång i live-regionen (som övriga tomma sökningar), knappen nås med pil ner och Enter i sökrutan gör samma sak.
   await check('Länder och landskap: sökning på ett land som saknas ger besked och väg till Nära en plats med tangentbord (#1261, #1947)', async () => {

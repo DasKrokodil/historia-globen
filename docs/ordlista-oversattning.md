@@ -507,7 +507,7 @@ Definitionerna står i [docs/produkt/13-ordlista.md](produkt/13-ordlista.md) ("L
 | fliken "Länder och landskap" (platserna med eget kort, #1947; hette Platser till 2026-11-18) | Countries and provinces | Länder und Landschaften | Países y provincias históricas | Pays et provinces historiques | `focus.tab.places` |
 | landskap (plural, knappen "Landskap i Sverige" i Sök och följ, #1947) | Provinces | Landschaften | Provincias históricas | Provinces historiques | `place.types.landskap` |
 | land | country | Land | país | pays | `place.type.country`, `review.subject.Landet` |
-| försvunnet land | former country (fliken: Vanished countries) | ehemaliges Land (fliken: Verschwundene Länder) | país desaparecido | pays disparu | `facts.kind.vanished`, `focus.tab.vanished` |
+| försvunnet land (fliken: Försvunna länder, #2281) | former country (fliken: Vanished countries) | ehemaliges Land (fliken: Verschwundene Länder) | país desaparecido (fliken: Países desaparecidos) | pays disparu (fliken: Pays disparus) | `facts.kind.vanished`, `focus.tab.vanished` |
 | självstyrt område | autonomous territory | autonomes Gebiet | territorio autónomo | territoire autonome | `place.type.autonomous` |
 | rike | empire | Reich | imperio | empire | `facts.kind.empire`, `layer.areas` (se avsnitt 7, 9 och 11) |
 | stat | state | Staat | Estado | État | inget eget ord i gränssnittet |
