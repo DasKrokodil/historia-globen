@@ -3462,3 +3462,37 @@ span.theme-event:hover { background: none; outline: none; }
   .app:not(.lesson):not(.touring):not(.focusing) { --ff-b: 146px; }
   .app:not(.lesson):not(.touring):not(.focusing):has(.pause-note:not([hidden])) { --ff-b: 208px; }
 }
+
+/* ---------- Tryckytor på pekskärm och liggande Visste du?-kort (#2272) ----------
+   Uppmätt i Playwright på main före ändringen (pekskärm): Språk 55–62 × 32–38, Samtidigt, Sök och följ, Turer, Lager och Mer 31–38 höga, stegknapparna
+   41–44 × 32–34, Spela och hastigheten 32–34 höga, Källor och Nästa i Visste du?-kortet 34 × 24, Visste du? 88 × 33 och chipsen 27 höga.
+   Den osynliga ytan i ::after (#1309) fanns redan, men själva knapparna var under 44 px. Nu är knappen själv minst 44 px hög och bred där det ryms;
+   med mus (pointer: fine) är allt oförändrat. */
+@media (pointer: coarse) {
+  .top-actions .chip-btn, #btn-lang { min-height: 44px; min-width: 44px; box-sizing: border-box; }
+  .controls :is(.step, .play, .speed) { min-height: 44px; box-sizing: border-box; }
+  .controls .step { min-width: 44px; }
+  .funfact .ff-foot .link-btn { min-height: 44px; min-width: 44px; justify-content: center; box-sizing: border-box; }
+  .funfact .ff-chip { min-height: 44px; box-sizing: border-box; }
+}
+/* Smal pekskärm: stegknapparna är 10 px högre, så tidsraden växer uppåt och korten ovanför följer med (--ff-b räknar med de gamla 34 px). Smalare mellanrum
+   (2 px) så att 44 px breda knappar ryms på 400 px. Fokusraden mäts i js/main.js (--focus-top) och räknar redan med den nya höjden. */
+@media (max-width: 760px) and (pointer: coarse) {
+  .controls { gap: 2px; }
+  .app:not(.focusing) :is(#funfact, #detail) { bottom: calc(var(--ff-b) + 10px); }
+}
+
+/* Liggande telefon (800 × 360): knapparna överst är nu 44 px höga och menyn tar två rader. Raderna ligger tätare, så att kortet får så mycket yta som möjligt
+   under dem; kortet börjar under menyraden (inte över den, som när taket räknade med 118 px) och etikettraden får plats på en rad (kortet är bredare,
+   bokstavsavståndet mindre). Kortet rullar inuti som förut. */
+@media (min-width: 761px) and (max-width: 1100px) and (max-height: 480px) and (orientation: landscape) and (pointer: coarse) {
+  .top-actions { top: calc(env(safe-area-inset-top, 0px) + 4px); row-gap: 2px; }
+  .app:not(.lesson):not(.lesson-notice):not(.focusing) .masthead { top: calc(env(safe-area-inset-top, 0px) + 4px + var(--tablet-actions-height, 98px) + 2px); }
+  .app:not(.lesson):not(.lesson-notice):not(.focusing) .masthead .segment-note { margin-top: 2px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .detail-card { bottom: 160px; } /* stegknapparna är 12 px högre */
+  .app:not(.lesson):not(.touring):not(.focusing) :is(.funfact, .ff-tab) { left: calc(var(--gut) + 316px); } /* till höger om årtalets förklaring, som nu ligger högre */
+  .app:not(.lesson):not(.touring):not(.focusing) .funfact { width: min(460px, calc(100vw - var(--gut) - 316px - var(--gut-r))); }
+  .app:not(.lesson):not(.touring):not(.focusing) .funfact { max-height: calc(100dvh - 156px - 122px); } /* kortets underkant 156 px upp, menyraden slutar cirka 118 px ned */
+  .ff-eyebrow { letter-spacing: .06em; }
+  .ff-kind { white-space: nowrap; }
+}

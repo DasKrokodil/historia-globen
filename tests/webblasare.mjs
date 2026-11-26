@@ -14303,6 +14303,134 @@ async function run(browser, vp) {
     } finally { await stangSida(tctx); }
   });
 
+  // #2272, punkt 1: i liggande telefon (800 × 360) låg Visste du?-kortet 8 px över menyraden och etikettraden (.ff-kind) bröt över två rader. Provet mäter
+  // relativt: kortets överkant ska ligga under underkanten på alla synliga knappar överst, kortets underkant över stegknapparna, och etikettraden ska
+  // vara en rad (höjden under 1,5 radhöjder). Det görs på svenska och engelska, i två liggande storlekar.
+  await check('liggande telefon: Visste du?-kortet ligger under menyraden och etikettraden får en rad (#2272)', async () => {
+    for (const { width, height } of [{ width: 800, height: 360 }, { width: 844, height: 390 }]) {
+      for (const lang of ['sv', 'en']) {
+        const label = `${width} × ${height}, ${lang}`;
+        const { tp, tctx, errs } = await touchPage({ width, height }, { isMobile: true });
+        try {
+          await tp.addInitScript(() => localStorage.setItem('hg-year-tip', '1'));
+          await tp.goto(`${BASE}?lang=${lang}&ny=kort2272${width}#y=1325`);
+          await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          if (!(await tp.evaluate(() => matchMedia('(pointer: coarse)').matches))) throw new Error(`${label}: sidan har inte pointer: coarse`);
+          if (await tp.isVisible('#ff-tab')) await tp.click('#ff-tab');
+          await tp.waitForFunction(() => { const e = document.getElementById('funfact'); return !!e && !e.hidden && e.getClientRects().length > 0; }, null, { timeout: T.step });
+          // Kortet glider på plats: vänta tills det står still
+          let forra = '';
+          for (let i = 0; i < 30; i++) {
+            const nu = await tp.evaluate(() => { const r = document.getElementById('funfact').getBoundingClientRect(); return [r.x, r.y, r.width, r.height].map(Math.round).join(','); });
+            if (nu === forra) break;
+            forra = nu;
+            await tp.waitForTimeout(250);
+          }
+          const m = await tp.evaluate(() => {
+            const syn = e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && !e.closest('[hidden]'); };
+            const knappar = [...document.querySelectorAll('.top-actions .chip-btn, #btn-lang')].filter(syn);
+            const kort = document.getElementById('funfact').getBoundingClientRect();
+            const kind = document.getElementById('ff-kind');
+            const lh = parseFloat(getComputedStyle(kind).lineHeight);
+            const steg = document.querySelector('.controls .step').getBoundingClientRect();
+            return { menyUnder: Math.max(...knappar.map(b => b.getBoundingClientRect().bottom)), antal: knappar.length, kortTop: kort.top, kortBottom: kort.bottom, kortH: kort.height,
+              kindH: kind.getBoundingClientRect().height, lh, rader: kind.getClientRects().length, kindText: kind.textContent, stegTop: steg.top };
+          });
+          if (m.antal < 5) throw new Error(`${label}: bara ${m.antal} knappar överst mättes`);
+          if (m.kortTop < m.menyUnder) throw new Error(`${label}: kortet börjar vid y ${Math.round(m.kortTop)} men menyknapparna slutar vid y ${Math.round(m.menyUnder)}`);
+          if (m.kortBottom > m.stegTop + 0.5) throw new Error(`${label}: kortet slutar vid y ${Math.round(m.kortBottom)} men stegknapparna börjar vid y ${Math.round(m.stegTop)}`);
+          if (m.kindH > m.lh * 1.5 || m.rader > 1) throw new Error(`${label}: etikettraden "${m.kindText}" bryts över ${m.rader} rader (${Math.round(m.kindH)} px, radhöjd ${m.lh} px)`);
+          if (errs.length) throw new Error(`${label}: sidfel ${errs[0]}`);
+        } finally { await stangSida(tctx); }
+      }
+    }
+    return 'kortet under menyraden och etiketten på en rad, 800 × 360 och 844 × 390, sv och en';
+  });
+
+  // #2272, punkt 2: huvudmenyns knappar, stegknapparna, Spela, hastigheten och Visste du?-kortets knappar var 24–38 px höga på pekskärm. Provet mäter
+  // knappens egen ruta (inte en osynlig yta) i stående 400 × 800 och liggande 800 × 360 med pekning. Med mus (1280 × 800) ska utseendet vara oförändrat:
+  // knapparna är då inte höjda (kontrolleras relativt: de är lägre än 44 px).
+  await check('pekskärm: huvudmenyn, stegknapparna och kortets knappar är minst 44 px höga och breda (#2272)', async () => {
+    const delar = [];
+    for (const { width, height, touch } of [{ width: 400, height: 800, touch: true }, { width: 800, height: 360, touch: true }, { width: 1280, height: 800, touch: false }]) {
+      const label = `${width} × ${height}${touch ? ' med pekning' : ' med mus'}`;
+      const { tp, tctx, errs } = await touchPage({ width, height }, touch ? { isMobile: true } : { hasTouch: false });
+      try {
+        await tp.addInitScript(() => localStorage.setItem('hg-year-tip', '1'));
+        await tp.goto(`${BASE}?lang=sv&ny=tryck2272${width}#y=1325`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        const grov = await tp.evaluate(() => matchMedia('(pointer: coarse)').matches);
+        if (grov !== touch) throw new Error(`${label}: pointer: coarse är ${grov}`);
+        // Visste du?-kortet: en flik som fälls ut i bred layout, ett ark som dras upp i smal
+        if (await tp.isVisible('#ff-tab')) await tp.click('#ff-tab');
+        else if (await tp.isVisible('#ff-handle')) await tp.click('#ff-handle');
+        await tp.waitForFunction(() => { const e = document.getElementById('funfact'); return !!e && !e.hidden && e.getClientRects().length > 0; }, null, { timeout: T.step });
+        await tp.waitForTimeout(800);
+        const m = await tp.evaluate(() => {
+          const sel = ['#btn-lang', '#btn-panel', '#btn-focus', '#btn-tour', '#btn-layers', '#btn-more', '.controls .step', '#btn-play', '#btn-speed',
+            '#ff-sources', '#ff-next', '#ff-surprise', '#funfact .ff-chip'];
+          const ut = [];
+          let antal = 0;
+          for (const s of sel) for (const e of document.querySelectorAll(s)) {
+            const r = e.getBoundingClientRect();
+            if (r.width <= 0 || r.height <= 0 || e.closest('[hidden]')) continue;
+            antal++;
+            ut.push({ s, namn: (e.id || e.getAttribute('data-step') || e.textContent.trim()).slice(0, 14), w: r.width, h: r.height });
+          }
+          return { antal, ut };
+        });
+        if (touch) {
+          if (m.antal < 12) throw new Error(`${label}: bara ${m.antal} knappar mättes, provet mäter inte det det ska`);
+          const under = m.ut.filter(k => k.h < 43.5 || k.w < 43.5);
+          if (under.length) throw new Error(`${label}: under 44 px: ${under.map(k => `${k.s} "${k.namn}" ${Math.round(k.w)} × ${Math.round(k.h)}`).join(', ')}`);
+          const horisontell = await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
+          if (horisontell) throw new Error(`${label}: sidan scrollar i sidled`);
+        } else {
+          const hojda = m.ut.filter(k => /^(#btn-panel|#btn-focus|#btn-layers|#btn-more|\.controls \.step|#btn-play)$/.test(k.s) && k.h >= 44);
+          if (hojda.length) throw new Error(`${label}: med mus ska knapparna vara oförändrade men ${hojda.map(k => `${k.s} är ${Math.round(k.h)} px`).join(', ')}`);
+        }
+        if (errs.length) throw new Error(`${label}: sidfel ${errs[0]}`);
+        delar.push(`${label}: ${m.antal} knappar`);
+      } finally { await stangSida(tctx); }
+    }
+    return delar.join('; ');
+  });
+
+  // #2272, punkt 3: text under 12 px på dator (9,5 och 11 px) höjd till 12 px. Provet mäter den beräknade storleken på riktiga element och, för
+  // det som bara finns i kortets bildrad (märket och Läs mer), på ett prov som läggs in i kortet och tas bort igen.
+  await check('dator: etiketter, räknare, märken och kortets metarad är minst 12 px (#2272)', async () => {
+    const { tp, tctx, errs } = await touchPage({ width: 1280, height: 800 }, { hasTouch: false });
+    try {
+      await tp.addInitScript(() => localStorage.setItem('hg-year-tip', '1'));
+      await tp.goto(`${BASE}?lang=sv&ny=text2272#y=1325`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      const m = await tp.evaluate(() => {
+        const pics = document.getElementById('ff-pics');
+        const pic = document.createElement('div');
+        pic.className = 'ff-pic';
+        pic.innerHTML = '<span class="ff-badge">Foto</span><span class="ff-more">Läs mer</span>';
+        pics.appendChild(pic);
+        const px = e => parseFloat(getComputedStyle(e).fontSize);
+        const ut = {
+          '.action-label': [...document.querySelectorAll('.action-label')].map(px),
+          '.segment-note': [...document.querySelectorAll('.segment-note')].map(px),
+          '.count': [...document.querySelectorAll('.chip-btn .count')].map(px),
+          '.ff-kind': [px(document.getElementById('ff-kind'))],
+          '.ff-pager': [px(document.getElementById('ff-pager'))],
+          '.review-badge': [px(document.getElementById('ff-review'))],
+          '.ff-badge': [px(pic.querySelector('.ff-badge'))],
+          '.ff-more': [px(pic.querySelector('.ff-more'))],
+        };
+        pic.remove();
+        return ut;
+      });
+      const fel = Object.entries(m).filter(([, v]) => !v.length || v.some(n => n < 12)).map(([k, v]) => `${k}: ${v.length ? v.join('/') : 'hittades inte'}`);
+      if (fel.length) throw new Error(`under 12 px (eller saknas): ${fel.join(', ')}`);
+      if (errs.length) throw new Error(errs.join(' | '));
+      return 'alla åtta textklasser är minst 12 px på dator';
+    } finally { await stangSida(tctx); }
+  });
+
   await check('läsbar skalrad, platskarta och lagergrupper i 400 px (#2153)', async () => {
     const { tp, tctx, errs } = await touchPage({ width: 400, height: 800 });
     try {
@@ -14806,7 +14934,8 @@ async function run(browser, vp) {
               await prova(tp, `${label} med Visste du?-kortet`);
               if (lag) {
                 const h = await tp.evaluate(() => document.getElementById('funfact').getBoundingClientRect().height);
-                if (h < 96) throw new Error(`${label}: Visste du?-kortet är ${Math.round(h)} px högt (70 px före #1932, ska vara minst 96)`);
+                // 80 px (96 före #2272): knapparna överst är nu 44 px höga och menyn tar 118 px, så kortet får plats mellan menyraden och stegknapparna
+                if (h < 80) throw new Error(`${label}: Visste du?-kortet är ${Math.round(h)} px högt (70 px före #1932, ska vara minst 80)`);
                 delat.push(`kortet ${Math.round(h)} px`);
               }
             }
