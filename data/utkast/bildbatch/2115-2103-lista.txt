@@ -1,0 +1,22 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# Godkända efter kontroll av filsidan (action=raw) 2026-11-26.
+File:Jebel Irhoud-1 NMNH.jpg	jebel-irhoud	passa-in
+File:Omo Kibish - MCN 4152 (cropped).jpg	omo-kibish	passa-in
+File:Florisbad NMNH.jpg	florisbad	passa-in
+File:Homo Sapiens Idaltu.JPG	herto
+File:Blombos.jpg	blombosgrottan	passa-in
+File:10.1371.journal.pone.0098359.g002.jpg	sibudu-pil-och-bage
+File:Iziko engraving ostrich eggshell.JPG	diepkloof-strutsaggsskal
+File:Ishango bone (cropped).jpg	ishangobenet	passa-in
+File:مغارة تافوغالت.jpg	taforalt-gravplatsen
+File:He Whakaputanga o te Rangatiratanga o Nu Tireni (known as The Declaration of Independence) (Page 1 of 3), 1835 (10430000633).jpg	he-whakaputanga	passa-in
+File:Proclamations of sovereignty over Aotearoa New Zealand, 21 May 1840 (16085443964).jpg	hobsons-suveranitetsproklamationer	passa-in
+File:Keulemans-GreatAuk.jpg	garfagelns-sista-pa-eldey	passa-in
+File:Ruapekapeka shattered cannon.jpg	slaget-vid-ruapekapeka	passa-in
+File:Prospectors' hut Upper Dargo, Gippsland, ca 1870 (SLV b19603).jpg	guldrushen-i-victoria
+File:Riria - Claims at Pukewhau (27992514512).jpg	markkonfiskeringarna-1863
+File:Alice Springs Telegraph Station 4.jpg	telegraflinjen-genom-australien	passa-in
+File:Royal National Park 2.JPG	royal-national-park
+File:Tasparliament1901.jpg	australiska-federationen
+File:New Zealand Becomes a Dominion (15149497056).jpg	nya-zeeland-blir-dominion	passa-in

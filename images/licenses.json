@@ -396,6 +396,21 @@
       }
     },
     {
+      "eventId": "australiska-federationen",
+      "eventTitle": "Australien blir en federation",
+      "file": "images/events/australiska-federationen.webp",
+      "kind": "historisk",
+      "credit": "Okänd fotograf / Australian National Archives / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-australiska-federationen",
+        "title": "Tasparliament1901 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tasparliament1901.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "bagdads-fall-1258",
       "eventTitle": "Bagdads fall",
       "file": "images/events/bagdads-fall-1258.webp",
@@ -1182,6 +1197,21 @@
       }
     },
     {
+      "eventId": "diepkloof-strutsaggsskal",
+      "eventTitle": "Ristade strutsäggsskal i Diepkloof",
+      "file": "images/events/diepkloof-strutsaggsskal.webp",
+      "kind": "historisk",
+      "credit": "Nkansah Rexford / Iziko South African Museum / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-diepkloof-strutsaggsskal",
+        "title": "Iziko engraving ostrich eggshell – Nkansah Rexford (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Iziko_engraving_ostrich_eggshell.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "digerdoden",
       "eventTitle": "Digerdöden",
       "file": "images/events/digerdoden.webp",
@@ -1800,6 +1830,21 @@
       }
     },
     {
+      "eventId": "garfagelns-sista-pa-eldey",
+      "eventTitle": "De två sista säkra garfåglarna dödas",
+      "file": "images/events/garfagelns-sista-pa-eldey.webp",
+      "kind": "historisk",
+      "credit": "John Gerrard Keulemans / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-garfagelns-sista-pa-eldey",
+        "title": "Keulemans-GreatAuk – John Gerrard Keulemans (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Keulemans-GreatAuk.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "gedi-grundas",
       "eventTitle": "Swahilistaden Gedi grundas",
       "file": "images/events/gedi-grundas.webp",
@@ -1872,6 +1917,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Fasil_Ghebbi_(6821473537).jpg",
         "license": "CC BY 2.0",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "guldrushen-i-victoria",
+      "eventTitle": "Guldrushen i Victoria",
+      "file": "images/events/guldrushen-i-victoria.webp",
+      "kind": "historisk",
+      "credit": "Thomas J. Washbourne / State Library Victoria / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-guldrushen-i-victoria",
+        "title": "Prospectors' hut Upper Dargo, Gippsland, ca 1870 (SLV b19603) – Thomas J. Washbourne (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Prospectors%27_hut_Upper_Dargo,_Gippsland,_ca_1870_(SLV_b19603).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2067,6 +2127,21 @@
       }
     },
     {
+      "eventId": "he-whakaputanga",
+      "eventTitle": "He Whakaputanga – självständighetsförklaringen",
+      "file": "images/events/he-whakaputanga.webp",
+      "kind": "historisk",
+      "credit": "Archives New Zealand / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-he-whakaputanga",
+        "title": "He Whakaputanga o te Rangatiratanga o Nu Tireni (known as The Declaration of Independence) (Page 1 of 3), 1835 (10430000633) – Archives New Zealand from New Zealand (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:He_Whakaputanga_o_te_Rangatiratanga_o_Nu_Tireni_(known_as_The_Declaration_of_Independence)_(Page_1_of_3),_1835_(10430000633).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "herero-och-nama-folkmordet",
       "eventTitle": "Folkmordet på herero och nama",
       "file": "images/events/herero-och-nama-folkmordet.webp",
@@ -2082,6 +2157,21 @@
       }
     },
     {
+      "eventId": "herto",
+      "eventTitle": "Homo sapiens i Herto",
+      "file": "images/events/herto.webp",
+      "kind": "historisk",
+      "credit": "Alessandrosmerilli / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-herto",
+        "title": "Homo Sapiens Idaltu – Alessandrosmerilli (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Homo_Sapiens_Idaltu.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "hijra",
       "eventTitle": "Hijra: Muhammed flyttar till Medina",
       "file": "images/events/hijra.webp",
@@ -2089,6 +2179,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "hobsons-suveranitetsproklamationer",
+      "eventTitle": "Hobson utropar brittisk suveränitet",
+      "file": "images/events/hobsons-suveranitetsproklamationer.webp",
+      "kind": "historisk",
+      "credit": "Archives New Zealand / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-hobsons-suveranitetsproklamationer",
+        "title": "Proclamations of sovereignty over Aotearoa New Zealand, 21 May 1840 (16085443964) – Archives New Zealand from New Zealand (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Proclamations_of_sovereignty_over_Aotearoa_New_Zealand,_21_May_1840_(16085443964).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "ibn-al-haytham-optikens-bok",
@@ -2241,6 +2346,21 @@
       }
     },
     {
+      "eventId": "ishangobenet",
+      "eventTitle": "Ishangobenet",
+      "file": "images/events/ishangobenet.webp",
+      "kind": "historisk",
+      "credit": "Joeykentin / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-ishangobenet",
+        "title": "Ishango bone (cropped) – Joeykentin (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ishango_bone_(cropped).jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "israel-utropas-1948",
       "eventTitle": "Israel utropas, och arabstaterna går in i kriget",
       "file": "images/events/israel-utropas-1948.webp",
@@ -2313,6 +2433,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Iron_Pillar,_Delhi.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "jebel-irhoud",
+      "eventTitle": "Jebel Irhoud: de äldsta fynden som räknas till Homo sapiens",
+      "file": "images/events/jebel-irhoud.webp",
+      "kind": "historisk",
+      "credit": "Jonathan Chen / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-jebel-irhoud",
+        "title": "Jebel Irhoud-1 NMNH – Jonathan Chen (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud-1_NMNH.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -3345,6 +3480,21 @@
       }
     },
     {
+      "eventId": "markkonfiskeringarna-1863",
+      "eventTitle": "New Zealand Settlements Act: maorisk mark konfiskeras",
+      "file": "images/events/markkonfiskeringarna-1863.webp",
+      "kind": "historisk",
+      "credit": "Archives New Zealand / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-markkonfiskeringarna-1863",
+        "title": "Riria - Claims at Pukewhau (27992514512) – Archives New Zealand from New Zealand (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Riria_-_Claims_at_Pukewhau_(27992514512).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "marrakech-grundas",
       "eventTitle": "Marrakech grundas av almoraviderna",
       "file": "images/events/marrakech-grundas.webp",
@@ -3951,6 +4101,21 @@
       }
     },
     {
+      "eventId": "omo-kibish",
+      "eventTitle": "Homo sapiens vid Omo Kibish",
+      "file": "images/events/omo-kibish.webp",
+      "kind": "historisk",
+      "credit": "GuillaumeG / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-omo-kibish",
+        "title": "Omo Kibish - MCN 4152 (cropped) – GuillaumeG (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Omo_Kibish_-_MCN_4152_(cropped).jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "operation-badr-1973",
       "eventTitle": "Egypten går över Suezkanalen (Operation Badr)",
       "file": "images/events/operation-badr-1973.webp",
@@ -4398,6 +4563,21 @@
       }
     },
     {
+      "eventId": "royal-national-park",
+      "eventTitle": "Australiens första nationalpark",
+      "file": "images/events/royal-national-park.webp",
+      "kind": "historisk",
+      "credit": "Cookaa / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-royal-national-park",
+        "title": "Royal National Park 2 – Cookaa (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Royal_National_Park_2.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "rozviriket",
       "eventTitle": "Rozviriket på Zimbabweplatån",
       "file": "images/events/rozviriket.webp",
@@ -4545,6 +4725,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Shakespeare.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "sibudu-pil-och-bage",
+      "eventTitle": "Tidiga spår av pil och båge i Sibudu",
+      "file": "images/events/sibudu-pil-och-bage.webp",
+      "kind": "historisk",
+      "credit": "M. Ecker / PLOS ONE / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-sibudu-pil-och-bage",
+        "title": "10.1371.journal.pone.0098359.g002 – M. Ecker (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:10.1371.journal.pone.0098359.g002.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5199,6 +5394,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-ruapekapeka",
+      "eventTitle": "Slaget vid Ruapekapeka",
+      "file": "images/events/slaget-vid-ruapekapeka.webp",
+      "kind": "historisk",
+      "credit": "Winstonwolfe / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-slaget-vid-ruapekapeka",
+        "title": "Ruapekapeka shattered cannon – Winstonwolfe at English Wikipedia (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ruapekapeka_shattered_cannon.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-salamis",
       "eventTitle": "Slaget vid Salamis",
       "file": "images/events/slaget-vid-salamis.webp",
@@ -5745,6 +5955,21 @@
       }
     },
     {
+      "eventId": "taforalt-gravplatsen",
+      "eventTitle": "Gravplatsen i Taforalt",
+      "file": "images/events/taforalt-gravplatsen.webp",
+      "kind": "historisk",
+      "credit": "Anwar Meqor / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-taforalt-gravplatsen",
+        "title": "مغارة تافوغالت – Anwar Meqor (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%D9%85%D8%BA%D8%A7%D8%B1%D8%A9_%D8%AA%D8%A7%D9%81%D9%88%D8%BA%D8%A7%D9%84%D8%AA.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "taj-mahal",
       "eventTitle": "Taj Mahal byggs",
       "file": "images/events/taj-mahal.webp",
@@ -5887,6 +6112,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "telegraflinjen-genom-australien",
+      "eventTitle": "Telegraflinjen genom Australien blir klar",
+      "file": "images/events/telegraflinjen-genom-australien.webp",
+      "kind": "historisk",
+      "credit": "Reinhard Dietrich / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-telegraflinjen-genom-australien",
+        "title": "Alice Springs Telegraph Station 4 – Reinhard Dietrich (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Alice_Springs_Telegraph_Station_4.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "tenochtitlan",
