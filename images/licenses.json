@@ -4074,6 +4074,21 @@
       }
     },
     {
+      "eventId": "polynesier-pa-raoul",
+      "eventTitle": "Polynesier på Raoul Island",
+      "file": "images/events/polynesier-pa-raoul.webp",
+      "kind": "historisk",
+      "credit": "NASA / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-polynesier-pa-raoul",
+        "title": "Raoul Island, New Zealand (STS008-36-1403, cropped rotated) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Raoul_Island,_New_Zealand_(STS008-36-1403,_cropped_rotated).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "pungvargen-forsvinner-fran-fastlandet",
       "eventTitle": "Pungvargen och pungdjävulen dör ut på fastlandet",
       "file": "images/events/pungvargen-forsvinner-fran-fastlandet.webp",
@@ -4108,6 +4123,21 @@
         "id": "commons-bild-queiros-pa-espiritu-santo",
         "title": "Hessel Gerritsz - Worldmap of 1612 including the discovery of La Austrialia del Espiritu Santo by Pedro Fernandes de Queirós – Hessel Gherrijtszoon van Assum (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Hessel_Gerritsz_-_Worldmap_of_1612_including_the_discovery_of_La_Austrialia_del_Espiritu_Santo_by_Pedro_Fernandes_de_Queir%C3%B3s.png",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "rangitoto-bildas",
+      "eventTitle": "Vulkanön Rangitoto bildas",
+      "file": "images/events/rangitoto-bildas.webp",
+      "kind": "historisk",
+      "credit": "Grutness / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-rangitoto-bildas",
+        "title": "Rangitoto02 – User:Grutness (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Rangitoto02.jpg",
         "license": "Public domain",
         "checked": "2026-11-26"
       }
