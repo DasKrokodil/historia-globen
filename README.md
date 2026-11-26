@@ -167,7 +167,7 @@ images/turer/         bilder till steg i guidade turer, <namn>.webp, 800 × 600 
 images/licenses.json  genererat register över händelse- och turbildernas licenser (#393)
 data/land.json        grundkarta (Natural Earth 1:50m)
 data/land-10m.json    finare kust (Natural Earth 1:10m), laddas först när det skarpa utsnittet används; byggs med tools/land_10m.mjs
-tools/riken.py        bygger rikesfilerna ur Cliopatria; --delade-granser (av som standard, kräver shapely >= 2.1 med GEOS >= 3.12) är piloten med delade gränser för England, Skottland och Man med föregångarna 500–1700 (#1765)
+tools/riken.py        bygger rikesfilerna ur Cliopatria (kräver shapely >= 2.1 med GEOS >= 3.12); regionerna i SHARED_REGIONS (Brittiska öarna, Ryssland och Sibirien) förenklas med delade gränser mellan grannarna (#1765)
 tools/cliopatria_ar.py Cliopatrias f.Kr.-år: -N läses som N f.Kr. och räknas om till astronomiska år, delas av riken.py, religioner.py och religioner_riken.py (#1989)
 tools/bild_hamta.py   hämtar metadata för en riktig bild (Wikimedia Commons, Library of Congress), bedömer licensen och bygger källpost och webp, med paus vid 429 (#2118, docs/bilder-riktiga.md)
 tools/bildkandidater.py föreslår fria bildkandidater till händelser utan bild, en fil per världsdel och period i data/utkast/bildkandidater/ (arbetsflödet bildkandidater.yml öppnar en pull request med förslag, #2119, #2183)
