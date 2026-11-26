@@ -64,8 +64,19 @@ test('de 26 kristnade rikena har samma år och källa som i christianSince före
   };
   const kristna = data.polities.filter(p => p.conversion?.religion === 'kristendom').map(p => p.name).sort();
   assert.deepEqual(kristna, Object.keys(fore).sort());
+  // Sedan #2271 har Visigoths och Caucasian Iberia också en note (källorna skiljer sig), och Visigoths en andra källa
+  // (wp-visigoths); året och den första källan är desamma
   for (const [name, [since, source]] of Object.entries(fore)) {
-    assert.deepEqual(register.get(name).conversion, { religion: 'kristendom', since, sources: [source] }, name);
+    const { note, ...c } = register.get(name).conversion;
+    assert.deepEqual({ ...c, sources: c.sources.slice(0, 1) }, { religion: 'kristendom', since, sources: [source] }, name);
+  }
+});
+
+test('Visigoterna och Kaukasiska Iberien: en mening om att källorna skiljer sig (#2271)', () => {
+  for (const [name, years] of [['Visigoths', ['376', '390']], ['Caucasian Iberia', ['312', '326', '337']]]) {
+    const c = register.get(name).conversion;
+    assert.match(c.note?.sv ?? '', /Källorna skiljer sig/, `${name}: note.sv`);
+    for (const l of LANGS) for (const y of years) assert.ok(c.note[l]?.includes(y), `${name}: note.${l} saknar ${y}`);
   }
 });
 

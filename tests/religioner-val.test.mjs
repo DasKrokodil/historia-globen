@@ -1,6 +1,7 @@
 // Religionslagret (#2140): handplockat val av religion per rike (religionOverride i registret i data/religions.json).
 // Valet gäller bara när en öppnad källa uttryckligen säger vilken religion faktarutans allmännare ord betyder, och
-// varje val har sin källa i sources.json. Hwicce visas med germansk religion, Zapotekerna med mesoamerikansk.
+// varje val har sin källa i sources.json. Zapotekerna visas med mesoamerikansk religion. Hwicce hade germansk religion till
+// 2026-11-26 (#2271): källan beskriver ett kristet kungarike, så valet togs bort och riket följer faktarutan (osäkert).
 // Visigoterna fick i stället kristendomen från 390 (conversion, tidigare christianSince, #2162) efter källgranskningen (Gothic Christianity: 376–390). Chimor och
 // Kanem-Bornu har inget val (beslut 2026-11-22). Läser data/religions.json som tools/religioner.py har byggt.
 import { test } from 'node:test';
@@ -26,7 +27,7 @@ function religionsAt(polity, year) {
 
 test('varje handplockat val har en religion i lagret och minst en källa i sources.json', () => {
   const val = data.polities.filter(p => p.religionOverride);
-  assert.ok(val.length >= 2, 'för få riken med religionOverride');
+  assert.ok(val.length >= 1, 'för få riken med religionOverride');
   for (const p of val) {
     const o = p.religionOverride;
     assert.ok(religionIds.has(o.religion), `${p.name}: religionen ${o.religion} finns inte i lagret`);
@@ -36,23 +37,33 @@ test('varje handplockat val har en religion i lagret och minst en källa i sourc
   }
 });
 
-test('valen i #2140: Hwicce germansk, Zapotekerna mesoamerikansk', () => {
-  const want = { Hwicce: 'germansk', 'Zapotec Civilization': 'mesoamerikansk' };
-  for (const [name, rel] of Object.entries(want)) {
-    assert.equal(register.get(name)?.religionOverride?.religion, rel, `${name}: religionOverride`);
-  }
-  // Valet byter religion men inte regel eller säkerhet: Hwicce är fortfarande "först nämnd" (osäker)
-  assert.deepEqual(religionsAt('Hwicce', 620), [{ id: 'germansk', sure: false }]);
+test('valen i #2140: Zapotekerna mesoamerikansk', () => {
+  assert.equal(register.get('Zapotec Civilization')?.religionOverride?.religion, 'mesoamerikansk', 'Zapotec Civilization: religionOverride');
   for (const year of [-400, 0, 500, 850]) {
     assert.deepEqual(religionsAt('Zapotec Civilization', year), [{ id: 'mesoamerikansk', sure: true }], `Zapotekerna ${year}`);
+  }
+});
+
+test('Hwicce: inget handplockat val, följer faktarutan och visas osäkert (#2271)', () => {
+  const p = register.get('Hwicce');
+  assert.ok(p, 'Hwicce saknas i registret');
+  assert.equal(p.religionOverride, undefined, 'Hwicce har religionOverride');
+  assert.equal(p.rule, 'först nämnd');
+  for (const year of [600, 620]) {
+    const got = religionsAt('Hwicce', year);
+    assert.ok(got.length && got.every(r => r.sure === false), `Hwicce ${year} ska visas osäkert: ${JSON.stringify(got)}`);
+    assert.ok(got.every(r => r.id !== 'germansk'), `Hwicce ${year} visas fortfarande som germansk`);
   }
 });
 
 test('Visigoterna: kristna från 390 (conversion med källa), inget handplockat val', () => {
   const p = register.get('Visigoths');
   assert.equal(p?.religionOverride, undefined, 'Visigoths har religionOverride');
-  assert.deepEqual(p?.conversion, { religion: 'kristendom', since: 390, sources: ['wp-gothic-christianity'] });
-  assert.ok(sourceIds.has(p.conversion.sources[0]), 'källan wp-gothic-christianity finns inte i sources.json');
+  const { note, ...conv } = p?.conversion ?? {};
+  assert.deepEqual(conv, { religion: 'kristendom', since: 390, sources: ['wp-gothic-christianity', 'wp-visigoths'] });
+  for (const id of conv.sources) assert.ok(sourceIds.has(id), `källan ${id} finns inte i sources.json`);
+  // Källorna skiljer sig (376–390 eller före 376), och det står i klickrutan (#2271)
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) assert.ok(note?.[lang], `Visigoths: conversion.note saknar ${lang}`);
   assert.deepEqual(religionsAt('Visigoths', 420), [{ id: 'kristendom', sure: true }]);
 });
 
