@@ -6414,5 +6414,213 @@
     "source": "commons-bild-misliya",
     "id": "misliya",
     "file": "misliya.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Utgrävning vid den arkeologiska platsen Ban Chiang i nordöstra Thailand, ett världsarv; filsidan nämner platsens berömda röda keramik och att bronsbearbetning växte fram där. Nutida foto (2009) av Steve från Bangkok; inte från händelsens tid. Licens: CC BY-SA 2.0.",
+      "en": "Excavation at the Ban Chiang archaeological site in north-eastern Thailand, a World Heritage site; the file page mentions the site's famous red pottery and that bronze working emerged there. Modern photo (2009) by Steve from Bangkok; not from the time of the event. Licence: CC BY-SA 2.0.",
+      "de": "Ausgrabung an der archäologischen Stätte Ban Chiang im Nordosten Thailands, ein Welterbe; die Dateiseite erwähnt die berühmte rote Keramik der Stätte und dass dort die Bronzeverarbeitung aufkam. Heutiges Foto (2009) von Steve aus Bangkok; nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 2.0.",
+      "es": "Excavación en el yacimiento arqueológico de Ban Chiang, en el noreste de Tailandia, Patrimonio Mundial; la página del archivo menciona la célebre cerámica roja del sitio y que allí surgió la metalurgia del bronce. Foto actual (2009) de Steve, de Bangkok; no es de la época del acontecimiento. Licencia: CC BY-SA 2.0.",
+      "fr": "Fouille sur le site archéologique de Ban Chiang, dans le nord-est de la Thaïlande, classé au patrimoine mondial ; la page du fichier mentionne la célèbre poterie rouge du site et que le travail du bronze y est apparu. Photo actuelle (2009) de Steve, de Bangkok ; pas de l'époque de l'événement. Licence : CC BY-SA 2.0."
+    },
+    "credit": "Steve (Bangkok) / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-bronsgjutare-i-ban-chiang",
+    "id": "bronsgjutare-i-ban-chiang",
+    "file": "bronsgjutare-i-ban-chiang.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Ruinerna av Gonur Tepe i Turkmenistan. Nutida foto (2011) av David Stanley; inte från händelsens tid. Licens: CC BY 2.0.",
+      "en": "The ruins of Gonur Tepe in Turkmenistan. Modern photo (2011) by David Stanley; not from the time of the event. Licence: CC BY 2.0.",
+      "de": "Die Ruinen von Gonur Tepe in Turkmenistan. Heutiges Foto (2011) von David Stanley; nicht aus der Zeit des Ereignisses. Lizenz: CC BY 2.0.",
+      "es": "Las ruinas de Gonur Tepe, en Turkmenistán. Foto actual (2011) de David Stanley; no es de la época del acontecimiento. Licencia: CC BY 2.0.",
+      "fr": "Les ruines de Gonur Tepe, au Turkménistan. Photo actuelle (2011) de David Stanley ; pas de l'époque de l'événement. Licence : CC BY 2.0."
+    },
+    "credit": "David Stanley / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-gonur-depe",
+    "id": "gonur-depe",
+    "file": "gonur-depe.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Väggscen från den mellersta terrassens pelargång (södra sidan) i drottning Hatshepsuts dödstempel i Deir el-Bahari: den egyptiska flottan lämnar Punt (nedre registret), enligt filsidan. Väggen fotograferad före restaureringen, glasnegativ ur Museo Egizios fotoarkiv i Turin; filsidan anger varken fotograf eller datum. Licens: CC0.",
+      "en": "Wall scene from the portico of the middle terrace (south side) of Queen Hatshepsut's mortuary temple at Deir el-Bahari: the Egyptian fleet departing from Punt (lower register), according to the file page. The wall photographed before restoration, a glass negative from the photographic archive of the Museo Egizio in Turin; the file page gives neither photographer nor date. Licence: CC0.",
+      "de": "Wandszene aus dem Portikus der mittleren Terrasse (Südseite) des Totentempels der Königin Hatschepsut in Deir el-Bahari: Die ägyptische Flotte verlässt Punt (unteres Register), laut Dateiseite. Die Wand vor der Restaurierung fotografiert, Glasnegativ aus dem Fotoarchiv des Museo Egizio in Turin; die Dateiseite nennt weder Fotograf noch Datum. Lizenz: CC0.",
+      "es": "Escena mural del pórtico de la terraza intermedia (lado sur) del templo funerario de la reina Hatshepsut en Deir el-Bahari: la flota egipcia parte de Punt (registro inferior), según la página del archivo. Muro fotografiado antes de su restauración, negativo de vidrio del archivo fotográfico del Museo Egizio de Turín; la página del archivo no indica ni fotógrafo ni fecha. Licencia: CC0.",
+      "fr": "Scène murale du portique de la terrasse intermédiaire (côté sud) du temple funéraire de la reine Hatshepsout à Deir el-Bahari : la flotte égyptienne quitte Pount (registre inférieur), selon la page du fichier. Mur photographié avant sa restauration, négatif sur verre des archives photographiques du Museo Egizio de Turin ; la page du fichier n'indique ni photographe ni date. Licence : CC0."
+    },
+    "credit": "Museo Egizio, Archivio fotografico (Turin) / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-hatshepsuts-expedition-till-punt",
+    "id": "hatshepsuts-expedition-till-punt",
+    "file": "hatshepsuts-expedition-till-punt.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Relief i Abu Simbel: Ramses II dödar en fiende och trampar på en annan under slaget vid Kadesh, enligt filsidan. Slaget stod enligt filsidan mellan Egypten under Ramses II och hettiternas kung Muwatalli II på 1200-talet f.Kr. Nutida foto (2023) av Mustang Joe av en forntida relief. Licens: CC0.",
+      "en": "Relief at Abu Simbel: Ramesses II slays one enemy and tramples another during the Battle of Kadesh, according to the file page. According to the file page the battle was fought in the 13th century BC between Egypt under Ramesses II and the Hittite king Muwatalli II. Modern photo (2023) by Mustang Joe of an ancient relief. Licence: CC0.",
+      "de": "Relief in Abu Simbel: Ramses II. erschlägt einen Feind und tritt einen anderen nieder, während der Schlacht von Kadesch, laut Dateiseite. Laut Dateiseite fand die Schlacht im 13. Jahrhundert v. Chr. zwischen Ägypten unter Ramses II. und dem hethitischen König Muwatalli II. statt. Heutiges Foto (2023) von Mustang Joe von einem antiken Relief. Lizenz: CC0.",
+      "es": "Relieve de Abu Simbel: Ramsés II mata a un enemigo y pisotea a otro durante la batalla de Kadesh, según la página del archivo. Según la página del archivo, la batalla enfrentó en el siglo XIII a. C. a Egipto, bajo Ramsés II, y al rey hitita Muwatalli II. Foto actual (2023) de Mustang Joe de un relieve antiguo. Licencia: CC0.",
+      "fr": "Relief d'Abou Simbel : Ramsès II tue un ennemi et en piétine un autre pendant la bataille de Qadesh, selon la page du fichier. Selon la page du fichier, la bataille opposa au XIIIe siècle av. J.-C. l'Égypte de Ramsès II et le roi hittite Mouwatalli II. Photo actuelle (2023) de Mustang Joe d'un relief antique. Licence : CC0."
+    },
+    "credit": "Mustang Joe / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-ramses-krig-mot-hettiterna",
+    "id": "ramses-krig-mot-hettiterna",
+    "file": "ramses-krig-mot-hettiterna.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Ingången till grottan Areni-1 i södra Armenien nära staden Areni; enligt filsidan platsen för världens äldsta kända vinframställningsanläggning. Nutida foto (2011) av Serouj; inte från händelsens tid. Licens: CC BY 3.0.",
+      "en": "The entrance to the Areni-1 cave in southern Armenia near the town of Areni; according to the file page the site of the world's oldest known winery. Modern photo (2011) by Serouj; not from the time of the event. Licence: CC BY 3.0.",
+      "de": "Der Eingang der Höhle Areni-1 in Südarmenien bei der Stadt Areni; laut Dateiseite Standort der ältesten bekannten Weinkellerei der Welt. Heutiges Foto (2011) von Serouj; nicht aus der Zeit des Ereignisses. Lizenz: CC BY 3.0.",
+      "es": "La entrada de la cueva Areni-1, en el sur de Armenia, cerca de la ciudad de Areni; según la página del archivo, el lugar de la bodega más antigua conocida del mundo. Foto actual (2011) de Serouj; no es de la época del acontecimiento. Licencia: CC BY 3.0.",
+      "fr": "L'entrée de la grotte d'Areni-1, dans le sud de l'Arménie, près de la ville d'Areni ; selon la page du fichier, l'emplacement du plus ancien cellier viticole connu au monde. Photo actuelle (2011) de Serouj ; pas de l'époque de l'événement. Licence : CC BY 3.0."
+    },
+    "credit": "Serouj / Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "source": "commons-bild-vinkallaren-i-areni-1",
+    "id": "vinkallaren-i-areni-1",
+    "file": "vinkallaren-i-areni-1.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Tuffkonen Seongsan Ilchulbong på ön Jeju i Sydkorea. Nutida foto (2022) av Bernard Gagnon; inte från händelsens tid. Licens: CC0.",
+      "en": "The tuff cone Seongsan Ilchulbong on Jeju Island, South Korea. Modern photo (2022) by Bernard Gagnon; not from the time of the event. Licence: CC0.",
+      "de": "Der Tuffkegel Seongsan Ilchulbong auf der Insel Jeju in Südkorea. Heutiges Foto (2022) von Bernard Gagnon; nicht aus der Zeit des Ereignisses. Lizenz: CC0.",
+      "es": "El cono de toba Seongsan Ilchulbong, en la isla de Jeju (Corea del Sur). Foto actual (2022) de Bernard Gagnon; no es de la época del acontecimiento. Licencia: CC0.",
+      "fr": "Le cône de tuf Seongsan Ilchulbong, sur l'île de Jeju, en Corée du Sud. Photo actuelle (2022) de Bernard Gagnon ; pas de l'époque de l'événement. Licence : CC0."
+    },
+    "credit": "Bernard Gagnon / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-seongsan-ilchulbong-bildas",
+    "id": "seongsan-ilchulbong-bildas",
+    "file": "seongsan-ilchulbong-bildas.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Den arkeologiska platsen Mehrgarh i Pakistan (Wiki Loves Monuments, kulturarvsregistret BA-28 enligt filsidan). Nutida foto (2018) av mhtoori; inte från händelsens tid. Licens: CC BY-SA 4.0.",
+      "en": "The Mehrgarh archaeological site in Pakistan (Wiki Loves Monuments, heritage register BA-28 according to the file page). Modern photo (2018) by mhtoori; not from the time of the event. Licence: CC BY-SA 4.0.",
+      "de": "Die archäologische Stätte Mehrgarh in Pakistan (Wiki Loves Monuments, Denkmalregister BA-28 laut Dateiseite). Heutiges Foto (2018) von mhtoori; nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+      "es": "El sitio arqueológico de Mehrgarh, en Pakistán (Wiki Loves Monuments, registro de patrimonio BA-28 según la página del archivo). Foto actual (2018) de mhtoori; no es de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+      "fr": "Le site archéologique de Mehrgarh, au Pakistan (Wiki Loves Monuments, registre du patrimoine BA-28 selon la page du fichier). Photo actuelle (2018) de mhtoori ; pas de l'époque de l'événement. Licence : CC BY-SA 4.0."
+    },
+    "credit": "mhtoori / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-mehrgarh",
+    "id": "mehrgarh",
+    "file": "mehrgarh.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Keramik från Kot Diji-fasen (mogna Harappanperioden) på National Museum i New Delhi. Nutida foto av SpeakingArch (filsidans datum: 14 november 2026); ett museiföremål, inte platsen. Licens: CC BY-SA 4.0.",
+      "en": "Pottery of the Kot Diji phase (Mature Harappan period) in the National Museum, New Delhi. Modern photo by SpeakingArch (file date: 14 November 2026); a museum object, not the site. Licence: CC BY-SA 4.0.",
+      "de": "Keramik der Kot-Diji-Phase (reife Harappa-Zeit) im Nationalmuseum in Neu-Delhi. Heutiges Foto von SpeakingArch (Dateidatum: 14. November 2026); ein Museumsobjekt, nicht die Stätte. Lizenz: CC BY-SA 4.0.",
+      "es": "Cerámica de la fase Kot Diji (período Harappa maduro) en el Museo Nacional de Nueva Delhi. Foto actual de SpeakingArch (fecha del archivo: 14 de noviembre de 2026); un objeto de museo, no el yacimiento. Licencia: CC BY-SA 4.0.",
+      "fr": "Poterie de la phase de Kot Diji (période harappéenne mature) au Musée national de New Delhi. Photo actuelle de SpeakingArch (date du fichier : 14 novembre 2026) ; un objet de musée, pas le site. Licence : CC BY-SA 4.0."
+    },
+    "credit": "SpeakingArch / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-kot-diji",
+    "id": "kot-diji",
+    "file": "kot-diji.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Liangzhumuseet (Liangzhu Museum) i Hangzhou, sydvästra entrén. Nutida foto (2015) av Zhangzhugang. Bilden visar museet, inte dammarna eller staden från händelsens tid. Licens: CC BY-SA 4.0.",
+      "en": "The Liangzhu Museum in Hangzhou, south-west entrance. Modern photo (2015) by Zhangzhugang. The image shows the museum, not the dams or the city from the time of the event. Licence: CC BY-SA 4.0.",
+      "de": "Das Liangzhu-Museum in Hangzhou, Südwesteingang. Heutiges Foto (2015) von Zhangzhugang. Das Bild zeigt das Museum, nicht die Dämme oder die Stadt aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+      "es": "El Museo de Liangzhu, en Hangzhou, entrada suroeste. Foto actual (2015) de Zhangzhugang. La imagen muestra el museo, no los diques ni la ciudad de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+      "fr": "Le musée de Liangzhu, à Hangzhou, entrée sud-ouest. Photo actuelle (2015) de Zhangzhugang. L'image montre le musée, pas les digues ni la ville de l'époque de l'événement. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Zhangzhugang / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-liangzhu-och-dammarna",
+    "id": "liangzhu-och-dammarna",
+    "file": "liangzhu-och-dammarna.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Föremål av brons och lera från Sintashtakulturen (sickel, knivar, spetsar, yxa, harpun, fiskkrok, spinnvirvel) ur gravfältet Sintashta och Almuchametovohögarna, utställda på Museum of Archaeology and Ethnography i Ufa. Nutida foto (2025) av Лапоть; bilden visar inga vagnar. Licens: CC0.",
+      "en": "Bronze and clay objects of the Sintashta culture (sickle, knives, spearhead, adze, harpoon, fish hook, spindle whorl) from the Sintashta cemetery and the Almukhametovo mounds, displayed at the Museum of Archaeology and Ethnography in Ufa. Modern photo (2025) by Лапоть; the image shows no chariots. Licence: CC0.",
+      "de": "Bronze- und Tonobjekte der Sintaschta-Kultur (Sichel, Messer, Speerspitze, Dechsel, Harpune, Angelhaken, Spinnwirtel) aus dem Gräberfeld Sintaschta und den Almuchametowo-Hügeln, ausgestellt im Museum für Archäologie und Ethnographie in Ufa. Heutiges Foto (2025) von Лапоть; das Bild zeigt keine Streitwagen. Lizenz: CC0.",
+      "es": "Objetos de bronce y arcilla de la cultura Sintashta (hoz, cuchillos, punta de lanza, azuela, arpón, anzuelo, fusayola) del cementerio de Sintashta y de los túmulos de Almujámetovo, expuestos en el Museo de Arqueología y Etnografía de Ufá. Foto actual (2025) de Лапоть; la imagen no muestra carros de combate. Licencia: CC0.",
+      "fr": "Objets en bronze et en argile de la culture de Sintachta (faucille, couteaux, pointe de lance, herminette, harpon, hameçon, fusaïole) provenant du cimetière de Sintachta et des tumulus d'Almoukhametovo, exposés au Musée d'archéologie et d'ethnographie d'Oufa. Photo actuelle (2025) de Лапоть ; l'image ne montre pas de chars. Licence : CC0."
+    },
+    "credit": "Лапоть / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-sintashta-stridsvagnar",
+    "id": "sintashta-stridsvagnar",
+    "file": "sintashta-stridsvagnar.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Astronautfoto från Internationella rymdstationen (19 augusti 2023) av vulkanen Ksudach på Kamtjatka: flera överlappande kalderor och kratrar. Filsidan anger att den senaste aktiviteten var 1907. NASA; bilden visar inte de forntida utbrotten. Licens: Public domain.",
+      "en": "Astronaut photograph from the International Space Station (19 August 2023) of the Ksudach volcano on Kamchatka: several overlapping calderas and craters. The file page states that the most recent activity was in 1907. NASA; the image does not show the ancient eruptions. Licence: Public domain.",
+      "de": "Astronautenfoto von der Internationalen Raumstation (19. August 2023) des Vulkans Ksudach auf Kamtschatka: mehrere überlappende Calderen und Krater. Laut Dateiseite war die jüngste Aktivität 1907. NASA; das Bild zeigt nicht die urzeitlichen Ausbrüche. Lizenz: gemeinfrei.",
+      "es": "Fotografía de astronauta desde la Estación Espacial Internacional (19 de agosto de 2023) del volcán Ksudach, en Kamchatka: varias calderas y cráteres superpuestos. Según la página del archivo, la actividad más reciente fue en 1907. NASA; la imagen no muestra las erupciones antiguas. Licencia: dominio público.",
+      "fr": "Photographie d'astronaute prise depuis la Station spatiale internationale (19 août 2023) du volcan Ksoudatch, au Kamtchatka : plusieurs caldeiras et cratères imbriqués. Selon la page du fichier, la dernière activité date de 1907. NASA ; l'image ne montre pas les éruptions anciennes. Licence : domaine public."
+    },
+    "credit": "NASA (astronaut på ISS) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-utbrotten-i-ksudach",
+    "id": "utbrotten-i-ksudach",
+    "file": "utbrotten-i-ksudach.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Ett askskikt från Kikaikalderan i årsvarven (varv) i sedimentet från Suigetsusjön i Japan; etiketten anger cirka 7253 år före nutid, enligt filsidans titel och japanska beskrivning. Nutida foto (2019) av Phonon.b av en utställd sedimentkärna. Licens: CC BY-SA 4.0.",
+      "en": "An ash layer from the Kikai caldera in the annual layers (varves) of sediment from Lake Suigetsu in Japan; the label gives about 7253 years before present, according to the file page title and its Japanese description. Modern photo (2019) by Phonon.b of a displayed sediment core. Licence: CC BY-SA 4.0.",
+      "de": "Eine Ascheschicht der Kikai-Caldera in den Jahresschichten (Warven) des Sediments aus dem Suigetsu-See in Japan; das Etikett nennt etwa 7253 Jahre vor heute, laut Titel der Dateiseite und japanischer Beschreibung. Heutiges Foto (2019) von Phonon.b eines ausgestellten Sedimentkerns. Lizenz: CC BY-SA 4.0.",
+      "es": "Una capa de ceniza de la caldera de Kikai en las capas anuales (varvas) del sedimento del lago Suigetsu, en Japón; la etiqueta indica unos 7253 años antes del presente, según el título de la página del archivo y su descripción en japonés. Foto actual (2019) de Phonon.b de un testigo de sedimento expuesto. Licencia: CC BY-SA 4.0.",
+      "fr": "Une couche de cendres de la caldeira de Kikai dans les varves annuelles du sédiment du lac Suigetsu, au Japon ; l'étiquette indique environ 7253 ans avant le présent, selon le titre de la page du fichier et sa description en japonais. Photo actuelle (2019) de Phonon.b d'une carotte de sédiment exposée. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Phonon.b / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-akahoya-utbrottet-i-kikai",
+    "id": "akahoya-utbrottet-i-kikai",
+    "file": "akahoya-utbrottet-i-kikai.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Utgrävning vid den antika staden Sarazm i Tadzjikistan. Nutida foto (2009) av Zack Knowles; inte från händelsens tid. Licens: CC BY-SA 3.0.",
+      "en": "Excavation at the ancient city of Sarazm in Tajikistan. Modern photo (2009) by Zack Knowles; not from the time of the event. Licence: CC BY-SA 3.0.",
+      "de": "Ausgrabung an der antiken Stadt Sarazm in Tadschikistan. Heutiges Foto (2009) von Zack Knowles; nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 3.0.",
+      "es": "Excavación en la antigua ciudad de Sarazm, en Tayikistán. Foto actual (2009) de Zack Knowles; no es de la época del acontecimiento. Licencia: CC BY-SA 3.0.",
+      "fr": "Fouille de l'ancienne ville de Sarazm, au Tadjikistan. Photo actuelle (2009) de Zack Knowles ; pas de l'époque de l'événement. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Zack Knowles / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-sarazm-och-handeln",
+    "id": "sarazm-och-handeln",
+    "file": "sarazm-och-handeln.webp"
   }
 ]
