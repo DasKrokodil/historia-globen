@@ -2890,6 +2890,68 @@ def ne_shapes():
             for f in json.loads((ROOT / 'tools/ne-omstridda-omraden.geojson').read_text())['features']}
 
 
+def land_10m(window):
+    """Landet i Natural Earth 1:10m (data/land-10m.json, en ekvirektangulär path i pixlar) inom rutan, i grader (#1444).
+    Ringarna läggs ihop med jämn-udda-regeln, som när kartan ritar pathen."""
+    doc = json.loads((ROOT / 'data/land-10m.json').read_text())
+    w, h = doc['width'], doc['height']
+    env, acc, ring = box(*window), Polygon(), []
+
+    def close(r):
+        nonlocal acc
+        if len(r) > 2:
+            p = Polygon(r)
+            if box(*p.bounds).intersects(env):
+                acc = acc.symmetric_difference(polygons_only(shapely.make_valid(p)))
+    for cmd, xs, ys in re.findall(r'([MLZ])(?:(-?[\d.]+),(-?[\d.]+))?', doc['path']):
+        if cmd in 'MZ':
+            close(ring)
+            ring = []
+        if cmd in 'ML':
+            ring.append((float(xs) / w * 360 - 180, 90 - float(ys) / h * 180))
+    close(ring)
+    return polygons_only(acc.intersection(env))
+
+
+_KUST_HAV = {}
+
+
+def kust_hav(gid):
+    """Havet i gruppens ruta i KUST_KLIPP: rutan minus landet med KUST_MARGINAL grader runt (#1444)."""
+    if gid not in _KUST_HAV:
+        ruta = KUST_KLIPP[gid]
+        pad = KUST_MARGINAL + 0.1
+        land = land_10m((ruta[0] - pad, ruta[1] - pad, ruta[2] + pad, ruta[3] + pad))
+        mask = land.buffer(KUST_MARGINAL, quad_segs=4).simplify(KUST_FORENKLA)
+        _KUST_HAV[gid] = polygons_only(box(*ruta).difference(mask))
+    return _KUST_HAV[gid]
+
+
+def klipp_kust(q, gid):
+    """Klipper bort havet (kust_hav) ur periodens gräns, bara i de delar som havet når (#1444). Namnets plats flyttas bara om den
+    hamnar i havet."""
+    sea = kust_hav(gid)
+    g = shape(q['geometry'])
+    parts = list(g.geoms) if g.geom_type == 'MultiPolygon' else [g]
+    rest = [x for x in parts if not x.intersects(sea)]
+    hit = [polygons_only(shapely.make_valid(x)) for x in parts if x.intersects(sea)]
+    if not hit:
+        return
+    ng = polygons_only(unary_union(hit).difference(sea))
+    new = [x for x in getattr(ng, 'geoms', [ng]) if not x.is_empty and x.area >= KUST_REST]
+    polys = [mapping(x)['coordinates'] for x in rest]
+    if new:
+        nw = valid_rounded(unary_union(new), KUST_DEC)
+        polys += nw['coordinates'] if nw['type'] == 'MultiPolygon' else [nw['coordinates']]
+    polys = [json.loads(json.dumps(c)) for c in polys]
+    q['geometry'] = ({'type': 'Polygon', 'coordinates': polys[0]} if len(polys) == 1
+                     else {'type': 'MultiPolygon', 'coordinates': polys})
+    g = shape(q['geometry'])
+    if not g.buffer(0).contains(shapely.Point(q['label'])):
+        c = (max(g.geoms, key=lambda x: x.area) if g.geom_type == 'MultiPolygon' else g).buffer(0).representative_point()
+        q['label'] = [round(c.x, 1), round(c.y, 1)]
+
+
 def holder_part(land, wrong, y, holder, others, by_name):
     """Den del av land (Natural Earth) som Cliopatria räknar till holder år y (#1781).
 
@@ -3214,6 +3276,21 @@ DECIMALS = {'israel': 2, 'palestina': 2, 'osttyskland': 2, 'vasttyskland': 2, 't
 # en gräns som korsar sig själv. Bara de här grupperna, så att övriga rikens filer blir exakt som förut: Aragoniska kronan
 # vid norra Sicilien (15,4° Ö 38,2° N) 1450–1458 och från 1507 (#645, geografens granskning av PR #2037)
 MAKE_VALID = {'aragoniska-kronan'}
+
+# Kustriken klipps mot land (#1444, pilot, docs/beslut/2026-11-26-kustriken-klipps-mot-land.md). Cliopatrias ytor är grova, och för
+# små kustriken på fastland ligger en stor del i havet (docs/granskningar/2026-11-23-rikesytor-i-havet-1444.md). I rutan (väst, syd,
+# öst, nord) klipps havet bort efter förenklingen: allt som ligger längre än KUST_MARGINAL grader från land i Natural Earth 1:10m
+# (data/land-10m.json, public domain). Marginalen gör att kuststäder, hamnar, flodmynningar och småöar nära kusten står kvar.
+# Bara de delar av gränsen som havet når räknas om (avrundade till KUST_DEC decimaler); övriga delar och allt utanför rutan behåller
+# sina koordinater. Perioderna, namnets plats (om den inte hamnar i havet) och areaKm2 (Cliopatrias yta) ändras inte.
+# Ö-stater och skärgårdsriken klipps inte. Omans ruta omfattar bara Arabiska halvön och Hormuzsundet: Östafrikas kust följer
+# redan Natural Earth (#1787), och Gwadar ligger utanför
+KUST_KLIPP = {'chimor': (-82.5, -13.0, -75.5, -2.0), 'dal-riata': (-8.0, 53.5, -1.0, 60.0),
+              'almoravider': (-18.0, 16.0, 5.5, 43.5), 'oman': (50.0, 15.0, 61.0, 27.5)}
+KUST_MARGINAL = 0.05  # grader (cirka 5,5 km i nord–sydlig led); mätningen i docs/granskningar/2026-11-26-kustriken-klippta-1444.md
+KUST_FORENKLA = 0.02  # kustlinjen förenklas så här mycket (under marginalen, så att allt land står kvar inom gränsen)
+KUST_DEC = 2
+KUST_REST = 0.0005  # bitar som klippningen lämnar efter sig, mindre än så här (kvadratgrader, cirka 6 km2), tas bort
 
 
 def rnd(o, nd=1):
@@ -3819,6 +3896,9 @@ def main():
                             for a, r in post:
                                 hg = polygons_only(hg.difference(a)) if r else hg
                             q['homeland'] = valid_rounded(hg, 3)
+                # Kustriken (#1444): havet klipps bort sist, efter förenklingen och DISPUTED, så att perioderna står kvar
+                if gid in KUST_KLIPP:
+                    klipp_kust(q, gid)
                 del q['_shape']
                 q.pop('_g', None)
                 q.pop('_raw', None)
@@ -3965,6 +4045,10 @@ def main():
              'Zhoushanön likaså (Folkrepubliken tog Zhoushan 17 maj 1950). '
              'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
              '(ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.')
+    if KUST_KLIPP:
+        notes += (f' Kustriken (#1444, pilot): i {", ".join(KUST_KLIPP)} är havet som ligger mer än {KUST_MARGINAL} grader från kusten i '
+                  'Natural Earth 1:10m (data/land-10m.json, public domain) bortklippt efter förenklingen (KUST_KLIPP i tools/riken.py, '
+                  'i Oman bara på Arabiska halvön), så att kuststäder och småöar nära kusten står kvar. areaKm2 är ändå Cliopatrias yta.')
     if shared_on:
         notes += (f' Delade gränser (#1765, pilot för England, Skottland och Man med föregångarna): {", ".join(SHARED_GROUPS)} är perioder som börjar {SHARED_YEARS[0]}–{SHARED_YEARS[1]} '
                   f'förenklade tillsammans som en täckning (Visvalingam–Whyatt, {SHARED_TOL} i shapely.coverage_simplify) i stället för '
