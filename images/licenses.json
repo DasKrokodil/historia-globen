@@ -366,6 +366,21 @@
       }
     },
     {
+      "eventId": "attentaten-mot-moskeerna-i-christchurch",
+      "eventTitle": "Terrorattackerna mot två moskéer i Christchurch",
+      "file": "images/events/attentaten-mot-moskeerna-i-christchurch.webp",
+      "kind": "historisk",
+      "credit": "Michal Klajban / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-attentaten-mot-moskeerna-i-christchurch",
+        "title": "Christchurch Mosque, New Zealand – Michal Klajban (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Christchurch_Mosque,_New_Zealand.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "auschwitz-befrias",
       "eventTitle": "Auschwitz befrias",
       "file": "images/events/auschwitz-befrias.webp",
@@ -999,6 +1014,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Pierre_and_Marie_Curie.jpg",
         "license": "Public domain",
         "checked": "2026-11-13"
+      }
+    },
+    {
+      "eventId": "cyklonen-tracy",
+      "eventTitle": "Cyklonen Tracy ödelägger Darwin",
+      "file": "images/events/cyklonen-tracy.webp",
+      "kind": "historisk",
+      "credit": "Billbeee / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-cyklonen-tracy",
+        "title": "Houses-after-tracy (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Houses-after-tracy.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2301,6 +2331,21 @@
       }
     },
     {
+      "eventId": "jordbavningen-i-christchurch-2011",
+      "eventTitle": "Jordbävningen i Christchurch",
+      "file": "images/events/jordbavningen-i-christchurch-2011.webp",
+      "kind": "historisk",
+      "credit": "Schwede66 / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-jordbavningen-i-christchurch-2011",
+        "title": "Colombo St looking south to Tuam – Schwede66 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Colombo_St_looking_south_to_Tuam.JPG",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "jordbavningen-i-lissabon-1755",
       "eventTitle": "Jordbävningen i Lissabon",
       "file": "images/events/jordbavningen-i-lissabon-1755.webp",
@@ -3300,6 +3345,21 @@
       }
     },
     {
+      "eventId": "massblekning-stora-barriarrevet-2016",
+      "eventTitle": "Massblekning av koraller på Stora barriärrevet",
+      "file": "images/events/massblekning-stora-barriarrevet-2016.webp",
+      "kind": "historisk",
+      "credit": "Jay Galvin / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-massblekning-stora-barriarrevet-2016",
+        "title": "Coral Reef Bleaching – Jay Galvin (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Coral_Reef_Bleaching.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "mayastadernas-nedgang",
       "eventTitle": "Mayastäderna i söder överges",
       "file": "images/events/mayastadernas-nedgang.webp",
@@ -3762,6 +3822,21 @@
       }
     },
     {
+      "eventId": "nya-zeelands-hundraarsutstallning-1939",
+      "eventTitle": "Nya Zeelands hundraårsutställning",
+      "file": "images/events/nya-zeelands-hundraarsutstallning-1939.webp",
+      "kind": "historisk",
+      "credit": "William Hall Raine / Alexander Turnbull Library / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-nya-zeelands-hundraarsutstallning-1939",
+        "title": "Aerial view of Rongotai, Wellington, 1939 – National Library NZ on The Commons (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Rongotai,_Wellington,_1939.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "nzinga-drottning-av-ndongo",
       "eventTitle": "Nzinga, drottning av Ndongo och Matamba",
       "file": "images/events/nzinga-drottning-av-ndongo.webp",
@@ -3789,6 +3864,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:After_the_capture_of_the_Winter_Palace_26_October_1917.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "olympiska-sommarspelen-i-sydney-2000",
+      "eventTitle": "Olympiska sommarspelen i Sydney",
+      "file": "images/events/olympiska-sommarspelen-i-sydney-2000.webp",
+      "kind": "historisk",
+      "credit": "TSGT Rick Sforza / US Air Force / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-olympiska-sommarspelen-i-sydney-2000",
+        "title": "2000 Summer Olympics opening ceremony 1 – TSGT Rick Sforza (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:2000_Summer_Olympics_opening_ceremony_1.JPEG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -4089,6 +4179,21 @@
       }
     },
     {
+      "eventId": "prospero-black-arrow",
+      "eventTitle": "Prospero, Storbritanniens satellit med egen raket",
+      "file": "images/events/prospero-black-arrow.webp",
+      "kind": "historisk",
+      "credit": "Geni / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-prospero-black-arrow",
+        "title": "Prospero X-3 model 2012 – Geni (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Prospero_X-3_model_2012.JPG",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "pungvargen-forsvinner-fran-fastlandet",
       "eventTitle": "Pungvargen och pungdjävulen dör ut på fastlandet",
       "file": "images/events/pungvargen-forsvinner-fran-fastlandet.webp",
@@ -4124,6 +4229,21 @@
         "title": "Hessel Gerritsz - Worldmap of 1612 including the discovery of La Austrialia del Espiritu Santo by Pedro Fernandes de Queirós – Hessel Gherrijtszoon van Assum (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Hessel_Gerritsz_-_Worldmap_of_1612_including_the_discovery_of_La_Austrialia_del_Espiritu_Santo_by_Pedro_Fernandes_de_Queir%C3%B3s.png",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "rainbow-warrior-sanks",
+      "eventTitle": "Rainbow Warrior sänks i Auckland",
+      "file": "images/events/rainbow-warrior-sanks.webp",
+      "kind": "historisk",
+      "credit": "Raymond L. Blazevic / Florida Keys Public Libraries / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-rainbow-warrior-sanks",
+        "title": "Rainbow Warrior, Greenpeace Ship (7352292610) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Rainbow_Warrior,_Greenpeace_Ship_(7352292610).jpg",
+        "license": "CC BY 2.0",
         "checked": "2026-11-26"
       }
     },
@@ -4248,6 +4368,21 @@
       }
     },
     {
+      "eventId": "ruapehus-utbrott-1945",
+      "eventTitle": "Vulkanen Ruapehu får utbrott",
+      "file": "images/events/ruapehus-utbrott-1945.webp",
+      "kind": "historisk",
+      "credit": "W. Bulach / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-ruapehus-utbrott-1945",
+        "title": "00 1100 Ruapehu volcano – W. Bulach (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:00_1100_Ruapehu_volcano.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "sagan-om-genji",
       "eventTitle": "Sagan om Genji skrivs",
       "file": "images/events/sagan-om-genji.webp",
@@ -4290,6 +4425,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Marche_sel.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "samoa-blir-sjalvstandigt",
+      "eventTitle": "Samoa blir självständigt",
+      "file": "images/events/samoa-blir-sjalvstandigt.webp",
+      "kind": "historisk",
+      "credit": "Stephen Glauser / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-samoa-blir-sjalvstandigt",
+        "title": "Beach on Upolu Island, Samoa, 2009 – Stephen Glauser (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Beach_on_Upolu_Island,_Samoa,_2009.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -4890,6 +5040,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-milne-bay",
+      "eventTitle": "Slaget vid Milne Bay",
+      "file": "images/events/slaget-vid-milne-bay.webp",
+      "kind": "historisk",
+      "credit": "Frank Bagnall / Australian War Memorial / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-milne-bay",
+        "title": "Australian troops at Milne Bay – Bagnall, Frank N (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Australian_troops_at_Milne_Bay.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-narva-1700",
       "eventTitle": "Slaget vid Narva",
       "file": "images/events/slaget-vid-narva-1700.webp",
@@ -5355,6 +5520,21 @@
       }
     },
     {
+      "eventId": "stora-barriarrevets-marinpark",
+      "eventTitle": "Stora barriärrevet blir marinpark",
+      "file": "images/events/stora-barriarrevets-marinpark.webp",
+      "kind": "historisk",
+      "credit": "MODIS Land Rapid Response Team, NASA GSFC / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-stora-barriarrevets-marinpark",
+        "title": "Great Barrier Reef (MODIS) – MODIS Land Rapid Response Team, NASA GSFC (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Great_Barrier_Reef_(MODIS).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "stora-buddha-i-kamakura",
       "eventTitle": "Den stora Buddha i Kamakura görs i brons",
       "file": "images/events/stora-buddha-i-kamakura.webp",
@@ -5490,6 +5670,21 @@
       }
     },
     {
+      "eventId": "sydneyoperan-invigs",
+      "eventTitle": "Operahuset i Sydney invigs",
+      "file": "images/events/sydneyoperan-invigs.webp",
+      "kind": "historisk",
+      "credit": "W. Bulach / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-sydneyoperan-invigs",
+        "title": "00 1375 Sydney Opera House (Australia) – W. Bulach (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:00_1375_Sydney_Opera_House_(Australia).jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "sylviornis-dor-ut",
       "eventTitle": "Det sista spåret av jättefågeln Sylviornis",
       "file": "images/events/sylviornis-dor-ut.webp",
@@ -5532,6 +5727,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Panorama_Mount_Tambora_caldera.jpg",
         "license": "CC BY 4.0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "tangiwaiolyckan",
+      "eventTitle": "Tangiwaiolyckan",
+      "file": "images/events/tangiwaiolyckan.webp",
+      "kind": "historisk",
+      "credit": "New Zealand Railways Corporation / Archives New Zealand / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-tangiwaiolyckan",
+        "title": "In remembrance of the Tangiwai disaster, 60 years ago on 24 December 1953. (11440593993) – Archives New Zealand from New Zealand (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:In_remembrance_of_the_Tangiwai_disaster,_60_years_ago_on_24_December_1953._(11440593993).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5937,6 +6147,36 @@
       }
     },
     {
+      "eventId": "utbrottet-i-hunga-tonga-2022",
+      "eventTitle": "Vulkanutbrottet i Hunga Tonga–Hunga Haʻapai",
+      "file": "images/events/utbrottet-i-hunga-tonga-2022.webp",
+      "kind": "historisk",
+      "credit": "NASA / Kayla Barron / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-utbrottet-i-hunga-tonga-2022",
+        "title": "ISS-66 Atmospheric plume from 2022 Hunga Tonga eruption - edited – NASA / Kayla Barron (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:ISS-66_Atmospheric_plume_from_2022_Hunga_Tonga_eruption_-_edited.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "vanuatu-blir-sjalvstandigt",
+      "eventTitle": "Vanuatu blir självständigt",
+      "file": "images/events/vanuatu-blir-sjalvstandigt.webp",
+      "kind": "historisk",
+      "credit": "Jean Van Jean / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-vanuatu-blir-sjalvstandigt",
+        "title": "Port Vila - Independence Park - panoramio – Jean Van Jean (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Port_Vila_-_Independence_Park_-_panoramio.jpg",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "vapenstillestandet-1918",
       "eventTitle": "Vapenstilleståndet i Compiègne",
       "file": "images/events/vapenstillestandet-1918.webp",
@@ -6054,6 +6294,21 @@
         "url": "https://www.loc.gov/pictures/item/2006691752/",
         "license": "No known restrictions on publication",
         "checked": "2026-11-13"
+      }
+    },
+    {
+      "eventId": "wave-hill-strejken",
+      "eventTitle": "Gurindjifolket lämnar Wave Hill",
+      "file": "images/events/wave-hill-strejken.webp",
+      "kind": "historisk",
+      "credit": "Ellen Sarah Kettle / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-wave-hill-strejken",
+        "title": "Cattle Creek outstation, Wave Hill – Ellen Sarah Kettle (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cattle_Creek_outstation,_Wave_Hill.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {

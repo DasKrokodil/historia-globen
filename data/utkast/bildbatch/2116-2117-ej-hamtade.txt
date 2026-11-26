@@ -1,0 +1,4 @@
+# Ej hämtade av tools/bild_hamta.py; kör igen med --lista
+File:Thylacines.jpg	den-sista-pungvargen-dor	passa-in
+File:Stamp 1956 Australia MiNr0266 pm B002.jpg	os-i-melbourne-1956	passa-in
+File:February 7 Victoria Bushfires - MODIS Aqua.jpg	black-saturday-branderna-2009

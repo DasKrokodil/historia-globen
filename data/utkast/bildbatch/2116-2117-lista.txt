@@ -1,29 +1,23 @@
 # Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
 # Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
-# File:Dowling 145.jpg	coniston-massakern
-# File:Lockheed 8 Sirius 'Tingmissartoq' at the National Air and Space Museum, Washington DC.jpg	ostgronlandsmalet
-# File:Image-Arnhem Land topographic sketch.jpg	caledon-bay-krisen
-# File:TheGreatEmuWarcolage.png	emukriget
-# File:Thylacinus.jpg	den-sista-pungvargen-dor
-# File:Black Friday 1939.jpg	black-friday-skogsbranderna-1939
-# File:New Zealand Centennial Exhibition (10654042046).jpg	nya-zeelands-hundraarsutstallning-1939
-# File:Australian troops at Milne Bay.jpg	slaget-vid-milne-bay
-# File:00 1100 Ruapehu volcano.jpg	ruapehus-utbrott-1945
-# File:In remembrance of the Tangiwai disaster, 60 years ago on 24 December 1953. (11440593993).jpg	tangiwaiolyckan
-# File:Thailand Football Team at 1956 Summer Olympics.png	os-i-melbourne-1956
-# File:Beach on Upolu Island, Samoa, 2009.jpg	samoa-blir-sjalvstandigt
-# File:Cattle Creek outstation, Wave Hill.jpg	wave-hill-strejken
-# File:Куинс-роуд, город Нанди (Queens Rd., Nadi).jpg	fiji-blir-sjalvstandigt
-# File:Prospero X-3 model 2012.JPG	prospero-black-arrow
-# File:Sydney Opera House Sails.jpg	sydneyoperan-invigs
-# File:Houses-after-tracy.jpg	cyklonen-tracy
-# File:Jack Barnes Bicentennial Mangrove Boardwalk.jpg	stora-barriarrevets-marinpark
-# File:Satellite image of Vanuatu in October 1998.jpg	vanuatu-blir-sjalvstandigt
-# File:Pacific Nuclear Testing- a French letter to the NZ Embassy in Paris (27726454900).jpg	rainbow-warrior-sanks
-# File:Another Puff from Whakaari (153818).jpg	maori-officiellt-sprak
-# File:2000 Summer Olympics opening ceremony 1.JPEG	olympiska-sommarspelen-i-sydney-2000
-# File:February 7 Victoria Bushfires - MODIS Aqua.jpg	black-saturday-branderna-2009
-# File:Colombo St looking south to Tuam.JPG	jordbavningen-i-christchurch-2011
-# File:GreatBarrierReef-EO.JPG	massblekning-stora-barriarrevet-2016
-# File:Christchurch Mosque, New Zealand.jpg	attentaten-mot-moskeerna-i-christchurch
-# File:Tonga Volcano Eruption 2022-01-15 0320Z to 0610Z Himawari-8 visible.gif	utbrottet-i-hunga-tonga-2022
+# Godkända efter kontroll av filsidan (action=raw) 2026-11-26.
+File:Thylacines.jpg	den-sista-pungvargen-dor	passa-in
+File:Aerial view of Rongotai, Wellington, 1939.jpg	nya-zeelands-hundraarsutstallning-1939
+File:Australian troops at Milne Bay.jpg	slaget-vid-milne-bay
+File:00 1100 Ruapehu volcano.jpg	ruapehus-utbrott-1945
+File:In remembrance of the Tangiwai disaster, 60 years ago on 24 December 1953. (11440593993).jpg	tangiwaiolyckan	passa-in
+File:Stamp 1956 Australia MiNr0266 pm B002.jpg	os-i-melbourne-1956	passa-in
+File:Beach on Upolu Island, Samoa, 2009.jpg	samoa-blir-sjalvstandigt
+File:Cattle Creek outstation, Wave Hill.jpg	wave-hill-strejken
+File:Prospero X-3 model 2012.JPG	prospero-black-arrow	passa-in
+File:00 1375 Sydney Opera House (Australia).jpg	sydneyoperan-invigs
+File:Houses-after-tracy.jpg	cyklonen-tracy
+File:Great Barrier Reef (MODIS).jpg	stora-barriarrevets-marinpark
+File:Port Vila - Independence Park - panoramio.jpg	vanuatu-blir-sjalvstandigt
+File:Rainbow Warrior, Greenpeace Ship (7352292610).jpg	rainbow-warrior-sanks
+File:2000 Summer Olympics opening ceremony 1.JPEG	olympiska-sommarspelen-i-sydney-2000
+File:February 7 Victoria Bushfires - MODIS Aqua.jpg	black-saturday-branderna-2009
+File:Colombo St looking south to Tuam.JPG	jordbavningen-i-christchurch-2011
+File:Coral Reef Bleaching.jpg	massblekning-stora-barriarrevet-2016
+File:Christchurch Mosque, New Zealand.jpg	attentaten-mot-moskeerna-i-christchurch
+File:ISS-66 Atmospheric plume from 2022 Hunga Tonga eruption - edited.jpg	utbrottet-i-hunga-tonga-2022
