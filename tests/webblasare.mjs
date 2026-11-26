@@ -4440,6 +4440,135 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1261, #1947: urvalsraden "Ett urval: N länder. Fler kommer." står överst i fliken Länder och landskap. N räknas ur de laddade länderna
+  // (inte träffarna), och ingen siffra för hur många länder som finns står där (den saknar källa). Raden är vanlig text, inte en live-region.
+  await check('Länder och landskap: urvalsraden står överst och räknar de laddade länderna på alla fem språk (#1261, #1947)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      const said = {
+        sv: n => `Ett urval: ${n} ${n === 1 ? 'land' : 'länder'}. Fler kommer.`,
+        en: n => `A selection: ${n} ${n === 1 ? 'country' : 'countries'}. More to come.`,
+        de: n => `Eine Auswahl: ${n} ${n === 1 ? 'Land' : 'Länder'}. Weitere folgen.`,
+        es: n => `Una selección: ${n} ${n === 1 ? 'país' : 'países'}. Habrá más.`,
+        fr: n => `Une sélection : ${n} pays. D’autres suivront.`,
+      };
+      const out = [];
+      for (const lang of Object.keys(said)) {
+        await openLander(tp, '#y=1600', `urval1261${lang}&lang=${lang}`);
+        const m = await tp.evaluate(() => {
+          const body = document.querySelector('#focus-menu .focus-body');
+          const row = body.querySelector('.focus-sample');
+          const countries = [...body.querySelectorAll('[data-node^="r:"]')].reduce((n, b) => n + document.getElementById(b.getAttribute('aria-controls')).querySelectorAll(':scope > [data-key]').length, 0);
+          const r = row?.getBoundingClientRect(), b = body.getBoundingClientRect();
+          return { text: row?.textContent.trim() ?? null, first: body.firstElementChild === row, countries, scrollTop: body.scrollTop, top: r?.top, bodyTop: b.top, bottom: r?.bottom, bodyBottom: b.bottom,
+            live: !!row?.closest('[aria-live], [role="status"], [role="alert"]'), hidden: row?.closest('[aria-hidden="true"]') != null };
+        });
+        if (m.text == null) throw new Error(`${lang}: urvalsraden finns inte`);
+        if (!m.countries) throw new Error(`${lang}: inga länder i trädet att räkna`);
+        if (m.text !== said[lang](m.countries)) throw new Error(`${lang}: raden säger "${m.text}", inte "${said[lang](m.countries)}"`);
+        if (/\b200\b/.test(m.text)) throw new Error(`${lang}: raden nämner en siffra för alla länder ("${m.text}"), som saknar källa`);
+        if (!m.first || m.scrollTop !== 0 || m.top < m.bodyTop - 1 || m.bottom > m.bodyBottom + 1) throw new Error(`${lang}: urvalsraden står inte överst och synlig utan rullning (${JSON.stringify(m)})`);
+        if (m.live || m.hidden) throw new Error(`${lang}: urvalsraden är en live-region eller dold för skärmläsare`);
+        out.push(`${lang}: "${m.text}"`);
+      }
+      // En sökning ändrar inte N (det är de laddade länderna, inte träffarna), och raden står kvar överst (sidan står på franska efter slingan)
+      await tp.fill('#focus-menu .focus-search', 'dan');
+      const afterSearch = await tp.evaluate(() => ({ first: document.querySelector('#focus-menu .focus-body').firstElementChild?.className, text: document.querySelector('#focus-menu .focus-sample')?.textContent.trim() }));
+      if (afterSearch.first !== 'focus-sample' || afterSearch.text !== said.fr(Number(afterSearch.text.match(/\d+/)[0]))) throw new Error(`urvalsraden försvann eller ändrades vid sökningen: ${JSON.stringify(afterSearch)}`);
+      // Den visas bara på sin egen flik
+      await tp.click('#focus-menu [data-tab="Alla"]');
+      if (await tp.locator('#focus-menu .focus-sample').count()) throw new Error('urvalsraden syns i fliken Alla');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return out.join('; ');
+    } finally { await tctx.close(); }
+  });
+
+  // #1261, #1947: ett land som saknas ger "Landet finns inte bland korten ännu" och en knapp till Nära en plats, så att sökningen inte är en
+  // återvändsgränd. Texten sägs en gång i live-regionen (som övriga tomma sökningar), knappen nås med pil ner och Enter i sökrutan gör samma sak.
+  await check('Länder och landskap: sökning på ett land som saknas ger besked och väg till Nära en plats med tangentbord (#1261, #1947)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      const doc = await (await tctx.request.get(`${BASE}data/platser.json`)).json();
+      const absent = ['Peru', 'Bolivia', 'Paraguay'].find(n => !doc.places.some(p => Object.values(p.name).some(v => v.toLowerCase().includes(n.toLowerCase()))));
+      if (!absent) throw new Error('alla provländerna har fått kort; välj ett nytt land som saknas');
+      await openLander(tp, '#y=1600', 'saknas1261');
+      await tp.fill('#focus-menu .focus-search', absent);
+      await tp.locator('#focus-menu .focus-missing').waitFor({ state: 'visible', timeout: T.step });
+      const m = await tp.evaluate(() => {
+        const box = document.querySelector('#focus-menu .focus-missing'), p = box.querySelector('p'), btn = box.querySelector('[data-to-near]');
+        const r = btn.getBoundingClientRect();
+        return { text: p.textContent.trim(), pHidden: p.getAttribute('aria-hidden'), btnHidden: btn.closest('[aria-hidden="true"]') != null, btn: btn.textContent.trim(), h: r.height, w: r.width,
+          coarse: matchMedia('(pointer: coarse)').matches, live: document.querySelector('#focus-menu .focus-live').textContent, rows: document.querySelectorAll('#focus-menu .focus-body [data-key]').length,
+          sample: !!document.querySelector('#focus-menu .focus-sample') };
+      });
+      if (m.text !== `Landet ”${absent}” finns inte bland korten ännu. Händelser nära en plats kan du ändå söka efter.`) throw new Error(`beskedet säger "${m.text}"`);
+      if (m.btn !== 'Gå till Nära en plats') throw new Error(`knappen säger "${m.btn}"`);
+      if (m.rows) throw new Error(`${m.rows} rader syns fast landet saknas`);
+      if (m.pHidden !== 'true' || m.btnHidden) throw new Error('texten ska vara dold för skärmläsare (live-regionen säger den) och knappen inte');
+      if (m.live !== m.text) throw new Error(`live-regionen säger "${m.live}", inte beskedet`);
+      if (!m.sample) throw new Error('urvalsraden försvann när sökningen inte gav något land');
+      if (m.coarse && m.h < 44) throw new Error(`knappen är ${Math.round(m.h)} px hög, under 44 px`);
+      // Skrivs fler tecken ändras live-regionen, men det finns bara en (ingen ny region per tangent)
+      if (await tp.locator('#focus-menu [aria-live]').count() !== 1) throw new Error('Fokusmenyn ska ha exakt en live-region');
+      // I fliken Alla är beskedet om ett land fel (sökordet kan vara en händelse); där står det vanliga beskedet
+      await tp.click('#focus-menu [data-tab="Alla"]');
+      if (await tp.locator('#focus-menu .focus-missing').count()) throw new Error(`fliken Alla visar beskedet om ett land som saknas`);
+      await tp.click('#focus-menu [data-tab="Platser"]');
+      await tp.locator('#focus-menu .focus-missing').waitFor({ state: 'visible', timeout: T.step });
+      // Tangentbord: pil ner från sökrutan når knappen, Enter går till Nära en plats med sökordet med sig och fokus stannar i menyn
+      await tp.locator('#focus-menu .focus-search').focus();
+      await tp.keyboard.press('ArrowDown'); // först "Rensa allt" i raden med aktiva val, sedan knappen
+      await tp.keyboard.press('ArrowDown');
+      if (!await tp.evaluate(() => document.activeElement?.hasAttribute('data-to-near'))) throw new Error('två pilar ner från sökrutan nådde inte knappen');
+      await tp.keyboard.press('Enter');
+      await tp.waitForFunction(() => document.querySelector('#focus-menu [data-tab="Plats"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+      const after = await tp.evaluate(() => ({ q: document.querySelector('#focus-menu .focus-search').value, pressed: [...document.querySelectorAll('#focus-menu [data-tab][aria-pressed="true"]')].map(b => b.dataset.tab),
+        inMenu: document.getElementById('focus-menu').contains(document.activeElement), placeholder: document.querySelector('#focus-menu .focus-search').placeholder, hint: !!document.querySelector('#focus-menu .focus-body .layer-note') }));
+      if (after.pressed.join() !== 'Plats') throw new Error(`flikarna ${after.pressed.join(', ')} är markerade, inte bara Nära en plats`);
+      if (after.q !== absent) throw new Error(`sökordet följde inte med: "${after.q}"`);
+      if (!after.inMenu) throw new Error('tangentbordsfokus tappades när knappen trycktes');
+      if (!after.hint) throw new Error('Nära en plats visar ingen hjälptext');
+      // Enter direkt i sökrutan gör samma sak (ingen träff att öppna), och ett musklick på knappen likaså
+      for (const how of ['enter', 'click']) {
+        await tp.click('#focus-menu [data-tab="Platser"]');
+        await tp.locator('#focus-menu .focus-missing').waitFor({ state: 'visible', timeout: T.step });
+        if (how === 'enter') { await tp.locator('#focus-menu .focus-search').focus(); await tp.keyboard.press('Enter'); } else await tp.click('#focus-menu [data-to-near]');
+        await tp.waitForFunction(() => document.querySelector('#focus-menu [data-tab="Plats"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+      }
+      // Ett land som finns ger inget besked om att det saknas
+      await tp.click('#focus-menu [data-tab="Platser"]');
+      await tp.fill('#focus-menu .focus-search', 'Aotearoa');
+      await tp.locator('#focus-menu [data-key="place:aotearoa"]').waitFor({ state: 'visible', timeout: T.step });
+      if (await tp.locator('#focus-menu .focus-missing').count()) throw new Error('beskedet visas trots att landet finns');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `"${absent}": besked, knapp ${Math.round(m.h)} px, pil ner + Enter, Enter i sökrutan och klick går till Nära en plats med sökordet`;
+    } finally { await tctx.close(); }
+  });
+
+  // #1261, #1947: sökningen hittar landet på alla fem språks namn, delar av namn och utan hänsyn till accenter, och Nya Zeeland lika väl som Aotearoa.
+  await check('Länder och landskap: sökningen hittar Nya Zeeland och Aotearoa och namnen på alla språk utan hänsyn till accenter (#1261, #1947)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      await openLander(tp, '#y=1600', 'sok1261');
+      const cases = [
+        ['Nya Zeeland', 'place:aotearoa'], ['Aotearoa', 'place:aotearoa'], ['aotearoa nya', 'place:aotearoa'], ['Neuseeland', 'place:aotearoa'], ['new zealand', 'place:aotearoa'],
+        ['NUEVA ZELANDA', 'place:aotearoa'], ['Nouvelle-Zélande', 'place:aotearoa'], ['nouvelle zelande', 'place:aotearoa'],
+        ['Groenlandia', 'place:gronland'], ['groenland', 'place:gronland'], ['Grönland', 'place:gronland'], ['gronland', 'place:gronland'],
+        ['Dänemark', 'place:danmark'], ['danemark', 'place:danmark'], ['Denmark', 'place:danmark'],
+        ['Suède', 'place:sverige'], ['suede', 'place:sverige'], ['Schweden', 'place:sverige'], ['sweden', 'place:sverige'],
+        ['Schonen', 'place:skane'], ['escania', 'place:skane'], ['Scanie', 'place:skane'], ['SKÅNE', 'place:skane'], ['skane', 'place:skane'],
+      ];
+      for (const [query, key] of cases) {
+        await tp.fill('#focus-menu .focus-search', query);
+        const keys = await tp.evaluate(() => [...document.querySelectorAll('#focus-menu .focus-body [data-key]')].map(b => b.dataset.key));
+        if (!keys.includes(key)) throw new Error(`"${query}" hittar inte ${key} (fick ${keys.join(', ') || 'inget'})`);
+        if (await tp.locator('#focus-menu .focus-missing').count()) throw new Error(`"${query}" ger beskedet om ett land som saknas`);
+      }
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `${cases.length} sökningar på sv, en, de, es och fr med och utan accenter hittar rätt plats`;
+    } finally { await tctx.close(); }
+  });
+
   if (vp.name === 'mobil') {
     await check('Länder och landskap i mobil 400 × 800 och liggande 800 × 360: flikarna är en rullrad och första landet syns utan att rulla (#1947)', async () => {
       const out = [];
