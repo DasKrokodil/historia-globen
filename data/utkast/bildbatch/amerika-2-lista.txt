@@ -1,0 +1,29 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:The Sad Night (Noche Triste) (Conquest of Mexico) Painting.jpg	noche-triste
+# File:Battle of Otumba (Conquest of Mexico) Painting.jpg	slaget-vid-otumba
+# File:Inca-Spanish confrontation.JPG	spanska-erovringen-av-inkariket
+# File:Atahuallpa, Inca XIIII From Berlin Ethnologisches Museum, Staatliche Museen, Berlin, Germany.png	atahualpa-avrattas
+# File:POMA0402v.jpg	belagringen-av-cusco-1536
+# File:Historia de la conquista del Perú, 1851 427026 (3970910539).jpg	slaget-vid-ollantaytambo
+# File:UNMSM sedes principales.png	san-marcos-universitet-1551
+# File:TupacamaruI.JPG	tupac-amaru-avrattas
+# File:Buildings and Roads of Old Quebec City 14.jpg	quebec-grundas-1608
+# File:Ouro Preto November 2009-7.jpg	guld-i-minas-gerais-1695
+# File:Hans Egede på Grønland - Louis Moe (17042).tif	hans-egede-kommer-till-gronland
+# File:Batalhacurupaiti.jpg	slaget-vid-curupayty
+# File:Guerra do Paraguai-Operações Passagem Humaita 1866-1868.png	humaita-faller-1868
+# File:Batalha de Campo Grande - 1871.jpg	slaget-vid-acosta-nu
+# File:CHICO DIABO atravessando com uma lança Solano López (Semana Illustrada n 485, 27.03.1870).JPG	slaget-vid-cerro-cora
+# File:Grand Prismatic Spring 2013.jpg	yellowstone-nationalpark
+# File:Walter Reed letter to Lieutenant Truby (Reeve 67753), National Museum of Health and Medicine (4837288053).jpg	finlay-gula-febern
+# File:Azul - Primera edición.JPG	azul-ruben-dario-1888
+# File:Visperas batalla palonegro.jpg	slaget-vid-palonegro
+# File:The National geographic magazine (1902) (14595295848).jpg	mont-pelee-1902
+# File:Revolución mexicana 1915.svg	mexikanska-revolutionen
+# File:Hiram Bingham Perurail - linea Cusco-Machu Picchu - 2009-01-06 - Jorge Lascar.jpg	bingham-vid-machu-picchu
+# File:Plan of Ayala WDL2970.jpg	plan-de-ayala
+# File:Decena trágica.JPG	decena-tragica
+# File:Panama Canal Gatun Locks.jpg	panamakanalen-oppnas
+# File:TakingofZacatecas.JPG	slaget-vid-zacatecas-1914
+# File:Martha last passenger pigeon 1912.jpg	vandringsduvan-dor-ut

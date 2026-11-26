@@ -1853,6 +1853,21 @@
      "de": "Die Daten stimmen zwischen Wikipedia und Wikidata überein, aber die Koordinaten von Wikidata weisen auf Nordmexiko (Sonora) hin, weit entfernt vom Texcoco-See. Der hier angegebene Ort entspricht Wikipedia."
     }
    },
+   "image": {
+    "file": "images/events/noche-triste.webp",
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+     "sv": "Efter Moctezumas död lämnar Cortés och hans män Tenochtitlán; mexica upptäcker dem och anfaller spanjorerna och deras allierade häftigt (\"Noche Triste\"). Oljemålning från andra hälften av 1600-talet; en senare, spansk-mexikansk framställning, gjord ungefär 150 år efter händelsen (1520), med våldsskildring. Licens: Public domain.",
+     "en": "After the death of Moctezuma, Cortés and his men leave Tenochtitlán; the Mexica spot them and attack the Spaniards and their allies fiercely (\"Noche Triste\"). Oil painting from the second half of the 17th century; a later depiction made about 150 years after the event (1520), showing violence. Licence: Public domain.",
+     "de": "Nach dem Tod Moctezumas verlassen Cortés und seine Männer Tenochtitlán; die Mexica entdecken sie und greifen die Spanier und ihre Verbündeten heftig an („Noche Triste“). Ölgemälde aus der zweiten Hälfte des 17. Jahrhunderts; eine spätere Darstellung, etwa 150 Jahre nach dem Ereignis (1520) entstanden, mit Gewaltszenen. Lizenz: gemeinfrei.",
+     "es": "Tras la muerte de Moctezuma, Cortés y sus hombres abandonan Tenochtitlan; los mexicas los descubren y atacan con fiereza a los españoles y a sus aliados («Noche Triste»). Óleo de la segunda mitad del siglo XVII; una representación posterior, hecha unos 150 años después del acontecimiento (1520), con escenas de violencia. Licencia: dominio público.",
+     "fr": "Après la mort de Moctezuma, Cortés et ses hommes quittent Tenochtitlan ; les Mexicas les repèrent et attaquent violemment les Espagnols et leurs alliés (« Noche Triste »). Huile sur toile de la seconde moitié du XVIIe siècle ; une représentation postérieure, réalisée environ 150 ans après l'événement (1520), montrant de la violence. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-noche-triste"
+   },
    "wikidata": "Q1308854",
    "sources": [
     "wp-noche-triste",
@@ -1904,6 +1919,21 @@
      "en": "The article on the battle and Wikidata give 7 July 1520 (Julian calendar), as does the timeline in Wikipedia's overview article. Elsewhere in the overview article 14 July is given.",
      "de": "Der Artikel über die Schlacht und Wikidata geben den 7. Juli 1520 (Julianischer Kalender) an, ebenso wie die Zeitleiste im Übersichtsartikel der Wikipedia. An anderer Stelle im Übersichtsartikel steht der 14. Juli."
     }
+   },
+   "image": {
+    "file": "images/events/slaget-vid-otumba.webp",
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+     "sv": "Slaget vid Otumba den 7 juli 1520: under flykten från Tenochtitlán möter Cortés och hans män Cuitláhuac, mexicas nye ledare och Moctezumas bror, som anfaller inkräktarna. Oljemålning från andra hälften av 1600-talet; en senare framställning, gjord ungefär 150 år efter slaget, med våldsskildring. Licens: Public domain.",
+     "en": "The Battle of Otumba on 7 July 1520: during the flight from Tenochtitlán, Cortés and his men encounter Cuitláhuac, the new Mexica leader and brother of Moctezuma, who attacks the invaders. Oil painting from the second half of the 17th century; a later depiction made about 150 years after the battle, showing violence. Licence: Public domain.",
+     "de": "Die Schlacht von Otumba am 7. Juli 1520: Auf der Flucht aus Tenochtitlán begegnen Cortés und seine Männer Cuitláhuac, dem neuen Anführer der Mexica und Bruder Moctezumas, der die Eindringlinge angreift. Ölgemälde aus der zweiten Hälfte des 17. Jahrhunderts; eine spätere Darstellung, etwa 150 Jahre nach der Schlacht entstanden, mit Gewaltszenen. Lizenz: gemeinfrei.",
+     "es": "La batalla de Otumba, el 7 de julio de 1520: durante la huida de Tenochtitlan, Cortés y sus hombres se encuentran con Cuitláhuac, el nuevo líder mexica y hermano de Moctezuma, que ataca a los invasores. Óleo de la segunda mitad del siglo XVII; una representación posterior, hecha unos 150 años después de la batalla, con escenas de violencia. Licencia: dominio público.",
+     "fr": "La bataille d'Otumba, le 7 juillet 1520 : lors de la fuite de Tenochtitlan, Cortés et ses hommes rencontrent Cuitláhuac, le nouveau chef mexica et frère de Moctezuma, qui attaque les envahisseurs. Huile sur toile de la seconde moitié du XVIIe siècle ; une représentation postérieure, réalisée environ 150 ans après la bataille, montrant de la violence. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-otumba"
    },
    "wikidata": "Q2888038",
    "sources": [
@@ -2129,6 +2159,21 @@
      "wp-cajamarca-1532"
     ]
    },
+   "image": {
+    "file": "images/events/spanska-erovringen-av-inkariket.webp",
+    "kind": "historisk",
+    "style": "inka",
+    "caption": {
+     "sv": "Konfrontationen mellan inkafolket och spanjorerna i Cajamarca, där enligt filsidan Atahualpa finns med; gravyr av Theodor de Bry efter Girolamo Benzoni. Filsidan anger inget årtal; en europeisk framställning gjord av personer som inte var med, med våldsskildring. Licens: Public domain.",
+     "en": "The confrontation between the Inca and the Spaniards at Cajamarca, where according to the file page Atahualpa is present; engraving by Theodor de Bry after Girolamo Benzoni. The file page gives no year; a European depiction made by people who were not there, showing violence. Licence: Public domain.",
+     "de": "Die Konfrontation zwischen Inka und Spaniern in Cajamarca, bei der laut Dateiseite Atahualpa anwesend ist; Stich von Theodor de Bry nach Girolamo Benzoni. Die Dateiseite nennt kein Jahr; eine europäische Darstellung von Personen, die nicht dabei waren, mit Gewaltszenen. Lizenz: gemeinfrei.",
+     "es": "El enfrentamiento entre los incas y los españoles en Cajamarca, donde según la página del archivo está presente Atahualpa; grabado de Theodor de Bry según Girolamo Benzoni. La página del archivo no da año; una representación europea hecha por personas que no estuvieron presentes, con escenas de violencia. Licencia: dominio público.",
+     "fr": "L'affrontement entre les Incas et les Espagnols à Cajamarca, où, selon la page du fichier, Atahualpa est présent ; gravure de Theodor de Bry d'après Girolamo Benzoni. La page du fichier n'indique pas d'année ; une représentation européenne faite par des personnes qui n'étaient pas présentes, montrant de la violence. Licence : domaine public."
+    },
+    "credit": "Girolamo Benzoni / Theodor de Bry / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-spanska-erovringen-av-inkariket"
+   },
    "wikidata": "Q636771",
    "sources": [
     "wp-conquest-inca",
@@ -2339,6 +2384,21 @@
     "en": "In January 1537 Manco Inca's army repels a Spanish force under Hernando Pizarro from the terraces at Ollantaytambo. The Inca warriors divert water from the Urubamba River and flood the plain, so that the cavalry cannot attack. The Spaniards withdraw to Cusco at night.",
     "de": "Im Januar 1537 schlägt das Heer von Manco Inca eine spanische Streitmacht unter Hernando Pizarro von den Terrassen bei Ollantaytambo zurück. Die Inka-Krieger leiten Wasser aus dem Fluss Urubamba um und setzen die Ebene unter Wasser, sodass die Reiterei nicht angreifen kann. Die Spanier ziehen sich nachts nach Cusco zurück."
    },
+   "image": {
+    "file": "images/events/slaget-vid-ollantaytambo.webp",
+    "kind": "historisk",
+    "style": "inka",
+    "caption": {
+     "sv": "Gravyr \"La fortaleza de Tambo\" ur den spanska utgåvan av William H. Prescotts Historia de la conquista del Perú (1851 enligt filnamnet), digitaliserad av ett universitetsbibliotek. En senare, europeisk framställning av fästningen Tambo, gjord drygt 300 år efter inkasegern (1537). Licens: CC BY 2.0.",
+     "en": "Engraving \"La fortaleza de Tambo\" from the Spanish edition of William H. Prescott's Historia de la conquista del Perú (1851 according to the file name), digitised by a university library. A later, European depiction of the fortress of Tambo, made more than 300 years after the Inca victory (1537). Licence: CC BY 2.0.",
+     "de": "Stich „La fortaleza de Tambo“ aus der spanischen Ausgabe von William H. Prescotts Historia de la conquista del Perú (laut Dateiname 1851), von einer Universitätsbibliothek digitalisiert. Eine spätere, europäische Darstellung der Festung Tambo, mehr als 300 Jahre nach dem Sieg der Inka (1537) entstanden. Lizenz: CC BY 2.0.",
+     "es": "Grabado «La fortaleza de Tambo» de la edición española de la Historia de la conquista del Perú de William H. Prescott (1851 según el nombre del archivo), digitalizado por una biblioteca universitaria. Una representación europea posterior de la fortaleza de Tambo, hecha más de 300 años después de la victoria inca (1537). Licencia: CC BY 2.0.",
+     "fr": "Gravure « La fortaleza de Tambo » de l'édition espagnole de l'Historia de la conquista del Perú de William H. Prescott (1851 d'après le nom du fichier), numérisée par une bibliothèque universitaire. Une représentation européenne postérieure de la forteresse de Tambo, réalisée plus de 300 ans après la victoire inca (1537). Licence : CC BY 2.0."
+    },
+    "credit": "Fondo Antiguo de la Biblioteca / Wikimedia Commons (Flickr)",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-slaget-vid-ollantaytambo"
+   },
    "wikidata": "Q2338569",
    "sources": [
     "wp-ollantaytambo-1537",
@@ -2441,6 +2501,21 @@
      "en": "The dates refer to the Julian calendar, which was in use at the time and which the sources follow. The Gregorian calendar was not introduced until 1582.",
      "de": "Die Daten gelten nach dem julianischen Kalender, der damals in Gebrauch war und dem die Quellen folgen. Der gregorianische Kalender wurde erst 1582 eingeführt."
     }
+   },
+   "image": {
+    "file": "images/events/tupac-amaru-avrattas.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Túpac Amaru, den siste inkan i Vilcabamba; målning av Cuzcoskolan, 1700-talet enligt filsidan. Gjord ungefär 200 år efter hans avrättning (1572); ett porträtt av en avliden person, inte från händelsen. Licens: Public domain.",
+     "en": "Túpac Amaru, the last Inca of Vilcabamba; painting of the Cuzco School, 18th century according to the file page. Made about 200 years after his execution (1572); a portrait of a deceased person, not from the event. Licence: Public domain.",
+     "de": "Túpac Amaru, der letzte Inka von Vilcabamba; Gemälde der Cuzco-Schule, laut Dateiseite 18. Jahrhundert. Etwa 200 Jahre nach seiner Hinrichtung (1572) entstanden; ein Porträt einer verstorbenen Person, nicht vom Ereignis. Lizenz: gemeinfrei.",
+     "es": "Túpac Amaru, el último inca de Vilcabamba; pintura de la Escuela Cusqueña, siglo XVIII según la página del archivo. Hecha unos 200 años después de su ejecución (1572); un retrato de una persona fallecida, no del acontecimiento. Licencia: dominio público.",
+     "fr": "Túpac Amaru, le dernier Inca de Vilcabamba ; peinture de l'école de Cuzco, XVIIIe siècle selon la page du fichier. Réalisée environ 200 ans après son exécution (1572) ; un portrait d'une personne décédée, pas de l'événement. Licence : domaine public."
+    },
+    "credit": "Cuzcoskolan / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-tupac-amaru-avrattas"
    },
    "wikidata": "Q296269",
    "sources": [
@@ -8364,6 +8439,21 @@
     "es": "El 3 de julio de 1721 el sacerdote danonoruego Hans Egede se estableció en la isla de la Esperanza, en el fiordo de Godthåb, con su familia y otros colonos. Quería evangelizar y buscar a los descendientes de los colonos nórdicos. Se considera el comienzo de la colonización danonoruega de Groenlandia.",
     "fr": "Le 3 juillet 1721, le pasteur dano-norvégien Hans Egede s'installa sur l'île de l'Espérance, dans le fjord de Godthåb, avec sa famille et d'autres colons. Il voulait évangéliser et rechercher les descendants des colons nordiques. On y voit le début de la colonisation dano-norvégienne du Groenland."
    },
+   "image": {
+    "file": "images/events/hans-egede-kommer-till-gronland.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Louis Moes illustration från 1898 om Hans Egede på Grönland: enligt filsidan hade den danske prästen en vision om att omvända de katolska nordborna på Grönland, men när han kom dit 1721 var de borta, så han vände sig i stället till inuiterna. Gjord 177 år efter ankomsten; en senare, europeisk framställning. Licens: CC BY-SA 4.0.",
+     "en": "Louis Moe's illustration from 1898 of Hans Egede in Greenland: according to the file page the Danish priest had a vision of converting the Catholic Norsemen in Greenland, but when he arrived in 1721 they had perished, so he turned to the Inuit instead. Made 177 years after his arrival; a later, European depiction. Licence: CC BY-SA 4.0.",
+     "de": "Louis Moes Illustration von 1898 zu Hans Egede in Grönland: Laut Dateiseite hatte der dänische Pastor die Vision, die katholischen Nordleute in Grönland zu bekehren, doch als er 1721 ankam, waren sie untergegangen, und er wandte sich stattdessen den Inuit zu. 177 Jahre nach seiner Ankunft entstanden; eine spätere, europäische Darstellung. Lizenz: CC BY-SA 4.0.",
+     "es": "Ilustración de Louis Moe de 1898 sobre Hans Egede en Groenlandia: según la página del archivo, el pastor danés tenía la visión de convertir a los nórdicos católicos de Groenlandia, pero cuando llegó en 1721 habían desaparecido, así que se dirigió a los inuit. Hecha 177 años después de su llegada; una representación europea posterior. Licencia: CC BY-SA 4.0.",
+     "fr": "Illustration de Louis Moe de 1898 sur Hans Egede au Groenland : selon la page du fichier, le pasteur danois avait la vision de convertir les Nordiques catholiques du Groenland, mais à son arrivée en 1721 ils avaient disparu, et il se tourna donc vers les Inuits. Réalisée 177 ans après son arrivée ; une représentation européenne postérieure. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Louis Moe / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-hans-egede-kommer-till-gronland"
+   },
    "sources": [
     "lex-gronlands-forfatningshistorie",
     "lex-hans-egede",
@@ -10292,6 +10382,21 @@
     "es": "En 1608 el explorador Samuel de Champlain estableció un asentamiento francés en la orilla norte del río San Lorenzo, donde el río se estrecha. El lugar conservó su nombre algonquino, que significa «donde el río se estrecha». Quebec está entre los asentamientos europeos más antiguos de Norteamérica, y las murallas de la ciudad vieja son las únicas murallas urbanas que siguen en pie al norte de México.",
     "fr": "En 1608, l’explorateur Samuel de Champlain établit un poste français sur la rive nord du Saint-Laurent, là où le fleuve se rétrécit. Le lieu garda son nom algonquin, qui signifie « là où le fleuve se rétrécit ». Québec compte parmi les plus anciens établissements européens d’Amérique du Nord, et les remparts de la vieille ville sont les seules fortifications urbaines encore debout au nord du Mexique."
    },
+   "image": {
+    "file": "images/events/quebec-grundas-1608.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Nutida foto (2022) av Fabian Roudra Baroi av byggnader och gator i gamla Québec (filsidan). Inte från grundandet (1608). Licens: CC BY-SA 4.0.",
+     "en": "Modern photo (2022) by Fabian Roudra Baroi of buildings and streets in Old Quebec City (file page). Not from the founding (1608). Licence: CC BY-SA 4.0.",
+     "de": "Heutiges Foto (2022) von Fabian Roudra Baroi von Gebäuden und Straßen in der Altstadt von Québec (Dateiseite). Nicht von der Gründung (1608). Lizenz: CC BY-SA 4.0.",
+     "es": "Foto actual (2022) de Fabian Roudra Baroi de edificios y calles del casco antiguo de Quebec (página del archivo). No es de la fundación (1608). Licencia: CC BY-SA 4.0.",
+     "fr": "Photo actuelle (2022) de Fabian Roudra Baroi de bâtiments et de rues du Vieux-Québec (page du fichier). Pas de la fondation (1608). Licence : CC BY-SA 4.0."
+    },
+    "credit": "Fabian Roudra Baroi / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-quebec-grundas-1608"
+   },
    "wikidata": "Q2145",
    "sources": [
     "wp-quebec-city",
@@ -10377,6 +10482,21 @@
     "de": "Bandeirantes, kleine Gruppen, die das Landesinnere Brasiliens erkundeten, fanden in den 1690er Jahren große Goldvorkommen in den Bergen von Minas Gerais. 1695 fand Manuel Borba Gato am Rio das Velhas Gold, und der Goldrausch begann. Er machte Vila Rica, das heutige Ouro Preto, zum Zentrum des größten Goldgebiets. Mehr als 400.000 Portugiesen und 500.000 versklavte Afrikaner kamen in das Goldgebiet, um in den Minen zu arbeiten.",
     "es": "Los bandeirantes, pequeños grupos que exploraban el interior de Brasil, hallaron grandes yacimientos de oro en las montañas de Minas Gerais en la década de 1690. En 1695 Manuel Borba Gato encontró oro en el río das Velhas y comenzó la fiebre del oro. Convirtió a Vila Rica, hoy Ouro Preto, en el centro de la mayor zona aurífera. Más de 400 000 portugueses y 500 000 africanos esclavizados llegaron a la región aurífera para trabajar en las minas.",
     "fr": "Les bandeirantes, petits groupes qui exploraient l’intérieur du Brésil, découvrirent d’importants gisements d’or dans les montagnes du Minas Gerais dans les années 1690. En 1695, Manuel Borba Gato trouva de l’or au Rio das Velhas, et la ruée vers l’or commença. Elle fit de Vila Rica, aujourd’hui Ouro Preto, le centre de la plus grande région aurifère. Plus de 400 000 Portugais et 500 000 Africains réduits en esclavage vinrent dans la région aurifère pour travailler dans les mines."
+   },
+   "image": {
+    "file": "images/events/guld-i-minas-gerais-1695.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Nutida foto (2009) av Alvesgaspar av Praça Tiradentes i Ouro Preto i delstaten Minas Gerais, Brasilien, sedd från den gamla bergsskolan (filsidan). Inte från guldrushens början (1695). Licens: CC BY-SA 3.0.",
+     "en": "Modern photo (2009) by Alvesgaspar of Praça Tiradentes in Ouro Preto in the state of Minas Gerais, Brazil, seen from the old School of Mines (file page). Not from the beginning of the gold rush (1695). Licence: CC BY-SA 3.0.",
+     "de": "Heutiges Foto (2009) von Alvesgaspar des Praça Tiradentes in Ouro Preto im Bundesstaat Minas Gerais, Brasilien, gesehen von der alten Bergbauschule (Dateiseite). Nicht vom Beginn des Goldrauschs (1695). Lizenz: CC BY-SA 3.0.",
+     "es": "Foto actual (2009) de Alvesgaspar de la Praça Tiradentes en Ouro Preto, en el estado de Minas Gerais, Brasil, vista desde la antigua Escuela de Minas (página del archivo). No es del comienzo de la fiebre del oro (1695). Licencia: CC BY-SA 3.0.",
+     "fr": "Photo actuelle (2009) d'Alvesgaspar de la Praça Tiradentes à Ouro Preto, dans l'État du Minas Gerais, au Brésil, vue depuis l'ancienne École des mines (page du fichier). Pas du début de la ruée vers l'or (1695). Licence : CC BY-SA 3.0."
+    },
+    "credit": "Alvesgaspar / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-guld-i-minas-gerais-1695"
    },
    "wikidata": "Q4958632",
    "sources": [
