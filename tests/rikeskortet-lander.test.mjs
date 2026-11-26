@@ -11,12 +11,12 @@ const json = path => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.u
 const places = json('data/platser.json').places;
 const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
 
-test('länderna kommer ur platsernas periods: Sverige, Norge (Sverige-Norge) och Finland för Sverige-gruppen, Danmark och Norge (Danmark-Norge) för Konungariket Danmark, alla fyra för Kalmarunionen, Finland för Ryska imperiet', () => {
+test('länderna kommer ur platsernas periods: Sverige, Norge (Sverige-Norge), Finland och Lettland för Sverige-gruppen, Danmark och Norge (Danmark-Norge) för Konungariket Danmark, alla fyra nordiska för Kalmarunionen, Finland och Lettland för Ryska imperiet', () => {
   const ids = empire => empirePlaces(places, empire).map(p => p.id);
-  assert.deepEqual(ids('svenska-stormaktsvaldet'), ['sverige', 'norge', 'finland']);
+  assert.deepEqual(ids('svenska-stormaktsvaldet'), ['sverige', 'norge', 'finland', 'lettland']);
   assert.deepEqual(ids('konungariket-danmark'), ['danmark', 'norge']);
   assert.deepEqual(ids('kalmarunionen'), ['sverige', 'danmark', 'norge', 'finland']);
-  assert.deepEqual(ids('ryska-imperiet'), ['finland']);
+  assert.deepEqual(ids('ryska-imperiet'), ['finland', 'lettland']);
   assert.deepEqual(ids('norgesvaldet'), ['norge']);
   assert.deepEqual(ids('romarriket'), [], 'ett rike som inget landskort nämner får ingen lista');
 });
