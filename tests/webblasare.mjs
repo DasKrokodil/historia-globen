@@ -8103,6 +8103,7 @@ async function run(browser, vp) {
       { width: 800, height: 360, touch: true }, { width: 844, height: 390, touch: true },
       { width: 667, height: 375, touch: true }, { width: 640, height: 400, touch: false },
       { width: 1024, height: 600, touch: false },
+      { width: 1366, height: 650, touch: false }, { width: 1280, height: 700, touch: false }, // #2169: gränsen är 700 px i bred layout
       { width: 400, height: 800, touch: true }, { width: 1280, height: 800, touch: false },
     ];
     const faults = [], results = [];
@@ -8110,7 +8111,7 @@ async function run(browser, vp) {
       const { tp, tctx, errs } = await touchPage(size, { hasTouch: size.touch });
       try {
         for (const mode of ['tur', 'elev', 'lärare']) {
-          const lesson = mode !== 'tur', low = size.height <= 600;
+          const lesson = mode !== 'tur', low = size.height <= 600 || (size.width > 760 && size.height <= 700);
           const tour = lesson ? 'vikingatiden-och-varlden' : 'songhairikets-fall';
           const hash = `#t=${tour}${lesson ? '&m=lektion' : ''}${mode === 'lärare' ? '&r=lararen' : ''}`;
           await tp.goto(`${BASE}?kontroll2147=${mode}${hash}`, { waitUntil: 'domcontentloaded' });
@@ -8177,6 +8178,82 @@ async function run(browser, vp) {
     }
     if (faults.length) throw new Error(faults.join('; '));
     return `${results.join(', ')}: text fri, slutet och knapparna nås, Nästa börjar överst`;
+  });
+
+  // #2169: gränsen för att foten rullar är 700 px i bred layout (1366×650, 1280×700), och en tonad nederkant visar att mer finns.
+  // Tonen ska ligga över texten, aldrig över Nästa eller Lämna turen, och Tab till Nästa får inte flytta kortet.
+  await check('turkortet: foten rullar upp till 700 px och tonad nederkant syns (#2169) (#2147)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet med egna fönsterstorlekar';
+    const sizes = [
+      { width: 1280, height: 600, touch: false, low: true }, { width: 1366, height: 650, touch: false, low: true },
+      { width: 1280, height: 700, touch: false, low: true }, { width: 800, height: 360, touch: true, low: true },
+      { width: 400, height: 600, touch: true, low: true },
+      // oförändrade: bred layout över 700 px och smal layout över 600 px behåller den fasta foten och Fortsätt läsa
+      { width: 1280, height: 701, touch: false, low: false }, { width: 1280, height: 800, touch: false, low: false },
+      { width: 400, height: 640, touch: true, low: false }, { width: 400, height: 700, touch: true, low: false },
+    ];
+    const faults = [], results = [];
+    for (const size of sizes) {
+      const { tp, tctx, errs } = await touchPage(size, { hasTouch: size.touch });
+      try {
+        const label = `${size.width}×${size.height}`;
+        await tp.goto(`${BASE}?kontroll2169=1#t=songhairikets-fall`, { waitUntil: 'domcontentloaded' });
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+        await tp.evaluate(() => document.fonts.ready);
+        const state = () => tp.evaluate(() => {
+          const card = document.getElementById('tour-card'), c = card.getBoundingClientRect();
+          const bar = document.getElementById('tour-bar'), b = bar.getBoundingClientRect();
+          const more = document.getElementById('tour-more');
+          const visibleBottom = c.top + card.clientTop + card.clientHeight;
+          const fade = getComputedStyle(card, '::after');
+          const lift = parseFloat(getComputedStyle(card).getPropertyValue('--tour-mer-lyft')) || 0;
+          return { top: c.top, height: c.height, scrollable: card.scrollHeight - card.clientHeight > 16, scrollTop: card.scrollTop,
+            cls: card.classList.contains('tour-mer-nedan'), fadeOn: fade.content !== 'none' && fade.content !== 'normal',
+            fadeEvents: fade.pointerEvents, fadeH: parseFloat(fade.height) || 0, lift, barTop: b.top, visibleBottom,
+            barPos: getComputedStyle(bar).position, more: !more.hidden && getComputedStyle(more).display !== 'none',
+            wide: document.documentElement.scrollWidth > innerWidth };
+        });
+        const a = await state();
+        if (size.low && !a.scrollable) { faults.push(`${label}: kortet har inget att rulla, provet kan inte mäta`); continue; }
+        if (size.low) {
+          if (a.barPos !== 'static' || a.more) faults.push(`${label}: foten ska rulla och Fortsätt läsa vara dold (fot ${a.barPos}, knapp ${a.more})`);
+          if (!a.cls || !a.fadeOn) faults.push(`${label}: tonad nederkant saknas`);
+          if (a.fadeEvents !== 'none') faults.push(`${label}: tonen fångar pekning`);
+          // Tonen sitter över det som redan syns av foten, aldrig över en knapp
+          const visibleBar = Math.max(0, a.visibleBottom - a.barTop);
+          if (a.lift + 1 < visibleBar) faults.push(`${label}: tonen når över foten (lyft ${a.lift} px, fot i bild ${Math.round(visibleBar)} px)`);
+          if (a.lift > a.height - a.fadeH) faults.push(`${label}: tonen ryms inte i kortet`);
+          // Tab från texten når Nästa utan att kortet hoppar; tonen är då borta eller över texten
+          await tp.evaluate(() => { const t = document.getElementById('tour-text'); t.tabIndex = -1; t.focus({ preventScroll: true }); });
+          for (let i = 0; i < 6 && await tp.evaluate(() => document.activeElement?.id) !== 'tour-next'; i++) await tp.keyboard.press('Tab');
+          const f = await tp.evaluate(() => document.activeElement?.id);
+          if (f !== 'tour-next') { faults.push(`${label}: Tab från texten nådde ${f}, inte Nästa`); continue; }
+          // Webbläsaren rullar fokuserad knapp i bild själv och scroll-händelsen kommer först en bildruta senare: vänta in att rullningen
+          // står still (samma scrollTop två bildrutor i rad) innan tonen mäts, i stället för att läsa mitt i rullningen.
+          await tp.waitForFunction(() => new Promise(res => { const c = document.getElementById('tour-card'); const t0 = c.scrollTop; requestAnimationFrame(() => requestAnimationFrame(() => res(c.scrollTop === t0))); }), null, { timeout: T.step });
+          const after = await state();
+          if (Math.abs(after.top - a.top) > 0.5 || Math.abs(after.height - a.height) > 0.5) faults.push(`${label}: kortet hoppade vid Tab (${a.top}/${a.height} → ${after.top}/${after.height})`);
+          const nb = await tp.locator('#tour-next').boundingBox();
+          if (!nb || nb.y < after.top - 0.5 || nb.y + nb.height > after.visibleBottom + 1) faults.push(`${label}: Nästa kom inte helt i bild efter Tab`);
+          if (after.cls && after.lift + 1 < Math.max(0, after.visibleBottom - after.barTop)) faults.push(`${label}: tonen ligger över Nästa efter Tab`);
+          if (after.wide || errs.length) faults.push(`${label}: sidled ${after.wide} ${errs.join('; ')}`);
+          // Tonen är borta när kortet är nedrullat, och kommer tillbaka när det rullas upp
+          await tp.evaluate(() => { const c = document.getElementById('tour-card'); c.scrollTop = c.scrollHeight; });
+          await tp.waitForFunction(() => !document.getElementById('tour-card').classList.contains('tour-mer-nedan'), null, { timeout: T.step }).catch(() => {});
+          if ((await state()).cls) faults.push(`${label}: tonen ligger kvar när kortet är nedrullat`);
+          await tp.evaluate(() => { document.getElementById('tour-card').scrollTop = 0; });
+          await tp.waitForFunction(() => document.getElementById('tour-card').classList.contains('tour-mer-nedan'), null, { timeout: T.step }).catch(() => {});
+          if (!(await state()).cls) faults.push(`${label}: tonen kom inte tillbaka vid rullning uppåt`);
+        } else {
+          if (a.barPos !== 'sticky') faults.push(`${label}: den fasta foten ändrades (${a.barPos})`);
+          if (a.cls || a.fadeOn) faults.push(`${label}: tonad nederkant i ett högt fönster`);
+        }
+        results.push(label);
+      } finally { await tctx.close(); }
+    }
+    if (faults.length) throw new Error(faults.join('; '));
+    return `${results.join(', ')}: foten rullar och tonen visas där den ska, höga fönster oförändrade`;
   });
 
   // #1694: breda liggande pekskärmar fick bara 16 px turkort. Jämför med de smala storlekar som redan fungerade.

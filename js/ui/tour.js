@@ -7,7 +7,7 @@
 // Fortsätt och spelknappen går till nästa steg. Ligger nästa steg nära i tiden spelas tiden fram dit och pausar;
 // annars hoppar tidslinjen. Avsluta återställer besökarens lager, fokus och kamera och lämnar året där turen var.
 import { t, isVisibleReview, formatYear, needDetails } from '../model.js';
-import { tourProblems } from '../tour-format.js';
+import { tourProblems, LOW_WINDOW } from '../tour-format.js';
 import { teacherLink } from './print-sheet.js';
 import { ui } from '../i18n.js';
 import { takeawaysHtml } from './panel.js';
@@ -458,7 +458,7 @@ export class TourPlayer {
   setupMore() {
     const more = document.getElementById('tour-more');
     this.more = more;
-    this.lowWindow = matchMedia('(max-height: 600px)');
+    this.lowWindow = matchMedia(LOW_WINDOW); // samma gräns som i css/style.css (#2169)
     this.lowWindow.addEventListener('change', () => {
       if (this.tour && this.step) this.renderFigure(this.step);
       this.updateMore();
@@ -469,6 +469,9 @@ export class TourPlayer {
       this.card.scrollBy({ top: Math.max(80, Math.round(this.card.clientHeight * 0.7)), behavior: calm ? 'auto' : 'smooth' });
     });
     this.card.addEventListener('scroll', () => this.updateMore(), { passive: true });
+    // Tab till Nästa får webbläsaren att rulla kortet själv; scroll-händelsen kommer först en bildruta senare. Mät om direkt vid fokus och
+    // en bildruta senare (när fokusrullningen är gjord), så att tonen inte ligger kvar över en knapp som just rullats fram (#2169).
+    this.card.addEventListener('focusin', () => { this.updateMore(); requestAnimationFrame(() => this.updateMore()); });
     window.addEventListener('resize', () => this.updateMore());
     this.app.narrow.addEventListener?.('change', () => { if (this.tour && this.step) { this.renderFigure(this.step); this.updateMore(); } });
     // Bilden och texten kan växa efter att steget ritats (bilden laddas, kortet byter storlek): mät om då
@@ -487,6 +490,16 @@ export class TourPlayer {
     const show = !this.lowWindow.matches && !!this.tour && !c.hidden && c.scrollHeight - c.clientHeight - c.scrollTop > 16; // några pixlar över är bara marginal, ingen text
     if (!show && !more.hidden && document.activeElement === more) this.next.focus({ preventScroll: true });
     more.hidden = !show;
+    // Låg skärm (#2169): Fortsätt läsa är dold och foten rullar med texten. En tonad nederkant visar att mer finns. Foten (Nästa och
+    // Lämna turen) kan sticka upp en bit i kortets nederkant; tonen lyfts då precis över den (--tour-mer-lyft), så att den aldrig
+    // ligger över en knapp. När kortet är nedrullat (foten helt i bild) tas tonen bort.
+    const bar = document.getElementById('tour-bar');
+    const below = this.lowWindow.matches && !!this.tour && !c.hidden && !!bar && c.scrollHeight - c.clientHeight - c.scrollTop > 16;
+    if (below) {
+      const visibleBottom = c.getBoundingClientRect().top + c.clientTop + c.clientHeight;
+      c.style.setProperty('--tour-mer-lyft', `${Math.max(0, Math.ceil(visibleBottom - bar.getBoundingClientRect().top))}px`);
+    }
+    c.classList.toggle('tour-mer-nedan', below);
   }
 
   /**
