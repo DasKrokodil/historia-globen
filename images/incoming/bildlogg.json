@@ -4174,5 +4174,53 @@
     "source": "commons-bild-utbrottet-i-hunga-tonga-2022",
     "id": "utbrottet-i-hunga-tonga-2022",
     "file": "utbrottet-i-hunga-tonga-2022.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Pungvargar på Beaumaris Zoo i Hobart, foto från 1910. Fotografen är okänd; källa: National Archives of Australia. Licens: Public domain.",
+      "en": "Thylacines at the Beaumaris Zoo in Hobart, photo from 1910. Photographer unknown; source: National Archives of Australia. Licence: Public domain.",
+      "de": "Beutelwölfe im Beaumaris Zoo in Hobart, Foto von 1910. Fotograf unbekannt; Quelle: National Archives of Australia. Lizenz: gemeinfrei.",
+      "es": "Tilacinos en el Beaumaris Zoo, en Hobart, foto de 1910. Fotógrafo desconocido; fuente: National Archives of Australia. Licencia: dominio público.",
+      "fr": "Thylacines au Beaumaris Zoo à Hobart, photo de 1910. Photographe inconnu ; source : National Archives of Australia. Licence : domaine public."
+    },
+    "credit": "Okänd fotograf / National Archives of Australia / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-den-sista-pungvargen-dor",
+    "id": "den-sista-pungvargen-dor",
+    "file": "den-sista-pungvargen-dor.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Frimärke utgivet av Australiens postverk 31 oktober 1956 till de olympiska sommarspelen i Melbourne (4 pence). Samtida föremål. Licens: Public domain.",
+      "en": "Stamp issued by the Australian postal service on 31 October 1956 for the Olympic Summer Games in Melbourne (4 pence). Contemporary object. Licence: Public domain.",
+      "de": "Briefmarke, am 31. Oktober 1956 von der australischen Post zu den Olympischen Sommerspielen in Melbourne herausgegeben (4 Pence). Gegenstand aus der Zeit des Ereignisses. Lizenz: gemeinfrei.",
+      "es": "Sello emitido por el servicio postal australiano el 31 de octubre de 1956 con motivo de los Juegos Olímpicos de Verano de Melbourne (4 peniques). Objeto de la época. Licencia: dominio público.",
+      "fr": "Timbre émis par la poste australienne le 31 octobre 1956 pour les Jeux olympiques d’été de Melbourne (4 pence). Objet de l’époque. Licence : domaine public."
+    },
+    "credit": "Postmaster-General’s Department (Australien) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-os-i-melbourne-1956",
+    "id": "os-i-melbourne-1956",
+    "file": "os-i-melbourne-1956.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Satellitbild (7 februari 2009) av rökplymer från skogsbränder i Victoria, tagen av NASA:s satellit Aqua (MODIS). Licens: Public domain.",
+      "en": "Satellite image (7 February 2009) of smoke plumes from bushfires in Victoria, taken by NASA’s Aqua satellite (MODIS). Licence: Public domain.",
+      "de": "Satellitenbild (7. Februar 2009) von Rauchwolken der Buschbrände in Victoria, aufgenommen vom NASA-Satelliten Aqua (MODIS). Lizenz: gemeinfrei.",
+      "es": "Imagen de satélite (7 de febrero de 2009) de columnas de humo de los incendios forestales en Victoria, tomada por el satélite Aqua de la NASA (MODIS). Licencia: dominio público.",
+      "fr": "Image satellite (7 février 2009) de panaches de fumée des feux de brousse dans l’État de Victoria, prise par le satellite Aqua de la NASA (MODIS). Licence : domaine public."
+    },
+    "credit": "NASA / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-black-saturday-branderna-2009",
+    "id": "black-saturday-branderna-2009",
+    "file": "black-saturday-branderna-2009.webp"
   }
 ]

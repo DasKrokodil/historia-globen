@@ -675,6 +675,21 @@
       }
     },
     {
+      "eventId": "black-saturday-branderna-2009",
+      "eventTitle": "Black Saturday-bränderna i Victoria",
+      "file": "images/events/black-saturday-branderna-2009.webp",
+      "kind": "historisk",
+      "credit": "NASA / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-black-saturday-branderna-2009",
+        "title": "February 7 Victoria Bushfires - MODIS Aqua – National Aeronautics and Space Administration (NASA) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:February_7_Victoria_Bushfires_-_MODIS_Aqua.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "blockaden-av-biafra",
       "eventTitle": "Blockaden och svälten i Biafra",
       "file": "images/events/blockaden-av-biafra.webp",
@@ -1104,6 +1119,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Npp_green_sahara_simulation_1.png",
         "license": "CC BY 4.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "den-sista-pungvargen-dor",
+      "eventTitle": "Den sista kända pungvargen dör",
+      "file": "images/events/den-sista-pungvargen-dor.webp",
+      "kind": "historisk",
+      "credit": "Okänd fotograf / National Archives of Australia / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-den-sista-pungvargen-dor",
+        "title": "Thylacines (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Thylacines.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -3993,6 +4023,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Oruanui_Loc1287_u3_25-33cm.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "os-i-melbourne-1956",
+      "eventTitle": "Olympiska spelen i Melbourne",
+      "file": "images/events/os-i-melbourne-1956.webp",
+      "kind": "historisk",
+      "credit": "Postmaster-General’s Department (Australien) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-os-i-melbourne-1956",
+        "title": "Stamp 1956 Australia MiNr0266 pm B002 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Stamp_1956_Australia_MiNr0266_pm_B002.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
