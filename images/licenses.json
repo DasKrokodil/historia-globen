@@ -3,6 +3,21 @@
   "scope": "data/events.json events[].image; data/turer/*.json steps[].image",
   "images": [
     {
+      "eventId": "adenakulturen",
+      "eventTitle": "Adenakulturen bygger gravhögar",
+      "file": "images/events/adenakulturen.webp",
+      "kind": "historisk",
+      "credit": "Tim Evanson / Cleveland Museum of Art / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-adenakulturen",
+        "title": "Human effigy pipe 01 - Cleveland Museum of Art (30739647306) – Tim Evanson from Cleveland Heights, Ohio, USA (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Human_effigy_pipe_01_-_Cleveland_Museum_of_Art_(30739647306).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "afonso-i-kung-av-kongo",
       "eventTitle": "Afonso I blir kung av Kongo",
       "file": "images/events/afonso-i-kung-av-kongo.webp",
@@ -84,6 +99,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:University_of_Al_Qaraouiyine.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "aldsta-langa-rakningen-chiapa-de-corzo",
+      "eventTitle": "Det äldsta kända datumet i långa räkningen",
+      "file": "images/events/aldsta-langa-rakningen-chiapa-de-corzo.webp",
+      "kind": "historisk",
+      "credit": "Bbachand / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-aldsta-langa-rakningen-chiapa-de-corzo",
+        "title": "Mound 1 – Bbachand (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mound_1.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -234,6 +264,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Angkor_Wat.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "aniakchak-kalderan",
+      "eventTitle": "Vulkanen Aniakchak rasar samman till en kaldera",
+      "file": "images/events/aniakchak-kalderan.webp",
+      "kind": "historisk",
+      "credit": "M. Williams / National Park Service / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-aniakchak-kalderan",
+        "title": "Aniakchak-caldera alaska – M. Williams, National Park Service (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Aniakchak-caldera_alaska.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -909,6 +954,21 @@
       }
     },
     {
+      "eventId": "cahuachi",
+      "eventTitle": "Pilgrimsplatsen Cahuachi",
+      "file": "images/events/cahuachi.webp",
+      "kind": "historisk",
+      "credit": "Ed88 / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-cahuachi",
+        "title": "Cahuachi 14 – Ed88 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cahuachi_14.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "caral",
       "eventTitle": "Caral, en av Amerikas äldsta städer",
       "file": "images/events/caral.webp",
@@ -966,6 +1026,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Chan_Chan,_2023_(32).jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "chavin-de-huantar",
+      "eventTitle": "Tempelplatsen Chavín de Huántar",
+      "file": "images/events/chavin-de-huantar.webp",
+      "kind": "historisk",
+      "credit": "Dtarazona / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-chavin-de-huantar",
+        "title": "Chavin de Huantar El Castillo 06122009 – Dtarazona (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Chavin_de_Huantar_El_Castillo_06122009.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2226,6 +2301,21 @@
       }
     },
     {
+      "eventId": "hopewell-jordverken",
+      "eventTitle": "Hopewellkulturens ceremoniella jordverk",
+      "file": "images/events/hopewell-jordverken.webp",
+      "kind": "historisk",
+      "credit": "Ɱ / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-hopewell-jordverken",
+        "title": "Hopewell Culture National Historical Park – Ɱ (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Hopewell_Culture_National_Historical_Park.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "ibn-al-haytham-optikens-bok",
       "eventTitle": "Ibn al-Haytham skriver Optikens bok i Kairo",
       "file": "images/events/ibn-al-haytham-optikens-bok.webp",
@@ -2616,6 +2706,21 @@
       }
     },
     {
+      "eventId": "kakao-hos-mokaya",
+      "eventTitle": "Kakao odlas och dricks i Mesoamerika",
+      "file": "images/events/kakao-hos-mokaya.webp",
+      "kind": "historisk",
+      "credit": "Nick Hobgood / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-kakao-hos-mokaya",
+        "title": "Theobroma cacao (young cacao pods - Haiti) – Nhobgood Nick Hobgood (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Theobroma_cacao_(young_cacao_pods_-_Haiti).jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "kalinga-erovras",
       "eventTitle": "Ashoka erövrar Kalinga",
       "file": "images/events/kalinga-erovras.webp",
@@ -2623,6 +2728,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "kaminaljuyu-blomstring",
+      "eventTitle": "Kaminaljuyu blomstrar i mayahöglandet",
+      "file": "images/events/kaminaljuyu-blomstring.webp",
+      "kind": "historisk",
+      "credit": "Simon Burchell / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-kaminaljuyu-blomstring",
+        "title": "Kaminaljuyu 11 – Simon Burchell (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kaminaljuyu_11.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "kanemriket",
@@ -3075,6 +3195,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Pyramids_of_Nuri.jpg",
         "license": "CC BY-SA 2.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "kuntur-wasi",
+      "eventTitle": "Tempelplatsen Kuntur Wasi byggs",
+      "file": "images/events/kuntur-wasi.webp",
+      "kind": "historisk",
+      "credit": "Yanacochito / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-kuntur-wasi",
+        "title": "Kuntur Wasi – Yanacochito (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kuntur_Wasi.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -3789,6 +3924,21 @@
       }
     },
     {
+      "eventId": "mount-st-helens-yn-utbrottet",
+      "eventTitle": "Mount St. Helens största kända utbrott",
+      "file": "images/events/mount-st-helens-yn-utbrottet.webp",
+      "kind": "historisk",
+      "credit": "Ken Lund / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-mount-st-helens-yn-utbrottet",
+        "title": "Mt. St. Helens, Washington (1291219889) – Ken Lund from Reno, Nevada, USA (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mt._St._Helens,_Washington_(1291219889).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "muhammeds-forsta-uppenbarelse",
       "eventTitle": "Islams början: Muhammeds första uppenbarelse",
       "file": "images/events/muhammeds-forsta-uppenbarelse.webp",
@@ -4314,6 +4464,21 @@
       }
     },
     {
+      "eventId": "pinson-mounds",
+      "eventTitle": "Ceremonihögarna i Pinson",
+      "file": "images/events/pinson-mounds.webp",
+      "kind": "historisk",
+      "credit": "Brian Stansberry / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-pinson-mounds",
+        "title": "Pinson-mounds-mound10 – Brian Stansberry (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Pinson-mounds-mound10.jpg",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "piye-erovrar-egypten",
       "eventTitle": "Piye från Kush erövrar Egypten",
       "file": "images/events/piye-erovrar-egypten.webp",
@@ -4415,6 +4580,36 @@
         "title": "Raoul Island, New Zealand (STS008-36-1403, cropped rotated) (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Raoul_Island,_New_Zealand_(STS008-36-1403,_cropped_rotated).jpg",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "popocatepetl-begraver-tetimpa",
+      "eventTitle": "Popocatépetl begraver byn Tetimpa",
+      "file": "images/events/popocatepetl-begraver-tetimpa.webp",
+      "kind": "historisk",
+      "credit": "Xicotencatl / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-popocatepetl-begraver-tetimpa",
+        "title": "Popocatepetl 1 – Xicotencatl (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Popocatepetl_1.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "poverty-point",
+      "eventTitle": "Jordverken i Poverty Point",
+      "file": "images/events/poverty-point.webp",
+      "kind": "historisk",
+      "credit": "Kniemla / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-poverty-point",
+        "title": "Mound A at Poverty Point – https://www.flickr.com/photos/15308454@N06/ Kniemla (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mound_A_at_Poverty_Point.jpg",
+        "license": "CC BY-SA 2.0",
         "checked": "2026-11-26"
       }
     },
@@ -4698,6 +4893,21 @@
       }
     },
     {
+      "eventId": "sechin-bajo",
+      "eventTitle": "Ett runt torg i Sechin Bajo",
+      "file": "images/events/sechin-bajo.webp",
+      "kind": "historisk",
+      "credit": "Sylvain2803 / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-sechin-bajo",
+        "title": "Sechin casma valley – Sylvain2803 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Sechin_casma_valley.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "semmelweis-handtvatt",
       "eventTitle": "Semmelweis inför handtvätt med klorkalk",
       "file": "images/events/semmelweis-handtvatt.webp",
@@ -4810,6 +5020,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "sista-karibiska-sengangarna",
+      "eventTitle": "De sista marksengångarna på Kuba",
+      "file": "images/events/sista-karibiska-sengangarna.webp",
+      "kind": "historisk",
+      "credit": "Ghedoghedo / American Museum of Natural History / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-sista-karibiska-sengangarna",
+        "title": "Megalocnus rodens – Ghedoghedo (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Megalocnus_rodens.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "sista-silfiumstjalken",
@@ -6015,6 +6240,21 @@
       }
     },
     {
+      "eventId": "takalik-abaj",
+      "eventTitle": "Handelsstaden Tak'alik Ab'aj",
+      "file": "images/events/takalik-abaj.webp",
+      "kind": "historisk",
+      "credit": "Presidencia de Guatemala / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-takalik-abaj",
+        "title": "ESTRUCTURA 12 MUSEO AL AIRE LIBRE FACHADA OESTE - TAKALIK ABAJ – Gobierno de Guatemala (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:ESTRUCTURA_12_MUSEO_AL_AIRE_LIBRE_FACHADA_OESTE_-_TAKALIK_ABAJ.png",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "tambora-1815",
       "eventTitle": "Tambora och året utan sommar",
       "file": "images/events/tambora-1815.webp",
@@ -6180,6 +6420,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Conquista-de-M%C3%A9xico-por-Cort%C3%A9s-Tenochtitlan-Painting.png",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "teotihuacan",
+      "eventTitle": "Teotihuacan",
+      "file": "images/events/teotihuacan.webp",
+      "kind": "historisk",
+      "credit": "Hdlrosa / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-teotihuacan",
+        "title": "ZA77 Teotihuacán edo de mex Herberto de la rosa – Hdlrosa (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:ZA77_Teotihuac%C3%A1n_edo_de_mex_Herberto_de_la_rosa.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -6594,6 +6849,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Rock_painting_of_Wandjina_from_Bachsten_Camp.jpg",
         "license": "CC BY-SA 2.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "watson-brake",
+      "eventTitle": "Jordhögarna i Watson Brake",
+      "file": "images/events/watson-brake.webp",
+      "kind": "historisk",
+      "credit": "Maximilian Dörrbecker / Wikimedia Commons",
+      "license": "CC BY-SA 2.5",
+      "source": {
+        "id": "commons-bild-watson-brake",
+        "title": "Watson Brake - Map – Maximilian Dörrbecker ( Chumwa ) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Watson_Brake_-_Map.png",
+        "license": "CC BY-SA 2.5",
+        "checked": "2026-11-26"
       }
     },
     {

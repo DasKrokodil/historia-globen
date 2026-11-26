@@ -1,31 +1,21 @@
 # Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
 # Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
-# File:Sechin casma valley.JPG	sechin-bajo
-# File:Watson Brake - Map.png	watson-brake
-# File:Megalocnus rodens.JPG	sista-karibiska-sengangarna
-# File:Blanco Sombre.jpg	chinchorro-tatuering
-# File:Artefact saqqaquien baie Disko 3.jpg	saqqaqkulturen
-# File:Mt. St. Helens, Washington (1291219889).jpg	mount-st-helens-yn-utbrottet
-# File:Mound A at Poverty Point.jpg	poverty-point
-# File:Olmec Heartland Overview 4.svg	el-manati-offermossen
-# File:CabezaColosal1 MuseoXalapa v1.1.jpg	olmekerna-san-lorenzo
-# File:Paso de la amada figurine.PNG	paso-de-la-amada-bollplan
-# File:Chavin - Août 2007.jpg	chavin-de-huantar
-# File:Kuntur Wasi.jpg	kuntur-wasi
-# File:Cascajal-text.svg	cascajalblocket
-# File:ESTRUCTURA 12 MUSEO AL AIRE LIBRE FACHADA OESTE - TAKALIK ABAJ.png	takalik-abaj
-# File:ParacasSkullsIcaMuseum.jpg	paracaskulturen
-# File:ParacasSkullsIcaMuseum.jpg	trepanation-i-paracaskulturen
-# File:Elmiradortigre.jpg	el-mirador
-# File:Human effigy pipe 01 - Cleveland Museum of Art (30739647306).jpg	adenakulturen
-# File:Kalaallit Nunaat Arctic Steppe Ecoregion.png	dorsetkulturen
-# File:Monte Albán archeological site, Oaxaca.jpg	monte-alban-grundas
-# File:Schéma de la roche gravée de Montravail.svg	saladoider-nar-antillerna
-# File:Kaminaljuyu 11.jpg	kaminaljuyu-blomstring
-# File:Chanquillo Fortaleza (remains).jpg	chankillo-tretton-torn
-# File:SBmural.jpg	san-bartolos-vaggmalningar
-# File:ZA77 Teotihuacán edo de mex Herberto de la rosa.jpg	teotihuacan
-# File:Mound 1.JPG	aldsta-langa-rakningen-chiapa-de-corzo
-# File:Cahuachi 14.jpg	cahuachi
-# File:Hopewell Culture National Historical Park.jpg	hopewell-jordverken
-# File:Pinson-mounds-mound10.jpg	pinson-mounds
+# Godkända efter kontroll av filsidan (action=raw) 2026-11-26.
+File:Sechin casma valley.JPG	sechin-bajo
+File:Watson Brake - Map.png	watson-brake	passa-in
+File:Megalocnus rodens.JPG	sista-karibiska-sengangarna
+File:Mt. St. Helens, Washington (1291219889).jpg	mount-st-helens-yn-utbrottet
+File:Mound A at Poverty Point.jpg	poverty-point
+File:Chavin de Huantar El Castillo 06122009.jpg	chavin-de-huantar
+File:Kuntur Wasi.jpg	kuntur-wasi	passa-in
+File:ESTRUCTURA 12 MUSEO AL AIRE LIBRE FACHADA OESTE - TAKALIK ABAJ.png	takalik-abaj
+File:Human effigy pipe 01 - Cleveland Museum of Art (30739647306).jpg	adenakulturen	passa-in
+File:Kaminaljuyu 11.jpg	kaminaljuyu-blomstring
+File:ZA77 Teotihuacán edo de mex Herberto de la rosa.jpg	teotihuacan
+File:Mound 1.JPG	aldsta-langa-rakningen-chiapa-de-corzo
+File:Cahuachi 14.jpg	cahuachi
+File:Hopewell Culture National Historical Park.jpg	hopewell-jordverken
+File:Pinson-mounds-mound10.jpg	pinson-mounds
+File:Aniakchak-caldera alaska.jpg	aniakchak-kalderan
+File:Theobroma cacao (young cacao pods - Haiti).jpg	kakao-hos-mokaya
+File:Popocatepetl 1.jpg	popocatepetl-begraver-tetimpa

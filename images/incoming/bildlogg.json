@@ -4510,5 +4510,293 @@
     "source": "commons-bild-blombosgrottan",
     "id": "blombosgrottan",
     "file": "blombosgrottan.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (2009) av den arkeologiska platsen Sechín och Casmadalen, av Sylvain2803, inte från händelsens tid. Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2009) of the archaeological site of Sechín and the Casma Valley, by Sylvain2803, not from the time of the event. Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2009) der archäologischen Stätte Sechín und des Casma-Tals von Sylvain2803, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2009) del sitio arqueológico de Sechín y del valle de Casma, de Sylvain2803, no de la época del acontecimiento. Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2009) du site archéologique de Sechín et de la vallée de Casma, par Sylvain2803, pas de l’époque de l’événement. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Sylvain2803 / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-sechin-bajo",
+    "id": "sechin-bajo",
+    "file": "sechin-bajo.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Modern karta över den arkeologiska platsen Watson Brake i Louisiana med jordhögarna, ritad efter Saunders m.fl. (American Antiquity, 2005). Karta ritad i modern tid, inte från händelsens tid. Licens: CC BY-SA 2.5.",
+      "en": "Modern map of the Watson Brake archaeological site in Louisiana with the mounds, drawn after Saunders et al. (American Antiquity, 2005). A map drawn in modern times, not from the time of the event. Licence: CC BY-SA 2.5.",
+      "de": "Moderne Karte der archäologischen Stätte Watson Brake in Louisiana mit den Erdhügeln, nach Saunders u. a. (American Antiquity, 2005) gezeichnet. In heutiger Zeit gezeichnete Karte, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 2.5.",
+      "es": "Mapa moderno del sitio arqueológico de Watson Brake, en Luisiana, con los montículos, dibujado según Saunders y otros (American Antiquity, 2005). Mapa dibujado en época moderna, no de la época del acontecimiento. Licencia: CC BY-SA 2.5.",
+      "fr": "Carte moderne du site archéologique de Watson Brake, en Louisiane, avec les tertres, dessinée d’après Saunders et al. (American Antiquity, 2005). Carte dessinée à l’époque moderne, pas de l’époque de l’événement. Licence : CC BY-SA 2.5."
+    },
+    "credit": "Maximilian Dörrbecker / Wikimedia Commons",
+    "license": "CC BY-SA 2.5",
+    "source": "commons-bild-watson-brake",
+    "id": "watson-brake",
+    "file": "watson-brake.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Fossilt marksengångarskelett utställt på American Museum of Natural History i New York; filsidan anger Megalocnus rodens, en marksengångare. Nutida foto (2008), inte från händelsens tid. Licens: Public domain.",
+      "en": "Fossil ground sloth skeleton on display at the American Museum of Natural History in New York; the file page gives Megalocnus rodens, a ground sloth. Modern photo (2008), not from the time of the event. Licence: Public domain.",
+      "de": "Fossiles Bodenfaultier-Skelett, ausgestellt im American Museum of Natural History in New York; die Dateiseite nennt Megalocnus rodens, ein Bodenfaultier. Heutiges Foto (2008), nicht aus der Zeit des Ereignisses. Lizenz: gemeinfrei.",
+      "es": "Esqueleto fósil de un perezoso terrestre expuesto en el American Museum of Natural History de Nueva York; la página del archivo indica Megalocnus rodens, un perezoso terrestre. Foto actual (2008), no de la época del acontecimiento. Licencia: dominio público.",
+      "fr": "Squelette fossile d’un paresseux terrestre exposé à l’American Museum of Natural History à New York ; la page du fichier indique Megalocnus rodens, un paresseux terrestre. Photo actuelle (2008), pas de l’époque de l’événement. Licence : domaine public."
+    },
+    "credit": "Ghedoghedo / American Museum of Natural History / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-sista-karibiska-sengangarna",
+    "id": "sista-karibiska-sengangarna",
+    "file": "sista-karibiska-sengangarna.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Nutida foto (2007) av vulkanen Mount St. Helens i Washington, av Ken Lund, inte från händelsens tid. Licens: CC BY-SA 2.0.",
+      "en": "Modern photo (2007) of the volcano Mount St. Helens in Washington, by Ken Lund, not from the time of the event. Licence: CC BY-SA 2.0.",
+      "de": "Heutiges Foto (2007) des Vulkans Mount St. Helens im Bundesstaat Washington von Ken Lund, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 2.0.",
+      "es": "Foto actual (2007) del volcán Mount St. Helens, en Washington, de Ken Lund, no de la época del acontecimiento. Licencia: CC BY-SA 2.0.",
+      "fr": "Photo actuelle (2007) du volcan Mount St. Helens dans l’État de Washington, par Ken Lund, pas de l’époque de l’événement. Licence : CC BY-SA 2.0."
+    },
+    "credit": "Ken Lund / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-mount-st-helens-yn-utbrottet",
+    "id": "mount-st-helens-yn-utbrottet",
+    "file": "mount-st-helens-yn-utbrottet.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Nutida foto (2008) av Mound A, även kallad Bird Mound, den största högen vid Poverty Point i Louisiana, av Kniemla, inte från händelsens tid. Licens: CC BY-SA 2.0.",
+      "en": "Modern photo (2008) of Mound A, also called Bird Mound, the largest mound at Poverty Point in Louisiana, by Kniemla, not from the time of the event. Licence: CC BY-SA 2.0.",
+      "de": "Heutiges Foto (2008) von Mound A, auch Bird Mound genannt, dem größten Hügel von Poverty Point in Louisiana, von Kniemla, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 2.0.",
+      "es": "Foto actual (2008) del Mound A, también llamado Bird Mound, el mayor montículo de Poverty Point, en Luisiana, de Kniemla, no de la época del acontecimiento. Licencia: CC BY-SA 2.0.",
+      "fr": "Photo actuelle (2008) du Mound A, aussi appelé Bird Mound, le plus grand tertre de Poverty Point en Louisiane, par Kniemla, pas de l’époque de l’événement. Licence : CC BY-SA 2.0."
+    },
+    "credit": "Kniemla / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-poverty-point",
+    "id": "poverty-point",
+    "file": "poverty-point.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Nutida foto (2009) av El Castillo, en del av Templo Nuevo vid den arkeologiska platsen Chavín de Huántar i regionen Ancash i Peru, av Dtarazona, inte från händelsens tid. Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2009) of El Castillo, part of the Templo Nuevo at the Chavín de Huántar archaeological site in the Ancash region of Peru, by Dtarazona, not from the time of the event. Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2009) von El Castillo, Teil des Templo Nuevo an der archäologischen Stätte Chavín de Huántar in der Region Ancash in Peru, von Dtarazona, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2009) de El Castillo, parte del Templo Nuevo del sitio arqueológico de Chavín de Huántar, en la región de Áncash, Perú, de Dtarazona, no de la época del acontecimiento. Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2009) d’El Castillo, partie du Templo Nuevo du site archéologique de Chavín de Huántar, dans la région d’Ancash au Pérou, par Dtarazona, pas de l’époque de l’événement. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Dtarazona / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-chavin-de-huantar",
+    "id": "chavin-de-huantar",
+    "file": "chavin-de-huantar.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Nutida foto (2008) av Kuntur Wasi, av Yanacochito, inte från händelsens tid. Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2008) of Kuntur Wasi, by Yanacochito, not from the time of the event. Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2008) von Kuntur Wasi von Yanacochito, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2008) de Kuntur Wasi, de Yanacochito, no de la época del acontecimiento. Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2008) de Kuntur Wasi, par Yanacochito, pas de l’époque de l’événement. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Yanacochito / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-kuntur-wasi",
+    "id": "kuntur-wasi",
+    "file": "kuntur-wasi.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Nutida foto (2023) av Estructura 12 vid friluftsmuseet i Takalik Abaj, västra fasaden, från Guatemalas regering (Presidencia de Guatemala), inte från händelsens tid. Licens: Public domain.",
+      "en": "Modern photo (2023) of Structure 12 at the open-air museum in Takalik Abaj, west façade, from the Government of Guatemala (Presidencia de Guatemala), not from the time of the event. Licence: Public domain.",
+      "de": "Heutiges Foto (2023) von Struktur 12 im Freilichtmuseum von Takalik Abaj, Westfassade, von der Regierung Guatemalas (Presidencia de Guatemala), nicht aus der Zeit des Ereignisses. Lizenz: gemeinfrei.",
+      "es": "Foto actual (2023) de la Estructura 12 del museo al aire libre de Takalik Abaj, fachada oeste, del Gobierno de Guatemala (Presidencia de Guatemala), no de la época del acontecimiento. Licencia: dominio público.",
+      "fr": "Photo actuelle (2023) de la Structure 12 du musée de plein air de Takalik Abaj, façade ouest, du gouvernement du Guatemala (Presidencia de Guatemala), pas de l’époque de l’événement. Licence : domaine public."
+    },
+    "credit": "Presidencia de Guatemala / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-takalik-abaj",
+    "id": "takalik-abaj",
+    "file": "takalik-abaj.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Föremål: pipa formad som en människa, gjord av adenafolket någon gång mellan 100 f.Kr. och 100 e.Kr. och funnen vid Adena Mound nära Chillicothe i Ohio 1901, utställd på Cleveland Museum of Art. Nutida foto (2016); föremålet är yngre än händelsens år. Licens: CC BY-SA 2.0.",
+      "en": "Object: pipe in the shape of a human being, made by the Adena people some time between 100 BC and 100 AD and found at the Adena Mound near Chillicothe, Ohio, in 1901, on display at the Cleveland Museum of Art. Modern photo (2016); the object is later than the year of the event. Licence: CC BY-SA 2.0.",
+      "de": "Objekt: Pfeife in Gestalt eines Menschen, vom Adena-Volk irgendwann zwischen 100 v. Chr. und 100 n. Chr. gefertigt und 1901 am Adena Mound bei Chillicothe in Ohio gefunden, ausgestellt im Cleveland Museum of Art. Heutiges Foto (2016); das Objekt ist jünger als das Jahr des Ereignisses. Lizenz: CC BY-SA 2.0.",
+      "es": "Objeto: pipa con forma de ser humano, hecha por el pueblo adena entre el 100 a. C. y el 100 d. C. y hallada en el Adena Mound, cerca de Chillicothe (Ohio), en 1901, expuesta en el Cleveland Museum of Art. Foto actual (2016); el objeto es posterior al año del acontecimiento. Licencia: CC BY-SA 2.0.",
+      "fr": "Objet : pipe en forme d’être humain, fabriquée par le peuple adena entre 100 av. J.-C. et 100 apr. J.-C. et trouvée à l’Adena Mound près de Chillicothe (Ohio) en 1901, exposée au Cleveland Museum of Art. Photo actuelle (2016) ; l’objet est postérieur à l’année de l’événement. Licence : CC BY-SA 2.0."
+    },
+    "credit": "Tim Evanson / Cleveland Museum of Art / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-adenakulturen",
+    "id": "adenakulturen",
+    "file": "adenakulturen.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Nutida foto (2010) av akropolisen i mayaruinerna vid Kaminaljuyú i Guatemala City, av Simon Burchell, inte från händelsens tid. Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2010) of the acropolis at the Maya ruins of Kaminaljuyú in Guatemala City, by Simon Burchell, not from the time of the event. Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2010) der Akropolis der Maya-Ruinen von Kaminaljuyú in Guatemala-Stadt von Simon Burchell, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2010) de la acrópolis de las ruinas mayas de Kaminaljuyú, en la ciudad de Guatemala, de Simon Burchell, no de la época del acontecimiento. Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2010) de l’acropole des ruines mayas de Kaminaljuyú à Guatemala, par Simon Burchell, pas de l’époque de l’événement. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Simon Burchell / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-kaminaljuyu-blomstring",
+    "id": "kaminaljuyu-blomstring",
+    "file": "kaminaljuyu-blomstring.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Nutida foto (2008) tagen från en luftballong över Teotihuacán; filsidans kategori anger Solpyramiden. Av Hdlrosa, inte från händelsens tid. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2008) taken from a hot-air balloon over Teotihuacán; the file page category gives the Pyramid of the Sun. By Hdlrosa, not from the time of the event. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2008) aus einem Heißluftballon über Teotihuacán; die Kategorie der Dateiseite nennt die Sonnenpyramide. Von Hdlrosa, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2008) tomada desde un globo aerostático sobre Teotihuacán; la categoría de la página del archivo indica la Pirámide del Sol. De Hdlrosa, no de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2008) prise depuis une montgolfière au-dessus de Teotihuacán ; la catégorie de la page du fichier indique la pyramide du Soleil. Par Hdlrosa, pas de l’époque de l’événement. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Hdlrosa / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-teotihuacan",
+    "id": "teotihuacan",
+    "file": "teotihuacan.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Nutida foto (2008) av Mound 1 vid Chiapa de Corzo, med utsikt söderut mot floden Grijalva, av Bbachand, inte från händelsens tid. Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2008) of Mound 1 at Chiapa de Corzo, looking south toward the Grijalva River, by Bbachand, not from the time of the event. Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2008) von Mound 1 in Chiapa de Corzo mit Blick nach Süden zum Fluss Grijalva von Bbachand, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2008) del Mound 1 de Chiapa de Corzo, mirando al sur hacia el río Grijalva, de Bbachand, no de la época del acontecimiento. Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2008) du Mound 1 de Chiapa de Corzo, en direction du sud vers la rivière Grijalva, par Bbachand, pas de l’époque de l’événement. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Bbachand / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-aldsta-langa-rakningen-chiapa-de-corzo",
+    "id": "aldsta-langa-rakningen-chiapa-de-corzo",
+    "file": "aldsta-langa-rakningen-chiapa-de-corzo.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Nutida foto (2008) av den arkeologiska platsen Cahuachi i Peru, av Ed88, inte från händelsens tid. Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2008) of the Cahuachi archaeological site in Peru, by Ed88, not from the time of the event. Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2008) der archäologischen Stätte Cahuachi in Peru von Ed88, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2008) del sitio arqueológico de Cahuachi, en Perú, de Ed88, no de la época del acontecimiento. Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2008) du site archéologique de Cahuachi au Pérou, par Ed88, pas de l’époque de l’événement. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Ed88 / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-cahuachi",
+    "id": "cahuachi",
+    "file": "cahuachi.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Nutida foto (2018) av Hopewell Culture National Historical Park (huvudplatsen), sedd från närheten av besökscentret vid Mound City Group, av Ɱ, inte från händelsens tid. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2018) of the Hopewell Culture National Historical Park (main site), seen from near the Mound City Group Visitor Center, by Ɱ, not from the time of the event. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2018) des Hopewell Culture National Historical Park (Hauptgelände), gesehen von der Nähe des Mound City Group Visitor Center, von Ɱ, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2018) del Hopewell Culture National Historical Park (sitio principal), vista desde las cercanías del centro de visitantes de Mound City Group, de Ɱ, no de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2018) du Hopewell Culture National Historical Park (site principal), vue depuis les abords du centre d’accueil de Mound City Group, par Ɱ, pas de l’époque de l’événement. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Ɱ / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-hopewell-jordverken",
+    "id": "hopewell-jordverken",
+    "file": "hopewell-jordverken.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Nutida foto (2007) tagen över toppen av Mound 10 vid Pinson Mounds State Archaeological Park i Tennessee, av Brian Stansberry. Högen var enligt filsidan troligen en ceremoniell plattformshög. Inte från händelsens tid. Licens: CC BY 3.0.",
+      "en": "Modern photo (2007) looking across the top of Mound 10 at Pinson Mounds State Archaeological Park in Tennessee, by Brian Stansberry. According to the file page the mound was most likely a ceremonial platform mound. Not from the time of the event. Licence: CC BY 3.0.",
+      "de": "Heutiges Foto (2007) über die Spitze von Mound 10 im Pinson Mounds State Archaeological Park in Tennessee von Brian Stansberry. Laut Dateiseite war der Hügel wahrscheinlich ein zeremonieller Plattformhügel. Nicht aus der Zeit des Ereignisses. Lizenz: CC BY 3.0.",
+      "es": "Foto actual (2007) tomada sobre la cima del Mound 10 del Pinson Mounds State Archaeological Park, en Tennessee, de Brian Stansberry. Según la página del archivo, el montículo fue probablemente una plataforma ceremonial. No es de la época del acontecimiento. Licencia: CC BY 3.0.",
+      "fr": "Photo actuelle (2007) prise par-dessus le sommet du Mound 10 du Pinson Mounds State Archaeological Park, dans le Tennessee, par Brian Stansberry. Selon la page du fichier, le tertre était probablement une plate-forme cérémonielle. Pas de l’époque de l’événement. Licence : CC BY 3.0."
+    },
+    "credit": "Brian Stansberry / Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "source": "commons-bild-pinson-mounds",
+    "id": "pinson-mounds",
+    "file": "pinson-mounds.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Flygfoto (1977) över Aniakchakkalderan på Alaskahalvön, sedd mot öster, av M. Williams, National Park Service. Kalderan är enligt filsidan cirka 10 km bred. Inte från händelsens tid. Licens: Public domain.",
+      "en": "Aerial photo (1977) of the Aniakchak caldera on the Alaska Peninsula, looking east, by M. Williams, National Park Service. According to the file page the caldera is about 10 km across. Not from the time of the event. Licence: Public domain.",
+      "de": "Luftaufnahme (1977) der Aniakchak-Caldera auf der Alaska-Halbinsel, Blick nach Osten, von M. Williams, National Park Service. Laut Dateiseite misst die Caldera etwa 10 km im Durchmesser. Nicht aus der Zeit des Ereignisses. Lizenz: gemeinfrei.",
+      "es": "Foto aérea (1977) de la caldera Aniakchak, en la península de Alaska, mirando al este, de M. Williams, National Park Service. Según la página del archivo, la caldera mide unos 10 km de ancho. No es de la época del acontecimiento. Licencia: dominio público.",
+      "fr": "Photo aérienne (1977) de la caldeira de l’Aniakchak, sur la péninsule de l’Alaska, vers l’est, par M. Williams, National Park Service. Selon la page du fichier, la caldeira mesure environ 10 km de large. Pas de l’époque de l’événement. Licence : domaine public."
+    },
+    "credit": "M. Williams / National Park Service / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-aniakchak-kalderan",
+    "id": "aniakchak-kalderan",
+    "file": "aniakchak-kalderan.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Nutida foto (2009) av unga kakaofrukter (Theobroma cacao) på Haiti, av Nick Hobgood, inte från händelsens tid. Fotot visar inte Mesoamerika. Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2009) of young cacao pods (Theobroma cacao) in Haiti, by Nick Hobgood, not from the time of the event. The photo does not show Mesoamerica. Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2009) junger Kakaofrüchte (Theobroma cacao) auf Haiti von Nick Hobgood, nicht aus der Zeit des Ereignisses. Das Foto zeigt nicht Mesoamerika. Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2009) de frutos jóvenes de cacao (Theobroma cacao) en Haití, de Nick Hobgood, no de la época del acontecimiento. La foto no muestra Mesoamérica. Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2009) de jeunes cabosses de cacaoyer (Theobroma cacao) en Haïti, par Nick Hobgood, pas de l’époque de l’événement. La photo ne montre pas la Mésoamérique. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Nick Hobgood / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-kakao-hos-mokaya",
+    "id": "kakao-hos-mokaya",
+    "file": "kakao-hos-mokaya.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Nutida foto (2014) av vulkanen Popocatépetl sedd från Puebla i Mexiko, av Xicotencatl, inte från händelsens tid. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2014) of the Popocatépetl volcano viewed from Puebla, Mexico, by Xicotencatl, not from the time of the event. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2014) des Vulkans Popocatépetl, gesehen von Puebla in Mexiko, von Xicotencatl, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2014) del volcán Popocatépetl visto desde Puebla, México, de Xicotencatl, no de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2014) du volcan Popocatépetl vu depuis Puebla, au Mexique, par Xicotencatl, pas de l’époque de l’événement. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Xicotencatl / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-popocatepetl-begraver-tetimpa",
+    "id": "popocatepetl-begraver-tetimpa",
+    "file": "popocatepetl-begraver-tetimpa.webp"
   }
 ]
