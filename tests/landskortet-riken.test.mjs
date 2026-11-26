@@ -60,7 +60,7 @@ test('rikets egen rad Om kartan står vid raden bara när gruppen har en enda de
 });
 
 test('Skåne (landskap) och platser utan beslut har inga perioder', () => {
-  for (const pl of places.filter(p => !['sverige', 'danmark'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
+  for (const pl of places.filter(p => !['sverige', 'danmark', 'finland'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
 });
 
 test('raderna får rikets eget namn ur indexet och en lucka för år som ingen period täcker', () => {
@@ -77,8 +77,8 @@ test('raderna får rikets eget namn ur indexet och en lucka för år som ingen p
     .filter(r => r.kind === 'gap'), []);
 });
 
-test('luckorna i Sverige och Danmark räknas ur datan: inga av de listade delarna täcker luckans år', () => {
-  for (const id of ['sverige', 'danmark']) {
+test('luckorna i Sverige, Danmark och Finland räknas ur datan: inga av de listade delarna täcker luckans år', () => {
+  for (const id of ['sverige', 'danmark', 'finland']) {
     const pl = places.find(p => p.id === id);
     const rows = placeEmpireRows(pl, groups);
     assert.equal(rows.filter(r => r.kind === 'empire').length, pl.periods.length, `${id}: alla perioder blir rader`);

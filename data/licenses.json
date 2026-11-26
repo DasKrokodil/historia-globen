@@ -524,6 +524,7 @@
         "wp-745-seventh-avenue",
         "wp-8-2-kiloyear-event",
         "wp-abbasid-caliphate",
+        "wp-abckiria",
         "wp-abd-al-latif-al-baghdadi",
         "wp-abel-tasman",
         "wp-abisko-national-park",
@@ -1068,6 +1069,7 @@
         "wp-dhauli",
         "wp-diamond-sutra",
         "wp-diepkloof",
+        "wp-diet-of-porvoo",
         "wp-dilmun",
         "wp-dingo",
         "wp-dirk-hartog",
@@ -1212,6 +1214,8 @@
         "wp-federation-of-australia",
         "wp-fertile-crescent",
         "wp-festac-77",
+        "wp-finnish-declaration-of-independence",
+        "wp-finnish-famine-1866-1868",
         "wp-finnish-war",
         "wp-first-battle-al-faw",
         "wp-first-bull-run",
@@ -1525,6 +1529,7 @@
         "wp-halabja-massacre",
         "wp-hallstatt",
         "wp-hamadan",
+        "wp-hameenlinna",
         "wp-hamida-djandoubi",
         "wp-hammer-and-sickle",
         "wp-hampi",
@@ -1551,6 +1556,7 @@
         "wp-hekla",
         "wp-helgo",
         "wp-helsingborg-1710",
+        "wp-helsinki",
         "wp-hemming-of-denmark",
         "wp-henan-famine-1942",
         "wp-henderson-island",
@@ -1722,7 +1728,9 @@
         "wp-kadesh-syria",
         "wp-kaifeng",
         "wp-kairouan",
+        "wp-kajaani",
         "wp-kakinoshima",
+        "wp-kalevala",
         "wp-kalinga-war",
         "wp-kalka",
         "wp-kalmar-union",
@@ -2031,6 +2039,7 @@
         "wp-mexico",
         "wp-middle-kingdom-egypt",
         "wp-midway",
+        "wp-mikael-agricola",
         "wp-milne-bay",
         "wp-mimbres-new-mexico",
         "wp-ming",
@@ -2270,6 +2279,7 @@
         "wp-paris-agreement",
         "wp-paris-peace-accords",
         "wp-paris-peace-treaties-1947",
+        "wp-parliament-of-finland",
         "wp-parrots-beak",
         "wp-parthian-empire",
         "wp-partition-of-india",
@@ -2427,6 +2437,7 @@
         "wp-rotoiti-caldera",
         "wp-round-table-conference-1949",
         "wp-route-varangians-greeks",
+        "wp-royal-academy-of-turku",
         "wp-royal-greenland-trading-department",
         "wp-royal-national-park",
         "wp-royal-road",
@@ -2456,6 +2467,7 @@
         "wp-said-bin-sultan",
         "wp-saimaa",
         "wp-saint-domingue-expedition",
+        "wp-sajos",
         "wp-sakoku",
         "wp-saladoid",
         "wp-salem-witch-trials",
@@ -2463,6 +2475,7 @@
         "wp-salpausselka",
         "wp-salt-march",
         "wp-salyut-1",
+        "wp-sami-parliament-of-finland",
         "wp-samoa",
         "wp-samuel-marsden",
         "wp-san-agustin-archaeological-park",
@@ -2825,6 +2838,7 @@
         "wp-tuong-lam",
         "wp-tupac-amaru",
         "wp-turkish-war-of-independence",
+        "wp-turku-cathedral",
         "wp-tuyuti",
         "wp-tzintzuntzan-site",
         "wp-uan-muhuggiag",
@@ -3870,6 +3884,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-FinlandGov, PD-shape)",
+      "sourceIds": [
+        "commons-flagga-finland"
+      ]
+    },
+    {
       "license": "Public domain (PD-Flag, PD-EE-exempt)",
       "sourceIds": [
         "commons-flagga-estonia"
@@ -4449,11 +4469,14 @@
     {
       "license": "Store norske leksikon, begränsad licens (bara länkad, ingen text kopierad)",
       "sourceIds": [
+        "snl-abo",
         "snl-alta-ristningene",
+        "snl-finlands-historie",
         "snl-new-zealand",
         "snl-new-zealands-befolkning",
         "snl-new-zealands-historie",
         "snl-new-zealands-politiske-system",
+        "snl-sameting",
         "snl-snartemofunnene"
       ]
     },
