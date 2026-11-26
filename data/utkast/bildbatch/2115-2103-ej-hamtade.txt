@@ -1,0 +1,3 @@
+# Ej hämtade av tools/bild_hamta.py; kör igen med --lista
+File:Florisbad NMNH.jpg	florisbad	passa-in
+File:Blombos.jpg	blombosgrottan	passa-in

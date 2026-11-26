@@ -331,3 +331,29 @@ Tillägg 2026-11-26 (#2113): `ambryms-kaldera`. Bilden [Ambrym ali 2012348 lrg.j
 | `waikato-tainui-uppgorelsen` | 2026-11-26: Inga kandidater och ingen relevant bild hittades. |
 | `fredssamtalen-i-nya-zeeland` | 2026-11-26: Inga kandidater och ingen relevant bild hittades. |
 | `samoa-hoppar-over-en-dag-2011` | 2026-11-26: Inga kandidater. En Commons-sökning (Samoa International Date Line) nekades med HTTP 429 och hann inte upprepas; ingen bild har valts. |
+
+## Afrika (förhistoria) och Oceanien 1830–1907 (#2103 och #2115, 2026-11-26)
+
+16 av 37 händelser fick bild i den här omgången, och två till (`florisbad`, `blombosgrottan`) är valda och licenskontrollerade men väntar på hämtning i Actions. Följande 19 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/2115-2103.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Urfolksmotiv, gravar och kvarlevor har avståtts i väntan på mänsklig bedömning.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `panga-ya-saidi-grav` | 2026-11-26: Kandidaterna var en kyrkogård i Arkansas och en dogonskulptur; fel motiv. Händelsen gäller en barngrav, och bilder av gravar och kvarlevor avstås. |
+| `dar-es-soltan-benkniv` | 2026-11-26: Inga kandidater och ingen relevant bild hittades. |
+| `katanda-benharpuner` | 2026-11-26: Inga kandidater. En Commons-sökning (Katanda bone harpoon) nekades med HTTP 429 och hann inte upprepas; ingen bild har valts. |
+| `obsidian-i-porc-epicgrottan` | 2026-11-26: Inga kandidater och ingen relevant bild hittades. |
+| `lebombobenet` | 2026-11-26: Inga kandidater. Commons-sökningen Lebombo bone gav bara ljudfiler och en bok; ingen relevant bild. |
+| `enkapune-ya-muto-parlor` | 2026-11-26: Inga kandidater. Commons-sökningen Enkapune Ya Muto ostrich eggshell beads gav inga träffar. |
+| `apollo-11-stenarna` | 2026-11-26: Inga kandidater. Commons-sökningen Apollo 11 Cave painted stones Namibia gav inga träffar. |
+| `jebel-sahaba` | 2026-11-26: Enda kandidaten är en figur ur en vetenskaplig artikel (CC BY 4.0, 685 × 606 px) med karta över gravfältet och gravarna; händelsen gäller våld mot människor vars kvarlevor hittats, och bilden är för liten, så den avstås. |
+| `victoriasjon-fylls-pa-nytt` | 2026-11-26: Kandidaterna var en nordamerikansk karta från 1848 och en park i Leicester; fel motiv. |
+| `svarta-linjen` | 2026-11-26: Kandidaterna var en ångare med guvernörer (1927), en järnvägskarta från 1880 och en fågelbok med licensen "No restrictions" (flaggad, godkänns aldrig av program). Commons-sökningen Black Line Tasmania 1830 gav bara skannade böcker. |
+| `pinjarramassakern` | 2026-11-26: Enda kandidaten är ett nutida foto av platsen för massakern (CC BY-SA 4.0, 2020); en plats för våld mot aboriginer avstås i väntan på mänsklig bedömning. |
+| `nya-zeeland-egen-kronkoloni` | 2026-11-26: Enda kandidaten (New Zealand Becomes a Dominion) gäller 1907, inte 1841. |
+| `krigsutbrottet-i-waitara` | 2026-11-26: Inga kandidater och ingen relevant bild hittades. |
+| `kingitanga-forsta-maorikungen` | 2026-11-26: Enda kandidaten är ett foto (1939, public domain) av en snidad dörr med maorikungarnas vapen vid Tūrangawaewae marae; maoriskt kulturarv på en marae avstås i väntan på mänsklig bedömning. |
+| `konstitutionen-1852` | 2026-11-26: Inga kandidater; händelsen är en lag och ingen relevant bild hittades. |
+| `te-kooti-far-skydd` | 2026-11-26: Inga kandidater; porträtt av avlidna maoriska personer avstås. |
+| `fiji-blir-brittisk-koloni` | 2026-11-26: Inga kandidater. Commons-sökningen Fiji cession 1874 deed gav inga träffar. |
+| `forsta-testmatchen-i-cricket` | 2026-11-26: Kandidaterna var foton från 1925, 2015 och 1932, inte från 1877. Commons-sökningen Melbourne Cricket Ground 1877 Test match gav bara skannade böcker. |
+| `nya-zeeland-blir-dominion` | 2026-11-26: Filen [New Zealand Becomes a Dominion (15149497056).jpg](https://commons.wikimedia.org/wiki/File:New_Zealand_Becomes_a_Dominion_(15149497056).jpg) (CC BY-SA 2.0, Archives New Zealand) hämtades men är en nutida rubrikgrafik ("Archive of the Moment") och inte ett historiskt dokument eller foto; används inte. |
