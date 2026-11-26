@@ -14616,12 +14616,24 @@ async function run(browser, vp) {
       await summary.evaluate(el => el.scrollIntoView({ block: 'center' }));
       // Vänta tills rubriken står still (kortets rullning och inflygning): Firefox och WebKit rullar och ritar om asynkront, och en ruta som
       // klipptes före det visade bokstäverna i stället för bakgrunden (#2178: 1,00:1 i Firefox, 2,18:1 i WebKit, 5,24:1 i Chromium)
-      const place = () => summary.evaluate(el => {
+      // Kortet kan ritas om medan det flyger in: då är rubriken tillfälligt lösryckt ur sidan och getComputedStyle ger en tom färg
+      // (PR #2295, Chromium). Läs om tills färgen finns i stället för att krascha på null
+      const read = () => summary.evaluate(el => {
+        const rgb = el.isConnected && getComputedStyle(el).color.match(/[0-9.]+/g);
+        if (!rgb) return null;
         const range = document.createRange();
         range.selectNodeContents(el);
         const { x, y, width, height } = range.getBoundingClientRect();
-        return { color: getComputedStyle(el).color.match(/[0-9.]+/g).slice(0, 3).map(Number), clip: { x, y, width, height } };
+        return { color: rgb.slice(0, 3).map(Number), clip: { x, y, width, height } };
       });
+      const place = async () => {
+        for (let i = 0; i < 40; i++) {
+          const found = await read();
+          if (found) return found;
+          await tp.evaluate(() => new Promise(done => requestAnimationFrame(() => requestAnimationFrame(done))));
+        }
+        throw new Error('rubriken Om slutet fick ingen beräknad färg (kortet ritades om hela tiden)');
+      };
       let { color, clip } = await place();
       for (let i = 0; i < 20; i++) {
         await tp.evaluate(() => new Promise(done => requestAnimationFrame(() => requestAnimationFrame(done))));
