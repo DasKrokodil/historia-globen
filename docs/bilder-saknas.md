@@ -386,3 +386,12 @@ Tillägg 2026-11-26 (#2113): `ambryms-kaldera`. Bilden [Ambrym ali 2012348 lrg.j
 | `mount-meager-bridge-river-utbrottet` | 2026-11-26: Kandidater saknas; Commons-sökningen Mount Meager gav bara diagram (liten storlek). |
 | `chankillo-tretton-torn` | 2026-11-26: Enda kandidaten ([Chanquillo Fortaleza (remains).jpg](https://commons.wikimedia.org/wiki/File:Chanquillo_Fortaleza_(remains).jpg), CC BY-SA 3.0) visar fästningen vid Chankillo och inte de tretton tornen; en sökning på tornen gav inga träffar. |
 | `san-bartolos-vaggmalningar` | 2026-11-26: Enda kandidaten (SBmural.jpg, CC BY-SA 2.5) är bara 293 × 433 px; för liten. |
+
+## Amerika 1200–1520 (#2096, 2026-11-26)
+
+18 av 20 händelser i #2096 fick bild. Följande 2 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/2095-2096.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `gronland-under-norge` | 2026-11-26: Kandidaterna visar inte händelsen: ett foto från Spetsbergen (CC0), Blaeus karta över Norge från 1662 och Vinlandkartan (av omstridd äkthet). Sökningar på Håkon Håkonsson och norska Grönland gav ingen användbar bild (flera nekades med 429). |
+| `vasterbygden-overges` | 2026-11-26: Kandidaterna var fel motiv (ett moshav i Galileen, en by i Makedonien, en ikon). Enda träffen efter egen sökning är en karta över Västerbygden (Western-settlement-eng.png, CC BY-SA 3.0) på 638 × 443 px; för liten för kortet. |
