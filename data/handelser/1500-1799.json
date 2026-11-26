@@ -5887,6 +5887,21 @@
      "de": "Die meisten Historiker nennen die Krankheit Pocken, wie es die Kolonisten selbst taten. Einige Ärzte und Forschende meinen, es könnten Windpocken gewesen sein, gegen die die Briten immun waren, die indigenen Völker aber nicht. Wie die Krankheit nach Sydney kam und wie viele starben, ist weiterhin umstritten."
     }
    },
+   "image": {
+    "file": "images/events/smittkoppor-sydney-1789.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Akvarell av William Bradley med titeln ”Sydney Cove, Port Jackson 1788”. Mitchell Library, State Library of New South Wales. Bilden visar inte epidemin 1789. Licens: Public domain.",
+     "en": "Watercolour by William Bradley titled “Sydney Cove, Port Jackson 1788”. Mitchell Library, State Library of New South Wales. The picture does not show the epidemic of 1789. Licence: Public domain.",
+     "de": "Aquarell von William Bradley mit dem Titel „Sydney Cove, Port Jackson 1788“. Mitchell Library, State Library of New South Wales. Das Bild zeigt nicht die Epidemie von 1789. Lizenz: gemeinfrei.",
+     "es": "Acuarela de William Bradley titulada «Sydney Cove, Port Jackson 1788». Mitchell Library, State Library of New South Wales. La imagen no muestra la epidemia de 1789. Licencia: dominio público.",
+     "fr": "Aquarelle de William Bradley intitulée « Sydney Cove, Port Jackson 1788 ». Mitchell Library, State Library of New South Wales. L’image ne montre pas l’épidémie de 1789. Licence : domaine public."
+    },
+    "credit": "William Bradley / State Library of New South Wales / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-smittkoppor-sydney-1789"
+   },
    "sources": [
     "wp-smallpox-australia",
     "wp-1789-sydney-smallpox"
@@ -6620,6 +6635,21 @@
     "en": "In May 1606 Pedro Fernandes de Queirós, a Portuguese navigator in Spanish service, reached the islands that are today Vanuatu. He landed on a large island that he believed was part of the sought-after southern continent and called it Austrialia del Espíritu Santo; the island is still called Espiritu Santo. Queirós wanted to found a colony there, Nova Jerusalem, but within a few weeks the plan was abandoned because of the hostility of the ni-Vanuatu and disagreement among the crew.",
     "de": "Im Mai 1606 erreichte Pedro Fernandes de Queirós, ein portugiesischer Seefahrer in spanischen Diensten, die Inseln, die heute Vanuatu sind. Er ging auf einer großen Insel an Land, die er für einen Teil des gesuchten Südlandes hielt, und nannte sie Austrialia del Espíritu Santo; die Insel heißt noch immer Espiritu Santo. Queirós wollte dort eine Kolonie gründen, Nova Jerusalem, doch innerhalb weniger Wochen wurde der Plan wegen der Feindseligkeit der Ni-Vanuatu und der Uneinigkeit der Besatzung aufgegeben."
    },
+   "image": {
+    "file": "images/events/queiros-pa-espiritu-santo.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Hessel Gerritsz världskarta från 1612 som visar Queirós upptäckt av ”La Austrialia del Espiritu Santo”. Karta ritad 1612, efter händelsen. Licens: Public domain.",
+     "en": "World map by Hessel Gerritsz of 1612 showing Queirós’s discovery of “La Austrialia del Espiritu Santo”. Map drawn in 1612, after the event. Licence: Public domain.",
+     "de": "Weltkarte von Hessel Gerritsz aus dem Jahr 1612 mit der Entdeckung von „La Austrialia del Espiritu Santo“ durch Queirós. Karte von 1612, nach dem Ereignis gezeichnet. Lizenz: gemeinfrei.",
+     "es": "Mapamundi de Hessel Gerritsz de 1612 que muestra el descubrimiento de «La Austrialia del Espiritu Santo» por Queirós. Mapa dibujado en 1612, después del acontecimiento. Licencia: dominio público.",
+     "fr": "Mappemonde de Hessel Gerritsz de 1612 montrant la découverte de « La Austrialia del Espiritu Santo » par Queirós. Carte dessinée en 1612, après l’événement. Licence : domaine public."
+    },
+    "credit": "Hessel Gerritsz / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-queiros-pa-espiritu-santo"
+   },
    "wikidata": "Q337524",
    "sources": [
     "wp-pedro-fernandes-de-queiros"
@@ -6668,6 +6698,21 @@
      "en": "Where the nine sailors were killed is disputed. The historian Miriam Estensen argues that eight died on the island of Yos Sudarso near New Guinea and one on the Australian coast. The Dutch Australian Cultural Centre, which also builds on accounts from Aboriginal elders, argues that three died at Kaap Keerweer and five at Yos Sudarso on the way home. Some Aboriginal oral traditions place all nine at Kaap Keerweer.",
      "de": "Wo die neun Seeleute getötet wurden, ist umstritten. Die Historikerin Miriam Estensen meint, acht seien auf der Insel Yos Sudarso bei Neuguinea gestorben und einer an der Küste Australiens. Das Dutch Australian Cultural Centre, das sich ebenfalls auf Berichte von Ältesten der Aborigines stützt, meint, drei seien bei Kaap Keerweer gestorben und fünf auf dem Heimweg bei Yos Sudarso. Einige mündliche Überlieferungen der Aborigines verorten alle neun bei Kaap Keerweer."
     }
+   },
+   "image": {
+    "file": "images/events/duyfken-nar-australien.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Replik från 1999 av Duyfken vid Fremantle Fishing Boat Harbour. Nutida foto (2015), inte från händelsens tid; fartyget är en modern kopia. Licens: CC BY-SA 4.0.",
+     "en": "Replica from 1999 of the Duyfken at Fremantle Fishing Boat Harbour. Modern photo (2015), not from the time of the event; the ship is a modern copy. Licence: CC BY-SA 4.0.",
+     "de": "Nachbau von 1999 der Duyfken im Fremantle Fishing Boat Harbour. Heutiges Foto (2015), nicht aus der Zeit des Ereignisses; das Schiff ist eine moderne Nachbildung. Lizenz: CC BY-SA 4.0.",
+     "es": "Réplica de 1999 del Duyfken en el Fremantle Fishing Boat Harbour. Foto actual (2015), no de la época del acontecimiento; el barco es una copia moderna. Licencia: CC BY-SA 4.0.",
+     "fr": "Réplique de 1999 du Duyfken au Fremantle Fishing Boat Harbour. Photo actuelle (2015), pas de l’époque de l’événement ; le navire est une copie moderne. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Orderinchaos / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-duyfken-nar-australien"
    },
    "wikidata": "Q6155580",
    "sources": [
@@ -6743,6 +6788,21 @@
     "sv": "Den 25 oktober 1616 kom Nederländska Ostindiska kompaniets skepp Eendracht, med Dirk Hartog som skeppare, till en ö utanför Shark Bay som i dag heter Dirk Hartog Island. Det var den andra kända europeiska landstigningen i Australien och den första på västkusten. Innan skeppet seglade vidare den 27 oktober spikade Hartog upp en tennplatta på en stolpe med en inskription om besöket.",
     "en": "On 25 October 1616 the Dutch East India Company's ship Eendracht, with Dirk Hartog as skipper, came to an island off Shark Bay that today is called Dirk Hartog Island. It was the second known European landing in Australia and the first on the west coast. Before the ship sailed on on 27 October, Hartog nailed a pewter plate to a post with an inscription about the visit.",
     "de": "Am 25. Oktober 1616 kam das Schiff Eendracht der Niederländischen Ostindien-Kompanie mit Dirk Hartog als Schiffsführer zu einer Insel vor Shark Bay, die heute Dirk Hartog Island heißt. Es war die zweite bekannte europäische Landung in Australien und die erste an der Westküste. Bevor das Schiff am 27. Oktober weitersegelte, nagelte Hartog eine Zinnplatte mit einer Inschrift über den Besuch an einen Pfosten."
+   },
+   "image": {
+    "file": "images/events/hartogs-tennplatta.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Föremål från 1616: plattan som Dirk Hartog lämnade på Dirk Hartog Island, fotograferad på Rijksmuseum i Amsterdam (fotot uppladdat 2004). Licens: Public domain.",
+     "en": "Object from 1616: the plate that Dirk Hartog left on Dirk Hartog Island, photographed at the Rijksmuseum in Amsterdam (photo uploaded 2004). Licence: Public domain.",
+     "de": "Objekt von 1616: die Platte, die Dirk Hartog auf Dirk Hartog Island zurückließ, fotografiert im Rijksmuseum in Amsterdam (Foto 2004 hochgeladen). Lizenz: gemeinfrei.",
+     "es": "Objeto de 1616: la placa que Dirk Hartog dejó en la isla Dirk Hartog, fotografiada en el Rijksmuseum de Ámsterdam (foto subida en 2004). Licencia: dominio público.",
+     "fr": "Objet de 1616 : la plaque laissée par Dirk Hartog sur l’île Dirk Hartog, photographiée au Rijksmuseum d’Amsterdam (photo mise en ligne en 2004). Licence : domaine public."
+    },
+    "credit": "Adam Carr / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-hartogs-tennplatta"
    },
    "wikidata": "Q2867164",
    "sources": [
@@ -6831,6 +6891,21 @@
     "sv": "Den 24 november 1642 fick Abel Tasman, på en upptäcktsresa för Nederländska Ostindiska kompaniet, syn på Tasmaniens västkust norr om Macquarie Harbour. Han kallade landet Van Diemens land efter generalguvernören i Nederländska Ostindien, och i dag bär ön Tasmans namn. Den 3 december gjorde han formellt anspråk på landet.",
     "en": "On 24 November 1642 Abel Tasman, on a voyage of discovery for the Dutch East India Company, sighted the west coast of Tasmania north of Macquarie Harbour. He called the land Van Diemen's Land after the governor-general of the Dutch East Indies, and today the island bears Tasman's name. On 3 December he formally claimed the land.",
     "de": "Am 24. November 1642 sichtete Abel Tasman auf einer Entdeckungsreise für die Niederländische Ostindien-Kompanie die Westküste Tasmaniens nördlich von Macquarie Harbour. Er nannte das Land Van-Diemens-Land nach dem Generalgouverneur von Niederländisch-Ostindien, und heute trägt die Insel Tasmans Namen. Am 3. Dezember nahm er das Land förmlich in Besitz."
+   },
+   "image": {
+    "file": "images/events/tasman-nar-tasmanien.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Kustprofiler av Tasmanien, teckning av Hessel Gerritsz ur Huijdecoper-journalen över Abel Tasmans resa, december 1642. State Library of New South Wales. Samtida teckning. Licens: Public domain.",
+     "en": "Coastal drawings of Tasmania by Hessel Gerritsz, from the Huijdecoper journal of Abel Tasman’s voyage, December 1642. State Library of New South Wales. Contemporary drawing. Licence: Public domain.",
+     "de": "Küstenansichten von Tasmanien, Zeichnung von Hessel Gerritsz aus dem Huijdecoper-Journal von Abel Tasmans Reise, Dezember 1642. State Library of New South Wales. Zeichnung aus der Zeit des Ereignisses. Lizenz: gemeinfrei.",
+     "es": "Perfiles de la costa de Tasmania, dibujo de Hessel Gerritsz del diario Huijdecoper del viaje de Abel Tasman, diciembre de 1642. State Library of New South Wales. Dibujo de la época. Licencia: dominio público.",
+     "fr": "Profils de la côte de la Tasmanie, dessin de Hessel Gerritsz tiré du journal Huijdecoper du voyage d’Abel Tasman, décembre 1642. State Library of New South Wales. Dessin de l’époque. Licence : domaine public."
+    },
+    "credit": "Hessel Gerritsz / State Library of New South Wales / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-tasman-nar-tasmanien"
    },
    "sources": [
     "wp-abel-tasman"
@@ -7709,6 +7784,21 @@
     "es": "En 1680 el volcán Pico do Fogo, en Cabo Verde, tiene una gran erupción en la cumbre. La ceniza cae sobre toda la isla y deja las tierras de cultivo inservibles durante un tiempo. Por eso muchas personas abandonan Fogo, entre otros lugares hacia la isla vecina de Brava.",
     "fr": "En 1680, le volcan Pico do Fogo, au Cap-Vert, connaît une grande éruption sommitale. Les cendres tombent sur toute l'île et rendent les terres agricoles inutilisables pendant un temps. Beaucoup quittent donc Fogo, notamment pour l'île voisine de Brava."
    },
+   "image": {
+    "file": "images/events/fogo-utbrottet-1680.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Nutida foto (2011) av vulkanen Pico do Fogo på ön Fogo i Kap Verde, med en extra kon i förgrunden, inte från händelsens tid. Licens: CC BY-SA 3.0.",
+     "en": "Modern photo (2011) of the volcano Pico do Fogo on the island of Fogo, Cape Verde, with an additional cone in the foreground, not from the time of the event. Licence: CC BY-SA 3.0.",
+     "de": "Heutiges Foto (2011) des Vulkans Pico do Fogo auf der Insel Fogo, Kap Verde, mit einem zusätzlichen Kegel im Vordergrund, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 3.0.",
+     "es": "Foto actual (2011) del volcán Pico do Fogo en la isla de Fogo, Cabo Verde, con un cono adicional en primer plano, no de la época del acontecimiento. Licencia: CC BY-SA 3.0.",
+     "fr": "Photo actuelle (2011) du volcan Pico do Fogo sur l’île de Fogo, au Cap-Vert, avec un cône supplémentaire au premier plan, pas de l’époque de l’événement. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Cayambe / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-fogo-utbrottet-1680"
+   },
    "sources": [
     "wp-pico-do-fogo"
    ],
@@ -7839,6 +7929,21 @@
      "es": "El artículo de Wikipedia sobre el primer viaje de Cook indica que Cook desembarcó el 7 de octubre y que cuatro o cinco maoríes murieron en los dos primeros días. El artículo de Wikipedia sobre Gisborne indica el 9 de octubre y nueve maoríes muertos o heridos en cuatro días. Las fuentes no explican la diferencia. Entre los primeros muertos estaba Te Maro, honrado desde 2019 con un monumento en la colina Titirangi.",
      "fr": "L’article de Wikipédia sur le premier voyage de Cook indique que Cook débarqua le 7 octobre et que quatre ou cinq Maoris moururent pendant les deux premiers jours. L’article de Wikipédia sur Gisborne indique le 9 octobre et neuf Maoris tués ou blessés en quatre jours. Les sources n’expliquent pas la différence. Parmi les premiers tués se trouvait Te Maro, honoré depuis 2019 par un mémorial sur la colline Titirangi."
     }
+   },
+   "image": {
+    "file": "images/events/cook-gar-i-land-turanganui.webp",
+    "kind": "historisk",
+    "style": "stilla-havet-gravyr",
+    "caption": {
+     "sv": "Nutida foto (2010) av utsikt över Poverty Bay från Kaiti Hill, inte från händelsens tid. Licens: Public domain.",
+     "en": "Modern photo (2010) of the view over Poverty Bay from Kaiti Hill, not from the time of the event. Licence: Public domain.",
+     "de": "Heutiges Foto (2010): Blick über die Poverty Bay vom Kaiti Hill, nicht aus der Zeit des Ereignisses. Lizenz: gemeinfrei.",
+     "es": "Foto actual (2010) de la vista sobre la bahía de Poverty desde Kaiti Hill, no de la época del acontecimiento. Licencia: dominio público.",
+     "fr": "Photo actuelle (2010) de la vue sur la baie de Poverty depuis Kaiti Hill, pas de l’époque de l’événement. Licence : domaine public."
+    },
+    "credit": "Pseudopanax / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-cook-gar-i-land-turanganui"
    },
    "sources": [
     "wp-cook-resa-1",

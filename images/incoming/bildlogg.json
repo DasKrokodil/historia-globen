@@ -3582,5 +3582,293 @@
     "source": "commons-bild-dingon-nar-australien",
     "id": "dingon-nar-australien",
     "file": "dingon-nar-australien.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Nutida satellitbild (uppladdad 2005) av Taupōsjön på Nordön, från NASA, inte från händelsens tid. Licens: Public domain.",
+      "en": "Modern satellite image (uploaded 2005) of Lake Taupō on the North Island, from NASA, not from the time of the event. Licence: Public domain.",
+      "de": "Heutiges Satellitenbild (2005 hochgeladen) des Taupōsees auf der Nordinsel, von der NASA, nicht aus der Zeit des Ereignisses. Lizenz: gemeinfrei.",
+      "es": "Imagen de satélite actual (subida en 2005) del lago Taupō, en la Isla Norte, de la NASA, no de la época del acontecimiento. Licencia: dominio público.",
+      "fr": "Image satellite actuelle (mise en ligne en 2005) du lac Taupō sur l’île du Nord, de la NASA, pas de l’époque de l’événement. Licence : domaine public."
+    },
+    "credit": "NASA / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-hatepeutbrottet",
+    "id": "hatepeutbrottet",
+    "file": "hatepeutbrottet.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Nutida foto (2006) av Feles grotta på ön Lelepa i Vanuatu, inte från händelsens tid. Licens: CC BY 2.0.",
+      "en": "Modern photo (2006) of Fele’s Cave on Lelepa island, Vanuatu, not from the time of the event. Licence: CC BY 2.0.",
+      "de": "Heutiges Foto (2006) der Fele-Höhle auf der Insel Lelepa, Vanuatu, nicht aus der Zeit des Ereignisses. Lizenz: CC BY 2.0.",
+      "es": "Foto actual (2006) de la cueva de Fele en la isla de Lelepa, Vanuatu, no de la época del acontecimiento. Licencia: CC BY 2.0.",
+      "fr": "Photo actuelle (2006) de la grotte de Fele sur l’île de Lelepa, au Vanuatu, pas de l’époque de l’événement. Licence : CC BY 2.0."
+    },
+    "credit": "PhillipC / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-roi-mata-hovdingarna",
+    "id": "roi-mata-hovdingarna",
+    "file": "roi-mata-hovdingarna.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Nutida foto (2006) av kusten på Enderby Island, med tång, inte från händelsens tid. Licens: Public domain.",
+      "en": "Modern photo (2006) of the coast of Enderby Island, with kelp, not from the time of the event. Licence: Public domain.",
+      "de": "Heutiges Foto (2006) der Küste von Enderby Island, mit Tang, nicht aus der Zeit des Ereignisses. Lizenz: gemeinfrei.",
+      "es": "Foto actual (2006) de la costa de Enderby Island, con kelp, no de la época del acontecimiento. Licencia: dominio público.",
+      "fr": "Photo actuelle (2006) de la côte d’Enderby Island, avec du kelp, pas de l’époque de l’événement. Licence : domaine public."
+    },
+    "credit": "M. Murphy / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-polynesier-pa-aucklandoarna",
+    "id": "polynesier-pa-aucklandoarna",
+    "file": "polynesier-pa-aucklandoarna.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Nutida foto (2015) av Norfolkön i molnig skymning, med araukarior, inte från händelsens tid. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2015) of Norfolk Island at cloudy dusk, with araucarias, not from the time of the event. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2015) der Norfolkinsel in bewölkter Abenddämmerung, mit Araukarien, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2015) de la isla Norfolk en un crepúsculo nublado, con araucarias, no de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2015) de l’île Norfolk au crépuscule nuageux, avec des araucarias, pas de l’époque de l’événement. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Peter James McNally / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-polynesier-pa-norfolkon",
+    "id": "polynesier-pa-norfolkon",
+    "file": "polynesier-pa-norfolkon.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Skelett av bergsmoa (upland moa), fotograferat på Otago Museum. Nutida foto (2016), inte från händelsens tid. Licens: Public domain.",
+      "en": "Skeleton of an upland moa, photographed at the Otago Museum. Modern photo (2016), not from the time of the event. Licence: Public domain.",
+      "de": "Skelett einer Hochland-Moa (upland moa), fotografiert im Otago Museum. Heutiges Foto (2016), nicht aus der Zeit des Ereignisses. Lizenz: gemeinfrei.",
+      "es": "Esqueleto de una moa de las tierras altas (upland moa), fotografiado en el Otago Museum. Foto actual (2016), no de la época del acontecimiento. Licencia: dominio público.",
+      "fr": "Squelette d’un moa des hautes terres (upland moa), photographié à l’Otago Museum. Photo actuelle (2016), pas de l’époque de l’événement. Licence : domaine public."
+    },
+    "credit": "Szilas / Otago Museum / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-moafaglarna-dor-ut",
+    "id": "moafaglarna-dor-ut",
+    "file": "moafaglarna-dor-ut.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Replik från 1999 av Duyfken vid Fremantle Fishing Boat Harbour. Nutida foto (2015), inte från händelsens tid; fartyget är en modern kopia. Licens: CC BY-SA 4.0.",
+      "en": "Replica from 1999 of the Duyfken at Fremantle Fishing Boat Harbour. Modern photo (2015), not from the time of the event; the ship is a modern copy. Licence: CC BY-SA 4.0.",
+      "de": "Nachbau von 1999 der Duyfken im Fremantle Fishing Boat Harbour. Heutiges Foto (2015), nicht aus der Zeit des Ereignisses; das Schiff ist eine moderne Nachbildung. Lizenz: CC BY-SA 4.0.",
+      "es": "Réplica de 1999 del Duyfken en el Fremantle Fishing Boat Harbour. Foto actual (2015), no de la época del acontecimiento; el barco es una copia moderna. Licencia: CC BY-SA 4.0.",
+      "fr": "Réplique de 1999 du Duyfken au Fremantle Fishing Boat Harbour. Photo actuelle (2015), pas de l’époque de l’événement ; le navire est une copie moderne. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Orderinchaos / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-duyfken-nar-australien",
+    "id": "duyfken-nar-australien",
+    "file": "duyfken-nar-australien.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Hessel Gerritsz världskarta från 1612 som visar Queirós upptäckt av ”La Austrialia del Espiritu Santo”. Karta ritad 1612, efter händelsen. Licens: Public domain.",
+      "en": "World map by Hessel Gerritsz of 1612 showing Queirós’s discovery of “La Austrialia del Espiritu Santo”. Map drawn in 1612, after the event. Licence: Public domain.",
+      "de": "Weltkarte von Hessel Gerritsz aus dem Jahr 1612 mit der Entdeckung von „La Austrialia del Espiritu Santo“ durch Queirós. Karte von 1612, nach dem Ereignis gezeichnet. Lizenz: gemeinfrei.",
+      "es": "Mapamundi de Hessel Gerritsz de 1612 que muestra el descubrimiento de «La Austrialia del Espiritu Santo» por Queirós. Mapa dibujado en 1612, después del acontecimiento. Licencia: dominio público.",
+      "fr": "Mappemonde de Hessel Gerritsz de 1612 montrant la découverte de « La Austrialia del Espiritu Santo » par Queirós. Carte dessinée en 1612, après l’événement. Licence : domaine public."
+    },
+    "credit": "Hessel Gerritsz / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-queiros-pa-espiritu-santo",
+    "id": "queiros-pa-espiritu-santo",
+    "file": "queiros-pa-espiritu-santo.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Föremål från 1616: plattan som Dirk Hartog lämnade på Dirk Hartog Island, fotograferad på Rijksmuseum i Amsterdam (fotot uppladdat 2004). Licens: Public domain.",
+      "en": "Object from 1616: the plate that Dirk Hartog left on Dirk Hartog Island, photographed at the Rijksmuseum in Amsterdam (photo uploaded 2004). Licence: Public domain.",
+      "de": "Objekt von 1616: die Platte, die Dirk Hartog auf Dirk Hartog Island zurückließ, fotografiert im Rijksmuseum in Amsterdam (Foto 2004 hochgeladen). Lizenz: gemeinfrei.",
+      "es": "Objeto de 1616: la placa que Dirk Hartog dejó en la isla Dirk Hartog, fotografiada en el Rijksmuseum de Ámsterdam (foto subida en 2004). Licencia: dominio público.",
+      "fr": "Objet de 1616 : la plaque laissée par Dirk Hartog sur l’île Dirk Hartog, photographiée au Rijksmuseum d’Amsterdam (photo mise en ligne en 2004). Licence : domaine public."
+    },
+    "credit": "Adam Carr / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-hartogs-tennplatta",
+    "id": "hartogs-tennplatta",
+    "file": "hartogs-tennplatta.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Kustprofiler av Tasmanien, teckning av Hessel Gerritsz ur Huijdecoper-journalen över Abel Tasmans resa, december 1642. State Library of New South Wales. Samtida teckning. Licens: Public domain.",
+      "en": "Coastal drawings of Tasmania by Hessel Gerritsz, from the Huijdecoper journal of Abel Tasman’s voyage, December 1642. State Library of New South Wales. Contemporary drawing. Licence: Public domain.",
+      "de": "Küstenansichten von Tasmanien, Zeichnung von Hessel Gerritsz aus dem Huijdecoper-Journal von Abel Tasmans Reise, Dezember 1642. State Library of New South Wales. Zeichnung aus der Zeit des Ereignisses. Lizenz: gemeinfrei.",
+      "es": "Perfiles de la costa de Tasmania, dibujo de Hessel Gerritsz del diario Huijdecoper del viaje de Abel Tasman, diciembre de 1642. State Library of New South Wales. Dibujo de la época. Licencia: dominio público.",
+      "fr": "Profils de la côte de la Tasmanie, dessin de Hessel Gerritsz tiré du journal Huijdecoper du voyage d’Abel Tasman, décembre 1642. State Library of New South Wales. Dessin de l’époque. Licence : domaine public."
+    },
+    "credit": "Hessel Gerritsz / State Library of New South Wales / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-tasman-nar-tasmanien",
+    "id": "tasman-nar-tasmanien",
+    "file": "tasman-nar-tasmanien.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Akvarell av William Bradley med titeln ”Sydney Cove, Port Jackson 1788”. Mitchell Library, State Library of New South Wales. Bilden visar inte epidemin 1789. Licens: Public domain.",
+      "en": "Watercolour by William Bradley titled “Sydney Cove, Port Jackson 1788”. Mitchell Library, State Library of New South Wales. The picture does not show the epidemic of 1789. Licence: Public domain.",
+      "de": "Aquarell von William Bradley mit dem Titel „Sydney Cove, Port Jackson 1788“. Mitchell Library, State Library of New South Wales. Das Bild zeigt nicht die Epidemie von 1789. Lizenz: gemeinfrei.",
+      "es": "Acuarela de William Bradley titulada «Sydney Cove, Port Jackson 1788». Mitchell Library, State Library of New South Wales. La imagen no muestra la epidemia de 1789. Licencia: dominio público.",
+      "fr": "Aquarelle de William Bradley intitulée « Sydney Cove, Port Jackson 1788 ». Mitchell Library, State Library of New South Wales. L’image ne montre pas l’épidémie de 1789. Licence : domaine public."
+    },
+    "credit": "William Bradley / State Library of New South Wales / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-smittkoppor-sydney-1789",
+    "id": "smittkoppor-sydney-1789",
+    "file": "smittkoppor-sydney-1789.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "stilla-havet-gravyr",
+    "caption": {
+      "sv": "Nutida foto (2010) av utsikt över Poverty Bay från Kaiti Hill, inte från händelsens tid. Licens: Public domain.",
+      "en": "Modern photo (2010) of the view over Poverty Bay from Kaiti Hill, not from the time of the event. Licence: Public domain.",
+      "de": "Heutiges Foto (2010): Blick über die Poverty Bay vom Kaiti Hill, nicht aus der Zeit des Ereignisses. Lizenz: gemeinfrei.",
+      "es": "Foto actual (2010) de la vista sobre la bahía de Poverty desde Kaiti Hill, no de la época del acontecimiento. Licencia: dominio público.",
+      "fr": "Photo actuelle (2010) de la vue sur la baie de Poverty depuis Kaiti Hill, pas de l’époque de l’événement. Licence : domaine public."
+    },
+    "credit": "Pseudopanax / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-cook-gar-i-land-turanganui",
+    "id": "cook-gar-i-land-turanganui",
+    "file": "cook-gar-i-land-turanganui.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "stilla-havet-gravyr",
+    "caption": {
+      "sv": "Foto (2014) av en oljemålning av okänd konstnär som visar missionsstationen vid Rangihoua (Oihi Bay). Målningens ålder anges inte på filsidan. Licens: CC BY-SA 2.0.",
+      "en": "Photo (2014) of an oil painting by an unknown artist showing the mission station at Rangihoua (Oihi Bay). The file page does not give the age of the painting. Licence: CC BY-SA 2.0.",
+      "de": "Foto (2014) eines Ölgemäldes eines unbekannten Künstlers, das die Missionsstation bei Rangihoua (Oihi Bay) zeigt. Das Alter des Gemäldes wird auf der Dateiseite nicht angegeben. Lizenz: CC BY-SA 2.0.",
+      "es": "Foto (2014) de un óleo de artista desconocido que muestra la estación misionera de Rangihoua (Oihi Bay). La página del archivo no indica la antigüedad de la pintura. Licencia: CC BY-SA 2.0.",
+      "fr": "Photo (2014) d’une peinture à l’huile d’un artiste inconnu montrant la station missionnaire de Rangihoua (Oihi Bay). La page du fichier n’indique pas l’âge du tableau. Licence : CC BY-SA 2.0."
+    },
+    "credit": "Archives New Zealand / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-forsta-missionen-rangihoua",
+    "id": "forsta-missionen-rangihoua",
+    "file": "forsta-missionen-rangihoua.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Fossil av den utdöda fågeln Sylviornis, fotograferat på Musée d’Histoire Naturelle i Paris. Nutida foto (2013), inte från händelsens tid. Licens: CC BY-SA 3.0.",
+      "en": "Fossil of the extinct bird Sylviornis, photographed at the Musée d’Histoire Naturelle in Paris. Modern photo (2013), not from the time of the event. Licence: CC BY-SA 3.0.",
+      "de": "Fossil des ausgestorbenen Vogels Sylviornis, fotografiert im Musée d’Histoire Naturelle in Paris. Heutiges Foto (2013), nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 3.0.",
+      "es": "Fósil del ave extinta Sylviornis, fotografiado en el Musée d’Histoire Naturelle de París. Foto actual (2013), no de la época del acontecimiento. Licencia: CC BY-SA 3.0.",
+      "fr": "Fossile de l’oiseau disparu Sylviornis, photographié au Musée d’Histoire Naturelle de Paris. Photo actuelle (2013), pas de l’époque de l’événement. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Ghedoghedo / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-sylviornis-dor-ut",
+    "id": "sylviornis-dor-ut",
+    "file": "sylviornis-dor-ut.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Nutida foto (2008) av en kavaplanta (Piper methysticum) i Hilo på Hawaii, inte från händelsens tid. Licens: CC0.",
+      "en": "Modern photo (2008) of a kava plant (Piper methysticum) in Hilo, Hawaii, not from the time of the event. Licence: CC0.",
+      "de": "Heutiges Foto (2008) einer Kava-Pflanze (Piper methysticum) in Hilo, Hawaii, nicht aus der Zeit des Ereignisses. Lizenz: CC0.",
+      "es": "Foto actual (2008) de una planta de kava (Piper methysticum) en Hilo, Hawái, no de la época del acontecimiento. Licencia: CC0.",
+      "fr": "Photo actuelle (2008) d’un plant de kava (Piper methysticum) à Hilo, à Hawaï, pas de l’époque de l’événement. Licence : CC0."
+    },
+    "credit": "Scot Nelson / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-kavan-odlas-fram",
+    "id": "kavan-odlas-fram",
+    "file": "kavan-odlas-fram.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Föremål från lapitakulturen: del av en 3 000 år gammal krukkant med tandstämplade mönster fyllda med kalk, hittad vid boplatsen Bourewa på Fiji. Nutida foto (2008), inte från händelsens tid. Licens: CC BY-SA 4.0.",
+      "en": "Object from the Lapita culture: part of a 3,000-year-old pot rim with dentate-stamped patterns filled with lime, found at the Bourewa site in Fiji. Modern photo (2008), not from the time of the event. Licence: CC BY-SA 4.0.",
+      "de": "Gegenstand der Lapita-Kultur: Teil eines 3000 Jahre alten Topfrands mit Zahnstempelmustern und Kalkfüllung, gefunden an der Fundstelle Bourewa auf Fidschi. Heutiges Foto (2008), nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+      "es": "Objeto de la cultura lapita: parte del borde de una vasija de 3000 años, con patrones de estampado dentado rellenos de cal, hallado en el yacimiento de Bourewa, en Fiyi. Foto actual (2008), no de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+      "fr": "Objet de la culture lapita : fragment du bord d’un pot vieux de 3 000 ans, aux motifs à l’estampage denté remplis de chaux, trouvé sur le site de Bourewa aux Fidji. Photo actuelle (2008), pas de l’époque de l’événement. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Patrick Nunn / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-lapitafolket-pa-fiji",
+    "id": "lapitafolket-pa-fiji",
+    "file": "lapitafolket-pa-fiji.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Föremål från lapitakulturen, utställda på Otago Museum. Nutida foto (2016), inte från händelsens tid; fotot visar inte fyndplatsen på Nya Kaledonien. Licens: Public domain.",
+      "en": "Objects of the Lapita culture on display at the Otago Museum. Modern photo (2016), not from the time of the event; the photo does not show the find site in New Caledonia. Licence: Public domain.",
+      "de": "Gegenstände der Lapita-Kultur, ausgestellt im Otago Museum. Heutiges Foto (2016), nicht aus der Zeit des Ereignisses; das Foto zeigt nicht die Fundstelle in Neukaledonien. Lizenz: gemeinfrei.",
+      "es": "Objetos de la cultura lapita expuestos en el Otago Museum. Foto actual (2016), no de la época del acontecimiento; la foto no muestra el yacimiento de Nueva Caledonia. Licencia: dominio público.",
+      "fr": "Objets de la culture lapita exposés à l’Otago Museum. Photo actuelle (2016), pas de l’époque de l’événement ; la photo ne montre pas le site de Nouvelle-Calédonie. Licence : domaine public."
+    },
+    "credit": "Szilas / Otago Museum / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-fyndplatsen-lapita",
+    "id": "fyndplatsen-lapita",
+    "file": "fyndplatsen-lapita.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Nutida foto (2025) av östra armen av Fangaʻuta-lagunen på Tongatapu; vid horisonten syns Nukuleka. Inte från händelsens tid. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2025) of the eastern arm of Fangaʻuta Lagoon on Tongatapu; Nukuleka is visible on the horizon. Not from the time of the event. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2025) des Ostarms der Fangaʻuta-Lagune auf Tongatapu; am Horizont ist Nukuleka zu sehen. Nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2025) del brazo oriental de la laguna de Fangaʻuta, en Tongatapu; en el horizonte se ve Nukuleka. No es de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2025) du bras oriental du lagon de Fangaʻuta sur Tongatapu ; Nukuleka est visible à l’horizon. Pas de l’époque de l’événement. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Walmaul / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-lapitafolket-nar-tonga",
+    "id": "lapitafolket-nar-tonga",
+    "file": "lapitafolket-nar-tonga.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Nutida foto (2011) av vulkanen Pico do Fogo på ön Fogo i Kap Verde, med en extra kon i förgrunden, inte från händelsens tid. Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2011) of the volcano Pico do Fogo on the island of Fogo, Cape Verde, with an additional cone in the foreground, not from the time of the event. Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2011) des Vulkans Pico do Fogo auf der Insel Fogo, Kap Verde, mit einem zusätzlichen Kegel im Vordergrund, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2011) del volcán Pico do Fogo en la isla de Fogo, Cabo Verde, con un cono adicional en primer plano, no de la época del acontecimiento. Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2011) du volcan Pico do Fogo sur l’île de Fogo, au Cap-Vert, avec un cône supplémentaire au premier plan, pas de l’époque de l’événement. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Cayambe / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-fogo-utbrottet-1680",
+    "id": "fogo-utbrottet-1680",
+    "file": "fogo-utbrottet-1680.webp"
   }
 ]
