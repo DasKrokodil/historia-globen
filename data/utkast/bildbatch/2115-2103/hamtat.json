@@ -1,0 +1,136 @@
+[
+  {
+    "ref": "File:Florisbad NMNH.jpg",
+    "kalla": "commons",
+    "handelse": "florisbad",
+    "status": "klar",
+    "skal": [],
+    "todo": [
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:Florisbad_NMNH.jpg",
+      "titel": "Florisbad NMNH",
+      "upphovsperson": "Jonathan Chen",
+      "credit_rad_i_metadata": "Own work",
+      "datum": "2024-07-31 11:45:45",
+      "beskrivning_i_metadata": "Homo heidelbergensis skull cast (Florisbad) on display at the Smithsonian's National Museum of Natural History.",
+      "mime": "image/jpeg",
+      "bredd": 960,
+      "hojd": 904,
+      "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Florisbad_NMNH.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "licens_api": "CC BY-SA 4.0",
+      "licensmallar": [
+        "self|cc-by-sa-4.0"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-florisbad",
+      "title": "Florisbad NMNH – Jonathan Chen (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:Florisbad_NMNH.jpg",
+      "license": "CC BY-SA 4.0",
+      "checked": "2026-11-26"
+    },
+    "image": {
+      "file": "images/events/florisbad.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC BY-SA 4.0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC BY-SA 4.0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC BY-SA 4.0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC BY-SA 4.0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC BY-SA 4.0."
+      },
+      "credit": "Jonathan Chen / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": "commons-bild-florisbad"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC BY-SA 4.0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC BY-SA 4.0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC BY-SA 4.0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC BY-SA 4.0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC BY-SA 4.0."
+      },
+      "credit": "Jonathan Chen / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": "commons-bild-florisbad",
+      "id": "florisbad"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2115-2103/florisbad.webp",
+      "bytes": 46948
+    }
+  },
+  {
+    "ref": "File:Blombos.jpg",
+    "kalla": "commons",
+    "handelse": "blombosgrottan",
+    "status": "klar",
+    "skal": [],
+    "todo": [
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:Blombos.jpg",
+      "titel": "Blombos",
+      "upphovsperson": "Vincent Mourre / Inrap",
+      "credit_rad_i_metadata": "Own work",
+      "datum": "2010-05-28",
+      "beskrivning_i_metadata": "general view of Blombos site, South Africa",
+      "mime": "image/jpeg",
+      "bredd": 800,
+      "hojd": 1200,
+      "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Blombos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "licens_api": "CC BY-SA 3.0",
+      "licensmallar": [
+        "self|cc-by-sa-3.0"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-blombosgrottan",
+      "title": "Blombos – Vincent Mourre / Inrap (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:Blombos.jpg",
+      "license": "CC BY-SA 3.0",
+      "checked": "2026-11-26"
+    },
+    "image": {
+      "file": "images/events/blombosgrottan.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC BY-SA 3.0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC BY-SA 3.0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC BY-SA 3.0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC BY-SA 3.0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC BY-SA 3.0."
+      },
+      "credit": "Vincent Mourre / Inrap / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": "commons-bild-blombosgrottan"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC BY-SA 3.0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC BY-SA 3.0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC BY-SA 3.0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC BY-SA 3.0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC BY-SA 3.0."
+      },
+      "credit": "Vincent Mourre / Inrap / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": "commons-bild-blombosgrottan",
+      "id": "blombosgrottan"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2115-2103/blombosgrottan.webp",
+      "bytes": 61720
+    }
+  }
+]
