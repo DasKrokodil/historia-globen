@@ -2070,6 +2070,23 @@ KALININGRAD = (19.4, 54.2, 22.95, 55.4)
 # Rutan längs gränsen mellan Frankrike och Tyskland, från Schengen till Basel, och Tysklands och Frankrikes sidor av gränsen i
 # den ur Natural Earth (#1755)
 FRANSKA_GRANSEN = (6.3, 47.62, 8.4, 49.5)  # utan Luxemburg och Schweiz
+# Gränsen vid floden Lauter (#1767): Natural Earth 1:10m lägger gränsen mellan Frankrike och Tyskland cirka 0,8 km för långt
+# söderut, så att Wissembourg, Scheibenhard och Lauterbourg hamnar i Tyskland. Ingen källa i repot har en bättre linje där, så
+# rättningen är en approximation byggd bara på orternas punkter i Wikidata (CC0, Special:EntityData öppnad 2026-11-26):
+#   Frankrike: Wissembourg Q22636 (7,9461 / 49,0375), Scheibenhard Q21473 (8,1369 / 48,9789), Lauterbourg Q22435 (8,1739 / 48,9753)
+#   Tyskland:  Schweigen-Rechtenbach Q653244 (7,9561 / 49,0529), Scheibenhardt Q657728 (8,1331 / 48,9831),
+#              Neulauterburg Q127699918 (8,1831 / 48,9789), Berg (Pfalz) Q681063 (8,1997 / 48,9831)
+# Varje ruta (väst, syd, öst, nord) går 0,015 grader (cirka 1,1 km) väster och öster om de franska orternas punkter, och norrut
+# till breddgraden mitt emellan den franska orten och dess tyska granne (Wissembourg–Schweigen 49,045; Scheibenhard–Scheibenhardt
+# 48,981; Lauterbourg–Neulauterburg 48,977). Rutan vid Lauterbourg slutar i öster vid Natural Earths gränspunkt vid Rhen (8,189).
+# Rutornas kanter är alltså valda, inte uppmätta: den nya linjen ligger mellan orternas mittpunkter men följer inte floden, och kan
+# ligga några hundra meter fel. Mellan Wissembourg och Scheibenhard (Schleithal, Salmbach och Niederlauterbach ligger redan i
+# Frankrike i Natural Earth) och söder om Lauterbourg följer gränsen Natural Earth som förut. Tysklands mark i Natural Earth inom
+# rutorna räknas till Frankrike de år gränsen följer Natural Earth (1920–1939 och från 1950), inte 1940–1949
+LAUTER_RUTOR = [(7.931, 49.0, 7.961, 49.045), (8.122, 48.96, 8.155, 48.981), (8.155, 48.96, 8.189, 48.977)]
+LAUTER = ('snitt', ('ne', ['tyskland']), ('rutor', LAUTER_RUTOR))
+# Frankrike i Natural Earth med remsan vid Lauter, för reglerna som klipper Frankrike ur Tyskland (#1767)
+FRANKRIKE_LAUTER = ('union', ('ne', ['frankrike-ne']), LAUTER)
 # Rutan längs gränsen mellan Tjeckoslovakien och Tyskland (Bayern och Sachsen), #1755
 TJECKISKA_GRANSEN = (11.9, 48.5, 15.1, 51.1)
 # Rutorna vid Bodensee och Hochrhein (Basel, Schaffhausen, Konstanz, Vorarlberg) och längs gränsen mellan Österrike och Tyskland
@@ -2102,15 +2119,17 @@ JURA_NAZI, JURA_VICHY, JURA_ITALIEN = ['Nazi Germany'], ['Vichy France', '(Vichy
 ALLGAU = (9.5, 47.25, 10.5, 48.1)
 ALLGAU_BY = ('snitt', ('snitt', ('ne', ['tyskland']), ('ne', ['vasttyska-granslander'])), ('rutor', [ALLGAU]))
 LINDAU_PUNKT = (9.684, 47.546)  # Lindau, Q153969
-TYSKA_SIDAN = ('snitt', ('ne', ['tyskland']), ('rutor', [FRANSKA_GRANSEN]))
+# Utan remsan vid Lauter, som räknas till Frankrike (#1767)
+TYSKA_SIDAN = ('skillnad', ('snitt', ('ne', ['tyskland']), ('rutor', [FRANSKA_GRANSEN])), LAUTER)
 # Rhenlandet 1920–1929 (#1766, beslut 2026-11-20): Weimarrepublikens egen gräns i Cliopatria 1930 (efter ockupationen) väster
 # om 9 grader öst, där Cliopatria ritar zonerna och brohuvudena som Frankrike, Belgien, Storbritannien och USA. Utan det som
 # Natural Earth räknar till Nederländerna, Frankrike och Schweiz, utan Saarområdet och utan Cliopatrias Luxemburg, så att
 # Cliopatrias överlapp mot grannarna (Venlo, Luxemburgs gräns) inte ritas in i Tyskland de åren
 RHENLANDET_RUTA = (5.8, 47.5, 9.0, 52.2)
 RHENLANDET = ('skillnad', ('snitt', ('clio', 'Weimar Republic', 1930), ('rutor', [RHENLANDET_RUTA])),
-              ('union', ('ne', ['nederlanderna-ne', 'frankrike-ne', 'schweiz-ne', 'saarland']), ('clio', 'Luxembourg', 1925)))
-FRANSKA_SIDAN = ('snitt', ('ne', ['frankrike-ne']), ('rutor', [FRANSKA_GRANSEN]))
+              ('union', ('ne', ['nederlanderna-ne', 'frankrike-ne', 'schweiz-ne', 'saarland']), ('clio', 'Luxembourg', 1925), LAUTER))
+# Med remsan vid Lauter (#1767)
+FRANSKA_SIDAN = ('union', ('snitt', ('ne', ['frankrike-ne']), ('rutor', [FRANSKA_GRANSEN])), LAUTER)
 # Tysklands sida av gränsen mot Nederländerna 1950–1962 enligt Förbundsrepublikens gräns i Cliopatria 1955 (utan Selfkant och
 # Elten), utan det som ligger i Nederländerna i Natural Earth (Gangelt, #1755)
 BRD_MOT_NEDERLANDERNA = ('snitt', ('skillnad', ('clio', 'Federal Republic of Germany', 1955), ('ne', ['nederlanderna-ne'])),
@@ -2309,12 +2328,19 @@ DISPUTED = {
     # Femte republikens gräns slutar där cirka 0,035 grader från Forbach. Gränsen mellan Frankrike och Tyskland är dagens efter att
     # Saar blev tyskt 1957, så Frankrikes gräns i Natural Earth klipps ur Västtyskland och Tyskland, och Frankrikes sida av gränsen
     # läggs till Frankrike, som 1920–1939 (#1750, #1755). Bara efter förenklingen, som för Saar
-    'frankrike-brd': {'area': ('ne', ['frankrike-ne']), 'from': 1958, 'to': 1990, 'strict': True, 'efter': True,
+    'frankrike-brd': {'area': FRANKRIKE_LAUTER, 'from': 1958, 'to': 1990, 'strict': True, 'efter': True,
                       'remove': ['vasttyskland'], 'add': []},
-    'frankrike-tyskland': {'area': ('ne', ['frankrike-ne']), 'from': 1991, 'strict': True, 'efter': True,
+    'frankrike-tyskland': {'area': FRANKRIKE_LAUTER, 'from': 1991, 'strict': True, 'efter': True,
                            'remove': ['tyskland'], 'add': []},
     'gransen-frankrike-1958': {'area': FRANSKA_SIDAN, 'from': 1958, 'strict': True, 'efter': True,
                                'remove': [], 'add': ['frankrike']},
+    # Lauter 1950–1957 (#1767): Cliopatria räknar remsan vid Lauter (LAUTER) till Förbundsrepubliken från 1950 och Fjärde
+    # republiken har Frankrike till och med 1957. Remsan klipps ur Västtyskland och läggs till Fjärde republiken, bara efter
+    # förenklingen; från 1958 sköts den av frankrike-brd, frankrike-tyskland och gransen-frankrike-1958
+    'lauter-brd-1950': {'area': LAUTER, 'from': 1950, 'to': 1957, 'strict': True, 'efter': True,
+                        'remove': ['vasttyskland'], 'add': []},
+    'lauter-frankrike-1950': {'area': LAUTER, 'from': 1950, 'to': 1957, 'strict': True, 'efter': True,
+                              'remove': [], 'add': ['franska-kolonialvaldet']},
     # Kehl: Cliopatria räknar staden till Förbundsrepubliken från 1950 och till Fjärde republiken till och med 1949
     # (en.wikipedia "Kehl": frigiven i 42 delar 29 juli 1949–8 april 1953). Fjärde republiken har sin gräns från 1949
     # också 1950–1957 efter sammanslagningen och förenklingen; Västtysklands gräns klipps bort ur den från 1950
@@ -2441,13 +2467,14 @@ DISPUTED = {
     # Forbach i Lorraine: Cliopatria räknar en bit av Moselle till Weimarrepubliken från 1932 och till Nazityskland, men den hörde
     # till Frankrike 1919–1940. Frankrikes gräns i Natural Earth klipps ur Tyskland 1920–1939 (inte 1940–1944, då Alsace-Moselle
     # var annekterat i praktiken och Cliopatria räknar det till Nazityskland)
-    'frankrike-weimar': {'area': ('ne', ['frankrike-ne']), 'from': 1920, 'to': 1932, 'strict': True, 'efter': True,
+    'frankrike-weimar': {'area': FRANKRIKE_LAUTER, 'from': 1920, 'to': 1932, 'strict': True, 'efter': True,
                          'remove': ['weimarrepubliken'], 'add': []},
-    'frankrike-nazityskland': {'area': ('ne', ['frankrike-ne']), 'from': 1933, 'to': 1939, 'strict': True, 'efter': True,
+    'frankrike-nazityskland': {'area': FRANKRIKE_LAUTER, 'from': 1933, 'to': 1939, 'strict': True, 'efter': True,
                                'remove': ['nazityskland'], 'add': []},
     # Gränsen följer Natural Earth på båda sidor 1920–1939 (1930–1939 före #1766, när Rhenlandet ritades som Frankrike till och
     # med 1929), så att förenklingen inte lämnar tomma fält eller ritar dubbelt. Saarområdet hålls utanför Tyskland till och med 1934.
-    # Natural Earths gräns vid Lauter ligger ungefär en km fel: Wissembourg och Lauterbourg hamnar i Tyskland (Om kartan)
+    # Natural Earths gräns vid Lauter ligger ungefär en km fel; remsan LAUTER (#1767) räknas till Frankrike i TYSKA_SIDAN och
+    # FRANSKA_SIDAN, så att Wissembourg, Scheibenhard och Lauterbourg ritas i Frankrike (en approximation, se LAUTER)
     'gransen-weimar': {'area': ('skillnad', TYSKA_SIDAN, SAAR), 'from': 1920, 'to': 1932, 'strict': True, 'efter': True,
                        'remove': [], 'add': ['weimarrepubliken']},
     'gransen-nazityskland-saar': {'area': ('skillnad', TYSKA_SIDAN, SAAR), 'from': 1933, 'to': 1934, 'strict': True, 'efter': True,
