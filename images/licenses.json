@@ -132,6 +132,21 @@
       }
     },
     {
+      "eventId": "alexanders-dod",
+      "eventTitle": "Alexander dör i Babylon",
+      "file": "images/events/alexanders-dod.webp",
+      "kind": "historisk",
+      "credit": "Shaunnol / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-alexanders-dod",
+        "title": "Babylonian astronomical diary recording the death of Alexander the Great (British Museum) – Shaunnol (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Babylonian_astronomical_diary_recording_the_death_of_Alexander_the_Great_(British_Museum).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "alexandria-grundas",
       "eventTitle": "Alexandria grundas",
       "file": "images/events/alexandria-grundas.webp",
@@ -351,6 +366,21 @@
       }
     },
     {
+      "eventId": "asokas-inskrifter",
+      "eventTitle": "Asokas inskrifter",
+      "file": "images/events/asokas-inskrifter.webp",
+      "kind": "historisk",
+      "credit": "G41rn8 / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-asokas-inskrifter",
+        "title": "Dhauli ei02-61 – G41rn8 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Dhauli_ei02-61.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "asterix-frankrikes-forsta-satellit",
       "eventTitle": "Astérix, Frankrikes första satellit",
       "file": "images/events/asterix-frankrikes-forsta-satellit.webp",
@@ -501,6 +531,21 @@
       }
     },
     {
+      "eventId": "babyloniska-astronomiska-dagbocker",
+      "eventTitle": "Babyloniska astronomiska dagböcker",
+      "file": "images/events/babyloniska-astronomiska-dagbocker.webp",
+      "kind": "historisk",
+      "credit": "Brigade Piron / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-babyloniska-astronomiska-dagbocker",
+        "title": "British Museum, Babylon Astronomical Diary, 331-330 BC – Brigade Piron (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:British_Museum,_Babylon_Astronomical_Diary,_331-330_BC.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "bagdads-fall-1258",
       "eventTitle": "Bagdads fall",
       "file": "images/events/bagdads-fall-1258.webp",
@@ -640,6 +685,21 @@
         "id": "commons-bild-belagringen-av-charleston-1780",
         "title": "Sullivans-island-1050x777 – Alonzo Chappel (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Sullivans-island-1050x777.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "belagringen-av-dapur",
+      "eventTitle": "Ramses II belägrar Dapur",
+      "file": "images/events/belagringen-av-dapur.webp",
+      "kind": "historisk",
+      "credit": "Okänd (tysk litografi, 1879) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-belagringen-av-dapur",
+        "title": "Ramses II besieging the Cheta people in Dapur – Unknown, published in 1879 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ramses_II_besieging_the_Cheta_people_in_Dapur.jpg",
         "license": "Public domain",
         "checked": "2026-11-26"
       }
@@ -995,6 +1055,21 @@
         "title": "Ban Chiang excavations – Steve from Bangkok, Thailand (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Ban_Chiang_excavations.jpg",
         "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "bronstrummor-fran-dong-son",
+      "eventTitle": "Bronstrummorna från Đông Sơn",
+      "file": "images/events/bronstrummor-fran-dong-son.webp",
+      "kind": "historisk",
+      "credit": "Okänd (Musée Guimet) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-bronstrummor-fran-dong-son",
+        "title": "Tambour-song-da2 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tambour-song-da2.jpg",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
@@ -1641,6 +1716,21 @@
       }
     },
     {
+      "eventId": "dosarna-i-gochang",
+      "eventTitle": "Dösarna i Gochang",
+      "file": "images/events/dosarna-i-gochang.webp",
+      "kind": "historisk",
+      "credit": "Lance Vanlewen / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-dosarna-i-gochang",
+        "title": "Gochang Dolmens, South Korea – Lance Vanlewen (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Gochang_Dolmens,_South_Korea.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "dresdenkodexen",
       "eventTitle": "Dresdenkodexen, en mayabok om astronomi",
       "file": "images/events/dresdenkodexen.webp",
@@ -1901,6 +1991,21 @@
         "title": "Ignition of Jupiter-C with Explorer 1 – NASA (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Ignition_of_Jupiter-C_with_Explorer_1.jpg",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "feniciska-alfabetet",
+      "eventTitle": "Det feniciska alfabetet",
+      "file": "images/events/feniciska-alfabetet.webp",
+      "kind": "historisk",
+      "credit": "Onceinawhile / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-feniciska-alfabetet",
+        "title": "National Museum of Beirut – Ahiram sarcophagus inscription 1 – Onceinawhile (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:National_Museum_of_Beirut_%E2%80%93_Ahiram_sarcophagus_inscription_1.jpg",
+        "license": "CC BY-SA 4.0",
         "checked": "2026-11-26"
       }
     },
@@ -2486,6 +2591,21 @@
         "title": "Igaliku – Svickova (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Igaliku.JPG",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "guldmannen-i-issyk",
+      "eventTitle": "Guldmannen i Issykkurganen",
+      "file": "images/events/guldmannen-i-issyk.webp",
+      "kind": "historisk",
+      "credit": "eggry / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-guldmannen-i-issyk",
+        "title": "Issyk kurgan (Golden Man belt) – eggry (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Issyk_kurgan_(Golden_Man_belt).jpg",
+        "license": "CC BY-SA 2.0",
         "checked": "2026-11-26"
       }
     },
@@ -3405,6 +3525,21 @@
       "source": null
     },
     {
+      "eventId": "kalingakriget",
+      "eventTitle": "Kalingakriget",
+      "file": "images/events/kalingakriget.webp",
+      "kind": "historisk",
+      "credit": "Cheeni / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-kalingakriget",
+        "title": "Kalinga battlefield daya river dhauli hills – Cheeni (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kalinga_battlefield_daya_river_dhauli_hills.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "kalla-somrar-pa-baffinon",
       "eventTitle": "Kalla somrar och växande isar på Baffinön",
       "file": "images/events/kalla-somrar-pa-baffinon.webp",
@@ -4008,6 +4143,21 @@
       }
     },
     {
+      "eventId": "kyros-grundar-perserriket",
+      "eventTitle": "Kyros den store besegrar mederna och grundar Perserriket",
+      "file": "images/events/kyros-grundar-perserriket.webp",
+      "kind": "historisk",
+      "credit": "Daderot / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-kyros-grundar-perserriket",
+        "title": "Cyrus Cylinder, Babylon, Iraq, mid 500s BC, cuneiform on clay - British Museum - DSC01316 – Daderot (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cyrus_Cylinder,_Babylon,_Iraq,_mid_500s_BC,_cuneiform_on_clay_-_British_Museum_-_DSC01316.jpg",
+        "license": "CC0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "la-isabela-columbianska-utbytet",
       "eventTitle": "La Isabela: ett tidigt exempel på det columbianska utbytet",
       "file": "images/events/la-isabela-columbianska-utbytet.webp",
@@ -4170,6 +4320,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Lei_%C3%81urea_arquivo_nacional.jpg",
         "license": "CC0",
         "checked": "2026-11-01"
+      }
+    },
+    {
+      "eventId": "lejontemplet-i-musawwarat-es-sufra",
+      "eventTitle": "Lejontemplet åt Apedemak i Musawwarat es-Sufra",
+      "file": "images/events/lejontemplet-i-musawwarat-es-sufra.webp",
+      "kind": "historisk",
+      "credit": "Vaido Otsar / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-lejontemplet-i-musawwarat-es-sufra",
+        "title": "Apedemak temple in Musawwarat es-sufra 2018 – Vaido Otsar (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Apedemak_temple_in_Musawwarat_es-sufra_2018.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -4677,6 +4842,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:%E6%AD%A6%E5%B7%9E%E5%85%AD%E9%83%B7%E8%88%B9%E6%B8%A1%E5%9B%B3_Bushu_Rokugo_funawatashi_no_zu.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "meroe-blir-huvudstad",
+      "eventTitle": "Meroë blir Kushrikets huvudstad",
+      "file": "images/events/meroe-blir-huvudstad.webp",
+      "kind": "historisk",
+      "credit": "Fabrizio Demartis / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-meroe-blir-huvudstad",
+        "title": "Sudan Meroe Pyramids 30sep2005 16 – Fabrizio Demartis (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Sudan_Meroe_Pyramids_30sep2005_16.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5799,6 +5979,21 @@
       }
     },
     {
+      "eventId": "qanaterna-i-gonabad",
+      "eventTitle": "Qanaterna i Gonabad",
+      "file": "images/events/qanaterna-i-gonabad.webp",
+      "kind": "historisk",
+      "credit": "Tavasoli mohsen / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-qanaterna-i-gonabad",
+        "title": "Ghasabe Qanats of Gonabad – Tavasoli mohsen (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ghasabe_Qanats_of_Gonabad.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "qi-ger-upp-221-fkr",
       "eventTitle": "Qi ger upp och Kina enas",
       "file": "images/events/qi-ger-upp-221-fkr.webp",
@@ -5910,6 +6105,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Kunyu_Wanguo_Quantu_by_Matteo_Ricci_All_panels.jpg",
         "license": "Public domain",
         "checked": "2026-11-12"
+      }
+    },
+    {
+      "eventId": "riket-dmt",
+      "eventTitle": "Riket D'mt på Etiopiens och Eritreas högland",
+      "file": "images/events/riket-dmt.webp",
+      "kind": "historisk",
+      "credit": "Sailko / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-riket-dmt",
+        "title": "Yeha, veduta sui monti circostanti 01 – Sailko (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Yeha,_veduta_sui_monti_circostanti_01.jpg",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -6209,6 +6419,21 @@
         "title": "10.1371.journal.pone.0098359.g002 – M. Ecker (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:10.1371.journal.pone.0098359.g002.jpg",
         "license": "CC BY 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "siloamtunneln",
+      "eventTitle": "Siloamtunneln i Jerusalem",
+      "file": "images/events/siloamtunneln.webp",
+      "kind": "historisk",
+      "credit": "Wikikati / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-siloamtunneln",
+        "title": "Siloam Inscription 2 – Wikikati (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Siloam_Inscription_2.jpg",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
@@ -6717,6 +6942,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Magnus_Stenbock_vid_Helsingborg.jpg",
         "license": "Public domain",
         "checked": "2026-11-21"
+      }
+    },
+    {
+      "eventId": "slaget-vid-hydaspes",
+      "eventTitle": "Slaget vid Hydaspes",
+      "file": "images/events/slaget-vid-hydaspes.webp",
+      "kind": "historisk",
+      "credit": "Charles Le Brun / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-hydaspes",
+        "title": "Le Brun, Alexander and Porus – Charles Le Brun (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Le_Brun,_Alexander_and_Porus.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
