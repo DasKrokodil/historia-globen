@@ -18,6 +18,21 @@
       }
     },
     {
+      "eventId": "afghansk-marathiska-kriget",
+      "eventTitle": "Afghansk-marathiska kriget",
+      "file": "images/events/afghansk-marathiska-kriget.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär (Faizabad-stil) / British Library via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-afghansk-marathiska-kriget",
+        "title": "The Third battle of Panipat 13 January 1761 – Anonymous Unknown author (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Third_battle_of_Panipat_13_January_1761.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "afonso-i-kung-av-kongo",
       "eventTitle": "Afonso I blir kung av Kongo",
       "file": "images/events/afonso-i-kung-av-kongo.webp",
@@ -279,6 +294,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:El_Alamein_1942_-_British_tanks.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "andra-slaget-vid-panipat",
+      "eventTitle": "Andra slaget vid Panipat",
+      "file": "images/events/andra-slaget-vid-panipat.webp",
+      "kind": "historisk",
+      "credit": "Kankar / National Gallery of Victoria via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-andra-slaget-vid-panipat",
+        "title": "The defeat of Hemu, Akbarnama – Kankar (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_defeat_of_Hemu,_Akbarnama.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -735,6 +765,21 @@
       }
     },
     {
+      "eventId": "belagringen-av-busan-1592",
+      "eventTitle": "Japanerna stormar Busan",
+      "file": "images/events/belagringen-av-busan-1592.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-belagringen-av-busan-1592",
+        "title": "Siege-of-Busanjin-1592 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Siege-of-Busanjin-1592.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "belagringen-av-charleston-1780",
       "eventTitle": "Belägringen av Charleston",
       "file": "images/events/belagringen-av-charleston-1780.webp",
@@ -1071,6 +1116,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Brihadeeswarar_Temple_Thanjavur_TN.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-12"
+      }
+    },
+    {
+      "eventId": "britterna-intar-zhoushan-1840",
+      "eventTitle": "Britterna intar Zhoushan",
+      "file": "images/events/britterna-intar-zhoushan-1840.webp",
+      "kind": "historisk",
+      "credit": "Sir Harry Darell / James Henry Lynch",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-britterna-intar-zhoushan-1840",
+        "title": "Chusan conference 1840 – Drawn on the spot by Sir Harry Darell. Lithograph by James Henry Lynch. (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Chusan_conference_1840.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2280,6 +2340,21 @@
       }
     },
     {
+      "eventId": "forsta-opiumkriget",
+      "eventTitle": "Första opiumkriget",
+      "file": "images/events/forsta-opiumkriget.webp",
+      "kind": "historisk",
+      "credit": "Okänd gravör (efter E. Duncan) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-forsta-opiumkriget",
+        "title": "Destroying Chinese war junks, by E. Duncan (1843) – Edward Duncan (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Destroying_Chinese_war_junks,_by_E._Duncan_(1843).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "forsta-slaget-vid-bull-run",
       "eventTitle": "Första slaget vid Bull Run",
       "file": "images/events/forsta-slaget-vid-bull-run.webp",
@@ -2307,6 +2382,21 @@
         "url": "https://www.loc.gov/item/2014697938/",
         "license": "No known restrictions on publication",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "forsta-slaget-vid-panipat",
+      "eventTitle": "Första slaget vid Panipat",
+      "file": "images/events/forsta-slaget-vid-panipat.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär (Baburnama, 1598) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-forsta-slaget-vid-panipat",
+        "title": "Battle of Panipat (20 April 1526). Baburnama of 1598 – 1598 artist (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Panipat_(20_April_1526)._Baburnama_of_1598.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2367,6 +2457,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:FIFA_World_Cup_2010_Spain_with_cup.jpg",
         "license": "CC BY-SA 2.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "francis-xavier-i-japan",
+      "eventTitle": "Francis Xavier kommer till Japan",
+      "file": "images/events/francis-xavier-i-japan.webp",
+      "kind": "historisk",
+      "credit": "Okänd japansk konstnär (skolan efter Giovanni Nicolao) / Kyoto University Museum",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-francis-xavier-i-japan",
+        "title": "Virgin Mary with Infant Jesus and Her Fifteen Mysteries, Loyola and Francis Xavier Kyoto University Museum – Unknown Japanese artist (school of Giovanni Nicolao) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Virgin_Mary_with_Infant_Jesus_and_Her_Fifteen_Mysteries,_Loyola_and_Francis_Xavier_Kyoto_University_Museum.png",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2898,6 +3003,21 @@
       }
     },
     {
+      "eventId": "hanaoka-narkos-1804",
+      "eventTitle": "Hanaoka Seishū opererar under narkos",
+      "file": "images/events/hanaoka-narkos-1804.webp",
+      "kind": "historisk",
+      "credit": "Hanaoka Seishū / U.S. National Library of Medicine",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-hanaoka-narkos-1804",
+        "title": "Image from \"Surgical Casebook\" by Hanaoka Seishu – Hanaoka Seishu (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Image_from_%22Surgical_Casebook%22_by_Hanaoka_Seishu.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "hansan-vaxer-fram",
       "eventTitle": "Hansan växer fram",
       "file": "images/events/hansan-vaxer-fram.webp",
@@ -3096,6 +3216,21 @@
       }
     },
     {
+      "eventId": "hoei-utbrottet-1707",
+      "eventTitle": "Fuji får sitt senaste utbrott",
+      "file": "images/events/hoei-utbrottet-1707.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär; Kabinettskansliet (Japan) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-hoei-utbrottet-1707",
+        "title": "宝永大噴火を描いた絵図「夜ルの景気」(静岡県沼津市土屋博氏所蔵) – 内閣府 防災担当 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%E5%AE%9D%E6%B0%B8%E5%A4%A7%E5%99%B4%E7%81%AB%E3%82%92%E6%8F%8F%E3%81%84%E3%81%9F%E7%B5%B5%E5%9B%B3%E3%80%8C%E5%A4%9C%E3%83%AB%E3%81%AE%E6%99%AF%E6%B0%97%E3%80%8D(%E9%9D%99%E5%B2%A1%E7%9C%8C%E6%B2%BC%E6%B4%A5%E5%B8%82%E5%9C%9F%E5%B1%8B%E5%8D%9A%E6%B0%8F%E6%89%80%E8%94%B5).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "homo-erectus-ngandong",
       "eventTitle": "Homo erectus vid Ngandong på Java",
       "file": "images/events/homo-erectus-ngandong.webp",
@@ -3272,6 +3407,21 @@
         "title": "Semi-dugout of Imenkovo culture – Engelberthumperdink (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Semi-dugout_of_Imenkovo_culture.JPG",
         "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "imjinkriget",
+      "eventTitle": "Imjinkriget",
+      "file": "images/events/imjinkriget.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär (Ehon Taikōki) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-imjinkriget",
+        "title": "Sortie siege of Ulsan (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Sortie_siege_of_Ulsan.JPG",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
@@ -3528,6 +3678,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Jikji_pages.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "jintianupproret",
+      "eventTitle": "Upproret i Jintian",
+      "file": "images/events/jintianupproret.webp",
+      "kind": "historisk",
+      "credit": "STW932 / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-jintianupproret",
+        "title": "Jintian Uprising Site (21) – STW932 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Jintian_Uprising_Site_(21).jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -6573,6 +6738,21 @@
       }
     },
     {
+      "eventId": "sakoku-japan-stanger",
+      "eventTitle": "Japan stänger sig (sakoku)",
+      "file": "images/events/sakoku-japan-stanger.webp",
+      "kind": "historisk",
+      "credit": "大島明秀 (Ōshima Akihide) / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-sakoku-japan-stanger",
+        "title": "志筑忠雄訳「鎖国論」 – 大島明秀 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%E5%BF%97%E7%AD%91%E5%BF%A0%E9%9B%84%E8%A8%B3%E3%80%8C%E9%8E%96%E5%9B%BD%E8%AB%96%E3%80%8D.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "saltmarschen",
       "eventTitle": "Gandhis saltmarsch",
       "file": "images/events/saltmarschen.webp",
@@ -7983,6 +8163,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-zhenjiang-1842",
+      "eventTitle": "Slaget vid Zhenjiang",
+      "file": "images/events/slaget-vid-zhenjiang-1842.webp",
+      "kind": "historisk",
+      "credit": "Thomas Allom / J. M. Starling",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-zhenjiang-1842",
+        "title": "West Gate of Ching-Keang-Foo 1842 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:West_Gate_of_Ching-Keang-Foo_1842.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaveriet-avskaffas-i-usa",
       "eventTitle": "Slaveriet förbjuds i USA",
       "file": "images/events/slaveriet-avskaffas-i-usa.webp",
@@ -8381,6 +8576,21 @@
         "title": "مغارة تافوغالت – Anwar Meqor (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:%D9%85%D8%BA%D8%A7%D8%B1%D8%A9_%D8%AA%D8%A7%D9%81%D9%88%D8%BA%D8%A7%D9%84%D8%AA.jpg",
         "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "taipingupproret",
+      "eventTitle": "Taipingupproret",
+      "file": "images/events/taipingupproret.webp",
+      "kind": "historisk",
+      "credit": "Émile Bayard / Le Tour du monde",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-taipingupproret",
+        "title": "Le Tour du monde-09-p088 – Émile Bayard (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Le_Tour_du_monde-09-p088.jpg",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
