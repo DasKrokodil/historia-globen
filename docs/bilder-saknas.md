@@ -976,3 +976,30 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `karantan-i-ragusa-1377` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
 | `brunelleschis-kupol` | 2026-11-26: Ingen kandidat i listan; sökningen efter Florens domkyrka gav inga träffar; ingen egen vidare sökning hann göras. |
 | `tordesillasfordraget` | 2026-11-26: Händelsen saknades i den automatiska listan; sökningen gav bara bokskanningar och ett gränsmärke; används inte. |
+
+## Europa 1508–1676 och 1809–1871 (#2085 och #2087, 2026-11-26)
+
+20 av 40 händelser fick bild i den här omgången. Följande 20 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/europa-6.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `slaget-vid-nordlingen-1634` | 2026-11-26: Enda kandidaten (Jacques Courtois, Battle of Nordlingen) är bara 620 × 308 px; för liten, används inte. |
+| `slaget-vid-rocroi` | 2026-11-26: Enda kandidaten (La Bataille de Rocroi.jpg) är bara 593 px bred; för liten, används inte. |
+| `slaget-vid-jankau` | 2026-11-26: Enda kandidaten (kopparstick av slaget) är bara 460 px bred; för liten, används inte. |
+| `freden-i-kopenhamn-1660` | 2026-11-26: Enda kandidaten (en sida ur "Sju böcker om konung Carl X Gustafs bragder", 1915 års tryck) har enligt verktyget osäkert datum och kontrollerades inte vidare; ingen bild vald. |
+| `lunds-universitet-grundas` | 2026-11-26: Enda kandidaten (Universitetsbyggnaden, Lund.JPG) är bara 640 × 480 px och har osäkert datum; för liten, används inte. |
+| `slaget-vid-leipzig` | 2026-11-26: Enda kandidaten är en karta ur Meyers Konversations-Lexikon (1890) i närmast kvadratiskt format; används inte som bild för slaget. |
+| `slaget-vid-vitoria` | 2026-11-26: Enda kandidaten flaggades av verktyget som nutida foto (Museo de Armería i Vitoria) och visar inte slaget; används inte. |
+| `andra-parisfreden` | 2026-11-26: Kandidaterna är en karta över Frankrikes östra gräns och ett tidningsurklipp från Parisfredskonferensen 1919; det senare gäller en annan händelse, kartan bedömdes inte som en bild av händelsen. Ingen vald. |
+| `gota-kanal-invigs` | 2026-11-26: Enda kandidaten (Göta kanal, KMB) är bara 768 × 504 px och har okänt datum; används inte. |
+| `grundloven-1849` | 2026-11-26: Enda kandidaten (Alaska Statehood, 2009) gäller en annan händelse; används inte. |
+| `reformationen-i-danmark` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `reformationen-i-skane` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `trohetseden-i-malmo` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `friskyttar-och-snapphanar` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `freden-i-fredrikshamn` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kielfreden-gronland` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `orsted-elektromagnetism` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `rodding-folkhogskola` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `wienkongressen` | 2026-11-26: Verktyget `tools/bildbatch.py` hoppar över händelser med `start` i stället för `year`; ingen kandidatlista togs fram och ingen egen sökning hann göras. |
+| `representationsreformen` | 2026-11-26: Verktyget `tools/bildbatch.py` hoppar över händelser med `start` i stället för `year`; ingen kandidatlista togs fram och ingen egen sökning hann göras. |

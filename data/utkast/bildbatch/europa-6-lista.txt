@@ -1,0 +1,32 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:CAPPELLA SISTINA Ceiling.jpg	sixtinska-kapellets-tak
+# File:Prager.Fenstersturz.1618.jpg	defenestrationen-1618
+# File:Schlacht am Weißen Berg C-K 063.jpg	slaget-vid-vita-berget
+# File:The Vasa from the Bow.jpg	vasa-sjunker
+# File:Dankaerts-Historis-9302.tif	slaget-vid-breitenfeld-1631
+# File:Battle of Nordlingen in 1634 by Jacques Courtois.jpg	slaget-vid-nordlingen-1634
+# File:The Battle of Wittstock 1636.jpg	slaget-vid-wittstock
+# File:Copenhagen - Rundetårn - 2013.jpg	rundetarn-star-klart
+# File:La Bataille de Rocroi.jpg	slaget-vid-rocroi
+# File:Old copper engraving of the Battle of Jankov.jpg	slaget-vid-jankau
+# File:Westfaelischer Friede in Muenster (Gerard Terborch 1648).jpg	westfaliska-freden
+# File:Framsidan på Konung Fredrik III cessionsbrev gällande provinsen Skåne.jpg	forsvenskningen-av-skane
+# File:Treaty of Roskilde - peace banquet (7949340).jpg	freden-i-roskilde
+# File:Sju bocker om konung Carl X Gustafs bragder. 2 1915 (151982553).jpg	freden-i-kopenhamn-1660
+# File:Universitetsbyggnaden, Lund.JPG	lunds-universitet-grundas
+# File:Sveriges Riksbank, Brunkebergstorg, 2020.jpg	riksbanken-grundas
+# File:Sveriges riksdag building (24831063816).jpg	regeringsformen-1809
+# File:Napoleon Wagram.jpg	slaget-vid-wagram
+# File:Battle of Leipzig MKL Bd. 10 1890 (128443424).jpg	slaget-vid-leipzig
+# File:Vitoria - Museo de Armeria 06.JPG	slaget-vid-vitoria
+# File:A map of the Eastern boundary of France to illustrate The Second Peace of Paris 20th Nov 1815.jpg	andra-parisfreden
+# File:Göta kanal - KMB - 16001000013273.jpg	gota-kanal-invigs
+# File:Horace Vernet-Barricade rue Soufflot.jpg	revolutionerna-1848
+# File:Celebrating Alaska Statehood 50 Years January 3, 1959 - 2009 - A Personal Reflection.jpg	grundloven-1849
+# File:H.G.F. Holm - Teltleiren paa Glaciet Anno 1853.png	kolera-i-kopenhamn-1853
+# File:Oresundstag Malmo C 20120109 0033F (8184247339).jpg	jarnvagen-malmo-lund
+# File:Legge 17 marzo 1861.png	kungariket-italien-utropas
+# File:Dybbol Skanse.jpg	stormningen-av-dybbol
+# File:Emergency help image Fäderneslandet 1867.jpg	nodaren-1867-1869
+# File:A v Werner - Kaiserproklamation am 18 Januar 1871 (3. Fassung 1885).jpg	tyska-kejsardomet-utropas
