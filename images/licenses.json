@@ -942,6 +942,21 @@
       "source": null
     },
     {
+      "eventId": "cook-gar-i-land-turanganui",
+      "eventTitle": "Cook går i land vid Tūranganui-a-Kiwa",
+      "file": "images/events/cook-gar-i-land-turanganui.webp",
+      "kind": "historisk",
+      "credit": "Pseudopanax / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-cook-gar-i-land-turanganui",
+        "title": "View over Poverty Bay from Kaiti Hill lookout – Pseudopanax at en.wikipedia (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:View_over_Poverty_Bay_from_Kaiti_Hill_lookout.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "cook-nar-australien",
       "eventTitle": "James Cook når Australiens östkust",
       "file": "images/events/cook-nar-australien.webp",
@@ -1176,6 +1191,21 @@
       }
     },
     {
+      "eventId": "duyfken-nar-australien",
+      "eventTitle": "Willem Janszoon och Duyfken når Australien",
+      "file": "images/events/duyfken-nar-australien.webp",
+      "kind": "historisk",
+      "credit": "Orderinchaos / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-duyfken-nar-australien",
+        "title": "Duyfken replica at Fremantle Harbour 2015 – Orderinchaos (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Duyfken_replica_at_Fremantle_Harbour_2015.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "ebola-upptacks-i-yambuku",
       "eventTitle": "Ebola upptäcks i Yambuku",
       "file": "images/events/ebola-upptacks-i-yambuku.webp",
@@ -1365,6 +1395,21 @@
       }
     },
     {
+      "eventId": "fogo-utbrottet-1680",
+      "eventTitle": "Vulkanen Fogo får ett stort utbrott",
+      "file": "images/events/fogo-utbrottet-1680.webp",
+      "kind": "historisk",
+      "credit": "Cayambe / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-fogo-utbrottet-1680",
+        "title": "Cape Verde Pico do Fogo wide – Cayambe (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cape_Verde_Pico_do_Fogo_wide.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "folkmordet-i-rwanda",
       "eventTitle": "Folkmordet i Rwanda",
       "file": "images/events/folkmordet-i-rwanda.webp",
@@ -1422,6 +1467,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Opening_of_the_Liverpool_and_Manchester_Railway.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "forsta-missionen-rangihoua",
+      "eventTitle": "Den första kristna missionen i Nya Zeeland",
+      "file": "images/events/forsta-missionen-rangihoua.webp",
+      "kind": "historisk",
+      "credit": "Archives New Zealand / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-forsta-missionen-rangihoua",
+        "title": "Oihi Bay, Bay of Islands (15416431034) – Archives New Zealand from New Zealand (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Oihi_Bay,_Bay_of_Islands_(15416431034).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -1572,6 +1632,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:A_view_of_Freetown,_1803.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "fyndplatsen-lapita",
+      "eventTitle": "Fyndplatsen Lapita på Nya Kaledonien",
+      "file": "images/events/fyndplatsen-lapita.webp",
+      "kind": "historisk",
+      "credit": "Szilas / Otago Museum / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-fyndplatsen-lapita",
+        "title": "Display of objects of the Lapita culture, Otago Museum, 2016-01-29 – Szilas (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Display_of_objects_of_the_Lapita_culture,_Otago_Museum,_2016-01-29.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -1878,6 +1953,21 @@
       }
     },
     {
+      "eventId": "hartogs-tennplatta",
+      "eventTitle": "Dirk Hartog lämnar en tennplatta vid Shark Bay",
+      "file": "images/events/hartogs-tennplatta.webp",
+      "kind": "historisk",
+      "credit": "Adam Carr / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-hartogs-tennplatta",
+        "title": "Ac dirkhartogplate – Adam Carr at English Wikipedia (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ac_dirkhartogplate.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "harvard",
       "eventTitle": "Harvard grundas",
       "file": "images/events/harvard.webp",
@@ -1885,6 +1975,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "hatepeutbrottet",
+      "eventTitle": "Hatepeutbrottet vid Taupō",
+      "file": "images/events/hatepeutbrottet.webp",
+      "kind": "historisk",
+      "credit": "NASA / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-hatepeutbrottet",
+        "title": "Lake taupo landsat – NASA (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lake_taupo_landsat.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "hawaiis-monarki-stortas",
@@ -2370,6 +2475,21 @@
       }
     },
     {
+      "eventId": "kavan-odlas-fram",
+      "eventTitle": "Kavan odlas fram i Vanuatu",
+      "file": "images/events/kavan-odlas-fram.webp",
+      "kind": "historisk",
+      "credit": "Scot Nelson / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-kavan-odlas-fram",
+        "title": "Piper methysticum (kava, awa) – Scot Nelson (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Piper_methysticum_(kava,_awa).jpg",
+        "license": "CC0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "keelingkurvan",
       "eventTitle": "Koldioxiden mäts på Mauna Loa: Keelingkurvan",
       "file": "images/events/keelingkurvan.webp",
@@ -2805,6 +2925,36 @@
         "url": "https://commons.wikimedia.org/wiki/File:PortVilaLapita.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "lapitafolket-nar-tonga",
+      "eventTitle": "Lapitafolket når Tonga",
+      "file": "images/events/lapitafolket-nar-tonga.webp",
+      "kind": "historisk",
+      "credit": "Walmaul / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-lapitafolket-nar-tonga",
+        "title": "Fanga‘uta-Lagune (Ostarm) – Walmaul (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Fanga%E2%80%98uta-Lagune_(Ostarm).jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "lapitafolket-pa-fiji",
+      "eventTitle": "Lapitafolket på Fiji och kvinnan Mana",
+      "file": "images/events/lapitafolket-pa-fiji.webp",
+      "kind": "historisk",
+      "credit": "Patrick Nunn / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-lapitafolket-pa-fiji",
+        "title": "Decorated piece of Lapita pottery from the Bourewa site in Fiji – Patrick Nunn (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Decorated_piece_of_Lapita_pottery_from_the_Bourewa_site_in_Fiji.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -3262,6 +3412,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "moafaglarna-dor-ut",
+      "eventTitle": "Moafåglarna och moaörnen dör ut",
+      "file": "images/events/moafaglarna-dor-ut.webp",
+      "kind": "historisk",
+      "credit": "Szilas / Otago Museum / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-moafaglarna-dor-ut",
+        "title": "Upland moa skeleton, Otago Museum, 2016-01-29 – Szilas (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Upland_moa_skeleton,_Otago_Museum,_2016-01-29.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "moai-rapa-nui",
@@ -3879,6 +4044,36 @@
       }
     },
     {
+      "eventId": "polynesier-pa-aucklandoarna",
+      "eventTitle": "Polynesier når Aucklandöarna",
+      "file": "images/events/polynesier-pa-aucklandoarna.webp",
+      "kind": "historisk",
+      "credit": "M. Murphy / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-polynesier-pa-aucklandoarna",
+        "title": "EnderbyIsland1 – M. Murphy (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:EnderbyIsland1.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "polynesier-pa-norfolkon",
+      "eventTitle": "Polynesier bosätter sig på Norfolkön",
+      "file": "images/events/polynesier-pa-norfolkon.webp",
+      "kind": "historisk",
+      "credit": "Peter James McNally / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-polynesier-pa-norfolkon",
+        "title": "Dusk on Norfolk Island – Peter James McNally (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Dusk_on_Norfolk_Island.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "pungvargen-forsvinner-fran-fastlandet",
       "eventTitle": "Pungvargen och pungdjävulen dör ut på fastlandet",
       "file": "images/events/pungvargen-forsvinner-fran-fastlandet.webp",
@@ -3901,6 +4096,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "queiros-pa-espiritu-santo",
+      "eventTitle": "Queirós på Espiritu Santo",
+      "file": "images/events/queiros-pa-espiritu-santo.webp",
+      "kind": "historisk",
+      "credit": "Hessel Gerritsz / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-queiros-pa-espiritu-santo",
+        "title": "Hessel Gerritsz - Worldmap of 1612 including the discovery of La Austrialia del Espiritu Santo by Pedro Fernandes de Queirós – Hessel Gherrijtszoon van Assum (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Hessel_Gerritsz_-_Worldmap_of_1612_including_the_discovery_of_La_Austrialia_del_Espiritu_Santo_by_Pedro_Fernandes_de_Queir%C3%B3s.png",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "rhind-papyrusen",
@@ -3945,6 +4155,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Leguat1891solitaire.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "roi-mata-hovdingarna",
+      "eventTitle": "Roi Mata-hövdingarna i Vanuatu",
+      "file": "images/events/roi-mata-hovdingarna.webp",
+      "kind": "historisk",
+      "credit": "PhillipC / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-roi-mata-hovdingarna",
+        "title": "Fele's Cave – PhillipC (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Fele%27s_Cave.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -4983,6 +5208,21 @@
       }
     },
     {
+      "eventId": "smittkoppor-sydney-1789",
+      "eventTitle": "Smittkoppor drabbar eora-folket vid Sydney",
+      "file": "images/events/smittkoppor-sydney-1789.webp",
+      "kind": "historisk",
+      "credit": "William Bradley / State Library of New South Wales / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-smittkoppor-sydney-1789",
+        "title": "Sydney Cove Port Jackson 1788 – William Bradley (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Sydney_Cove_Port_Jackson_1788.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "smittkoppor-utrotas",
       "eventTitle": "Smittkopporna utrotas",
       "file": "images/events/smittkoppor-utrotas.webp",
@@ -5220,6 +5460,21 @@
       }
     },
     {
+      "eventId": "sylviornis-dor-ut",
+      "eventTitle": "Det sista spåret av jättefågeln Sylviornis",
+      "file": "images/events/sylviornis-dor-ut.webp",
+      "kind": "historisk",
+      "credit": "Ghedoghedo / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-sylviornis-dor-ut",
+        "title": "Sylviornis neocaledoniae skull – Ghedoghedo (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Sylviornis_neocaledoniae_skull.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "taj-mahal",
       "eventTitle": "Taj Mahal byggs",
       "file": "images/events/taj-mahal.webp",
@@ -5277,6 +5532,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE_%D8%A7%D9%84%D8%B3%D9%88%D8%AF%D8%A7%D9%86.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "tasman-nar-tasmanien",
+      "eventTitle": "Abel Tasman når Tasmanien",
+      "file": "images/events/tasman-nar-tasmanien.webp",
+      "kind": "historisk",
+      "credit": "Hessel Gerritsz / State Library of New South Wales / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tasman-nar-tasmanien",
+        "title": "Abel Tasman Tasmania 1642 SLNSW FL3174899 – Hessel Gerritsz (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Abel_Tasman_Tasmania_1642_SLNSW_FL3174899.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
