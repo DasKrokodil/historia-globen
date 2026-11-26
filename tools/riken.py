@@ -3508,6 +3508,9 @@ def shared_borders(by_name, disputed, ne, region):
         opts = rest[0] if rest else {}
         raws[(gid, pid)] = [(s, e, g) for s, e, g, _ar in raw_periods(gid, cname, opts, by_name, disputed, ne)]
         _tol, merge[(gid, pid)], min_area[(gid, pid)] = OVERRIDES.get(gid, (TOL, MERGE, MIN_AREA))
+        # I en täckning slås perioder ihop under högst MERGE: Ryska imperiets 0,05 (filstorleken för hela imperiet) skulle annars
+        # behålla Ryska tsardömets gräns från 1582 också 1588–1594, och den överlappar då Sverige med cirka 5 kv.grader
+        merge[(gid, pid)] = min(merge[(gid, pid)], MERGE)
         # Datumgränsen (punkt 8): en täckning som når 180° måste delas där först, och det gör verktyget inte ännu
         for s, e, g in raws[(gid, pid)]:
             if e >= years[0] and s <= years[1] and not g.is_empty and (g.bounds[0] <= -179.9 or g.bounds[2] >= 179.9):
