@@ -1,0 +1,959 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "2101",
+  "datum": "2026-11-26",
+  "urval": "ids=19 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "slaget-vid-celaya",
+      "titel": "Slagen vid Celaya",
+      "start": 1915,
+      "plats": "Celaya, Guanajuato",
+      "wikidata": "Q8244123",
+      "kandidater": [
+        {
+          "fil": "File:Batalla celaya.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Batalla_celaya.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Subido por User:Tatehuari el 14 de Marzo de 2007",
+          "datum": "1915",
+          "datum_original": "1915",
+          "datum_fil": "2007-03-15 02:42:11",
+          "kredit": "Archivo General de la Nación",
+          "beskrivning": "Batalla de Celaya in Guanajuato",
+          "bredd": 425,
+          "hojd": 259,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/68/Batalla_celaya.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1915 in Mexico",
+            "Battle of Celaya",
+            "Cannons in Mexico",
+            "Mexican Revolution",
+            "Unidentified artillery"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "zapata-mordas-1919",
+      "titel": "Emiliano Zapata mördas",
+      "start": 1919,
+      "plats": "Haciendan San Juan i Chinameca, Morelos",
+      "wikidata": "Q41718",
+      "kandidater": [
+        {
+          "fil": "File:Emiliano Zapata4.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Emiliano_Zapata4.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Agustín Casasola",
+          "datum": "1914",
+          "datum_original": "1914",
+          "datum_fil": "2019-08-09 06:39:16",
+          "kredit": "https://static1.squarespace.com/static/56420085e4b0a6ed01ccece1/58ec1c7cd482e9e6fdab471e/58ec1cb16a49630e8a3f5e5e/1491868856228/Emiliano+Zapata.jpg",
+          "beskrivning": "Emiliano Zapata Salazar fue uno de los líderes militares y campesinos más importantes de la Revolución mexicana y un símbolo de la resistencia campesina en México.",
+          "bredd": 970,
+          "hojd": 1326,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Emiliano_Zapata4.jpg/960px-Emiliano_Zapata4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Black and white photographs of men looking at viewer",
+            "Black and white portrait photographs of men",
+            "Handlebar moustaches",
+            "Photographs by Agustín Víctor Casasola",
+            "Photographs of Emiliano Zapata"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-two"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "carranza-dodas-1920",
+      "titel": "President Carranza dödas",
+      "start": 1920,
+      "plats": "Tlaxcalantongo i Sierra Norte de Puebla",
+      "wikidata": "Q313122",
+      "kandidater": [
+        {
+          "fil": "File:Portrait of Venustiano Carranza.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Portrait_of_Venustiano_Carranza.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Harris & Ewing",
+          "datum": "no later than 1915",
+          "datum_original": "no later than 1915",
+          "datum_fil": "2014-01-23 06:01:02",
+          "kredit": "The World's Work, 1915: https://archive.org/stream/worldswork31gard#page/124/mode/2up",
+          "beskrivning": "Portrait of Venustiano Carranza",
+          "bredd": 951,
+          "hojd": 1429,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Portrait_of_Venustiano_Carranza.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Venustiano Carranza"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "licens-risk"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "risk: public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-US}}. Commons API (LicenseShortName): \"Public domain\". Att kontrollera: public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet.",
+            "risker": [
+              "public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet"
+            ],
+            "mallar": [
+              "PD-US"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "insulin-forsta-patienten",
+      "titel": "Den första insulinbehandlingen",
+      "start": 1922,
+      "plats": "Toronto General Hospital, Toronto, Kanada",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:The Hospital for Sick Children, Toronto, Ontario (29375668624).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Hospital_for_Sick_Children,_Toronto,_Ontario_(29375668624).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Ken Lund from Reno, Nevada, USA",
+          "datum": "2016-09-28 12:46",
+          "datum_original": "2016-09-28 12:46",
+          "datum_fil": "2022-03-10 17:50:07",
+          "kredit": "The Hospital for Sick Children, Toronto, Ontario",
+          "beskrivning": "The Hospital for Sick Children, corporately branded as SickKids, is a major pediatric teaching hospital located on University Avenue in Toronto, Ontario, Canada. It is affiliated with the Faculty of Medicine of the University of Toronto. The hospital's Peter Gilgan Centre for Research and Learning is believed to be the largest pediatric research tower in the world at 69677.28 square metres. Founded in 1875, the hospital was inspired by the example of Great Ormond Street Hospital in London. The hospital is located in the Discovery District of Downtown Toronto on University Avenue, adjacent to the Toronto General Hospital and across from Mount Sinai Hospital and the Princess Margaret Cancer Centre—collectively forming a complex known as Hospital Row, each connected by underground tunnels and bridges. The hospital is known for its advertisement campaigns and the largest amounts of donations received for any Canadian hospital. Medical treatments at the hospital are covered by publicly funded health insurance, as is the case in most other Canadian hospitals. Philanthropy is a critical source of funding for SickKids Hospital that is separate and distinct from government and granting agencies. In 2006/07, financial support from SickKids Foundation to the hospital totalled $72.1 million. The support went towards infrastructure and support for physicians, researchers and scientists who compete for national and international research grants. Next to government, SickKids Foundation is the largest funding agency in child health research, education and care in Canada. The Foundation maintains a fund, called the Herbie Fund, for patients not covered by Canadian health insurance. The fund was established in 1979 to provide for the treatment of Herbie Quiñones, a seven-month-old patient from Brooklyn, New York. The hospital was an early leader in the fields of food safety and nutrition. In 1908 a pasteurization facility for milk was established at the hospital, the first in Toronto, and 30 years before milk pasteurization became mandatory. Researchers at the hospital invented the infant cereal, Pablum. The research that led to the discovery of insulin took place nearby at the University of Toronto and was soon applied at the hospital. Doctor Frederick Banting, one of the researchers, had served his internship at SickKids Hospital and went on to become an attending physician there. In 1963 William Thornton Mustard developed the Mustard surgical procedure used to help correct heart problems in blue baby syndrome. In 1989, a team of researchers at the hospital discovered the gene responsible for cystic fibrosis. <a href=\" https://en.wikipedia.org/wiki/The_Hospital_for_Sick_Children \" rel=\"noreferrer nofollow\">en.wikipedia.org/wiki/The_Hospital_for_Sick_Children</a> <a href=\" https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License \" rel=\"noreferrer nofollow\">en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_...</a>",
+          "bredd": 4000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/The_Hospital_for_Sick_Children%2C_Toronto%2C_Ontario_%2829375668624%29.jpg/960px-The_Hospital_for_Sick_Children%2C_Toronto%2C_Ontario_%2829375668624%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Hospital for Sick Children",
+            "September 2016 in Toronto"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "dust-bowl",
+      "titel": "Dust Bowl: torka och dammstormar på prärien",
+      "start": 1930,
+      "plats": "Prärierna på Great Plains, USA och Kanada",
+      "wikidata": "Q726501",
+      "kandidater": [
+        {
+          "fil": "File:Dust Bowl - Dallas, South Dakota 1936.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Dust_Bowl_-_Dallas,_South_Dakota_1936.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Sloan (?)",
+          "datum": "Taken on 13 May 1936",
+          "datum_original": "Taken on 13 May 1936",
+          "datum_fil": "2007-06-15 14:43:16",
+          "kredit": "United States Department of Agriculture; Image Number: 00di0971 (original link now dead)",
+          "beskrivning": "Buried machinery in barn lot in Dallas , South Dakota , United States during the Dust Bowl , an agricultural, ecological, and economic disaster in the Great Plains region of North America in 1936",
+          "bredd": 2400,
+          "hojd": 1800,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Dust_Bowl_-_Dallas%2C_South_Dakota_1936.jpg/960px-Dust_Bowl_-_Dallas%2C_South_Dakota_1936.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1936 black and white photographs",
+            "1936 in South Dakota",
+            "Black and white photographs of South Dakota",
+            "Black and white photographs of the United States in the 1930s",
+            "Drought in South Dakota",
+            "Dust Bowl",
+            "Dust storms in South Dakota",
+            "Gregory County, South Dakota",
+            "Landscapes of South Dakota",
+            "Sand in South Dakota",
+            "Windthrow in the United States"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-USDA"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "jordbavningen-i-chillan-1939",
+      "titel": "Jordbävningen i Chillán",
+      "start": 1939,
+      "plats": "Chillán och Concepción, södra mellersta Chile",
+      "wikidata": "Q3311679",
+      "kandidater": [
+        {
+          "fil": "File:1939 Chile Earthquake Memorial Placard.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1939_Chile_Earthquake_Memorial_Placard.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "U.S. Geological Survey",
+          "datum": "2010-03-14 22:39",
+          "datum_original": "2010-03-14 22:39",
+          "datum_fil": "2010-04-02 02:22:38",
+          "kredit": "1939 Chile Earthquake Memorial Placard",
+          "beskrivning": "A memorial placard next to a cathedral in Chillán, Chile commemorates the 30,000 people who died in the 1939 earthquake. This high death toll motivated the adoption of strict building design codes for the reconstruction of the cathedral. Photo by: Walter Mooney, U.S. Geological Survey",
+          "bredd": 5616,
+          "hojd": 3744,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/1939_Chile_Earthquake_Memorial_Placard.jpg/960px-1939_Chile_Earthquake_Memorial_Placard.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1939 Chillán earthquake",
+            "Commemorative plaques in Chile",
+            "Cruz Monumental de la Catedral de Chillán",
+            "Plaques about earthquakes"
+          ],
+          "smal": false,
+          "flaggor": [
+            "konstverk",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Catedral de Chillan - Aniversario del Terremoto de 1939 en 2022 - Portada de El Mercurio.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Catedral_de_Chillan_-_Aniversario_del_Terremoto_de_1939_en_2022_-_Portada_de_El_Mercurio.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "José Joaquín Cortes",
+          "datum": "2022-01-24 23:18:34",
+          "datum_original": "2022-01-24 23:18:34",
+          "datum_fil": "2022-04-17 18:18:43",
+          "kredit": "Own work",
+          "beskrivning": "Proyección de portada del diario El Mercurio, en la Catedral de Chillán, con motivo del aniversario 83 del Terremoto de Chillán de 1939.",
+          "bredd": 2440,
+          "hojd": 2885,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Catedral_de_Chillan_-_Aniversario_del_Terremoto_de_1939_en_2022_-_Portada_de_El_Mercurio.jpg/960px-Catedral_de_Chillan_-_Aniversario_del_Terremoto_de_1939_en_2022_-_Portada_de_El_Mercurio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Catedral de Chillán",
+            "El Mercurio"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Catedral de Chillán - Terremoto de 1939.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Catedral_de_Chill%C3%A1n_-_Terremoto_de_1939.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Desconocido - Diario La Nación (Chile)",
+          "datum": "1939-01-27",
+          "datum_original": "1939-01-27",
+          "datum_fil": "2022-11-09 14:01:41",
+          "kredit": "https://culturadigital.udp.cl/index.php/lanacion/la-nacion-7141/",
+          "beskrivning": "\"El derrumbe de los muros permite ver el interior de la Catedral de Chillán totalmente en el suelo. -La perspectiva de la calle Libertad muestra el estado en que han quedado todas las edificaciones.\"",
+          "bredd": 662,
+          "hojd": 451,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Catedral_de_Chill%C3%A1n_-_Terremoto_de_1939.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1939 Chillán earthquake",
+            "Catedral de Chillán"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "chicago-pile-1",
+      "titel": "Den första kärnreaktorn startar",
+      "start": 1942,
+      "plats": "Stagg Field, Chicagos universitet, USA",
+      "wikidata": "Q284681",
+      "kandidater": [
+        {
+          "fil": "File:Stagg Field reactor.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Stagg_Field_reactor.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Melvin A. Miller of the Argonne National Laboratory",
+          "datum": "Unknown date",
+          "datum_original": "Unknown date",
+          "datum_fil": "2009-10-20 17:50:00",
+          "kredit": "http://narademo.umiacs.umd.edu/cgi-bin/isadg/viewobject.pl?object=95120",
+          "beskrivning": "The first nuclear reactor was erected in 1942 in the West Stands section of Stagg Field at the University of Chicago. On December 2, 1942 a group of scientists achieved the first self-sustaining chain reaction and thereby initiated the controlled release of nuclear energy. The reactor consisted of uranium and uranium oxide lumps spaced in a cubic lattice embedded in graphite. In 1943 it was dismantled and reassembled at the Palos Park unit of the Argonne National Laboratory.",
+          "bredd": 3000,
+          "hojd": 2352,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Stagg_Field_reactor.jpg/960px-Stagg_Field_reactor.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Chicago Pile-1"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-DOE"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "bretton-woods-konferensen",
+      "titel": "Bretton Woods-konferensen",
+      "start": 1944,
+      "plats": "Mount Washington Hotel, Bretton Woods, New Hampshire, USA",
+      "wikidata": "Q1194052",
+      "kandidater": [
+        {
+          "fil": "File:The Gold Room Bretton Woods Reverse Angle.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Gold_Room_Bretton_Woods_Reverse_Angle.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Barry Livingstone",
+          "datum": "2014-09-07 10:26:54",
+          "datum_original": "2014-09-07 10:26:54",
+          "datum_fil": "2014-09-08 12:38:14",
+          "kredit": "Own work",
+          "beskrivning": "This small room within the Mount Washington Hotel is where the historic agreements were signed establishing the International Monetary Fund and World Bank in 1944.",
+          "bredd": 2240,
+          "hojd": 1344,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/The_Gold_Room_Bretton_Woods_Reverse_Angle.jpg/960px-The_Gold_Room_Bretton_Woods_Reverse_Angle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bretton Woods Conference",
+            "International Monetary Fund",
+            "Mount Washington Hotel",
+            "World Bank"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "jordbavningen-i-san-juan-1944",
+      "titel": "Jordbävningen i San Juan",
+      "start": 1944,
+      "plats": "San Juan, västra Argentina",
+      "wikidata": "Q3505891",
+      "kandidater": [
+        {
+          "fil": "File:Terremoto de 1944, San Juan, Argentina.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Terremoto_de_1944,_San_Juan,_Argentina.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "“Federico Cantoni. Hacedor del San Juan del Siglo XX. Confesiones, relatos y algo más sobre mi padre”, de Ursulina Cantoni",
+          "datum": "1944",
+          "datum_original": "1944",
+          "datum_fil": "2018-12-19 19:17:37",
+          "kredit": "http://sanjuanalmundo.org/articulo.php?id=183418",
+          "beskrivning": "Vista a la Casa de Gobierna de la provincia de San Juan, Argentina, completamente destruida por el terremoto de 1944.",
+          "bredd": 1000,
+          "hojd": 695,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Terremoto_de_1944%2C_San_Juan%2C_Argentina.jpg/960px-Terremoto_de_1944%2C_San_Juan%2C_Argentina.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1944 in Argentina",
+            "Earthquakes of 1944",
+            "Terremotos de San Juan"
+          ],
+          "smal": false,
+          "flaggor": [
+            "licens-risk"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "risk: filsidan har en mall om frihet för panorama: kontrollera upphovsrätten för konstverket i bilden"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-AR-Photo}}. Commons API (LicenseShortName): \"Public domain\". Att kontrollera: filsidan har en mall om frihet för panorama: kontrollera upphovsrätten för konstverket i bilden.",
+            "risker": [
+              "filsidan har en mall om frihet för panorama: kontrollera upphovsrätten för konstverket i bilden"
+            ],
+            "mallar": [
+              "PD-AR-Photo"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "gabriela-mistral-nobelpris-1945",
+      "titel": "Gabriela Mistral får Nobelpriset i litteratur",
+      "start": 1945,
+      "plats": "Vicuña, Chile, där Gabriela Mistral föddes",
+      "wikidata": "Q80871",
+      "kandidater": [
+        {
+          "fil": "File:Gabriela Mistral 1945.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Gabriela_Mistral_1945.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Anna Riwkin-Brick",
+          "datum": "1945",
+          "datum_original": "1945",
+          "datum_fil": "2012-07-29 03:51:44",
+          "kredit": "http://nobelprize.org/nobel_prizes/literature/laureates/1945/mistral-bio.html",
+          "beskrivning": "Gabriela Mistral , Nobel laureate in Literature 1945",
+          "bredd": 280,
+          "hojd": 396,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/64/Gabriela_Mistral_1945.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Gabriela Mistral",
+            "Photographs by Anna Riwkin-Brick"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Sweden-photo"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "gronland-upphor-vara-koloni",
+      "titel": "Grönland upphör att vara koloni",
+      "start": 1953,
+      "plats": "Grönland",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:A voyage to the arctic in the whaler Aurora (1911) (14783749132).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:A_voyage_to_the_arctic_in_the_whaler_Aurora_(1911)_(14783749132).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1911",
+          "datum_original": "1911",
+          "datum_fil": "2016-05-02 09:00:33",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14783749132/ Source book page: https://archive.org/stream/voyagetoarctici00lind/voyagetoarctici00lind#page/n168/mode/1up",
+          "beskrivning": "Greenland Village Scene Identifier : voyagetoarctici00lind ( find matches ) Title : A voyage to the arctic in the whaler Aurora Year : 1911 ( 1910s ) Authors : Lindsay, David Moore, 1862- Subjects : Aurora (Ship) Whaling Publisher : Boston : Dana Estes & Co. Contributing Library : Robarts - University of Toronto Digitizing Sponsor : University of Toronto View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: tors supervised the work ofthese. One or two ships from Copenhagen visited thecoast every year with supplies, taking back oiland skins. We have all svnig about the icy mountains ofGreenland, and most of us have in a vague wayconnected the country with w^hales, without hav-ing any idea of how great this whaling industrywas some years ago. In the appendix it will beseen that Great Britain alone sent one hundredand fifty-nine ships to Greenland waters in 1819,and, of course, the Norwegians and Dutch, theDanes, Gemians and others also profited by thefisheries. Many words in the modern whalersvocabulary are of Dutch origin, as these hardypeople were conspicuous among the most daringfollowers of this dangerous trade. Greenland has a past, but its history, viewedthrough the mists of centuries, and always moreor less traditional, is anything but distinct. The country w^as discovered toward the end ofthe tenth century; and a banished Norwegian,called Erick, wintered at what is now called Erick Text Appearing After Image: IN THE WHALER AURORA 103 Sound, shortly after. The unscrupulous Erick, inorder to promote colonization, called the newcoimtry Greenland. A fleet of twenty-five sailstarted for the country with colonists. Many werelost, but about half of them settled there and werejoined by others, foraiing quite a colony. Christianity was introduced about 1121 and abishop was appointed. By degrees the colonistsin the south formed other colonies, churches werebuilt, and the people prospered for a time. Grant tells us in his history of Greenland thatthere were about one hundred hamlets on thesecoasts. The colonies on the east coast have dis-appeared. Some ruins have been found, but whereare the people ? Nothing has been heard definitelyfrom them since 1408, when the east Greenlandtrade ceased. Some think that black death des-troyed them, others say that polar ice, comingdown, closed the coast from intercourse with theparent country, so that they starved. Accordingto one Kojake, who has written on the su Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 2912,
+          "hojd": 1915,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/A_voyage_to_the_arctic_in_the_whaler_Aurora_%281911%29_%2814783749132%29.jpg/960px-A_voyage_to_the_arctic_in_the_whaler_Aurora_%281911%29_%2814783749132%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "A voyage to the arctic in the whaler Aurora (1911)",
+            "Populated places in Greenland"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "kubanska-revolutionen",
+      "titel": "Kubanska revolutionen",
+      "start": 1953,
+      "plats": "Kuba",
+      "wikidata": "Q11264",
+      "kandidater": [
+        {
+          "fil": "File:Fidel Castro - MATS Terminal Washington 1959.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Fidel_Castro_-_MATS_Terminal_Washington_1959.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "1959-04-15",
+          "datum_original": "1959-04-15",
+          "datum_fil": "2016-12-05 10:56:55",
+          "kredit": "This image is available from the United States Library of Congress 's Prints and Photographs division under the digital ID ppmsc.03256 . This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing .",
+          "beskrivning": "Fidel Castro arrives MATS Terminal, Washington, D.C.",
+          "bredd": 4300,
+          "hojd": 4792,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Fidel_Castro_-_MATS_Terminal_Washington_1959.jpg/960px-Fidel_Castro_-_MATS_Terminal_Washington_1959.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1959 in Washington, D.C.",
+            "Fidel Castro in 1959",
+            "Microphones in 1959"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USNWR"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "ideal-x-containerfartyget",
+      "titel": "Ideal X och containerfrakten",
+      "start": 1956,
+      "plats": "Port Newark, New Jersey, USA",
+      "wikidata": "Q951927",
+      "kandidater": [
+        {
+          "fil": "File:Ideal X.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ideal_X.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Karsten Kunibert",
+          "datum": "2010-05-03 21:30:31",
+          "datum_original": null,
+          "datum_fil": "2010-05-03 21:30:31",
+          "kredit": "Public domain Public domain false false I, the copyright holder of this work, release this work into the public domain . This applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the right to use this work for any purpose , without any conditions, unless such conditions are required by law.",
+          "beskrivning": "Container steamship Ideal X , built in 1944 as the tanker Potrero Hills",
+          "bredd": 5184,
+          "hojd": 1128,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Ideal_X.jpg/960px-Ideal_X.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ideal X (ship, 1944)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "licens-risk"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "flera licenser: Public domain, CC BY-SA 3.0",
+              "GFDL anges också (dubbellicens)",
+              "risk: PD-self, men filsidan nämner också en annan licens: skriv båda i källans note och i bildtexten"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-self}}, {{self|cc-by-sa-3.0}}, {{self|GFDL}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (Public domain och CC BY-SA 3.0); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under Public domain. Att kontrollera: PD-self, men filsidan nämner också en annan licens: skriv båda i källans note och i bildtexten.",
+            "risker": [
+              "PD-self, men filsidan nämner också en annan licens: skriv båda i källans note och i bildtexten"
+            ],
+            "mallar": [
+              "PD-self",
+              "self|cc-by-sa-3.0",
+              "self|GFDL"
+            ]
+          }
+        },
+        {
+          "fil": "File:Type T2-SE-A1 tanker Hat Creek underway at sea on 16 August 1943.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Type_T2-SE-A1_tanker_Hat_Creek_underway_at_sea_on_16_August_1943.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S. Navy",
+          "datum": "1943-08-16",
+          "datum_original": "1943-08-16",
+          "datum_fil": "2006-07-16 14:56:00",
+          "kredit": "NARA Number 80022 from Record Group 80, General Records of the Department of the Navy, 1798-1947. The picture was researched by Dave Whittaker, Suffolk, VA",
+          "beskrivning": "The U.S. Type T2-SE-A1 tanker Hat Creek underway at sea on 16 August 1943.",
+          "bredd": 2630,
+          "hojd": 964,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Type_T2-SE-A1_tanker_Hat_Creek_underway_at_sea_on_16_August_1943.jpg/960px-Type_T2-SE-A1_tanker_Hat_Creek_underway_at_sea_on_16_August_1943.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Hat Creek (ship, 1943)"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military-Navy"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "explorer-1",
+      "titel": "Explorer 1, USA:s första satellit",
+      "start": 1958,
+      "plats": "Cape Canaveral, Florida, USA",
+      "wikidata": "Q49901",
+      "kandidater": [
+        {
+          "fil": "File:Explorer1.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Explorer1.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA",
+          "datum": "1958",
+          "datum_original": "1958",
+          "datum_fil": "2026-07-24 07:51:59",
+          "kredit": "[1] , [2] , [3]",
+          "beskrivning": "Explorer 1 satellite",
+          "bredd": 640,
+          "hojd": 410,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/73/Explorer1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Explorer 1"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "slaget-vid-santa-clara",
+      "titel": "Slaget vid Santa Clara",
+      "start": 1958,
+      "plats": "Santa Clara, Kuba",
+      "wikidata": "Q2153101",
+      "kandidater": [
+        {
+          "fil": "File:Cuba - Santa Clara - stèle du Che.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cuba_-_Santa_Clara_-_st%C3%A8le_du_Che.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "PRA",
+          "datum": "2006-02-17",
+          "datum_original": "2006-02-17",
+          "datum_fil": "2007-11-06 17:07:57",
+          "kredit": "Own work",
+          "beskrivning": "Cuba - Santa Clara - Stèle commémorant l'attaque victorieuse d'un train blindé par les guerilleros cubains commandés par Che Guevara",
+          "bredd": 1200,
+          "hojd": 1600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Cuba_-_Santa_Clara_-_st%C3%A8le_du_Che.JPG/960px-Cuba_-_Santa_Clara_-_st%C3%A8le_du_Che.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2006 in Cuba",
+            "Tren Blindado"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-3.0}}. Commons API (LicenseShortName): \"CC BY 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-3.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Che SClara.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Che_SClara.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Anonymous Unknown author",
+          "datum": "1958-12",
+          "datum_original": "1958-12",
+          "datum_fil": "2026-09-03 04:50:12",
+          "kredit": "Oficina de Asuntos Históricos de Cuba. Publicada en la Revista Verde Oliva 1959.",
+          "beskrivning": "Ernesto Guevara en Santa Clara.",
+          "bredd": 586,
+          "hojd": 744,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/13/Che_SClara.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Santa Clara",
+            "Che Guevara in 1958",
+            "December 1958 in Cuba",
+            "December 1958 photographs",
+            "M4 Sherman",
+            "Male people with berets"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Cuba"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "hubbles-lag",
+      "titel": "Hubble: galaxerna rör sig bort från oss",
+      "start": 1929,
+      "plats": "Mount Wilson-observatoriet, Kalifornien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "malariamyggan-utrotas-i-brasilien-1940",
+      "titel": "En afrikansk malariamygga utrotas i Brasilien",
+      "start": 1940,
+      "plats": "Nordöstra Brasilien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "brasiliens-arbetsratt-clt-1943",
+      "titel": "Brasilien samlar sina arbetslagar",
+      "start": 1943,
+      "plats": "Brasilien (huvudstaden var då Rio de Janeiro)",
+      "wikidata": "Q5163323",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "lattes-chacaltaya-1947",
+      "titel": "César Lattes fångar pioner på Chacaltaya",
+      "start": 1947,
+      "plats": "Chacaltaya, Bolivia",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    }
+  ]
+}

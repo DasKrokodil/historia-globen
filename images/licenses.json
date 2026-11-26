@@ -894,6 +894,21 @@
       }
     },
     {
+      "eventId": "bretton-woods-konferensen",
+      "eventTitle": "Bretton Woods-konferensen",
+      "file": "images/events/bretton-woods-konferensen.webp",
+      "kind": "historisk",
+      "credit": "Barry Livingstone / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-bretton-woods-konferensen",
+        "title": "The Gold Room Bretton Woods Reverse Angle – Barry Livingstone (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Gold_Room_Bretton_Woods_Reverse_Angle.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "brihadisvaratemplet",
       "eventTitle": "Brihadisvaratemplet i Thanjavur byggs",
       "file": "images/events/brihadisvaratemplet.webp",
@@ -1104,6 +1119,21 @@
       }
     },
     {
+      "eventId": "carranza-dodas-1920",
+      "eventTitle": "President Carranza dödas",
+      "file": "images/events/carranza-dodas-1920.webp",
+      "kind": "historisk",
+      "credit": "Harris & Ewing / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-carranza-dodas-1920",
+        "title": "Portrait of Venustiano Carranza – Harris & Ewing (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Portrait_of_Venustiano_Carranza.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "casa-grande-hohokam",
       "eventTitle": "Hohokamfolket bygger Casa Grande och bevattnar öknen",
       "file": "images/events/casa-grande-hohokam.webp",
@@ -1201,6 +1231,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "chicago-pile-1",
+      "eventTitle": "Den första kärnreaktorn startar",
+      "file": "images/events/chicago-pile-1.webp",
+      "kind": "historisk",
+      "credit": "Melvin A. Miller, Argonne National Laboratory / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-chicago-pile-1",
+        "title": "Stagg Field reactor – Melvin A. Miller of the Argonne National Laboratory (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Stagg_Field_reactor.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "chichen-itza",
@@ -1581,6 +1626,21 @@
       }
     },
     {
+      "eventId": "dust-bowl",
+      "eventTitle": "Dust Bowl: torka och dammstormar på prärien",
+      "file": "images/events/dust-bowl.webp",
+      "kind": "historisk",
+      "credit": "US Department of Agriculture / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-dust-bowl",
+        "title": "Dust Bowl - Dallas, South Dakota 1936 – Sloan (?) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Dust_Bowl_-_Dallas,_South_Dakota_1936.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "duyfken-nar-australien",
       "eventTitle": "Willem Janszoon och Duyfken når Australien",
       "file": "images/events/duyfken-nar-australien.webp",
@@ -1768,6 +1828,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "explorer-1",
+      "eventTitle": "Explorer 1, USA:s första satellit",
+      "file": "images/events/explorer-1.webp",
+      "kind": "historisk",
+      "credit": "NASA / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-explorer-1",
+        "title": "Ignition of Jupiter-C with Explorer 1 – NASA (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ignition_of_Jupiter-C_with_Explorer_1.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "festac-77",
@@ -2706,6 +2781,21 @@
       }
     },
     {
+      "eventId": "ideal-x-containerfartyget",
+      "eventTitle": "Ideal X och containerfrakten",
+      "file": "images/events/ideal-x-containerfartyget.webp",
+      "kind": "historisk",
+      "credit": "Karsten Kunibert / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-ideal-x-containerfartyget",
+        "title": "Ideal X – Karsten Kunibert (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ideal_X.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "ieyasu-dor",
       "eventTitle": "Tokugawa Ieyasu dör",
       "file": "images/events/ieyasu-dor.webp",
@@ -2793,6 +2883,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Indonesia_declaration_of_independence_17_August_1945.jpg",
         "license": "Public domain",
         "checked": "2026-11-01"
+      }
+    },
+    {
+      "eventId": "insulin-forsta-patienten",
+      "eventTitle": "Den första insulinbehandlingen",
+      "file": "images/events/insulin-forsta-patienten.webp",
+      "kind": "historisk",
+      "credit": "Henry Mahon; Thomas Fisher Rare Book Library, University of Toronto / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-insulin-forsta-patienten",
+        "title": "Photograph of F.G. Banting and C.H. Best with a dog on the roof of the Medical Building (12309019434) – Thomas Fisher Rare Book Library (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Photograph_of_F.G._Banting_and_C.H._Best_with_a_dog_on_the_roof_of_the_Medical_Building_(12309019434).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2976,6 +3081,21 @@
       }
     },
     {
+      "eventId": "jordbavningen-i-chillan-1939",
+      "eventTitle": "Jordbävningen i Chillán",
+      "file": "images/events/jordbavningen-i-chillan-1939.webp",
+      "kind": "historisk",
+      "credit": "Walter Mooney, U.S. Geological Survey / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-jordbavningen-i-chillan-1939",
+        "title": "1939 Chile Earthquake Memorial Placard – U.S. Geological Survey (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:1939_Chile_Earthquake_Memorial_Placard.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "jordbavningen-i-christchurch-2011",
       "eventTitle": "Jordbävningen i Christchurch",
       "file": "images/events/jordbavningen-i-christchurch-2011.webp",
@@ -3003,6 +3123,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ruinas_da_Pra%C3%A7a_da_Patriarcal_ap%C3%B3s_o_Terramoto_de_1755_-_Jacques_Philippe_Le_Bas,_1757.png",
         "license": "Public domain",
         "checked": "2026-11-21"
+      }
+    },
+    {
+      "eventId": "jordbavningen-i-san-juan-1944",
+      "eventTitle": "Jordbävningen i San Juan",
+      "file": "images/events/jordbavningen-i-san-juan-1944.webp",
+      "kind": "historisk",
+      "credit": "Okänd; ur Ursulina Cantoni, Federico Cantoni. Hacedor del San Juan del Siglo XX / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-jordbavningen-i-san-juan-1944",
+        "title": "Terremoto de 1944, San Juan, Argentina (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Terremoto_de_1944,_San_Juan,_Argentina.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -3588,6 +3723,21 @@
       }
     },
     {
+      "eventId": "kubanska-revolutionen",
+      "eventTitle": "Kubanska revolutionen",
+      "file": "images/events/kubanska-revolutionen.webp",
+      "kind": "historisk",
+      "credit": "U.S. News & World Report; Library of Congress / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kubanska-revolutionen",
+        "title": "Fidel Castro - MATS Terminal Washington 1959 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Fidel_Castro_-_MATS_Terminal_Washington_1959.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "kulturrevolutionen",
       "eventTitle": "Kulturrevolutionen i Kina",
       "file": "images/events/kulturrevolutionen.webp",
@@ -4066,6 +4216,21 @@
         "id": "commons-bild-majrevolutionen-1810",
         "title": "Cabildoabierto-Subercaseaux – Pedro Subercaseaux (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Cabildoabierto-Subercaseaux.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "malariamyggan-utrotas-i-brasilien-1940",
+      "eventTitle": "En afrikansk malariamygga utrotas i Brasilien",
+      "file": "images/events/malariamyggan-utrotas-i-brasilien-1940.webp",
+      "kind": "historisk",
+      "credit": "CDC / James D. Gathany / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-malariamyggan-utrotas-i-brasilien-1940",
+        "title": "Anopheles gambiae mosquito feeding (CDC PHIL 1354) – CDC / James D. Gathany (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Anopheles_gambiae_mosquito_feeding_(CDC_PHIL_1354).jpg",
         "license": "Public domain",
         "checked": "2026-11-26"
       }
@@ -6609,6 +6774,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-santa-clara",
+      "eventTitle": "Slaget vid Santa Clara",
+      "file": "images/events/slaget-vid-santa-clara.webp",
+      "kind": "historisk",
+      "credit": "PRA / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-slaget-vid-santa-clara",
+        "title": "Cuba - Santa Clara - stèle du Che – PRA (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cuba_-_Santa_Clara_-_st%C3%A8le_du_Che.JPG",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-saratoga",
       "eventTitle": "Slagen vid Saratoga",
       "file": "images/events/slaget-vid-saratoga.webp",
@@ -8037,6 +8217,21 @@
         "url": "https://www.loc.gov/item/2008660220/",
         "license": "No known restrictions on publication",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "zapata-mordas-1919",
+      "eventTitle": "Emiliano Zapata mördas",
+      "file": "images/events/zapata-mordas-1919.webp",
+      "kind": "historisk",
+      "credit": "Agustín Víctor Casasola / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-zapata-mordas-1919",
+        "title": "Emiliano Zapata4 – Agustín Casasola (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Emiliano_Zapata4.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
