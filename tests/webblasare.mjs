@@ -12254,6 +12254,9 @@ async function run(browser, vp) {
       await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await lp.waitForSelector('#hunt', { state: 'visible', timeout: T.step });
       if (await lp.isVisible('#tour-card') || await lp.isVisible('#detail')) throw new Error('slutkort eller faktaruta kom tillbaka vid omladdning');
+      // #2178 (fynd 6): jaktrutan ligger under knapparna uppe till höger (Mer), också när lektionsbandet kommer efter att jakten startat
+      const under = await lp.evaluate(() => ({ jakt: Math.round(document.getElementById('hunt').getBoundingClientRect().top), knappar: Math.round(document.querySelector('.top-actions').getBoundingClientRect().bottom) }));
+      if (under.jakt < under.knappar) throw new Error(`jaktrutan börjar ovanför knapparnas nederkant uppe till höger (${JSON.stringify(under)})`);
       await stangJakten();
       await lp.waitForSelector('#hunt', { state: 'hidden', timeout: T.step });
       await lp.waitForSelector('#tour-lesson-end', { state: 'visible', timeout: T.step });
