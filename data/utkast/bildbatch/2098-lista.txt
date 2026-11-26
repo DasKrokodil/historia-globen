@@ -1,0 +1,19 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:A discourse relating to the expedition of Lord Dunmore (IA discourserelatin00whit).pdf	dunmores-proklamation
+# File:The Battle of Lexington.jpg	lexington-och-concord
+# File:The Death of General Warren at the Battle of Bunker's Hill.jpg	slaget-vid-bunker-hill
+# File:MOCR earthworks 0948.jpg	slaget-vid-moores-creek-bridge
+# File:Battle of Oriskany.jpg	slaget-vid-oriskany
+# File:Sullivans-island-1050x777.jpg	belagringen-av-charleston-1780
+# File:Eutaw Springs Battlefield Park - 1.jpeg	slaget-vid-eutaw-springs
+# File:Hawaiian unification.gif	hawaiis-enande
+# File:Kamehameha I head to waist 5111.jpg	slaget-vid-mokuohai
+# File:Iaovalley sm.jpg	slaget-vid-kepaniwai
+# File:Building the Heiau Pu'ukohola Heiau National Historic Site, Kawaihae, Hawaii.jpg	keoua-dodas-vid-puukohola
+# File:Incendie de la Plaine du Cap. Massacre des Blancs par les esclaves noirs révoltés. France militaire. Martinet et Masson.jpg	slavupproret-1791
+# File:Francisco jose de Caldas.JPG	humboldt-i-amerika
+# File:Combat et prise de la Crête-à-Pierrot - Auguste Raffet.jpg	slaget-vid-crete-a-pierrot
+# File:Combat et prise de la Crête-à-Pierrot - Auguste Raffet.jpg	slaget-vid-vertieres
+# File:Lewis and clark-expedition.jpg	lewis-och-clarks-expedition
+# File:Independencia.gif	spanskamerikanska-sjalvstandighetskrigen

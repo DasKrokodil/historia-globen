@@ -395,3 +395,13 @@ Tillägg 2026-11-26 (#2113): `ambryms-kaldera`. Bilden [Ambrym ali 2012348 lrg.j
 |---|---|
 | `gronland-under-norge` | 2026-11-26: Kandidaterna visar inte händelsen: ett foto från Spetsbergen (CC0), Blaeus karta över Norge från 1662 och Vinlandkartan (av omstridd äkthet). Sökningar på Håkon Håkonsson och norska Grönland gav ingen användbar bild (flera nekades med 429). |
 | `vasterbygden-overges` | 2026-11-26: Kandidaterna var fel motiv (ett moshav i Galileen, en by i Makedonien, en ikon). Enda träffen efter egen sökning är en karta över Västerbygden (Western-settlement-eng.png, CC BY-SA 3.0) på 638 × 443 px; för liten för kortet. |
+
+## Amerika 1775–1808 (#2098, 2026-11-26)
+
+Följande händelser i #2098 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/2098.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `kgh-far-handelsmonopol` | 2026-11-26: Ingen kandidat i listan; sökningar på Den Kongelige Grønlandske Handel gav ingen användbar bild (flera nekades med HTTP 429). |
+| `slaget-vid-vertieres` | 2026-11-26: Enda kandidaten i listan var samma Raffet-gravyr som visar Crête-à-Pierrot (används där). Egen sökning gav tre bilder under 800 px ([Bataille de Vertières.jpg](https://commons.wikimedia.org/wiki/File:Bataille_de_Verti%C3%A8res.jpg), 600 × 438 px, PD; en CC BY-SA 4.0-bild på 620 × 458 px; ett monument på 566 × 382 px): för små för kortet. |
+| `slaveriet-avskaffas-1793` | 2026-11-26: Kandidat utsedd men inte hämtad: [Sonthonax.jpg](https://commons.wikimedia.org/wiki/File:Sonthonax.jpg) (porträtt av Léger-Félicité Sonthonax, PD-Art, målare och datering okända). Hämtningen nekades med HTTP 429 (Retry-After 600 s, över taket 60 s) vid upprepade försök. Raden finns i `data/utkast/bildbatch/2098-ej-hamtade.txt` och kan köras om med `tools/bild_hamta.py --lista` eller Actions-flödet `bild-ej-hamtade.yml`. |
