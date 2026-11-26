@@ -1,0 +1,17 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:Batalla celaya.jpg	slaget-vid-celaya
+# File:Emiliano Zapata4.jpg	zapata-mordas-1919
+# File:Portrait of Venustiano Carranza.jpg	carranza-dodas-1920
+# File:The Hospital for Sick Children, Toronto, Ontario (29375668624).jpg	insulin-forsta-patienten
+# File:Dust Bowl - Dallas, South Dakota 1936.jpg	dust-bowl
+# File:1939 Chile Earthquake Memorial Placard.jpg	jordbavningen-i-chillan-1939
+# File:Stagg Field reactor.jpg	chicago-pile-1
+# File:The Gold Room Bretton Woods Reverse Angle.jpg	bretton-woods-konferensen
+# File:Terremoto de 1944, San Juan, Argentina.jpg	jordbavningen-i-san-juan-1944
+# File:Gabriela Mistral 1945.jpg	gabriela-mistral-nobelpris-1945
+# File:A voyage to the arctic in the whaler Aurora (1911) (14783749132).jpg	gronland-upphor-vara-koloni
+# File:Fidel Castro - MATS Terminal Washington 1959.jpg	kubanska-revolutionen
+# File:Ideal X.jpg	ideal-x-containerfartyget
+# File:Explorer1.jpg	explorer-1
+# File:Cuba - Santa Clara - stèle du Che.JPG	slaget-vid-santa-clara

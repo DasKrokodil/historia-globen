@@ -413,3 +413,17 @@ Följande händelser i #2098 lämnas utan bild; granskningslistan och valen finn
 | Händelse (id) | Varför ingen bild |
 |---|---|
 | `marques-de-olinda-1864` | 2026-11-26: Ingen kandidat i listan; Commons-sökningar på fartyget Marquês de Olinda, det paraguayanska kriget och ångbåtar på Paraguayfloden gav bara böcker (PDF) utan användbar bild. |
+
+## Amerika 1915–1958 (#2101, 2026-11-26)
+
+13 av 20 händelser i #2101 fick bild. Följande 7 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/2101.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `slaget-vid-celaya` | 2026-11-26: Enda kandidaten ([Batalla celaya.jpg](https://commons.wikimedia.org/wiki/File:Batalla_celaya.jpg), PD) är 425 × 259 px; för liten för kortet. Commons-sökningen på slaget gav bara böcker. |
+| `hubbles-lag` | 2026-11-26: Ingen kandidat; sökningar på Hubbles diagram från 1929 gav bara rapporter (PDF). |
+| `kauffmannavtalet` | 2026-11-26: Händelsen saknades i granskningslistan. Enda träffen är en filmjournal (video, ogv, 400 × 300 px) om undertecknandet; en video är inte en bild. |
+| `brasiliens-arbetsratt-clt-1943` | 2026-11-26: Ingen kandidat; sökningen på Vargas och CLT gav inga träffar. |
+| `lattes-chacaltaya-1947` | 2026-11-26: Kandidaterna är porträtt av César Lattes (1949 och 1954) ur Arquivo Nacional, Fundo Correio da Manhã. Licensmallen ("Arquivo Nacional PD-license") kunde inte tolkas av programmet (API: Public domain) och används inte utan en människas bedömning; bilderna visar dessutom inte händelsen. |
+| `gabriela-mistral-nobelpris-1945` | 2026-11-26: Enda kandidaten ([Gabriela Mistral 1945.jpg](https://commons.wikimedia.org/wiki/File:Gabriela_Mistral_1945.jpg), Anna Riwkin-Brick) är 280 × 396 px och fotografen dog 1970 enligt Wikimedia; filsidans skäl till public domain är inte kontrollerat. |
+| `gronland-upphor-vara-koloni` | 2026-11-26: Enda kandidaten är en bokbild från 1911 med licensen "No restrictions", som programmet inte kan avgöra och som inte visar händelsen. |
