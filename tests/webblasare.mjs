@@ -8229,6 +8229,9 @@ async function run(browser, vp) {
           for (let i = 0; i < 6 && await tp.evaluate(() => document.activeElement?.id) !== 'tour-next'; i++) await tp.keyboard.press('Tab');
           const f = await tp.evaluate(() => document.activeElement?.id);
           if (f !== 'tour-next') { faults.push(`${label}: Tab från texten nådde ${f}, inte Nästa`); continue; }
+          // Webbläsaren rullar fokuserad knapp i bild själv och scroll-händelsen kommer först en bildruta senare: vänta in att rullningen
+          // står still (samma scrollTop två bildrutor i rad) innan tonen mäts, i stället för att läsa mitt i rullningen.
+          await tp.waitForFunction(() => new Promise(res => { const c = document.getElementById('tour-card'); const t0 = c.scrollTop; requestAnimationFrame(() => requestAnimationFrame(() => res(c.scrollTop === t0))); }), null, { timeout: T.step });
           const after = await state();
           if (Math.abs(after.top - a.top) > 0.5 || Math.abs(after.height - a.height) > 0.5) faults.push(`${label}: kortet hoppade vid Tab (${a.top}/${a.height} → ${after.top}/${after.height})`);
           const nb = await tp.locator('#tour-next').boundingBox();

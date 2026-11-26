@@ -469,6 +469,9 @@ export class TourPlayer {
       this.card.scrollBy({ top: Math.max(80, Math.round(this.card.clientHeight * 0.7)), behavior: calm ? 'auto' : 'smooth' });
     });
     this.card.addEventListener('scroll', () => this.updateMore(), { passive: true });
+    // Tab till Nästa får webbläsaren att rulla kortet själv; scroll-händelsen kommer först en bildruta senare. Mät om direkt vid fokus och
+    // en bildruta senare (när fokusrullningen är gjord), så att tonen inte ligger kvar över en knapp som just rullats fram (#2169).
+    this.card.addEventListener('focusin', () => { this.updateMore(); requestAnimationFrame(() => this.updateMore()); });
     window.addEventListener('resize', () => this.updateMore());
     this.app.narrow.addEventListener?.('change', () => { if (this.tour && this.step) { this.renderFigure(this.step); this.updateMore(); } });
     // Bilden och texten kan växa efter att steget ritats (bilden laddas, kortet byter storlek): mät om då
