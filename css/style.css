@@ -3005,6 +3005,12 @@ span.theme-event:hover { background: none; outline: none; }
 .place-empire-gap { padding: 6px 4px; font-size: 13px; line-height: 1.4; font-style: italic; color: var(--card-dim); }
 .place-empire-list > .theme-filter-note { margin: 4px 0 0; }
 .place-empire-note { margin: 0 4px 4px; font-size: 12px; line-height: 1.4; color: var(--card-dim); }
+/* Landkortet (#1260): den fasta raden och tillståndsraden är text, ingen färgmarkering; tillståndsraden har en streckad ram som
+   skiljer den från brödtexten också utan färg. Under samma rubrik som typraden, så att de syns på första skärmen. */
+.place-today { margin: 4px 0 6px; font-size: 13.5px; line-height: 1.45; }
+.place-state { margin: 4px 0 8px; padding: 6px 8px; border: 1px dashed currentColor; border-radius: 4px; font-size: 13px; line-height: 1.4; font-style: italic; }
+.place-empire-status { font-style: italic; color: var(--card-dim); }
+.place-head h3:focus-visible { outline: 2px solid var(--card-accent); outline-offset: 3px; border-radius: 3px; }
 /* Träffytor på touch (#1464): raderna i händelselistan är minst 44 px höga (18 px text och 13 + 13 px luft),
    och krysset når 44 px på alla kort även på en bred skärm med touch, också i liggande telefon (#1667; i smal skärm ger #detail .detail-close::after det redan). */
 @media (max-width: 760px), (pointer: coarse) { .detail-selection .theme-event { padding-block: 13px; } }
@@ -3218,7 +3224,7 @@ span.theme-event:hover { background: none; outline: none; }
 @media (max-width: 760px), (max-height: 480px) {
   .detail-selection .story { display: flex; flex-direction: column; }
   .detail-selection .story > [data-selection-action] { order: -1; align-self: flex-start; }
-  .detail-selection .story > .place-type { order: -2; }
+  .detail-selection .story > :is(.place-type, .place-today, .place-state) { order: -2; }
 }
 /* På en pekskärm är knappen minst 44 px hög också i bred layout (i smal layout gäller det redan, #1161). */
 @media (max-height: 480px) and (pointer: coarse) {

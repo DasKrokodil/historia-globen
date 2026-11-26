@@ -51,14 +51,18 @@ export function showPlaceCard(app, place, events, { follow = true, note = '', fo
   const periods = rows.map(r => {
     const years = formatYearSpan(r.from, r.to);
     if (r.kind === 'gap') return { gap: ui('place.empireGap', { years }) };
-    return { years, name: r.name, label: ui('place.followEmpire', { name: t(r.name), years }), mapNote: r.mapNote,
+    // Valfri märkning av perioden (belagt eller tolkat, #1260): står som text i raden och i knappens namn, aldrig bara som färg
+    const status = r.status ? ui(`place.status.${r.status}`) : '';
+    return { years, name: r.name, status, label: ui('place.followEmpire', { name: status ? `${t(r.name)} (${status})` : t(r.name), years }), mapNote: r.mapNote,
       run: follow && panel.onPlaceEmpire ? () => panel.onPlaceEmpire({ ...r, label: `${t(r.name)} ${years}`, origin: { key: `place:${place.id}`, name: t(place.name) } }) : null };
   });
   // Förklaringen står under listan, så att raderna syns först i smal skärm; i Fokus också att Följ riket lämnar platsen
   const empires = periods.length ? { title: ui('place.empires', { count: rows.filter(r => r.kind === 'empire').length }),
     note: [ui('place.empiresNote'), ...(follow ? [ui('place.followLeaves')] : [])].join(' '), follow: ui('place.followEmpireShort'), rows: periods } : null;
   app.store.setSelected(null);
-  panel.showSelection({ label: ui('place.label'), name: place.name, lead: placeLead(place), emblems: place.emblems,
+  // Fast rad om vad kortet visar (#1260) och tillståndsraden för året som visas (bara i Fokus; i en tur styr steget året)
+  const today = placeTodayLine(place, rows.some(r => r.kind === 'empire'));
+  panel.showSelection({ label: ui('place.label'), name: place.name, lead: placeLead(place), today, state: follow ? panel.placeState ?? '' : '', emblems: place.emblems,
     intro: place.intro, mapNote: ui('place.mapContext'),
     // Visa i Platt karta (#1161): byter vy och ramar in platsen; knappen finns när main.js har kopplat återanropet
     // En liten plats får regionvyn (#1641), och knappen säger det, men bara när den ryms (#1692, controllers/region.js)
@@ -70,6 +74,28 @@ export function showPlaceCard(app, place, events, { follow = true, note = '', fo
   app.surfaces.opened('place-card'); // Samtidigt-panelen stängs, i bred skärm också (#1865): kortet och listan delar plats
   $('app').classList.add('has-detail');
   app.region?.refreshButton?.(follow ? place : null); // kortet syns nu: knappens text räknas om på det som täcker kartan (#1692)
+}
+
+/**
+ * Den fasta raden på ett landkort (#1260): "Det här är dagens Sverige. Rikena visar var området hörde hemma då." Bara för en plats av
+ * typen land; andra meningen bara när kortet har riken att visa (hasEmpires), annars pekar den på en lista som inte finns. Tom för
+ * andra platstyper. Texten är gränssnittstext på alla fem språk (place.today, place.todayEmpires); landets namn ur platsen.
+ */
+export function placeTodayLine(place, hasEmpires, tx = t, tui = ui) {
+  if (place?.type !== 'country') return '';
+  return [tui('place.today', { name: tx(place.name) }), hasEmpires ? tui('place.todayEmpires') : ''].filter(Boolean).join(' ');
+}
+
+/**
+ * Tillståndsraden i landskortet (#1260): vad som gäller för året som visas, så att kortet aldrig står tomt utan förklaring. Två fall:
+ * året ligger före första rikesperioden i platsens periods ("Landet fanns inte i dagens form"; uppgiften ger inget rike före den, och
+ * ingen egen årtalsuppgift hittas på), och året saknar händelser på platsen (empty, texten som render.js redan har räknat, med nästa
+ * händelse). Båda kan gälla på en gång och skrivs då efter varandra. Tom när inget av dem gäller. Bara för typen land för det första fallet.
+ */
+export function placeStateLine(place, year, empty = null, groups = [], tui = ui) {
+  const firsts = placeEmpireRows(place, groups).filter(r => r.kind === 'empire').map(r => r.from);
+  const before = place?.type === 'country' && firsts.length > 0 && year < Math.min(...firsts);
+  return [before ? tui('place.stateBefore') : '', empty ?? ''].filter(Boolean).join(' ');
 }
 
 /**
@@ -87,7 +113,7 @@ export function placeEmpireRows(place, groups = []) {
     // (Kalmarunionen: källornas årtal mot kartans), och bara vid gruppens första rad. Laddas med rikenas faktarutor (ensurePlaceFacts).
     const mapNote = g.polities.length === 1 && g.facts?.mapNote && !noted.has(g.id) ? g.facts.mapNote : null;
     if (mapNote) noted.add(g.id);
-    rows.push({ kind: 'empire', empire: g.id, polity: pol.id, name: pol.name, from: p.from, to: p.to, mapNote });
+    rows.push({ kind: 'empire', empire: g.id, polity: pol.id, name: pol.name, from: p.from, to: p.to, mapNote, status: p.status ?? null });
   }
   const gaps = [];
   let end = -Infinity;

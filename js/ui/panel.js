@@ -740,6 +740,9 @@ export class Panel {
    *   label    etiketten överst ("Tema", "Plats")
    *   name     namnet, text per språk
    *   lead     valfri rad under namnet (platsens typ)
+   *   today    valfri fast rad under typraden (landkortet, #1260: "Det här är dagens Sverige. Rikena visar …"), synlig på första skärmen
+   *   state    tillståndsraden för året som visas (#1260), eller tom; panel.setPlaceState() ändrar den när året byts, och den är inte
+   *            en live-region (en uppspelning skulle annars läsa upp den vid varje år)
    *   mapNote  valfri synlig rad om kartans nutida gräns, kust och ortnamn (#1956)
    *   emblems  valfria flaggor och vapen (#1160): egna SVG:er i img/flags/ med bildtext, kredit och licens;
    *            filsidorna läggs till bland källorna
@@ -759,7 +762,7 @@ export class Panel {
    * Kortet för ett urval (tema eller plats). empires (#1448, bara platser med periods): { title, note, follow, rows }, där en rad är
    * { years, name, label, run } (run saknas i en tur: raden är då bara text) eller { gap } (en lucka, en läsbar rad).
    */
-  showSelection({ label, name, lead = '', mapNote = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel, aboutLabel = null }) {
+  showSelection({ label, name, lead = '', today = '', state = '', mapNote = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel, aboutLabel = null }) {
     this.selectedId = null;
     // Ingen tidsålderns ram (#1713, punkt 4): plats- och temakortet är en ruta för läsning, i samma neutrala mörka kort som rikes-, religions-
     // och krigskorten. Ramen efter första händelsens epok gav olika kort för Skåne (grotta, 3,46:1) och Grönland (papyrus) och ockra text under AA.
@@ -782,7 +785,7 @@ export class Panel {
     // Rikets egen rad Om kartan (mapNote, Kalmarunionen) står som en liten rad under knappen, inte i den, och beskriver knappen.
     const empireNote = (r, i) => r.mapNote ? `<p class="place-empire-note" id="place-empire-note-${i}"${langAttr(r.mapNote)}>${esc(t(r.mapNote))}</p>` : '';
     const empireItem = (r, i) => r.gap ? `<li class="place-empire-gap">${esc(r.gap)}</li>`
-      : `<li>${r.run ? `<button type="button" class="theme-event" data-place-empire="${i}" aria-label="${esc(r.label)}"${r.mapNote ? ` aria-describedby="place-empire-note-${i}"` : ''}>` : '<span class="theme-event">'}<span class="theme-event-year">${esc(r.years)}</span> <span${langAttr(r.name)}>${esc(t(r.name))}</span>${r.run ? ` <span class="theme-event-note" aria-hidden="true">${esc(empires.follow)}</span></button>` : '</span>'}${empireNote(r, i)}</li>`;
+      : `<li>${r.run ? `<button type="button" class="theme-event" data-place-empire="${i}" aria-label="${esc(r.label)}"${r.mapNote ? ` aria-describedby="place-empire-note-${i}"` : ''}>` : '<span class="theme-event">'}<span class="theme-event-year">${esc(r.years)}</span> <span${langAttr(r.name)}>${esc(t(r.name))}</span>${r.status ? ` <span class="place-empire-status">(${esc(r.status)})</span>` : ''}${r.run ? ` <span class="theme-event-note" aria-hidden="true">${esc(empires.follow)}</span></button>` : '</span>'}${empireNote(r, i)}</li>`;
     // Förklaringen står under listan, så att raderna syns först i smal skärm (#1448)
     const empireHtml = empires?.rows?.length ? `<details class="theme-event-list place-empire-list"${open}>
         <summary>${esc(empires.title)}</summary>
@@ -811,9 +814,11 @@ export class Panel {
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="story-label">${esc(label)}</div>
-      ${placeCard ? `<div class="place-head"><h3>${esc(t(name))}</h3>${headEmblems}</div>` : `<h3>${esc(t(name))}</h3>`}
+      ${placeCard ? `<div class="place-head"><h3 tabindex="-1">${esc(t(name))}</h3>${headEmblems}</div>` : `<h3>${esc(t(name))}</h3>`}
       ${banner ? `<p class="theme-filter-note place-banner">${esc(banner)}</p>` : ''}
       <div class="story">${emblemCredits}${lead ? `<p class="place-type">${esc(lead)}</p>` : ''}
+      ${placeCard && today ? `<p class="place-today">${esc(today)}</p>` : ''}
+      ${placeCard ? `<p class="place-state" data-place-state${state ? '' : ' hidden'}>${esc(state)}</p>` : ''}
       ${mapNote ? `<p class="place-map-note">${esc(mapNote)}</p>` : ''}
       ${emblemHtml}
       <p>${esc(t(intro))}</p>
@@ -826,7 +831,21 @@ export class Panel {
     this.detail.querySelector('[data-selection-action]')?.addEventListener('click', () => action.run());
     for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
     for (const b of this.detail.querySelectorAll('[data-place-empire]')) b.addEventListener('click', () => empires.rows[+b.dataset.placeEmpire].run());
-    if (focus) this.detail.querySelector('[data-close]').focus({ preventScroll: true });
+    // Platskortet tar fokus på rubriken (#1260): skärmläsaren läser namnet, och Tab går vidare till Stäng och knapparna.
+    // Övriga kort har fokus på Stäng som förut (#246)
+    if (focus) (placeCard ? this.detail.querySelector('h3') : this.detail.querySelector('[data-close]')).focus({ preventScroll: true });
+  }
+
+  /**
+   * Tillståndsraden i platskortet (#1260): året som visas ändras, och raden följer med utan att kortet ritas om. Texten sparas också på
+   * panelen, så att ett kort som öppnas senare börjar med raden för det aktuella året. Tom text döljer raden.
+   */
+  setPlaceState(text) {
+    this.placeState = text || '';
+    const el = this.detail.querySelector('[data-place-state]');
+    if (!el) return;
+    if (el.textContent !== this.placeState) el.textContent = this.placeState;
+    el.hidden = !this.placeState;
   }
 
   /** Knappen "Rapportera faktafel" skickar bara objektets typ och id till formuläret. */
