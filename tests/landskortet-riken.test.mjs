@@ -4,7 +4,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { placeEmpireRows } from '../js/focus/place.js';
+import { placeEmpireRows, placeTodayLine, placeStateLine } from '../js/focus/place.js';
 import { Panel } from '../js/ui/panel.js';
 import { ui } from '../js/i18n.js';
 
@@ -27,7 +27,8 @@ test('varje period pekar på ett rike och en del som finns, och åren är börja
     let prev = -Infinity;
     for (const per of pl.periods) {
       const where = `${pl.id}: ${per.empire}/${per.polity} ${per.from}–${per.to}`;
-      assert.deepEqual(Object.keys(per).sort(), ['empire', 'from', 'polity', 'to'], `${where}: bara id och år, inga egna texter`);
+      assert.deepEqual(Object.keys(per).filter(k => k !== 'status').sort(), ['empire', 'from', 'polity', 'to'], `${where}: bara id och år (och valfri status), inga egna texter`);
+      assert.ok(per.status === undefined || ['belagt', 'tolkat'].includes(per.status), `${where}: status är belagt eller tolkat`);
       const g = groups.find(x => x.id === per.empire);
       assert.ok(g, `${where}: riket finns inte i data/empires/index.json`);
       assert.ok(g.polities.some(p => p.id === per.polity), `${where}: delen finns inte i gruppen`);
@@ -134,4 +135,76 @@ test('de nya texterna finns på alla fem språken med samma platshållare', () =
 test('franska har hårt mellanrum före kolon i de nya texterna', () => {
   const fr = json('data/ui/fr.json');
   for (const key of ['place.empireGap', 'focus.chosenPeriod']) assert.ok(!/ :/.test(fr[key]) && /\u00a0:/.test(fr[key]), `${key}: ${fr[key]}`);
+});
+
+// Landkortet (#1260): fast rad, tillståndsrad och märkning av perioder.
+const sverige = places.find(p => p.id === 'sverige'), aotearoa = places.find(p => p.id === 'aotearoa'), skane = places.find(p => p.id === 'skane');
+const firstFrom = Math.min(...sverige.periods.map(p => p.from));
+
+test('den fasta raden finns bara på ett land, och säger bara något om rikena när kortet har några', () => {
+  assert.equal(placeTodayLine(sverige, true), 'Det här är dagens Sverige. Rikena visar var området hörde hemma då.');
+  assert.equal(placeTodayLine(aotearoa, false), 'Det här är dagens Nya Zeeland (Aotearoa).', 'utan riken pekar raden inte på en lista som saknas');
+  assert.equal(placeTodayLine(skane, false), '', 'ett landskap har ingen rad om dagens land');
+  assert.equal(placeTodayLine(places.find(p => p.id === 'gronland'), false), '');
+});
+
+test('tillståndsraden: före första rikesperioden och för år utan händelser, annars tom', () => {
+  assert.equal(placeStateLine(sverige, firstFrom - 1, null, groups), 'Landet fanns inte i dagens form det här året.');
+  assert.equal(placeStateLine(sverige, firstFrom, null, groups), '', 'första periodens år är inte före landets form');
+  assert.equal(placeStateLine(sverige, 1700, null, groups), '');
+  // Utan händelser står den färdiga texten från render.js efter (med nästa händelse), också tillsammans med det första fallet
+  assert.equal(placeStateLine(sverige, 1700, 'Inga händelser på platsen det här året.', groups), 'Inga händelser på platsen det här året.');
+  assert.equal(placeStateLine(sverige, firstFrom - 1, 'Inga händelser på platsen det här året.', groups), 'Landet fanns inte i dagens form det här året. Inga händelser på platsen det här året.');
+  // Ett land utan perioder (Aotearoa) och ett landskap påstår aldrig att landet saknades: ingen uppgift om när landet fick sin form
+  assert.equal(placeStateLine(aotearoa, -1000, null, groups), '');
+  assert.equal(placeStateLine({ ...skane, periods: sverige.periods }, firstFrom - 1, null, groups), '', 'bara typen land');
+});
+
+test('en period med status visar märkningen som text, i knappens namn och i samma ordning', () => {
+  const g = groups.find(x => x.id === sverige.periods[0].empire), pol = sverige.periods[0].polity;
+  const rows = placeEmpireRows({ periods: [{ ...sverige.periods[0], status: 'tolkat' }, { ...sverige.periods[0], from: sverige.periods[0].from + 1, status: undefined }] }, [g]);
+  assert.equal(rows[0].status, 'tolkat');
+  assert.equal(rows[1].status, null, 'utan status är raden som förut');
+  globalThis.matchMedia ??= () => ({ matches: false });
+  const html = [];
+  const el = { addEventListener() {}, focus() {} };
+  const panel = { detail: { set innerHTML(v) { html.push(v); }, querySelector: () => el, querySelectorAll: () => [] }, styles: json('data/styles.json'), srcById: {}, setDetailOpen() {}, onSelect() {} };
+  const row = { years: '1–2', name: { sv: 'Riket' }, status: ui('place.status.tolkat'), label: 'x', run: () => {} };
+  Panel.prototype.showSelection.call(panel, { label: 'Plats', name: { sv: 'Sverige' }, intro: { sv: 'x' }, summary: 's', events: [], aboutLabel: 'Om', today: 'Det här är dagens Sverige.', state: 'Landet fanns inte i dagens form det här året.',
+    empires: { title: 't', note: 'n', follow: 'Följ riket', rows: [row] } });
+  const out = html.at(-1);
+  assert.match(out, /<span class="place-empire-status">\(tolkat\)<\/span>/);
+  assert.match(out, /<p class="place-today">Det här är dagens Sverige\.<\/p>/);
+  assert.match(out, /<p class="place-state" data-place-state>Landet fanns inte i dagens form det här året\.<\/p>/);
+  assert.match(out, /<h3 tabindex="-1">Sverige<\/h3>/, 'rubriken kan ta fokus');
+  assert.ok(out.indexOf('place-today') < out.indexOf('<details'), 'raden står före listorna, på första skärmen');
+  // Tom tillståndsrad är dold men finns kvar, så att den kan fyllas när året byts
+  Panel.prototype.showSelection.call(panel, { label: 'Plats', name: { sv: 'Sverige' }, intro: { sv: 'x' }, summary: 's', events: [], aboutLabel: 'Om' });
+  assert.match(html.at(-1), /<p class="place-state" data-place-state hidden><\/p>/);
+  assert.ok(!html.at(-1).includes('place-today'));
+});
+
+test('fokus går till rubriken i platskortet och till Stäng i övriga kort', () => {
+  globalThis.matchMedia ??= () => ({ matches: false });
+  const focused = [];
+  const make = tag => ({ addEventListener() {}, focus() { focused.push(tag); } });
+  const els = { 'h3': make('h3'), '[data-close]': make('close') };
+  const panel = { detail: { set innerHTML(v) {}, querySelector: sel => els[sel] ?? make(sel), querySelectorAll: () => [] }, styles: json('data/styles.json'), srcById: {}, setDetailOpen() {}, onSelect() {} };
+  const base = { label: 'Plats', name: { sv: 'Sverige' }, intro: { sv: 'x' }, summary: 's', events: [] };
+  Panel.prototype.showSelection.call(panel, { ...base, aboutLabel: 'Om' });
+  Panel.prototype.showSelection.call(panel, base);
+  Panel.prototype.showSelection.call(panel, { ...base, aboutLabel: 'Om', focus: false });
+  assert.deepEqual(focused, ['h3', 'close']);
+});
+
+test('de nya texterna för landkortet finns på alla fem språken med samma platshållare', () => {
+  const sv = json('data/ui/sv.json');
+  const holders = text => [...String(text).matchAll(/\{(\w+)\}/g)].map(m => m[1]).sort().join();
+  for (const key of ['place.today', 'place.todayEmpires', 'place.stateBefore', 'place.status.belagt', 'place.status.tolkat']) {
+    for (const lang of LANGS) {
+      const file = json(`data/ui/${lang}.json`);
+      assert.ok(file[key], `${key} saknas på ${lang}`);
+      assert.equal(holders(file[key]), holders(sv[key]), `${key} på ${lang} har andra platshållare än svenskan`);
+    }
+  }
 });

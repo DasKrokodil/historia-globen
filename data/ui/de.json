@@ -435,6 +435,11 @@
   "place.followEmpireShort": "Folgen",
   "place.empireGap": "{years}: Die Karte zeigt hier keines der Reiche aus der Liste.",
   "place.followLeaves": "„Folgen“ verlässt den Ort.",
+  "place.today": "Das ist {name} in heutiger Form.",
+  "place.todayEmpires": "Die Reiche zeigen, wohin das Gebiet damals gehörte.",
+  "place.stateBefore": "In diesem Jahr gab es das Land in der heutigen Form noch nicht.",
+  "place.status.belagt": "belegt",
+  "place.status.tolkat": "gedeutet",
   "play.pausedToday": "Angehalten: die Lage heute",
   "play.pausedWarEnd": "Angehalten: der Krieg ist vorbei",
   "play.pausedMajor": "Angehalten bei einem großen Ereignis im Krieg",
@@ -1126,5 +1131,8 @@
   "feedback.cancel": "Abbrechen",
   "feedback.submit": "Vorschlag senden",
   "feedback.thanks": "Vielen Dank für Ihren Vorschlag! Er ist zur Prüfung eingegangen. Historische Angaben werden mit verlässlichen Quellen abgeglichen, bevor sie veröffentlicht werden.",
-  "feedback.again": "Einen weiteren Vorschlag senden"
+  "feedback.again": "Einen weiteren Vorschlag senden",
+  "focus.places.sample": ["Eine Auswahl: {count} Land. Weitere folgen.", "Eine Auswahl: {count} Länder. Weitere folgen."],
+  "focus.places.missing": "Das Land „{query}“ hat noch keinen Eintrag in dieser Liste. Ereignisse in der Nähe eines Ortes können Sie trotzdem suchen.",
+  "focus.places.toNear": "Zu „In der Nähe eines Ortes“"
 }

@@ -200,6 +200,11 @@
   "place.followEmpireShort": "Följ riket",
   "place.empireGap": "{years}: kartan visar inget av rikena i listan här.",
   "place.followLeaves": "Följ riket lämnar platsen.",
+  "place.today": "Det här är dagens {name}.",
+  "place.todayEmpires": "Rikena visar var området hörde hemma då.",
+  "place.stateBefore": "Landet fanns inte i dagens form det här året.",
+  "place.status.belagt": "belagt",
+  "place.status.tolkat": "tolkat",
   "play.pausedToday": "Pausad: läget i dag",
   "play.pausedWarEnd": "Pausad: kriget är slut",
   "play.pausedMajor": "Pausad vid en stor händelse i kriget",
@@ -971,5 +976,8 @@
   "feedback.cancel": "Avbryt",
   "feedback.submit": "Skicka förslag",
   "feedback.thanks": "Tack för ditt förslag! Det har tagits emot för granskning. Historiska uppgifter kontrolleras mot tillförlitliga källor innan de publiceras.",
-  "feedback.again": "Skicka ett förslag till"
+  "feedback.again": "Skicka ett förslag till",
+  "focus.places.sample": ["Ett urval: {count} land. Fler kommer.", "Ett urval: {count} länder. Fler kommer."],
+  "focus.places.missing": "Landet ”{query}” finns inte bland korten ännu. Händelser nära en plats kan du ändå söka efter.",
+  "focus.places.toNear": "Gå till Nära en plats"
 }

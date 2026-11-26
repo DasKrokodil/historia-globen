@@ -435,6 +435,11 @@
   "place.followEmpireShort": "Suivre",
   "place.empireGap": "{years} : la carte ne montre ici aucun des royaumes ou empires de la liste.",
   "place.followLeaves": "« Suivre » quitte le lieu.",
+  "place.today": "Voici {name} dans sa forme actuelle.",
+  "place.todayEmpires": "Les royaumes et empires montrent à quoi appartenait alors la zone.",
+  "place.stateBefore": "Cette année-là, le pays n’existait pas sous sa forme actuelle.",
+  "place.status.belagt": "attesté",
+  "place.status.tolkat": "interprété",
   "play.pausedToday": "En pause : la situation aujourd’hui",
   "play.pausedWarEnd": "En pause : la guerre est finie",
   "play.pausedMajor": "En pause à un grand événement de la guerre",
@@ -1126,5 +1131,8 @@
   "feedback.cancel": "Annuler",
   "feedback.submit": "Envoyer la suggestion",
   "feedback.thanks": "Merci pour votre suggestion ! Elle a été reçue et sera examinée. Les informations historiques sont vérifiées à l’aide de sources fiables avant d’être publiées.",
-  "feedback.again": "Envoyer une autre suggestion"
+  "feedback.again": "Envoyer une autre suggestion",
+  "focus.places.sample": ["Une sélection : {count} pays. D’autres suivront.", "Une sélection : {count} pays. D’autres suivront."],
+  "focus.places.missing": "Le pays « {query} » n’a pas encore de fiche. Vous pouvez tout de même chercher des événements près d’un lieu.",
+  "focus.places.toNear": "Aller à « Près d’un lieu »"
 }

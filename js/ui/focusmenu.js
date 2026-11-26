@@ -11,6 +11,9 @@
 //   "Visa alla" (#121); Försvunna länder visas där alltid hela, i tidsordning (#72). Kronologiskt och
 //   Alfabetiskt visar allt. Länder och landskap (#1947) är ett träd, världsdel → land → landskap, alltid i namnordning; där
 //   gäller ingen sortering och raden döljs. Varje nivå är en knapp med aria-expanded, som gruppernas rubriker.
+// - Länder och landskap (#1261): överst en urvalsrad ("Ett urval: N länder. Fler kommer."), där N räknas ur de laddade länderna (ingen siffra
+//   för hur många länder som finns, för den saknar källa). Ger en sökning på den fliken inget land står "Landet finns inte bland korten ännu"
+//   och en knapp till Nära en plats med sökordet med sig, så att sökningen inte är en återvändsgränd; Enter i sökrutan gör samma sak.
 // - Gruppens antal är antalet rader som visas: under en sökning träffarna, inte hela gruppen (#1953).
 // - Tangentbord: pil ner från sökrutan går till listan, pilarna flyttar i listan, Enter väljer (i sökrutan
 //   den första träffen), Escape stänger. Pilarna hoppar över rader i en ihopfälld nivå. På dator får sökrutan fokus när menyn öppnas.
@@ -33,6 +36,8 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;'
 /** Gemener utan accenter, så att "osterrike" hittar Österrike och "bys" hittar Bysantinska riket. */
 const norm = s => String(s).toLocaleLowerCase('sv').normalize('NFD').replace(/\p{M}/gu, '');
 const byName = (a, b) => a.label.localeCompare(b.label, 'sv');
+/** Text med en form för ett och en för flera ([ett, flera] i språkfilen), {count} byts mot antalet. */
+const countText = (key, n) => String(ui(key)[n === 1 ? 0 : 1]).replace('{count}', n);
 
 export class FocusMenu {
   constructor({ button, menu, texts = {}, ages = [] }) {
@@ -198,6 +203,19 @@ export class FocusMenu {
     for (const b of this.body.querySelectorAll('[data-key]')) b.addEventListener('click', () => { this.close(); this.onPick(b.dataset.key); });
   }
 
+  /** Från en sökning utan land (#1261) till Nära en plats med sökordet med sig. Fokus går till första förslaget, annars till flikens knapp;
+   *  sökrutan får det inte, så att tangentbordet på skärmen inte fälls upp. */
+  goToNear() {
+    this.tab = PLACE;
+    this.place = null;
+    for (const b of this.menu.querySelectorAll('[data-tab]')) b.setAttribute('aria-pressed', String(b.dataset.tab === this.tab));
+    this.body.scrollTop = 0;
+    this.render();
+    const tab = this.menu.querySelector(`[data-tab="${PLACE}"]`);
+    tab?.scrollIntoView?.({ block: 'nearest', inline: 'nearest' });
+    (this.body.querySelector('[data-place]') ?? tab)?.focus({ preventScroll: true });
+  }
+
   render() {
     if (this.tab === PLACE) return this.renderPlace();
     this.input.placeholder = ui('focus.placeholder');
@@ -250,6 +268,14 @@ export class FocusMenu {
     </div>` : '';
     const intro = !q && relevance && tm && groups.some(g => !g.all && !g.tree)
       ? `<div class="layer-note pad">${esc(ui('focus.nearFirst', { window: tm.label }))}</div>` : '';
+    // Länder och landskap (#1261): urvalsraden står överst (inte sist bakom rullningen). N är länderna på nivån land i trädet, räknade ur de
+    // laddade platserna, inte träffarna; ett landskap vars land saknas räknas som eget land, som i treeHtml. Ingen siffra för alla länder (saknar källa).
+    const placeItems = this.groups.find(g => g.title === PLACES)?.items ?? [];
+    const countries = placeItems.filter(it => !it.parent || !placeItems.some(o => o.id === it.parent)).length;
+    const sample = this.tab === PLACES && countries ? `<p class="focus-sample">${esc(countText('focus.places.sample', countries))}</p>` : '';
+    // Ett land som saknas: skriv det öppet och visa vägen vidare. Texten är dold för skärmläsare (aria-hidden) och sägs en gång i live-regionen,
+    // som övriga tomma sökningar (renderPlace); knappen är inte dold.
+    const missing = this.tab === PLACES && q && !found ? ui('focus.places.missing', { query: this.query.trim() }) : '';
     const empty = esc(q ? ui('focus.noMatch', { query: this.query.trim() })
       : this.tab === EVENTS ? ui('focus.eventsHint') : ui('focus.nothing'));
     // Förklaringen under en rubrik visas på gruppens egen flik, inte i Alla eller vid sökning, så att listan blir kort
@@ -277,16 +303,17 @@ export class FocusMenu {
       const less = !q && showAll && g.items.length > 8 ? `<button type="button" class="layer-row focus-more" data-group-near="${esc(g.title)}">${esc(this.texts.showNearest)}</button>` : '';
       return `${ageRows}${more}${less}`;
     };
-    this.body.innerHTML = activeRow + intro + (groups.map(g => {
+    this.body.innerHTML = sample + activeRow + intro + (groups.map(g => {
       const expanded = q || (this.tab !== 'Alla' ? true : this.openGroup === g.title);
       return `<section class="focus-group"><button type="button" class="focus-group-toggle" data-group="${esc(g.title)}" aria-expanded="${expanded}"><span>${esc(tabName(g.title))} <span class="focus-group-count">(${g.total})</span></span><span class="focus-group-chev" aria-hidden="true"></span></button>
       ${g.note && own && !g.tree ? `<div class="layer-note pad focus-note">${esc(g.note)}</div>` : ''}${groupItems(g, expanded)}${g.note && own && g.tree ? `<div class="layer-note pad focus-note">${esc(g.note)}</div>` : ''}</section>`;
     }).join('')
-      || `<div class="layer-note pad">${empty}</div>`)
-      ;
+      || (missing ? `<div class="focus-missing"><p class="layer-note pad" aria-hidden="true">${esc(missing)}</p><button type="button" class="focus-clear focus-missing-link" data-to-near>${esc(ui('focus.places.toNear'))}</button></div>`
+        : `<div class="layer-note pad">${empty}</div>`));
     this.body.classList.toggle('focus-own-tab', this.tab !== 'Alla'); // gruppens rubrik döljs på sin egen flik i låg skärm (css, #1951)
-    this.live.textContent = activeText.length ? `${ui('focus.results', { count: found })}. ${activeText.join('. ')}` : '';
+    this.live.textContent = missing || (activeText.length ? `${ui('focus.results', { count: found })}. ${activeText.join('. ')}` : '');
     this.body.querySelector('[data-clear]')?.addEventListener('click', () => this.clearFilters());
+    this.body.querySelector('[data-to-near]')?.addEventListener('click', () => this.goToNear());
     for (const b of this.body.querySelectorAll('[data-key]')) {
       b.addEventListener('click', () => { this.close(); this.onPick(b.dataset.key); });
     }
@@ -358,7 +385,7 @@ export class FocusMenu {
     const go = el => { if (el) { e.preventDefault(); el.focus(); el.scrollIntoView({ block: 'nearest' }); } };
     if (t === this.input) {
       if (e.key === 'ArrowDown') go(headings[0] ?? rows[0]);
-      else if (e.key === 'Enter') { e.preventDefault(); rows.find(b => b.dataset.key || b.dataset.place !== undefined)?.click(); }
+      else if (e.key === 'Enter') { e.preventDefault(); (rows.find(b => b.dataset.key || b.dataset.place !== undefined) ?? rows.find(b => b.dataset.toNear !== undefined))?.click(); }
       return;
     }
     const h = headings.indexOf(t);
