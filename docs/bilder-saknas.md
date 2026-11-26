@@ -357,3 +357,32 @@ Tillägg 2026-11-26 (#2113): `ambryms-kaldera`. Bilden [Ambrym ali 2012348 lrg.j
 | `fiji-blir-brittisk-koloni` | 2026-11-26: Inga kandidater. Commons-sökningen Fiji cession 1874 deed gav inga träffar. |
 | `forsta-testmatchen-i-cricket` | 2026-11-26: Kandidaterna var foton från 1925, 2015 och 1932, inte från 1877. Commons-sökningen Melbourne Cricket Ground 1877 Test match gav bara skannade böcker. |
 | `nya-zeeland-blir-dominion` | 2026-11-26: Filen [New Zealand Becomes a Dominion (15149497056).jpg](https://commons.wikimedia.org/wiki/File:New_Zealand_Becomes_a_Dominion_(15149497056).jpg) (CC BY-SA 2.0, Archives New Zealand) hämtades men är en nutida rubrikgrafik ("Archive of the Moment") och inte ett historiskt dokument eller foto; används inte. |
+
+## Amerika 3600 f.Kr.–1 (#2092 och #2093, 2026-11-26)
+
+18 av 40 händelser fick bild i den här omgången. Följande 22 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/2092-2093.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Mumier, skallar, kvarlevor och bilder med oklar licens har avståtts. Flera Commons-sökningar nekades med HTTP 429 och hann inte upprepas.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `huvudloss-hos-chinchorrofolket` | 2026-11-26: Inga kandidater; händelsen gäller undersökningar av mumier, och bilder av kvarlevor avstås. |
+| `chinchorro-tatuering` | 2026-11-26: Kandidaterna var ett foto av en rappare (2025) och en bok med licensen "No restrictions" (flaggad, godkänns aldrig av program); händelsen gäller en mumie, och bilder av kvarlevor avstås. |
+| `saqqaqkulturen` | 2026-11-26: Enda kandidaten ([Artefact saqqaquien baie Disko 3.jpg](https://commons.wikimedia.org/wiki/File:Artefact_saqqaquien_baie_Disko_3.jpg), CC BY-SA 4.0) är en teckning från 1843 av Christian Pingel som en användare lagt upp med en CC BY-SA-licens "to be checked"; licensen är oklar, så bilden används inte. |
+| `cerro-blanco-utbrottet` | 2026-11-26: Inga kandidater och ingen relevant bild hittades. |
+| `torka-och-glaciarer-i-nordamerika-4-2` | 2026-11-26: Inga kandidater och ingen relevant bild hittades. |
+| `ortoiroiderna-nar-antillerna` | 2026-11-26: Inga kandidater och ingen relevant bild hittades. |
+| `el-manati-offermossen` | 2026-11-26: Enda kandidaten (Olmec Heartland Overview 4.svg, CC BY 3.0) är en övergripande karta över olmekernas kärnområde som inte visar El Manatí och som saknar uppgift om datum och upphov. |
+| `olmekerna-san-lorenzo` | 2026-11-26: Kandidaten [CabezaColosal1 MuseoXalapa v1.1.jpg](https://commons.wikimedia.org/wiki/File:CabezaColosal1_MuseoXalapa_v1.1.jpg) saknar fotograf och källa på filsidan (bara en relicensmall för GFDL) och är en redigerad kopia av en annan fil; licensen går inte att styrka, så bilden används inte. |
+| `paso-de-la-amada-bollplan` | 2026-11-26: Enda kandidaten (Paso de la amada figurine.PNG) är en 160 × 211 px stor bild av en figur med licensflagga; för liten och osäker. |
+| `kotoshtraditionen` | 2026-11-26: Inga kandidater. Commons-sökningarna Kotosh Temple of the Crossed Hands och Kotosh Peru archaeological gav inga användbara träffar eller nekades med 429. |
+| `nortontraditionen` | 2026-11-26: Inga kandidater. Commons-sökningen Norton tradition Alaska pottery oil lamp gav bara en tidskrift. |
+| `cascajalblocket` | 2026-11-26: Enda kandidaten är en användarritad teckning ("based loosely on" blocket) och inte själva föremålet. |
+| `izapas-stelar` | 2026-11-26: Inga kandidater och ingen relevant bild hittades. |
+| `paracaskulturen` | 2026-11-26: Enda kandidaten (ParacasSkullsIcaMuseum.jpg, CC BY 2.0) visar skallar på Museo Regional de Ica; bilder av kvarlevor avstås. |
+| `trepanation-i-paracaskulturen` | 2026-11-26: Kandidaterna visar skallar på museum; bilder av kvarlevor avstås. |
+| `el-mirador` | 2026-11-26: Enda kandidaten (Elmiradortigre.jpg, CC BY-SA 2.5) är bara 400 × 300 px; för liten för kortet. En sökning på La Danta nekades med 429. |
+| `monte-alban-grundas` | 2026-11-26: Enda kandidaten (Monte Albán archeological site, Oaxaca.jpg, CC BY-SA 3.0) är 640 × 480 px och saknar upphovsperson och säkert datum; för liten. Commons-sökningen Monte Alban Oaxaca nekades med 429. |
+| `dorsetkulturen` | 2026-11-26: Kandidaterna var moderna ekoregionskartor över Grönland; fel motiv. |
+| `saladoider-nar-antillerna` | 2026-11-26: Enda kandidaten är ett litet schema (570 × 388 px) av en ristad sten på Guadeloupe, ritat 2019; inget som visar saladoidernas ankomst. |
+| `mount-meager-bridge-river-utbrottet` | 2026-11-26: Kandidater saknas; Commons-sökningen Mount Meager gav bara diagram (liten storlek). |
+| `chankillo-tretton-torn` | 2026-11-26: Enda kandidaten ([Chanquillo Fortaleza (remains).jpg](https://commons.wikimedia.org/wiki/File:Chanquillo_Fortaleza_(remains).jpg), CC BY-SA 3.0) visar fästningen vid Chankillo och inte de tretton tornen; en sökning på tornen gav inga träffar. |
+| `san-bartolos-vaggmalningar` | 2026-11-26: Enda kandidaten (SBmural.jpg, CC BY-SA 2.5) är bara 293 × 433 px; för liten. |

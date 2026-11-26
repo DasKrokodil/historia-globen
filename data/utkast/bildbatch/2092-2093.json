@@ -1,0 +1,1999 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "2092-2093",
+  "datum": "2026-11-26",
+  "urval": "ids=40 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "sechin-bajo",
+      "titel": "Ett runt torg i Sechin Bajo",
+      "start": -3599,
+      "plats": "Sechin Bajo i Casmadalen, Áncash, Peru",
+      "wikidata": "Q6123107",
+      "kandidater": [
+        {
+          "fil": "File:Sechin casma valley.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sechin_casma_valley.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Sylvain2803",
+          "datum": "2009-08-01",
+          "datum_original": "2009-08-01",
+          "datum_fil": "2010-06-29 12:14:07",
+          "kredit": "Own work",
+          "beskrivning": "The Sechín archeological site and the valley of Casma",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Sechin_casma_valley.JPG/960px-Sechin_casma_valley.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Sechín"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-sa-3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-3.0,2.5,2.0,1.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "watson-brake",
+      "titel": "Jordhögarna i Watson Brake",
+      "start": -3499,
+      "plats": "Watson Brake, Louisiana, USA",
+      "wikidata": "Q2552689",
+      "kandidater": [
+        {
+          "fil": "File:Watson Brake - Map.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Watson_Brake_-_Map.png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.5",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.5",
+          "upphovsperson": "Maximilian Dörrbecker ( Chumwa )",
+          "datum": "see file history",
+          "datum_original": "see file history",
+          "datum_fil": "2011-04-21 19:10:47",
+          "kredit": "Self made, using Joe W. Saunders, Rolfe D. Mandel, et al.: Watson Brake, a Middle Archaic Mound Complex in Northeast Louisiana . In: American Antiquity , Vol. 70, No. 4 (Oktober 2005), pages 631-668 [634] this orientation map by Alexrk2",
+          "beskrivning": "Map of the Watson Brake archaeological site",
+          "bredd": 2478,
+          "hojd": 1872,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Watson_Brake_-_Map.png/960px-Watson_Brake_-_Map.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Geographic Overlays",
+            "Maps of Louisiana",
+            "Maps showing history of indigenous peoples of North America",
+            "Watson Brake"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.5",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-2.5"
+            ]
+          }
+        },
+        {
+          "fil": "File:Watson Brake Aerial Illustration HRoe 2014.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Watson_Brake_Aerial_Illustration_HRoe_2014.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Herb Roe",
+          "datum": "2016-10-19 11:06:24",
+          "datum_original": "2016-10-19 11:06:24",
+          "datum_fil": "2016-10-19 16:08:07",
+          "kredit": "Own work",
+          "beskrivning": "Artists conception of Watson Brake, an archaeological site in Ouachita Parish, Louisiana that dates from the Archaic period. The oldest earthwork in North America, it was built and occupied 3500 BCE, approximately 5400 years ago.",
+          "bredd": 400,
+          "hojd": 250,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Watson_Brake_Aerial_Illustration_HRoe_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Herb Roe",
+            "Native American mounds in Louisiana",
+            "Watson Brake"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "sista-karibiska-sengangarna",
+      "titel": "De sista marksengångarna på Kuba",
+      "start": -2749,
+      "plats": "Kuba",
+      "wikidata": "Q141383",
+      "kandidater": [
+        {
+          "fil": "File:Megalocnus rodens.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Megalocnus_rodens.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Ghedoghedo",
+          "datum": "2008-04",
+          "datum_original": "2008-04",
+          "datum_fil": "2022-05-27 00:13:37",
+          "kredit": "took the foto on the \"American Museum of Natural History\" in New York",
+          "beskrivning": "Vertebrae of Megalocnus rodens , a fossil sloth",
+          "bredd": 2312,
+          "hojd": 1692,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Megalocnus_rodens.JPG/960px-Megalocnus_rodens.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Mammal fossils in the American Museum of Natural History",
+            "Megalocnus",
+            "Megalonychidae skeletal mounts",
+            "Xenarthra fossils"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "licens-risk"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "flera licenser: Public domain, CC BY-SA 3.0",
+              "GFDL anges också (dubbellicens)",
+              "risk: PD-self, men filsidan nämner också en annan licens: skriv båda i källans note och i bildtexten"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-self}}, {{self|GFDL}}, {{self|cc-by-sa-3.0}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (Public domain och CC BY-SA 3.0); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under Public domain. Att kontrollera: PD-self, men filsidan nämner också en annan licens: skriv båda i källans note och i bildtexten.",
+            "risker": [
+              "PD-self, men filsidan nämner också en annan licens: skriv båda i källans note och i bildtexten"
+            ],
+            "mallar": [
+              "PD-self",
+              "self|GFDL",
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "chinchorro-tatuering",
+      "titel": "Den äldsta kända tatueringen i Amerika",
+      "start": -2562,
+      "plats": "Chinchorrokulturen vid kusten i norra Chile",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Blanco Sombre.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Blanco_Sombre.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "ZachUploads",
+          "datum": "2025-10-16",
+          "datum_original": "2025-10-16",
+          "datum_fil": "2026-05-17 17:51:46",
+          "kredit": "Own work",
+          "beskrivning": "Blanco Sombre, also known as Jamie Ratledge, is a young 17 year old rapper affiliated with the PBS Sureños faction of the Southside. He is recognized for his music as well as his involvement in various legal matters. In multiple private interviews and podcasts, he has shared insights into his life experiences, including growing up in a low-income household with periods of homelessness, surviving an abusive stepfather, and the incarceration and subsequent death of his biological father. Additionally, his brother tragically died by suicide in 2020 at the age of 17. Throughout his affiliations, Blanco Sombre has faced numerous challenges, such as being assaulted in alleyways, multiple probation periods and juvenile detentions, and a record of charges including assault, battery, firearm offenses, narcotics distribution, and attempted homicide. Recently, he was convicted of armed burglary and juvenile possession of a stolen shotgun. He is currently subject to probation and faces additional charges related to narcotics possession. He resides in Tennessee, where he remains an active member of the gang community, operating discreetly. Blanco Sombre promotes his music through a YouTube channel called @LilSombreMusic, utilizing AI voice modification technology. He has also secured significant financial opportunities through his music career and co-ownership of a recording studio. His primary contact within the gang is Fernando Rodriguez, also known as Big F, who serves as a senior member for the Baltimore West Side Playboys 13 gang, a subset of the Sureños affiliated with the Mexican Mafia, often identified by the number 13. Blanco Sombre has been a member of this Latino-based gang for approximately five years, as of 2026. He has several tattoos that identify his affiliations, including \"PBS SUR,\" \"13,\" and memorial tattoos honoring his brother Isaiah, who passed away in 2020. Blanco Sombre was born on August 11, 2008. His social media profile is known as LilSombre Rapero. His mother, Michella Nuttle, has a history of legal issues, including multiple DUIs, domestic violence charges, and incidents involving underage substance use. His father, Joey Lee Ratledge, spent much of his adult life incarcerated in Blount County Jail and also in juvenile detention during adolescence. He passed away in 2022 due to hypertension. Joey Ratledge was also associated with drug use, assault, and theft. His stepfather, John Charles Sosebee Jr., has faced numerous Child Protective Services cases related to alleged child abuse, which Blanco Sombre has publicly confirmed. Age: 17 Current gang affiliation: Active member of the Playboy Surenos.",
+          "bredd": 960,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Blanco_Sombre.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Celebrities",
+            "News",
+            "Podcasts",
+            "Police interviews"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-zero"
+            ]
+          }
+        },
+        {
+          "fil": "File:Annual report of the Bureau of Ethnology to the Secretary of the Smithsonian Institution (1888) (18740440454).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Annual_report_of_the_Bureau_of_Ethnology_to_the_Secretary_of_the_Smithsonian_Institution_(1888)_(18740440454).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1888",
+          "datum_original": "1888",
+          "datum_fil": "2018-11-24 04:14:38",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/18740440454/ Source book page: https://archive.org/stream/annualreportofbu1018881889smit/#page/n486/mode/1up",
+          "beskrivning": "Title : Annual report of the Bureau of Ethnology to the Secretary of the Smithsonian Institution Identifier : annualreportofbu1018881889smit ( find matches ) Year : 1880 ( 1880s ) Authors : Smithsonian Institution. Bureau of Ethnology Subjects : Ethnology ; Indians Publisher : Washington : G. P. O. Contributing Library : Smithsonian Libraries Digitizing Sponsor : Smithsonian Libraries View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: PACIFIC COAST TATTOO. 397 As is wfill known, the black pigments, when picked into the human skin, become rather bluish, which tint, when beneath the yellowish tinge of the Indian's cuticle, appears of an olive or sometimes a greenish-blue shade. The colors, inmicdiatcly after being tattooed upon the skin, retain more or less of the bhu' hhuk shade; but by absorption of the pigment and the persistence of the coloring matter of the pigmentary membrane the greenish tint soon appears, becoming gradually less con- spicuous as time progresses, so that in some of the oldest tattooed Indians the designs are greatly weakened in coloration. c^i^ Text Appearing After Image: Fig. 517.—Haida tattoo, sculpin ami dragon fly. Upon the bodies of some persons examined the results of ulceration are conspicuous. This destruction of tissue is the result of inflamma- tion caused by the tattooing and the introduction under the skiu of so great a quantity of irritating foreign matter that, instead of designs in color, there are distinct, sharply deiined figures in white or nearly white cicatrices, the pigmentary membrane having been totally destroyed by the ulceration. Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 1886,
+          "hojd": 3093,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Annual_report_of_the_Bureau_of_Ethnology_to_the_Secretary_of_the_Smithsonian_Institution_%281888%29_%2818740440454%29.jpg/960px-Annual_report_of_the_Bureau_of_Ethnology_to_the_Secretary_of_the_Smithsonian_Institution_%281888%29_%2818740440454%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Annual report of the Bureau of Ethnology to the Secretary of the Smithsonian Institution 1888-1889 (1893)",
+            "Haida art",
+            "Indigenous body art of the Americas"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "staende",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "saqqaqkulturen",
+      "titel": "Saqqaqkulturen på Grönland",
+      "start": -2499,
+      "plats": "Saqqaq, Grönland, orten som har gett kulturen dess namn",
+      "wikidata": "Q666758",
+      "kandidater": [
+        {
+          "fil": "File:Artefact saqqaquien baie Disko 3.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Artefact_saqqaquien_baie_Disko_3.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Christian Pingel, 1843",
+          "datum": "2018-04-29",
+          "datum_original": "2018-04-29",
+          "datum_fil": "2018-04-29 09:24:04",
+          "kredit": "Extraits des Mémoires et Revue de la Société Royale des Antiquaires du Nord - Antiquarisk tidsskrift",
+          "beskrivning": "Artefacts paléoeskimos retrouvée dans la baie de Disko au début du XIXe siècle.",
+          "bredd": 747,
+          "hojd": 434,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Artefact_saqqaquien_baie_Disko_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Saqqaq culture"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "mount-st-helens-yn-utbrottet",
+      "titel": "Mount St. Helens största kända utbrott",
+      "start": -1899,
+      "plats": "Mount St. Helens i delstaten Washington (USA)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Mt. St. Helens, Washington (1291219889).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mt._St._Helens,_Washington_(1291219889).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Ken Lund from Reno, Nevada, USA",
+          "datum": "2007-08-25 10:10",
+          "datum_original": "2007-08-25 10:10",
+          "datum_fil": "2015-12-03 21:53:22",
+          "kredit": "Mt. St. Helens, Washington",
+          "beskrivning": "Mount St. Helens is an active stratovolcano located in Skamania County, Washington, in the Pacific Northwest region of the United States. It is 96 miles (154 km) south of Seattle, Washington, and 50 miles (80 km) northeast of Portland, Oregon. Mount St. Helens takes its English name from the British diplomat Lord St Helens, a friend of explorer George Vancouver who made a survey of the area in the late 18th century. The volcano is located in the Cascade Range and is part of the Cascade Volcanic Arc, a segment of the Pacific Ring of Fire that includes over 160 active volcanoes. This volcano is well known for its ash explosions and pyroclastic flows. Mount St. Helens is most notorious for its catastrophic eruption on May 18, 1980, at 8:32 a.m. PDT, the deadliest and most economically destructive volcanic event in the history of the United States. Fifty-seven people were killed; 250 homes, 47 bridges, 15 miles (24 km) of railways, and 185 miles (298 km) of highway were destroyed. A massive debris avalanche triggered by an earthquake measuring 5.1 on the Richter scale caused an eruption that reduced the elevation of the mountain's summit from 9,677 ft (2,950 m) to 8,365 ft (2,550 m), replacing it with a 1 mile (1.6 km) wide horseshoe-shaped crater. The debris avalanche was up to 0.7 cubic miles (2.9 km3) in volume. The Mount St. Helens National Volcanic Monument was created to preserve the volcano and allow for its aftermath to be scientifically studied. As with most other volcanoes in the Cascade Range, Mount St. Helens is a large eruptive cone consisting of lava rock interlayered with ash, pumice, and other deposits. The mountain includes layers of basalt and andesite through which several domes of dacite lava have erupted. The largest of the dacite domes formed the previous summit, and off its northern flank sat the smaller Goat Rocks dome. Both were destroyed in the 1980 eruption. en.wikipedia.org/wiki/Mount_St._Helens en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_...",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Mt._St._Helens%2C_Washington_%281291219889%29.jpg/960px-Mt._St._Helens%2C_Washington_%281291219889%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aerial photographs of Mount St. Helens",
+            "Mount St. Helens in 2007"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Mt. St. Helens, Washington (1291221161).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mt._St._Helens,_Washington_(1291221161).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Ken Lund from Reno, Nevada, USA",
+          "datum": "2007-08-25 10:09",
+          "datum_original": "2007-08-25 10:09",
+          "datum_fil": "2015-12-03 21:53:29",
+          "kredit": "Mt. St. Helens, Washington",
+          "beskrivning": "Mount St. Helens is an active stratovolcano located in Skamania County, Washington, in the Pacific Northwest region of the United States. It is 96 miles (154 km) south of Seattle, Washington, and 50 miles (80 km) northeast of Portland, Oregon. Mount St. Helens takes its English name from the British diplomat Lord St Helens, a friend of explorer George Vancouver who made a survey of the area in the late 18th century. The volcano is located in the Cascade Range and is part of the Cascade Volcanic Arc, a segment of the Pacific Ring of Fire that includes over 160 active volcanoes. This volcano is well known for its ash explosions and pyroclastic flows. Mount St. Helens is most notorious for its catastrophic eruption on May 18, 1980, at 8:32 a.m. PDT, the deadliest and most economically destructive volcanic event in the history of the United States. Fifty-seven people were killed; 250 homes, 47 bridges, 15 miles (24 km) of railways, and 185 miles (298 km) of highway were destroyed. A massive debris avalanche triggered by an earthquake measuring 5.1 on the Richter scale caused an eruption that reduced the elevation of the mountain's summit from 9,677 ft (2,950 m) to 8,365 ft (2,550 m), replacing it with a 1 mile (1.6 km) wide horseshoe-shaped crater. The debris avalanche was up to 0.7 cubic miles (2.9 km3) in volume. The Mount St. Helens National Volcanic Monument was created to preserve the volcano and allow for its aftermath to be scientifically studied. As with most other volcanoes in the Cascade Range, Mount St. Helens is a large eruptive cone consisting of lava rock interlayered with ash, pumice, and other deposits. The mountain includes layers of basalt and andesite through which several domes of dacite lava have erupted. The largest of the dacite domes formed the previous summit, and off its northern flank sat the smaller Goat Rocks dome. Both were destroyed in the 1980 eruption. en.wikipedia.org/wiki/Mount_St._Helens en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_...",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Mt._St._Helens%2C_Washington_%281291221161%29.jpg/960px-Mt._St._Helens%2C_Washington_%281291221161%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aerial photographs of Mount St. Helens",
+            "Dacitic lava domes",
+            "Mount St. Helens in 2007"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Mt. St. Helens, Washington (1292081560).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mt._St._Helens,_Washington_(1292081560).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Ken Lund from Reno, Nevada, USA",
+          "datum": "2007-08-25 10:09",
+          "datum_original": "2007-08-25 10:09",
+          "datum_fil": "2015-12-03 21:53:11",
+          "kredit": "Mt. St. Helens, Washington",
+          "beskrivning": "Mount St. Helens is an active stratovolcano located in Skamania County, Washington, in the Pacific Northwest region of the United States. It is 96 miles (154 km) south of Seattle, Washington, and 50 miles (80 km) northeast of Portland, Oregon. Mount St. Helens takes its English name from the British diplomat Lord St Helens, a friend of explorer George Vancouver who made a survey of the area in the late 18th century. The volcano is located in the Cascade Range and is part of the Cascade Volcanic Arc, a segment of the Pacific Ring of Fire that includes over 160 active volcanoes. This volcano is well known for its ash explosions and pyroclastic flows. Mount St. Helens is most notorious for its catastrophic eruption on May 18, 1980, at 8:32 a.m. PDT, the deadliest and most economically destructive volcanic event in the history of the United States. Fifty-seven people were killed; 250 homes, 47 bridges, 15 miles (24 km) of railways, and 185 miles (298 km) of highway were destroyed. A massive debris avalanche triggered by an earthquake measuring 5.1 on the Richter scale caused an eruption that reduced the elevation of the mountain's summit from 9,677 ft (2,950 m) to 8,365 ft (2,550 m), replacing it with a 1 mile (1.6 km) wide horseshoe-shaped crater. The debris avalanche was up to 0.7 cubic miles (2.9 km3) in volume. The Mount St. Helens National Volcanic Monument was created to preserve the volcano and allow for its aftermath to be scientifically studied. As with most other volcanoes in the Cascade Range, Mount St. Helens is a large eruptive cone consisting of lava rock interlayered with ash, pumice, and other deposits. The mountain includes layers of basalt and andesite through which several domes of dacite lava have erupted. The largest of the dacite domes formed the previous summit, and off its northern flank sat the smaller Goat Rocks dome. Both were destroyed in the 1980 eruption. en.wikipedia.org/wiki/Mount_St._Helens en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_...",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Mt._St._Helens%2C_Washington_%281292081560%29.jpg/960px-Mt._St._Helens%2C_Washington_%281292081560%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aerial photographs of Mount St. Helens",
+            "Andesite in Washington (state)",
+            "Basalt in Washington (state)",
+            "Dacite in Washington (state)",
+            "Mount St. Helens in 2007",
+            "Volcanism of Mount St. Helens"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "poverty-point",
+      "titel": "Jordverken i Poverty Point",
+      "start": -1699,
+      "plats": "Poverty Point i nordöstra Louisiana (i dag USA)",
+      "wikidata": "Q964745",
+      "kandidater": [
+        {
+          "fil": "File:Mound A at Poverty Point.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mound_A_at_Poverty_Point.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "https://www.flickr.com/photos/15308454@N06/ Kniemla",
+          "datum": "2008-03-24",
+          "datum_original": "2008-03-24",
+          "datum_fil": "2010-10-13 21:03:14",
+          "kredit": "https://www.flickr.com/photos/15308454@N06/2389545729/in/photostream/",
+          "beskrivning": "Mound A at the Poverty Point site, Louisiana, USA. A prehistoric site of various earthworks, including ring walls and mounds. The site is a state park and designated as National Monument. This image shows the largest mound, called Bird Mound or Mound A.",
+          "bredd": 1024,
+          "hojd": 768,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Mound_A_at_Poverty_Point.jpg/960px-Mound_A_at_Poverty_Point.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Poverty Point"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:PovertyPoint.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:PovertyPoint.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2006-04-14 20:13:41",
+          "datum_original": null,
+          "datum_fil": "2006-04-14 20:13:41",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 450,
+          "hojd": 283,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/31/PovertyPoint.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Black and white photographs of the United States",
+            "Poverty Point"
+          ],
+          "smal": true,
+          "flaggor": [
+            "datum-osakert",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "el-manati-offermossen",
+      "titel": "Olmekernas offermosse i El Manatí",
+      "start": -1599,
+      "plats": "El Manatí i kommunen Hidalgotitlán, Veracruz (Mexiko)",
+      "wikidata": "Q907731",
+      "kandidater": [
+        {
+          "fil": "File:Olmec Heartland Overview 4.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Olmec_Heartland_Overview_4.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": null,
+          "datum": "2007-12-30 01:03:10",
+          "datum_original": null,
+          "datum_fil": "2007-12-30 01:03:10",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 1788,
+          "hojd": 1273,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Olmec_Heartland_Overview_4.svg/960px-Olmec_Heartland_Overview_4.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Coatzacoalcos River",
+            "La Venta",
+            "Laguna de los Cerros",
+            "Maps of Olmec",
+            "Maps of Sierra de los Tuxtlas",
+            "Maps of the Gulf of Mexico",
+            "Olmec archeological sites",
+            "SVG maps of the history of Mexico",
+            "San Lorenzo Tenochtitlán",
+            "Tres Zapotes"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-3.0}}. Commons API (LicenseShortName): \"CC BY 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "olmekerna-san-lorenzo",
+      "titel": "Olmekernas San Lorenzo och kolossalhuvudena",
+      "start": -1399,
+      "plats": "San Lorenzo Tenochtitlán i Veracruz (i dag Mexiko)",
+      "wikidata": "Q772613",
+      "kandidater": [
+        {
+          "fil": "File:CabezaColosal1 MuseoXalapa v1.1.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:CabezaColosal1_MuseoXalapa_v1.1.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": null,
+          "datum": "2006-01-21 14:06:21",
+          "datum_original": null,
+          "datum_fil": "2006-01-21 14:06:21",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 800,
+          "hojd": 533,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/20/CabezaColosal1_MuseoXalapa_v1.1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "San Lorenzo Colossal Head 1"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{GFDL}}, {{GFDL|migration=relicense}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "GFDL",
+              "GFDL|migration=relicense"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "paso-de-la-amada-bollplan",
+      "titel": "Mesoamerikas äldsta kända bollplan",
+      "start": -1399,
+      "plats": "Paso de la Amada i Chiapas, Mexiko",
+      "wikidata": "Q2309062",
+      "kandidater": [
+        {
+          "fil": "File:Paso de la amada figurine.PNG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Paso_de_la_amada_figurine.PNG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Anonymous ( Olmecas ) Unknown author",
+          "datum": "between 900 and 600 BC (Middle Formative)",
+          "datum_original": "between 900 and 600 BC (Middle Formative)",
+          "datum_fil": "2012-12-05 21:05:21",
+          "kredit": "Walters Art Museum : Home page Info about artwork",
+          "beskrivning": "The identification of this figure as a ballplayer rests on the characteristically wide belt, or \"yoke,\" around his waist. He carries a rectangular item in his left arm, and his right hand clutches a cylindrical object, perhaps a ball-striking implement used in some versions of the game. Underneath the yoke, the player wears a loincloth and hip wrap, which falls below his buttocks. His head is tied with a wide knotted strap, and his large disk pendant resembles the divining mirror seen on other Olmec-style figurines. The Mesoamerican ballgame was a multifaceted event. It was played as sport, and among the sixteenth-century Aztecs, there was much betting and revelry. The game also was a ritualized reflection of cosmic forces, a ceremonial petition for fertility, and a rite during which the supernatural realm was made manifest. The ballgame has very ancient origins in Mesoamerica; the earliest known ballcourt, dating to about 1400 BCE, was found at Paso de la Amada in Chiapas, Mexico.",
+          "bredd": 160,
+          "hojd": 211,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/58/Paso_de_la_amada_figurine.PNG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Loincloths in art",
+            "Olmec art in the Walters Art Museum",
+            "Olmec jade figurines",
+            "Paso de la Amada, Mazatán",
+            "Traditional sports"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "Public domain",
+            "skal": [
+              "API:et säger \"Public domain\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "chavin-de-huantar",
+      "titel": "Tempelplatsen Chavín de Huántar",
+      "start": -1199,
+      "plats": "Chavín de Huántar i Ancash (i dag Peru)",
+      "wikidata": "Q732554",
+      "kandidater": [
+        {
+          "fil": "File:Chavin - Août 2007.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chavin_-_Ao%C3%BBt_2007.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Martin St-Amant ( S23678 )",
+          "datum": "2007-08-30",
+          "datum_original": "2007-08-30",
+          "datum_fil": "2007-10-08 19:14:38",
+          "kredit": "Own work",
+          "beskrivning": "El Castillo, part of the Chavín de Huantar ruins",
+          "bredd": 5854,
+          "hojd": 2256,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Chavin_-_Ao%C3%BBt_2007.jpg/960px-Chavin_-_Ao%C3%BBt_2007.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Chavín de Huántar (archaeological site)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-3.0}}. Commons API (LicenseShortName): \"CC BY 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-3.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Chavin de Huantar El Castillo 06122009.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chavin_de_Huantar_El_Castillo_06122009.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Dtarazona",
+          "datum": "2009-12-06",
+          "datum_original": "2009-12-06",
+          "datum_fil": "2021-06-10 21:15:34",
+          "kredit": "Own work",
+          "beskrivning": "\"El Castillo\" es una estructura que conforma la sección \"Templo Nuevo\" en el sitio arqueológico \"Chavín de Huántar\". Región Ancash - Perú.",
+          "bredd": 3072,
+          "hojd": 2304,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Chavin_de_Huantar_El_Castillo_06122009.jpg/960px-Chavin_de_Huantar_El_Castillo_06122009.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Plaza cuadrada"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "kuntur-wasi",
+      "titel": "Tempelplatsen Kuntur Wasi byggs",
+      "start": -1099,
+      "plats": "Kullen La Copa i regionen Cajamarca, norra Perus högland",
+      "wikidata": "Q1792721",
+      "kandidater": [
+        {
+          "fil": "File:Kuntur Wasi.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kuntur_Wasi.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Yanacochito",
+          "datum": "2008-06-15",
+          "datum_original": "2008-06-15",
+          "datum_fil": "2008-07-14 09:04:03",
+          "kredit": "Own work",
+          "beskrivning": "Kuntur Wasi",
+          "bredd": 1131,
+          "hojd": 519,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Kuntur_Wasi.jpg/960px-Kuntur_Wasi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Kuntur Wasi"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|cc-by-sa-3.0}}, {{self|GFDL}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0",
+              "self|GFDL"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "cascajalblocket",
+      "titel": "Cascajalblocket med okända tecken",
+      "start": -899,
+      "plats": "Lomas de Tacamichapan i kommunen Jáltipan, nära San Lorenzo (Veracruz, Mexiko)",
+      "wikidata": "Q1046912",
+      "kandidater": [
+        {
+          "fil": "File:Cascajal-text.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cascajal-text.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Cascajal-text.jpg : Michael Everson derivative work: Jon C ( talk )",
+          "datum": "2012-01-18 01:02",
+          "datum_original": "2012-01-18 01:02",
+          "datum_fil": "2022-01-31 16:45:36",
+          "kredit": "This file was derived from: Cascajal-text.jpg :",
+          "beskrivning": "A drawing of the Cascajal block. This high-resolution image was drawn by me, based loosely on a the low-resolution greyscale image published by \"Science\" and re-published by a number of other news providers, such as the \"National Geographic\".",
+          "bredd": 1057,
+          "hojd": 1761,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Cascajal-text.svg/960px-Cascajal-text.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cascajal Block",
+            "Mesoamerican writing",
+            "Undeciphered writing systems"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|Cc-by-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "takalik-abaj",
+      "titel": "Handelsstaden Tak'alik Ab'aj",
+      "start": -899,
+      "plats": "Tak'alik Ab'aj, Guatemala",
+      "wikidata": "Q1509537",
+      "kandidater": [
+        {
+          "fil": "File:ESTRUCTURA 12 MUSEO AL AIRE LIBRE FACHADA OESTE - TAKALIK ABAJ.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:ESTRUCTURA_12_MUSEO_AL_AIRE_LIBRE_FACHADA_OESTE_-_TAKALIK_ABAJ.png",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Gobierno de Guatemala",
+          "datum": "2023-09-18",
+          "datum_original": "2023-09-18",
+          "datum_fil": "2023-10-07 19:42:28",
+          "kredit": "https://www.flickr.com/photos/guatemalagob/53196967266/",
+          "beskrivning": "ESTRUCTURA 12 MUSEO AL AIRE LIBRE FACHADA OESTE - TAKALIK ABAJ",
+          "bredd": 2782,
+          "hojd": 1892,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/ESTRUCTURA_12_MUSEO_AL_AIRE_LIBRE_FACHADA_OESTE_-_TAKALIK_ABAJ.png/960px-ESTRUCTURA_12_MUSEO_AL_AIRE_LIBRE_FACHADA_OESTE_-_TAKALIK_ABAJ.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Takalik Abaj"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-author-FlickrPDM"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "paracaskulturen",
+      "titel": "Paracaskulturen och dess textilier",
+      "start": -799,
+      "plats": "Paracashalvön i regionen Ica (i dag Peru)",
+      "wikidata": "Q1127723",
+      "kandidater": [
+        {
+          "fil": "File:ParacasSkullsIcaMuseum.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:ParacasSkullsIcaMuseum.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Marcin Tlustochowicz from Poland",
+          "datum": "2008-08-23 11:15",
+          "datum_original": "2008-08-23 11:15",
+          "datum_fil": "2010-10-21 19:52:33",
+          "kredit": "Elongated Skulls Characteristic of the Paracas Culture",
+          "beskrivning": "These skulls are on display at Museo Regional de Ica in the city of Ica in Peru. They are related to the en:Paracas Textiles",
+          "bredd": 1600,
+          "hojd": 1000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/ParacasSkullsIcaMuseum.jpg/960px-ParacasSkullsIcaMuseum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Artificial cranial deformation in Peru",
+            "Museo Regional de Ica",
+            "Paracas culture",
+            "Prehistoric American Trepanation in Peru"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "samma-fil"
+          ],
+          "samma_fil_som": [
+            "trepanation-i-paracaskulturen"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "trepanation-i-paracaskulturen",
+      "titel": "Trepanation i Paracaskulturen",
+      "start": -799,
+      "plats": "Paracashalvön i regionen Ica (i dag Peru)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:ParacasSkullsIcaMuseum.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:ParacasSkullsIcaMuseum.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Marcin Tlustochowicz from Poland",
+          "datum": "2008-08-23 11:15",
+          "datum_original": "2008-08-23 11:15",
+          "datum_fil": "2010-10-21 19:52:33",
+          "kredit": "Elongated Skulls Characteristic of the Paracas Culture",
+          "beskrivning": "These skulls are on display at Museo Regional de Ica in the city of Ica in Peru. They are related to the en:Paracas Textiles",
+          "bredd": 1600,
+          "hojd": 1000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/ParacasSkullsIcaMuseum.jpg/960px-ParacasSkullsIcaMuseum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Artificial cranial deformation in Peru",
+            "Museo Regional de Ica",
+            "Paracas culture",
+            "Prehistoric American Trepanation in Peru"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning",
+            "samma-fil"
+          ],
+          "samma_fil_som": [
+            "paracaskulturen"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:ParacasSkullsIcaMuseumOne.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:ParacasSkullsIcaMuseumOne.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "ParacasSkullsIcaMuseum.jpg : Marcin Tlustochowicz from Poland derivative work: Victuallers ( talk )",
+          "datum": "2010-10-21 19:58",
+          "datum_original": "2010-10-21 19:58",
+          "datum_fil": "2010-10-21 19:59:42",
+          "kredit": "ParacasSkullsIcaMuseum.jpg",
+          "beskrivning": "Skull on display at Museo Regional de Ica in the city of Ica in Peru. They are related to the en:Paracas Textiles",
+          "bredd": 750,
+          "hojd": 750,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/c4/ParacasSkullsIcaMuseumOne.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Artificial cranial deformation in Peru",
+            "Human parietal bones",
+            "Museo Regional de Ica",
+            "Paracas culture",
+            "Prehistoric American Trepanation in Peru"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|Cc-by-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "el-mirador",
+      "titel": "Mayastaden El Mirador blomstrar",
+      "start": -599,
+      "plats": "El Mirador i norra Petén (i dag Guatemala)",
+      "wikidata": "Q504904",
+      "kandidater": [
+        {
+          "fil": "File:Elmiradortigre.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Elmiradortigre.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.5",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.5",
+          "upphovsperson": "No machine-readable author provided. Authenticmaya~commonswiki assumed (based on copyright claims).",
+          "datum": "20 January 2007 (original upload date)",
+          "datum_original": "20 January 2007 (original upload date)",
+          "datum_fil": "2007-01-20 17:39:58",
+          "kredit": "No machine-readable source provided. Own work assumed (based on copyright claims).",
+          "beskrivning": "Piramide del Tigre la segunda mayor del Mirador, cubierta de Selva virgen, 2005",
+          "bredd": 400,
+          "hojd": 300,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/8/80/Elmiradortigre.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "El Mirador",
+            "Petén-Veracruz moist forests",
+            "Triadic pyramid"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.5",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-2.5"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "adenakulturen",
+      "titel": "Adenakulturen bygger gravhögar",
+      "start": -499,
+      "plats": "Nära Chillicothe i Ohio (i dag USA)",
+      "wikidata": "Q355841",
+      "kandidater": [
+        {
+          "fil": "File:Human effigy pipe 01 - Cleveland Museum of Art (30739647306).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Human_effigy_pipe_01_-_Cleveland_Museum_of_Art_(30739647306).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Tim Evanson from Cleveland Heights, Ohio, USA",
+          "datum": "2016-09-23 13:38",
+          "datum_original": "2016-09-23 13:38",
+          "datum_fil": "2019-01-06 20:55:40",
+          "kredit": "human effigy pipe 01 - Cleveland Museum of Art",
+          "beskrivning": "Pipe in the shape of a human being, on display at the Cleveland Museum of Art in Cleveland, Ohio. Made by an artisan of the Adena people from pipestone some time between 100 BC and 100 AD and found at the Adena Mound near Chillicothe, Ross County, Ohio, in 1901. The pipe is in the form of a standing male, perhaps an ancestor, a hero, or a shaman. He wears large spool-shaped ear ornaments, a loincloth with a feather bustle at the back, and a bifurcated hairdo typical of a high-ranking individual. Tobacco was burned in the tiny bowl between the figure’s feet, with the smoke traveling through a tube in the body to the mouthpiece on top of the head. In 2013, the piece was designated Ohio’s official state artifact.",
+          "bredd": 1640,
+          "hojd": 2500,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Human_effigy_pipe_01_-_Cleveland_Museum_of_Art_%2830739647306%29.jpg/960px-Human_effigy_pipe_01_-_Cleveland_Museum_of_Art_%2830739647306%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Adena Mound",
+            "Native American art in the Cleveland Museum of Art",
+            "Sculptures in the Cleveland Museum of Art"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "dorsetkulturen",
+      "titel": "Dorsetkulturen i Nordamerikas Arktis",
+      "start": -499,
+      "plats": "Kinngait (Cape Dorset) i Nunavut, Kanada",
+      "wikidata": "Q603749",
+      "kandidater": [
+        {
+          "fil": "File:Kalaallit Nunaat Arctic Steppe Ecoregion.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kalaallit_Nunaat_Arctic_Steppe_Ecoregion.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Z3lvs",
+          "datum": "2025-10-17",
+          "datum_original": "2025-10-17",
+          "datum_fil": "2025-10-17 22:14:28",
+          "kredit": "Own work background : Natural Earth II (public domain) by Tom Patterson, US National Park Service national borders : Natural Earth - Admin 0 – Countries (public domain) Boundary data is from Ecoregions 2017 Resolve Shapefile (CC-BY 4.0) This PNG graphic was created with QGIS .",
+          "beskrivning": "Kalaallit Nunaat Arctic Steppe Ecoregion",
+          "bredd": 2432,
+          "hojd": 1529,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Kalaallit_Nunaat_Arctic_Steppe_Ecoregion.png/960px-Kalaallit_Nunaat_Arctic_Steppe_Ecoregion.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Kalaallit Nunaat Arctic Steppe Ecoregion"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Kalaallit Nunaat High Arctic Tundra Ecoregion.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kalaallit_Nunaat_High_Arctic_Tundra_Ecoregion.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Z3lvs",
+          "datum": "2025-10-17",
+          "datum_original": "2025-10-17",
+          "datum_fil": "2025-10-17 22:14:27",
+          "kredit": "Own work background : Natural Earth II (public domain) by Tom Patterson, US National Park Service national borders : Natural Earth - Admin 0 – Countries (public domain) Boundary data is from Ecoregions 2017 Resolve Shapefile (CC-BY 4.0) This PNG graphic was created with QGIS .",
+          "beskrivning": "Kalaallit Nunaat High Arctic Tundra Ecoregion",
+          "bredd": 2432,
+          "hojd": 1529,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Kalaallit_Nunaat_High_Arctic_Tundra_Ecoregion.png/960px-Kalaallit_Nunaat_High_Arctic_Tundra_Ecoregion.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Kalaallit Nunaat High Arctic Tundra Ecoregion"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Kalaallit Nunaat Arctic Steppe Ecoregion - Relief Map Zoom.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kalaallit_Nunaat_Arctic_Steppe_Ecoregion_-_Relief_Map_Zoom.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Z3lvs",
+          "datum": "2026-10-11",
+          "datum_original": "2026-10-11",
+          "datum_fil": "2026-10-12 22:17:18",
+          "kredit": "Own work",
+          "beskrivning": "This close-up map depicts the boundaries of the Kalaallit Nunaat Arctic Steppe Ecoregion (magenta outline). The relief map was sourced from maps-for-free.com (CC-0). Boundary data is from Ecoregions 2017 Resolve Shapefile (CC-BY 4.0). White shading indicates rock and ice.",
+          "bredd": 2784,
+          "hojd": 1704,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Kalaallit_Nunaat_Arctic_Steppe_Ecoregion_-_Relief_Map_Zoom.png/960px-Kalaallit_Nunaat_Arctic_Steppe_Ecoregion_-_Relief_Map_Zoom.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Kalaallit Nunaat Arctic Steppe Ecoregion",
+            "Topographic maps of ecoregions"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "monte-alban-grundas",
+      "titel": "Monte Albán grundas",
+      "start": -499,
+      "plats": "Monte Albán i Oaxacadalen (i dag Mexiko)",
+      "wikidata": "Q464899",
+      "kandidater": [
+        {
+          "fil": "File:Monte Albán archeological site, Oaxaca.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Monte_Alb%C3%A1n_archeological_site,_Oaxaca.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": null,
+          "datum": "2005-04-27 07:40:42",
+          "datum_original": null,
+          "datum_fil": "2005-04-27 07:40:42",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 640,
+          "hojd": 480,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Monte_Alb%C3%A1n_archeological_site%2C_Oaxaca.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Monte Albán"
+          ],
+          "smal": true,
+          "flaggor": [
+            "datum-osakert",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{GFDL}}, {{GFDL|migration=relicense}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "GFDL",
+              "GFDL|migration=relicense"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "saladoider-nar-antillerna",
+      "titel": "Saladoiderna tar sig ut till Antillerna",
+      "start": -499,
+      "plats": "Små Antillerna och Puerto Rico, från nedre Orinoco (Venezuela)",
+      "wikidata": "Q4405634",
+      "kandidater": [
+        {
+          "fil": "File:Schéma de la roche gravée de Montravail.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sch%C3%A9ma_de_la_roche_grav%C3%A9e_de_Montravail.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Xfigpower",
+          "datum": "2019-10-18",
+          "datum_original": "2019-10-18",
+          "datum_fil": "2019-10-18 13:14:44",
+          "kredit": "Own work",
+          "beskrivning": "schéma reconstitué d'après la photo de la roche [1]",
+          "bredd": 570,
+          "hojd": 388,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Sch%C3%A9ma_de_la_roche_grav%C3%A9e_de_Montravail.svg/960px-Sch%C3%A9ma_de_la_roche_grav%C3%A9e_de_Montravail.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological sites in Martinique",
+            "Formative period in the Americas"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "kaminaljuyu-blomstring",
+      "titel": "Kaminaljuyu blomstrar i mayahöglandet",
+      "start": -399,
+      "plats": "Kaminaljuyu i Guatemala City (i dag Guatemala)",
+      "wikidata": "Q1081581",
+      "kandidater": [
+        {
+          "fil": "File:Kaminaljuyu 11.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kaminaljuyu_11.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Simon Burchell",
+          "datum": "2010-09-26",
+          "datum_original": "2010-09-26",
+          "datum_fil": "2011-08-24 22:42:34",
+          "kredit": "Own work",
+          "beskrivning": "Acropolis at the Maya ruins of Kaminaljuyu, Guatemala City.",
+          "bredd": 2816,
+          "hojd": 2112,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Kaminaljuyu_11.jpg/960px-Kaminaljuyu_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Kaminaljuyu"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "chankillo-tretton-torn",
+      "titel": "Solobservatoriet med de tretton tornen i Chankillo",
+      "start": -299,
+      "plats": "Chankillo i Casma-Sechín-dalen, regionen Áncash (Peru)",
+      "wikidata": "Q1062357",
+      "kandidater": [
+        {
+          "fil": "File:Chanquillo Fortaleza (remains).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chanquillo_Fortaleza_(remains).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "AgainErick",
+          "datum": "2007-10-02",
+          "datum_original": "2007-10-02",
+          "datum_fil": "2007-10-15 19:23:25",
+          "kredit": "Own work",
+          "beskrivning": "Remains of Chankillo Fortaleza. Archaeological site near Casma, Ancash in Peru",
+          "bredd": 7257,
+          "hojd": 1710,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Chanquillo_Fortaleza_%28remains%29.jpg/960px-Chanquillo_Fortaleza_%28remains%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Chanquillo"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-sa-3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-3.0,2.5,2.0,1.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "san-bartolos-vaggmalningar",
+      "titel": "Väggmålningarna i San Bartolo",
+      "start": -99,
+      "plats": "San Bartolo i Petén, norra Guatemala",
+      "wikidata": "Q795599",
+      "kandidater": [
+        {
+          "fil": "File:SBmural.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:SBmural.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "No machine-readable author provided. Authenticmaya~commonswiki assumed (based on copyright claims).",
+          "datum": "20 January 2007 (original upload date)",
+          "datum_original": "20 January 2007 (original upload date)",
+          "datum_fil": "2007-01-20 20:22:41",
+          "kredit": "No machine-readable source provided. Own work assumed (based on copyright claims).",
+          "beskrivning": "Mural fragment in San Bartolo, Guatemala, rediscovered 2003, presented at the Palacio Nacional de La Cultura, May 2006. Pre-Classic Maya art",
+          "bredd": 293,
+          "hojd": 433,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/71/SBmural.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Maya murals",
+            "Pre-Columbian art",
+            "San Bartolo (Maya site)"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk",
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "flera licenser: CC BY-SA 3.0, CC BY-SA 2.5",
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|Cc-by-sa-3.0-migrated}}, {{self|Cc-by-sa-2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Flera licenser anges (CC BY-SA 3.0 och CC BY-SA 2.5); bilden används under CC BY-SA 3.0. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|Cc-by-sa-3.0-migrated",
+              "self|Cc-by-sa-2.5,2.0,1.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "teotihuacan",
+      "titel": "Teotihuacan",
+      "start": -99,
+      "plats": "Teotihuacan, delstaten México, Mexiko",
+      "wikidata": "Q172613",
+      "kandidater": [
+        {
+          "fil": "File:ZA77 Teotihuacán edo de mex Herberto de la rosa.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:ZA77_Teotihuac%C3%A1n_edo_de_mex_Herberto_de_la_rosa.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Hdlrosa",
+          "datum": "2008-08-06 07:37:24",
+          "datum_original": "2008-08-06 07:37:24",
+          "datum_fil": "2015-10-15 04:34:54",
+          "kredit": "Own work",
+          "beskrivning": "This is a photo of a monument in Mexico, identified by ID",
+          "bredd": 3008,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/ZA77_Teotihuac%C3%A1n_edo_de_mex_Herberto_de_la_rosa.jpg/960px-ZA77_Teotihuac%C3%A1n_edo_de_mex_Herberto_de_la_rosa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2008 in Teotihuacán",
+            "Aerial photographs of Teotihuacán",
+            "Pirámide de la Luna",
+            "Pirámide del Sol"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "aldsta-langa-rakningen-chiapa-de-corzo",
+      "titel": "Det äldsta kända datumet i långa räkningen",
+      "start": -35,
+      "plats": "Chiapa de Corzo i Chiapas (i dag Mexiko)",
+      "wikidata": "Q4384315",
+      "kandidater": [
+        {
+          "fil": "File:Mound 1.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mound_1.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Bbachand",
+          "datum": "2008-03-14",
+          "datum_original": "2008-03-14",
+          "datum_fil": "2009-12-29 20:13:54",
+          "kredit": "Own work",
+          "beskrivning": "Mound 1, Chiapa de Corzo, view looking south toward the Grijalva River",
+          "bredd": 3008,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Mound_1.JPG/960px-Mound_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Chiapa de Corzo (archeological site)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|cc-by-sa-3.0}}, {{self|GFDL}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0",
+              "self|GFDL"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "cahuachi",
+      "titel": "Pilgrimsplatsen Cahuachi",
+      "start": 1,
+      "plats": "Cahuachi i Nazcadalen, södra Peru",
+      "wikidata": "Q1025802",
+      "kandidater": [
+        {
+          "fil": "File:Cahuachi 14.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cahuachi_14.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Ed88",
+          "datum": "13 July 2008 (according to Exif data)",
+          "datum_original": "13 July 2008 (according to Exif data)",
+          "datum_fil": "2008-09-05 09:56:25",
+          "kredit": "Own work",
+          "beskrivning": "Cahuachi archaeological site in Peru",
+          "bredd": 2592,
+          "hojd": 1944,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Cahuachi_14.jpg/960px-Cahuachi_14.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cahuachi"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "flera licenser: CC BY-SA 3.0, CC BY-SA 2.5",
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{Self|GFDL}}, {{Self|Cc-by-sa-3.0-migrated}}, {{Self|cc-by-sa-2.5}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Flera licenser anges (CC BY-SA 3.0 och CC BY-SA 2.5); bilden används under CC BY-SA 3.0. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "Self|GFDL",
+              "Self|Cc-by-sa-3.0-migrated",
+              "Self|cc-by-sa-2.5"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "hopewell-jordverken",
+      "titel": "Hopewellkulturens ceremoniella jordverk",
+      "start": 1,
+      "plats": "Södra Ohio, bland annat Mound City vid Chillicothe och Newark (i dag USA)",
+      "wikidata": "Q10525989",
+      "kandidater": [
+        {
+          "fil": "File:Hopewell Culture National Historical Park.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Hopewell_Culture_National_Historical_Park.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Ɱ",
+          "datum": "2018-10-18",
+          "datum_original": "2018-10-18",
+          "datum_fil": "2018-11-10 01:57:40",
+          "kredit": "Own work",
+          "beskrivning": "The Hopewell Culture National Historical Park (main site). View from near Mound City Group Visitor Center.",
+          "bredd": 4778,
+          "hojd": 3236,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Hopewell_Culture_National_Historical_Park.jpg/960px-Hopewell_Culture_National_Historical_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "9-meter-tall structures in the United States",
+            "Blue sky in Ohio",
+            "Mound City Group",
+            "Mound City Group Visitor Center",
+            "October 2018 in Ohio",
+            "Shadows of trees in the United States"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "pinson-mounds",
+      "titel": "Ceremonihögarna i Pinson",
+      "start": 1,
+      "plats": "Pinson Mounds i Madison County, Tennessee, USA",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Pinson-mounds-mound10.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Pinson-mounds-mound10.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Brian Stansberry",
+          "datum": "2007-12-08",
+          "datum_original": "2007-12-08",
+          "datum_fil": "2010-03-30 14:23:13",
+          "kredit": "Own work",
+          "beskrivning": "Looking across the top of Mound 10 into the field below at Pinson Mounds State Archaeological Park in Madison County, Tennessee, located in the Southeastern United States. Mound 10, which rises about 2 meters above the ground, was most likely a ceremonial platform mound. Excavators have located a central hearth near the mound's center.",
+          "bredd": 2047,
+          "hojd": 1329,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Pinson-mounds-mound10.jpg/960px-Pinson-mounds-mound10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Pinson Mounds site"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-3.0}}. Commons API (LicenseShortName): \"CC BY 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-3.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Pinson Mounds State Park Pinson Madison County TN 010.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Pinson_Mounds_State_Park_Pinson_Madison_County_TN_010.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Thomas R Machnitzki (thomas@machnitzki.com)",
+          "datum": "2012-05-19",
+          "datum_original": "2012-05-19",
+          "datum_fil": "2012-05-22 23:22:22",
+          "kredit": "Own work",
+          "beskrivning": "Pinson Mounds State Archaeological Park Sauls Mound plaque",
+          "bredd": 1024,
+          "hojd": 768,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Pinson_Mounds_State_Park_Pinson_Madison_County_TN_010.jpg/960px-Pinson_Mounds_State_Park_Pinson_Madison_County_TN_010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Pinson Mounds site"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-3.0}}. Commons API (LicenseShortName): \"CC BY 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "huvudloss-hos-chinchorrofolket",
+      "titel": "Huvudlöss hos chinchorrofolket",
+      "start": -2999,
+      "plats": "Kommunen Camarones i regionen Arica y Parinacota, norra Chile",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "kotoshtraditionen",
+      "titel": "Kotoshtraditionens tempel i Anderna",
+      "start": -2999,
+      "plats": "Kotosh nära Huánuco i Perus Anderna",
+      "wikidata": "Q6434200",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "cerro-blanco-utbrottet",
+      "titel": "Vulkanen Cerro Blanco får ett jätteutbrott",
+      "start": -2299,
+      "plats": "Cerro Blanco i provinsen Catamarca, nordvästra Argentina",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "torka-och-glaciarer-i-nordamerika-4-2",
+      "titel": "Torka och växande glaciärer i Nordamerika",
+      "start": -2199,
+      "plats": "Nordamerika; iskärnan från Mount Logan i sydvästra Yukon (Kanada)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "ortoiroiderna-nar-antillerna",
+      "titel": "Ortoiroiderna flyttar ut på Antillerna",
+      "start": -1999,
+      "plats": "Ortoire på Trinidad, fyndplatsen som har gett folket dess namn",
+      "wikidata": "Q601260",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "kakao-hos-mokaya",
+      "titel": "Kakao odlas och dricks i Mesoamerika",
+      "start": -1899,
+      "plats": "Paso de la Amada i Soconusco, Chiapas (Mexiko)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "aniakchak-kalderan",
+      "titel": "Vulkanen Aniakchak rasar samman till en kaldera",
+      "start": -1749,
+      "plats": "Aniakchak på Alaskahalvön, Alaska (USA)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "nortontraditionen",
+      "titel": "Nortontraditionen: oljelampor och lerkärl vid Berings sund",
+      "start": -999,
+      "plats": "Alaskas kust mot Berings sund (punkten: Norton Sound)",
+      "wikidata": "Q7060706",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "izapas-stelar",
+      "titel": "Izapas stelar och altare",
+      "start": -849,
+      "plats": "Izapa i Chiapas, nära Tacaná (i dag Mexiko)",
+      "wikidata": "Q2334607",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "popocatepetl-begraver-tetimpa",
+      "titel": "Popocatépetl begraver byn Tetimpa",
+      "start": -799,
+      "plats": "Popocatépetl i centrala Mexiko",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "mount-meager-bridge-river-utbrottet",
+      "titel": "Mount Meager: Kanadas största kända utbrott på 10 000 år",
+      "start": -399,
+      "plats": "Mount Meager i Coast Mountains, sydvästra British Columbia (Kanada)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    }
+  ]
+}
