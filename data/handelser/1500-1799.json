@@ -1445,6 +1445,21 @@
      "eid-acuna-soto-2002"
     ]
    },
+   "image": {
+    "file": "images/events/spanska-erovringen-av-aztekriket.webp",
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+     "sv": "Detalj ur en målning på Museo de América i Madrid (1676–1700, mexikansk skola, Nya Spanien): under belägringen av Tenochtitlan undkom Hernán Cortés med knapp nöd tillfångatagande av aztekiska krigare. Målad mer än 150 år efter händelsen. Licens: CC BY-SA 3.0.",
+     "en": "Detail of a painting at the Museo de América in Madrid (1676–1700, Mexican school, New Spain): during the siege of Tenochtitlan Hernán Cortés nearly escaped capture by Aztec warriors. Painted more than 150 years after the events. Licence: CC BY-SA 3.0.",
+     "de": "Ausschnitt eines Gemäldes im Museo de América in Madrid (1676–1700, mexikanische Schule, Neuspanien): Während der Belagerung von Tenochtitlan entkam Hernán Cortés nur knapp der Gefangennahme durch aztekische Krieger. Mehr als 150 Jahre nach den Ereignissen gemalt. Lizenz: CC BY-SA 3.0.",
+     "es": "Detalle de una pintura del Museo de América de Madrid (1676–1700, escuela mexicana, Nueva España): durante el asedio de Tenochtitlan, Hernán Cortés estuvo a punto de ser capturado por guerreros aztecas. Pintada más de 150 años después de los hechos. Licencia: CC BY-SA 3.0.",
+     "fr": "Détail d'un tableau du Museo de América à Madrid (1676–1700, école mexicaine, Nouvelle-Espagne) : pendant le siège de Tenochtitlan, Hernán Cortés échappa de peu à la capture par des guerriers aztèques. Peint plus de 150 ans après les faits. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Okänd konstnär (mexikansk skola); fotograf ej angiven / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-spanska-erovringen-av-aztekriket"
+   },
    "wikidata": "Q828435",
    "sources": [
     "wp-conquest-aztec",
@@ -1497,6 +1512,21 @@
      "de": "Datum und Verlauf stammen aus dem Übersichtsartikel von Wikipedia. Wikidata hat keinen eigenen Eintrag für den Verband."
     }
    },
+   "image": {
+    "file": "images/events/tlaxcala-forbund-1519.webp",
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+     "sv": "Tlaxcalakrigare tillsammans med sina spanska allierade, ur Lienzo de Tlaxcala. Beskrivningen på filsidan anger 1500-talet. En avbildning av tlaxcalaner själva, gjord efter händelsen. Licens: Public domain.",
+     "en": "Tlaxcalan warriors together with their Spanish allies, from the Lienzo de Tlaxcala. The file page description gives the 16th century. A depiction by Tlaxcalans themselves, made after the event. Licence: Public domain.",
+     "de": "Tlaxcalteken-Krieger zusammen mit ihren spanischen Verbündeten, aus dem Lienzo de Tlaxcala. Die Beschreibung der Dateiseite nennt das 16. Jahrhundert. Eine Darstellung der Tlaxcalteken selbst, nach dem Ereignis entstanden. Lizenz: gemeinfrei.",
+     "es": "Guerreros tlaxcaltecas junto con sus aliados españoles, del Lienzo de Tlaxcala. La descripción de la página del archivo indica el siglo XVI. Una representación hecha por los propios tlaxcaltecas, posterior al acontecimiento. Licencia: dominio público.",
+     "fr": "Guerriers tlaxcaltèques avec leurs alliés espagnols, tiré du Lienzo de Tlaxcala. La description de la page du fichier indique le XVIe siècle. Une représentation réalisée par les Tlaxcaltèques eux-mêmes, postérieure à l'événement. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär (Lienzo de Tlaxcala) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-tlaxcala-forbund-1519"
+   },
    "sources": [
     "wp-conquest-aztec"
    ],
@@ -1545,6 +1575,21 @@
      "en": "Wikipedia gives 18 October 1519. Wikidata gives 23–24 October 1519. The place and year agree, but not the day.",
      "de": "Wikipedia gibt den 18. Oktober 1519 an. Wikidata gibt den 23.–24. Oktober 1519 an. Ort und Jahr stimmen, aber nicht das Datum."
     }
+   },
+   "image": {
+    "file": "images/events/massakern-i-cholula.webp",
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+     "sv": "Oljemålning av Félix Parra (1845–1919), daterad 1877: Episoder ur erövringen, massakern i Cholula (1519). Målad drygt 350 år efter händelsen; en senare, tolkande framställning av ett våldsamt övergrepp. Licens: Public domain.",
+     "en": "Oil painting by Félix Parra (1845–1919), dated 1877: Episodes of the Conquest, the massacre of Cholula (1519). Painted more than 350 years after the event; a later, interpretive depiction of a violent atrocity. Licence: Public domain.",
+     "de": "Ölgemälde von Félix Parra (1845–1919), datiert 1877: Episoden der Eroberung, das Massaker von Cholula (1519). Mehr als 350 Jahre nach dem Ereignis gemalt; eine spätere, deutende Darstellung einer gewaltsamen Gräueltat. Lizenz: gemeinfrei.",
+     "es": "Óleo sobre lienzo de Félix Parra (1845–1919), fechado en 1877: Episodios de la Conquista, la matanza de Cholula (1519). Pintado más de 350 años después del acontecimiento; una representación posterior e interpretativa de una atrocidad violenta. Licencia: dominio público.",
+     "fr": "Huile sur toile de Félix Parra (1845–1919), datée de 1877 : Épisodes de la Conquête, le massacre de Cholula (1519). Peint plus de 350 ans après l'événement ; une représentation postérieure et interprétative d'une atrocité violente. Licence : domaine public."
+    },
+    "credit": "Félix Parra / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-massakern-i-cholula"
    },
    "wikidata": "Q3297424",
    "sources": [
@@ -1599,6 +1644,21 @@
      "de": "Die Daten beziehen sich auf den julianischen Kalender, der damals verwendet wurde und dem die Quellen folgen. Der gregorianische Kalender wurde erst 1582 eingeführt."
     }
    },
+   "image": {
+    "file": "images/events/cortes-moter-moctezuma.webp",
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+     "sv": "Cortés och La Malinche möter Moctezuma II i Tenochtitlan, 8 november 1519, ur Lienzo de Tlaxcala (original omkring 1550; faksimil utgiven omkring 1890). Filsidan påpekar anakronismer, till exempel europeiska stolar. Licens: Public domain.",
+     "en": "Cortés and La Malinche meet Moctezuma II at Tenochtitlan, 8 November 1519, from the Lienzo de Tlaxcala (original about 1550; facsimile published about 1890). The file page points out anachronisms, such as European-style chairs. Licence: Public domain.",
+     "de": "Cortés und La Malinche treffen Moctezuma II. in Tenochtitlan, 8. November 1519, aus dem Lienzo de Tlaxcala (Original um 1550; Faksimile um 1890 veröffentlicht). Die Dateiseite weist auf Anachronismen hin, etwa europäische Stühle. Lizenz: gemeinfrei.",
+     "es": "Cortés y La Malinche se encuentran con Moctezuma II en Tenochtitlan, el 8 de noviembre de 1519, del Lienzo de Tlaxcala (original hacia 1550; facsímil publicado hacia 1890). La página del archivo señala anacronismos, como las sillas de estilo europeo. Licencia: dominio público.",
+     "fr": "Cortés et La Malinche rencontrent Moctezuma II à Tenochtitlan, le 8 novembre 1519, d'après le Lienzo de Tlaxcala (original vers 1550 ; fac-similé publié vers 1890). La page du fichier signale des anachronismes, comme les chaises de style européen. Licence : domaine public."
+    },
+    "credit": "Okända tlaxcalanska konstnärer / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-cortes-moter-moctezuma"
+   },
    "sources": [
     "wp-conquest-aztec",
     "wp-noche-triste"
@@ -1648,6 +1708,21 @@
      "en": "The dates refer to the Julian calendar, which was in use at the time and which the sources follow. The Gregorian calendar was not introduced until 1582.",
      "de": "Die Daten beziehen sich auf den julianischen Kalender, der damals verwendet wurde und dem die Quellen folgen. Der gregorianische Kalender wurde erst 1582 eingeführt."
     }
+   },
+   "image": {
+    "file": "images/events/massakern-vid-toxcatl.webp",
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+     "sv": "Bild ur Códice Durán som visar massakern vid Stora templet; filsidan anger \"mellan 1521 och 1530\", men en kodex av detta slag kan inte dateras säkert ur filsidan. En avbildning gjord efter händelsen (1520), med våldsskildring. Licens: Public domain.",
+     "en": "Image from the Durán Codex showing the massacre at the Great Temple; the file page says \"between 1521 and 1530\", but the file page alone cannot date such a codex reliably. A depiction made after the event (1520), showing violence. Licence: Public domain.",
+     "de": "Bild aus dem Codex Durán, die das Massaker am Großen Tempel zeigt; die Dateiseite nennt „zwischen 1521 und 1530\", doch die Dateiseite allein erlaubt keine sichere Datierung eines solchen Kodex. Eine nach dem Ereignis (1520) entstandene Darstellung mit Gewaltszenen. Lizenz: gemeinfrei.",
+     "es": "Imagen del Códice Durán que muestra la matanza del Templo Mayor; la página del archivo indica «entre 1521 y 1530», pero la página sola no permite datar con seguridad un códice así. Una representación hecha después del acontecimiento (1520), con escenas de violencia. Licencia: dominio público.",
+     "fr": "Image du Codex Durán montrant le massacre du Grand Temple ; la page du fichier indique « entre 1521 et 1530 », mais la page seule ne permet pas de dater avec certitude un tel codex. Une représentation réalisée après l'événement (1520), avec des scènes de violence. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär (Códice Durán) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-massakern-vid-toxcatl"
    },
    "wikidata": "Q1131442",
    "sources": [

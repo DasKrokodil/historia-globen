@@ -1227,6 +1227,21 @@
       }
     },
     {
+      "eventId": "cortes-moter-moctezuma",
+      "eventTitle": "Cortés möter Moctezuma i Tenochtitlan",
+      "file": "images/events/cortes-moter-moctezuma.webp",
+      "kind": "historisk",
+      "credit": "Okända tlaxcalanska konstnärer / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-cortes-moter-moctezuma",
+        "title": "Cortez & La Malinche – unknown Tlaxcalan artists (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cortez_%26_La_Malinche.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "covid-19-pandemin",
       "eventTitle": "Covid-19-pandemin",
       "file": "images/events/covid-19-pandemin.webp",
@@ -3975,6 +3990,36 @@
       }
     },
     {
+      "eventId": "massakern-i-cholula",
+      "eventTitle": "Massakern i Cholula",
+      "file": "images/events/massakern-i-cholula.webp",
+      "kind": "historisk",
+      "credit": "Félix Parra / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-massakern-i-cholula",
+        "title": "Felix Parra Episodios de la conquista La matanza de Cholula – Félix Parra (1845-1919) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Felix_Parra_Episodios_de_la_conquista_La_matanza_de_Cholula.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "massakern-vid-toxcatl",
+      "eventTitle": "Massakern vid Toxcatl-festen",
+      "file": "images/events/massakern-vid-toxcatl.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär (Códice Durán) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-massakern-vid-toxcatl",
+        "title": "Matanza templo2 – Autor desconocido (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Matanza_templo2.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "massblekning-stora-barriarrevet-2016",
       "eventTitle": "Massblekning av koraller på Stora barriärrevet",
       "file": "images/events/massblekning-stora-barriarrevet-2016.webp",
@@ -6612,6 +6657,21 @@
       }
     },
     {
+      "eventId": "spanska-erovringen-av-aztekriket",
+      "eventTitle": "Spanska erövringen av Aztekriket",
+      "file": "images/events/spanska-erovringen-av-aztekriket.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär (mexikansk skola); fotograf ej angiven / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-spanska-erovringen-av-aztekriket",
+        "title": "Museo de América Conquest of Mexico 04 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Museo_de_Am%C3%A9rica_Conquest_of_Mexico_04.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "spanska-sjukan",
       "eventTitle": "Spanska sjukan",
       "file": "images/events/spanska-sjukan.webp",
@@ -7290,6 +7350,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Zonnepoort_tiwanaku.jpg",
         "license": "Public domain",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "tlaxcala-forbund-1519",
+      "eventTitle": "Tlaxcala sluter förbund med spanjorerna",
+      "file": "images/events/tlaxcala-forbund-1519.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär (Lienzo de Tlaxcala) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tlaxcala-forbund-1519",
+        "title": "Guerreros tlaxcaltecas junto a sus aliados españoles Lienzo de Tlaxcala. Siglo XVI (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Guerreros_tlaxcaltecas_junto_a_sus_aliados_espa%C3%B1oles_Lienzo_de_Tlaxcala._Siglo_XVI.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
