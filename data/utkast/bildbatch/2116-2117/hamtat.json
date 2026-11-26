@@ -1,0 +1,207 @@
+[
+  {
+    "ref": "File:Thylacines.jpg",
+    "kalla": "commons",
+    "handelse": "den-sista-pungvargen-dor",
+    "status": "klar",
+    "skal": [],
+    "todo": [
+      "credit: upphovsperson saknas i metadata",
+      "liten källbild (699 × 456 px): bilden förstoras till 800 × 600",
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:Thylacines.jpg",
+      "titel": "Thylacines",
+      "upphovsperson": "Unknown author",
+      "credit_rad_i_metadata": "http://www.naa.gov.au/whats-on/online/pic-of-the-week/pow_36_enlargement.aspx",
+      "datum": "1910",
+      "beskrivning_i_metadata": "Thylacines at the Beaumaris Zoo in Hobart, 1910.",
+      "mime": "image/jpeg",
+      "bredd": 699,
+      "hojd": 456,
+      "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/52/Thylacines.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "licens_api": "Public domain",
+      "licensmallar": [
+        "PD-Australia"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-den-sista-pungvargen-dor",
+      "title": "Thylacines (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:Thylacines.jpg",
+      "license": "Public domain",
+      "checked": "2026-11-26"
+    },
+    "image": {
+      "file": "images/events/den-sista-pungvargen-dor.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "TODO: upphovsperson (skriv Okänd fotograf eller Okänd konstnär om filsidan säger det) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-den-sista-pungvargen-dor"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "TODO: upphovsperson (skriv Okänd fotograf eller Okänd konstnär om filsidan säger det) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-den-sista-pungvargen-dor",
+      "id": "den-sista-pungvargen-dor"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2116-2117/den-sista-pungvargen-dor.webp",
+      "bytes": 114156
+    }
+  },
+  {
+    "ref": "File:Stamp 1956 Australia MiNr0266 pm B002.jpg",
+    "kalla": "commons",
+    "handelse": "os-i-melbourne-1956",
+    "status": "klar",
+    "skal": [],
+    "todo": [
+      "liten källbild (784 × 951 px): bilden förstoras till 800 × 600",
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:Stamp_1956_Australia_MiNr0266_pm_B002.jpg",
+      "titel": "Stamp 1956 Australia MiNr0266 pm B002",
+      "upphovsperson": "\"Postmaster-General's Department\" (PMG) of the Australian Federal Government (1901-1975)",
+      "credit_rad_i_metadata": "scan of original",
+      "datum": "1956-10-31",
+      "beskrivning_i_metadata": "Stamp of Australia; 1956; commemorative stamp of the issue \"XVIth Olympic Summer Games, 1956\" in Melbourne (Australia).; These Games took place in the time from 22 November 1956 until 8 December 1956 date QS:P,+1956-00-00T00:00:00Z/9,P580,+1956-11-22T00:00:00Z/11,P582,+1956-12-08T00:00:00Z/11 in Melbourne (Australia) with the Olympic Park Stadium as main venue.; stamp postmarked Stamp : Michel: No. 266; Yvert & Tellier: No. 231; Scott: No. 288 Color : brownish red to carmine red Watermark : none Nominal value : 4 D (Penny) Postage validity : from 31 October 1956 date QS:P,+1956-10-31T00:00:00Z/7,P580,+1956-10-31T00:00:00Z/11 Stamp size (printed area of a single stamp): 20.5 x 26.0 mm",
+      "mime": "image/jpeg",
+      "bredd": 784,
+      "hojd": 951,
+      "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Stamp_1956_Australia_MiNr0266_pm_B002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "licens_api": "Public domain",
+      "licensmallar": [
+        "PD-AustraliaGov"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-os-i-melbourne-1956",
+      "title": "Stamp 1956 Australia MiNr0266 pm B002 (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:Stamp_1956_Australia_MiNr0266_pm_B002.jpg",
+      "license": "Public domain",
+      "checked": "2026-11-26"
+    },
+    "image": {
+      "file": "images/events/os-i-melbourne-1956.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "\"Postmaster-General's Department\" (PMG) of the Australian Federal Government (1901-1975) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-os-i-melbourne-1956"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "\"Postmaster-General's Department\" (PMG) of the Australian Federal Government (1901-1975) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-os-i-melbourne-1956",
+      "id": "os-i-melbourne-1956"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2116-2117/os-i-melbourne-1956.webp",
+      "bytes": 79696
+    }
+  },
+  {
+    "ref": "File:February 7 Victoria Bushfires - MODIS Aqua.jpg",
+    "kalla": "commons",
+    "handelse": "black-saturday-branderna-2009",
+    "status": "klar",
+    "skal": [],
+    "todo": [
+      "liten källbild (800 × 530 px): bilden förstoras till 800 × 600",
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:February_7_Victoria_Bushfires_-_MODIS_Aqua.jpg",
+      "titel": "February 7 Victoria Bushfires - MODIS Aqua",
+      "upphovsperson": "National Aeronautics and Space Administration (NASA)",
+      "credit_rad_i_metadata": "Cropped image of - Australia6 Subset - Aqua 250m True Color image for 2009/038 (02/07/09) .",
+      "datum": "2009-02-07",
+      "beskrivning_i_metadata": "7 February 2009 MODIS Aqua satellite image of smoke plumes from bushfires burning in Victoria .",
+      "mime": "image/jpeg",
+      "bredd": 800,
+      "hojd": 530,
+      "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/4e/February_7_Victoria_Bushfires_-_MODIS_Aqua.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "licens_api": "Public domain",
+      "licensmallar": [
+        "PD-USGov-NASA"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-black-saturday-branderna-2009",
+      "title": "February 7 Victoria Bushfires - MODIS Aqua – National Aeronautics and Space Administration (NASA) (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:February_7_Victoria_Bushfires_-_MODIS_Aqua.jpg",
+      "license": "Public domain",
+      "checked": "2026-11-26"
+    },
+    "image": {
+      "file": "images/events/black-saturday-branderna-2009.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "National Aeronautics and Space Administration (NASA) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-black-saturday-branderna-2009"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "National Aeronautics and Space Administration (NASA) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-black-saturday-branderna-2009",
+      "id": "black-saturday-branderna-2009"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2116-2117/black-saturday-branderna-2009.webp",
+      "bytes": 111424
+    }
+  }
+]
