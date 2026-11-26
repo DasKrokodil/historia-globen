@@ -1,0 +1,1249 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "2099",
+  "datum": "2026-11-26",
+  "urval": "ids=19 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "grito-de-dolores",
+      "titel": "Grito de Dolores",
+      "start": 1810,
+      "plats": "Dolores (i dag Dolores Hidalgo), Mexiko",
+      "wikidata": "Q1145411",
+      "kandidater": [
+        {
+          "fil": "File:Dolores hidalgo.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Dolores_hidalgo.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.5",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.5",
+          "upphovsperson": "Paigemorrison at English Wikipedia",
+          "datum": "1 May 2007 (original upload date)",
+          "datum_original": "1 May 2007 (original upload date)",
+          "datum_fil": "2011-12-13 02:54:47",
+          "kredit": "Transferred from en.wikipedia to Commons by nopira .",
+          "beskrivning": "Photo taken March 2004 by Paige Morrison. (That's me.)",
+          "bredd": 1536,
+          "hojd": 2048,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Dolores_hidalgo.jpg/960px-Dolores_hidalgo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Monumento a Miguel Hidalgo (Dolores Hidalgo)",
+            "Parish of Nuestra Señora de Dolores in Dolores Hidalgo, Guanajuato"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.5",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-by-sa-2.5"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "majrevolutionen-1810",
+      "titel": "Majrevolutionen i Buenos Aires",
+      "start": 1810,
+      "plats": "Buenos Aires, Río de la Plata (i dag Argentina)",
+      "wikidata": "Q838980",
+      "kandidater": [
+        {
+          "fil": "File:Cabildoabierto-Subercaseaux.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cabildoabierto-Subercaseaux.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Pedro Subercaseaux",
+          "datum": "1910 date QS:P571,+1910-00-00T00:00:00Z/9",
+          "datum_original": "1910 date QS:P571,+1910-00-00T00:00:00Z/9",
+          "datum_fil": "2010-05-14 22:54:18",
+          "kredit": "Museo Histórico Nacional",
+          "beskrivning": "The \"Cabildo Abierto\" of may 22, 1810, in the city of Buenos Aires (now part of Argentina, then part of the Viceroyalty of the Río de la Plata), where it was decided to remove the viceroy Baltasar Hidalgo de Cisneros",
+          "bredd": 1484,
+          "hojd": 1139,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Cabildoabierto-Subercaseaux.jpg/960px-Cabildoabierto-Subercaseaux.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cabildo Abierto (Pedro Subercaseaux)"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Chile"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "slaget-vid-maipu",
+      "titel": "Slaget vid Maipú",
+      "start": 1818,
+      "plats": "Maipú nära Santiago, Chile",
+      "wikidata": "Q1073849",
+      "kandidater": [
+        {
+          "fil": "File:BatallaDeMaipu.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:BatallaDeMaipu.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Johann Moritz Rugendas",
+          "datum": "circa 1837 date QS:P571,+1837-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1837 date QS:P571,+1837-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2011-03-20 17:47:17",
+          "kredit": "Museo Histórico Nacional (Chile)",
+          "beskrivning": null,
+          "bredd": 600,
+          "hojd": 419,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/17/BatallaDeMaipu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Maipú",
+            "Chile in art by Johann Moritz Rugendas"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "slaget-vid-boyaca",
+      "titel": "Slaget vid Boyacá",
+      "start": 1819,
+      "plats": "Bron vid Boyacá, Colombia",
+      "wikidata": "Q1150410",
+      "kandidater": [
+        {
+          "fil": "File:Batalla de Boyaca de Martin Tovar y Tovar.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Batalla_de_Boyaca_de_Martin_Tovar_y_Tovar.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Martin Tovar y Tovar",
+          "datum": "Published in 1890 (Caracas, Venzuela), author died in 1902",
+          "datum_original": "Published in 1890 (Caracas, Venzuela), author died in 1902",
+          "datum_fil": "2010-07-25 14:51:51",
+          "kredit": "Painting of Martín Tovar y Tovar exhibited in the Federal Palace, Caracas",
+          "beskrivning": "The Battle of Boyacá in the War of Independence of Colombia, Venezuela, Ecuador and Panama against Spain (Boyacá, Colombia, 1819). Painting of Martín Tovar y Tovar exhibited in the Federal Palace, Caracas",
+          "bredd": 1654,
+          "hojd": 1122,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Batalla_de_Boyaca_de_Martin_Tovar_y_Tovar.jpg/960px-Batalla_de_Boyaca_de_Martin_Tovar_y_Tovar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1819 events",
+            "Battle of Boyaca",
+            "Battles involving Spain in the 1810s",
+            "Military history of Colombia",
+            "Paintings of battles by Martín Tovar y Tovar",
+            "Paintings of flags of Gran Colombia",
+            "Palacio Federal Legislativo, Venezuela (obras de arte)"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "freden-i-cordoba-1821",
+      "titel": "Fördraget i Córdoba",
+      "start": 1821,
+      "plats": "Córdoba, Veracruz, Mexiko",
+      "wikidata": "Q767450",
+      "kandidater": [
+        {
+          "fil": "File:Tratados de Córdoba.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tratados_de_C%C3%B3rdoba.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Jaontiveros",
+          "datum": "2010-04-11",
+          "datum_original": "2010-04-11",
+          "datum_fil": "2010-04-13 17:00:28",
+          "kredit": "Own work",
+          "beskrivning": "Tratados de Córdoba. Versión impresa de los firmados el 24 de agosto de 1821. Archivo General de la Nación de México. Memoria de las revoluciones de México, tomo 5, 2009. ISBN 978-607-7748-04-5",
+          "bredd": 2292,
+          "hojd": 3056,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Tratados_de_C%C3%B3rdoba.JPG/960px-Tratados_de_C%C3%B3rdoba.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1821 documents of Mexico",
+            "Agustin de Iturbide",
+            "Mexican War of Independence",
+            "Treaty of Córdoba"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 4.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-sa-all}}. Commons API (LicenseShortName): \"CC BY-SA 4.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 4.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-all"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "slaget-vid-carabobo",
+      "titel": "Slaget vid Carabobo",
+      "start": 1821,
+      "plats": "Carabobo, Venezuela",
+      "wikidata": "Q388210",
+      "kandidater": [
+        {
+          "fil": "File:BatallaCarabobo01.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:BatallaCarabobo01.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2022-07-14 00:41:25",
+          "datum_original": null,
+          "datum_fil": "2022-07-14 00:41:25",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 1236,
+          "hojd": 720,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/BatallaCarabobo01.JPG/960px-BatallaCarabobo01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Paintings of battles by Martín Tovar y Tovar",
+            "Paintings of flags of Gran Colombia",
+            "Paintings of the Battle of Carabobo",
+            "Palacio Federal Legislativo, Venezuela (obras de arte)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "brasiliens-sjalvstandighet",
+      "titel": "Brasilien förklarar sig självständigt",
+      "start": 1822,
+      "plats": "Vid bäcken Ipiranga, São Paulo, Brasilien",
+      "wikidata": "Q1548600",
+      "kandidater": [
+        {
+          "fil": "File:07.09.2022 - Prefeita Paula Mascarenhas participa do desfile cívico militar de Sete de Setembro - Foto- Gustavo Vara (52340953141).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_(52340953141).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Prefeitura de Pelotas",
+          "datum": "2022-09-07 09:20:15",
+          "datum_original": "2022-09-07 09:20:15",
+          "datum_fil": "2022-09-13 16:58:55",
+          "kredit": "07.09.2022 - Prefeita Paula Mascarenhas participa do desfile cívico militar de Sete de Setembro - Foto: Gustavo Vara",
+          "beskrivning": "07.09.2022 - Prefeita Paula Mascarenhas participa do desfile cívico militar de Sete de Setembro - Foto: Gustavo Vara",
+          "bredd": 4896,
+          "hojd": 3264,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_%2852340953141%29.jpg/960px-07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_%2852340953141%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "8.ª Brigada de Infantaria Motorizada",
+            "Brazilian Army on Independence Day",
+            "Independence Day 2022 in Pelotas",
+            "VBTP-MR Guarani in the Brazilian Army"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-author-FlickrPDM"
+            ]
+          }
+        },
+        {
+          "fil": "File:07.09.2022 - Prefeita Paula Mascarenhas participa do desfile cívico militar de Sete de Setembro - Foto- Gustavo Vara (52341271429).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_(52341271429).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Prefeitura de Pelotas",
+          "datum": "2022-09-07 10:17:50",
+          "datum_original": "2022-09-07 10:17:50",
+          "datum_fil": "2022-09-12 11:03:31",
+          "kredit": "07.09.2022 - Prefeita Paula Mascarenhas participa do desfile cívico militar de Sete de Setembro - Foto: Gustavo Vara",
+          "beskrivning": "07.09.2022 - Prefeita Paula Mascarenhas participa do desfile cívico militar de Sete de Setembro - Foto: Gustavo Vara",
+          "bredd": 5472,
+          "hojd": 3648,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_%2852341271429%29.jpg/960px-07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_%2852341271429%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "8.ª Brigada de Infantaria Motorizada",
+            "Brazilian Army on Independence Day",
+            "Independence Day 2022 in Pelotas",
+            "VBTP-MR Guarani in the Brazilian Army"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-author-FlickrPDM"
+            ]
+          }
+        },
+        {
+          "fil": "File:2022-09-07 Bicentenário da Independência 17.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_17.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "amigosdaarte",
+          "datum": "2022-09-07",
+          "datum_original": "2022-09-07",
+          "datum_fil": "2022-11-30 23:45:52",
+          "kredit": "https://www.flickr.com/photos/amigosdaarte/52387284140/",
+          "beskrivning": "Celebração do Bicentenário da Independência do Brasil e reabertura do Museu do Ipiranga, em São Paulo, no feriado de 7 de Setembro. Fotos: Adriano Escanhuela.",
+          "bredd": 2000,
+          "hojd": 1335,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_17.jpg/960px-2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_17.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bicentennial of the Independence of Brazil celebrations at Parque da Independência",
+            "Juliette Freire"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-author-FlickrPDM"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "slaget-vid-pichincha",
+      "titel": "Slaget vid Pichincha",
+      "start": 1822,
+      "plats": "Vulkanen Pichinchas sluttning vid Quito, Ecuador",
+      "wikidata": "Q1402751",
+      "kandidater": [
+        {
+          "fil": "File:Capitulacionquitosalas.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Capitulacionquitosalas.png",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Antonio Salas",
+          "datum": "1822",
+          "datum_original": "1822",
+          "datum_fil": "2025-08-10 22:21:52",
+          "kredit": "File:SALAS_ANTONIO_CAPITULACION2.JPG",
+          "beskrivning": "Capitulation of Quito, by Antonio Salas",
+          "bredd": 1063,
+          "hojd": 528,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Capitulacionquitosalas.png/960px-Capitulacionquitosalas.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Art of Ecuador",
+            "History of Ecuador"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-zero"
+            ]
+          }
+        },
+        {
+          "fil": "File:Batería Pichincha.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bater%C3%ADa_Pichincha.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1866",
+          "datum_original": "1866",
+          "datum_fil": "2019-10-18 16:24:52",
+          "kredit": "http://elinaresm.blogspot.com/2016/05/combate-del-2-de-mayo-parte-de-las.html",
+          "beskrivning": "Batería Pichincha, Foto: Archivo Histórico de la Marina de Guerra del Perú",
+          "bredd": 1600,
+          "hojd": 1118,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Bater%C3%ADa_Pichincha.jpg/960px-Bater%C3%ADa_Pichincha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Callao"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-70-1923"
+            ]
+          }
+        },
+        {
+          "fil": "File:The physical atlas - Pichincha and Antisana.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_physical_atlas_-_Pichincha_and_Antisana.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Johnston, Alexander Keith; Brewster, David; Berghaus, Heinrich Karl Wilhelm; William Blackwood And Sons",
+          "datum": "1848",
+          "datum_original": "1848",
+          "datum_fil": "2025-03-24 09:03:56",
+          "kredit": "https://www.loc.gov/item/2007627199/",
+          "beskrivning": "LC Civil War maps (2nd ed.), S183 Phillips, 4173 Available also through the Library of Congress Web site as a raster image. LC copy rebound in red cloth.",
+          "bredd": 4930,
+          "hojd": 2360,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/The_physical_atlas_-_Pichincha_and_Antisana.jpg/960px-The_physical_atlas_-_Pichincha_and_Antisana.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps by Alexander von Humboldt",
+            "Maps of Antisana volcano",
+            "Maps of Pichincha Volcano",
+            "The physical atlas - a series of maps & notes illustrating the geographical distribution of natural phenomena",
+            "Voyage de Humboldt et Bonpland"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "callaos-fall-1826",
+      "titel": "Callao faller",
+      "start": 1826,
+      "plats": "Fästningen Real Felipe, Callao, Peru",
+      "wikidata": "Q6123901",
+      "kandidater": [
+        {
+          "fil": "File:Marguerite Brezil with Bird.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Marguerite_Brezil_with_Bird.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Léopold-Émile Reutlinger",
+          "datum": "1906",
+          "datum_original": "1906",
+          "datum_fil": "2013-11-25 15:06:31",
+          "kredit": "http://www.etsy.com/listing/150700919/marguerite-brezil-belle-epoque-french",
+          "beskrivning": "Marguerite Brezil with Bird, French Actress.",
+          "bredd": 1500,
+          "hojd": 962,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Marguerite_Brezil_with_Bird.jpg/960px-Marguerite_Brezil_with_Bird.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Marguerite Brésil",
+            "Postcards by Léopold-Émile Reutlinger",
+            "Postcards of women in France"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-70-1923"
+            ]
+          }
+        },
+        {
+          "fil": "File:1795 D'Anville Wall Map of South America - Geographicus - SouthAmerica-laruiewhittle-1794.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1795_D%27Anville_Wall_Map_of_South_America_-_Geographicus_-_SouthAmerica-laruiewhittle-1794.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Jean Baptiste Bourguignon d'Anville",
+          "datum": "1794 date QS:P571,+1794-00-00T00:00:00Z/9",
+          "datum_original": "1794 date QS:P571,+1794-00-00T00:00:00Z/9",
+          "datum_fil": "2011-03-23 13:10:58",
+          "kredit": "This file was provided to Wikimedia Commons by Geographicus Rare Antique Maps , a specialist dealer in rare maps and other cartography of the 15th, 16th, 17th, 18th and 19th centuries, as part of a cooperation project .",
+          "beskrivning": "An English map of South America, based on the earlier French map(s) of J.B. d'Anville This is probably the most important two panel wall map of South America produced in the 18th century. Largely based upon the earlier D’Anville map, this map has been enlarged and expanded by the English publishing house of Laurie and Whittle. Depicts the continent in full with an inset of the Falkland Islands. This map is unique in that it is a serious attempt to compile all of the accurate scientific knowledge of the South American continent available at the time. Offers a smorgasbord of factual, speculative, and historical detail. This extraordinary and highly decorative map bears up to almost endless perusal and volumes could be composed upon its content. The cartographer attempts to depict both known and unknown parts of the continent with actual data reported by both contemporary and historic travelers. In most cases it is extremely difficult to identify specific sources as much of the data is vague and uncertain. Our survey of this map beings with the coast which Spanish and Portuguese navigators had mapped with considerable accuracy as early as the late 16th century. This, like most early maps of the area, contrasts a detailed mapping of the coast with a speculative discussion of the interior, particularly Patagonia and the Amazon Basin. Offers a fairly accurate discussion of both the east and west coasts with exceptional detail in the populated Andean regions of Venezuela, Columbia, Ecuador (Labeled Quito), and Peru. Notes Cuzco, Lima, Quito, Valladolid, Arequipa, Trujillo and other important trading centers of the region. In Portuguese controlled Brazil, Rio de Janeiro, San Salvador and San Sebastian are noted. It is in the interior that this map becomes exceptionally fascinating. In the northern part of the continent D'Anville maps a number of confusions associated with the English adventurer Sir Walter Raleigh's search for El Dorado. Believing El Dorado to lie in the northern part of the Amazon, Raleigh sailed down the Orinoco River just before the onset of the rainy season. Reaching a remote tribal village, Raleigh noted canoes arriving bearing gold, silver, and other treasures. Asked where the gold came from, the natives replied, Manoa, the term for the tribe to which the river traders belonged. Manoa, the natives claimed could be reached following a long river voyage southward to a Great Lake, called Parima. Raleigh and his associates immediately associated Manoa and Lake Parima with the golden kingdom of El Dorado, though they never visited the city or lake. Subsequent maps, including this one, mapped El Dorado and Lake Parima in this location for several hundred years. Both Raleigh and the natives were describing an actual event known to occur annually in the region. Rains would annually swell the Amazon and Orinoco river systems creating a linkage in the Parima flood plain, which, during heavy rains, can resemble a massive lake. The Manoa were a large and populous trading nation active pre-colonial days whose vast empire, based in the Amazon Basin, extended form the Andes to the Orinoco. Curiously, in addition to noting the city of Manoa on Lake Parima, D'Anville also correctly maps the center of the ancient Manoan civilization between the Amazon tributaries Rio Negro and Rio Yapura. Sadly the Manoa and many of the other populous South American indigenous nations noted by the earliest explorers to the region vanished, brought low by European epidemics. A similar error appears far to the south where the Paraguay rivers empties into the Laguna de Xarayes. The Xarayes, a corruption of Xaraiés meaning Masters of the River, were an indigenous people occupying what are today parts of Brazil's Matte Grosso and the Pantanal. When Spanish and Portuguese explorers first navigated up the Paraguay River, as always in search of El Dorado, they encountered the vast Pantanal flood plain at the height of its annual inundation. Includes the legend: @media all and (max-width:720px){.mw-parser-output .div-col.grids{grid-template-columns:repeat(1,1fr)!important;width:100%!important}}.mw-parser-output .div-col.grids{display:grid} .mw-parser-output .smallcaps{font-variant:small-caps} Division of South America with a Summary Account of its Trade. South America is Divided into Nine Principal parts Viz. 1. Terra Firma to the Spaniards divided into the Governements of Panama, or Terra Firma proper, containing the Isthmus of Darien & the Adjacent Coast; Carthagena, S ta . Martha and Rio de la Hacha; Venezuela, Caraceas; Cumana, or new Andalusia; Paria, & part of Guayana, Popayan with Choco; & the New Kingdom of Granada whose Capital Santa Fé is the Metropolis of all Tierra Firma; with Several Islands belonging to the Spaniards, except Curaçao and Bonair which belong to the Dutch. All along the Coast from Carthagena, there are Pearl Fisheries, the Principal of which are at Margarita, Cubagua, Cumanagotto & la Rencheria. The whole Country abounds in Mines of Gold and Precious Stones, Indigo, Cocheneal & The Trees that produce the Balsa generally known under the name of Balsam of Tolu grow in the Governement of Popayan. The City of Panana is the center of Commerce from Peru & Chili. As soon as ever the Galleons enter the Port of Carthagena an express is dispatch'd over land to Panama, from whence he proceeds by Sea to Lima. In the mean time all the necessary preparations are made for Conveying y e Treasure as soon as it arrives, either by Sea or Land to Porto-belo. The Viceroi of Peru, on the other hand, makes all imaginable dispatch in Sending the Lima Fleet escort'd by an Armadilla or Small Squadron of Men of War to Panama, where as soon as Arrived they are unladen, & the Goods forwarded to Porto-belo. This may be perform'd two ways by Land, which is a Journey of 50 Miles & a pretty good road in Summer; or by Water, which is y e only method in Winter. & then the Plate & Goods are Convey'd to Venta de Cruz, which is 20 Miles, by Mules, & then down y e Rio Chagre into the Sea, whence they are transported to Porto-belo, which is about 18 Leagues distant. These different methods of Carriage are of vast utility, for in y e Summer Rio Chagre is frequently so low that Boats cannot pass; & in Winter, when y e navigation by that River is free, y e Road by land is altogether Imapssable. As soon as the Lima Ships are unladen at Panama they Sail to Perico, a little Island at a small distance from Panama, & there wait the return of the European goods from Porto-belo, by the same Carriage their were sent thither, & having taken this on board they imediately Sail away for Lima. 2. Peru to the Spaniards. Divided into the Audiences of Quito, Lima or Peru Proper, called the Royal Audience and las Chareas or Audience of la Plata. Peru abounds in Mines of Gold & Silver, the most Famous of which are the Mines of Potosi; in that Neighbourhood is the Town of Porco whose Mines are still richer, but harder to Work by reasons of the Water that is found in them; whereas there is none in the Mines of Potosi, even at a very great depth. Nearer the Coast are the famous Mines of Lipes & towards the North, those of Oruro, whence they draw a Fifth part of Silver from the Ore, besides many others. It may not be amiss to Observe, that when Mines are shut up, & not longer wrought, we must not Suppose that they are totally lost, for after a Considerable Space, they open them, & draw from them fresh Riches, sometimes in greater quantities than at First. The Town of Arica is the proper Port of Potosi & la Plata. In the Month of March they begin to bring y e Silver from thence to Arica, & in June the Flota from Lima comes to Fetch it. There is a Constant intercourse between la Plata, Lipes, Oruro, & this Port, by land, for conveniency of which there are Inns at every 4 Leagues insomuch that it is computed there are two Thousand Persons employ'd in the Management of these Inns and as Carriers. Lima called also the City of the Kings, is the Capital of all South America, as well as of Peru, & the residence of the Viceroy. Its Inhabitants have been so rich that in 1682, on the entry of the Duke de la Plata, their Viceroy, they paved two of the Streets, thro which he passed, with Ingots of Silver, to the amount of Eighty Millions of Pieces of Eight, which is about Eighteen Millions Sterling but they are not conceived to be near so rich at present. Callao is the Port of Lima ; its road is by much the largest & Fairest in the South Seas. There are two Flottas annually Sail from thence, one for Arica, the other for Panama. The former Sails about the end of February, & having receiv'd at Arica the Silver sent from the Mines, returns towards the end of March. In the beginning of May the Flota Sails for Panama, having on board the Wealth from Potosi, the Silver from Chili, which comes in the Valparaiso Fleet, the King's revenue & Merchandises from all parts of Peru and the Audience of las Charcas: and on the return of this Fleet laden with European Commodities they are disposed of from hence, part by Sea & part by Land, to all the different places to which they are destined. Besides these Fleets, there Sail Annually two Ships for Acapulco; & the Indian Commodities which they bring are all deposited in the magazines at Callao and sent from hence to all the Southern Provinces of America. 3. Amazonia, where the Spaniards and Portuguese have Missions & Settlements, is very little Known; It takes its name from the River Amazon that runs thro that immense Country, from West to East, the Course of that River was drawn in 1743 & 44 by M r . de la Condamine. 4. Guayana, divided between the Spaniards, Dutch & French. Spanish Guayana, is comprehended in Terra Firma, Dutch Guayana, contains the Colonies of Essequebe, Berbice and Surinam. French Guayana, contains the Colony of Cayenne, with Several Forts & Settlements. The Dutch & French cultivate Coffee, Cotton, Sugar, Rocon, or Annate & Cocoa. 5. Brasil, to the Portuguese, Divided into 12 Captainships, Viz. of the Bay of all Saints, Seregipe, Olinda Paraiba, Riogrande Seara, Maranham & Para, os Ilheos, Porto Seguro, Spiritu Santo & Riojaneiro, with the Commarcas of S t . Paul & of the Mines. The Portuguese in the Northern Captainships, are Masters of all the Coasts and 10 or 12 Leagues up in the Country, but in the Southern Captainships their Settlements extend a Great deal further in the Interior parts of the Land. Brasil, produces Gold, Tobacco & the best Sugar in great Plenty. Some years since the Portugese have Discover'd several Mines of Diamonds which are very Rich, & whose productions are almost as fine as those of the Mines of Asia. 6. Paraguay, to the Spaniards. Divided into the Great Governments 1 st . of Assomption, whose Eastern part is the Province of Chaco. 2 d . of Buenos-ayres. The Spaniards are become the absolute owners of that Country, since the expulsion of the Jesuits who had establish'd there an Independant Government, under the pretext of converting & civilizing the Indians. Paraguay abounds in very rich Mines both of Gold & Silver; there is besides plenty of Valuable Commodities, especially the Herb-Paraguay. The use made of it, is to compose a Certain Draught, Infusion, or Tea which recovers such as Work in the Mines from those grevious Cholicks & intolerable disorders in the Stomach caused by the exhalations in such places. The amount of this Trade is at least a Million & a Half of Pieces of Eight per Annum. By the Help of Rio Pilcomayo there is a quick & Straight passage from Potosi to Buenos-ayres; and a good Road thither also by Land. The importance of Buenos-ayres consists chiefly in its Convenient Situation for Commerce, indeed for such a Commerce as no Port in the Spanish Indies, can boast of the like. Hither come, even from the most distant Provinces, the most valuable Commodities in order to be Exchang'd for European Goods: such as Vigonia Wool from all parts of Peru, and Chili, Copper from Coquimbo, Gold from Chili, & Silver from Potosi. Tobacco, Sugar, Cotton thread, wax, Cotton Cloth from Paraguay. The Herb of that name is transported from Santafé to Potosi, partly in Waggons & partly on Mules; and tho it be a Journey of five Hundred Leagues, yet they Commonly perform it in a Month. They dispose of the Herb for ready Money, & generally gain upon it Cent per Cent. The Journey to the Mines of Chili is much more troublesome because the passage thro the Mountains which divide that Country from the Inland parts of America, is passable only from December to March. The Commerce between Buenos-ayres, & Peru is Chiefly for the Sale of Cattle, & of Mules for the Mines. The Trade carried on between Buenos-ayres & Europe ought to be only by Register Ships from Spain, but besides these, the Inhabitants carry on a great Contraband Commerce. On the North Side of Rio de la Plata, in Paraguay, the Portuguese have a colony called Colonia do Sacramento which was granted to them by a Treaty with the Spaniards in 1750. 7. Tucuman to the Spaniards. 8. Chili to the Spaniards. Divided into three Districts, Viz. those of Chili-proper, Imperiale & of Chicuyto. This country abounds every where with Gold, Silver, Copper, Lead, Mercury, Saltpetre & Sulphur, & from such parts of it as the Spaniards have thoroughly Settled, they reap Immense Profits. The Soil is Wonderfully Fertile. Producing not only Indian but European Corn, Wine, Fruits & all the Necessaries of Life in abundance; Whatever Herbs, Fruites or Flowers grow in Spain, are cultivated with Success here: & we learn from the accounts of the latest travellers, that in the Gardens of the Cities near the Coast, Orange-trees are Kept bearing all the Year. The Richest part of Chili is still in the hands of the Natives, & like to remain so, their Mountainous Situations affording the Indians such Advantages, as the Europeans, considering their small Number can hardly ever Surmount. In the mean time, the Governors run away with the greatest part of y e Wealth accruing from this Impertant Settlement, the King on the one hand being daily cheated of his revenues, and on the other paying prodigious Salaries; so that smaller returns are made to Spain, en the King's Account from hence that can well be Imagined. It must however be owned that within these Twenty Years, some pains have been taken to Remedy this abuse. 9. Patagonia, or the Country of the Gyants-Patagons, with the Magellanic Islands. Known under the names of Tierra del Fuego, & Falklands-Islands. Tierra del Fuego, or the Land of Fire, so named from a burning Mountain that is seen at a great distance, is a Desolate & Barren Country. The Isles of Falkland belong to Great Britain by Right of first Discovery. The English have a Fort & Settlement at Port Egmont, in Saunders Island, on the North of the Western Falkland, & the Spaniards have a Fort in the Eastern Isle. As Port Egmont, is a very safe & capacious Harbour, It will become of great utility to the British Navy & even to Privateers, in any future War, to annoy the Spanish Trade in the South Sea.",
+          "bredd": 7000,
+          "hojd": 6110,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/1795_D%27Anville_Wall_Map_of_South_America_-_Geographicus_-_SouthAmerica-laruiewhittle-1794.jpg/960px-1795_D%27Anville_Wall_Map_of_South_America_-_Geographicus_-_SouthAmerica-laruiewhittle-1794.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1794 maps of South America",
+            "18th-century maps of the Spanish Empire",
+            "English-language maps",
+            "Laurie & Whittle",
+            "Maps by Jean-Baptiste Bourguignon d'Anville",
+            "Maps by Thomas Kitchin"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        },
+        {
+          "fil": "File:French Actress Mlle. Nostier, in Swan-Bill Corset and Mutton Chop Sleeves, circa 1905, verso.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:French_Actress_Mlle._Nostier,_in_Swan-Bill_Corset_and_Mutton_Chop_Sleeves,_circa_1905,_verso.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Léopold-Émile Reutlinger",
+          "datum": "1905",
+          "datum_original": "1905",
+          "datum_fil": "2013-11-25 13:15:27",
+          "kredit": "http://redpoulaine.blogspot.in/2013/06/mlle-nostier-in-swan-bill-corset-by.html",
+          "beskrivning": "French Actress Mlle. Nostier, in Swan-Bill Corset and Mutton Chop Sleeves, circa 1905.",
+          "bredd": 968,
+          "hojd": 1500,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/French_Actress_Mlle._Nostier%2C_in_Swan-Bill_Corset_and_Mutton_Chop_Sleeves%2C_circa_1905%2C_verso.jpg/960px-French_Actress_Mlle._Nostier%2C_in_Swan-Bill_Corset_and_Mutton_Chop_Sleeves%2C_circa_1905%2C_verso.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1905 black and white portrait photographs of women",
+            "Leg of mutton sleeves",
+            "Postcards by Léopold-Émile Reutlinger",
+            "Postcards of women in France",
+            "Unidentified women of France"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-70-1923"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "kristi-kyrka-grundas-1830",
+      "titel": "Joseph Smith grundar den första kyrkan i sista dagars heliga-rörelsen",
+      "start": 1830,
+      "plats": "Fayette eller Manchester, delstaten New York, USA",
+      "wikidata": "Q3848233",
+      "kandidater": [
+        {
+          "fil": "File:Peter whitmer log home.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Peter_whitmer_log_home.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Jake from Utah, United States",
+          "datum": "2006-06-03 12:02",
+          "datum_original": "2006-06-03 12:02",
+          "datum_fil": "2010-09-04 07:00:58",
+          "kredit": "Peter Whitmer Log Home",
+          "beskrivning": "Replica of a cabin at the Peter Whitmer Farm, Fayette (Waterloo), New York, rebuilt by The Church of Jesus Christ of Latter-day Saints . In was in the original cabin in which Joseph Smith, Jr. organized the Church of Christ (renamed in 1838 the Church of Jesus Christ of Latter Day Saints ) on 6 April 1830.",
+          "bredd": 2576,
+          "hojd": 1716,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Peter_whitmer_log_home.JPG/960px-Peter_whitmer_log_home.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Peter Whitmer log home"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "tararnas-vag",
+      "titel": "Tårarnas väg",
+      "start": 1830,
+      "plats": "Sydöstra USA till Indianterritoriet, dagens Oklahoma (cherokeernas marsch började vid Red Clay, Tennessee)",
+      "wikidata": "Q750448",
+      "kandidater": [
+        {
+          "fil": "File:Trail of Tears - New overlook.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Trail_of_Tears_-_New_overlook.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "mostateparks",
+          "datum": "2014-10-10",
+          "datum_original": "2014-10-10",
+          "datum_fil": "2024-06-06 22:04:19",
+          "kredit": "https://www.flickr.com/photos/47969339@N02/15473599306/",
+          "beskrivning": "Trail of Tears State Park",
+          "bredd": 1592,
+          "hojd": 1051,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Trail_of_Tears_-_New_overlook.jpg/960px-Trail_of_Tears_-_New_overlook.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Trail of Tears State Park"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-author-FlickrPDM"
+            ]
+          }
+        },
+        {
+          "fil": "File:Trail of Tears video Exhibit Panels at Fort Smith Museum of History in Fort Smith, Arkansas (64faa356-42f6-4e84-b221-334d0c876f05).JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Trail_of_Tears_video_Exhibit_Panels_at_Fort_Smith_Museum_of_History_in_Fort_Smith,_Arkansas_(64faa356-42f6-4e84-b221-334d0c876f05).JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "National Trails Office ( US National Park Service )",
+          "datum": "Taken on 20 April 2010",
+          "datum_original": "Taken on 20 April 2010",
+          "datum_fil": "2023-06-22 20:31:32",
+          "kredit": "NPGallery",
+          "beskrivning": "Trail of Tears video Exhibit Panels at Fort Smith Museum of History in Fort Smith, Arkansas Trail of Tears video Exhibit Panels at Fort Smith Museum of History in Fort Smith, Arkansas; https://www.nps.gov/places/fort-smith-national-historic-site-trail-of-tears.htm Keywords: trte; trail of tears national historic trail; nht; national historic trail; arkansas; sebastian county; fort smith; fort smith national historic site; fort smith museum of history; atkinson-williams warehouse; cultural resources; historic area; high potential site; nrhp; education/interpretation; exhibit; exhibit panels; facilities; structures; and assets; historic building; museum; (Trail of Tears National Historic Trail State)",
+          "bredd": 3072,
+          "hojd": 2304,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Trail_of_Tears_video_Exhibit_Panels_at_Fort_Smith_Museum_of_History_in_Fort_Smith%2C_Arkansas_%2864faa356-42f6-4e84-b221-334d0c876f05%29.JPG/960px-Trail_of_Tears_video_Exhibit_Panels_at_Fort_Smith_Museum_of_History_in_Fort_Smith%2C_Arkansas_%2864faa356-42f6-4e84-b221-334d0c876f05%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Fort Smith Museum of History",
+            "Trail of Tears"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NPS"
+            ]
+          }
+        },
+        {
+          "fil": "File:Trail of Tears Original Route sign, Soapstick GA.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Trail_of_Tears_Original_Route_sign,_Soapstick_GA.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "John Phelan",
+          "datum": "Taken on 27 June 2026, 13:10:43",
+          "datum_original": "Taken on 27 June 2026, 13:10:43",
+          "datum_fil": "2026-07-07 00:11:27",
+          "kredit": "Own work",
+          "beskrivning": "Trail of Tears Original Route sign, Soapstick Georgia",
+          "bredd": 4032,
+          "hojd": 3024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Trail_of_Tears_Original_Route_sign%2C_Soapstick_GA.jpg/960px-Trail_of_Tears_Original_Route_sign%2C_Soapstick_GA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Georgia State Route 225",
+            "June 2026 in Georgia (U.S. state)",
+            "Road signs in Gordon County, Georgia",
+            "Road signs in the United States photographed in 2026",
+            "Signs of the Trail of Tears National Historic Trail",
+            "Soapstick, Georgia",
+            "Trail of Tears in Georgia (U.S. state)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "eterdagen-1846",
+      "titel": "Den första offentliga operationen med eter",
+      "start": 1846,
+      "plats": "Ether Dome, Massachusetts General Hospital, Boston, USA",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Ether Dome Daguerreotype No. 4.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ether_Dome_Daguerreotype_No._4.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Rajesh Parsotam Haridas, M.B.Ch.B., F.A.N.Z.C.A.",
+          "datum": "Taken on 3 July 1847",
+          "datum_original": "Taken on 3 July 1847",
+          "datum_fil": "2016-07-24 15:21:40",
+          "kredit": "Photographs of Early Ether Anesthesia in Boston: The Daguerreotypes of Albert Southworth and Josiah Hawes Anesthesiology 7 2010, Vol.113, 13-26. doi:10.1097/ALN.0b013e3181de6f41",
+          "beskrivning": "According to Rowley, the image is the first of three views of a surgery registered on Bigelow's tables for \"disease of the fibula\" –prosecuted July 3, 1847. Dr. John Collins Warren assumed responsibility for the surgery of Dr. Solomon David Townsend's patient, a 19-yr-old Portuguese sailor, named Francis Manuel. Rowley scholarship published online [1]",
+          "bredd": 1199,
+          "hojd": 909,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Ether_Dome_Daguerreotype_No._4.png/960px-Ether_Dome_Daguerreotype_No._4.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1847 photographs of the United States",
+            "Daguerreotypes of the United States",
+            "Ether Day",
+            "John Collins Warren",
+            "Jonathan Mason Warren",
+            "Photographs in The J. Paul Getty Museum",
+            "Southworth & Hawes"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning",
+            "licens-risk"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "risk: public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-US}}. Commons API (LicenseShortName): \"Public domain\". Att kontrollera: public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet.",
+            "risker": [
+              "public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet"
+            ],
+            "mallar": [
+              "PD-US"
+            ]
+          }
+        },
+        {
+          "fil": "File:Ether Dome Daguerreotype No. 5.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ether_Dome_Daguerreotype_No._5.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Rajesh Parsotam Haridas, M.B.Ch.B., F.A.N.Z.C.A.",
+          "datum": "Taken on 3 July 1847",
+          "datum_original": "Taken on 3 July 1847",
+          "datum_fil": "2023-08-10 10:55:52",
+          "kredit": "Photographs of Early Ether Anesthesia in Boston: The Daguerreotypes of Albert Southworth and Josiah Hawes. Anesthesiology 7 2010, Vol.113, 13-26. doi:10.1097/ALN.0b013e3181de6f41",
+          "beskrivning": "According to Rowley, the image is the third of three views of a surgery registered on Bigelow's tables for \"disease of the fibula\" –prosecuted July 3, 1847. Dr. John Collins Warren assumed responsibility for the surgery of Dr. Solomon David Townsend's patient, a 19-yr-old Portuguese sailor, named Francis Manuel. Rowley scholarship published online [1]",
+          "bredd": 1198,
+          "hojd": 961,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Ether_Dome_Daguerreotype_No._5.png/960px-Ether_Dome_Daguerreotype_No._5.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1847 photographs of the United States",
+            "Daguerreotypes of the United States",
+            "Ether Day",
+            "Harvard Medical School",
+            "John Collins Warren",
+            "Jonathan Mason Warren",
+            "Southworth & Hawes"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning",
+            "licens-risk"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "risk: public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-US}}. Commons API (LicenseShortName): \"Public domain\". Att kontrollera: public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet.",
+            "risker": [
+              "public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet"
+            ],
+            "mallar": [
+              "PD-US"
+            ]
+          }
+        },
+        {
+          "fil": "File:Ether Dome Daguerreotype No. 3.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ether_Dome_Daguerreotype_No._3.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Rajesh Parsotam Haridas, M.B.Ch.B., F.A.N.Z.C.A.",
+          "datum": "Taken on 3 July 1847",
+          "datum_original": "Taken on 3 July 1847",
+          "datum_fil": "2016-07-24 15:17:13",
+          "kredit": "Photographs of Early Ether Anesthesia in Boston: The Daguerreotypes of Albert Southworth and Josiah Hawes Anesthesiology 7 2010, Vol.113, 13-26. doi:10.1097/ALN.0b013e3181de6f41",
+          "beskrivning": "Patient: Francis Manuel. According to Rowley (2022), the view captures an exploratory and intervention surgery for a young Portuguese sailor's diseased fibula. Although Manuel was Townsend's patient, Warren was the lead surgeon who prosecuted the operation on July 3, 1847. Warren's case notes for the surgery are published in Volume 2 of his biography. Rowley scholarship published online [1] Attributions of record, left to right: J. Mason Warren, M.D., Henry Grafton Clark, M.D., Samuel Parkman, M.D., etherizer, unknown, Solomon Davis Townsend, M.D., John Collins Warren, M.D., unknown person possibly Charles H. Hildreth, M.D. James Johnson or Oliver Wendell Holmes, M.D., unknown, unknown. Attributions from Haridas, Lowry & Lowry, et al.",
+          "bredd": 1199,
+          "hojd": 904,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Ether_Dome_Daguerreotype_No._3.png/960px-Ether_Dome_Daguerreotype_No._3.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1847 photographs of the United States",
+            "Daguerreotypes of the United States",
+            "Ether Day",
+            "Fogg Art Museum",
+            "John Collins Warren",
+            "Jonathan Mason Warren",
+            "Josiah J. Hawes",
+            "Southworth & Hawes"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning",
+            "licens-risk"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "risk: public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-US}}. Commons API (LicenseShortName): \"Public domain\". Att kontrollera: public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet.",
+            "risker": [
+              "public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet"
+            ],
+            "mallar": [
+              "PD-US"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "guldrushen-i-kalifornien",
+      "titel": "Guldrushen i Kalifornien",
+      "start": 1848,
+      "plats": "Sutter's Mill, Coloma, Kalifornien, USA",
+      "wikidata": "Q17550",
+      "kandidater": [
+        {
+          "fil": "File:California Gold Rush handbill.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:California_Gold_Rush_handbill.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "ArwinJ",
+          "datum": "C.E.1849 / H.E.11,849",
+          "datum_original": "C.E.1849 / H.E.11,849",
+          "datum_fil": "2017-07-03 23:54:42",
+          "kredit": null,
+          "beskrivning": "An 1849 handbill from the California Gold Rush. Advertising posters of the United States. GOLD RUSH Advertisements in the United States The image is from [1] .",
+          "bredd": 940,
+          "hojd": 1178,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/27/California_Gold_Rush_handbill.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1849 advertisements in the United States",
+            "1849 in California",
+            "Advertising posters of the United States",
+            "California Gold Rush",
+            "Posters of California",
+            "Steamships of the United States"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "forsta-slaget-vid-bull-run",
+      "titel": "Första slaget vid Bull Run",
+      "start": 1861,
+      "plats": "Bull Run nära Manassas, Virginia",
+      "wikidata": "Q221469",
+      "kandidater": [
+        {
+          "fil": "File:Battle of Bull Run.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Battle_of_Bull_Run.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Richard W. Stewart General Editor",
+          "datum": "2006-08-04 14:31:24",
+          "datum_original": null,
+          "datum_fil": "2006-08-04 14:31:24",
+          "kredit": "ARMY HISTORICAL SERIES, AMERICAN MILITARY HISTORY VOLUME 1, THE UNITED STATES ARMY AND THE FORGING OF A NATION, 1775-1917. Source [1]",
+          "beskrivning": "Battle of Bull Run",
+          "bredd": 992,
+          "hojd": 596,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Battle_of_Bull_Run.jpg/960px-Battle_of_Bull_Run.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of the First Battle of Bull Run"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military-Army"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "slaget-vid-antietam",
+      "titel": "Slaget vid Antietam",
+      "start": 1862,
+      "plats": "Antietam Creek vid Sharpsburg, Maryland",
+      "wikidata": "Q719252",
+      "kandidater": [
+        {
+          "fil": "File:Kurz & Allison - Battle of Antietam.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kurz_%26_Allison_-_Battle_of_Antietam.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kurz and Allison / Adam Cuerden",
+          "datum": "1888",
+          "datum_original": "1888",
+          "datum_fil": "2022-07-18 19:13:08",
+          "kredit": "This image is available from the United States Library of Congress 's Prints and Photographs division under the digital ID pga.01841 . This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing .",
+          "beskrivning": "\"Battle of Antietam\" by Kurz & Allison. Smaller text reads: Army of the Potomac: Gen. Geo. B. McClellan, Comm., Sept. 17' 1862. 1'2'4'6'9'12'Corps & Pleasanton's Cav. Div. Engaged. // Copyrighted 1888 by Kurz & Allison Art Publishers, 76 & 78 Wabash Ave., Chicago, U.S.A.\" ... MEDIUM: 1 print : lithograph, color. CREATED/PUBLISHED: c1888. Kurz & Allison. Copyrighted 1888 by Kurz & Allison, Art Publishers, Chicago, U.S.A.",
+          "bredd": 8160,
+          "hojd": 5992,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Kurz_%26_Allison_-_Battle_of_Antietam.jpg/960px-Kurz_%26_Allison_-_Battle_of_Antietam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Adam Cuerden's restorations",
+            "Battle of Antietam",
+            "Flags of the Confederate States in art",
+            "Kurz and Allison Civil War lithographs"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-US-expired"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "belagringen-av-vicksburg",
+      "titel": "Vicksburg kapitulerar",
+      "start": 1863,
+      "plats": "Vicksburg vid Mississippifloden, Mississippi",
+      "wikidata": "Q1066253",
+      "kandidater": [
+        {
+          "fil": "File:Siege of Vicksburg-13, 15, & 17 Corps, Commanded by Gen. U.S. Grant, assisted by the Navy under Admiral Porter-Surrender, July 4, 1863 LCCN91481552.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Siege_of_Vicksburg-13,_15,_%26_17_Corps,_Commanded_by_Gen._U.S._Grant,_assisted_by_the_Navy_under_Admiral_Porter-Surrender,_July_4,_1863_LCCN91481552.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kurz & Allison.",
+          "datum": "1888",
+          "datum_original": "1888",
+          "datum_fil": "2018-11-01 10:42:28",
+          "kredit": "Library of Congress Catalog: http://lccn.loc.gov/91481552 Image download: http://cdn.loc.gov/service/pnp/pga/01800/01871v.jpg Original url: https://www.loc.gov/pictures/item/91481552/",
+          "beskrivning": "Title: Siege of Vicksburg--13, 15, & 17 Corps, Commanded by Gen. U.S. Grant, assisted by the Navy under Admiral Porter--Surrender, July 4, 1863 Abstract/medium: 1 print : lithograph, color.",
+          "bredd": 8341,
+          "hojd": 6578,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Siege_of_Vicksburg-13%2C_15%2C_%26_17_Corps%2C_Commanded_by_Gen._U.S._Grant%2C_assisted_by_the_Navy_under_Admiral_Porter-Surrender%2C_July_4%2C_1863_LCCN91481552.jpg/960px-Siege_of_Vicksburg-13%2C_15%2C_%26_17_Corps%2C_Commanded_by_Gen._U.S._Grant%2C_assisted_by_the_Navy_under_Admiral_Porter-Surrender%2C_July_4%2C_1863_LCCN91481552.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Kurz and Allison Civil War lithographs",
+            "Siege of Vicksburg"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-100-1923"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "kauai-underkastar-sig",
+      "titel": "Kauaʻi går upp i kungariket Hawaiʻi",
+      "start": 1810,
+      "plats": "Honolulu, Oʻahu",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "stilla-havet-gravyr"
+    },
+    {
+      "id": "marques-de-olinda-1864",
+      "titel": "Paraguay beslagtar Marquês de Olinda",
+      "start": 1864,
+      "plats": "Paraguayfloden vid Concepción, Paraguay",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "juneteenth-1865",
+      "titel": "De sista förslavade i Texas får veta att de är fria",
+      "start": 1865,
+      "plats": "Galveston, Texas",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    }
+  ]
+}

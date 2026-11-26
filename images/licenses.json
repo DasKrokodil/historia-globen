@@ -690,6 +690,21 @@
       }
     },
     {
+      "eventId": "belagringen-av-vicksburg",
+      "eventTitle": "Vicksburg kapitulerar",
+      "file": "images/events/belagringen-av-vicksburg.webp",
+      "kind": "historisk",
+      "credit": "Kurz & Allison / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-belagringen-av-vicksburg",
+        "title": "Siege of Vicksburg-13, 15, & 17 Corps, Commanded by Gen. U.S. Grant, assisted by the Navy under Admiral Porter-Surrender, July 4, 1863 LCCN91481552 – Kurz & Allison. (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Siege_of_Vicksburg-13,_15,_%26_17_Corps,_Commanded_by_Gen._U.S._Grant,_assisted_by_the_Navy_under_Admiral_Porter-Surrender,_July_4,_1863_LCCN91481552.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "belagringen-av-yorktown",
       "eventTitle": "Belägringen av Yorktown",
       "file": "images/events/belagringen-av-yorktown.webp",
@@ -862,6 +877,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "brasiliens-sjalvstandighet",
+      "eventTitle": "Brasilien förklarar sig självständigt",
+      "file": "images/events/brasiliens-sjalvstandighet.webp",
+      "kind": "historisk",
+      "credit": "Pedro Américo / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-brasiliens-sjalvstandighet",
+        "title": "Pedro Américo - Independência ou Morte - Google Art Project – Pedro Américo (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Pedro_Am%C3%A9rico_-_Independ%C3%AAncia_ou_Morte_-_Google_Art_Project.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "brihadisvaratemplet",
@@ -1040,6 +1070,21 @@
         "title": "Cahuachi 14 – Ed88 (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Cahuachi_14.jpg",
         "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "callaos-fall-1826",
+      "eventTitle": "Callao faller",
+      "file": "images/events/callaos-fall-1826.webp",
+      "kind": "historisk",
+      "credit": "Ibrehaut / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-callaos-fall-1826",
+        "title": "Fortaleza del Real Felipe 03 – Ibrehaut (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Fortaleza_del_Real_Felipe_03.jpg",
+        "license": "CC BY-SA 4.0",
         "checked": "2026-11-26"
       }
     },
@@ -1686,6 +1731,21 @@
       }
     },
     {
+      "eventId": "eterdagen-1846",
+      "eventTitle": "Den första offentliga operationen med eter",
+      "file": "images/events/eterdagen-1846.webp",
+      "kind": "historisk",
+      "credit": "Southworth & Hawes; reproduktion av Rajesh Parsotam Haridas / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-eterdagen-1846",
+        "title": "Ether Dome Daguerreotype No. 4 – Rajesh Parsotam Haridas, M.B.Ch.B., F.A.N.Z.C.A. (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ether_Dome_Daguerreotype_No._4.png",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "etiopisk-adalska-kriget",
       "eventTitle": "Etiopisk-adalska kriget",
       "file": "images/events/etiopisk-adalska-kriget.webp",
@@ -1860,6 +1920,21 @@
       }
     },
     {
+      "eventId": "forsta-slaget-vid-bull-run",
+      "eventTitle": "Första slaget vid Bull Run",
+      "file": "images/events/forsta-slaget-vid-bull-run.webp",
+      "kind": "historisk",
+      "credit": "Kurz & Allison / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-forsta-slaget-vid-bull-run",
+        "title": "First Battle of Bull Run Kurz & Allison (cropped) – Kurz & Allison (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:First_Battle_of_Bull_Run_Kurz_%26_Allison_(cropped).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "forsta-slaget-vid-marne",
       "eventTitle": "Första slaget vid Marne",
       "file": "images/events/forsta-slaget-vid-marne.webp",
@@ -1965,6 +2040,21 @@
       }
     },
     {
+      "eventId": "freden-i-cordoba-1821",
+      "eventTitle": "Fördraget i Córdoba",
+      "file": "images/events/freden-i-cordoba-1821.webp",
+      "kind": "historisk",
+      "credit": "Jaontiveros / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-freden-i-cordoba-1821",
+        "title": "Tratados de Córdoba – Jaontiveros (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tratados_de_C%C3%B3rdoba.JPG",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "freden-i-nystad",
       "eventTitle": "Freden i Nystad",
       "file": "images/events/freden-i-nystad.webp",
@@ -2007,6 +2097,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:A_view_of_Freetown,_1803.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "frigorelseproklamationen",
+      "eventTitle": "Frigörelseproklamationen",
+      "file": "images/events/frigorelseproklamationen.webp",
+      "kind": "historisk",
+      "credit": "W. Roberts (gravyr) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-frigorelseproklamationen",
+        "title": "Emancipation Proclamation – Engraving by W. Roberts. (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Emancipation_Proclamation.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2205,6 +2310,21 @@
       }
     },
     {
+      "eventId": "grito-de-dolores",
+      "eventTitle": "Grito de Dolores",
+      "file": "images/events/grito-de-dolores.webp",
+      "kind": "historisk",
+      "credit": "Paige Morrison / Wikimedia Commons",
+      "license": "CC BY-SA 2.5",
+      "source": {
+        "id": "commons-bild-grito-de-dolores",
+        "title": "Dolores hidalgo – Paigemorrison at English Wikipedia (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Dolores_hidalgo.jpg",
+        "license": "CC BY-SA 2.5",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "gronland-far-egen-biskop",
       "eventTitle": "Grönland får en egen biskop",
       "file": "images/events/gronland-far-egen-biskop.webp",
@@ -2215,6 +2335,21 @@
         "id": "commons-bild-gronland-far-egen-biskop",
         "title": "Igaliku – Svickova (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Igaliku.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "guldrushen-i-kalifornien",
+      "eventTitle": "Guldrushen i Kalifornien",
+      "file": "images/events/guldrushen-i-kalifornien.webp",
+      "kind": "historisk",
+      "credit": "Okänd (uppladdad av ArwinJ) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-guldrushen-i-kalifornien",
+        "title": "California Gold Rush handbill – ArwinJ (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:California_Gold_Rush_handbill.jpg",
         "license": "Public domain",
         "checked": "2026-11-26"
       }
@@ -2901,6 +3036,21 @@
       }
     },
     {
+      "eventId": "juneteenth-1865",
+      "eventTitle": "De sista förslavade i Texas får veta att de är fria",
+      "file": "images/events/juneteenth-1865.webp",
+      "kind": "historisk",
+      "credit": "The Galveston Daily News / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-juneteenth-1865",
+        "title": "General Gordon Granger, The Galveston Daily News (June 21, 1865) – The Galveston Daily News (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:General_Gordon_Granger,_The_Galveston_Daily_News_(June_21,_1865).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "kabuki-borjar-1603",
       "eventTitle": "Kabukiteatern börjar i Kyoto",
       "file": "images/events/kabuki-borjar-1603.webp",
@@ -3072,6 +3222,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Carl_Wahlbom_-_Karl_XII-s_d%C3%B6d_-_NMH_5-1889_-_Nationalmuseum.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "kauai-underkastar-sig",
+      "eventTitle": "Kauaʻi går upp i kungariket Hawaiʻi",
+      "file": "images/events/kauai-underkastar-sig.webp",
+      "kind": "historisk",
+      "credit": "Bishop Museum (William T. Brigham) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kauai-underkastar-sig",
+        "title": "Mahiole of Kaumualii, 1899 – Bishop Museum (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mahiole_of_Kaumualii,_1899.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -3375,6 +3540,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:De_uitbarsting_van_de_Krakatau%2C_KITLV_5888.tiff",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "kristi-kyrka-grundas-1830",
+      "eventTitle": "Joseph Smith grundar den första kyrkan i sista dagars heliga-rörelsen",
+      "file": "images/events/kristi-kyrka-grundas-1830.webp",
+      "kind": "historisk",
+      "credit": "Jake / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-kristi-kyrka-grundas-1830",
+        "title": "Peter whitmer log home – Jake from Utah, United States (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Peter_whitmer_log_home.JPG",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -3873,6 +4053,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Maji_Maji_rebellion_-_de.png",
         "license": "CC BY-SA 2.5",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "majrevolutionen-1810",
+      "eventTitle": "Majrevolutionen i Buenos Aires",
+      "file": "images/events/majrevolutionen-1810.webp",
+      "kind": "historisk",
+      "credit": "Pedro Subercaseaux / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-majrevolutionen-1810",
+        "title": "Cabildoabierto-Subercaseaux – Pedro Subercaseaux (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cabildoabierto-Subercaseaux.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5766,6 +5961,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-antietam",
+      "eventTitle": "Slaget vid Antietam",
+      "file": "images/events/slaget-vid-antietam.webp",
+      "kind": "historisk",
+      "credit": "Kurz & Allison; restaurering av Adam Cuerden / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-antietam",
+        "title": "Kurz & Allison - Battle of Antietam – Kurz and Allison / Adam Cuerden (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kurz_%26_Allison_-_Battle_of_Antietam.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-austerlitz",
       "eventTitle": "Slaget vid Austerlitz",
       "file": "images/events/slaget-vid-austerlitz.webp",
@@ -5796,6 +6006,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-boyaca",
+      "eventTitle": "Slaget vid Boyacá",
+      "file": "images/events/slaget-vid-boyaca.webp",
+      "kind": "historisk",
+      "credit": "Martín Tovar y Tovar / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-boyaca",
+        "title": "Batalla de Boyaca de Martin Tovar y Tovar – Martin Tovar y Tovar (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Batalla_de_Boyaca_de_Martin_Tovar_y_Tovar.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-bunker-hill",
       "eventTitle": "Slaget vid Bunker Hill",
       "file": "images/events/slaget-vid-bunker-hill.webp",
@@ -5823,6 +6048,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:La_Captura_de_Atahualpa_-_Juan_Lepiani_1920s.png",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-carabobo",
+      "eventTitle": "Slaget vid Carabobo",
+      "file": "images/events/slaget-vid-carabobo.webp",
+      "kind": "historisk",
+      "credit": "Martín Tovar y Tovar (enligt filsidans kategori) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-carabobo",
+        "title": "BatallaCarabobo01 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:BatallaCarabobo01.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -6120,6 +6360,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-maipu",
+      "eventTitle": "Slaget vid Maipú",
+      "file": "images/events/slaget-vid-maipu.webp",
+      "kind": "historisk",
+      "credit": "Johann Moritz Rugendas; foto: Osmar Valdebenito / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-slaget-vid-maipu",
+        "title": "Batalla de Maipú, por Rugendas – Johann Moritz Rugendas (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Batalla_de_Maip%C3%BA,_por_Rugendas.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-mersa-matruh",
       "eventTitle": "Slaget vid Mersa Matruh",
       "file": "images/events/slaget-vid-mersa-matruh.webp",
@@ -6245,6 +6500,21 @@
         "title": "Battle of Oriskany – John R. Chapin (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Oriskany.jpg",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "slaget-vid-pichincha",
+      "eventTitle": "Slaget vid Pichincha",
+      "file": "images/events/slaget-vid-pichincha.webp",
+      "kind": "historisk",
+      "credit": "Antonio Salas / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-slaget-vid-pichincha",
+        "title": "Capitulacionquitosalas – Antonio Salas (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Capitulacionquitosalas.png",
+        "license": "CC0",
         "checked": "2026-11-26"
       }
     },
@@ -7016,6 +7286,21 @@
         "title": "Taputapuatea marae Raiatea – Sur la route (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Taputapuatea_marae_Raiatea.jpg",
         "license": "CC BY 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "tararnas-vag",
+      "eventTitle": "Tårarnas väg",
+      "file": "images/events/tararnas-vag.webp",
+      "kind": "historisk",
+      "credit": "mostateparks / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tararnas-vag",
+        "title": "Trail of Tears - New overlook – mostateparks (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Trail_of_Tears_-_New_overlook.jpg",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
