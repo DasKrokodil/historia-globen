@@ -407,9 +407,11 @@ Sök själv bara om händelsen är viktig (tur, tema, fun fact); skriv annars h�
 
 ## Val 2026-11-26 (#2068 och #2069)
 
-11 av 40 händelser fick bild; 1 har en utsedd kandidat som inte kunde hämtas (`asien-7-ej-hamtade.txt`). Filsidorna öppnades via `action=raw` och bilderna granskades visuellt i en kontaktbild.
+10 av 40 händelser fick bild; 1 har en utsedd kandidat som inte kunde hämtas (`asien-7-ej-hamtade.txt`). Filsidorna öppnades via `action=raw` och bilderna granskades visuellt i en kontaktbild.
 
 - Avvisat eller avstått efter att filsidan öppnats eller bilden setts: `belagringen-av-cawnpore` (gravyr av mord på kvinnor och barn), `svalten-i-henan-1942` och `svalten-i-bengalen-1943` (foton av utsvultna människor), `nanjingmassakern` (massmord), `ross-malaria-myggan` (licensen kunde inte avgöras), `bose-statistiken` (svag proveniens), `lydda-och-ramle-1948` (perspektiv), `operation-uvda` (licensflagga).
 - Latrun: tre licenser anges på filsidan (GFDL, CC BY-SA 3.0, CC BY 2.5); verktyget valde CC BY 2.5, men den strängare CC BY-SA 3.0 används i data, källpost och bildtext.
 - Händelserna `tianjingincidenten`, `boxarupproret`, `ramaneffekten`, `nanjingmassakern` och `koreakriget` saknades i den automatiska listan (de har `start` i stället för `year`); `koreakriget` lades in manuellt efter egen sökning.
 - Egen sökning: `koreakriget`, `ross-malaria-myggan`, `bose-statistiken`, `yukawas-mesonteori`, `boxarupproret`, `tianjingincidenten`.
+
+- Senare avstått: `operation-yoav` (Beersheba 1948.jpg, PD-Israel). Fotot är fritt enligt israelisk lag men kan fortfarande vara skyddat i USA (URAA); bilden togs bort ur omgången före ihopslagning.
