@@ -720,6 +720,21 @@
       }
     },
     {
+      "eventId": "blombosgrottan",
+      "eventTitle": "Ristad ockra och snäckpärlor i Blombos",
+      "file": "images/events/blombosgrottan.webp",
+      "kind": "historisk",
+      "credit": "Vincent Mourre / Inrap / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-blombosgrottan",
+        "title": "Blombos – Vincent Mourre / Inrap (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Blombos.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "borobudur-byggs",
       "eventTitle": "Borobudur byggs på Java",
       "file": "images/events/borobudur-byggs.webp",
@@ -1467,6 +1482,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Lehman_Brothers-NYC-20080915.jpg",
         "license": "CC BY 2.0",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "florisbad",
+      "eventTitle": "Florisbad: ett möjligt tidigt fynd av Homo sapiens",
+      "file": "images/events/florisbad.webp",
+      "kind": "historisk",
+      "credit": "Jonathan Chen / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-florisbad",
+        "title": "Florisbad NMNH – Jonathan Chen (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Florisbad_NMNH.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
