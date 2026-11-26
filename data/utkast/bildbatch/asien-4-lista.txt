@@ -1,0 +1,19 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:Battle at the Wei River (Weihe).jpg	slaget-vid-weifloden
+# File:Daoyin tu - chart for leading and guiding people in exercise Wellcome L0036007.jpg	lakekonst-i-mawangdui
+# File:Tiberias from the walls. Safed in the distance. David Roberts. 1855.jpg	jordbavningen-i-judeen-31-fkr
+# File:黄河故道 - Old Course of the Yellow River - 2012.08 - panoramio.jpg	gula-floden-byter-lopp-ar-11
+# File:White Horse Thai Temple 27499-Luoyang (48757385163).jpg	vita-hastens-tempel
+# File:Palmyra Tariff col. 1.png	palmyras-tulltaxa
+# File:Valladolid - Museo Oriental de Valladolid 09.jpg	zhang-hengs-seismoskop
+# File:Peter Johann Nepomuk Geiger - Antonine Plague in Rome, 165-180.jpg	antoninska-pesten
+# File:End of Han Dynasty Warlords.png	slaget-vid-vita-vargens-berg
+# File:Aksum, stele 3 detta di re ezana, l'unica mai crollata 05.jpg	aksums-stora-steler
+# File:Semi-dugout of Imenkovo culture.JPG	imenkovokulturen-vid-volga
+# File:PikiWiki Israel 3982 nevoraya synagogue.jpg	jordbavningarna-i-galileen-363
+# File:Faxian zhuan.JPG	faxians-pilgrimsresa
+# File:Diptych Barberini Louvre OA9063 whole.jpg	justinianska-pesten-nar-egypten
+# File:Map of expansion of Caliphate.svg	arabiska-erovringarna
+# File:Al aqsa moschee 2.jpg	jerusalem-intas-637
+# File:Depiction of the Battle of al-Qādisiyyah from a manuscript of the Persian epic Shāh-nāmeh. Source- British Library (MS. I.O.Islamic 3265 (1614) f. 602r).jpg	slaget-vid-qadisiyya
