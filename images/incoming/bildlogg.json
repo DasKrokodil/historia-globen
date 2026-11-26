@@ -4478,5 +4478,37 @@
     "source": "commons-bild-australiska-federationen",
     "id": "australiska-federationen",
     "file": "australiska-federationen.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Avgjutning av Florisbad-skallen, utställd på Smithsonians National Museum of Natural History; filsidan anger Homo heidelbergensis. Nutida foto (2024) av en kopia, inte själva fyndet. Licens: CC BY-SA 4.0.",
+      "en": "Cast of the Florisbad skull on display at the Smithsonian’s National Museum of Natural History; the file page gives Homo heidelbergensis. Modern photo (2024) of a copy, not the original find. Licence: CC BY-SA 4.0.",
+      "de": "Abguss des Florisbad-Schädels, ausgestellt im National Museum of Natural History der Smithsonian Institution; die Dateiseite nennt Homo heidelbergensis. Heutiges Foto (2024) einer Kopie, nicht des Originalfunds. Lizenz: CC BY-SA 4.0.",
+      "es": "Réplica del cráneo de Florisbad, expuesta en el National Museum of Natural History del Smithsonian; la página del archivo indica Homo heidelbergensis. Foto actual (2024) de una copia, no del hallazgo original. Licencia: CC BY-SA 4.0.",
+      "fr": "Moulage du crâne de Florisbad, exposé au National Museum of Natural History du Smithsonian ; la page du fichier indique Homo heidelbergensis. Photo actuelle (2024) d’une copie, pas de la trouvaille originale. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Jonathan Chen / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-florisbad",
+    "id": "florisbad",
+    "file": "florisbad.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Allmän vy över platsen vid Blombos i Sydafrika. Nutida foto (2010) av Vincent Mourre / Inrap, inte från händelsens tid. Licens: CC BY-SA 3.0.",
+      "en": "General view of the Blombos site in South Africa. Modern photo (2010) by Vincent Mourre / Inrap, not from the time of the event. Licence: CC BY-SA 3.0.",
+      "de": "Gesamtansicht der Fundstelle Blombos in Südafrika. Heutiges Foto (2010) von Vincent Mourre / Inrap, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 3.0.",
+      "es": "Vista general del yacimiento de Blombos, en Sudáfrica. Foto actual (2010) de Vincent Mourre / Inrap, no de la época del acontecimiento. Licencia: CC BY-SA 3.0.",
+      "fr": "Vue générale du site de Blombos, en Afrique du Sud. Photo actuelle (2010) de Vincent Mourre / Inrap, pas de l’époque de l’événement. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Vincent Mourre / Inrap / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-blombosgrottan",
+    "id": "blombosgrottan",
+    "file": "blombosgrottan.webp"
   }
 ]
