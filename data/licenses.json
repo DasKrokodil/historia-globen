@@ -975,6 +975,7 @@
         "wp-cocoliztli",
         "wp-code-of-hammurabi",
         "wp-code-of-jutland",
+        "wp-codex-regius",
         "wp-codex-zouche-nuttall",
         "wp-coligny-calendar",
         "wp-colombia",
@@ -1044,6 +1045,7 @@
         "wp-dandi",
         "wp-danish-ec-referendum-1972",
         "wp-danish-gold-coast",
+        "wp-danish-icelandic-act-of-union",
         "wp-danish-india",
         "wp-dannebrog",
         "wp-darwin",
@@ -1196,6 +1198,7 @@
         "wp-evian-accords",
         "wp-ewuare",
         "wp-explorer-1",
+        "wp-eyjafjallajokull-2010",
         "wp-ezana",
         "wp-fa-hien-cave",
         "wp-fall-of-constantinople",
@@ -1617,6 +1620,7 @@
         "wp-ia-drang",
         "wp-ibn-al-haytham",
         "wp-ibn-battuta",
+        "wp-icelandic-financial-crisis",
         "wp-ichi-no-tani",
         "wp-idrisid-dynasty",
         "wp-igbo-ukwu",
@@ -1709,6 +1713,7 @@
         "wp-jingxing-pass",
         "wp-jintian-uprising",
         "wp-john-hawkins",
+        "wp-jon-arason",
         "wp-jorasanko-thakur-bari",
         "wp-jordan",
         "wp-joseon",
@@ -1865,6 +1870,7 @@
         "wp-lake-mungo",
         "wp-lake-rotoiti",
         "wp-lake-victoria",
+        "wp-laki",
         "wp-lakshmibai",
         "wp-lalibela",
         "wp-lam-son-719",
@@ -2208,6 +2214,7 @@
         "wp-ohsumi",
         "wp-okataina-caldera",
         "wp-old-copper-complex",
+        "wp-old-covenant-iceland",
         "wp-old-kingdom-egypt",
         "wp-old-new-style",
         "wp-old-parliament-house-canberra",
@@ -2396,6 +2403,7 @@
         "wp-retreat-roc-taiwan",
         "wp-revolution-of-dignity",
         "wp-revolutions-of-1848",
+        "wp-reykjavik",
         "wp-rhind-mathematical-papyrus",
         "wp-rhodesia",
         "wp-ria-lagartos-biosphere-reserve",
@@ -2576,6 +2584,7 @@
         "wp-sistine-chapel-ceiling",
         "wp-six-day-war",
         "wp-six-day-war-2000",
+        "wp-skalholt",
         "wp-skara-brae",
         "wp-slave-trade-act-1807",
         "wp-slavery-in-brazil",
@@ -2887,6 +2896,7 @@
         "wp-vietnam",
         "wp-vietnam-declaration-1945",
         "wp-vietnam-war",
+        "wp-vigdis-finnbogadottir",
         "wp-vijayanagara-empire",
         "wp-vikings",
         "wp-villa-romana-del-casale",
@@ -3888,6 +3898,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-Iceland50, PD-shape)",
+      "sourceIds": [
+        "commons-flagga-island"
+      ]
+    },
+    {
       "license": "Public domain (PD-Iraq, PD-ineligible)",
       "sourceIds": [
         "commons-flagga-iraq",
@@ -4450,11 +4466,19 @@
       "license": "Store norske leksikon, begränsad licens (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "snl-alta-ristningene",
+        "snl-codex-regius",
+        "snl-eyjafjallajokull",
+        "snl-ingolv-arnesson",
+        "snl-islands-historie",
+        "snl-islands-samtidshistorie",
+        "snl-jon-arason",
+        "snl-laki",
         "snl-new-zealand",
         "snl-new-zealands-befolkning",
         "snl-new-zealands-historie",
         "snl-new-zealands-politiske-system",
-        "snl-snartemofunnene"
+        "snl-snartemofunnene",
+        "snl-vigdis-finnbogadottir"
       ]
     },
     {
