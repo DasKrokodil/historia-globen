@@ -13328,6 +13328,9 @@ async function run(browser, vp) {
         await wp.route(u => isFont(u.href), r => r.abort());
       }
       const year = () => wp.getAttribute('#track', 'aria-valuenow').then(Number);
+      // Farten sparas i localStorage och delas av alla sidor i kontexten, så ett tidigare prov (Fokus följer ett krig, Krigets stoppkö) lämnar
+      // 100 kvar, och uppspelningen går då fyra gånger fortare än kontrollen räknar med (#1996). Kontrollen börjar på appens egen standardfart.
+      await wp.addInitScript(() => { try { localStorage.removeItem('hg-speed-ars'); } catch { /* utan lagring */ } });
       await wpAw.goto(`${BASE}?lang=sv&ny=p1090#y=-99999`);
       await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-99999', null, { timeout: T.step });
@@ -13336,14 +13339,87 @@ async function run(browser, vp) {
       // ger färre bildrutor, och varje bildruta räknas som högst 0,1 s, så kravet är satt med marginal)
       const fast = await wp.getAttribute('.timebar .controls .speed', 'aria-label');
       if (!/\d[\d\s]*000 år\/s/.test(fast)) throw new Error(`farten vid 100 000 f.Kr.: ${fast}`);
+      // Pausen ska stanna på upplösningen som gäller där året ligger: tusental, hundratal eller hela år (#1320). Upplösningen och delen läses ur
+      // appens egen data (stepAt, scaleForYear, segmentAt), inte som fasta tal här. Kravet är samma som förut för de grova delarna och
+      // strängare i den första (tusental, inte bara hundratal), men ett fast "hundratal" gäller inte för året 3000 f.Kr. och senare, där
+      // upplösningen är ett år (#1996: en försenad paus hann över gränsen och stannade på -2339, som är ett riktigt steg där).
+      const bedom = ys => wp.evaluate(async ys => {
+        const { scaleForYear } = await import('./js/time-scale.js');
+        const { stepAt } = await import('./js/model.js');
+        const { segmentAt } = await import('./js/timeline.js');
+        return ys.map(y => { const sc = scaleForYear(y), step = stepAt(y, sc), s = segmentAt(y, sc); return { y, step, ok: (1 - y) % step === 0, del: `${sc.id} ${s.from}…${s.to}` }; });
+      }, ys);
+      // Mätningen själv, utan tidsberoende: året i varje del av upplösningstabellen ska godkännas, ett år vid sidan om i en grövre del ska
+      // underkännas (också ett hundratal i delen med tusental, som det fasta hundratalet släppte igenom), och ett år som inte är ett
+      // hundratal ska godkännas i delen med hela år (-2339 i CI).
+      const tabell = await wp.evaluate(async () => {
+        const { HUMAN_SCALE, scaleForYear } = await import('./js/time-scale.js');
+        const { stepAt, roundToStep } = await import('./js/model.js');
+        const { MIN_YEAR, MAX_YEAR } = await import('./js/timeline.js');
+        let lo = MIN_YEAR;
+        return HUMAN_SCALE.resolution.map(r => { const hi = Math.min(r.to, MAX_YEAR), part = { step: r.step, lo, hi, mid: roundToStep(Math.round((lo + hi) / 2)) }; lo = r.to + 1; return part; });
+      });
+      const grov = tabell.filter(p => p.step > 1), fin = tabell.at(-1);
+      if (grov.length < 2 || fin.step !== 1) throw new Error(`upplösningstabellen har ändrats: ${JSON.stringify(tabell)}; mätningen och kontrollens delar behöver ses över`);
+      const prov = [...grov.flatMap(p => [[p.mid, true], [p.mid + 1, false]]), ...(grov[0].step > 100 ? [[grov[0].mid + 100, false]] : [])];
+      prov.push([fin.lo + 1 + ((1 - (fin.lo + 1)) % 100 === 0 ? 1 : 0), true]); // ett år i delen med hela år som inte är ett hundratal
+      const rakna = await bedom(prov.map(([y]) => y));
+      rakna.forEach((r, i) => { if (r.ok !== prov[i][1]) throw new Error(`mätningen: året ${r.y} (${r.del}, upplösning ${r.step}) bedöms ${r.ok}, väntat ${prov[i][1]}`); });
+      // Pausen görs i sidan, i samma bildruta som året når gränsen, och bara om uppspelningen går just då. Ett Playwright-klick tar en
+      // sekund eller mer i en belastad körning (och ett klick på en uppspelning som en Samtidigt-paus redan stoppat startar den igen), så
+      // då hinner uppspelningen över nästa gräns innan pausen lägger sig (#1996). Svaret har året, tiden och om knappen blev pausad.
+      const pausaVid = (grans, tid) => wp.evaluate(({ grans, tid }) => {
+        const track = document.getElementById('track'), play = document.querySelector('.timebar .controls .play'), t0 = performance.now();
+        const nu = () => Number(track.getAttribute('aria-valuenow'));
+        window.__pausadVid = new Promise(resolve => {
+          const obs = new MutationObserver(() => {
+            if (nu() < grans || play.getAttribute('aria-pressed') !== 'true') return;
+            play.click(); obs.disconnect(); clearTimeout(timer);
+            resolve({ year: nu(), ms: Math.round(performance.now() - t0), pressed: play.getAttribute('aria-pressed') });
+          });
+          const timer = setTimeout(() => { obs.disconnect(); resolve({ timeout: true, year: nu() }); }, tid);
+          obs.observe(track, { attributes: true, attributeFilter: ['aria-valuenow'] });
+        });
+      }, { grans, tid });
+      // Från ett år en bit före delen (årshoppet, som resten av kontrollen), så att varje paus kostar en sekund och inte beror på hur många
+      // bildrutor ritningen hinner med på vägen dit: uppspelningen går över gränsen mellan delarna på riktigt, bara inte hela vägen från 100 000 f.Kr.
+      const hoppaTill = async y => {
+        await wp.click('#year-jump');
+        await wp.fill('#jump-input', `${1 - y} f.Kr.`);
+        await wp.keyboard.press('Enter');
+        await wp.waitForFunction(w => document.getElementById('track').getAttribute('aria-valuenow') === w, String(y), { timeout: T.step });
+      };
+      const spela = async (vad, start, grans, tid) => {
+        if (start !== null) await hoppaTill(start);
+        await pausaVid(grans, tid);
+        await wp.click('.timebar .controls .play');
+        const r = await wp.evaluate(() => window.__pausadVid);
+        if (r.timeout) throw new Error(`${vad}: uppspelningen nådde bara ${r.year} på ${tid / 1000} s (gränsen ${grans})`);
+        if (r.pressed !== 'false') throw new Error(`${vad}: Paus i sidan gav ingen paus (knappen är ${r.pressed}) vid ${r.year}`);
+        // Pausen ska stå still: året rör sig inte under två bildrutor
+        const kvar = await wp.evaluate(() => new Promise(res => { const y0 = document.getElementById('track').getAttribute('aria-valuenow'); requestAnimationFrame(() => requestAnimationFrame(() => res({ y0, y1: document.getElementById('track').getAttribute('aria-valuenow') }))); }));
+        if (kvar.y0 !== kvar.y1) throw new Error(`${vad}: året rörde sig efter pausen, ${kvar.y0} → ${kvar.y1}`);
+        const [b] = await bedom([r.year]);
+        const diag = `${vad}: stannade på ${b.y} (1 − år = ${1 - b.y}) i ${b.del}, upplösning ${b.step} år; gränsen ${grans} nåddes efter ${r.ms} ms`;
+        if (!b.ok) throw new Error(`uppspelningen stannade inte på reglagets upplösning. ${diag}`);
+        return { ...b, ms: r.ms, diag };
+      };
+      // Tre pauser: i delen med tusental, i delen med hundratal och efter gränsen, i delen med hela år. Varje paus läggs en bit in i delen
+      // (delens första år plus tusen, tusen och tio), så att en bildruta som överskjuter inte ändrar delen: en bildruta är högst 0,1 s,
+      // alltså högst 2500 år i den första delen, 250 i den andra och 2,5 i den tredje vid standardfarten. Den sista gränsen är medvetet
+      // nära: i delen med hela år går uppspelningen 25 år i sekunden, och en långsam ritning hinner få med sig bara en bråkdel av det.
+      const gransar = [grov[0].lo + 10000, grov[1].lo + 1000, fin.lo + 10]; // -89999 som förut, -8999 och -2989
+      const starter = [null, grov[1].lo - 1000, fin.lo - 1000]; // första pausen går från 100 000 f.Kr.; de andra från 11 000 och 4000 f.Kr.
+      const delar = [grov[0], grov[1], fin];
       const t0 = Date.now();
-      await wp.click('.timebar .controls .play');
-      await wp.waitForFunction(() => Number(document.getElementById('track').getAttribute('aria-valuenow')) >= -89999, null, { timeout: 10000 })
-        .catch(async () => { throw new Error(`uppspelningen nådde bara ${await year()} på 10 s`); });
-      const secs = ((Date.now() - t0) / 1000).toFixed(1);
-      await wp.click('.timebar .controls .play'); // pausa
-      const reached = await year();
-      if ((1 - reached) % 100 !== 0) throw new Error(`uppspelningen stannade på ${reached}, inte på reglagets upplösning`); // tusental eller hundratal
+      const resultat = [];
+      let secs = '';
+      for (const [i, grans] of gransar.entries()) {
+        const r = await spela(`paus ${i + 1} av 3 (steg ${delar[i].step})`, starter[i], grans, i ? 20000 : 10000);
+        if (!i) secs = ((Date.now() - t0) / 1000).toFixed(1);
+        if (r.step !== delar[i].step) throw new Error(`pausen hamnade i en annan del än avsett: ${r.diag}, väntat upplösning ${delar[i].step}`);
+        resultat.push(r);
+      }
       // Bakåt och Framåt mellan 1325 och 50 000 f.Kr.
       await wpAw.goto(`${BASE}?lang=sv&ny=p1090b#y=1325`);
       await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
@@ -13362,7 +13438,7 @@ async function run(browser, vp) {
         .catch(async () => { throw new Error(`Framåt gav ${await year()}`); });
       errs.push(...wpAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
-      return `100 000 f.Kr. → ${reached} på ${secs} s (${fast.replace(/^.*?: /, '').replace(/\..*$/, '')}); Bakåt/Framåt 1325 ↔ 50 000 f.Kr.`;
+      return `100 000 f.Kr. → ${resultat[0].y} på ${secs} s (${fast.replace(/^.*?: /, '').replace(/\..*$/, '')}); Paus på upplösningen ${resultat.map(r => `${r.step} år (${r.y})`).join(', ')}; Bakåt/Framåt 1325 ↔ 50 000 f.Kr.`;
     } finally { await wp.close(); }
   });
   // #1958: människans tid har två reglage, "Före 3000 f.Kr." och "3000 f.Kr.–i dag", och reglaget som visas räknas ur året. Ett drag
