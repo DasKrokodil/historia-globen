@@ -465,3 +465,37 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `persiska-viken-fylls` | PersianGulf vue satellite du golfe persique.jpg (PD, NASA) |
 | `ulleungdos-kaldera-bildas` | Ulleung Island ISS064.jpg (PD, NASA) |
 | `altaifloden` | Katun AltaiRepublicBoundary 013 1368.jpg (CC BY-SA 4.0) |
+
+## Asien 7051 f.Kr.–1275 f.Kr. (#2058 och #2059, 2026-11-26)
+
+13 av 40 händelser fick bild i den här omgången. Följande 27 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-2.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Många står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `kuk-jordbruk` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `lacket-i-kakinoshima` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `jiahu-jast-dryck` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `ris-i-lahuradewa` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `elsjankakulturens-lerkarl` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kurilsjons-kaldera-bildas` | 2026-11-26: Ingen kandidat i listan; sökningen på Kurilsjön gav inga träffar. |
+| `skidfragment-vid-sindorsjon` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `vassbatar-vid-h3-i-kuwait` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `eridu-grundas` | 2026-11-26: Ingen kandidat i listan; sökningarna på Eridu gav inga träffar. |
+| `mustatilerna-i-arabien` | 2026-11-26: Ingen kandidat i listan; sökningen på mustatiler nekades med HTTP 429. |
+| `aitapeskallen-och-tsunamin` | 2026-11-26: Händelsen gäller en skalle (mänskliga kvarlevor); bilder av kvarlevor avstås i den här omgången och ingen sökning gjordes. |
+| `naqadakulturen` | 2026-11-26: Händelsen saknades i granskningslistan; ingen egen sökning hann göras. |
+| `boplatsen-i-amsa-dong` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `botai-hastar` | 2026-11-26: Ingen kandidat i listan; sökningen gav bara en artikel och en figur (inte bilder av platsen eller hästarna). |
+| `pesten-vid-angara` | 2026-11-26: Händelsen gäller en gravplats med människor som dog av pest (kvarlevor); bilder av kvarlevor avstås och ingen sökning gjordes. |
+| `niuheliang-gudinnans-tempel` | 2026-11-26: Kandidaterna är museiföremål ur gravar (jadeföremål) och en keramikfigur på 1000 × 1138 px, samt vägstationer med platsens namn; ingen bild visar templet. Gravföremål avstås. |
+| `bhirrana` | 2026-11-26: Händelsen saknades i granskningslistan; ingen egen sökning hann göras. |
+| `kopparbrytning-i-kargaly` | 2026-11-26: Ingen kandidat i listan; sökningen på Kargaly gav inga träffar (nekades delvis med HTTP 429). |
+| `flankskred-pa-piton-de-la-fournaise` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `spetalska-i-balathal` | 2026-11-26: Händelsen gäller ett skelett med tecken på spetälska (mänskliga kvarlevor); bilder av kvarlevor avstås och ingen sökning gjordes. |
+| `torka-vid-mare-aux-songes` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `dilmun-handelsplats` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `mumierna-i-xiaohe` | 2026-11-26: Händelsen gäller mumier (mänskliga kvarlevor och gravar); bilder av kvarlevor avstås. |
+| `den-syriska-elefanten` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `lapitakulturen-i-bismarckarkipelagen` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `ambumstenen` | 2026-11-26: Händelsen saknades i granskningslistan; ingen egen sökning hann göras. |
+| `stort-utbrott-i-witori` | 2026-11-26: Ingen kandidat i listan; sökningen på Witori gav bara orelaterade träffar. |

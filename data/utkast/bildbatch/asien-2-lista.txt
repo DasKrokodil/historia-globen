@@ -1,0 +1,11 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:Kuk New Guinea 2002.jpg	kuk-jordbruk
+# File:Ksudach Volcano, Kamchatka, Russia (4826).jpg	utbrotten-i-ksudach
+# File:Seongsan Ilchulbong from the air.jpg	seongsan-ilchulbong-bildas
+# File:Kargaly-fig-05.jpg	kopparbrytning-i-kargaly
+# File:Chariot spread.png	sintashta-stridsvagnar
+# File:Infant mummy (Tarim).jpg	mumierna-i-xiaohe
+# File:Elephant Attacking a Feline.jpg	den-syriska-elefanten
+# File:PortVilaLapita.jpg	lapitakulturen-i-bismarckarkipelagen
+# File:Relief of Hatshepsut's expedition to the Land of Punt by Σταύρος.jpg	hatshepsuts-expedition-till-punt

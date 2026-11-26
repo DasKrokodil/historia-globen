@@ -63,6 +63,21 @@
       }
     },
     {
+      "eventId": "akahoya-utbrottet-i-kikai",
+      "eventTitle": "Akahoyautbrottet drabbar södra Kyushu",
+      "file": "images/events/akahoya-utbrottet-i-kikai.webp",
+      "kind": "historisk",
+      "credit": "Phonon.b / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-akahoya-utbrottet-i-kikai",
+        "title": "Kikai Caldera Varve 7253 ago – Phonon.b (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kikai_Caldera_Varve_7253_ago.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "aksum-blir-kristet",
       "eventTitle": "Kung Ezana gör Aksum kristet",
       "file": "images/events/aksum-blir-kristet.webp",
@@ -964,6 +979,21 @@
         "id": "commons-bild-brollopet-i-hvalsey",
         "title": "Hvalsey Church 2014 08 – jtstewart (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Hvalsey_Church_2014_08.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "bronsgjutare-i-ban-chiang",
+      "eventTitle": "Bronsgjutare i Ban Chiang",
+      "file": "images/events/bronsgjutare-i-ban-chiang.webp",
+      "kind": "historisk",
+      "credit": "Steve (Bangkok) / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-bronsgjutare-i-ban-chiang",
+        "title": "Ban Chiang excavations – Steve from Bangkok, Thailand (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ban_Chiang_excavations.jpg",
         "license": "CC BY-SA 2.0",
         "checked": "2026-11-26"
       }
@@ -2415,6 +2445,21 @@
       }
     },
     {
+      "eventId": "gonur-depe",
+      "eventTitle": "Gonur Depe, en bronsåldersstad i Centralasien",
+      "file": "images/events/gonur-depe.webp",
+      "kind": "historisk",
+      "credit": "David Stanley / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-gonur-depe",
+        "title": "Gonur ruins – David Stanley (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Gonur_ruins.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "grito-de-dolores",
       "eventTitle": "Grito de Dolores",
       "file": "images/events/grito-de-dolores.webp",
@@ -2648,6 +2693,21 @@
         "title": "Lake taupo landsat – NASA (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Lake_taupo_landsat.jpg",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "hatshepsuts-expedition-till-punt",
+      "eventTitle": "Hatshepsuts expedition till Punt",
+      "file": "images/events/hatshepsuts-expedition-till-punt.webp",
+      "kind": "historisk",
+      "credit": "Museo Egizio, Archivio fotografico (Turin) / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-hatshepsuts-expedition-till-punt",
+        "title": "Theban region, Deir el-Bahari, Temple of Hatshepsut, photo 14 of 25 - Archivio fotografico Museo Egizio, Turin C00839 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Theban_region,_Deir_el-Bahari,_Temple_of_Hatshepsut,_photo_14_of_25_-_Archivio_fotografico_Museo_Egizio,_Turin_C00839.jpg",
+        "license": "CC0",
         "checked": "2026-11-26"
       }
     },
@@ -3753,6 +3813,21 @@
       }
     },
     {
+      "eventId": "kot-diji",
+      "eventTitle": "Kot Diji före Indusstäderna",
+      "file": "images/events/kot-diji.webp",
+      "kind": "historisk",
+      "credit": "SpeakingArch / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-kot-diji",
+        "title": "Kot Diji Phase Pottery, Mature Harappan Period National Museum New Delhi – SpeakingArch (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kot_Diji_Phase_Pottery,_Mature_Harappan_Period_National_Museum_New_Delhi.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "koutoubiamosken-byggs",
       "eventTitle": "Koutoubiamoskén byggs i Marrakech",
       "file": "images/events/koutoubiamosken-byggs.webp",
@@ -4124,6 +4199,21 @@
         "title": "Battle of Lexington Detail – Amos Doolittle (engraver), Ralph Earl (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Lexington_Detail.jpg",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "liangzhu-och-dammarna",
+      "eventTitle": "Liangzhu och dammarna vid Yangtzedeltat",
+      "file": "images/events/liangzhu-och-dammarna.webp",
+      "kind": "historisk",
+      "credit": "Zhangzhugang / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-liangzhu-och-dammarna",
+        "title": "Hangzhou Liangzhu Museum 2015.08.02 15-38-25 – Zhangzhugang (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Hangzhou_Liangzhu_Museum_2015.08.02_15-38-25.jpg",
+        "license": "CC BY-SA 4.0",
         "checked": "2026-11-26"
       }
     },
@@ -4557,6 +4647,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Diprotodon_optatum_display_WA.jpg",
         "license": "CC0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "mehrgarh",
+      "eventTitle": "Bönderna i Mehrgarh",
+      "file": "images/events/mehrgarh.webp",
+      "kind": "historisk",
+      "credit": "mhtoori / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-mehrgarh",
+        "title": "Mehrgarh – mhtoori (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mehrgarh.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5748,6 +5853,21 @@
       }
     },
     {
+      "eventId": "ramses-krig-mot-hettiterna",
+      "eventTitle": "Ramses II:s krig mot hettiterna",
+      "file": "images/events/ramses-krig-mot-hettiterna.webp",
+      "kind": "historisk",
+      "credit": "Mustang Joe / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-ramses-krig-mot-hettiterna",
+        "title": "Ramesses II relief in the tomb at Abu Simbel – Mustang Joe (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ramesses_II_relief_in_the_tomb_at_Abu_Simbel.jpg",
+        "license": "CC0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "rangitoto-bildas",
       "eventTitle": "Vulkanön Rangitoto bildas",
       "file": "images/events/rangitoto-bildas.webp",
@@ -5973,6 +6093,21 @@
       }
     },
     {
+      "eventId": "sarazm-och-handeln",
+      "eventTitle": "Sarazm och förbindelserna i Centralasien",
+      "file": "images/events/sarazm-och-handeln.webp",
+      "kind": "historisk",
+      "credit": "Zack Knowles / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-sarazm-och-handeln",
+        "title": "Excavation at ancient city of sarazm - panoramio – Zack Knowles (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Excavation_at_ancient_city_of_sarazm_-_panoramio.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "sechin-bajo",
       "eventTitle": "Ett runt torg i Sechin Bajo",
       "file": "images/events/sechin-bajo.webp",
@@ -6015,6 +6150,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Wassu_Stone_Cirles_shaunamullally_02.jpg",
         "license": "CC BY-SA 2.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "seongsan-ilchulbong-bildas",
+      "eventTitle": "Tuffkonen Seongsan Ilchulbong bildas",
+      "file": "images/events/seongsan-ilchulbong-bildas.webp",
+      "kind": "historisk",
+      "credit": "Bernard Gagnon / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-seongsan-ilchulbong-bildas",
+        "title": "Seongsan Ilchulbong 01 – Bernard Gagnon (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Seongsan_Ilchulbong_01.jpg",
+        "license": "CC0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -6075,6 +6225,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:WadiSuraSingleSwimmer.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "sintashta-stridsvagnar",
+      "eventTitle": "Sintashtakulturen och de äldsta kända stridsvagnarna",
+      "file": "images/events/sintashta-stridsvagnar.webp",
+      "kind": "historisk",
+      "credit": "Лапоть / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-sintashta-stridsvagnar",
+        "title": "Artefacts - Sintashta culture - Museum of Archeology and Ethnography, Ufa – Лапоть (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Artefacts_-_Sintashta_culture_-_Museum_of_Archeology_and_Ethnography,_Ufa.jpg",
+        "license": "CC0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -8202,6 +8367,21 @@
       }
     },
     {
+      "eventId": "utbrotten-i-ksudach",
+      "eventTitle": "Utbrotten i Ksudach",
+      "file": "images/events/utbrotten-i-ksudach.webp",
+      "kind": "historisk",
+      "credit": "NASA (astronaut på ISS) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-utbrotten-i-ksudach",
+        "title": "Ksudach’s Nested Calderas and Craters (153779) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ksudach%E2%80%99s_Nested_Calderas_and_Craters_(153779).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "utbrottet-i-hunga-tonga-2022",
       "eventTitle": "Vulkanutbrottet i Hunga Tonga–Hunga Haʻapai",
       "file": "images/events/utbrottet-i-hunga-tonga-2022.webp",
@@ -8289,6 +8469,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Destruction_of_Pompeii_and_Herculaneum.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "vinkallaren-i-areni-1",
+      "eventTitle": "Vinframställning i grottan Areni-1",
+      "file": "images/events/vinkallaren-i-areni-1.webp",
+      "kind": "historisk",
+      "credit": "Serouj / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-vinkallaren-i-areni-1",
+        "title": "Areni-1 cave entrance – Serouj (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Areni-1_cave_entrance.jpg",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-26"
       }
     },
     {

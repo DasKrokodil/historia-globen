@@ -1,0 +1,1124 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "asien-2",
+  "datum": "2026-11-26",
+  "urval": "ids=36 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "kuk-jordbruk",
+      "titel": "Jordbruk i Nya Guineas högland",
+      "start": -6999,
+      "plats": "Kuk i Wahgidalen nära Mount Hagen, Papua Nya Guinea",
+      "wikidata": "Q1165562",
+      "kandidater": [
+        {
+          "fil": "File:Kuk New Guinea 2002.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kuk_New_Guinea_2002.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA: JPL",
+          "datum": "2002-05-07",
+          "datum_original": "2002-05-07",
+          "datum_fil": "2010-05-20 02:54:33",
+          "kredit": "http://photojournal.jpl.nasa.gov/catalog/PIA13090",
+          "beskrivning": "The Kuk Early Agricultural Site consists of 116 ha of swamps in the western highlands of New Guinea 1,500 meters above sea-level. Archaeological excavation has revealed the landscape to be one of wetland reclamation worked almost continuously for 7,000, and possibly for 10,000 years. The area was declared a UNESCO World Heritage Site in 2008. The image was acquired May 7, 2002, covers an area of 31.6 x 40 km, and is located at 5.8° S, 144.3° E.",
+          "bredd": 2664,
+          "hojd": 2108,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Kuk_New_Guinea_2002.jpg/960px-Kuk_New_Guinea_2002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2002 photographs of Papua New Guinea",
+            "Agriculture in Papua New Guinea",
+            "Kuk Swamp",
+            "Photos of Asia by ASTER",
+            "Satellite pictures of Papua New Guinea"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "utbrotten-i-ksudach",
+      "titel": "Utbrotten i Ksudach",
+      "start": -6850,
+      "plats": "Vulkanen Ksudach på södra Kamtjatka, Ryssland",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Ksudach Volcano, Kamchatka, Russia (4826).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ksudach_Volcano,_Kamchatka,_Russia_(4826).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Astronaut photograph ISS009-E-16836 was acquired July 26, 2004, with a Kodak K760C digital camera with an 800-mm lens, and is provided by the Earth Observations Laboratory, Johnson Space Center. The International Space Station Program supports the laboratory to help astronauts take pictures of Earth that will be of the greatest value to scientists and the public, and to make those images freely available on the Internet. Additional images taken by astronauts and cosmonauts can be viewed at the NASA/JSC Gateway to Astronaut Photography of Earth",
+          "datum": "Taken on 26 July 2004",
+          "datum_original": "Taken on 26 July 2004",
+          "datum_fil": "2026-05-23 14:28:34",
+          "kredit": "This image or video was catalogued by Goddard Space Flight Center of the United States National Aeronautics and Space Administration (NASA) under Photo ID: 4826 and Alternate ID: ISS009-E-16836 .",
+          "beskrivning": "Some of the world’s most active volcanoes make up the spine of the Kamchatka Peninsula in far east Russia. Kamchatka is the northwestern edge of the Pacific “ring of fire,” where earthquakes and volcanism are caused by ongoing subduction of the Pacific oceanic plate beneath the Eurasian plate. This astronaut photograph profiles the summit area of Ksudach Volcano, also called Voniuchi Khrebet Volcano, in southern Kamchatka. White snow on the ridges in this image contrasts with the dark volcanic soils and highlights the well-developed radial drainage pattern down the slopes of the volcano. The summit area comprises overlapping calderas. Stübel Crater, located in the northern portion of the caldera complex, was the locus of the most recent eruption of the volcano, in 1907. The 1907 eruption of Ksudach Volcano is one of the largest ever recorded in Kamchatka. Two lakes, Klyuchevoye and Shtyubela, are located within calderas at the summit of Ksudach. These lakes, along with hot springs and the surrounding wilderness, make the Ksudach Volcano region a popular trekking destination. In the event of renewed volcanic activity, its remote location minimizes its potential hazard to humans. Astronaut photograph ISS009-E-16836 was acquired July 26, 2004, with a Kodak K760C digital camera with an 800-mm lens, and is provided by the Earth Observations Laboratory, Johnson Space Center. The International Space Station Program supports the laboratory to help astronauts take pictures of Earth that will be of the greatest value to scientists and the public, and to make those images freely available on the Internet. Additional images taken by astronauts and cosmonauts can be viewed at the NASA/JSC Gateway to Astronaut Photography of Earth",
+          "bredd": 2007,
+          "hojd": 3032,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Ksudach_Volcano%2C_Kamchatka%2C_Russia_%284826%29.jpg/960px-Ksudach_Volcano%2C_Kamchatka%2C_Russia_%284826%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "ISS Expedition 9 Crew Earth Observations",
+            "Ksudach",
+            "NASA Earth Observatory in 2004",
+            "Photos of Russia from ISS"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "seongsan-ilchulbong-bildas",
+      "titel": "Tuffkonen Seongsan Ilchulbong bildas",
+      "start": -4750,
+      "plats": "Seongsan Ilchulbong på Jeju, Sydkorea",
+      "wikidata": "Q122225",
+      "kandidater": [
+        {
+          "fil": "File:Seongsan Ilchulbong from the air.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Seongsan_Ilchulbong_from_the_air.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Korea.net / Korean Culture and Information Service",
+          "datum": "2006-10-18 17:22",
+          "datum_original": "2006-10-18 17:22",
+          "datum_fil": "2022-02-13 12:33:42",
+          "kredit": "Jeju Island",
+          "beskrivning": "Jeju-do, a Special Self-Governing Province is the only special autonomous province of Korea, situated on and coterminous with the country's largest island.",
+          "bredd": 5641,
+          "hojd": 3675,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Seongsan_Ilchulbong_from_the_air.jpg/960px-Seongsan_Ilchulbong_from_the_air.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Seongsan Ilchulbong",
+            "Tuff rings",
+            "Volcanoes in South Korea"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 2.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 2.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:성산일출봉 천연보호구역 2019년 촬영(출처 문화재청 대변인실).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89_%EC%B2%9C%EC%97%B0%EB%B3%B4%ED%98%B8%EA%B5%AC%EC%97%AD_2019%EB%85%84_%EC%B4%AC%EC%98%81(%EC%B6%9C%EC%B2%98_%EB%AC%B8%ED%99%94%EC%9E%AC%EC%B2%AD_%EB%8C%80%EB%B3%80%EC%9D%B8%EC%8B%A4).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Korea Heritage Service",
+          "datum": "2019-12-13 07:40:06",
+          "datum_original": "2019-12-13 07:40:06",
+          "datum_fil": "2021-08-27 13:50:40",
+          "kredit": "http://www.heritage.go.kr/heri/cul/culSelectDetail.do?VdkVgwKey=16,04200000,50",
+          "beskrivning": "Seongsan Ilchulbong Tuff Cone Natural Reserve",
+          "bredd": 4454,
+          "hojd": 2970,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89_%EC%B2%9C%EC%97%B0%EB%B3%B4%ED%98%B8%EA%B5%AC%EC%97%AD_2019%EB%85%84_%EC%B4%AC%EC%98%81%28%EC%B6%9C%EC%B2%98_%EB%AC%B8%ED%99%94%EC%9E%AC%EC%B2%AD_%EB%8C%80%EB%B3%80%EC%9D%B8%EC%8B%A4%29.jpg/960px-%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89_%EC%B2%9C%EC%97%B0%EB%B3%B4%ED%98%B8%EA%B5%AC%EC%97%AD_2019%EB%85%84_%EC%B4%AC%EC%98%81%28%EC%B6%9C%EC%B2%98_%EB%AC%B8%ED%99%94%EC%9E%AC%EC%B2%AD_%EB%8C%80%EB%B3%80%EC%9D%B8%EC%8B%A4%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Seongsan Ilchulbong"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "kopparbrytning-i-kargaly",
+      "titel": "Kopparbrytningen i Kargaly",
+      "start": -2999,
+      "plats": "Kargaly, Orenburg oblast, södra Ural, Ryssland (punkten är gruvområdets mitt)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Kargaly-fig-05.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kargaly-fig-05.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Chernykh Evgenij",
+          "datum": "2010-03-13 09:13:55",
+          "datum_original": null,
+          "datum_fil": "2010-03-13 09:13:55",
+          "kredit": "Own work",
+          "beskrivning": "Kargaly: in the underground mine gouge Каргалы: в одной из подземных горных выработок",
+          "bredd": 2362,
+          "hojd": 1513,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Kargaly-fig-05.jpg/960px-Kargaly-fig-05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Kargaly (Orenburg)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|cc-by-sa-3.0}}, {{self|GFDL}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0",
+              "self|GFDL"
+            ]
+          }
+        },
+        {
+          "fil": "File:Kargaly-fig-09.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kargaly-fig-09.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Chernykh Evgenij",
+          "datum": "Summer 1997 date QS:P,+1997-00-00T00:00:00Z/9,P4241,Q40720564",
+          "datum_original": "Summer 1997 date QS:P,+1997-00-00T00:00:00Z/9,P4241,Q40720564",
+          "datum_fil": "2010-03-13 09:22:17",
+          "kredit": "Own work",
+          "beskrivning": "Kargaly, the Late Bronze Age settlement Gorny: the stone anvil, hammer and casting moulds Каргалы, позднебронзовое поселение Горный: каменные наковальня, молоток и литейная форма",
+          "bredd": 1181,
+          "hojd": 733,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Kargaly-fig-09.jpg/960px-Kargaly-fig-09.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Kargaly (Orenburg)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|cc-by-sa-3.0}}, {{self|GFDL}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0",
+              "self|GFDL"
+            ]
+          }
+        },
+        {
+          "fil": "File:Kargaly-fig-03.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kargaly-fig-03.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Chernykh Evgenij",
+          "datum": "1994-07",
+          "datum_original": "1994-07",
+          "datum_fil": "2010-10-21 21:24:15",
+          "kredit": "Own work",
+          "beskrivning": "Kargaly: the superficial traces of different types of mining works in the very limited area; the total number of the similar traces is equal approximately 35,000",
+          "bredd": 1601,
+          "hojd": 2332,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Kargaly-fig-03.jpg/960px-Kargaly-fig-03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Kargaly (Orenburg)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|cc-by-sa-3.0}}, {{self|GFDL}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0",
+              "self|GFDL"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "sintashta-stridsvagnar",
+      "titel": "Sintashtakulturen och de äldsta kända stridsvagnarna",
+      "start": -2199,
+      "plats": "Sintashta i Tjeljabinsk oblast, Ryssland",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Chariot spread.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chariot_spread.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "by en:User:Dbachmann",
+          "datum": "2005",
+          "datum_original": "2005",
+          "datum_fil": "2021-09-27 04:00:21",
+          "kredit": "Own work by by en:User:Dbachmann",
+          "beskrivning": "Historical spread of the chariot. This map combines various classes of information, historical and archaeological. The 'isochrones' as given should not be considered more than rough approximations, give or take a century. red, 2000 BC: area of the earliest known spoke-wheeled chariots ( Sintashta-Petrovka culture ) orange, 1900 BC: extent of the Andronovo culture , expanding from its early Sintashta-Petrovka phase; spread of technology in this area would have been unimpeded and practically instantaneous yellow, 1800 BC: extent of the great steppes and semi-deserts of Central Asia, approximate extent of the early Indo-Iranian diaspora at that time. Note that early examples of chariots appear in Anatolia as early as around this time. light green, 1700 BC: unknown, early period of spread beyond the steppes green/cyan, 1600-1200 BC: the Kassite period in Mesopotamia, rise to notability of the chariot in the Ancient Near East, introduction to China, possibly also to the Punjab and the Gangetic plain ( Rigveda ) and E and N Europe ( Trundholm Sun Chariot ), assumed spread of the chariot as part of Late Bronze Age technology blue, 1000-500 BC: Iron Age spread of the chariot to W Europe by Celtic migrations",
+          "bredd": 400,
+          "hojd": 231,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/77/Chariot_spread.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "10th century BC",
+            "12th century BC",
+            "5th century BC",
+            "6th century BC",
+            "Ancient four-wheeled chariots",
+            "Archaeological maps",
+            "Isochrone maps",
+            "Maps of the Bronze Age in China",
+            "Maps of the Sintashta culture",
+            "Maps showing 16th-century BC history",
+            "Maps showing 17th-century BC history",
+            "Maps showing 18th-century BC history",
+            "Maps showing 19th-century BC history",
+            "Maps showing 1st-millennium BC history",
+            "Maps showing 20th-century BC history",
+            "Maps showing 2nd-millennium BC history",
+            "Transport statistics",
+            "War chariots"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{GFDL}}, {{GFDL|migration=relicense}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "GFDL",
+              "GFDL|migration=relicense"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "mumierna-i-xiaohe",
+      "titel": "Mumierna i Tarimbäckenet",
+      "start": -2134,
+      "plats": "Gravfältet Xiaohe väster om Lop Nur, Xinjiang, Kina",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Infant mummy (Tarim).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Infant_mummy_(Tarim).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Michael Kan",
+          "datum": "2010-05-27",
+          "datum_original": "2010-05-27",
+          "datum_fil": "2023-04-29 13:35:40",
+          "kredit": "https://www.flickr.com/photos/31790930@N07/4641534028/",
+          "beskrivning": "Infant mummy (Tarim). Items shown in the \"Secrets of the Silk Road\" exhibit touring America.",
+          "bredd": 3299,
+          "hojd": 1524,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Infant_mummy_%28Tarim%29.jpg/960px-Infant_mummy_%28Tarim%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cherchen cemetery",
+            "Children of China",
+            "Clothed mummies",
+            "Mummies of children",
+            "Tarim mummies"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:PC analysis The genomic origins of the Bronze Age Tarim Basin mummies, Nature, 2021.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:PC_analysis_The_genomic_origins_of_the_Bronze_Age_Tarim_Basin_mummies,_Nature,_2021.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Fan Zhang, Chao Ning, Ashley Scott",
+          "datum": "2023-09-03",
+          "datum_original": "2023-09-03",
+          "datum_fil": "2023-09-03 07:17:23",
+          "kredit": "The genomic origins of the Bronze Age Tarim Basin mummies [1] CC BY 4.0 License [2] : \"Rights and permissions: Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/ .\"",
+          "beskrivning": "PC analysis The genomic origins of the Bronze Age Tarim Basin mummies, Nature, 2021",
+          "bredd": 1050,
+          "hojd": 1200,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/PC_analysis_The_genomic_origins_of_the_Bronze_Age_Tarim_Basin_mummies%2C_Nature%2C_2021.png/960px-PC_analysis_The_genomic_origins_of_the_Bronze_Age_Tarim_Basin_mummies%2C_Nature%2C_2021.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient North Eurasian",
+            "Tarim mummies"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Genetic structure of ancient and present-day populations (Tarim-MA1 proximity).png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Genetic_structure_of_ancient_and_present-day_populations_(Tarim-MA1_proximity).png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Fan Zhang, Chao Ning, Ashley Scott",
+          "datum": "2023-04-08",
+          "datum_original": "2023-04-08",
+          "datum_fil": "2023-04-08 08:57:13",
+          "kredit": "The genomic origins of the Bronze Age Tarim Basin mummies [1] CC BY 4.0 License [2] : \"Rights and permissions: Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/ .\"",
+          "beskrivning": "Genetic structure of ancient and present-day populations (Tarim-MA1 proximity)",
+          "bredd": 1050,
+          "hojd": 1200,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Genetic_structure_of_ancient_and_present-day_populations_%28Tarim-MA1_proximity%29.png/960px-Genetic_structure_of_ancient_and_present-day_populations_%28Tarim-MA1_proximity%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient North Eurasian",
+            "Tarim mummies"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "den-syriska-elefanten",
+      "titel": "Den syriska elefanten",
+      "start": -1799,
+      "plats": "Västasien; punkten är Habbaniyahsjön i Irak, en av fyndplatserna",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Elephant Attacking a Feline.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Elephant_Attacking_a_Feline.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown Unknown , Syrian",
+          "datum": "late 4th century - 5th century (late)",
+          "datum_original": "late 4th century - 5th century (late)",
+          "datum_fil": "2009-02-11 13:53:27",
+          "kredit": "Camio",
+          "beskrivning": null,
+          "bredd": 1024,
+          "hojd": 506,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Elephant_Attacking_a_Feline.jpg/960px-Elephant_Attacking_a_Feline.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "4th-century mosaics",
+            "Ancient Roman mosaics in the United States",
+            "Collections of the Minneapolis Institute of Art",
+            "Elephants in Graeco-Roman Antiquities",
+            "Elephas maximus in art",
+            "Mosaics of elephants",
+            "Panthera tigris virgata",
+            "Wild animals in ancient Roman mosaics"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old"
+            ]
+          }
+        },
+        {
+          "fil": "File:Syrians Bringing an Elephant and a Bear, Tomb of Rekhmire MET DP161256.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Syrians_Bringing_an_Elephant_and_a_Bear,_Tomb_of_Rekhmire_MET_DP161256.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Nina M. Davies",
+          "datum": "circa 1504 date QS:P571,+1504-00-00T00:00:00Z/9,P1480,Q5727902 –1425 B.C. Period: New Kingdom Dynasty: Dynasty 18",
+          "datum_original": "circa 1504 date QS:P571,+1504-00-00T00:00:00Z/9,P1480,Q5727902 –1425 B.C. Period: New Kingdom Dynasty: Dynasty 18",
+          "datum_fil": "2017-12-30 23:48:10",
+          "kredit": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art . See the Image and Data Resources Open Access Policy",
+          "beskrivning": "Facsimile, Rekhmire (TT 100), Syrians, elephant, bear, ingot",
+          "bredd": 3959,
+          "hojd": 3502,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Syrians_Bringing_an_Elephant_and_a_Bear%2C_Tomb_of_Rekhmire_MET_DP161256.jpg/960px-Syrians_Bringing_an_Elephant_and_a_Bear%2C_Tomb_of_Rekhmire_MET_DP161256.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Syria",
+            "Asiatics in ancient Egyptian art",
+            "Elephants in ancient Egyptian art",
+            "Facsimiles of ancient Egyptian art in the Metropolitan Museum of Art",
+            "N. de Garis Davies",
+            "Tomb of Rekhmire TT100"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-zero"
+            ]
+          }
+        },
+        {
+          "fil": "File:Syrians bringing presents in the tomb of Rekhmire. More tribute.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Syrians_bringing_presents_in_the_tomb_of_Rekhmire._More_tribute.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Heidi Kontkanen",
+          "datum": "2019-04-24 12:05:56",
+          "datum_original": "2019-04-24 12:05:56",
+          "datum_fil": "2020-07-04 12:56:30",
+          "kredit": "https://www.flickr.com/photos/24729615@N00/49690057216/",
+          "beskrivning": "Detail from the scene from the transverse hall (left side). The tribute of foreign people. Rekhmire receives tribute on behalf of the king from various foreign countries. In the top register things from the land of Punt. In the register below, from Keftiu, the island of Crete. In the middle register, ebony, leopard skins, dogs, giraffe, ivory, and other animals from Nubia. In the fourth register, are people from Retenu (Syria - Palestine). All men have very fair skin and wear the same long white robe. They bring brown bear and an elephant. In the bottom register, are Nubian and Syrian captives. Here the women are dressed in bell-shaped dresses. They are accompanied by children. 18th dynasty, Sheik Abd el-Qurna, Thebes. Tomb of Rekhmire TT100.",
+          "bredd": 3264,
+          "hojd": 4928,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Syrians_bringing_presents_in_the_tomb_of_Rekhmire._More_tribute.jpg/960px-Syrians_bringing_presents_in_the_tomb_of_Rekhmire._More_tribute.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Syria",
+            "Asiatics in ancient Egyptian art",
+            "Tomb of Rekhmire TT100"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "lapitakulturen-i-bismarckarkipelagen",
+      "titel": "Lapitakulturen dyker upp i Bismarckarkipelagen",
+      "start": -1599,
+      "plats": "Bismarckarkipelagen, bland annat ön Mussau (i dag Papua Nya Guinea)",
+      "wikidata": "Q1021436",
+      "kandidater": [
+        {
+          "fil": "File:PortVilaLapita.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:PortVilaLapita.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Torbenbrinker",
+          "datum": "2013-07-09 04:00:29",
+          "datum_original": "2013-07-09 04:00:29",
+          "datum_fil": "2013-09-01 14:36:17",
+          "kredit": "Own work",
+          "beskrivning": "Lapita pottery, Vanuatu Cultural Centre, Port Vila, Vanuatu",
+          "bredd": 3648,
+          "hojd": 2736,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/PortVilaLapita.jpg/960px-PortVilaLapita.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Lapita pottery",
+            "Port Vila"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "hatshepsuts-expedition-till-punt",
+      "titel": "Hatshepsuts expedition till Punt",
+      "start": -1470,
+      "plats": "Hamnen Mersa Gawasis vid Röda havet (i dag Egypten), på väg till Punt",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Relief of Hatshepsut's expedition to the Land of Punt by Σταύρος.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Relief_of_Hatshepsut%27s_expedition_to_the_Land_of_Punt_by_%CE%A3%CF%84%CE%B1%CF%8D%CF%81%CE%BF%CF%82.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Σταύρος",
+          "datum": "2008-09-11",
+          "datum_original": "2008-09-11",
+          "datum_fil": "2012-05-11 19:23:03",
+          "kredit": "https://www.flickr.com/photos/lifes__too_short__to__drink__cheap__wine/3079108612/",
+          "beskrivning": "This is a fine relief of members of Hatshepsut's trading expedition to the mysterious 'Land of Punt' from this pharaoh's elegant mortuary temple at Deir El-Bahri. In this scene, Egyptian soldiers bear tree branches and axes.",
+          "bredd": 3264,
+          "hojd": 2211,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Relief_of_Hatshepsut%27s_expedition_to_the_Land_of_Punt_by_%CE%A3%CF%84%CE%B1%CF%8D%CF%81%CE%BF%CF%82.jpg/960px-Relief_of_Hatshepsut%27s_expedition_to_the_Land_of_Punt_by_%CE%A3%CF%84%CE%B1%CF%8D%CF%81%CE%BF%CF%82.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Egyptian weapons",
+            "Ancient furs",
+            "Army of Egypt",
+            "Fur clothing of native people of Egypt",
+            "Male fur clothing in art",
+            "Man with arms raised (hieroglyph)",
+            "Military parades in Egypt",
+            "Reliefs of expedition to Punt",
+            "Spindle (hieroglyph)",
+            "Wild cat (clothing) in art"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Queen Hatshepsut's expedition to Punt, plaster cast of her mortuary temple at Deir el-Bahri, Western Thebes, Egypt - Royal Ontario Museum - DSC09766.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Queen_Hatshepsut%27s_expedition_to_Punt,_plaster_cast_of_her_mortuary_temple_at_Deir_el-Bahri,_Western_Thebes,_Egypt_-_Royal_Ontario_Museum_-_DSC09766.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Daderot",
+          "datum": "2011-11-20 18:04:40",
+          "datum_original": "2011-11-20 18:04:40",
+          "datum_fil": "2011-12-28 20:54:18",
+          "kredit": "Own work",
+          "beskrivning": "Exhibit in the Royal Ontario Museum, Toronto, Ontario, Canada. This exhibit is old enough so that it is in the public domain, and photography was permitted in the museum. I took this photograph and release it into the public domain.",
+          "bredd": 4320,
+          "hojd": 3240,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Queen_Hatshepsut%27s_expedition_to_Punt%2C_plaster_cast_of_her_mortuary_temple_at_Deir_el-Bahri%2C_Western_Thebes%2C_Egypt_-_Royal_Ontario_Museum_-_DSC09766.JPG/960px-Queen_Hatshepsut%27s_expedition_to_Punt%2C_plaster_cast_of_her_mortuary_temple_at_Deir_el-Bahri%2C_Western_Thebes%2C_Egypt_-_Royal_Ontario_Museum_-_DSC09766.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Egyptian antiquities in the Royal Ontario Museum",
+            "Reliefs of expedition to Punt",
+            "Replicas of ancient Egyptian art"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Hatshepsut-tree.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Hatshepsut-tree.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Edal Anton Lefterov",
+          "datum": "2011-09-20",
+          "datum_original": "2011-09-20",
+          "datum_fil": "2011-09-25 14:48:18",
+          "kredit": "Own work",
+          "beskrivning": "This tree in front of Hatshepsut' Temple is claimed to have been brought from Punt by Hatshepsut's Expedition which is depicted on the Temple walls.",
+          "bredd": 1000,
+          "hojd": 667,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Hatshepsut-tree.jpg/960px-Hatshepsut-tree.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Dead trees",
+            "Expedition to Punt",
+            "Gardens of Hatshepsut Temple"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|cc-by-sa-3.0}}, {{self|GFDL}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0",
+              "self|GFDL"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "lacket-i-kakinoshima",
+      "titel": "Rött lack i Kakinoshima",
+      "start": -7050,
+      "plats": "Kakinoshima i Hakodate, Hokkaido, Japan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "jiahu-jast-dryck",
+      "titel": "En blandad dryck i Jiahus krukor",
+      "start": -6999,
+      "plats": "Jiahu norr om Wuyang, Henan, Kina",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "ris-i-lahuradewa",
+      "titel": "Ris i Lahuradewa: odlat eller insamlat?",
+      "start": -6999,
+      "plats": "Lahuradewa, Sant Kabir Nagar, Uttar Pradesh, Indien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "elsjankakulturens-lerkarl",
+      "titel": "Lerkärlen i Jelsjankakulturen",
+      "start": -6699,
+      "plats": "Mellersta Volga, Ryssland; punkten är Samarakröken, i kulturens område, inte en fyndplats",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "kurilsjons-kaldera-bildas",
+      "titel": "Utbrottet som skapade Kurilsjön",
+      "start": -6459,
+      "plats": "Kurilsjön på södra Kamtjatka, Ryssland",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "skidfragment-vid-sindorsjon",
+      "titel": "Skidliknande föremål vid Sindorsjön",
+      "start": -6299,
+      "plats": "Sindorsjön i Republiken Komi, Ryssland; punkten är sjön, inte själva fyndplatsen Vis I",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "vassbatar-vid-h3-i-kuwait",
+      "titel": "Vassbåtar på havet vid Kuwaitbukten",
+      "start": -5510,
+      "plats": "Platsen H3 på Jazirat Dubaji, Subiya, norr om Kuwaitbukten, Kuwait",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "eridu-grundas",
+      "titel": "Eridu grundas i södra Mesopotamien",
+      "start": -5399,
+      "plats": "Eridu sydsydväst om Ur, Dhi Qar, Irak",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "akahoya-utbrottet-i-kikai",
+      "titel": "Akahoyautbrottet drabbar södra Kyushu",
+      "start": -5350,
+      "plats": "Kikaikalderan i Ōsumiöarna söder om Kyushu, Kagoshima, Japan; punkten är kalderan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "mustatilerna-i-arabien",
+      "titel": "Mustatilerna och en kult kring boskap",
+      "start": -5299,
+      "plats": "Nordvästra Saudiarabien; punkten är en av platserna",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "aitapeskallen-och-tsunamin",
+      "titel": "Aitapeskallen och en tsunami på Nya Guineas nordkust",
+      "start": -5049,
+      "plats": "Paniri Creek inåt land från Sissanolagunen, Sandaunprovinsen, Papua Nya Guinea",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "vinkallaren-i-areni-1",
+      "titel": "Vinframställning i grottan Areni-1",
+      "start": -4099,
+      "plats": "Grottan Areni-1 vid byn Areni, Vajots Dzor, Armenien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "boplatsen-i-amsa-dong",
+      "titel": "Stenåldersboplatsen i Amsa-dong",
+      "start": -3999,
+      "plats": "Amsa-dong i Gangdong-gu, Seoul, Sydkorea",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "sarazm-och-handeln",
+      "titel": "Sarazm och förbindelserna i Centralasien",
+      "start": -3899,
+      "plats": "Sarazm väster om Pandzjakent, Sughd, Tadzjikistan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "botai-hastar",
+      "titel": "Botaifolket och hästarna",
+      "start": -3699,
+      "plats": "Botai i norra Kazakstan",
+      "wikidata": "Q279792",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "pesten-vid-angara",
+      "titel": "Pest bland jägarna vid Bajkalsjön",
+      "start": -3570,
+      "plats": "Floden Angara nordväst om Bajkalsjön, Ryssland; punkten är Angaras utlopp ur Bajkalsjön, inte gravfälten",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "niuheliang-gudinnans-tempel",
+      "titel": "Gudinnans tempel i Niuheliang",
+      "start": -3499,
+      "plats": "Niuheliang mellan Chaoyang och Jianping, Liaoning, Kina",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "kot-diji",
+      "titel": "Kot Diji före Indusstäderna",
+      "start": -3299,
+      "plats": "Kot Diji söder om Khairpur, Sindh, Pakistan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "liangzhu-och-dammarna",
+      "titel": "Liangzhu och dammarna vid Yangtzedeltat",
+      "start": -3299,
+      "plats": "Liangzhu i Yuhang, nordvästra Hangzhou, Zhejiang, Kina",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "flankskred-pa-piton-de-la-fournaise",
+      "titel": "Det senaste stora skredet på Piton de la Fournaise",
+      "start": -2499,
+      "plats": "Piton de la Fournaise, Réunion",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "spetalska-i-balathal",
+      "titel": "Spetälska i Balathal",
+      "start": -2499,
+      "plats": "Balathal nära Udaipur, Rajasthan, Indien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "gonur-depe",
+      "titel": "Gonur Depe, en bronsåldersstad i Centralasien",
+      "start": -2399,
+      "plats": "Gonur Depe, Turkmenistan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "dilmun-handelsplats",
+      "titel": "Dilmun, mellanhand mellan Mesopotamien och Indusdalen",
+      "start": -2199,
+      "plats": "Qal'at al-Bahrain, Bahrain",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "torka-vid-mare-aux-songes",
+      "titel": "Torka dödar dronter och jättesköldpaddor på Mauritius",
+      "start": -2199,
+      "plats": "Mare aux Songes, Mauritius",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "bronsgjutare-i-ban-chiang",
+      "titel": "Bronsgjutare i Ban Chiang",
+      "start": -1999,
+      "plats": "Ban Chiang, Udon Thani, Thailand",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "stort-utbrott-i-witori",
+      "titel": "Ett av de största utbrotten i Witori",
+      "start": -1469,
+      "plats": "Witorikalderan öster om Kimbe på Nya Britannien (i dag Papua Nya Guinea); punkten är Pago, en ung vulkankägla inne i kalderan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "ramses-krig-mot-hettiterna",
+      "titel": "Ramses II:s krig mot hettiterna",
+      "start": -1274,
+      "plats": "Syrien och Levanten (striderna gällde Amurru och Kadesh)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    }
+  ]
+}
