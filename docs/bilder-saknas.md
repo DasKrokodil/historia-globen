@@ -1037,3 +1037,32 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `esa-bildas` | 2026-11-26: Enda kandidaten (ESA Headquarters in Paris.jpg, CC BY-SA 3.0 IGO) flaggades av verktyget; licensen bedöms av en människa innan bilden används. Ingen bild vald. |
 | `ipcc-bildas` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
 | `sametinget-inrattas` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+
+## Europa 1995–2024 och Amerika 1960–2022 (#2090 och #2102, 2026-11-26)
+
+9 av 31 händelser fick bild i den här omgången och 1 har en utsedd bild som inte kunde hämtas. Följande 22 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/slut-1.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `sverige-gar-med-i-eu` | 2026-11-26: Enda kandidaten är en karta över EU:s utvidgning (680 × 520 px); används inte. |
+| `skane-lan-bildas` | 2026-11-26: Enda kandidaten (radhus vid Stora Torg i Kristianstad) visar inte länets bildande; ingen bild vald. |
+| `euron-infors` | 2026-11-26: Kandidaterna (euromynt och eurosedlar) har osäker licens eftersom designen på mynt och sedlar kan vara skyddad; ingen bild vald tills en människa bedömt licensen. |
+| `pavevalet-2013` | 2026-11-26: Enda kandidaten (Casa Rosada, CC-AR-Presidency) flaggades av verktyget för oklar licens; bedöms av en människa innan den används. |
+| `massakern-i-butja` | 2026-11-26: Kandidaterna visar enligt filtitlarna avrättade människor och staden efter befrielsen (licensflagga); bilder av offer lämnas av värdighetsskäl. Ingen bild vald. |
+| `belagringen-av-mariupol` | 2026-11-26: Kandidaterna (Ukrainas inrikesministerium via Facebook, licensmall mvs.gov.ua) flaggades av verktyget för oklar licens; ingen bild vald tills en människa bedömt licensen. |
+| `charkivoffensiven-2022` | 2026-11-26: Enda kandidaten är en flagga i Balakliia (604 × 1047 px, licensflagga); för liten, används inte. |
+| `chersons-befrielse` | 2026-11-26: Kandidaterna är bilder från Ukrainas försvarsdepartement via Facebook och Twitter med osäker licens (CC BY-SA enligt uppladdaren, PD-UA-exempt för den andra); ingen bild vald tills en människa bedömt licensen. |
+| `slaget-om-bachmut` | 2026-11-26: Enda kandidaten kommer från Armyinform (flaggad licens) och visar enligt filsidan ett hus efter bombning med människor under rasmassorna; ingen bild vald. |
+| `ukrainas-offensiv-2023` | 2026-11-26: Enda kandidaten är en karta över invasionen; används inte. |
+| `kurskoffensiven` | 2026-11-26: Utsedd men inte hämtad: President Vladimir Putin talks with the governor of Kursk in August 2024.jpg (CC BY 4.0, kremlin.ru, 8 augusti 2024), HTTP 429. Står i `data/utkast/bildbatch/slut-1-ej-hamtade.txt`. Bilden är en rysk officiell bild; flaggas för historikern. |
+| `medellinkonferensen-1968` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `cites-washingtonkonventionen` | 2026-11-26: Kandidaterna är ett foto av leopardskinn (licensflagga) och en liten etikett (480 × 360 px); används inte. |
+| `operation-condor` | 2026-11-26: Enda kandidaten är en liten karta (363 × 353 px); används inte. |
+| `gronlands-hemstyre` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `gronland-lamnar-eg` | 2026-11-26: Enda kandidaten är en liten karta (262 × 160 px); används inte. |
+| `klimatkonventionen-rio-1992` | 2026-11-26: Enda kandidaten (en byggnad i Bonn, licensflagga) hör inte till Rio-mötet; ingen bild vald. |
+| `obama-valjs-till-president` | 2026-11-26: Kandidaterna visar personal som skålar för Obama och ett möte med Trump 2016 (annan händelse); ingen visar valet. Ingen bild vald. |
+| `gronlands-sjalvstyre` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `fredsavtalet-med-farc` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `os-i-rio-2016` | 2026-11-26: Enda kandidaten är ett foto av Rios kandidaturkommitté i Genève 2009 (licensflagga) och visar inte spelen; ingen bild vald. |
+| `fn-resolution-es-11-1` | 2026-11-26: Enda kandidaten är ett diagram över omröstningen (SVG, flaggad som karta); ingen bild vald. |

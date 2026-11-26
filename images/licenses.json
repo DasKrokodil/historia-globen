@@ -501,6 +501,21 @@
       }
     },
     {
+      "eventId": "ariane-1-forsta-uppskjutningen",
+      "eventTitle": "Den första Ariane-raketen skjuts upp",
+      "file": "images/events/ariane-1-forsta-uppskjutningen.webp",
+      "kind": "historisk",
+      "credit": "ignis / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-ariane-1-forsta-uppskjutningen",
+        "title": "Ariane 1 Le Bourget FRA 001 – ignis (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ariane_1_Le_Bourget_FRA_001.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "arrhenius-koldioxid-och-temperatur",
       "eventTitle": "Arrhenius räknar på koldioxid och jordens temperatur",
       "file": "images/events/arrhenius-koldioxid-och-temperatur.webp",
@@ -1282,6 +1297,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "brasilia-invigs",
+      "eventTitle": "Brasília blir Brasiliens huvudstad",
+      "file": "images/events/brasilia-invigs.webp",
+      "kind": "historisk",
+      "credit": "Arturdiasr / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-brasilia-invigs",
+        "title": "Planalto Central (cropped) – Arturdiasr (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Planalto_Central_(cropped).jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "brasiliens-sjalvstandighet",
@@ -3345,6 +3375,21 @@
       }
     },
     {
+      "eventId": "gruvarbetarna-i-copiapo-raddas",
+      "eventTitle": "De 33 gruvarbetarna i Chile räddas",
+      "file": "images/events/gruvarbetarna-i-copiapo-raddas.webp",
+      "kind": "historisk",
+      "credit": "desierto_atacama / Wikimedia Commons (Flickr)",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-gruvarbetarna-i-copiapo-raddas",
+        "title": "Mina San José de Copiapó en 2010 – desierto_atacama (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mina_San_Jos%C3%A9_de_Copiap%C3%B3_en_2010.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "guld-i-minas-gerais-1695",
       "eventTitle": "Guldrushen i Minas Gerais börjar",
       "file": "images/events/guld-i-minas-gerais-1695.webp",
@@ -4281,6 +4326,21 @@
       }
     },
     {
+      "eventId": "jamaica-blir-sjalvstandigt",
+      "eventTitle": "Jamaica blir självständigt",
+      "file": "images/events/jamaica-blir-sjalvstandigt.webp",
+      "kind": "historisk",
+      "credit": "Okänd upphovsperson (filsidan: Royal Constitutional Convention of Queen Elizabeth II) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-jamaica-blir-sjalvstandigt",
+        "title": "Independence Proclamation of Jamaica – Royal Constitutional Convention of Queen Elizabeth II (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Independence_Proclamation_of_Jamaica.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "jamestown-1607",
       "eventTitle": "Engelsmännen grundar Jamestown",
       "file": "images/events/jamestown-1607.webp",
@@ -4517,6 +4577,21 @@
         "title": "Colombo St looking south to Tuam – Schwede66 (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Colombo_St_looking_south_to_Tuam.JPG",
         "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "jordbavningen-i-haiti-2010",
+      "eventTitle": "Jordbävningen i Haiti",
+      "file": "images/events/jordbavningen-i-haiti-2010.webp",
+      "kind": "historisk",
+      "credit": "Eoghan Rice / Trócaire / Wikimedia Commons (Flickr)",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-jordbavningen-i-haiti-2010",
+        "title": "Ruins of Haiti National Palace - Port au Prince 2012 – Trocaire from Ireland (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ruins_of_Haiti_National_Palace_-_Port_au_Prince_2012.jpg",
+        "license": "CC BY 2.0",
         "checked": "2026-11-26"
       }
     },
@@ -4826,6 +4901,21 @@
         "title": "Nuclear Fission Experimental Apparatus 1938 - Deutsches Museum - Munich – J Brew (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Nuclear_Fission_Experimental_Apparatus_1938_-_Deutsches_Museum_-_Munich.jpg",
         "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "karnvapenproven-pa-moruroa",
+      "eventTitle": "Frankrikes kärnvapenprov på Moruroa",
+      "file": "images/events/karnvapenproven-pa-moruroa.webp",
+      "kind": "historisk",
+      "credit": "Gérard Joyon / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-karnvapenproven-pa-moruroa",
+        "title": "Moruroa 1971 bâche d'eau – Gérard JOYON (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Moruroa_1971_b%C3%A2che_d%27eau.jpg",
+        "license": "CC BY 3.0",
         "checked": "2026-11-26"
       }
     },
@@ -7296,6 +7386,36 @@
       }
     },
     {
+      "eventId": "oresundsbron-oppnas",
+      "eventTitle": "Öresundsförbindelsen öppnas",
+      "file": "images/events/oresundsbron-oppnas.webp",
+      "kind": "historisk",
+      "credit": "Nick-D / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-oresundsbron-oppnas",
+        "title": "Øresund Bridge from the air in September 2015 – Nick-D (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%C3%98resund_Bridge_from_the_air_in_September_2015.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "orkanen-katrina",
+      "eventTitle": "Orkanen Katrina",
+      "file": "images/events/orkanen-katrina.webp",
+      "kind": "historisk",
+      "credit": "NASA / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-orkanen-katrina",
+        "title": "Katrina 2005-08-28 1700Z – NASA (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Katrina_2005-08-28_1700Z.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "ormhogen-i-ohio",
       "eventTitle": "Ormhögen i Ohio byggs eller byggs om",
       "file": "images/events/ormhogen-i-ohio.webp",
@@ -8219,6 +8339,21 @@
         "title": "Copenhagen - Rundetårn - 2013 – Avda (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Copenhagen_-_Rundet%C3%A5rn_-_2013.jpg",
         "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "rysslands-invasion-av-ukraina",
+      "eventTitle": "Rysslands invasion av Ukraina",
+      "file": "images/events/rysslands-invasion-av-ukraina.webp",
+      "kind": "historisk",
+      "credit": "Arrikel / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-rysslands-invasion-av-ukraina",
+        "title": "Последствия удара ракеты по Голосеевскому району Киева (6) – Arrikel (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D1%80%D0%B0%D0%BA%D0%B5%D1%82%D1%8B_%D0%BF%D0%BE_%D0%93%D0%BE%D0%BB%D0%BE%D1%81%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%BC%D1%83_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D1%83_%D0%9A%D0%B8%D0%B5%D0%B2%D0%B0_(6).jpg",
+        "license": "CC BY-SA 4.0",
         "checked": "2026-11-26"
       }
     },
