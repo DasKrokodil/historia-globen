@@ -1,0 +1,774 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 16,
+    "kandidater": 21,
+    "troliga": 21,
+    "flaggade": 0,
+    "avvisade": 0,
+    "smala": 7,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "magellan-nar-guam",
+      "titel": "Magellans flotta når Guam",
+      "plats": "Guam i Marianerna, traditionellt vid Umatac (i dag Guam, USA)",
+      "start": 1521,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": "Q1225170",
+      "kandidater": [
+        {
+          "fil": "File:Detail from a map of Ortelius - Magellan's ship Victoria.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Detail_from_a_map_of_Ortelius_-_Magellan%27s_ship_Victoria.png",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Abraham Ortelius",
+          "datum": "1590",
+          "datum_original": "1590",
+          "datum_fil": "2016-01-02 17:14:41",
+          "kredit": "www.helmink.com (Archive: https://web.archive.org/web/20170203125700/http://www.helmink.com/Antique_Map_Ortelius_Pacific/ )",
+          "beskrivning": "Detail from a map of Ortelius : Magellan 's ship Victoria",
+          "bredd": 2522,
+          "hojd": 1538,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Detail_from_a_map_of_Ortelius_-_Magellan%27s_ship_Victoria.png/960px-Detail_from_a_map_of_Ortelius_-_Magellan%27s_ship_Victoria.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1590 in art",
+            "Details of maps",
+            "Drawings of sailing ships",
+            "Iberian ship development, 1400–1600",
+            "Maps by Abraham Ortelius",
+            "Paintings of carracks",
+            "Ships on maps",
+            "Victoria (ship, 1519)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "saavedra-over-stilla-havet",
+      "titel": "Saavedra seglar från Mexiko över Stilla havet",
+      "plats": "Rongelap och Ailinginae, Marshallöarna",
+      "start": 1527,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": null,
+      "kandidater": [],
+      "soktext": "Saavedra sails from Mexico across the Pacific Rongelap and Ailinginae"
+    },
+    {
+      "id": "mendana-nar-salomonoarna",
+      "titel": "Mendaña når Salomonöarna",
+      "plats": "Santa Isabel (i dag Salomonöarna)",
+      "start": 1568,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": "Q713182",
+      "kandidater": [
+        {
+          "fil": "File:SantaIsabelmap.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:SantaIsabelmap.png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "This map's source is here , with the uploader's modifications, and the GMT homepage says that the tools are released under the GNU General Public License.",
+          "datum": "Originally uploaded to en:Wikipedia ( log ) in April 2006 by Kelisi ( talk ).",
+          "datum_original": "Originally uploaded to en:Wikipedia ( log ) in April 2006 by Kelisi ( talk ).",
+          "datum_fil": "2008-03-03 19:59:19",
+          "kredit": "English Wikipedia en:Image:SantaIsabelmap.png",
+          "beskrivning": "Map of Santa Isabel and neighbouring islands in the Solomon Islands.",
+          "bredd": 495,
+          "hojd": 487,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/db/SantaIsabelmap.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Maps of Santa Isabel Island"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "duyfken-nar-australien",
+      "titel": "Willem Janszoon och Duyfken når Australien",
+      "plats": "Pennefather River på Kap Yorkhalvöns västkust (i dag Queensland, Australien)",
+      "start": 1606,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": "Q6155580",
+      "kandidater": [
+        {
+          "fil": "File:(Australia & New Zealand) 663 (ca. 1672).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:(Australia_%26_New_Zealand)_663_(ca._1672).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Varius geographers",
+          "datum": "1672-01-02",
+          "datum_original": "1672-01-02",
+          "datum_fil": "2019-06-04 19:19:34",
+          "kredit": "https://www.raremaps.com",
+          "beskrivning": "The First Map of Australia and New Zealand--Rare Second State! Detailed map of the coastline of Australia and New Zealand, showing the voyage and discoveries of Abel Tasman. It was published by the travel collection compiler Melchisédech Thévenot in his famous Relations de divers Voyages. This is an example of the second state of the map and it is particularly rare. Thévenot's map of Australia is the first published large-scale map of Australia and the first French map to record Tasman's 1642-43 and 1644 discoveries in both Australia and New Zealand. The only other map to focus so minutely on Australia to precede Thévenot's map is the little-known miniature map by Claes Visscher “T'Landt van Eendracht,” published in his 1649 Tabularum Geographarum. . . which survives is a single known example. Thévenot's map was the first map devoted entirely to Australia and New Zealand. Previous maps that showed the extent of knowledge of Australia's coast had been maps of the world or of the South Asian or East Indies region. This map shows all of the Dutch encounters in Western Australia, North Australia, Tasmania, and a small section of the South Australian coast to the islands of Saint Francis and Saint Peter (Nuyts Archipelago). The map also includes the west coast of New Zealand (the two islands shown joined), and the south coast of New Guinea, which appears as if it may be joined to Australia. Thévenot's map therefore holds a significant place in not only the charting of Tasman 's voyages, but also in the mapping of the Australian continent as a whole. It records a shape of Australia that would remain unchanged until the grand exploits of Captain Cook some one hundred and ten years later. It also continues the aspirational hunt for a huge southern continent. Hollandia Nova is noted as being discovered in 1644, the date of Tasman’s second voyage. While commanding this mission, Tasman skirted the north coast from De Wit’s Land to the Gulf of Carpentaria, showing it have a continuous coastline and massive size. He had also sailed south of the continent on his first voyage, showing that no southern continent existed south of there. Thus, the possible location of a larger landmass had to shift, and here it is shown in the vast space between Van Diemen’s Land, New Zealand, and New Guinea. This Terre Australe is also labelled as discovered in 1644. The geography of Thévenot’s map Much of the coastline and the vertical scale depicted here are taken from the charts and globes of Joan Blaeu, the cartographer to the Dutch East India Company (VOC). This particular outline was copied from one that was inlaid in the pavement of the Stadt House, a representation of the Low Countries’ global reach. It accompanied accounts of the Dutch exploits on the west coast of Australia, namely the disastrous wreck of the Batavia in 1629. The VOC tried to limit the cartographic information it allowed to become public, but their official hydrographers, like Blaeu, were also employed in private trade. Thus, the structure of the VOC’s cartographic repository made it a sieve for geographic secrets. One of these secrets that the VOC attempted to keep were the discoveries of Abel Tasman, who sailed for the VOC on two reconnaissance voyages in the early 1640s. Tasman was supposed to find new trading opportunities for the VOC; while he failed in this, he did prove the insularity of Australia by sailing south of it, and was the first European to see New Zealand. In the first of two voyages in the early 1640s, Tasman landed at Van Diemen’s Land, named for the VOC governor who organized the mission and which was not known to be an island, and then, briefly, in New Zealand. He returned to Batavia, the VOC’s main trading port, via Papua New Guinea. On the second voyage, Tasman coasted along the north of the Australian continent. This is the first French chart to show his discoveries. Father north, an arm of Australia juts north and nearly touches New Guinea. It is called Carpentaria, so named in 1623 by Jan Cartensz after Peiter de Carpentier, the VOC governor of the East Indies at that time. Carstensz was not the first Dutchman in this area, however. That would be Willem Janszoon on his voyage of 1605-6 in what is today Queensland. Janszoon was in command of the Duyfken, a Dutch East India Company (VOC) ship, and he explored the eastern shore of the Gulf of Carpentaria, just below the Cape York Peninsula. This venture was famously the first recorded European contact with Australia. The outline of New Guinea was based on information brought back from another Dutch voyage, that of the merchants Willem Schouten and Jacob Le Maire. These two circumnavigated the world in 1615-1617. They discovered an alternative route to the Pacific by sailing round Cape Horn, as opposed to through the Strait of Magellan, and left Dutch place names all along the north coast of New Guinea, as seen here. Carpentaria and New Guinea nearly touch, but their actual relationship is left unfinished. Thévenot could not know that Luís Vaz de Torres, who sailed with Pedro Fernandes de Quiros on a voyage for the Spanish in 1605, had passed through the straits between New Guinea and Australia. However, the Spanish had suppressed his report in the hopes of maintaining power via geographic secrecy and the Strait was only rediscovered by Alexander Dalrymple in 1762 when he was researching documents captured from the Spanish in the Philippines during the Seven Years’ War. Later, Cook sailed through the Strait, confirming its existence to the Western world, during his first voyage. Continuing west around Australia, Arnhems Landt refers to the Arnhem, a Dutch East India ship, which sighted the area in 1623. This was one of the two ships that sailed with Carstensz. To the west is Terre de Wit, which recalls Gerrit Frederikszoon de Witt, captain of the Vianen, which sailed in 1628. To the west is Dirk Hartogs Ree cap. D Eendragt. The Endracht was the second recorded European ship to contact Australia (1616), and the first in western Australia. The Eendracht was blown off course en route to the East Indies in that year. It was commanded by Dirk Hartog, whose name is included in the place name. The crew commemorated their discovery by erecting a post with a pewter dish inscribed with their ship’s information—the earliest physical record that historians have of any European landing in Australia. Houtmans Abrolhos and I. de Edels landt both refer to the same voyage. Jacob d’Edel, in the Amsterdam, along with Frederik de Houtman in the Dordrecht came within sight of the western coast and called the stretch of land d’Edelsland. The Houtmans Abrolhos are an archipelago, as shown here with x marks, and named for the navigator who sighted them, or at least it was Houtman who reported the islands to the VOC. It was here that the Batavia wrecked. The name Houtmans Abrolhos, as used on this chart, was first used in Hessel Gerritszoon’s 1627 chart Caert van't Landt van d'Eendracht. Also included on Gerritszoon’s chart is the shoal sighted by and named for the Tortelduyf, which is labeled here as Turtelduyf. Farther south, Landt van de Luewin is named for the Leeuwin, whose crew charted some of the southwest coastline in 1622; Flinders would later name Cape Leeuwin, the southwestern most point on the Australian mainland, after the ship. A note in the south mentions Pieter Nuyts , a Dutch navigator who commanded the Gulden Zeepaert along the southern coast in 1627. States and rarity There are three states of the map, although Tooley only lists two states. All three are rare on the market, but this second state appears to be rarest. The first does not contain the Tropic of Capricorn or rhumb lines. It is dated 1663. The second state has rhumb lines and the Tropic. Also, the printing error in latitude has been corrected, meaning they go up to 44 instead of 43. It is dated ca. 1672. The third state of the map includes Tasman ’s first voyage track. It dates the 1672 edition of Thévenot ’s collection. This map was the first French map to show Tasman’s discoveries and the first map to focus solely on Australia and New Zealand. It was included in France’s most important voyage collection to that date and is considered an important contribution to the histories of exploration and cartography.",
+          "bredd": 1600,
+          "hojd": 1136,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/%28Australia_%26_New_Zealand%29_663_%28ca._1672%29.jpg/960px-%28Australia_%26_New_Zealand%29_663_%28ca._1672%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "135th meridian east",
+            "1670s maps of Australia",
+            "1670s maps of Indonesia",
+            "1670s maps of New Zealand",
+            "Relations de Divers Voyages Curieux",
+            "Tasman map"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:New Zealand 23 October 2002.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:New_Zealand_23_October_2002.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Jacques Descloitres, MODIS Rapid Response Team, NASA/GSFC",
+          "datum": "2002-10-23",
+          "datum_original": "2002-10-23",
+          "datum_fil": "2007-12-27 03:08:29",
+          "kredit": "[2] , with description at NASA's Visible Earth website",
+          "beskrivning": "This true-colour image provides a nearly cloud-free view of New Zealand, from the Moderate Resolution Imaging Spectroradiometer (MODIS) on NASA’s Terra satellite. Description from NASA's Visible Earth website: [1] This stunning true-color image provides a rare, cloud-free look at the island nation of New Zealand, including most of its North and South Islands. This scene was acquired by the Moderate Resolution Imaging Spectroradiometer (MODIS), flying aboard NASA’s Terra satellite, on October 23, 2002. New Zealand is situated in the South Pacific Ocean, roughly 2,000 km (1,250 miles) southeast of Australia. Wellington, the capital of New Zealand, is located on the southern tip of the North Island, looking across Cook Strait toward South Island. The New Zealand land mass is ancient. Geologists estimate that it separated from the ancient supercontinent of Gondwana around 80 million years ago as a single land mass, which geologists call Rangitata. Around 5 million years ago, New Zealand’s North and South Islands began to take the shape they have today. Rainforest covered most of New Zealand’s land area as recently as seven thousand years ago. Isolated from the rest of the world by vast expanses of ocean, New Zealand was a haven for unique species of flora and fauna, including many species of flightless birds that evolved in safety at ground level through the millennia. Perhaps the most well-known of these flightless birds today is the Kiwi, which adapted to a forest environment, feeding mainly upon earthworms and larvae. Humans first settled on New Zealand somewhere between 950 and 1130 AD. The first settlers were Polynesians who, well known for their navigation skill, probably made the voyage in twin-hulled or outrigger canoes. These first Polynesian settlers called their new home “Aotearoa,” which means “land of the long white cloud.” The first Europeans believed to have visited New Zealand were led by Abel Janszoon Tasman from the Netherlands. In 1633, Tasman was hired by the Dutch East India Company to sail the trading routes between Europe and Batavia (what is today known as Jakarta, Indonesia). In 1642, on a 10-year contract with the Company, Tasman was instructed to find the elusive and wealthy Southern Continent that supposedly stretched across the Pacific. Tasman set sail on Aug. 13, 1642, in command of two ships — the Zeehaen and the Heemskerck. Four months later, Tasman and his crew spotted the coast of a new land that Tasman described as “a large land, uplifted high.” He named it “Staten Landt,” in reference to the Land of the Dutch States-General. Although there are no clear records of precisely how New Zealand got its modern name, its first usage is attributed to Dutch Captain Willem Jansz . In 1606, Jansz sailed his ship, the Duyfken, southeast ward to search for trade opportunities in the \"south and east lands\" beyond the furthest reaches of their known world. During his voyage, Jansz observed an island off the coast of New Guinea, which he named “Nieu Zelandt.” Subsequently, many maps recorded the name “Nieu Zelandt” as recently as the late 1700s. Other maps appearing as early as 1645 carried the name “Zeelandia Nova” (meaning “new sea land”). Some historians suggest the land was named after the one of the Dutch provinces, Zeeland, which was separated from the province of Holland by the sea (thus “Sea-land”). Australia was given the name Hollandia Nova (New Holland) and so Zeelandia Nova (New Zeeland), separated by an expanse of ocean, makes sense. Other historians suggest that Zeeland was the name of the second most important chamber of the Dutch East India Company. Thus, they suggest the island was named after this chamber.",
+          "bredd": 4200,
+          "hojd": 5600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/New_Zealand_23_October_2002.jpg/960px-New_Zealand_23_October_2002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Geology of New Zealand",
+            "Photos of New Zealand by the Terra (satellite) MODIS",
+            "Satellite pictures of New Zealand in 2002",
+            "Satellite pictures of islands"
+          ],
+          "smal": false
+        }
+      ],
+      "soktext": "Willem Janszoon and the Duyfken reach Australia",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ]
+    },
+    {
+      "id": "queiros-pa-espiritu-santo",
+      "titel": "Queirós på Espiritu Santo",
+      "plats": "Espiritu Santo (i dag Vanuatu)",
+      "start": 1606,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": "Q337524",
+      "kandidater": [
+        {
+          "fil": "File:Espiritu Santo.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Espiritu_Santo.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA",
+          "datum": "1994-10-03",
+          "datum_original": "1994-10-03",
+          "datum_fil": "2018-01-21 17:06:47",
+          "kredit": "http://eol.jsc.nasa.gov/scripts/sseop/photo.pl?mission=STS068&roll=215&frame=75",
+          "beskrivning": "Espiritu Santo as seen by the crew of STS068 aboard the Space Shuttle Endeavour on October 3rd, 1994. Unique photo number is STS068-215-75.",
+          "bredd": 448,
+          "hojd": 448,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/70/Espiritu_Santo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Earth photography during STS-68",
+            "Espiritu Santo Island (Vanuatu)",
+            "Satellite pictures of Vanuatu",
+            "Square photos of landscapes"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "torres-seglar-genom-torressundet",
+      "titel": "Torres seglar genom Torressundet",
+      "plats": "Torressundet mellan Nya Guinea och Kap Yorkhalvön (i dag Papua Nya Guinea och Australien)",
+      "start": 1606,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": "Q179188",
+      "kandidater": [
+        {
+          "fil": "File:Torres Strait.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Torres_Strait.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Transferred from en.wikipedia to Commons by OAlexander .",
+          "datum": "27 February 2008",
+          "datum_original": "27 February 2008",
+          "datum_fil": "2008-02-27 22:55:05",
+          "kredit": "Mission: STS035 Roll: 87 Frame: 48",
+          "beskrivning": "The Torres Strait. Image courtesy of the Image Analysis Laboratory, NASA Johnson Space Center.",
+          "bredd": 444,
+          "hojd": 446,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Torres_Strait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "PD NASA-AP",
+            "Torres Strait"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "hartogs-tennplatta",
+      "titel": "Dirk Hartog lämnar en tennplatta vid Shark Bay",
+      "plats": "Dirk Hartog Island vid Shark Bay (i dag Västaustralien, Australien)",
+      "start": 1616,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": "Q2867164",
+      "kandidater": [
+        {
+          "fil": "File:Ac dirkhartogplate.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ac_dirkhartogplate.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Adam Carr at English Wikipedia",
+          "datum": "16 September 2004 (original upload date)",
+          "datum_original": "16 September 2004 (original upload date)",
+          "datum_fil": "2007-09-25 18:40:54",
+          "kredit": "Transferred from en.wikipedia to Commons.",
+          "beskrivning": "photo by Adam Carr - en:Hartog Plate or Dirk Hartog's Plate is either of two plates, although primarily the first, which were left on Dirk Hartog Island during a period of European exploration of the western coast of Australia prior to European settlement there. The first plate, left by Dutch explorer Dirk Hartog is the oldest-known artifact of European exploration in Australia still existent and is therefore evidence of the first confirmed visit by Europeans.",
+          "bredd": 1280,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Ac_dirkhartogplate.jpg/960px-Ac_dirkhartogplate.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1616 works",
+            "Dirk Hartog",
+            "History of Western Australia",
+            "Plaques in the Netherlands",
+            "Rijksmuseum Amsterdam in 2004"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "tasman-nar-tasmanien",
+      "titel": "Abel Tasman når Tasmanien",
+      "plats": "Tasmaniens västkust norr om Macquarie Harbour (i dag Australien)",
+      "start": 1642,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Abel Tasman Tasmania 1642 SLNSW FL3174899.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Abel_Tasman_Tasmania_1642_SLNSW_FL3174899.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Hessel Gerritsz",
+          "datum": "1642",
+          "datum_original": "1642",
+          "datum_fil": "2025-08-30 23:32:26",
+          "kredit": "State Library of New South Wales",
+          "beskrivning": "Coastal drawings of Tasmania, Huijdecoper journal of Abel Tasman, Hessel Gerritsz, December 1642, drawing, State Library of New South Wales, Safe 1/72",
+          "bredd": 3718,
+          "hojd": 2304,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Abel_Tasman_Tasmania_1642_SLNSW_FL3174899.jpg/960px-Abel_Tasman_Tasmania_1642_SLNSW_FL3174899.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Abel Tasman",
+            "Australian Library Collections"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Abel Janszoon Tasman (11313033535).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Abel_Janszoon_Tasman_(11313033535).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Archives New Zealand from New Zealand",
+          "datum": "2013-12-11 09:27",
+          "datum_original": "2013-12-11 09:27",
+          "datum_fil": "2016-09-08 21:41:16",
+          "kredit": "Abel Janszoon Tasman",
+          "beskrivning": "On 18 December 1642, Abel Janszoon Tasman anchored his two ships near Wainui in Mohua (Golden Bay), the first European visitor to visit Aotearoa New Zealand. Tasman had sighted land on the 13th, and upon assuming that it was connected to an island at the southern tip of South America, named it Staten Landt. Proceeding north, and then east, Tasman came to present day Golden Bay, where he anchored his two ships. One of the ships was attacked by Ngati Tumatakokiri Maori. Four of Tasman's men, and several Maori were killed in the altercation. Tasman named the bay Murderers Bay, and sailed north, mistaking Cook Strait for a bight, naming it Zeehaen's Bight. Two names Tasman gave to New Zealand landmarks still endure - Cape Maria van Diemen, and Three Kings Island. Tasman is also responsible for the name New Zealand (Nieuw Zeeland). Tasman was a Dutch seafarer, explorer and merchant, best known for his voyages of 1642 and 1644 in the service of the Vereenigde Oost-Indische Compagnie (United East India Company). As well as being the first known European to visit New Zealand, he also the first to reach Van Diemen's Land (Tasmania), and to sight the Fijian islands. His navigator François Visscher, and his merchant Isaack Gilsemans, mapped substantial portions of Australia, New Zealand and some Pacific Islands. Archives reference: AAQT 6539 32 / A1111 R21010205 For updates on our On This Day series and news from Archives New Zealand, follow us on Twitter www.twitter.com/ArchivesNZ Material from Archives New Zealand",
+          "bredd": 555,
+          "hojd": 606,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/54/Abel_Janszoon_Tasman_%2811313033535%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Abel Tasman",
+            "Portrait drawings"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:(Australia & New Zealand) 663 (ca. 1672).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:(Australia_%26_New_Zealand)_663_(ca._1672).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Varius geographers",
+          "datum": "1672-01-02",
+          "datum_original": "1672-01-02",
+          "datum_fil": "2019-06-04 19:19:34",
+          "kredit": "https://www.raremaps.com",
+          "beskrivning": "The First Map of Australia and New Zealand--Rare Second State! Detailed map of the coastline of Australia and New Zealand, showing the voyage and discoveries of Abel Tasman. It was published by the travel collection compiler Melchisédech Thévenot in his famous Relations de divers Voyages. This is an example of the second state of the map and it is particularly rare. Thévenot's map of Australia is the first published large-scale map of Australia and the first French map to record Tasman's 1642-43 and 1644 discoveries in both Australia and New Zealand. The only other map to focus so minutely on Australia to precede Thévenot's map is the little-known miniature map by Claes Visscher “T'Landt van Eendracht,” published in his 1649 Tabularum Geographarum. . . which survives is a single known example. Thévenot's map was the first map devoted entirely to Australia and New Zealand. Previous maps that showed the extent of knowledge of Australia's coast had been maps of the world or of the South Asian or East Indies region. This map shows all of the Dutch encounters in Western Australia, North Australia, Tasmania, and a small section of the South Australian coast to the islands of Saint Francis and Saint Peter (Nuyts Archipelago). The map also includes the west coast of New Zealand (the two islands shown joined), and the south coast of New Guinea, which appears as if it may be joined to Australia. Thévenot's map therefore holds a significant place in not only the charting of Tasman 's voyages, but also in the mapping of the Australian continent as a whole. It records a shape of Australia that would remain unchanged until the grand exploits of Captain Cook some one hundred and ten years later. It also continues the aspirational hunt for a huge southern continent. Hollandia Nova is noted as being discovered in 1644, the date of Tasman’s second voyage. While commanding this mission, Tasman skirted the north coast from De Wit’s Land to the Gulf of Carpentaria, showing it have a continuous coastline and massive size. He had also sailed south of the continent on his first voyage, showing that no southern continent existed south of there. Thus, the possible location of a larger landmass had to shift, and here it is shown in the vast space between Van Diemen’s Land, New Zealand, and New Guinea. This Terre Australe is also labelled as discovered in 1644. The geography of Thévenot’s map Much of the coastline and the vertical scale depicted here are taken from the charts and globes of Joan Blaeu, the cartographer to the Dutch East India Company (VOC). This particular outline was copied from one that was inlaid in the pavement of the Stadt House, a representation of the Low Countries’ global reach. It accompanied accounts of the Dutch exploits on the west coast of Australia, namely the disastrous wreck of the Batavia in 1629. The VOC tried to limit the cartographic information it allowed to become public, but their official hydrographers, like Blaeu, were also employed in private trade. Thus, the structure of the VOC’s cartographic repository made it a sieve for geographic secrets. One of these secrets that the VOC attempted to keep were the discoveries of Abel Tasman, who sailed for the VOC on two reconnaissance voyages in the early 1640s. Tasman was supposed to find new trading opportunities for the VOC; while he failed in this, he did prove the insularity of Australia by sailing south of it, and was the first European to see New Zealand. In the first of two voyages in the early 1640s, Tasman landed at Van Diemen’s Land, named for the VOC governor who organized the mission and which was not known to be an island, and then, briefly, in New Zealand. He returned to Batavia, the VOC’s main trading port, via Papua New Guinea. On the second voyage, Tasman coasted along the north of the Australian continent. This is the first French chart to show his discoveries. Father north, an arm of Australia juts north and nearly touches New Guinea. It is called Carpentaria, so named in 1623 by Jan Cartensz after Peiter de Carpentier, the VOC governor of the East Indies at that time. Carstensz was not the first Dutchman in this area, however. That would be Willem Janszoon on his voyage of 1605-6 in what is today Queensland. Janszoon was in command of the Duyfken, a Dutch East India Company (VOC) ship, and he explored the eastern shore of the Gulf of Carpentaria, just below the Cape York Peninsula. This venture was famously the first recorded European contact with Australia. The outline of New Guinea was based on information brought back from another Dutch voyage, that of the merchants Willem Schouten and Jacob Le Maire. These two circumnavigated the world in 1615-1617. They discovered an alternative route to the Pacific by sailing round Cape Horn, as opposed to through the Strait of Magellan, and left Dutch place names all along the north coast of New Guinea, as seen here. Carpentaria and New Guinea nearly touch, but their actual relationship is left unfinished. Thévenot could not know that Luís Vaz de Torres, who sailed with Pedro Fernandes de Quiros on a voyage for the Spanish in 1605, had passed through the straits between New Guinea and Australia. However, the Spanish had suppressed his report in the hopes of maintaining power via geographic secrecy and the Strait was only rediscovered by Alexander Dalrymple in 1762 when he was researching documents captured from the Spanish in the Philippines during the Seven Years’ War. Later, Cook sailed through the Strait, confirming its existence to the Western world, during his first voyage. Continuing west around Australia, Arnhems Landt refers to the Arnhem, a Dutch East India ship, which sighted the area in 1623. This was one of the two ships that sailed with Carstensz. To the west is Terre de Wit, which recalls Gerrit Frederikszoon de Witt, captain of the Vianen, which sailed in 1628. To the west is Dirk Hartogs Ree cap. D Eendragt. The Endracht was the second recorded European ship to contact Australia (1616), and the first in western Australia. The Eendracht was blown off course en route to the East Indies in that year. It was commanded by Dirk Hartog, whose name is included in the place name. The crew commemorated their discovery by erecting a post with a pewter dish inscribed with their ship’s information—the earliest physical record that historians have of any European landing in Australia. Houtmans Abrolhos and I. de Edels landt both refer to the same voyage. Jacob d’Edel, in the Amsterdam, along with Frederik de Houtman in the Dordrecht came within sight of the western coast and called the stretch of land d’Edelsland. The Houtmans Abrolhos are an archipelago, as shown here with x marks, and named for the navigator who sighted them, or at least it was Houtman who reported the islands to the VOC. It was here that the Batavia wrecked. The name Houtmans Abrolhos, as used on this chart, was first used in Hessel Gerritszoon’s 1627 chart Caert van't Landt van d'Eendracht. Also included on Gerritszoon’s chart is the shoal sighted by and named for the Tortelduyf, which is labeled here as Turtelduyf. Farther south, Landt van de Luewin is named for the Leeuwin, whose crew charted some of the southwest coastline in 1622; Flinders would later name Cape Leeuwin, the southwestern most point on the Australian mainland, after the ship. A note in the south mentions Pieter Nuyts , a Dutch navigator who commanded the Gulden Zeepaert along the southern coast in 1627. States and rarity There are three states of the map, although Tooley only lists two states. All three are rare on the market, but this second state appears to be rarest. The first does not contain the Tropic of Capricorn or rhumb lines. It is dated 1663. The second state has rhumb lines and the Tropic. Also, the printing error in latitude has been corrected, meaning they go up to 44 instead of 43. It is dated ca. 1672. The third state of the map includes Tasman ’s first voyage track. It dates the 1672 edition of Thévenot ’s collection. This map was the first French map to show Tasman’s discoveries and the first map to focus solely on Australia and New Zealand. It was included in France’s most important voyage collection to that date and is considered an important contribution to the histories of exploration and cartography.",
+          "bredd": 1600,
+          "hojd": 1136,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/%28Australia_%26_New_Zealand%29_663_%28ca._1672%29.jpg/960px-%28Australia_%26_New_Zealand%29_663_%28ca._1672%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "135th meridian east",
+            "1670s maps of Australia",
+            "1670s maps of Indonesia",
+            "1670s maps of New Zealand",
+            "Relations de Divers Voyages Curieux",
+            "Tasman map"
+          ],
+          "smal": false
+        }
+      ],
+      "soktext": "Abel Tasman reaches Tasmania"
+    },
+    {
+      "id": "spansk-chamorriska-krigen",
+      "titel": "De spansk-chamorriska krigen",
+      "plats": "Marianerna, började i Hagåtña på Guam (i dag Guam och Nordmarianerna, USA)",
+      "start": 1670,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "two-sources",
+      "wikidata": "Q105973572",
+      "kandidater": [
+        {
+          "fil": "File:Women tending the gardens outside the government center on Guam.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Women_tending_the_gardens_outside_the_government_center_on_Guam.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Louis-Auguste de Sainson (1801-1887)",
+          "datum": "19 th century date QS:P,+1850-00-00T00:00:00Z/7",
+          "datum_original": "19 th century date QS:P,+1850-00-00T00:00:00Z/7",
+          "datum_fil": "2021-02-28 07:30:11",
+          "kredit": "https://www.academia.edu/23563686/When_Cultures_Clash_Revisiting_the_Spanish-Chamorro_Wars , p. 46",
+          "beskrivning": "Women tending the gardens outside the Spanish government center in Hagåtña, Guam",
+          "bredd": 604,
+          "hojd": 391,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/47/Women_tending_the_gardens_outside_the_government_center_on_Guam.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Guam in the 19th century",
+            "Louis-Auguste de Sainson",
+            "Mariana Islands in the Spanish East Indies"
+          ],
+          "smal": true
+        }
+      ],
+      "soktext": "The Spanish–Chamorro Wars The Marianas",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ]
+    },
+    {
+      "id": "cook-gar-i-land-turanganui",
+      "titel": "Cook går i land vid Tūranganui-a-Kiwa",
+      "plats": "Tūranganui-a-Kiwa (Poverty Bay), i dag Gisborne, Nya Zeeland",
+      "start": 1769,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": null,
+      "kandidater": [],
+      "soktext": "Cook lands at Tūranganui-a-Kiwa Tūranganui-a-Kiwa (Poverty Bay)"
+    },
+    {
+      "id": "hawaiis-enande",
+      "titel": "Kamehamehas krig och Hawaiis enande",
+      "plats": "Hawaiiöarna (började vid Kealakekuabukten på ön Hawaiʻi)",
+      "start": 1782,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Hawaiian unification.gif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Hawaiian_unification.gif",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Justinkunimune",
+          "datum": "2024-12-24",
+          "datum_original": "2024-12-24",
+          "datum_fil": "2024-12-25 07:28:03",
+          "kredit": "Own work",
+          "beskrivning": "An animated map of the kingdoms in the Hawaiian islands between covering from Kalaniʻōpuʻu's death in 1782 and Kaumaliʻi's acknowledgement of Kamehameha in 1810. Based on the account of the unification given in chapter 3 of The Hawaiian Kingdom volume 1 by R. S. Kuykendall (1938). Coastline data taken from the US Census Bureau, moku bondaries on the Big Island based on data from the Hawaiʻi Office of Planning and Sustainable Development, and hill shading taken from Natural Earth.",
+          "bredd": 902,
+          "hojd": 567,
+          "mime": "image/gif",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/20/Hawaiian_unification.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Animations of history",
+            "Kingdom of Hawaii",
+            "Maps of territorial evolution of Oceania",
+            "Maps of the history of Hawaii"
+          ],
+          "smal": false
+        }
+      ],
+      "soktext": "Kamehameha's wars and the unification of Hawaii"
+    },
+    {
+      "id": "slaget-vid-mokuohai",
+      "titel": "Slaget vid Mokuʻōhai",
+      "plats": "Mokuʻōhai söder om Kealakekuabukten, ön Hawaiʻi",
+      "start": 1782,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "two-sources",
+      "wikidata": "Q4871763",
+      "kandidater": [
+        {
+          "fil": "File:Kamehameha I head to waist 5111.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kamehameha_I_head_to_waist_5111.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "User:J JMesserly",
+          "datum": "2009-04-17",
+          "datum_original": "2009-04-17",
+          "datum_fil": "2009-04-18 05:40:59",
+          "kredit": "Self-photographed",
+          "beskrivning": "Statue of King Kamehameha I , standing in front of Ali'iolani Hale in Honolulu. Cast: 1881, bronze with gold leaf. Approx 8½ feet tall on a 10 foot concrete base. The pedestal has four bronze and gold leaf plaques with scenes from Kamehameha's life. Sculptor: Thomas Ridgeway Gould (1818–1881).",
+          "bredd": 1869,
+          "hojd": 1974,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Kamehameha_I_head_to_waist_5111.jpg/960px-Kamehameha_I_head_to_waist_5111.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Columns in Hawaii",
+            "Kamehameha Statue (Honolulu)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "australiska-granskrigen",
+      "titel": "De australiska gränskrigen",
+      "plats": "Hela Australien (började vid Sydney Cove, Warrane på eora)",
+      "start": 1788,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": "Q2889339",
+      "kandidater": [
+        {
+          "fil": "File:Massacre at Skull Hole, Mistake Creek, Australia.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Massacre_at_Skull_Hole,_Mistake_Creek,_Australia.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Carl Sofus Lumholtz (23 April 1851 – 5 May 1922)",
+          "datum": "1888",
+          "datum_original": "1888",
+          "datum_fil": "2020-09-11 14:20:38",
+          "kredit": "https://www.theguardian.com/australia-news/2019/mar/04/the-killing-times-the-massacres-of-aboriginal-people-australia-must-confront",
+          "beskrivning": "An 1888 drawing of a massacre by Queensland’s native police at Skull Hole, Mistake Creek, near Winton. A Norwegian scientist, Carl Lumholtz, drew it after being shown ‘a large number of skulls of natives who had been shot by the black police’ several years earlier",
+          "bredd": 1210,
+          "hojd": 1794,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Massacre_at_Skull_Hole%2C_Mistake_Creek%2C_Australia.png/960px-Massacre_at_Skull_Hole%2C_Mistake_Creek%2C_Australia.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Australian frontier wars",
+            "Carl Lumholtz"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Skirmish near Creen Creek.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Skirmish_near_Creen_Creek.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Ebenezer and David Syme",
+          "datum": "1876-11-01",
+          "datum_original": "1876-11-01",
+          "datum_fil": "2009-03-29 06:36:49",
+          "kredit": "http://pictures.slv.vic.gov.au/cgi-bin/Pwebrecon.cgi?DB=local&BBID=54640",
+          "beskrivning": "A skirmish between mounted police and Indigenous Australians near Creen Creek, Queensland",
+          "bredd": 600,
+          "hojd": 482,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/95/Skirmish_near_Creen_Creek.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Australian frontier wars",
+            "Battles in 1876"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Frontier Wars ANZAC vigil.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Frontier_Wars_ANZAC_vigil.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Technoevangelist",
+          "datum": "2015-04-24 09:15:31",
+          "datum_original": "2015-04-24 09:15:31",
+          "datum_fil": "2016-06-17 11:03:46",
+          "kredit": "https://www.flickr.com/photos/technoevangelist/16639189643/",
+          "beskrivning": "A vigil for the Australian frontier wars in Canberra.",
+          "bredd": 5184,
+          "hojd": 3456,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Frontier_Wars_ANZAC_vigil.jpg/960px-Frontier_Wars_ANZAC_vigil.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "ANZAC Day 2015",
+            "Australian frontier wars",
+            "Land axis towards Mount Ainslie"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Native Australian police 1865.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Native_Australian_police_1865.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Samuel Thomas Gill",
+          "datum": "1865",
+          "datum_original": "1865",
+          "datum_fil": "2023-10-03 01:01:48",
+          "kredit": "https://www.nma.gov.au/defining-moments/resources/nsw-native-police",
+          "beskrivning": "National Library of Australia picture an7149195. Native [Indigenous Australian] police in 1865",
+          "bredd": 1200,
+          "hojd": 837,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Native_Australian_police_1865.jpg/960px-Native_Australian_police_1865.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Australian frontier wars",
+            "Horses in art of Australia",
+            "Native Police Corps",
+            "New South Wales Mounted Police",
+            "Samuel Thomas Gill"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Dundalli.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Dundalli.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Silvester Diggles",
+          "datum": "1855",
+          "datum_original": "1855",
+          "datum_fil": "2022-06-30 00:43:13",
+          "kredit": "State Library of Queensland",
+          "beskrivning": "Sketch of Indigenous Australian resistance leader Dundalli shortly before his execution",
+          "bredd": 1000,
+          "hojd": 1453,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Dundalli.jpg/960px-Dundalli.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aboriginal Australians in art",
+            "Australian frontier wars",
+            "Racial type portraits"
+          ],
+          "smal": false
+        }
+      ],
+      "soktext": "The Australian frontier wars",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ]
+    },
+    {
+      "id": "smittkoppor-sydney-1789",
+      "titel": "Smittkoppor drabbar eora-folket vid Sydney",
+      "plats": "Port Jackson vid Sydney, eora-folkets land, Australien",
+      "start": 1789,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": null,
+      "kandidater": [],
+      "soktext": "Smallpox strikes the Eora people at Sydney"
+    },
+    {
+      "id": "slaget-vid-kepaniwai",
+      "titel": "Slaget vid Kepaniwai",
+      "plats": "ʻĪaodalen, Maui",
+      "start": 1790,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "two-sources",
+      "wikidata": "Q4871415",
+      "kandidater": [
+        {
+          "fil": "File:Iaovalley sm.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Iaovalley_sm.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Lee Daniel Crocker at English Wikipedia",
+          "datum": "13 August 2002 (original upload date)",
+          "datum_original": "13 August 2002 (original upload date)",
+          "datum_fil": "2007-08-01 23:48:19",
+          "kredit": "Transferred from en.wikipedia to Commons.",
+          "beskrivning": "en:Iao Valley , in Maui . Photo by LDC , released to the public domain.",
+          "bredd": 240,
+          "hojd": 180,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Iaovalley_sm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Iao Valley",
+            "Valleys of the United States"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "keoua-dodas-vid-puukohola",
+      "titel": "Keōua dödas vid Puʻukoholā",
+      "plats": "Puʻukoholā Heiau vid Kawaihae, ön Hawaiʻi",
+      "start": 1791,
+      "varldsdel": "Oceanien",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Building the Heiau Pu'ukohola Heiau National Historic Site, Kawaihae, Hawaii.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Building_the_Heiau_Pu%27ukohola_Heiau_National_Historic_Site,_Kawaihae,_Hawaii.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Ken Lund",
+          "datum": "2010-04-15 11:16:31",
+          "datum_original": "2010-04-15 11:16:31",
+          "datum_fil": "2011-12-29 05:51:32",
+          "kredit": "Flickr : Building the Heiau: Pu'ukohola Heiau National Historic Site, Kawaihae, Hawaii",
+          "beskrivning": "These historic signs are really interesting. Pu'ukohola Heiau is a place of destiny. It is here that Keoua Ku'ahu'ula offered himself to his fate and where Kamehameha rose to power, and ultimately, immortality. Today, this National Historic Site stands in memory to Kamehameha I--a ruler regarded as the most celebrated Hawaiian who ever lived. The kahuna (priest) Kapoukahi told Kamehameha that he would conquer all the islands of Hawai'i if he built the temple at Pu'ukohola and dedicated it to the war god Kuku'ilimoku. He also prophesied that war would end on Hawai'i when a sacrifice was made there. Kamehameha built the heiau, then invited his rival, Keoua Ku'ahu'ula, to Pu'ukohola. Keoua knew that if he accepted the invitation he would be killed so the heiau could be consecrated with the sacrifice of his body. Strong belief in spirituality and fate led to their meeting a Pu'ukohala. Keoua was slain and sacrificed, fulfilling the prophecy and paving the way for Kamehameha I to consolidate the islands.",
+          "bredd": 2816,
+          "hojd": 2112,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Building_the_Heiau_Pu%27ukohola_Heiau_National_Historic_Site%2C_Kawaihae%2C_Hawaii.jpg/960px-Building_the_Heiau_Pu%27ukohola_Heiau_National_Historic_Site%2C_Kawaihae%2C_Hawaii.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Heiau",
+            "Kahuna",
+            "Kamehameha I",
+            "Keōua Kūʻahuʻula",
+            "Kū",
+            "Puʻukoholā Heiau National Historic Site"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Looking Towards Stone Leaning Post, Pu'ukohola Heiau National Historic Site, Hawaii (4527363439).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Looking_Towards_Stone_Leaning_Post,_Pu%27ukohola_Heiau_National_Historic_Site,_Hawaii_(4527363439).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Ken Lund from Reno, Nevada, USA",
+          "datum": "2010-04-15 11:22",
+          "datum_original": "2010-04-15 11:22",
+          "datum_fil": "2017-01-08 21:13:01",
+          "kredit": "Looking Towards Stone Leaning Post, Pu'ukohala Heiau National Historic Site, Hawaii",
+          "beskrivning": "The stone leaning post overlooks the the site of the now-submerged shark temple. Kawaihae is an unincorporated community on the west side of the island of Hawaiʻi in the U.S. state of Hawaiʻi, 35 miles (56 km) north of Kailua-Kona. Its harbor includes a fuel depot, shipping terminal and military landing site. Outside of the man-made breakwall of the harbor is a popular surf spot and the Pua Kailima o Kawaihae Cultural Surf Park. The small town features a handful of restaurants and art galleries. To the south is Puʻukoholā Heiau national historic site, built by King Kamehameha I in 1791. Also to the south is the smaller Mailekini Heiau and the Hale o Kapuni Heiau (shark heiau), which is submerged. Kawaihae served as the seat of kingdom of Hawaii island during the reign of the usurper king Alapaʻinuiakauaua whose family, the Mahi's, hailed from the Kohala district; he was the king that sought to kill the infant Kamehameha at his birth. His successor Kalaniʻōpuʻu, who overthrew Alapaʻi's son Keaweʻopala, moved the capital back to the Kona district where his family originated. In the late 1700s, Kawaihae's naturally sheltered bay was considered one of the more suitable commercial harbor for western ships on the Big Island. It's harbor and proximity to the fertile uplands of Waimea ensured its status as an important stopover for many early European voyagers and merchantmen needing to make repairs and resupply their ships during the early period of the Kingdom of Hawaii. Kawaihae or \"Too-yah-yah\" was first sighted by James King, serving under Captain Cook, in February 6, 1779, after departing from Cook's initial visit to Kealakekua Bay. Failure to find anchorage prompt them to return to Kealakekua Bay, where Cook met his demise. King returned a few months later after Cook's death, but was not impressed with the area he deemed \"little cultivated\" or the people whom he called \"of the lowest class that inhabited [the islands]\". It became the principal residence of King Kamehameha I from 1790 to 1794 where he build the Puʻukoholā Heiau and sacrificed Keōua Kuahuʻula, his last opponent on the Big Island, and where he plotted out his conquest of the remaining islands in the archipelago. He lived in the royal compound of \"Pelekane\" on the shoreline northwest of Mailekini Heiau, which he named after the Hawaiianized name for England. Kamehameha's British advisor John Young also resided in the vicinity of Kawaihae with his family, and the ruins of their homestead, the remains of what is believed to be the first western-style house in Hawaii, could still be seen today near the Puʻukoholā Heiau. Another British explorer George Vancouver, the first to successfully anchored off Kawaihae Bay in February 14, 1793, paid a visit to king Kamehameha and John Young and gave the king cattle, introducing the species for the first time to Hawaii. After the development of Parker Ranch by John Palmer Parker, Kawaihae served as the main center for loading and shipping cattle and beef in Hawaii. It was in Kawaihae, in April 1, 1820, that the first company of American missionaries to Hawaii led by arrived aboard the Thaddeus set foot on the islands. Kawaihae thrived for the duration of the sandalwood trade, which depleted its forest, and the whaling age. Whalers and merchant ships visit its harbor annually where they would stock up on agricultural products and beef from the region. But by the late 1800s, Kawaihae had decline in importance due the end of whaling, the decimation of its population by foreign diseases and migration of its people to other parts of Hawaii; it became a sleeping and forgotten village serving mainly as a cattle landing. en.wikipedia.org/wiki/Kawaihae,_Hawaii en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_...",
+          "bredd": 2816,
+          "hojd": 2112,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Looking_Towards_Stone_Leaning_Post%2C_Pu%27ukohola_Heiau_National_Historic_Site%2C_Hawaii_%284527363439%29.jpg/960px-Looking_Towards_Stone_Leaning_Post%2C_Pu%27ukohola_Heiau_National_Historic_Site%2C_Hawaii_%284527363439%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Puʻukoholā Heiau National Historic Site"
+          ],
+          "smal": false
+        }
+      ],
+      "soktext": "Keōua is killed at Puʻukoholā"
+    }
+  ]
+}

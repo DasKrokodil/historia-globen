@@ -1,0 +1,303 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 8,
+    "kandidater": 7,
+    "troliga": 7,
+    "flaggade": 0,
+    "avvisade": 0,
+    "smala": 1,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "olympiska-sommarspelen-i-sydney-2000",
+      "titel": "Olympiska sommarspelen i Sydney",
+      "plats": "Sydney, med Stadium Australia som huvudarena (Australien)",
+      "start": 2000,
+      "varldsdel": "Oceanien",
+      "period": "2000",
+      "hamtad": "2026-11-22",
+      "review": "two-sources",
+      "wikidata": "Q8544",
+      "kandidater": [
+        {
+          "fil": "File:2000 Summer Olympics opening ceremony 1.JPEG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2000_Summer_Olympics_opening_ceremony_1.JPEG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "TSGT Rick Sforza",
+          "datum": "Taken on 15 September 2000",
+          "datum_original": "Taken on 15 September 2000",
+          "datum_fil": "2010-02-09 23:09:39",
+          "kredit": "http://www.defenseimagery.mil/imagery.html#guid=ac15e53896549fc77521df97805b58cbe52c9e98 (deadlink)",
+          "beskrivning": "High angle view down onto the Sydney Olympic Stadium floor as thousands of performers take part in the opening ceremonies for the 2000 Olympic games before an audience of 110,000 on September 15th, 2000.",
+          "bredd": 2880,
+          "hojd": 1870,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/2000_Summer_Olympics_opening_ceremony_1.JPEG/960px-2000_Summer_Olympics_opening_ceremony_1.JPEG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2000 Summer Olympics opening ceremony"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "black-saturday-branderna-2009",
+      "titel": "Black Saturday-bränderna i Victoria",
+      "plats": "Delstaten Victoria (Australien)",
+      "start": 2009,
+      "varldsdel": "Oceanien",
+      "period": "2000",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": "Q838278",
+      "kandidater": [
+        {
+          "fil": "File:February 7 Victoria Bushfires - MODIS Aqua.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:February_7_Victoria_Bushfires_-_MODIS_Aqua.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "National Aeronautics and Space Administration (NASA)",
+          "datum": "2009-02-07",
+          "datum_original": "2009-02-07",
+          "datum_fil": "2009-02-07 11:57:57",
+          "kredit": "Cropped image of - Australia6 Subset - Aqua 250m True Color image for 2009/038 (02/07/09) .",
+          "beskrivning": "7 February 2009 MODIS Aqua satellite image of smoke plumes from bushfires burning in Victoria .",
+          "bredd": 800,
+          "hojd": 530,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/4e/February_7_Victoria_Bushfires_-_MODIS_Aqua.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "2009 Victorian bushfires",
+            "2009 wildfires in Australia"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "jordbavningen-i-christchurch-2011",
+      "titel": "Jordbävningen i Christchurch",
+      "plats": "Port Hills nära Christchurch, Canterbury (Nya Zeeland)",
+      "start": 2011,
+      "varldsdel": "Oceanien",
+      "period": "2000",
+      "hamtad": "2026-11-22",
+      "review": "two-sources",
+      "wikidata": "Q151850",
+      "kandidater": [
+        {
+          "fil": "File:Colombo St looking south to Tuam.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Colombo_St_looking_south_to_Tuam.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Schwede66",
+          "datum": "2011-03-02 15:15:35",
+          "datum_original": "2011-03-02 15:15:35",
+          "datum_fil": "2016-04-27 18:33:29",
+          "kredit": "Own work",
+          "beskrivning": "Colombo Street looking south to Tuam Street",
+          "bredd": 1024,
+          "hojd": 768,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Colombo_St_looking_south_to_Tuam.JPG/960px-Colombo_St_looking_south_to_Tuam.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Buildings damaged by the 2011 Canterbury earthquake",
+            "Colombo Street"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "samoa-hoppar-over-en-dag-2011",
+      "titel": "Samoa hoppar över en dag och byter sida om datumlinjen",
+      "plats": "Samoa, med huvudstaden Apia (Samoa)",
+      "start": 2011,
+      "varldsdel": "Oceanien",
+      "period": "2000",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": "Q4127134",
+      "kandidater": [],
+      "soktext": "Samoa skips a day and switches sides of the date line Samoa",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ]
+    },
+    {
+      "id": "massblekning-stora-barriarrevet-2016",
+      "titel": "Massblekning av koraller på Stora barriärrevet",
+      "plats": "Stora barriärrevet utanför Queenslands kust (Australien)",
+      "start": 2016,
+      "varldsdel": "Oceanien",
+      "period": "2000",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": "Q7343",
+      "kandidater": [
+        {
+          "fil": "File:GreatBarrierReef-EO.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:GreatBarrierReef-EO.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA, by MISR",
+          "datum": "2000-08-26",
+          "datum_original": "2000-08-26",
+          "datum_fil": "2005-05-23 12:52:58",
+          "kredit": "probably http://photojournal.jpl.nasa.gov/catalog/pia03401",
+          "beskrivning": "Satelite image of the Great Barrier Reef",
+          "bredd": 540,
+          "hojd": 540,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/1b/GreatBarrierReef-EO.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Capricorn Group, Queensland",
+            "Coral Sea",
+            "Photos of Australia by MISR",
+            "Satellite pictures of the Great Barrier Reef",
+            "Whitsunday Islands"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "attentaten-mot-moskeerna-i-christchurch",
+      "titel": "Terrorattackerna mot två moskéer i Christchurch",
+      "plats": "Al Noor-moskén och Linwood Islamic Centre, Christchurch (Nya Zeeland)",
+      "start": 2019,
+      "varldsdel": "Oceanien",
+      "period": "2000",
+      "hamtad": "2026-11-22",
+      "review": "two-sources",
+      "wikidata": "Q62066211",
+      "kandidater": [
+        {
+          "fil": "File:Christchurch Mosque, New Zealand.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Christchurch_Mosque,_New_Zealand.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Michal Klajban",
+          "datum": "2019-08-25 08:37:13",
+          "datum_original": "2019-08-25 08:37:13",
+          "datum_fil": "2019-09-27 02:42:57",
+          "kredit": "Own work",
+          "beskrivning": "Christchurch Mosque (Al Noor Mosque (Arabic: مسجد النور‎‎, Masjid al-Noor)), Christchurch, New Zealand",
+          "bredd": 4013,
+          "hojd": 3247,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Christchurch_Mosque%2C_New_Zealand.jpg/960px-Christchurch_Mosque%2C_New_Zealand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Christchurch Mosque",
+            "Clouds and blue sky in New Zealand",
+            "Mosques in New Zealand photographed in 2019",
+            "Trees in Christchurch"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "folkomrostning-om-bougainvilles-sjalvstandighet",
+      "titel": "Bougainville röstar för självständighet",
+      "plats": "Bougainville, autonom region (Papua Nya Guinea)",
+      "start": 2019,
+      "varldsdel": "Oceanien",
+      "period": "2000",
+      "hamtad": "2026-11-22",
+      "review": "two-sources",
+      "wikidata": "Q42417787",
+      "kandidater": [],
+      "soktext": "Bougainville votes for independence Bougainville",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ]
+    },
+    {
+      "id": "utbrottet-i-hunga-tonga-2022",
+      "titel": "Vulkanutbrottet i Hunga Tonga–Hunga Haʻapai",
+      "plats": "Undervattensvulkanen Hunga Tonga–Hunga Haʻapai, 65 km norr om Tongatapu (Tonga)",
+      "start": 2022,
+      "varldsdel": "Oceanien",
+      "period": "2000",
+      "hamtad": "2026-11-22",
+      "review": "two-sources",
+      "wikidata": "Q110567218",
+      "kandidater": [
+        {
+          "fil": "File:Tonga Volcano Eruption 2022-01-15 0320Z to 0610Z Himawari-8 visible.gif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tonga_Volcano_Eruption_2022-01-15_0320Z_to_0610Z_Himawari-8_visible.gif",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Japan Meteorological Agency (satellite), Digital Typhoon (website)",
+          "datum": "Taken on 15 January 2022 03:40Z",
+          "datum_original": "Taken on 15 January 2022 03:40Z",
+          "datum_fil": "2022-02-25 07:46:59",
+          "kredit": "Digital Typhoon: 2022 Hunga Tonga-Hunga Haʻapai Eruption Source archived at Internet Archive . Using MP4 to GIF Converter at ezgif.com/video-to-gif .",
+          "beskrivning": "Himawari-8 satellite images of the 15 January 2022 eruption of Hunga Tonga-Hunga Haʻapai.",
+          "bredd": 850,
+          "hojd": 850,
+          "mime": "image/gif",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Tonga_Volcano_Eruption_2022-01-15_0320Z_to_0610Z_Himawari-8_visible.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Himawari 8 images",
+            "Media of the day",
+            "Satellite pictures of 2022-01-15 Hunga Tonga–Hunga Ha'apai eruption",
+            "Umbrella cloud (volcanism)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Tonga Eruption GOES-17 1-15-2022.gif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tonga_Eruption_GOES-17_1-15-2022.gif",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NOAA",
+          "datum": "Taken on 15 January 2022",
+          "datum_original": "Taken on 15 January 2022",
+          "datum_fil": "2022-01-15 23:49:58",
+          "kredit": "https://console.cloud.google.com/marketplace/details/noaa-public/goes-17",
+          "beskrivning": "Hunga Tonga eruption late (local time) on January 15, 2022, taken from the GOES-17 weather satellite. Acquisition period is approximately 10 minutes for each image.",
+          "bredd": 1000,
+          "hojd": 1000,
+          "mime": "image/gif",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Tonga_Eruption_GOES-17_1-15-2022.gif/960px-Tonga_Eruption_GOES-17_1-15-2022.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Base surges (volcanism)",
+            "GOES 17 pictures",
+            "Hydrovolcanism",
+            "Satellite pictures of 2022-01-15 Hunga Tonga–Hunga Ha'apai eruption",
+            "Umbrella cloud (volcanism)"
+          ],
+          "smal": false
+        }
+      ]
+    }
+  ]
+}

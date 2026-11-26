@@ -147,7 +147,9 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
 GROUPS = {
     'romarriket': ('Rom: kungadöme, republik, kejsardöme och Bysans', 'Rome: kingdom, republic, empire and Byzantium', [
         ('Roman Kingdom', 'romerska-kungadomet', 'Romerska kungadömet', '#b8433a'),
-        ('Roman Republic', 'romerska-republiken', 'Romerska republiken', '#b8433a'),
+        # Cliopatria anger Q175881 för Roman Republic, som är Romerska republiken 1798–1799 (en systerrepublik); antikens
+        # republik 509–27 f.Kr. är Q17167 (Wikidata, kontrollerat 2026-11-22, #2156)
+        ('Roman Republic', 'romerska-republiken', 'Romerska republiken', '#b8433a', {'wikidata': 'Q17167'}),
         # Cliopatria anger fel Wikidata-id för Roman Empire (Q12544, Bysantinska riket; rätt är Q2277) och Byzantine
         # Empire (Q112039853, "Foreign relations of the Byzantine Empire"; rätt är Q12544). Med Cliopatrias id fick
         # tools/riken_namn.py Bysans namn på Romerska kejsardömet och utrikesrelationernas spanska namn på Bysantinska
@@ -210,8 +212,10 @@ GROUPS = {
           # ska inte ligga kvar över Portugisiska imperiet 1919–1921 (#644). 1926, 1930, 1936, 1940 och 1944: Jaghbub är
           # italienskt från 1926, Kufra i Libyen brittiskt i Cliopatria till 1929, Sarratriangeln italiensk från 1936, Brittiska
           # Somaliland italienskt 1940, och Libyen räknas till imperiet från 1944; annars ligger imperiet över Italienska
-          # kolonier i Afrika eller saknas i Libyen 1944 (#1330)
-          'splits': (1919, 1926, 1930, 1936, 1940, 1944, 1967, 1969, 1976, 1979, 1987)}),
+          # kolonier i Afrika eller saknas i Libyen 1944 (#1330). 1924 (#2157): Cliopatria räknar Istanbul till imperiet 1920–1923
+          # och till Turkiet från 1924, men skillnaden är under SPLIT_SHARE av imperiets yta, så formen från 1922 stod kvar till 1925
+          # och Istanbul ritades i båda
+          'splits': (1919, 1924, 1926, 1930, 1936, 1940, 1944, 1967, 1969, 1976, 1979, 1987)}),
     ]),
     # R2 Antiken (#68)
     # Mellersta riket (Q191324) lades till i #646 (DasKrokodils ja 2026-11-13); gruppens id står kvar så att länkar inte ändras
@@ -2121,6 +2125,9 @@ SUDANGRANSEN = [(24.15, 8.3, 25.2, 10.6), (25.2, 8.9, 32.2, 10.9), (32.2, 9.2, 3
 # (Cliopatrias gränser 1950 och 1960; 1960 är samma som 2024). Rutorna täcker halvön från Västkoreanska viken till Japanska havet
 KOREA38 = [(124.5, 37.6, 129.0, 38.5)]
 KOREAGRANSEN = [(124.5, 37.5, 129.0, 38.8)]
+# Rutan runt Cliopatrias USA-del över södra Vietnam 1967–2005 (#2151, 103,8–109,5 grader öst, 8,5–17,3 nord); inget annat av
+# USA ligger i den
+VIETNAM_USA = (103.0, 8.0, 110.5, 17.6)
 
 # Hainan (#1499): rutan runt ön. I Cliopatria når Hainan 20,151 grader nord och fastlandet (Leizhouhalvön) börjar vid 20,215,
 # så rutan som Folkrepublikens ö hämtas ur slutar vid 20,18 och når inte fastlandet. Rutan som ön klipps ur Taiwan med slutar
@@ -2206,6 +2213,15 @@ DISPUTED = {
     # 34,3–38,1 nord) och Jeju, men inte Tsushima (söder om 34,6 grader och öster om 129,0) eller Kyushu
     'sydkorea-usa': {'area': ('rutor', [(124.5, 34.2, 129.0, 38.3), (128.0, 34.6, 129.9, 38.3), (125.9, 33.0, 127.2, 33.75)]),
                      'from': 1948, 'to': 1966, 'strict': True, 'efter': True, 'remove': ['usa'], 'add': []},
+    # Södra Vietnam 1967–2005 (#2151): Cliopatrias USA-post 1967–2005 har en del på cirka 14 kvadratgrader över södra
+    # Vietnam (103,8–109,5 grader öst, 8,5–17,3 nord, nästan exakt Republic of Vietnam 1973), med Saigon och Pleiku.
+    # Sydvietnam var en egen, erkänd stat 1955–1975, och USA:s styrkor lämnade landet i slutet av mars 1973
+    # (wp-south-vietnam); landet enades med Nordvietnam 1976 (wp-vietnam-war). USA klipps bort där alla de åren, också
+    # efter förenklingen. 1967–1972 har Cliopatria ingen Republic of Vietnam, och dess gräns 1966 och 1973 skiljer sig
+    # med cirka 6,5 procent av ytan, så ingen fill är tillåten (beslutet 2026-11-13, punkt 2): området visas utan stat
+    # de åren. 1973–1975 är det Sydvietnam och från 1976 Vietnam, med Cliopatrias egna gränser. Ytan räknas utan området
+    'vietnam-usa': {'area': ('rutor', [VIETNAM_USA]), 'from': 1967, 'to': 2005, 'strict': True, 'efter': True, 'yta': True,
+                    'remove': ['usa'], 'add': []},
     # Hainan från 1950 (#1499): Cliopatrias Republic of China 1950–2023 (Taiwan hos oss) omfattar Hainan, och People's Republic
     # of China har ön först från 1953, så ön ritades som Taiwan 1950–2023 och dessutom som Kina 1953–2023. Folkrepubliken
     # intog ön i april 1950 och hade hela ön 1 maj (wp-hainan-battle: landstigning 16 april; wp-hainan nämner också 10 april), och
@@ -2273,6 +2289,32 @@ DISPUTED = {
                 'strict': True, 'remove': ['weimarrepubliken', 'nazityskland'], 'add': []},
     'saar-frankrike': {'area': SAAR, 'from': 1920,
                        'to': 1939, 'strict': True, 'remove': ['franska-kolonialvaldet'], 'add': []},
+    # Saarprotektoratet (#2157): ett franskt protektorat med egen regering och ett omstritt område, som blev en del av Västtyskland
+    # 1 januari 1957 (en.wikipedia "Saar Protectorate", öppnad 2026-11-22). Sidan anger början olika: inledningen säger att
+    # området gjordes till protektorat 1946, historiedelen 16 februari 1946 (märkt [citation needed]) och faktarutan 17 december
+    # 1947 (livslängd 1947–1956). Cliopatria räknar området till Fjärde republiken till och med 1957 och till Förbundsrepubliken
+    # från 1958. Det räknas inte till Frankrike 1947–1957 och visas utan stat 1947–1956, som Saarområdet 1920–1934. 1946 hör det
+    # till den franska ockupationszonen, som Cliopatria ritar som Frankrike. Västtysklands förenklade gräns täcker Homburg
+    # 1950–1956, så Saarland klipps också ur Västtyskland de åren. 1957 visas det som Västtyskland enligt Wikipedia: Cliopatrias
+    # Förbundsrepublik 1958 skiljer sig 0,27 procent från gränsen 1957 med Saarland (Natural Earth), under halva procenten i
+    # beslutet 2026-11-13. Allt klipps eller läggs till bara efter förenklingen (efter och dec), annars hamnar Forbach i Lorraine
+    # utanför Frankrike
+    'saar-protektoratet': {'area': SAAR, 'from': 1947, 'to': 1957, 'strict': True, 'efter': True, 'dec': 3,
+                           'remove': ['franska-kolonialvaldet'], 'add': []},
+    'saar-protektoratet-brd': {'area': SAAR, 'from': 1950, 'to': 1956, 'strict': True, 'efter': True, 'dec': 3,
+                               'remove': ['vasttyskland'], 'add': []},
+    'saar-brd-1957': {'area': SAAR, 'from': 1957, 'to': 1957, 'strict': True, 'efter': True, 'dec': 3,
+                      'remove': [], 'add': ['vasttyskland']},
+    # Forbach i Lorraine från 1958 (#2199): Cliopatria räknar en bit av Moselle med Forbach till Förbundsrepubliken 1958–1989, och
+    # Femte republikens gräns slutar där cirka 0,035 grader från Forbach. Gränsen mellan Frankrike och Tyskland är dagens efter att
+    # Saar blev tyskt 1957, så Frankrikes gräns i Natural Earth klipps ur Västtyskland och Tyskland, och Frankrikes sida av gränsen
+    # läggs till Frankrike, som 1920–1939 (#1750, #1755). Bara efter förenklingen, som för Saar
+    'frankrike-brd': {'area': ('ne', ['frankrike-ne']), 'from': 1958, 'to': 1990, 'strict': True, 'efter': True,
+                      'remove': ['vasttyskland'], 'add': []},
+    'frankrike-tyskland': {'area': ('ne', ['frankrike-ne']), 'from': 1991, 'strict': True, 'efter': True,
+                           'remove': ['tyskland'], 'add': []},
+    'gransen-frankrike-1958': {'area': FRANSKA_SIDAN, 'from': 1958, 'strict': True, 'efter': True,
+                               'remove': [], 'add': ['frankrike']},
     # Kehl: Cliopatria räknar staden till Förbundsrepubliken från 1950 och till Fjärde republiken till och med 1949
     # (en.wikipedia "Kehl": frigiven i 42 delar 29 juli 1949–8 april 1953). Fjärde republiken har sin gräns från 1949
     # också 1950–1957 efter sammanslagningen och förenklingen; Västtysklands gräns klipps bort ur den från 1950
@@ -2789,6 +2831,23 @@ DISPUTED['rhenlandet-ockupation'] = {'area': RHENLANDET, 'from': 1920, 'to': 192
 # Earth (som gransen-weimar lägger till republiken) klipps ur Frankrike de åren, så att marken inte ritas i båda
 DISPUTED['rhenlandet-baden'] = {'area': TYSKA_SIDAN, 'from': 1920, 'to': 1929, 'strict': True, 'efter': True, 'yta': True,
                                 'dec': 3, 'remove': ['franska-kolonialvaldet'], 'add': []}
+# Grannar som överlappar efter förenklingen (#2157, geografens mätning före v6.5.0; Cliopatria har inga sådana överlapp):
+# Frankrikes kolonialvälde (förenklat med 0,3 grader) täckte hela Gambia, som Cliopatria räknar till Brittiska imperiet, och
+# Ukraina och Moldavien ritade båda Tiraspol. Grannens gräns i Cliopatria klipps bort efter förenklingen och bara i de delar av
+# gränsen som den når (efter och dec), så att resten av riket blir som förut. Gambias gräns är densamma alla år i Cliopatria
+# (1967–2024), Moldaviens 1992–2024 och Ukrainas västra gräns 1992–2024 (bara 2024 skiljer sig, i öster); Transnistrien hör
+# till Moldavien (DISPUTED['transnistrien'])
+DISPUTED['gambia-frankrike'] = {'area': ('clio', 'Republic of The Gambia', 1970), 'from': 1815, 'to': 1957, 'strict': True,
+                                'efter': True, 'dec': 3, 'remove': ['franska-kolonialvaldet'], 'add': []}
+# Gambia i Brittiska imperiet 1885–1966 (#2157): Cliopatria räknar 98,7–100 procent av Gambias gräns till imperiet de åren
+# (Basse Santa Su ligger inne från 1885), men imperiets förenklade form (0,3 grader) når inte östra Gambia, som blev utan stat när
+# Frankrike klipptes bort. Gambias egen gräns i Cliopatria läggs till efter förenklingen; från 1967 är Gambia ett eget land
+DISPUTED['gambia-brittiska'] = {'area': ('clio', 'Republic of The Gambia', 1970), 'from': 1885, 'to': 1966, 'strict': True,
+                                'efter': True, 'dec': 3, 'remove': [], 'add': ['brittiska-imperiet']}
+DISPUTED['moldavien-ukraina'] = {'area': ('union', ('clio', 'Republic of Moldova', 2000), ('ne', ['transnistrien'])), 'from': 1992,
+                                 'strict': True, 'efter': True, 'dec': 3, 'remove': ['ukraina'], 'add': []}
+DISPUTED['ukraina-moldavien'] = {'area': ('clio', 'Ukraine', 2000), 'from': 1992, 'strict': True, 'efter': True, 'dec': 3,
+                                 'remove': ['moldavien'], 'add': []}
 
 
 def oa_grans(out):

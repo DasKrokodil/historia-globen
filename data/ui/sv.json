@@ -688,6 +688,8 @@
   "sources.uncertainBorder": "{name}: osäker gräns (mjuk kant)",
   "sources.factBox": "{name}: faktarutan",
   "sources.christianisation": "{name} (kristnandet)",
+  "sources.conversion": "{name} (religionsbytet)",
+  "sources.religionOverride": "{name} (religionen i lagret)",
   "sources.religionAreas": "Religioner: områdena följer rikenas gränser i Cliopatria",
   "sources.religionWiki": "Religioner: varje rikes religion (faktarutan på Wikipedia)",
   "sources.religionModern": "Religioner: nutida länder från 1900",

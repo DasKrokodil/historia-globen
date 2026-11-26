@@ -1,0 +1,25 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+File:Npp green sahara simulation 1.png	den-grona-sahara
+File:Ounjougou confluence.JPG	ounjougou-keramik
+File:The Tanzoumaitak cave painting in Tassili n'ajjer.jpg	tassili-najjer-hallkonst
+File:WadiSuraSingleSwimmer.jpg	simmarnas-grotta
+File:Gobero.jpg	gobero-gravfaltet
+# File:Dufuna-canoe-theafricanhistory-com PicsArt 03-07-09.24.07.jpg	dufunakanoten
+File:Calendar aswan.JPG	nabta-playa
+File:Niger-Congo map with delimitation.png	bantuexpansionen	passa-in
+File:Laas Geel rock paintings.JPG	hallmalningarna-i-laas-geel
+File:Lothagam Site in N. Kenya.jpg	lothagam-north
+File:Kerma city.JPG	kermariket
+# File:High Aswan Dam (built to control the Nile floods, store water and produce 2,1 GW of electricity) (14284086878).jpg	lag-nil-och-svalt-2150-fkr
+File:Egyptmotionseries.jpg	brottare-i-beni-hasan
+File:Haches et herminettes provenant de villages du Dhar Tichitt.jpg	dhar-tichitt	passa-in
+File:Nok Kultur, Nigeria. Fragment eines Gefäßes mit mehreren Figuren im Halbrelief..jpg	nok-kulturen	passa-in
+File:Germa - Garamantengräber.jpg	garamanterna-i-fezzan
+File:Stele Piye submission Mariette.jpg	piye-erovrar-egypten
+File:Pyramids of Nuri.jpg	kungapyramiderna-i-nuri
+# File:Archaeological Site of Cyrene-109025.jpg	kyrene-grundas
+File:AlexandriaSkyline.jpg	alexandria-grundas
+File:Wassu Stone Cirles shaunamullally 02.jpg	senegambiska-stencirklar
+# File:Djenné Moschee.jpg	djenne-djenno
+# File:Eratosthenes.jpg	eratosthenes-mater-jordens-omkrets

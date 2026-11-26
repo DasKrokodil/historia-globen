@@ -148,6 +148,8 @@ Formulärets serverfunktion `functions/api/feedback.js` (beslut 2026-10-30, [fee
 - vid varje **pull request mot `main`**
 - vid varje **pull request mot `production`**
 
+En ny push till samma pull request, eller till `main`, avbryter en äldre körning som inte är klar (`concurrency` med `cancel-in-progress`, #2211). Bara den senaste versionen valideras, och kön fylls inte av ersatta commits. Webbläsartestet (`browser-test.yml`) gör likadant.
+
 Jobbet **"Bygg och validera dist/"** kör också testerna för förslagens serverfunktion (`node --test 'tests/*.test.mjs'`, Node 22, inga beroenden).
 
 Jobbet **"Starta formulärets Pages Function som Cloudflare"** (#663) kör `scripts/pages-function-check.sh`. Skriptet startar `functions/api/feedback.js` med `wrangler pages dev dist` (Cloudflares egen körmiljö, workerd) och skickar ett anrop till `/api/feedback`. Utan nycklar ska svaret vara 503 `disabled`; startar funktionen inte är kontrollen röd. Skälet: Cloudflare stoppar **hela** publiceringen om funktionen inte startar, och koden som funktionen importerar (`js/model.js`, `js/i18n.js`) körs annars bara i node och i webbläsaren. Efter #634 misslyckades publiceringen av `main` 21 gånger i rad medan alla andra kontroller var gröna (#662). wrangler installeras i en tillfällig mapp med exakt version, som Playwright, och används bara här. Lokalt: `bash scripts/pages-function-check.sh` (kräver Node och nätet för npm första gången).
@@ -173,7 +175,7 @@ Webbläsartestet väljer den publicerade sidan med `BASE_URL=https://historiaglo
 
 ### Webbläsartest (#339)
 
-`.github/workflows/browser-test.yml`, **Webbläsartest**, körs vid samma tillfällen som valideringen (push till `main`, pull requests mot `main` och `production`). Vid push till `main` och pull requests mot `main` och `production` körs Chromium i **elva parallella jobb**: `tung` (lektion och utskrift), `dator` (övrigt), `dator2` (kort och turer), `lang` (länkar och intervall), `sprak` (fem språk och regionvy), `plats` (platser och förhistoriens reglage), `fokus` (fokus och kort), `mobil`, `mobil2` (kort, turer och regionvy), `mobilplats` (platser, fokus och länkar) och `matris` (kombinationsmatris, båda bredderna). Uppdelningen började med tre jobb (#864), utökades genom #1184, #1649 och #1665 och fick elva jobb i #1973; #2166 fördelar om fyra kontroller mellan befintliga datorjobb. Jobben och deras urval står i `tests/jobb.json`, och ett första jobb, **"Planera webbläsartestets jobb"**, kör `scripts/kontrolltackning.mjs` som stoppar körningen om någon kontroll skulle ligga i noll eller flera jobb. En release-PR mot `production` kör dessutom **Firefox och WebKit** (#401) i samma elva jobb vardera (45 minuter per jobb, beslutet 2026-11-22, #2171; före det ett jobb vardera med hela sviten, och WebKits dator-omgång ensam tog över 60 minuter), så att även Firefox och Safaris webbläsarmotor provas före release. En pull request mot `main` med etiketten **`alla-webbläsare`** kör också alla tre från nästa push (#702), så att en rättning för Firefox eller WebKit kan provas utan en release-PR. Actions saknar grafikkort, och Firefox hittar ingen GL-drivrutin i huvudlöst läge, så Firefox körs med fönster i en virtuell skärm (Xvfb) och ritar WebGL med Mesas mjukvarudrivrutin. Varje jobb:
+`.github/workflows/browser-test.yml`, **Webbläsartest**, körs vid pull requests mot `main` och `production` (utom ändringar som bara rör `docs/`, `*.md`, `.claude/` och `.orchestra/`), varje natt på `main` och på begäran (beslut 2026-11-23: ingen körning vid varje push till `main`, eftersom ändringen redan testats som pull request). Firefox och WebKit körs inte längre automatiskt på release-PR:en utan på söndagar, på begäran (indata `alla-webblasare`) eller med etiketten `alla-webbläsare`. Chromium körs i **tretton parallella jobb**: `tung` (lektion och utskrift, utom två kontroller som ligger i `dator3`), `dator` (övrigt), `dator2` (kort och turer), `dator3` (lektionsläget och övrigt, del 2), `lang` (länkar och intervall), `sprak` (fem språk och regionvy), `plats` (platser och förhistoriens reglage), `fokus` (fokus och kort), `mobil`, `mobil2` (kort, turer och regionvy), `mobil3` (övrigt och platser, del 2), `mobilplats` (platser, fokus och länkar) och `matris` (kombinationsmatris, båda bredderna). Uppdelningen började med tre jobb (#864), utökades genom #1184, #1649 och #1665 och fick elva jobb i #1973; #2166 fördelade om fyra kontroller mellan befintliga datorjobb, och #2168 fördelade om 28 kontroller (14 per bredd) och lade till `dator3` och `mobil3` (se [mätningen 2026-11-25](#mätning-och-omfördelning-2026-11-25-2168)). Jobben och deras urval står i `tests/jobb.json`, och ett första jobb, **"Planera webbläsartestets jobb"**, kör `scripts/kontrolltackning.mjs` som stoppar körningen om någon kontroll skulle ligga i noll eller flera jobb. En release-PR mot `production` kör dessutom **Firefox och WebKit** (#401) i samma jobb som Chromium (tretton sedan #2168; 45 minuter per jobb, beslutet 2026-11-22, #2171; före det ett jobb vardera med hela sviten, och WebKits dator-omgång ensam tog över 60 minuter), så att även Firefox och Safaris webbläsarmotor provas före release. En pull request mot `main` med etiketten **`alla-webbläsare`** kör också alla tre från nästa push (#702), så att en rättning för Firefox eller WebKit kan provas utan en release-PR. Actions saknar grafikkort, och Firefox hittar ingen GL-drivrutin i huvudlöst läge, så Firefox körs med fönster i en virtuell skärm (Xvfb) och ritar WebGL med Mesas mjukvarudrivrutin. Varje jobb:
 
 1. bygger `dist/` med `scripts/build-site.sh`
 2. installerar Playwright 1.63.0 (exakt version) och den aktuella webbläsarmotorn i en tillfällig mapp utanför repot, så att repot inte får någon `package.json` och `dist/` inte påverkas
@@ -257,6 +259,99 @@ Målet är cirka 14–15 minuter för `plats` och högst cirka 16 minuter för v
 
 Omfördelningen ändrar bara `endast` och `utan` i `plats`, `lang` och `dator2`. Kontroller, tidsgränser och övrig CI behålls. `node scripts/kontrolltackning.mjs` ger OK för **287 kontrollnamn och 3 avsnitt**, varje i exakt ett jobb per bredd (de gemensamma startkontrollerna körs avsiktligt i alla jobb). Se [beslutet](beslut/2026-11-21-plats-jobbet-fordelas-1996.md).
 
+#### Mätning och omfördelning 2026-11-25 (#2168)
+
+Efter #2166 låg flera jobb fortfarande nära 25-minutersgränsen: `dator` (övrigt) var hela jobbet 24 min 16 s i den schemalagda körningen 2026-11-24 (teststeget 1 411 s). Därför mättes alla Chromium-jobb på nytt ur sex körningar med den jobbfördelning som gällde före ändringen (oförändrad sedan #2184): de schemalagda main-körningarna [45407447582](https://github.com/DasKrokodil/historia-globen/actions/runs/45407447582) (2026-11-24) och [45619561592](https://github.com/DasKrokodil/historia-globen/actions/runs/45619561592) (2026-11-25) samt pull request-körningarna 45574942745, 45575126971, 45662585810 och 45662754040 (2026-11-25). Alla jobb hade kört klart (`sprak` var rött i samtliga körningar på grund av en annan kontroll, men körde alla sina kontroller). Tid per kontroll är raderna `✓ <namn> (N s)` i jobbloggarna, och teststeget är stegets start och slut i Actions.
+
+| Jobb | Teststeg, median (max) | Hela jobbet, median (max) |
+|---|---:|---:|
+| `dator` – övrigt | 20 min 51 s (23 min 50 s) | 21 min 47 s (24 min 39 s) |
+| `tung` – lektion och utskrift | 17 min 42 s (19 min 57 s) | 18 min 30 s (20 min 52 s) |
+| `mobil` | 16 min 46 s (17 min 58 s) | 17 min 32 s (18 min 53 s) |
+| `mobilplats` | 17 min 4 s (21 min 5 s) | 17 min 54 s (21 min 54 s) |
+| `dator2` – kort och turer | 15 min 2 s (15 min 23 s) | 15 min 54 s (16 min 20 s) |
+| `plats` | 13 min 18 s (16 min 44 s) | 15 min 12 s (18 min 46 s) |
+| `fokus` | 12 min 55 s (13 min 20 s) | 13 min 40 s (14 min 11 s) |
+| `sprak` | 13 min 11 s (14 min 16 s) | 13 min 59 s (15 min 1 s) |
+| `lang` | 12 min 47 s (15 min 29 s) | 13 min 37 s (16 min 17 s) |
+| `matris` | 10 min 38 s (11 min 51 s) | 11 min 26 s (12 min 37 s) |
+| `mobil2` | 9 min 23 s (11 min 41 s) | 10 min 6 s (12 min 31 s) |
+
+Slutsatser ur mätningen:
+
+- Samma jobb med samma kontroller varierar upp till cirka 25 % över medianen mellan körningar (`mobilplats` 17:04 → 21:05, `plats` 13:18 → 16:44). En fördelning måste därför ha marginal för 30 %.
+- Summan av kontrollernas mediantider är 6 237 s i datorbredd (sju jobb, 14 min 51 s per jobb i snitt) och 2 577 s i mobilbredd (tre jobb, 14 min 19 s per jobb i snitt). Det räcker inte för målet cirka 13–14 minuter uppmätt teststeg: jämn fördelning på dagens jobb ger 14 min 51 s respektive 14 min 19 s, och en liten ojämnhet ger över 16 minuter. Därför läggs två jobb till (`dator3` och `mobil3`), vilket ger tretton Chromium-jobb. `matris` kan inte ta emot kontroller utan att köra dem i båda bredderna och ändras inte.
+- Den största enskilda posten var `dator` (övrigt), som också bär avsnitten zoom och omflödning, reducerad rörelse och presentationsläge (cirka 28 s). De stannar där.
+
+28 kontroller flyttas: 14 i datorbredd och 14 i mobilbredd. Samma kontrollnamn finns i båda bredderna men har olika tider, så de räknas var för sig. Kontrollnamn och testkod ändras inte; bara `endast` och `utan` i `tests/jobb.json` samt två nya poster. Tiderna är medianen (max) ur de sex körningarna, i sekunder.
+
+| Flyttad kontroll | Bredd | Från → till | Tid, s |
+|---|---|---|---:|
+| elevbladet och lärarbladet ryms på en A4-sida i alla språk… (#757) | dator | `tung` → `dator3` | 231 (265) |
+| lektionens sista steg: uppdragslänken syns helt, Klar avslut… (#1861) | dator | `tung` → `dator3` | 29 (34) |
+| faktarutan: Ljuba, en osäkerhet och ≈ år sedan i datumraden… (#1979) | dator | `dator` → `dator3` | 115 (128) |
+| växlaren: dörren ger en Tillbaka-rad som återställer året oc… (#1959, #997) | dator | `dator` → `dator3` | 53 (63) |
+| tidsraden: teckenförklaringen ligger inom fönstret och under… (#1713, omgång 3) | dator | `dator` → `dator3` | 43 (50) |
+| Samtidigt-kortet visar relationen i tid för en fun fact (#1311) | dator | `dator` → `dator3` | 42 (52) |
+| vanlig tur från Översikt visar alla händelser och återställe… (#1181) | dator | `dator` → `dator3` | 31 (38) |
+| krigets första kort startar berättelsen med kapitel och frågor (#247) | dator | `dator` → `dator3` | 24 (30) |
+| Tillbaka återställer tid och lager för alla Fokus-typer | dator | `dator` → `dator3` | 23 (31) |
+| växlaren mellan tidsreglagen: knappar, namn, tryckytor och b… (#1959) | dator | `dator` → `dator3` | 23 (28) |
+| årshopp vrider bara globen vid behov | dator | `dator` → `dator3` | 23 (25) |
+| krigets slutkort ligger ovanför fokusraden (#627) | dator | `dator` → `dator3` | 23 (27) |
+| platskortet: listan före anteckningarna, Om kartan och källo… (#1977) | dator | `dator2` → `dator3` | 92 (96) |
+| Enter i Fokus på en plats öppnar kortet igen, och i andra lä… (#1454) | dator | `plats` → `dator3` | 46 (58) |
+| platskortets kartknapp har samma namn i alla storlekar och k… (#1692, #1948) | mobil | `mobilplats` → `mobil2` | 73 (88) |
+| träffytor och text i korten, Hjälp, introduktionen och menye… (#1713, omgång 2) | mobil | `mobil` → `mobil3` | 96 (104) |
+| lektionsläget låser menyerna och har en utgång som behåller… (#795) | mobil | `mobil` → `mobil3` | 61 (67) |
+| faktarutan: Ljuba, en osäkerhet och ≈ år sedan i datumraden… (#1979) | mobil | `mobil` → `mobil3` | 59 (64) |
+| tidslinjen, årshoppet, Platt vy, affischen och källorna på f… (#672) | mobil | `mobil` → `mobil3` | 45 (50) |
+| årshoppet: aktivt eraval, år 0 och ogiltig inmatning på fem… (#1075) | mobil | `mobil` → `mobil3` | 42 (44) |
+| tidsraden: teckenförklaringen ligger inom fönstret och under… (#1713, omgång 3) | mobil | `mobil` → `mobil3` | 34 (39) |
+| två reglage för människans tid: val ur året, drag, steg, upp… (#1958) | mobil | `mobilplats` → `mobil3` | 62 (78) |
+| träffytor: varje synlig knapp tar själv emot trycket i mitte… (#1932) | mobil | `mobilplats` → `mobil3` | 57 (69) |
+| trasig länk: raden säger vad som saknades | mobil | `mobilplats` → `mobil3` | 43 (58) |
+| tryck på platsen i Fokus öppnar kortet utan nytt Fokus, med… (#1978) | mobil | `mobilplats` → `mobil3` | 43 (51) |
+| Visste du? visar målet och Tillbaka återställer år och kamer… (#997) | mobil | `mobilplats` → `mobil3` | 39 (44) |
+| liggande telefon: kortets kryss och knapp går att trycka på… (#1667) | mobil | `mobilplats` → `mobil3` | 38 (51) |
+| platsens adress: en plats som laddas medan en annan länk ell… (#865, #1162) | mobil | `mobilplats` → `mobil3` | 32 (38) |
+
+Summor per flytt (median, s): `tung` → `dator3` 260, `dator` → `dator3` 399, `dator2` → `dator3` 92, `plats` → `dator3` 46, `mobilplats` → `mobil2` 73, `mobil` → `mobil3` 338 och `mobilplats` → `mobil3` 315.
+
+**Beräknad fördelning efter ändringen.** Tabellen är **beräknad ur de uppmätta kontrolltiderna, inte uppmätt i CI**: summan av kontrollernas medianer, plus 5 s för de gemensamma startkontrollerna och 28 s avsnitt i `dator`. Kolumnen med 30 % visar teststeget om körningen blir 30 % långsammare än medianen. Till hela jobbet kommer ungefär 1–2 minuter för installation och uppstart, och `plats` har dessutom steget för tangentbordsfokus (#1950, cirka 57 s).
+
+| Jobb | Kontroller (bredd) | Beräknat teststeg | Med 30 % marginal | Före, uppmätt median |
+|---|---:|---:|---:|---:|
+| `tung` | 16 | 13 min 21 s | 17 min 21 s | 17 min 42 s |
+| `dator` | 110 + avsnitten | 13 min 55 s | 18 min 5 s | 20 min 51 s |
+| `dator2` | 44 | 13 min 23 s | 17 min 24 s | 15 min 2 s |
+| `dator3` (ny) | 14 | 13 min 22 s | 17 min 23 s | – |
+| `lang` | 18 | 12 min 47 s | 16 min 37 s | 12 min 47 s |
+| `sprak` | 13 | 12 min 52 s | 16 min 43 s | 13 min 11 s |
+| `plats` | 57 | 12 min 36 s | 16 min 23 s | 13 min 18 s |
+| `fokus` | 18 | 12 min 49 s | 16 min 39 s | 12 min 55 s |
+| `mobil` | 154 | 11 min 2 s | 14 min 20 s | 16 min 46 s |
+| `mobil2` | 60 | 10 min 39 s | 13 min 51 s | 9 min 23 s |
+| `mobil3` (ny) | 13 | 10 min 57 s | 14 min 15 s | – |
+| `mobilplats` | 63 | 10 min 39 s | 13 min 50 s | 17 min 4 s |
+| `matris` | 4 (båda bredderna) | 10 min 38 s | 13 min 49 s | 10 min 38 s |
+
+De beräknade medianerna för jobben före ändringen stämmer med de uppmätta (till exempel `tung` 17 min 41 s mot 17 min 42 s och `mobil` 16 min 40 s mot 16 min 46 s), så modellen duger för en jämförelse, men den ersätter inte CI-mätningen. Med 30 % marginal ligger alla jobb högst cirka 18 minuter i teststeget, alltså runt 20 minuter för hela jobbet mot 24 min 39 s tidigare. Det samlade målet (cirka 13–14 minuter uppmätt, högst cirka 16 med marginal) nås i medianen men inte helt med 30 % marginal i datorbredd; nästa steg om det behövs är ett åttonde datorjobb.
+
+**Ändringen i CI.** Ingen arbetsflödesfil ändras. `.github/workflows/browser-test.yml` bygger jobblistan ur `tests/jobb.json`, så de nya jobben får samma tidsgräns som de andra (25 minuter i Chromium, 45 i Firefox och WebKit), artefaktnamnet `skarmbilder-<motor>-<jobb-id>` (`skarmbilder-chromium-dator3` och `skarmbilder-chromium-mobil3`) och körs på samma sätt av `scripts/kontrolltackning.mjs`. Veckokörningen med Firefox och WebKit får också tretton jobb per motor. Kommentarerna i arbetsflödesfilen säger fortfarande "elva jobb"; de är bara text och ändras vid nästa ändring av filen. `node scripts/kontrolltackning.mjs` ger OK för **296 kontrollnamn och 3 avsnitt**, varje i exakt ett jobb per bredd, och `node --test 'tests/*.test.mjs'` är grönt (720 prov).
+
+**Lokala prov.** De två nya jobben kördes lokalt med exakt det urval som står i `tests/jobb.json` (`BREDD`, `ENDAST` och `UTAN` ur filen, Node 22.23.5, Playwright 1.63.0, lokal three.js 0.160.0 och en server startad i samma körkommando, båda jobben samtidigt på fyra kärnor): `dator3` gick grönt med alla 14 kontroller plus startkontrollerna på 645 s och `mobil3` grönt med alla 13 kontroller plus startkontrollerna på 671 s. Det är bara ett bevis för att urvalen hittar sina kontroller och att de går igenom på egen hand; tiderna är inte CI-mätningar och är inte jämförbara med tabellerna ovan.
+
+**Så mäter du nästa gång:** hämta jobben för en avslutad körning och leta efter jobb som ligger över cirka 16 minuter i teststeget eller över 20 minuter hela. Med GitHub CLI:
+
+```
+gh api "repos/DasKrokodil/historia-globen/actions/runs/<körning>/jobs?per_page=100" --jq '.jobs[] | [.name, .id] | @tsv'
+gh api "repos/DasKrokodil/historia-globen/actions/jobs/<jobb>/logs" > jobb.log
+grep -E "^\S+Z\s+(✓|✗) .* \([0-9.]+ s\)$" jobb.log
+```
+
+Raderna `✓ <namn> (N s)` och `✗ <namn> (N s)` ger tid per kontroll (jobb som avbröts av gränsen saknar de sista raderna). Ta medianen över minst tre körningar, helst de schemalagda main-körningarna (`event: schedule`), eftersom pull request-körningar kör olika testkod. Summera per jobb, flytta kontroller från de långa till de korta jobben i `tests/jobb.json` (lägg ett token som träffar just den kontrollen i mottagarens `endast` och i avsändarens `utan`) och kontrollera med `node scripts/kontrolltackning.mjs`. Se [beslutet](beslut/2026-11-25-ci-jobben-fordelas-2168.md).
+
 **Urvalet i jobben** (`tests/webblasare.mjs`, `tests/urval.mjs`): `ENDAST=<text>` kör bara kontroller vars namn innehåller texten (#587), `UTAN=<text>` kör allt utom dem, och `BREDD=dator|mobil` kör bara den bredden; flera alternativ skiljs med `|`. Anges både `ENDAST` och `UTAN` körs det som matchar `ENDAST` men inte `UTAN`. `sidan svarar`, `globen laddas` och `inga fel i konsolen` körs i alla jobb, och avsnitten zoom och omflödning, reducerad rörelse och presentationsläge ligger i datorjobbet. **Lokalt** ger körningen utan variabler hela sviten som förut. **Kontrolltäckningen** kan prövas utan webbläsare: `node scripts/kontrolltackning.mjs` visar hur många kontroller varje jobb kör och avslutas med fel om en kontroll ligger i noll eller flera jobb. Lägger du till en kontroll behöver du inte ändra något: den hamnar i datorjobbet eller mobiljobbet efter namnet, och den tunga gruppen väljs med ord i namnet (`lektion`, `skriver ut`, `ryms på en A4`; se `tests/jobb.json`).
 
 Apt-paketen som Playwright installerar med `--with-deps` (mest typsnitt) sparas i en egen cache (`apt-debs-…`) och läggs tillbaka i apt:s arkiv före installationen, så att de inte laddas ner från Ubuntus spegel varje gång (#684). Cachen fylls stegvis: varje körning sparar de paket den hann hämta, även när installationen stoppades av tidsgränsen, så en långsam spegel kan ge några röda körningar i följd efter en ny Playwright- eller Ubuntu-version, men varje omkörning kommer längre tills alla paket finns i cachen.
@@ -271,7 +366,7 @@ En körning som inte blir grön kan ha tre helt olika orsaker. Titta på statuse
 | **Tidsgränsen** | `cancelled` efter cirka 25 minuter för ett Chromium-jobb (45 för Firefox och WebKit), eller steget "Installera Playwright …" stoppat efter cirka 5 minuter | Ingen kontroll har fallerat. Har installationen stoppats (oftast `apt` som hämtar typsnittspaket långsamt, vilket numera bara kan hända när apt-cachen saknas, #684): **kör om körningen en gång** ("Re-run jobs"). Stoppas den igen, eller tar själva testet mer än 25 minuter i ett jobb, är det ett eget fel som ska bli ett issue. |
 | **Ett riktigt fel** | `failure`, och loggen visar `FEL` vid en kontroll | Följ regeln om röd kontroll i [AGENTS.md](../AGENTS.md#röd-kontroll-eller-slut-på-tid-samma-regel-för-alla-agenter-beslut-2026-11-05-skärpt-samma-dag): hitta den första felande kontrollen. |
 
-Blir ett av de elva Chromium-jobben för långsamt igen: flytta kontroller mellan jobben i `tests/jobb.json` (ändra `endast` och `utan`) och kör `node scripts/kontrolltackning.mjs`. Har ett jobb en röd kontroll kör du bara det jobbet lokalt, till exempel `BREDD=mobil node tests/webblasare.mjs 8000`.
+Blir ett av de tretton Chromium-jobben för långsamt igen (mät först enligt [mätningen 2026-11-25](#mätning-och-omfördelning-2026-11-25-2168)): flytta kontroller mellan jobben i `tests/jobb.json` (ändra `endast` och `utan`) och kör `node scripts/kontrolltackning.mjs`. Har ett jobb en röd kontroll kör du bara det jobbet lokalt, till exempel `BREDD=mobil node tests/webblasare.mjs 8000`.
 
 **Skärmbilderna** sparas i 14 dagar som `skarmbilder-chromium-tung`, `skarmbilder-chromium-dator`, `skarmbilder-chromium-dator2`, `skarmbilder-chromium-lang`, `skarmbilder-chromium-sprak`, `skarmbilder-chromium-plats`, `skarmbilder-chromium-fokus`, `skarmbilder-chromium-mobil`, `skarmbilder-chromium-mobil2`, `skarmbilder-chromium-mobilplats` och `skarmbilder-chromium-matris`, samt `skarmbilder-firefox-allt` och `skarmbilder-webkit-allt` när de motorerna körs: öppna körningen under Actions (eller "Details" vid kontrollen i pull requesten) och ladda ner artefakten längst ned på sidan. Bilderna heter `dator-…` och `mobil-…`, i den ordning testet tar dem; en kontroll som misslyckas ger en bild som börjar på `dator-FEL-` eller `mobil-FEL-`. Loggen visar varje kontroll som `OK` eller `FEL` med ett kort mått (till exempel hur många pixlar som ändras när rikena slås på).
 

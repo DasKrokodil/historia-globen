@@ -144,7 +144,7 @@ images/lager/         bildlagrens bilder: nattljus 2016 (NASA) och istidens kust
 images/incoming/      nya bilder innan de konverteras
 schemas/              JSON Schema för innehållsformaten, bland annat händelser, riken, turer, teman, platser och bildlager
 tools/                hjälpskript som körs för hand (Python): riken, religioner, bildpromptar, bildkonvertering och licensmanifest
-docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, omstridda gränser och Sveriges hållning (omstridda-granser.md, #644); docs/bilder/ har skärmbilderna i README; docs/granskningar/ tar emot externa granskningar
+docs/                 dokumentation: referens/ (det som flyttats ut ur CLAUDE.md, AGENTS.md och .orchestra/project.md 2026-11-23: filstruktur, versionsplan, arbetssätt, bilder m.m.), arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, omstridda gränser och Sveriges hållning (omstridda-granser.md, #644); docs/bilder/ har skärmbilderna i README; docs/granskningar/ tar emot externa granskningar
 .orchestra/           arbetsflödet dirigenten och orkestern (MIT-licens)
 data/LICENSE          licens för data: CC BY 4.0
 data/handelser/       händelserna, en redigeringsfil per period; här redigeras händelser (#394)
@@ -170,7 +170,9 @@ data/land-10m.json    finare kust (Natural Earth 1:10m), laddas först när det 
 tools/riken.py        bygger rikesfilerna ur Cliopatria; --delade-granser (av som standard, kräver shapely >= 2.1 med GEOS >= 3.12) är piloten med delade gränser för England, Skottland och Man med föregångarna 500–1700 (#1765)
 tools/cliopatria_ar.py Cliopatrias f.Kr.-år: -N läses som N f.Kr. och räknas om till astronomiska år, delas av riken.py, religioner.py och religioner_riken.py (#1989)
 tools/bild_hamta.py   hämtar metadata för en riktig bild (Wikimedia Commons, Library of Congress), bedömer licensen och bygger källpost och webp, med paus vid 429 (#2118, docs/bilder-riktiga.md)
-tools/bildkandidater.py föreslår fria bildkandidater till händelser utan bild (arbetsflödet bildkandidater.yml öppnar en pull request med förslag, #2119)
+tools/bildkandidater.py föreslår fria bildkandidater till händelser utan bild, en fil per världsdel och period i data/utkast/bildkandidater/ (arbetsflödet bildkandidater.yml öppnar en pull request med förslag, #2119, #2183)
+tools/licens_commons.py en gemensam licensklassning för Commons som bild_hamta.py och bildkandidater.py delar (#2183)
+tools/bildbatch.py    granskningslista per bildomgång i data/utkast/bildbatch/: kandidater, licens och flaggor, väljer aldrig bild (#2183)
 tools/riken_bevara.py det riken.py behåller vid ombyggnad: handskrivna fält som flags och översatta namn (#1220)
 tools/riken_namn.py   hämtar rikenas namn på tyska, spanska och franska ur Wikidata; riken.py bevarar dem (#676, #644)
 tools/forenkling_matning.py mäter överlapp mellan grannriken när de förenklas var för sig eller tillsammans (shapely.coverage_simplify), ändrar inga filer (#1765)

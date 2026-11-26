@@ -4,7 +4,7 @@
 // Språket väljs i js/i18n.js (#63): adressen, det sparade valet eller webbläsaren, annars svenska.
 // Gränssnittets texter hämtas med ui('nyckel') ur data/ui/<språk>.json.
 import { LANG, ui, hasUi } from './i18n.js';
-import { HUMAN_SCALE } from './time-scale.js';
+import { HUMAN_SCALE, HISTORY_FIRST } from './time-scale.js';
 export { LANG, ui };
 const FALLBACK = ['en', 'sv'];
 
@@ -204,7 +204,7 @@ export function formatYear(y) {
   // Före 10 000 f.Kr. är årtalen tusental (#1320): i datan skrivs djup tid som Y-66000000 ("för 66 miljoner år sedan"), och som
   // astronomiskt år vore det 66 000 001 f.Kr. Mellan 10 000 och 3000 f.Kr. lämnas källornas årtal orörda.
   if (y <= -10000) y = roundToStep(y);
-  return isBCE(y) ? `${groupDigits(bce(y))} ${BCE_TXT}` : groupDigits(y);
+  return isBCE(y) ? yearParts(y).join(' ') : groupDigits(y);
 }
 
 /**
@@ -250,9 +250,9 @@ export function formatCentury(y) {
   return ui(key, { n });
 }
 
-/** Tidsfönstrets rad visar ett enskilt år före 3000 f.Kr., där århundraden blir för grova (#1536). */
+/** Tidsfönstret visar enskilda år i förhistorien och på den historiska sidan av skarven (#2152). */
 export function formatWindowYear(y) {
-  return y < -2999 ? formatYear(y) : formatCentury(y);
+  return y <= HISTORY_FIRST + 1 ? formatYear(y) : formatCentury(y);
 }
 
 /**
@@ -466,9 +466,11 @@ export function formatEventTime(e) {
   if (edtf.endsWith('/..')) return ui('time.since', { start: formatYear(e.start) });
   if (edtf.startsWith('../')) return ui('time.until', { end: approx + formatYear(e.end) });
   if (e.start === e.end) return approx + formatYear(e.start);
-  // Stora år med språkets avgränsare (#1085, #1093): "cirka 53 000–50 000 f.Kr."
-  if (isBCE(e.start) && isBCE(e.end)) return `${approx}${groupDigits(bce(e.start))}–${groupDigits(bce(e.end))} ${BCE_TXT}`;
-  if (isBCE(e.start)) return `${approx}${groupDigits(bce(e.start))} ${BCE_TXT}–${e.end} ${CE_TXT}`;
+  // Stora år med språkets avgränsare (#1085, #1093): "cirka 53 000–50 000 f.Kr." Före 10 000 f.Kr. avrundas ändarna som enstaka år
+  // (formatYear, roundToStep), så att spannet inte ger falsk exakthet: −46050/−32050 blir 46 000–32 000 f.Kr., inte 46 051–32 051 (#2155)
+  const start = e.start <= -10000 ? roundToStep(e.start) : e.start, end = e.end <= -10000 ? roundToStep(e.end) : e.end;
+  if (isBCE(start) && isBCE(end)) return `${approx}${groupDigits(bce(start))}–${groupDigits(bce(end))} ${BCE_TXT}`;
+  if (isBCE(start)) return `${approx}${groupDigits(bce(start))} ${BCE_TXT}–${end} ${CE_TXT}`;
   return `${approx}${e.start}–${e.end}`;
 }
 

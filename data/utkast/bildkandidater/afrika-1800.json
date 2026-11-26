@@ -1,0 +1,940 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 23,
+    "kandidater": 27,
+    "troliga": 26,
+    "flaggade": 1,
+    "avvisade": 0,
+    "smala": 5,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "sokotokalifatet-grundas",
+      "titel": "Usman dan Fodio grundar Sokotokalifatet",
+      "plats": "Sokoto (i dag Nigeria)",
+      "start": 1804,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q600524",
+      "kandidater": [
+        {
+          "fil": "File:View of Sokoto (1890).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:View_of_Sokoto_(1890).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Monteil, P.-L. (Parfait-Louis)",
+          "datum": "1890",
+          "beskrivning": "View of Sokoto from its outskirts. From \"De Saint-louis A Tripoli Par Le Lac Tchad: Voyage Au Travers Du Soudan Et Du Sahara Accompli Pendant Les Années 1890-91-92\"",
+          "bredd": 2861,
+          "hojd": 1759,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/View_of_Sokoto_%281890%29.jpg/960px-View_of_Sokoto_%281890%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1890 in Nigeria",
+            "Sokoto",
+            "Sokoto Caliphate"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "shaka-bygger-zuluriket",
+      "titel": "Shaka bygger upp Zuluriket",
+      "plats": "Zululand, i dagens KwaZulu-Natal, Sydafrika",
+      "start": 1816,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q729768",
+      "kandidater": [
+        {
+          "fil": "File:Gees van eMakhosini-monument, eMakhosini.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Gees_van_eMakhosini-monument,_eMakhosini.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "JMK",
+          "datum": "2014-06-07 13:27",
+          "beskrivning": "Spirit of eMakhosini Monument at eMakhosini (i.e. Place of the (Zulu) Kings) in northern KwaZulu-Natal, South Africa. The \"Spirit of the Place of the (Zulu) Kings\" monument was erected in 2003 on Khumba hill, which allows vistas of the surrounding countryside. A large bronze beer pot or imbiza , symbolic of friendship, forms the center piece. Small friezes that adorn the base of the circular pedestal, depict scenes from the lives of the Zulu kings. Seven large animal horns represent seven Zulu kings whose graves are in the vicinity.",
+          "bredd": 4000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Gees_van_eMakhosini-monument%2C_eMakhosini.jpg/960px-Gees_van_eMakhosini-monument%2C_eMakhosini.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Spirit of eMakhosini"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-dodowa",
+      "titel": "Slaget vid Dodowa (Katamanso)",
+      "plats": "Katamanso vid Dodowa, nära Accra, Ghana",
+      "start": 1826,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q98233405",
+      "soktext": "The Battle of Dodowa (Katamanso) Katamanso at Dodowa",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "said-bin-sultan-flyttar-till-zanzibar",
+      "titel": "Said bin Sultan flyttar sin huvudstad till Zanzibar",
+      "plats": "Stone Town, Zanzibar, Tanzania",
+      "start": 1840,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q506193",
+      "kandidater": [
+        {
+          "fil": "File:Said bin Sultan.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Said_bin_Sultan.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Lieutenant Henry Blosse Lynch",
+          "datum": "Painting created about 1855, published at least as early as 1921 ( Marine Room of the Peabody Museum of Salem )",
+          "beskrivning": "Contemporary portrait of Said bin Sultan. Institution: Peabody Essex Museum. Accession number: M786.",
+          "bredd": 768,
+          "hojd": 773,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Said_bin_Sultan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Said bin Sultan, Sultan of Muscat and Oman"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "liberia-blir-sjalvstandigt",
+      "titel": "Liberia förklarar sig självständigt",
+      "plats": "Liberia (Monrovia på kartan)",
+      "start": 1847,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q6541120",
+      "soktext": "Liberia Declares Independence",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "livingstone-vid-victoriafallen",
+      "titel": "Livingstone vid Mosi-oa-Tunya",
+      "plats": "Victoriafallen vid Zambezi (gränsen mellan Zambia och Zimbabwe)",
+      "start": 1855,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q43278",
+      "kandidater": [
+        {
+          "fil": "File:Cataratas Victoria, Zambia-Zimbabue, 2018-07-27, DD 05.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cataratas_Victoria,_Zambia-Zimbabue,_2018-07-27,_DD_05.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Diego Delso",
+          "datum": "2018-07-27 15:41:52",
+          "beskrivning": "Aerial view of the Victoria Falls of the Zambezi River , border between Zambia and Zimbabwe . The Victoria Falls is the largest sheet of falling water in the world based on its combined width of 1,708 metres (5,604 ft) and height of 108 metres (354 ft).",
+          "bredd": 6820,
+          "hojd": 3891,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Cataratas_Victoria%2C_Zambia-Zimbabue%2C_2018-07-27%2C_DD_05.jpg/960px-Cataratas_Victoria%2C_Zambia-Zimbabue%2C_2018-07-27%2C_DD_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aerial photographs of Victoria Falls",
+            "Aerial photographs of Zambia"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Vic Falls 2024.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Vic_Falls_2024.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Revention24",
+          "datum": "2024-04-13 16:08:00",
+          "beskrivning": "Falling water at the vic falls in Zambia.",
+          "bredd": 2688,
+          "hojd": 1512,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Vic_Falls_2024.jpg/960px-Vic_Falls_2024.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Mosi-oa-Tunya in Zambia"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "diamanterna-i-kimberley",
+      "titel": "Diamantruschen i Kimberley",
+      "plats": "Big Hole i Kimberley, Sydafrika",
+      "start": 1871,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q19040",
+      "kandidater": [
+        {
+          "fil": "File:Open pit mine.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Open_pit_mine.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Irene2005",
+          "datum": "2007-03-24",
+          "beskrivning": "Open-pit diamond mine (known as the Big Hole or Kimberley Mine) in Kimberley, South Africa .",
+          "bredd": 2832,
+          "hojd": 2128,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Open_pit_mine.jpg/960px-Open_pit_mine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Big Hole mine",
+            "Valued images of South Africa"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kvaggan-dor-ut",
+      "titel": "Kvaggan dör ut",
+      "plats": "Oranjefristaten (i dag en del av Sydafrika)",
+      "start": 1878,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q45969",
+      "kandidater": [
+        {
+          "fil": "File:Equus quagga quagga, coloured.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Equus_quagga_quagga,_coloured.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Hogyncymru",
+          "datum": "2022-07-29 01:58:55",
+          "beskrivning": "Quagga (Equus quagga quagga) is an extinct sub-species of zebra. Mare, London, Regent's Park ZOO. original image by 'F. York, & Son' Digitally enhanced and coloured by Welsh artist; Rhŷn Williams",
+          "bredd": 1138,
+          "hojd": 798,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Equus_quagga_quagga%2C_coloured.jpg/960px-Equus_quagga_quagga%2C_coloured.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Colorized photographs",
+            "Equus quagga quagga in London Zoo",
+            "The Standard Library of Natural History, Embracing Living Animals of the World and Living Races of Mankind"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Berlin Quagga.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Berlin_Quagga.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "FunkMonk",
+          "datum": "2012",
+          "beskrivning": "Stuffed quagga, Naturkunde Museum, Berlin.",
+          "bredd": 2386,
+          "hojd": 2061,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Berlin_Quagga.jpg/960px-Berlin_Quagga.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Taxidermied Equus quagga quagga",
+            "Taxidermied mammals at Museum für Naturkunde Berlin"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Quagga Naturhistorisches Museum Basel 27102013 3.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Quagga_Naturhistorisches_Museum_Basel_27102013_3.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Vassil",
+          "datum": "2013-10-27 13:07:30",
+          "beskrivning": "Taxidermied Equus quagga quagga of the Naturhistorisches Museum of Basel.",
+          "bredd": 1928,
+          "hojd": 1700,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Quagga_Naturhistorisches_Museum_Basel_27102013_3.jpg/960px-Quagga_Naturhistorisches_Museum_Basel_27102013_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Collection of the Naturhistorisches Museum, Basel",
+            "Taxidermied Ectopistes migratorius",
+            "Taxidermied Equus quagga quagga"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "anglo-zuluiska-kriget",
+      "titel": "Anglo-zuluiska kriget",
+      "plats": "Zuluriket i dagens Sydafrika (började vid Rorke's Drift)",
+      "start": 1879,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q228911",
+      "kandidater": [
+        {
+          "fil": "File:Défense de Rorke's Drift.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:D%C3%A9fense_de_Rorke%27s_Drift.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Alphonse de Neuville",
+          "datum": "1880",
+          "beskrivning": "Defense of Rorke's Drift. Detail.",
+          "bredd": 2148,
+          "hojd": 1407,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/D%C3%A9fense_de_Rorke%27s_Drift.jpg/960px-D%C3%A9fense_de_Rorke%27s_Drift.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Rorke's Drift",
+            "Colonial wars",
+            "Works by Alphonse-Marie-Adolphe de Neuville"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "invasionen-av-zululand",
+      "titel": "Britterna går in i Zululand",
+      "plats": "Rorke's Drift vid floden Buffalo (Mzinyathi), gränsen mellan Natal och Zuluriket",
+      "start": 1879,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The British Enter Zululand",
+      "kandidater": [
+        {
+          "fil": "File:Appleton's annual cyclopedia and register of important events- embracing political, military, an ecclesiastical affairs; public documents; biography, statistics, commerce, finance, literature, (14753351996).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Appleton%27s_annual_cyclopedia_and_register_of_important_events-_embracing_political,_military,_an_ecclesiastical_affairs;_public_documents;_biography,_statistics,_commerce,_finance,_literature,_(14753351996).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1875",
+          "beskrivning": "Map of Central and Southern Africa, 1888 Identifier : appletonsannualc13newy ( find matches ) Title : Appleton's annual cyclopedia and register of important events: embracing political, military, an ecclesiastical affairs; public documents; biography, statistics, commerce, finance, literature, science, agriculture, and mechanical industry Year : 1875 ( 1870s ) Authors : Subjects : Encyclopedias and dictionaries Publisher : New York: Appleton Contributing Library : Harold B. Lee Library Digitizing Sponsor : Brigham Young University View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: 1886 was 4,329 miles.During the year, 770,500 messages were sent. Naval Defenses.—The colonial and imperialGovernments are jointly fortifying the harborof Table Bay, the Cape Government providingthe labor. Works at Simons Bay have beenbuilt by the British Government. Natal.—The colony of Natal was separatedfrom the Cape of Good Hope in 1856. TheGovernor is assisted by an Executive Council,composed of the chief functionaries, and aLegislative Council made up to seven appointedand twenty-three elected members. The presentGovernor is Sir Arthur Elibank Havelock, whowas appointed to the post in October, 1885.The revenue in 1886 was £600,177, and the ex-penditure £717,414. In 1887 the revenue roseto £816.680, while the expenditure was £689,-325. The public debt at the end of 1887 was£4,035,126. The area of the colony is 21,150 square miles,and the population, as returned in 1886, is442,697. Between 1878 and 1884, when as-sisted immigration ceased, 4,526 immigrants CAPE COLONY. 123 Text Appearing After Image: CENTRAL & SOUTHERN AFEICA SCALE OF MILES 100 200 300 400 124 CAPE COLONY. were.brought into the colony at Governmentexpense. The white population at the end of1887 was 35,866. There were 32,312 Indiancoolies. One quarter of these are indenturedto the planters for a term of five years. Thefree Indians compete with white mechanicsand clerks, and the further importation of in-dentured laborers, who, after the expiration oftheir term of servitude enter the field of whitelabor, meets with strong popular opposition.The native population was 408,922, but of thisnumber more than 225,000 live on reservations,and the colonists are anxious to remove themto Zululand. The total trade by sea in 1887 amounted to£3,333,000, against £2,333,000 in 1886. Thechief exports are wool, sugar, hides, corn, andrecently gold, of which £120,021 were exportedin eleven months of 1887. A large part of thecommerce consists of transit trade with theinterior. Railroads to the Orange Free State and theTransvaal Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 2606,
+          "hojd": 3844,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Appleton%27s_annual_cyclopedia_and_register_of_important_events-_embracing_political%2C_military%2C_an_ecclesiastical_affairs%3B_public_documents%3B_biography%2C_statistics%2C_commerce%2C_finance%2C_literature%2C_%2814753351996%29.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1888 maps of Africa",
+            "Appleton's annual cyclopedia (1875)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-gingindlovu",
+      "titel": "Slaget vid Gingindlovu",
+      "plats": "Gingindlovu nära kusten, södra Zululand (KwaZulu-Natal)",
+      "start": 1879,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2888632",
+      "kandidater": [
+        {
+          "fil": "File:Inside the laager at Ginghilovo during the Zulu attack.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Inside_the_laager_at_Ginghilovo_during_the_Zulu_attack.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "William James Palmer / After William Heysham Overend",
+          "datum": "24 May 1879 date QS:P571,+1879-05-24T00:00:00Z/11",
+          "beskrivning": "Sailors from HMS Shah defending one side of the British Square during the Battle of Gingindlovu, from a sketch by Lieutenant Smith-Dorrien, RN. Engraving published in The Illustrated London News. Battle of Ginghilovo 2 April 1879 (Battle of Gingindlovu). Publication: The Illustrated London News, Saturday, May 24, 1879 Read the ILN ]",
+          "bredd": 800,
+          "hojd": 567,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/33/Inside_the_laager_at_Ginghilovo_during_the_Zulu_attack.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Anglo-Zulu War",
+            "Arthur Hale Smith-Dorrien",
+            "Battle of Gingindlovu",
+            "HMS Shah (ship, 1873)",
+            "History of KwaZulu-Natal",
+            "The Illustrated London News 1879",
+            "William Heysham Overend",
+            "William James Palmer"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-hlobane",
+      "titel": "Slaget vid Hlobane",
+      "plats": "Berget Hlobane nära dagens Vryheid, KwaZulu-Natal",
+      "start": 1879,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q1670862",
+      "kandidater": [
+        {
+          "fil": "File:Redver buller sauvant un officier à Hlobane.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Redver_buller_sauvant_un_officier_%C3%A0_Hlobane.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Harry Montagu Love (1877-1943)",
+          "datum": "Fin XIXème siècle",
+          "beskrivning": "gravure du XIXème siècle représentant le sauvetage d'un officier par le lieutenant-colonel Redver Buller à Hlobane, 1879.",
+          "bredd": 300,
+          "hojd": 389,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/18/Redver_buller_sauvant_un_officier_%C3%A0_Hlobane.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Hlobane",
+            "Battles in art",
+            "Redvers Buller"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-kambula",
+      "titel": "Slaget vid Kambula vänder kriget",
+      "plats": "Kambula, nordvästra Zululand (KwaZulu-Natal)",
+      "start": 1879,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q949635",
+      "kandidater": [
+        {
+          "fil": "File:Kambula 1.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kambula_1.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Charles Robinson, after Melton Prior (1845 - 1910)",
+          "datum": "1879-05-24",
+          "beskrivning": "The Zulu War, Battle of Kambula Hill, 29 March. Illustration for The Illustrated London News, 24 May 1879.",
+          "bredd": 1050,
+          "hojd": 751,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Kambula_1.jpg/960px-Kambula_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Kambula",
+            "Charles Robinson (engraver)",
+            "Melton Prior",
+            "The Illustrated London News 1879"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-rorkes-drift",
+      "titel": "Försvaret av Rorke's Drift",
+      "plats": "Rorke's Drift (kwaJimu), Svenska kyrkans missionsstation vid gränsfloden",
+      "start": 1879,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q1123353",
+      "kandidater": [
+        {
+          "fil": "File:Alphonse de Neuville - The defence of Rorke's Drift 1879 - Google Art Project.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Alphonse_de_Neuville_-_The_defence_of_Rorke%27s_Drift_1879_-_Google_Art_Project.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Alphonse de Neuville",
+          "datum": "1880 date QS:P571,+1880-00-00T00:00:00Z/9",
+          "beskrivning": "Painting of the Battle of Rorke's Drift which took place in Natal during the Anglo-Zulu War in 1879. De Neuville based the painting on eye witness accounts and it depicts several events of the battle occurring at once. Defenders depicted in the painting: Lieutenant John Chard (to the right at the barrier in pale breeches with rifle) Corporal Scammell of the Natal Native Contingent incorrectly shown in the uniform of the 24th or Corporal William Allen (handing cartridges to Chard) Corporal Ferdinand Schiess (wearing a bandoleer and stabbing a Zulu at the barrier with his bayonet) Chaplain George Smith (bearded man handing out cartridges from a haversack) Acting Assistant Commissary James Dalton (sat in foreground with a wounded shoulder) Surgeon James Reynolds (attending to Dalton's wound) Lieutenant Gonville Bromhead (standing in the centre of the painting pointing to his left) Private Frederick Hitch (standing behind Bromhead) Private Henry Hook (carrying Private John Connolly on his back away from the burning hospital) Assistant Commissary Walter Dunne (to the left holding a biscuit box) (Sources: David, Saul [2005] Zulu: The Heroism and Tragedy of the Zulu War of 1879 ISBN 9780141015699 ; Knight, Ian [1996] Rorke's Drift 1879: 'Pinned Like Rats in a Hole' ISBN 9781855325067 )",
+          "bredd": 5001,
+          "hojd": 2967,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Alphonse_de_Neuville_-_The_defence_of_Rorke%27s_Drift_1879_-_Google_Art_Project.jpg/960px-Alphonse_de_Neuville_-_The_defence_of_Rorke%27s_Drift_1879_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Alphonse-Marie-Adolphe de Neuville",
+            "Battle of Rorke's Drift",
+            "Burning buildings in art",
+            "Ferdinand Schiess",
+            "French paintings in the Art Gallery of New South Wales",
+            "John Chard",
+            "South Wales Borderers",
+            "William Wilson Allen"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-ulundi",
+      "titel": "Slaget vid Ulundi avslutar kriget",
+      "plats": "Ulundi (oNdini), Zulurikets huvudstad",
+      "start": 1879,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2166177",
+      "kandidater": [
+        {
+          "fil": "File:The burning of Ulundi.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_burning_of_Ulundi.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Anonymous Unknown author",
+          "datum": "1879",
+          "beskrivning": "L'incendie d'Ulundi. Gravure de 1879",
+          "bredd": 1189,
+          "hojd": 782,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/The_burning_of_Ulundi.jpg/960px-The_burning_of_Ulundi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Ulundi",
+            "Nguni shields"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "muhammad-ahmad-utropar-sig-till-mahdi",
+      "titel": "Muhammad Ahmad utropar sig till Mahdi",
+      "plats": "Sudan; hans anhängare samlades på ön Aba i Vita Nilen",
+      "start": 1881,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": "Q298678",
+      "kandidater": [
+        {
+          "fil": "File:Muhammad Ahmad al-Mahdi.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Muhammad_Ahmad_al-Mahdi.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2019-02-10 11:27:21",
+          "datum_original": null,
+          "datum_fil": "2019-02-10 11:27:21",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 724,
+          "hojd": 928,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/8/89/Muhammad_Ahmad_al-Mahdi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Messianism",
+            "Muhammad Ahmad"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "kongofristaten",
+      "titel": "Kongofristaten, Leopold II:s privata koloni",
+      "plats": "Kongofristaten, i dag Demokratiska republiken Kongo (huvudstaden Boma)",
+      "start": 1885,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q76048",
+      "kandidater": [
+        {
+          "fil": "File:Belgian Congo Railway Network pre-1960.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Belgian_Congo_Railway_Network_pre-1960.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Hendrav",
+          "datum": "2023-06-01",
+          "beskrivning": "Railway lines and navigable river traits in Belgian Congo as of around 1960. Some lines were opened in some traits before the date of completion here reported.",
+          "bredd": 671,
+          "hojd": 559,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Belgian_Congo_Railway_Network_pre-1960.svg/960px-Belgian_Congo_Railway_Network_pre-1960.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of Belgian Congo",
+            "Rail transport in the Belgian Congo",
+            "Rail transport maps of Africa",
+            "Transport maps of the Democratic Republic of the Congo"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "boskapspesten-i-afrika",
+      "titel": "Boskapspesten drabbar Afrika",
+      "plats": "Östra och södra Afrika (punkten i Maasailand, Tanzania)",
+      "start": 1890,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q97163433",
+      "soktext": "Rinderpest Strikes Africa",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "forsta-italiensk-etiopiska-kriget",
+      "titel": "Första italiensk-etiopiska kriget",
+      "plats": "Italienska Eritrea och Etiopien (började vid Coatit i dagens Eritrea)",
+      "start": 1895,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": "Q989115",
+      "kandidater": [
+        {
+          "fil": "File:Ethiopia Italia war-2.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ethiopia_Italia_war-2.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Ethiopia_Italia_war.JPG : * Mekele_1896.jpg : Unknown but died more than 70 years ago In_Vista_Di_Massaua.jpg : Unknown but obviously died more than 70 years ago Ebalgume.jpg : Unknown but obviously died more than 70 years ago Prisonniers_italiens_en_Abyssinie-2.jpg : * Prisonniers_italiens_en_Abyssinie.jpg : Le Petit Journal - F. Méaulle, scan by Vob08 derivative work: Zheim ( talk ) Menelik_-_Adoua-2.jpg : * Menelik_-_Adoua.jpg : Le Petit Journal - F. Méaulle, scan by Vob08 derivative work: Zheim ( talk ) Ras_Mekonnen_Amba_Alage_2.jpg : Le Petit Journal - F. Méaulle derivative work: Vob08 ( talk ) improved colors: Zheim ( talk )",
+          "datum": "2010-03-07 12:27",
+          "datum_original": "2010-03-07 12:27",
+          "datum_fil": "2010-03-07 12:29:57",
+          "kredit": "Ethiopia_Italia_war.JPG",
+          "beskrivning": "Page from old french newspaper \"Le Petit Journal\" depicting Ras Mekonnen at the battle of Amba Alage - Detail",
+          "bredd": 1379,
+          "hojd": 2237,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Ethiopia_Italia_war-2.JPG/960px-Ethiopia_Italia_war-2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "First Italo-Ethiopian War"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-amba-alagi-1895",
+      "titel": "Etiopisk seger vid Amba Alagi",
+      "plats": "Amba Alagi i södra Tigray, Etiopien",
+      "start": 1895,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-22",
+      "review": "two-sources",
+      "wikidata": "Q1398069",
+      "kandidater": [
+        {
+          "fil": "File:Ras Mekonnen Amba Alage-2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ras_Mekonnen_Amba_Alage-2.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Ras_Mekonnen_Amba_Alage.jpg : Le Petit Journal - F. Méaulle derivative work: Zheim ( talk )",
+          "datum": "2010-03-06 15:07",
+          "datum_original": "2010-03-06 15:07",
+          "datum_fil": "2010-03-06 15:08:56",
+          "kredit": "Ras_Mekonnen_Amba_Alage.jpg",
+          "beskrivning": "Page from old french newspaper \"Le Petit Journal\" depicting Ras Mekonnen at the battle of Amba Alage",
+          "bredd": 3492,
+          "hojd": 5077,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Ras_Mekonnen_Amba_Alage-2.jpg/960px-Ras_Mekonnen_Amba_Alage-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1895 Le Petit Journal",
+            "Battle of Amba Alagi",
+            "Colored engravings",
+            "Engravings by Fortuné Méaulle",
+            "Ras Makonnen"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-coatit",
+      "titel": "Slaget vid Coatit",
+      "plats": "Coatit (Quatit), Italienska Eritrea, i dag Eritrea",
+      "start": 1895,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-22",
+      "review": "two-sources",
+      "wikidata": "Q2888324",
+      "kandidater": [
+        {
+          "fil": "File:Capitano Federico Ciccodicola.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Capitano_Federico_Ciccodicola.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1889",
+          "datum_original": "1889",
+          "datum_fil": "2013-02-01 11:31:05",
+          "kredit": "Unknown source Unknown source",
+          "beskrivning": "Fotografia di mia proprietà",
+          "bredd": 2177,
+          "hojd": 1333,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Capitano_Federico_Ciccodicola.jpg/960px-Capitano_Federico_Ciccodicola.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cannone da 75B Montagne",
+            "Colonialism of Italy",
+            "Federico Ciccodicola",
+            "Italian occupation of Eritrea",
+            "Luigi Naretti",
+            "People of Italy in 1889",
+            "Royal Corps of Colonial Troops",
+            "Vittorio Bottego"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "belagringen-av-mekelle",
+      "titel": "Belägringen av Mekelle",
+      "plats": "Mekelle, Tigray, Etiopien",
+      "start": 1896,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": "Q2237609",
+      "kandidater": [
+        {
+          "fil": "File:Mekele 1896.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mekele_1896.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown but died more than 70 years ago",
+          "datum": "1896",
+          "datum_original": "1896",
+          "datum_fil": "2009-11-03 22:22:01",
+          "kredit": "http://miles.forumcommunity.net/?t=9366478",
+          "beskrivning": "The fort of Mekele in 1896, Ethiopian Empire",
+          "bredd": 687,
+          "hojd": 499,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Mekele_1896.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Macallè",
+            "Yohannes IV Palace in Mek'ele"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "freden-i-addis-abeba-1896",
+      "titel": "Freden i Addis Abeba",
+      "plats": "Addis Abeba, Etiopien",
+      "start": 1896,
+      "varldsdel": "Afrika",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2399119",
+      "soktext": "Peace of Addis Ababa Addis Ababa",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:African Logistics Forum - 2017, Addis Ababa, Ethiopia (34278248631).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:African_Logistics_Forum_-_2017,_Addis_Ababa,_Ethiopia_(34278248631).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "USAFRICOM from Stuttgart, Germany",
+          "datum": "2017-04-24 01:44",
+          "beskrivning": "AU Peace and Security Building named after Julius Nyerere, part of the African Union Conference Center in Addis Ababa",
+          "bredd": 6016,
+          "hojd": 4016,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/African_Logistics_Forum_-_2017%2C_Addis_Ababa%2C_Ethiopia_%2834278248631%29.jpg/960px-African_Logistics_Forum_-_2017%2C_Addis_Ababa%2C_Ethiopia_%2834278248631%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "African Union Conference Center in Addis Ababa",
+            "Kevin Nyerere"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Ban Ki-moon in Addis-Ababa, 30 January 2015 (15803604474).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ban_Ki-moon_in_Addis-Ababa,_30_January_2015_(15803604474).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "MONUSCO Photos",
+          "datum": "2015-02-02 10:48",
+          "beskrivning": "LEGENDE : Ban ki-Moon à Addis-Abeba, 30 janvier 15: « En République démocratique du Congo et dans la région des Grands Lacs, nous devons mener une action décisive, notamment neutraliser les Forces démocratiques de libération du Rwanda - les FDLR-, pour que la paix et la stabilité puissent être rétablies. Les signataires de l’Accord-cadre pour la paix, la sécurité et la coopération doivent tenir tous les engagements qu’ils ont pris. » UN Photo/Eskinder Debebe CAPTION: Ban Ki-moon in Addis-Ababa, 30 January 2015: “In the Democratic Republic of Congo and the Great Lakes region, we must carry out joint decisive action including neutralizing the Democratic Forces for the Liberation of Rwanda – the FDLR-. The signatories of the Peace, Security and Cooperation Framework Agreement must fully abide by their commitments.” UN Photo/Eskinder Debebe",
+          "bredd": 1024,
+          "hojd": 682,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Ban_Ki-moon_in_Addis-Ababa%2C_30_January_2015_%2815803604474%29.jpg/960px-Ban_Ki-moon_in_Addis-Ababa%2C_30_January_2015_%2815803604474%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ban Ki-moon in 2015"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Omar al-Bashir, 12th AU Summit, 090202-N-0506A-137 (cropped).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Omar_al-Bashir,_12th_AU_Summit,_090202-N-0506A-137_(cropped).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S. Navy photo by Mass Communication Specialist 2nd Class Jesse B. Awalt/Released)",
+          "datum": "2024-09-30 07:47:14",
+          "beskrivning": "Omar Hassan Ahmad al-Bashir, president of Sudan, sits in the Plenary Hall of the United Nations Conference Centre in Addis Ababa, Ethiopia, during the 12th African Union Summit Feb. 2, 2009. The assembly endorsed the communique, issued by the Peace and Security Council of the African Union, to defer the process initiated by the International Criminal Court to indict Bashir.",
+          "bredd": 2687,
+          "hojd": 3535,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Omar_al-Bashir%2C_12th_AU_Summit%2C_090202-N-0506A-137_%28cropped%29.jpg/960px-Omar_al-Bashir%2C_12th_AU_Summit%2C_090202-N-0506A-137_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Africa Hall (Addis Ababa)",
+            "African Union",
+            "Omar al-Bashir"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Omar al-Bashir, 12th AU Summit (3x4 cropped).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Omar_al-Bashir,_12th_AU_Summit_(3x4_cropped).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S. Navy photo by Mass Communication Specialist 2nd Class Jesse B. Awalt/Released)",
+          "datum": "2025-06-14 20:05:37",
+          "beskrivning": "Omar Hassan Ahmad al-Bashir, president of Sudan, sits in the Plenary Hall of the United Nations Conference Centre in Addis Ababa, Ethiopia, during the 12th African Union Summit Feb. 2, 2009. The assembly endorsed the communique, issued by the Peace and Security Council of the African Union, to defer the process initiated by the International Criminal Court to indict Bashir.",
+          "bredd": 2800,
+          "hojd": 3731,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Omar_al-Bashir%2C_12th_AU_Summit_%283x4_cropped%29.jpg/960px-Omar_al-Bashir%2C_12th_AU_Summit_%283x4_cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Africa Hall (Addis Ababa)",
+            "African Union",
+            "Omar al-Bashir"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Omar al-Bashir, 12th AU Summit, 090202-N-0506A-137.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Omar_al-Bashir,_12th_AU_Summit,_090202-N-0506A-137.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S. Navy photo by Mass Communication Specialist 2nd Class Jesse B. Awalt/Released)",
+          "datum": "2025-03-20 00:31:52",
+          "beskrivning": "Omar Hassan Ahmad al-Bashir, president of Sudan, sits in the Plenary Hall of the United Nations Conference Centre in Addis Ababa, Ethiopia, during the 12th African Union Summit Feb. 2, 2009. The assembly endorsed the communique, issued by the Peace and Security Council of the African Union, to defer the process initiated by the International Criminal Court to indict Bashir.",
+          "bredd": 2800,
+          "hojd": 3920,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Omar_al-Bashir%2C_12th_AU_Summit%2C_090202-N-0506A-137.jpg/960px-Omar_al-Bashir%2C_12th_AU_Summit%2C_090202-N-0506A-137.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Africa Hall (Addis Ababa)",
+            "African Union",
+            "Omar al-Bashir"
+          ],
+          "smal": false
+        }
+      ]
+    }
+  ]
+}

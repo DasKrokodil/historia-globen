@@ -1,5 +1,5 @@
-// Religionslagret (#2150): riken med ett kontrollerat år för kristnandet (christianSince) visas inte i en annan
-// religion efter det året, och de brittiska rikena (Brythonic Kingdoms, Brythons) får inte germansk religion när de
+// Religionslagret (#2150): riken med ett kontrollerat år för kristnandet (conversion med religionen kristendom, tidigare
+// christianSince, #2162) visas inte i en annan religion efter det året, och de brittiska rikena (Brythonic Kingdoms, Brythons) får inte germansk religion när de
 // ärver ett område efter de anglosaxiska rikena. Läser data/religions.json som tools/religioner.py har byggt.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -29,8 +29,9 @@ test('de anglosaxiska rikena har ett år för kristnandet med källa', () => {
   };
   for (const [name, year] of Object.entries(years)) {
     const p = register.get(name);
-    assert.equal(p?.christianSince, year, `${name}: christianSince`);
-    assert.ok(sourceIds.has(p.source), `${name}: källan ${p.source} finns inte i sources.json`);
+    assert.equal(p?.conversion?.religion, 'kristendom', `${name}: conversion.religion`);
+    assert.equal(p.conversion.since, year, `${name}: conversion.since`);
+    for (const id of p.conversion.sources) assert.ok(sourceIds.has(id), `${name}: källan ${id} finns inte i sources.json`);
   }
 });
 
@@ -53,14 +54,13 @@ test('de brittiska rikena har inte germansk religion', () => {
   assert.ok(religionsAt('(Brythonic Kingdoms)', 1000).includes('kristendom'));
 });
 
-test('inget rike med christianSince visas i en annan religion efter det året', () => {
+test('inget rike med religionsbyte (conversion) visas i en annan religion efter bytets år', () => {
   const fel = [];
   for (const r of data.religions) {
-    if (r.id === 'kristendom') continue;
     for (const s of r.snapshots) {
       for (const name of s.polities || []) {
-        const since = register.get(name)?.christianSince;
-        if (since != null && s.start >= since) fel.push(`${name} i ${r.id} ${s.start}–${s.end}`);
+        const c = register.get(name)?.conversion;
+        if (c && c.religion !== r.id && s.start >= c.since) fel.push(`${name} i ${r.id} ${s.start}–${s.end}`);
       }
     }
   }

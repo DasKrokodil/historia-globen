@@ -916,6 +916,8 @@
   "sources.uncertainBorder": "{name} : frontière incertaine (bord estompé)",
   "sources.factBox": "{name} : fiche d’information",
   "sources.christianisation": "{name} (christianisation)",
+  "sources.conversion": "{name} (changement de religion)",
+  "sources.religionOverride": "{name} (religion dans le calque)",
   "sources.religionAreas": "Religions : les zones suivent les frontières des empires dans Cliopatria",
   "sources.religionWiki": "Religions : religion de chaque empire (infobox de Wikipédia)",
   "sources.religionModern": "Religions : pays actuels depuis 1900",

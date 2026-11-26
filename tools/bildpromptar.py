@@ -48,6 +48,14 @@ ROCK_ART_RULE = (
 # Extra regler för enskilda händelser, utöver de allmänna
 EXTRA = {
     'hijra': 'Show only landscape, a caravan seen from a distance and architecture. No depiction of the Prophet Muhammad or other identifiable people.',
+    # Omtag (#2156): den första bilden gav köpmansstaden kupoler och minareter och kungens stad en kupollös borg. Enligt al-Bakris
+    # beskrivning (citerad i en.wikipedia "Koumbi Saleh") var husen av sten och akaciaträ och kupolerna fanns i kungens stad.
+    'al-bakri-beskriver-ghana': (
+        "Follow al-Bakri's description as quoted in the source: the houses are of stone and acacia wood. The domes belong to "
+        "the king's town: the king's palace and domed dwellings inside an enclosure like a city wall, with domed buildings, "
+        "groves and thickets around the town. Do not show minarets or towers anywhere, and do not put domes on the merchants' "
+        "town. Show a single scene of the two towns on the plain, with no inset pictures."
+    ),
 }
 
 

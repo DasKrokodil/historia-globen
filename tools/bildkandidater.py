@@ -4,11 +4,14 @@
 För händelser i data/handelser/ utan `image` (och utan review `draft`):
   1. Har händelsen ett Wikidata-id (`wikidata`) hämtas Wikidatas bild (P18) som Commons-filnamn.
      Utan id söks Commons (namnrymd File) efter titel och plats, högst fem träffar.
-  2. Varje kandidat får licens (bara public domain, CC0, CC BY, CC BY-SA räknas som tillåtna,
-     allt annat blir "avvisad" med skäl), upphovsperson, datum, bredd och höjd (minst 800 px
+  2. Varje kandidat får licens, klassad med samma regler som den strikta kontrollen i tools/bild_hamta.py
+     (tools/licens_commons.py, #2183): "trolig" när API:ets namn är public domain, CC0, CC BY eller CC BY-SA
+     (filsidans licensmall är då ännu inte läst), "flagga" när licensen inte känns igen (till exempel
+     "No restrictions") och måste bedömas av en människa, och "avvisad" med skäl. Dessutom upphovsperson, datum, bredd och höjd (minst 800 px
      bred, annars flaggan `smal`), filsidans adress och Commons-kategorier. Aldrig mer än det
      filsidan själv säger.
-  3. Resultatet skrivs till data/utkast/bildkandidater.json. Appen läser inte den filen. Alla
+  3. Resultatet skrivs till data/utkast/bildkandidater/<världsdel>-<period>.json (en fil per världsdel och
+     period i tools/tackning.py, så att körningar för olika delar inte krockar). Appen läser inte filerna. Alla
      kandidater är FÖRSLAG: öppna filsidan, kontrollera licensen och att bilden visar händelsen
      (inte en karta eller en nutida minnessten) innan den används (docs/bilder-riktiga.md).
 
@@ -38,11 +41,14 @@ import urllib.request
 from datetime import date
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from licens_commons import gissa  # noqa: E402  (samma licensklassning som bild_hamta.py, #2183)
+
 ROOT = Path(__file__).resolve().parent.parent
-UTKAST = ROOT / 'data' / 'utkast' / 'bildkandidater.json'
+UTKAST = ROOT / 'data' / 'utkast' / 'bildkandidater'
 SAKNAS = ROOT / 'docs' / 'bilder-saknas.md'
 
-USER_AGENT = 'HistoriaGlobenBildkandidater/1.0 (hobbyprojekt med öppen källkod; klient: Claude Code)'
+USER_AGENT = 'HistoriaGlobenBildkandidater/1.1 (https://github.com/DasKrokodil/historia-globen; tools/bildkandidater.py)'
 WIKIDATA_API = 'https://www.wikidata.org/w/api.php'
 COMMONS_API = 'https://commons.wikimedia.org/w/api.php'
 BATCH = 50
@@ -54,12 +60,13 @@ MAX_SOK = 5
 MAX_P18 = 3  # fler än tre bilder på samma post är sällsynt; de första (föredragna) räcker som förslag
 THUMB = 960
 
-SCHEMA = 'historia-globen/bildkandidater@1'
+SCHEMA = 'historia-globen/bildkandidater@2'
 ANMARKNING = (
     'FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan '
     'någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva '
     'händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det '
-    'filsidan säger. Licensklassningen är en grov automatisk gissning. Appen läser inte den här filen '
+    'filsidan säger. Licensklassningen är en automatisk gissning ur Commons API ("trolig"); filsidans '
+    'licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och "flagga" avgörs av en människa. Appen läser inte den här filen '
     '(data/utkast/). Se docs/bilder-riktiga.md.'
 )
 
@@ -171,6 +178,31 @@ def region_funktion():
     return mod.region
 
 
+_TACKNING = None
+
+
+def tackning():
+    """tools/tackning.py (världsdel och period med samma regler som täckningsrapporten), laddad en gång."""
+    global _TACKNING
+    if _TACKNING is None:
+        spec = importlib.util.spec_from_file_location('tackning', ROOT / 'tools' / 'tackning.py')
+        _TACKNING = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(_TACKNING)
+    return _TACKNING
+
+
+def del_av(e):
+    """(världsdel, period-id) för en händelse, som i tools/tackning.py."""
+    t = tackning()
+    lon, lat = e['location']['coordinates'][:2]
+    return t.region(lat, lon), t.period_of(e['start'])
+
+
+def filnamn(varldsdel, period):
+    """Kandidatfilens namn för en världsdel och period, till exempel afrika-medeltid.json."""
+    return f'{varldsdel.lower()}-{period}.json'
+
+
 def las_handelser(handelser_dir):
     ut = []
     for f in sorted(Path(handelser_dir).glob('*.json')):
@@ -259,28 +291,9 @@ def rensa(text):
 
 
 def klassa_licens(kort, extmeta=None):
-    """(klass, status, skäl). klass: public-domain, cc0, cc-by, cc-by-sa eller None.
-    Status 'ok' (får vara kandidat) eller 'avvisad' med skäl. Grov gissning: filsidan avgör."""
-    extmeta = extmeta or {}
-    text = ' '.join(str(x) for x in (kort, extmeta.get('License', {}).get('value'),
-                                     extmeta.get('UsageTerms', {}).get('value')) if x).lower()
-    if not kort and not text:
-        return None, 'avvisad', 'licens saknas i filsidans metadata'
-    if extmeta.get('NonFree', {}).get('value') in ('true', True, '1'):
-        return None, 'avvisad', 'markerad som icke-fri på Commons'
-    if re.search(r'\b(nc|noncommercial|non-commercial)\b|[-\s]nd\b|noderiv', text):
-        return None, 'avvisad', f'licensen tillåter inte kommersiell användning eller bearbetning ({kort})'
-    if re.search(r'all rights reserved|fair use|copyrighted|non-free|egen licens', text):
-        return None, 'avvisad', f'inte fri licens ({kort})'
-    if 'cc0' in text or 'cc-zero' in text or 'cc zero' in text:
-        return 'cc0', 'ok', None
-    if re.search(r'public domain|\bpd\b|pd-|pdm|no known copyright|ingen upphovsrätt', text):
-        return 'public-domain', 'ok', None
-    if re.search(r'cc[-\s]?by[-\s]?sa', text):
-        return 'cc-by-sa', 'ok', None
-    if re.search(r'cc[-\s]?by\b', text):
-        return 'cc-by', 'ok', None
-    return None, 'avvisad', f'licensen är inte en av de tillåtna (public domain, CC0, CC BY, CC BY-SA): {kort or text}'
+    """(klass, status, skäl). klass: public-domain, cc0, cc-by, cc-by-sa eller None. Status trolig | flagga | avvisad.
+    Samma klassning som den strikta kontrollen (tools/licens_commons.py, #2183); filsidans licensmall avgör."""
+    return gissa(kort, extmeta)
 
 
 def kandidat_ur_sida(sida, kalla):
@@ -308,6 +321,9 @@ def kandidat_ur_sida(sida, kalla):
         'licensadress': ev('LicenseUrl'),
         'upphovsperson': ev('Artist'),
         'datum': ev('DateTimeOriginal') or ev('DateTime'),
+        'datum_original': ev('DateTimeOriginal'),  # verkets eller fotots datum enligt filsidan (#2193)
+        'datum_fil': ev('DateTime'),               # filens datum, ofta uppladdningen
+        'kredit': ev('Credit'),
         'beskrivning': ev('ImageDescription'),
         'bredd': bredd,
         'hojd': hojd,
@@ -317,7 +333,7 @@ def kandidat_ur_sida(sida, kalla):
         'smal': bool(bredd is not None and bredd < MIN_BREDD),
     }
     if skal:
-        k['avvisad_skal'] = skal
+        k['licens_skal'] = skal
     return k
 
 
@@ -385,9 +401,11 @@ def kor(handelser, klient, idag=None, log=None):
     med_id = [e for e in handelser if e.get('wikidata')]
     utan_id = [e for e in handelser if not e.get('wikidata')]
     for e in handelser:
+        varldsdel, period = del_av(e)
         poster[e['id']] = {
             'id': e['id'], 'titel': (e.get('title') or {}).get('sv'),
             'plats': (e.get('place') or {}).get('sv'), 'start': e['start'],
+            'varldsdel': varldsdel, 'period': period, 'hamtad': idag,
             'review': e.get('review'), 'wikidata': e.get('wikidata'), 'kandidater': []}
 
     def ej(eid, kod):
@@ -434,35 +452,75 @@ def kor(handelser, klient, idag=None, log=None):
     return poster
 
 
-def skriv(sokvag, nya, urval_text, idag=None):
-    """Skriver utkastfilen. Befintliga poster för andra händelser behålls (en bit i taget)."""
-    sokvag = Path(sokvag)
-    poster = {}
-    if sokvag.exists():
-        try:
-            for p in json.loads(sokvag.read_text(encoding='utf-8')).get('handelser', []):
-                poster[p['id']] = p
-        except (OSError, ValueError, KeyError):
-            pass
-    poster.update(nya)
-    lista = sorted(poster.values(), key=lambda p: (p['start'], p['id']))
+def raknare(lista):
     allt = [k for p in lista for k in p['kandidater']]
-    doc = {
-        'schema': SCHEMA,
-        'status': 'förslag',
-        'anmarkning': ANMARKNING,
-        'generated': {
-            'date': idag or date.today().isoformat(), 'senaste_urval': urval_text,
-            'handelser': len(lista), 'kandidater': len(allt),
-            'tillatna': sum(1 for k in allt if k['licensstatus'] == 'ok'),
-            'avvisade': sum(1 for k in allt if k['licensstatus'] == 'avvisad'),
-            'smala': sum(1 for k in allt if k['smal']),
-            'ej_hamtade': sum(1 for p in lista if 'ej_hamtad' in p)},
-        'handelser': lista,
-    }
+    return {
+        'handelser': len(lista), 'kandidater': len(allt),
+        'troliga': sum(1 for k in allt if k['licensstatus'] == 'trolig'),
+        'flaggade': sum(1 for k in allt if k['licensstatus'] == 'flagga'),
+        'avvisade': sum(1 for k in allt if k['licensstatus'] == 'avvisad'),
+        'smala': sum(1 for k in allt if k['smal']),
+        'ej_hamtade': sum(1 for p in lista if 'ej_hamtad' in p)}
+
+
+def skriv_fil(sokvag, poster_i_filen):
+    """Skriver en kandidatfil (en världsdel och period). Deterministisk: inget körningsdatum i filen
+    (varje händelse har sitt eget `hamtad`), poster i år- och id-ordning."""
+    lista = sorted(poster_i_filen, key=lambda p: (p['start'], p['id']))
+    doc = {'schema': SCHEMA, 'status': 'förslag', 'anmarkning': ANMARKNING, 'generated': raknare(lista),
+           'handelser': lista}
     sokvag.parent.mkdir(parents=True, exist_ok=True)
     sokvag.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     return doc
+
+
+def las_mapp(mapp):
+    """{id: post} ur alla kandidatfiler i mappen."""
+    poster = {}
+    for f in sorted(Path(mapp).glob('*.json')):
+        try:
+            for p in json.loads(f.read_text(encoding='utf-8')).get('handelser', []):
+                poster[p['id']] = p
+        except (OSError, ValueError, KeyError):
+            continue
+    return poster
+
+
+def skriv(mapp, nya, urval_text, idag=None):
+    """Skriver de kandidatfiler som de nya posterna hör till. Befintliga poster för andra händelser behålls (en bit i
+    taget), och filer för andra världsdelar och perioder rörs inte. Returnerar en sammanställning av de filer som skrevs."""
+    mapp = sakra_utkastvag(Path(mapp))
+    per_fil = {}
+    for p in nya.values():
+        per_fil.setdefault(filnamn(p['varldsdel'], p['period']), {})[p['id']] = p
+    alla = []
+    for namn, bit in sorted(per_fil.items()):
+        fil = mapp / namn
+        poster = {}
+        if fil.exists():
+            try:
+                for p in json.loads(fil.read_text(encoding='utf-8')).get('handelser', []):
+                    poster[p['id']] = p
+            except (OSError, ValueError, KeyError):
+                pass
+        poster.update(bit)
+        alla += skriv_fil(fil, poster.values())['handelser']
+    alla.sort(key=lambda p: (p['start'], p['id']))
+    return {'schema': SCHEMA, 'status': 'förslag', 'anmarkning': ANMARKNING, 'senaste_urval': urval_text,
+            'filer': sorted(per_fil), 'generated': raknare(alla), 'handelser': alla}
+
+
+def sakra_utkastvag(vag):
+    """Utdata får bara hamna under data/utkast/ (grinden i beslutet 2026-11-22). Undantag: en tillfällig mapp i prov,
+    som anges med miljövariabeln HISTORIA_GLOBEN_PROV_UT."""
+    rot = (ROOT / 'data' / 'utkast').resolve()
+    v = Path(vag).resolve()
+    prov = os.environ.get('HISTORIA_GLOBEN_PROV_UT')
+    if v == rot or rot in v.parents:
+        return v
+    if prov and (v == Path(prov).resolve() or Path(prov).resolve() in v.parents):
+        return v
+    raise SystemExit(f'Utdata får bara skrivas under data/utkast/, inte {vag}')
 
 
 SPARA_VAR = 50  # utdatafilen sparas efter var 50:e händelse, så att ett avbrott inte tappar allt
@@ -497,7 +555,7 @@ def main(argv=None, klient=None):
                     help='hoppa över id som står i docs/bilder-saknas.md (redan prövade)')
     ap.add_argument('--offline', action='store_true', help='bara cachen, inget nätverk')
     ap.add_argument('--cache-dir', help=f'cachekatalog (standard {cache_katalog()})')
-    ap.add_argument('--ut', default=str(UTKAST), help='utdatafil (standard data/utkast/bildkandidater.json)')
+    ap.add_argument('--ut', default=str(UTKAST), help='utdatamapp (standard data/utkast/bildkandidater/, en fil per världsdel och period)')
     ap.add_argument('--sammanfattning', help='skriv antal händelser med/utan kandidater och ej hämtade som JSON hit')
     ap.add_argument('--handelser', default=str(ROOT / 'data' / 'handelser'), help=argparse.SUPPRESS)
     a = ap.parse_args(argv)
@@ -521,8 +579,8 @@ def main(argv=None, klient=None):
     if a.sammanfattning:
         Path(a.sammanfattning).write_text(json.dumps(sammanfatta(poster)) + '\n', encoding='utf-8')
     g = doc['generated']
-    print(f'Skrev {a.ut}: {len(poster)} händelser i den här körningen, {g["kandidater"]} kandidater totalt '
-          f'({g["tillatna"]} tillåtna, {g["avvisade"]} avvisade, {g["smala"]} smalare än {MIN_BREDD} px), '
+    print(f'Skrev {", ".join(doc["filer"])} i {a.ut}: {len(poster)} händelser i den här körningen, {g["kandidater"]} kandidater i de '
+          f'filerna ({g["troliga"]} troliga, {g["flaggade"]} flaggade, {g["avvisade"]} avvisade, {g["smala"]} smalare än {MIN_BREDD} px), '
           f'{sum(1 for p in poster.values() if "ej_hamtad" in p)} ej hämtade. '
           f'{klient.anrop} nätverksanrop.', file=sys.stderr)
     return 0

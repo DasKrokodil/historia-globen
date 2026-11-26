@@ -4,9 +4,12 @@
 Faktarutornas texter är delade i stycken vid ";" och ",". En rubrik som "State and majority" eller "Official:" står då
 som eget stycke och religionen i nästa. Provet kontrollerar att sådana rubriker ger regeln "officiell" (säker), och att
 stycken som inte betyder statsreligion inte gör det. Texterna nedan är faktarutornas egna texter ur data/religions.json.
+Provet kontrollerar också rutan som klipper bort Cliopatrias USA-del över södra Vietnam (KLIPP, #2162) och religionsbytet
+per rike (conversion, #2162).
 Körs i CI utan shapely: python3 -I tests/religioner-test.py
 """
 import importlib.util
+import re
 import sys
 import types
 from pathlib import Path
@@ -68,7 +71,68 @@ for text, want in FALL:
     got = classify(text)
     check(got == want, f'classify({text!r}) gav {got}, väntat {want}')
 
+# Rikesdelar som Cliopatria har fel (#2162): USA:s del över södra Vietnam klipps bort 1967–2005 med samma ruta som
+# VIETNAM_USA i tools/riken.py (#2151). Finns rutan i riken.py ska den vara lika; annars kontrolleras rutan som den är.
+klipp = {namn: (fran, till, ruta) for namn, fran, till, ruta in religioner.KLIPP}
+check(klipp.get('United States of America') == (1967, 2005, (103.0, 8.0, 110.5, 17.6)),
+      f"USA:s ruta över södra Vietnam är {klipp.get('United States of America')}")
+m = re.search(r'^VIETNAM_USA\s*=\s*\(([^)]*)\)', (ROOT / 'tools/riken.py').read_text(), re.M)
+if m:
+    ruta = tuple(float(x) for x in m.group(1).split(','))
+    check(klipp['United States of America'][2] == ruta,
+          f"rutan {klipp['United States of America'][2]} är inte VIETNAM_USA {ruta} i tools/riken.py")
+try:
+    religioner.klipp('United States of America', 1960, 1970, None)
+    check(False, 'klipp godtar en period som bara delvis ligger inom rutans år')
+except ValueError:
+    pass
+check(religioner.klipp('United States of America', 2006, 2023, 'orörd') == 'orörd', 'klipp ändrar USA efter 2005')
+check(religioner.klipp('Republic of Vietnam', 1973, 1975, 'orörd') == 'orörd', 'klipp ändrar ett annat rike')
+
+# Handplockat val per rike (religionOverride, #2140): en känd religion och minst en källa, annars stoppas bygget
+override_religion = religioner.override_religion
+check(override_religion('X', {'religion': 'germansk', 'sources': ['wp-hwicce']}) == 'germansk',
+      'religionOverride med känd religion och källa ger inte religionen')
+for bad in ({'religion': 'okand', 'sources': ['a']}, {'religion': 'germansk'}, {'religion': 'germansk', 'sources': []},
+            {'religion': 'germansk', 'sources': ['']}, {'religion': 'germansk', 'sources': 'a'}):
+    try:
+        override_religion('X', bad)
+        fel.append(f'religionOverride {bad!r} stoppar inte bygget')
+    except ValueError:
+        pass
+
+# Religionsbyte per rike (conversion, #2162): en känd religion, ett år och minst en källa, annars stoppas bygget
+conversion = religioner.conversion
+check(conversion('X', {'religion': 'islam', 'since': 1076, 'sources': ['wp-ghana-empire']}) == ('islam', 1076),
+      'conversion med religion, år och källa ger inte (religion, år)')
+for bad in ({'religion': 'okand', 'since': 1, 'sources': ['a']}, {'religion': 'islam', 'sources': ['a']},
+            {'religion': 'islam', 'since': '1076', 'sources': ['a']}, {'religion': 'islam', 'since': True, 'sources': ['a']},
+            {'religion': 'islam', 'since': 1076}, {'religion': 'islam', 'since': 1076, 'sources': []},
+            {'religion': 'islam', 'since': 1076, 'sources': ['a'], 'note': {'en': 'x'}}):
+    try:
+        conversion('X', bad)
+        fel.append(f'conversion {bad!r} stoppar inte bygget')
+    except ValueError:
+        pass
+
+
+def rad(text, conv=None):
+    entry = {'name': 'X', **({'conversion': conv} if conv else {})}
+    return religioner.Row({'FromYear': 0, 'ToYear': 2000, 'Name': 'X'}, None, {'text': text}, entry)
+
+
+# Samma regel som det äldre christianSince: före året texten, utom när texten redan gav samma religion
+ghana = rad('African traditional religion ; Later Islam', {'religion': 'islam', 'since': 1076, 'sources': ['a']})
+check(ghana.religion_at(1050) == ('afrikansk', False), f'Ghana 1050 gav {ghana.religion_at(1050)}')
+check(ghana.religion_at(1100) == ('islam', True), f'Ghana 1100 gav {ghana.religion_at(1100)}')
+check(rad('African traditional religion ; Later Islam').religion_at(1100) == ('afrikansk', False),
+      'Ghana utan conversion ändras')
+alodia = rad('Coptic Orthodox Christianity ; Traditional African religion', {'religion': 'kristendom', 'since': 580, 'sources': ['a']})
+check(alodia.religion_at(500) == (None, False), f'Alodia 500 gav {alodia.religion_at(500)}')
+check(alodia.religion_at(600) == ('kristendom', True), f'Alodia 600 gav {alodia.religion_at(600)}')
+
 if fel:
     print('\n'.join(fel))
     sys.exit(1)
-print(f'religioner: {len(FALL)} faktarutor och rubrikerna klassas rätt')
+print(f'religioner: {len(FALL)} faktarutor och rubrikerna klassas rätt, USA:s del över södra Vietnam klipps bort, '
+      'och religionsbytet (conversion) följer regeln')

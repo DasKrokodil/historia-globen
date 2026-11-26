@@ -1,0 +1,551 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 15,
+    "kandidater": 14,
+    "troliga": 14,
+    "flaggade": 0,
+    "avvisade": 0,
+    "smala": 7,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "funjsultanatet-grundas",
+      "titel": "Funjsultanatet grundas i Sennar",
+      "plats": "Sennar vid Blå Nilen (i dag Sudan)",
+      "start": 1504,
+      "varldsdel": "Afrika",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": "Q1475713",
+      "kandidater": [],
+      "soktext": "The Funj Sultanate is founded at Sennar",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ]
+    },
+    {
+      "id": "afonso-i-kung-av-kongo",
+      "titel": "Afonso I blir kung av Kongo",
+      "plats": "Mbanza Kongo, kungadömet Kongo (i dag Angola)",
+      "start": 1509,
+      "varldsdel": "Afrika",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q383455",
+      "kandidater": [
+        {
+          "fil": "File:Manikongo.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Manikongo.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Affricoll9",
+          "datum": "2019-12-22",
+          "beskrivning": "Roy du Kongo",
+          "bredd": 384,
+          "hojd": 551,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/b/be/Manikongo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Kongolese royalty"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Coat of arms of Kongo.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Kongo.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Samhanin",
+          "datum": "2017-01-02",
+          "beskrivning": "Coat of arms of Kongo (c. 1528-1541)",
+          "bredd": 344,
+          "hojd": 484,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Coat_of_arms_of_Kongo.svg/960px-Coat_of_arms_of_Kongo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Arms with sword in heraldry",
+            "Crosses flory argent",
+            "Gules a chief azure",
+            "Manicongo arms in Livro da Perfeição das Armas",
+            "SVG coats of arms of Portuguese Angola",
+            "Shells in heraldry"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "atlantiska-slavhandeln",
+      "titel": "Den transatlantiska slavhandeln",
+      "plats": "Väst- och Centralafrika till Amerika (Gorée, Senegal, som exempel)",
+      "start": 1519,
+      "varldsdel": "Afrika",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q10701282",
+      "kandidater": [
+        {
+          "fil": "File:Slaveshipposter.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Slaveshipposter.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Plymouth Chapter of the Society for Effecting the Abolition of the Slave Trade",
+          "datum": "1788-12",
+          "beskrivning": "Stowage of the British slave ship Brookes under the regulated slave trade act of 1788.",
+          "bredd": 3952,
+          "hojd": 4672,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Slaveshipposter.jpg/960px-Slaveshipposter.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "18th-century technical drawings",
+            "Atlantic slave trade",
+            "Brookes (ship, 1781)",
+            "General arrangements of slave ships"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "etiopisk-adalska-kriget",
+      "titel": "Etiopisk-adalska kriget",
+      "plats": "Etiopiska kejsardömet, i dag Etiopien och Eritrea (började i Dawaro)",
+      "start": 1529,
+      "varldsdel": "Afrika",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2915203",
+      "kandidater": [
+        {
+          "fil": "File:YagbeaSionBattlingAdaSultan.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:YagbeaSionBattlingAdaSultan.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "15 th century date QS:P,+1450-00-00T00:00:00Z/7",
+          "beskrivning": "Yagbea Sion Battling the sultan of Adem(Adal).",
+          "bredd": 2379,
+          "hojd": 1524,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/YagbeaSionBattlingAdaSultan.JPG/960px-YagbeaSionBattlingAdaSultan.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1294 deaths",
+            "Adal Sultanate",
+            "Monarchs of Ethiopia",
+            "Royal families",
+            "Royalty of Ethiopia",
+            "Yagbe'u Seyon"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-shimbra-kure",
+      "titel": "Slaget vid Shimbra Kure",
+      "plats": "Shimbra Kure i Dawaro, Etiopiska kejsardömet (exakt plats okänd)",
+      "start": 1529,
+      "varldsdel": "Afrika",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2889965",
+      "soktext": "The Battle of Shimbra Kure",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Illustration of Ahmad Gragn at war.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Illustration_of_Ahmad_Gragn_at_war.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Richard Pankhurst",
+          "datum": "1997-09-29",
+          "beskrivning": "An Ethiopian illustration depicting Ahmad ibn Ibrahim waging war against the Abyssinians",
+          "bredd": 2011,
+          "hojd": 1322,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Illustration_of_Ahmad_Gragn_at_war.jpg/960px-Illustration_of_Ahmad_Gragn_at_war.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battles of the Ethiopian–Adal War"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:YagbeaSionBattlingAdaSultan.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:YagbeaSionBattlingAdaSultan.JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "15 th century date QS:P,+1450-00-00T00:00:00Z/7",
+          "beskrivning": "Yagbea Sion Battling the sultan of Adem(Adal).",
+          "bredd": 2379,
+          "hojd": 1524,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/YagbeaSionBattlingAdaSultan.JPG/960px-YagbeaSionBattlingAdaSultan.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1294 deaths",
+            "Adal Sultanate",
+            "Monarchs of Ethiopia",
+            "Royal families",
+            "Royalty of Ethiopia",
+            "Yagbe'u Seyon"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-amba-sel",
+      "titel": "Slaget vid Amba Sel",
+      "plats": "Ambassel i Amhara, Etiopien",
+      "start": 1531,
+      "varldsdel": "Afrika",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2887837",
+      "soktext": "The Battle of Amba Sel Ambassel in Amhara",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "slaget-vid-antukyah",
+      "titel": "Slaget vid Antukyah",
+      "plats": "Antukyah vid kanten av de etiopiska högländerna, i dag distriktet Antsokiya och Gemza",
+      "start": 1531,
+      "varldsdel": "Afrika",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2887867",
+      "soktext": "The Battle of Antukyah",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Adal.PNG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Adal.PNG",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Jolle",
+          "datum": "2008-08-20 16:05:26",
+          "beskrivning": "Adal Sultanate and Aksum circa 1500",
+          "bredd": 485,
+          "hojd": 500,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/22/Adal.PNG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Maps of the Adal Sultanate",
+            "Maps of the Ethiopian Empire",
+            "Precolonial history",
+            "Somalia in the 16th century"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "portugiserna-landstiger-i-massawa",
+      "titel": "Portugisisk hjälp når Etiopien",
+      "plats": "Massawa vid Röda havet, i dag Eritrea",
+      "start": 1541,
+      "varldsdel": "Afrika",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": null,
+      "kandidater": [],
+      "soktext": "Portuguese help reaches Ethiopia"
+    },
+    {
+      "id": "slaget-vid-wofla",
+      "titel": "Slaget vid Wofla",
+      "plats": "Wofla (Ofla) nära sjön Ashenge, Tigray",
+      "start": 1542,
+      "varldsdel": "Afrika",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": "Q835180",
+      "kandidater": [
+        {
+          "fil": "File:Burning of churches by the Adalites and the execution of Cristóvão da Gama.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Burning_of_churches_by_the_Adalites_and_the_execution_of_Crist%C3%B3v%C3%A3o_da_Gama.png",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Kegneketa Jemlieri Hailu of Gondar (fl.1900)",
+          "datum": "1900",
+          "datum_original": "1900",
+          "datum_fil": "2025-02-02 15:05:49",
+          "kredit": "Horniman Museum, London, UK. Photographic Rights The Bridgeman Art Library.",
+          "beskrivning": "The execution of Cristóvão da Gama by Ahmad Gragn",
+          "bredd": 2258,
+          "hojd": 786,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Burning_of_churches_by_the_Adalites_and_the_execution_of_Crist%C3%B3v%C3%A3o_da_Gama.png/960px-Burning_of_churches_by_the_Adalites_and_the_execution_of_Crist%C3%B3v%C3%A3o_da_Gama.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [],
+          "smal": false
+        },
+        {
+          "fil": "File:FallAhmedGragn.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:FallAhmedGragn.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kegneketa Jemlieri Hailu of Gondar (fl.1900)",
+          "datum": "1900",
+          "datum_original": "1900",
+          "datum_fil": "2017-09-06 16:47:06",
+          "kredit": "Horniman Museum, London, UK. Photographic Rights The Bridgeman Art Library.",
+          "beskrivning": "Burning of Churches Muslims and the Death of Cristobal de Gama and the Fall and Death of Ahmad ibn Ibrahim al-Ghazi Shot by a Portuguese Musketeer",
+          "bredd": 588,
+          "hojd": 399,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/55/FallAhmedGragn.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Ahmad ibn Ibrahim al-Ghazi",
+            "Paintings"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Adal.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Adal.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "אליש 00:53, 6 בדצמבר 2007 (IST)",
+          "datum": "6 בדצמבר 2007",
+          "datum_original": "6 בדצמבר 2007",
+          "datum_fil": "2012-01-06 07:28:34",
+          "kredit": "נוצר על ידי משתמש:אדעולם ,",
+          "beskrivning": "The Horn of Africa on the eve of the Battle of Adal in 1529. The Ethiopian Empire (Christians, in orange) and Adal (Muslims, in green).",
+          "bredd": 600,
+          "hojd": 532,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/de/Adal.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1529 in Africa",
+            "Maps of Africa in the 16th century",
+            "Maps of the Adal Sultanate",
+            "Maps of the Ethiopian Empire",
+            "Maps showing 1529"
+          ],
+          "smal": true
+        }
+      ],
+      "soktext": "The Battle of Wofla",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ]
+    },
+    {
+      "id": "oyoriket",
+      "titel": "Oyoriket blir en stormakt",
+      "plats": "Oyo-Ile (Gamla Oyo), rikets huvudstad, i dagens Nigeria",
+      "start": 1608,
+      "varldsdel": "Afrika",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q849623",
+      "kandidater": [
+        {
+          "fil": "File:Palace of Alaafin of Oyo circa mid-1900s.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Palace_of_Alaafin_of_Oyo_circa_mid-1900s.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "The African History",
+          "datum": "mid 1900s",
+          "beskrivning": "Palace of Alaafin of Oyo circa mid-1900s",
+          "bredd": 500,
+          "hojd": 351,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/52/Palace_of_Alaafin_of_Oyo_circa_mid-1900s.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Oyo Empire"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "fogo-utbrottet-1680",
+      "titel": "Vulkanen Fogo får ett stort utbrott",
+      "plats": "Pico do Fogo på ön Fogo, Kap Verde",
+      "start": 1680,
+      "varldsdel": "Afrika",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-22",
+      "review": "source-checked",
+      "wikidata": null,
+      "kandidater": [],
+      "soktext": "Major eruption of the Fogo volcano"
+    },
+    {
+      "id": "rozviriket",
+      "titel": "Rozviriket på Zimbabweplatån",
+      "plats": "Zimbabweplatån (i dag Zimbabwe)",
+      "start": 1683,
+      "varldsdel": "Afrika",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q986822",
+      "soktext": "The Rozvi Empire on the Zimbabwe Plateau",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "asanteriket-grundas",
+      "titel": "Asanteriket växer fram",
+      "plats": "Kumasi (i dag Ghana)",
+      "start": 1701,
+      "varldsdel": "Afrika",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q722071",
+      "kandidater": [
+        {
+          "fil": "File:Asante map.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Asante_map.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2007-10-16 20:10:40",
+          "beskrivning": null,
+          "bredd": 428,
+          "hojd": 477,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Asante_map.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "19th-century maps of Africa",
+            "19th-century maps of Ghana",
+            "Ashanti Empire"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "dahomey-erovrar-ouidah",
+      "titel": "Dahomey erövrar hamnstaden Ouidah",
+      "plats": "Ouidah (Whydah) vid kusten (i dag Benin)",
+      "start": 1727,
+      "varldsdel": "Afrika",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q562291",
+      "kandidater": [
+        {
+          "fil": "File:Emblème du roi Agadja-Musée africain de Lyon.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Embl%C3%A8me_du_roi_Agadja-Mus%C3%A9e_africain_de_Lyon.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Ji-Elle",
+          "datum": "2016-02-23 15:42:34",
+          "beskrivning": "Emblème du roi Agadja. Fon, Bénin, fin du XVIIIe s. Bois et argent, 23 cm. Musée africain de Lyon",
+          "bredd": 3240,
+          "hojd": 4320,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Embl%C3%A8me_du_roi_Agadja-Mus%C3%A9e_africain_de_Lyon.jpg/960px-Embl%C3%A8me_du_roi_Agadja-Mus%C3%A9e_africain_de_Lyon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "18th-century art",
+            "Agadja",
+            "Collections of the Musée africain de Lyon",
+            "Fon people"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "andrianampoinimerina-enar-imerina",
+      "titel": "Andrianampoinimerina enar Imerina",
+      "plats": "Ambohimanga på Madagaskars högland",
+      "start": 1787,
+      "varldsdel": "Afrika",
+      "period": "tidigmodern",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q218622",
+      "kandidater": [
+        {
+          "fil": "File:Andrianampoinimerina HQ.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Andrianampoinimerina_HQ.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Philippe-Auguste Ramanankirahina (1860-1915)",
+          "datum": "1905",
+          "beskrivning": "King Andrianampoinimerina of Madagascar",
+          "bredd": 1073,
+          "hojd": 1297,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Andrianampoinimerina_HQ.jpg/960px-Andrianampoinimerina_HQ.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Andrianampoinimerina",
+            "Ramanankirahina"
+          ],
+          "smal": false
+        }
+      ]
+    }
+  ]
+}

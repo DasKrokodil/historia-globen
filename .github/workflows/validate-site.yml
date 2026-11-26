@@ -12,6 +12,13 @@ on:
 permissions:
   contents: read
 
+# En körning per gren eller pull request (#2211): en ny push till samma pull request, eller till main, avbryter den
+# äldre körningen, så att kön inte fylls av valideringar av commits som redan är ersatta. Samma mönster som i
+# browser-test.yml. github.ref är refs/pull/<N>/merge för en pull request och refs/heads/main för en push.
+concurrency:
+  group: validera-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate:
     name: Bygg och validera dist/
@@ -49,6 +56,15 @@ jobs:
         run: python3 -I tests/bilder-in-test.py
       - name: Kontrollera att bildkandidater.py hittar, klassar och flaggar kandidater med inspelade svar och hoppar över draft och händelser med bild (#2119)
         run: python3 -I tests/bildkandidater-test.py
+      - name: Kontrollera att bildbatch.py flaggar och ordnar kandidater, skriver granskningslistan och bara skriver under data/utkast/ (#2183)
+        run: python3 -I tests/bildbatch-test.py
+      - name: Kontrollera att pipelinegrenar bara ändrar data/utkast/ och att faktautkast är draft utan text (#2183)
+        env:
+          GITHUB_HEAD_REF: ${{ github.head_ref }}
+        run: |
+          # Sammanslagningscommitten för pull requesten och dess föräldrar behövs för git diff HEAD^1 HEAD.
+          if [ -n "$GITHUB_HEAD_REF" ]; then git fetch --no-tags --depth=2 origin "$GITHUB_SHA" || true; fi
+          python3 -I tests/utkast-grans-test.py
       - name: Kontrollera att bild_hamta.py bedömer licenser, hanterar 429 och bygger källpost och webp med inspelade svar (#2118)
         run: |
           python3 -m pip install pillow

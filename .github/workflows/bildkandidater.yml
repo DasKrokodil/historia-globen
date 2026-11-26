@@ -3,7 +3,7 @@
 # tappar de andra; period och gräns är valfria (tomt = ingen gräns). Skriptet sparar filen löpande.
 # Bara workflow_dispatch (Actions-fliken, "Run workflow"): ingen schedule och ingen push- eller pull_request-trigger.
 # Kandidaterna är FÖRSLAG som måste kontrolleras manuellt (docs/bilder-riktiga.md). Flödet ändrar inga fakta och
-# rör bara data/utkast/bildkandidater.json, som appen inte läser. Inga hemligheter används; skriptet anropar
+# rör bara data/utkast/bildkandidater/ (en fil per världsdel och period, #2183), som appen inte läser. Inga hemligheter används; skriptet anropar
 # bara Wikidata och Wikimedia Commons med en generisk User-Agent.
 # Grenen heter bildkandidater/<körnings-id> och skickas aldrig med force. Får GITHUB_TOKEN inte skapa pull requests
 # (repots inställning "Allow GitHub Actions to create and approve pull requests") lämnas grenen och en
@@ -109,8 +109,8 @@ jobs:
         if: always()
         run: |
           set -euo pipefail
-          fil=data/utkast/bildkandidater.json
-          if [ ! -s "$fil" ] || { git diff --quiet -- "$fil" && [ -z "$(git ls-files --others --exclude-standard -- "$fil")" ] && ! git check-ignore -q "$fil" ; }; then
+          fil=data/utkast/bildkandidater
+          if [ -z "$(git status --porcelain -- "$fil")" ]; then
             echo "Ingen ny kandidatlista skapades; ingen gren eller pull request." | tee -a "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
@@ -121,6 +121,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$gren"
+          # Grinden (#2183): bara data/utkast/ får vara ändrat. Något annat stoppar körningen före commit.
+          andra=$(git status --porcelain | grep -v ' data/utkast/' || true)
+          if [ -n "$andra" ]; then echo "::error::Körningen ändrade filer utanför data/utkast/:"; echo "$andra"; exit 1; fi
           git add -f "$fil"
           git commit -m "$rubrik"
           git push origin "$gren"
@@ -134,9 +137,9 @@ jobs:
             if [ -s "$RUNNER_TEMP/regioner.md" ]; then cat "$RUNNER_TEMP/regioner.md"; else echo "Ingen sammanfattning finns (körningen avbröts innan någon världsdel var klar)."; fi
             echo
             cat <<'TEXT'
-          **Kandidaterna är förslag och måste kontrolleras manuellt.** För varje kandidat finns filsidan på Wikimedia Commons, licensen (en grov automatisk klassning), upphovsperson och motiv. Öppna filsidan, läs licensmallen och kontrollera att bilden visar själva händelsen (inte en karta eller en nutida minnessten) innan den används, enligt docs/bilder-riktiga.md.
+          **Kandidaterna är förslag och måste kontrolleras manuellt.** För varje kandidat finns filsidan på Wikimedia Commons, licensen ("trolig" ur Commons API, "flagga" när en människa måste bedöma den; filsidans licensmall kontrolleras med tools/bildbatch.py --licens eller tools/bild_hamta.py), upphovsperson och motiv. Öppna filsidan, läs licensmallen och kontrollera att bilden visar själva händelsen (inte en karta eller en nutida minnessten) innan den används, enligt docs/bilder-riktiga.md.
 
-          - Inga fakta ändras: bara filen data/utkast/bildkandidater.json ändras (en ny lista ersätter den förra).
+          - Inga fakta ändras: bara filerna i data/utkast/bildkandidater/ för de världsdelar och perioder som kördes ändras.
           - Appen läser inte data/utkast/, så ingenting syns på sidan.
           - Ingen bild är vald eller hämtad; en kandidat blir en bild först efter källkontroll i ett eget issue.
           - "Ej hämtade" betyder att Wikimedia inte svarade (till exempel 429) efter tre försök; kör om för just den världsdelen.

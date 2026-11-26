@@ -1,6 +1,6 @@
 # AI-illustrationer med ChatGPT: steg för steg
 
-Gäller när en händelse saknar en lämplig fri bild (CLAUDE.md, Bilder, punkt 1–2). **Agenter (Claude Code, Codex, Copilot) kan inte generera bilder.** Ett steg görs alltid av en människa: DasKrokodil eller Andreas, med ChatGPT (beslut 2026-11-16). Bildverktyg och nycklar ligger aldrig i repot.
+Gäller när en händelse saknar en lämplig fri bild ([referens/bilder.md](referens/bilder.md), punkt 1–2). **Agenter (Claude Code, Codex, Copilot) kan inte generera bilder.** Ett steg görs alltid av en människa: DasKrokodil eller Andreas, med ChatGPT (beslut 2026-11-16). Bildverktyg och nycklar ligger aldrig i repot.
 
 Rutin för riktiga bilder (Commons och loc.gov, anropsregler, licenskontroll): [bilder-riktiga.md](bilder-riktiga.md).
 
