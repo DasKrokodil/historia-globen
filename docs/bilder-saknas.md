@@ -733,3 +733,37 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `saddam-hussein-tillfangatas` | 2026-11-26: Enda kandidaten (SaddamSpiderHole.jpg) är 640 × 480 px och blir suddig i kortet; används inte. |
 | `folkomrostning-om-bougainvilles-sjalvstandighet` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
 | `talibanerna-intar-kabul-2021` | 2026-11-26: Enda kandidaten (Crowds in front of Kabul International Airport) har licensflagga; används inte. |
+
+
+## Amerika 21500 f.Kr.–600 (#2091 och #2094, 2026-11-26)
+
+14 av 40 händelser fick bild i den här omgången. Följande 26 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/amerika-1.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `bonnevillefloden` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `monte-verde` | 2026-11-26: Enda kandidaten (Monte Verde 3.JPG, CC BY-SA 3.0) visar enligt filsidan "ett nationalmonument i Chile" men bilden är en park med en vattenspegel utan synliga lämningar; kopplingen till boplatsen är oklar och bilden används inte. |
+| `clovis-kulturen` | 2026-11-26: Enda kandidaten (Clovis spear point, British Museum, CC BY-SA 4.0) flaggades av verktyget (ingen igenkänd licensmall på filsidan); används inte. |
+| `havet-bryter-igenom-vid-berings-sund` | 2026-11-26: Kandidaterna är kartor och en satellitbild med licensen CC BY-SA 3.0 IGO (inte en tillåten licens); används inte. |
+| `pumpan-tams-i-guila-naquitz` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `lapa-do-santo-begravningar` | 2026-11-26: Enda kandidaten visar en utgrävd begravning med skelett (mänskliga kvarlevor); bilder av kvarlevor avstås. |
+| `potatisen-tams` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `koster-hundgravar` | 2026-11-26: Enda kandidaten (utgrävningen vid Koster 1973, NARA/EPA) visar enligt sin titel en utgrävning av en indiansk gravplats; gravplats och urfolkets kulturarv, bilden avstås. |
+| `obsidian-fran-oregon-under-huronsjon` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `majsen-tams-i-balsasdalen` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kopparkulturen-vid-stora-sjoarna` | 2026-11-26: Enda kandidaten är en holländsk atlas från cirka 1685 ("Aangezicht op het pavilioen") som inte hör till kopparkulturen; används inte. |
+| `agassizsjon-toms` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `windover-gravarna` | 2026-11-26: Händelsen gäller gravar med människoben; bilder av kvarlevor och gravar avstås och ingen sökning gjordes. |
+| `chinchorromumier` | 2026-11-26: Händelsen gäller mumier (mänskliga kvarlevor); bilder avstås och ingen sökning gjordes. |
+| `indigo-i-huaca-prieta` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `la-tolita-storhetstid` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `moche-kulturen` | 2026-11-26: Kandidaterna ("Tomb of Lord of Sipán", Museo-rekonstruktioner av en grav) ligger nära en gravplats och har inte granskats för kvarlevor; används inte utan närmare kontroll. |
+| `torka-pa-yucatan-150-250` | 2026-11-26: Kandidaterna är moderna satellitbilder av bränder (2020); de visar inte torkan och används inte. |
+| `la-mojarra-stele-1` | 2026-11-26: Enda kandidaten (Harvestermountainlord.jpg) är 286 × 473 px och visar inte stelen; används inte. |
+| `pachacamac` | 2026-11-26: Händelsen saknades i den automatiska listan. Egen sökning gav Flickr-bilder av platsen, men den bild som hämtades visar hästar i dis och inte lämningarna; används inte. |
+| `nya-grodor-hos-hohokam` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `el-mollekulturen` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `havsytan-star-nastan-still-i-franska-polynesien` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `casarabekulturen` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `tainofolk-nar-bahamas` | 2026-11-26: Enda kandidaten ("The merchant vessel", 1884) hör inte till Taínofolkets färder och har licensflagga; används inte. |
+| `wari-riket` | 2026-11-26: Ingen kandidat i listan; sökningen efter Pikillacta gav inga träffar. |

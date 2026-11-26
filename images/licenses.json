@@ -825,6 +825,21 @@
       }
     },
     {
+      "eventId": "befjadrade-ormens-tempel",
+      "eventTitle": "Den befjädrade ormens tempel i Teotihuacan",
+      "file": "images/events/befjadrade-ormens-tempel.webp",
+      "kind": "historisk",
+      "credit": "Diego Delso / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-befjadrade-ormens-tempel",
+        "title": "Teotihuacán, México, 2013-10-13, DD 80 – Diego Delso (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Teotihuac%C3%A1n,_M%C3%A9xico,_2013-10-13,_DD_80.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "befrielsen-av-kuwait",
       "eventTitle": "Markoffensiven befriar Kuwait",
       "file": "images/events/befrielsen-av-kuwait.webp",
@@ -1692,6 +1707,21 @@
       }
     },
     {
+      "eventId": "copans-kungaatt-grundas",
+      "eventTitle": "K'inich Yax K'uk' Mo' grundar Copáns kungaätt",
+      "file": "images/events/copans-kungaatt-grundas.webp",
+      "kind": "historisk",
+      "credit": "Hans Birger Nilsen / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-copans-kungaatt-grundas",
+        "title": "Hieroglyphic Stairway of Copán and stela M (40008952385) – Hans Birger Nilsen (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Hieroglyphic_Stairway_of_Cop%C3%A1n_and_stela_M_(40008952385).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "cortes-moter-moctezuma",
       "eventTitle": "Cortés möter Moctezuma i Tenochtitlan",
       "file": "images/events/cortes-moter-moctezuma.webp",
@@ -1719,6 +1749,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:SARS-CoV-2_without_background.png",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "cueva-de-las-manos",
+      "eventTitle": "Händerna i Cueva de las Manos",
+      "file": "images/events/cueva-de-las-manos.webp",
+      "kind": "historisk",
+      "credit": "Mariano / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-cueva-de-las-manos",
+        "title": "SantaCruz-CuevaManos-P2210651b – Mariano (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:SantaCruz-CuevaManos-P2210651b.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2895,6 +2940,21 @@
       }
     },
     {
+      "eventId": "glacier-peak-utbrott-omkring-200",
+      "eventTitle": "Vulkanen Glacier Peak får ett utbrott",
+      "file": "images/events/glacier-peak-utbrott-omkring-200.webp",
+      "kind": "historisk",
+      "credit": "brewbooks / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-glacier-peak-utbrott-omkring-200",
+        "title": "Glacier Peak (aerial view) – brewbooks (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Glacier_Peak_(aerial_view).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "goa-1510",
       "eventTitle": "Portugal erövrar Goa",
       "file": "images/events/goa-1510.webp",
@@ -3573,6 +3633,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Bronze_ceremonial_vessel_in_form_of_a_snail_shell,_9th_century,_Igbo-Ukwu,_Nigeria.JPG",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "ilopango-utbrottet",
+      "eventTitle": "Vulkanutbrottet i Ilopango",
+      "file": "images/events/ilopango-utbrottet.webp",
+      "kind": "historisk",
+      "credit": "KMTRAGER / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-ilopango-utbrottet",
+        "title": "Lake Ilopango Caldera – KMTRAGER (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lake_Ilopango_Caldera.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5445,6 +5520,21 @@
       }
     },
     {
+      "eventId": "megafaunan-forsvinner-i-amerika",
+      "eventTitle": "Megafaunan försvinner i Amerika",
+      "file": "images/events/megafaunan-forsvinner-i-amerika.webp",
+      "kind": "historisk",
+      "credit": "Charles R. Knight / American Museum of Natural History",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-megafaunan-forsvinner-i-amerika",
+        "title": "La Brea Tar Pits – Charles Robert Knight (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:La_Brea_Tar_Pits.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "megafaunan-forsvinner-i-australien",
       "eventTitle": "Australiens megafauna dör ut",
       "file": "images/events/megafaunan-forsvinner-i-australien.webp",
@@ -5589,6 +5679,21 @@
       }
     },
     {
+      "eventId": "missoulafloderna",
+      "eventTitle": "Missoulafloderna, istidens jätteflodvågor",
+      "file": "images/events/missoulafloderna.webp",
+      "kind": "historisk",
+      "credit": "DKRKaynor / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-missoulafloderna",
+        "title": "Above Dry Falls 02 – DKRKaynor (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Above_Dry_Falls_02.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "moafaglarna-dor-ut",
       "eventTitle": "Moafåglarna och moaörnen dör ut",
       "file": "images/events/moafaglarna-dor-ut.webp",
@@ -5616,6 +5721,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ahu_Tongariki.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "mogollonkulturen",
+      "eventTitle": "Mogollonkulturen växer fram",
+      "file": "images/events/mogollonkulturen.webp",
+      "kind": "historisk",
+      "credit": "National Park Service",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-mogollonkulturen",
+        "title": "Gila Cliff Dwellings National Monument GICL1711 – National Park Service Digital Image Archives (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Gila_Cliff_Dwellings_National_Monument_GICL1711.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5750,6 +5870,21 @@
         "title": "Mount Lamington 1951 eruption column (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Mount_Lamington_1951_eruption_column.jpg",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "mount-mazama-crater-lake",
+      "eventTitle": "Mount Mazama exploderar och Crater Lake bildas",
+      "file": "images/events/mount-mazama-crater-lake.webp",
+      "kind": "historisk",
+      "credit": "Ken Lund / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-mount-mazama-crater-lake",
+        "title": "Wizard Island, Crater Lake National Park, Oregon (219304137) – Ken Lund from Reno, Nevada, USA (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Wizard_Island,_Crater_Lake_National_Park,_Oregon_(219304137).jpg",
+        "license": "CC BY-SA 2.0",
         "checked": "2026-11-26"
       }
     },
@@ -5940,6 +6075,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Líneas_de_Nazca,_Nazca,_Perú,_2015-07-29,_DD_58.JPG",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "nazcas-puquios",
+      "eventTitle": "Nazcas underjordiska vattenledningar (puquios)",
+      "file": "images/events/nazcas-puquios.webp",
+      "kind": "historisk",
+      "credit": "Diego Delso / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-nazcas-puquios",
+        "title": "Acueductos subterráneos de Cantalloc, Nazca, Perú, 2015-07-29, DD 09 – Diego Delso (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Acueductos_subterr%C3%A1neos_de_Cantalloc,_Nazca,_Per%C3%BA,_2015-07-29,_DD_09.JPG",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -7109,6 +7259,21 @@
         "title": "Beach on Upolu Island, Samoa, 2009 – Stephen Glauser (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Beach_on_Upolu_Island,_Samoa,_2009.jpg",
         "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "san-agustins-statyer",
+      "eventTitle": "Stenstatyerna i San Agustín",
+      "file": "images/events/san-agustins-statyer.webp",
+      "kind": "historisk",
+      "credit": "Bernard Gagnon / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-san-agustins-statyer",
+        "title": "Parque Arqueológico de San Agustín-Mesita A 06 – Bernard Gagnon (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Parque_Arqueol%C3%B3gico_de_San_Agust%C3%ADn-Mesita_A_06.jpg",
+        "license": "CC BY-SA 4.0",
         "checked": "2026-11-26"
       }
     },
@@ -9438,6 +9603,21 @@
       }
     },
     {
+      "eventId": "tikals-nederlag-562",
+      "eventTitle": "Caracol besegrar Tikal",
+      "file": "images/events/tikals-nederlag-562.webp",
+      "kind": "historisk",
+      "credit": "MongeNajera / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-tikals-nederlag-562",
+        "title": "Tikal Guatemala 5 – MongeNajera (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tikal_Guatemala_5.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "timbuktu-blir-fast-bosattning",
       "eventTitle": "Timbuktu blir en fast bosättning",
       "file": "images/events/timbuktu-blir-fast-bosattning.webp",
@@ -10002,6 +10182,21 @@
       }
     },
     {
+      "eventId": "white-sands-fotspar",
+      "eventTitle": "Fotspår från istiden vid White Sands",
+      "file": "images/events/white-sands-fotspar.webp",
+      "kind": "historisk",
+      "credit": "National Park Service",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-white-sands-fotspar",
+        "title": "Ice Age Human Footprints (a45c5031-d519-43f0-8d64-7b81d653c3ff) – NPS (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ice_Age_Human_Footprints_(a45c5031-d519-43f0-8d64-7b81d653c3ff).JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "wright",
       "eventTitle": "Bröderna Wright flyger",
       "file": "images/events/wright.webp",
@@ -10047,6 +10242,21 @@
         "url": "https://www.loc.gov/item/2008660220/",
         "license": "No known restrictions on publication",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "xitle-begraver-cuicuilco",
+      "eventTitle": "Vulkanen Xitle begraver Cuicuilco",
+      "file": "images/events/xitle-begraver-cuicuilco.webp",
+      "kind": "historisk",
+      "credit": "Felipe Huerta Hdez / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-xitle-begraver-cuicuilco",
+        "title": "Pirámide de Cuicuilco al Sur del Distrito Federal – Felipe huerta hdez (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Pir%C3%A1mide_de_Cuicuilco_al_Sur_del_Distrito_Federal.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
