@@ -1,0 +1,1305 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "asien-1",
+  "datum": "2026-11-26",
+  "urval": "ids=34 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "baishiya-denisovaner",
+      "titel": "Denisovaner på Tibetanska högplatån",
+      "start": -157999,
+      "plats": "Baishiya-grottan i Gansu, Kina, på Tibetanska högplatån",
+      "wikidata": "Q63435825",
+      "kandidater": [
+        {
+          "fil": "File:Deep Tibetan admixture graph modeling.webp",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Deep_Tibetan_admixture_graph_modeling.webp",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Chi-Chun Liu, David Witonsky, Anna Gosling, Ju Hyeon Lee, Harald Ringbauer, Richard Hagan, Nisha Patel, Raphaela Stahl, John Novembre, Mark Aldenderfer, Christina Warinner, Anna Di Rienzo & Choongwon Jeong",
+          "datum": "2022-03-08",
+          "datum_original": "2022-03-08",
+          "datum_fil": "2023-05-12 09:28:05",
+          "kredit": "https://www.nature.com/articles/s41467-022-28827-2 Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material.",
+          "beskrivning": "Although deriving 80–92% of their ancestry from a lineage related to Upper_YR_LN (Supplementary Table 4), the aMMD and present-day Sherpa/Tibetans are not adequately modeled as a sister clade to Upper_YR_LN, as expected given the unique genetic components of Tibetans not shared with lowlanders, including the EPAS1 allele from a Denisovan-related admixture. Rather, the remaining 8–20% of their ancestry derives from a deep part of the population graph near the split between Western and Eastern Eurasian branches (Fig. 3; Supplementary Fig. 9). This source, however, does not derive from archaic hominins (Neanderthals or Denisovans, who contribute <0.5% genome-wide ancestry), and our results reject previously suggested sources of gene flow into the Tibetan lineage13,35,36, including deeply branching Eastern Eurasian lineages, such as the 45,000-year-old Ust’-Ishim individual from southern Siberia, the 40,000-year-old Tianyuan individual from northern China, and Hoabinhian/Onge-related lineages in southeast Asia (Supplementary Fig. 10), suggesting instead that it represents yet another unsampled lineage within early Eurasian genetic diversity. This deep Eurasian lineage is likely to represent the Paleolithic genetic substratum of the Plateau populations.",
+          "bredd": 1350,
+          "hojd": 1478,
+          "mime": "image/webp",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Deep_Tibetan_admixture_graph_modeling.webp/960px-Deep_Tibetan_admixture_graph_modeling.webp?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Genetic models",
+            "Human genetic diversity",
+            "Human genetics"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "homo-erectus-ngandong",
+      "titel": "Homo erectus vid Ngandong på Java",
+      "start": -114999,
+      "plats": "Ngandong vid floden Solo, Centraljava (Indonesien)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Ngandong 7-Homo erectus.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ngandong_7-Homo_erectus.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Ryan Somma from Occoquan, USA",
+          "datum": "Unknown date Date, time or both in the file Exif metadata are incorrect/invalid.",
+          "datum_original": "Unknown date Date, time or both in the file Exif metadata are incorrect/invalid.",
+          "datum_fil": "2014-05-13 18:15:59",
+          "kredit": "Homo erectus",
+          "beskrivning": "Taken at the David H. Koch Hall of Human Origins at the Smithsonian Natural History Museum. www.ideonexus.com",
+          "bredd": 1420,
+          "hojd": 1120,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Ngandong_7-Homo_erectus.jpg/960px-Ngandong_7-Homo_erectus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ngandong 7"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Reproducciones de cráneos de homo erectus. Museo Arqueológico Nacional de España.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Reproducciones_de_cr%C3%A1neos_de_homo_erectus._Museo_Arqueol%C3%B3gico_Nacional_de_Espa%C3%B1a.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Dorieo",
+          "datum": "2015-09-22 11:23:18",
+          "datum_original": "2015-09-22 11:23:18",
+          "datum_fil": "2019-02-23 11:53:30",
+          "kredit": "Own work",
+          "beskrivning": "Reproducciones de cráneos de homo erectus. Museo Arqueológico Nacional de España.. Descripcones de izquierda a derecha: Reproducción de una bóveda craneal, recuperada en la cueva de Sangirán (isla de Java, Indonesia), adscrita a la especie Homo erectus. Altura: 10,50 cm; longitud: 18,50 cm; anchura: 14,50 cm. Nº inv. 1971/42/14. Reproducción del cráneo de un Homo erectus exhumado en la cueva de Choukoutien (China). Altura: 11,50 cm; longitud: 20 cm; anchura: 14,60 cm. Nº inv. 1975/55/1. Reproducción de un fragmento de cráneo (calvaria) adscrito a la especie Homo erectus. Se trata de un cráneo infantil recuperado en las terrazas del río Solo, en Ngandong (isla de Java, Indonesia). Altura: 5,50 cm; longitud:10,60 cm; anchura: 10,90 cm. Nº inv. 1971/42/15.",
+          "bredd": 4000,
+          "hojd": 2336,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Reproducciones_de_cr%C3%A1neos_de_homo_erectus._Museo_Arqueol%C3%B3gico_Nacional_de_Espa%C3%B1a.jpg/960px-Reproducciones_de_cr%C3%A1neos_de_homo_erectus._Museo_Arqueol%C3%B3gico_Nacional_de_Espa%C3%B1a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Homo erectus skulls",
+            "Human skulls in museums",
+            "Ngandong fossils",
+            "Replicas of skulls"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Ngandong 13 NMNH.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ngandong_13_NMNH.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Jonathan Chen",
+          "datum": "2024-07-31 11:45:27",
+          "datum_original": "2024-07-31 11:45:27",
+          "datum_fil": "2024-09-03 06:31:43",
+          "kredit": "Own work",
+          "beskrivning": "Homo erectus skull cast (Ngandong 13) on display at the Smithsonian's National Museum of Natural History.",
+          "bredd": 1859,
+          "hojd": 1348,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Ngandong_13_NMNH.jpg/960px-Ngandong_13_NMNH.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Homo erectus skulls",
+            "Ngandong fossils",
+            "Prehistoric human skulls in the National Museum of Natural History, USA"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "homo-floresiensis",
+      "titel": "Homo floresiensis på Flores",
+      "start": -97999,
+      "plats": "Liang Bua på Flores, Indonesien",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Homo floresiensis cave.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Homo_floresiensis_cave.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Rosino",
+          "datum": "2007-08-18 00:29",
+          "datum_original": "2007-08-18 00:29",
+          "datum_fil": "2008-08-16 03:26:22",
+          "kredit": "[1]",
+          "beskrivning": "Cave where the remains of Homo floresiensis were discovered in 2003, Lian Bua , Flores, Indonesia [2007].",
+          "bredd": 3008,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Homo_floresiensis_cave.jpg/960px-Homo_floresiensis_cave.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological excavations",
+            "Caves of Flores",
+            "Homo floresiensis",
+            "Lit cave entrances",
+            "Stalactites",
+            "Valued images of Indonesia"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Homo floresiensis (femme de flores, dite Flora).JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Homo_floresiensis_(femme_de_flores,_dite_Flora).JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Scailyna",
+          "datum": "2014-09-20 11:14:48",
+          "datum_original": "2014-09-20 11:14:48",
+          "datum_fil": "2015-09-24 21:37:31",
+          "kredit": "Own work",
+          "beskrivning": "Age estimé : 18 000 ans Provient d'Indonésie : Flores, grotte de Liang Bua",
+          "bredd": 3618,
+          "hojd": 2723,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Homo_floresiensis_%28femme_de_flores%2C_dite_Flora%29.JPG/960px-Homo_floresiensis_%28femme_de_flores%2C_dite_Flora%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Homo floresiensis skulls"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Homo floresiensis (femme de flores, dite Flora) - 2.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Homo_floresiensis_(femme_de_flores,_dite_Flora)_-_2.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Scailyna",
+          "datum": "2014-09-20 11:15:12",
+          "datum_original": "2014-09-20 11:15:12",
+          "datum_fil": "2015-09-24 21:37:32",
+          "kredit": "Own work",
+          "beskrivning": "Age estimé : 18 000 ans Provient d'Indonésie : Flores, grotte de Liang Bua",
+          "bredd": 2904,
+          "hojd": 3349,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Homo_floresiensis_%28femme_de_flores%2C_dite_Flora%29_-_2.JPG/960px-Homo_floresiensis_%28femme_de_flores%2C_dite_Flora%29_-_2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Homo floresiensis skulls"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "tam-pa-ling",
+      "titel": "Homo sapiens i Tam Pà Ling i Laos",
+      "start": -74999,
+      "plats": "Grottan Tam Pà Ling i norra Laos",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Taphonomy.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Taphonomy.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Bioanthropologist1",
+          "datum": "2025-12-22",
+          "datum_original": "2025-12-22",
+          "datum_fil": "2025-12-22 18:34:52",
+          "kredit": "Own work",
+          "beskrivning": "fossil record (rectangular image): https://en.wikipedia.org/wiki/Fossil#/media/File:Fossil_Diversity.png 2023 PaleoNeolitic Silhouettes: Population: https://www.phylopic.org/images/22a441e9-f828-4b14-8d62-4cb62f771844/homo-sapiens-sapiens 2024 Rukasuhebi Juvenile: https://images.phylopic.org/images/036b96de-4bca-408e-adb6-2154fcd724ef/raster/602x1536.png 2023 Katy Lawler stooped female: https://images.phylopic.org/images/30d16233-028d-4a70-9002-db349d73c0bc/thumbnail/192x192.png 2020 Tony Goldberg walking female: https://images.phylopic.org/images/a146bf1b-c94d-46e1-9cd8-a0ac52a1e0a9/raster/762x1536.png 2015 T. Michael Keesey big guy: https://images.phylopic.org/images/c089caae-43ef-4e4e-bf26-973dd4cb65c5/raster/560x1536.png 2012 T. Michael Keesey naked guy: https://www.phylopic.org/images/b8c16fc6-d16b-4fac-8a04-67182448157e/homo-sapiens-sapiens 2023 Guillaume Dera naked lady: https://www.phylopic.org/images/41b127f6-0824-4594-a941-5ff571f32378/homo-sapiens-sapiens 2011 T. Michael Keesey Individual fossil skull: https://commons.wikimedia.org/wiki/File:Australopithecus_sediba_juvenile_male_skull_-_Smithsonian_Museum_of_Natural_History_-_2012-05-17.jpg 2012 Tim Evanson Glow added by Bioanthropologist1 malapa site (where above skull is from): https://commons.wikimedia.org/wiki/File:Malapa_site.jpg 2011 profBerger Lake: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Kruger_National_Park_%28ZA%29%2C_Sand_River_--_2024_--_0537.jpg/1280px-Kruger_National_Park_%28ZA%29%2C_Sand_River_--_2024_--_0537.jpg 2024 Dietmar Rabich Taphonomy of eland with student: https://commons.wikimedia.org/wiki/File:Taphonomy_of_eland.jpg Lucinda Backwell 2006 Cropped Fossil fish and plant: https://commons.wikimedia.org/wiki/File:Fossil_plant_branch_%26_Knightia_eocaena_fossil_fish_(Green_River_Formation,_Lower_Eocene;_Fossil_Lake_Basin,_southwestern_Wyoming,_USA)_(15528763742).jpg James St. John 2010 Cropped, background removed, new background added by Bioanthropologist1 Fossil hominin jaw: https://commons.wikimedia.org/wiki/File:TPL2_human_fossil_remains.PNG Demeter F, Shackelford L, Westaway K, Duringer P, Bacon A-M, et al. (2015) Early Modern Humans and Morphological Variation in Southeast Asia: Fossil Evidence from Tam Pa Ling, Laos. PLoS ONE 10(4): e0121193. doi:10.1371/journal.pone.0121193 2015 Cropped Modern human jaw: https://commons.wikimedia.org/wiki/File:Human_jawbone_top.jpg Gregory F. Maxwell 2006 Cropped & background removed, new background added by Bioanthropologist1 Whole figure & chart: Molly Zuckerman 2023/ 2025",
+          "bredd": 2979,
+          "hojd": 3358,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Taphonomy.jpg/960px-Taphonomy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Montages of science communications",
+            "Taphonomy"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Early presence of Homo sapiens in Southeast Asia by 86–68 kyr at Tam Pà Ling, Northern Laos - Figure 2.webp",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Early_presence_of_Homo_sapiens_in_Southeast_Asia_by_86%E2%80%9368_kyr_at_Tam_P%C3%A0_Ling,_Northern_Laos_-_Figure_2.webp",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Sarah E. Freidline et al",
+          "datum": "2023-06-13",
+          "datum_original": "2023-06-13",
+          "datum_fil": "2023-06-13 19:38:07",
+          "kredit": "https://www.nature.com/articles/s41467-023-38715-y",
+          "beskrivning": "a Medial view indicating the inferior portion of the tibial tuberosity; b left lateral view indicating the interosseous crest; c posterior view indicating the vertical line; d anterior view; e distal view; f proximal view.",
+          "bredd": 685,
+          "hojd": 593,
+          "mime": "image/webp",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Early_presence_of_Homo_sapiens_in_Southeast_Asia_by_86%E2%80%9368_kyr_at_Tam_P%C3%A0_Ling%2C_Northern_Laos_-_Figure_2.webp?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Early presence of Homo sapiens in Southeast Asia by 86–68 kyr at Tam Pà Ling, Northern Laos",
+            "Photographs of human tibia"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Early presence of Homo sapiens in Southeast Asia by 86–68 kyr at Tam Pà Ling, Northern Laos - Figure 1.webp",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Early_presence_of_Homo_sapiens_in_Southeast_Asia_by_86%E2%80%9368_kyr_at_Tam_P%C3%A0_Ling,_Northern_Laos_-_Figure_1.webp",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Sarah E. Freidline et al",
+          "datum": "2023-06-13",
+          "datum_original": "2023-06-13",
+          "datum_fil": "2023-06-13 19:38:07",
+          "kredit": "https://www.nature.com/articles/s41467-023-38715-y",
+          "beskrivning": "a Anterior view of the left superciliary arch and supraorbital margin, and portions of the frontal squama and temporal line; b endocranial surface including some of the left orbital plate and frontal crest; c left lateral view.",
+          "bredd": 685,
+          "hojd": 617,
+          "mime": "image/webp",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/03/Early_presence_of_Homo_sapiens_in_Southeast_Asia_by_86%E2%80%9368_kyr_at_Tam_P%C3%A0_Ling%2C_Northern_Laos_-_Figure_1.webp?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Early presence of Homo sapiens in Southeast Asia by 86–68 kyr at Tam Pà Ling, Northern Laos",
+            "Photographs of human frontal bone"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "homo-luzonensis",
+      "titel": "Homo luzonensis på Luzon",
+      "start": -64999,
+      "plats": "Callaogrottan på Luzon, Filippinerna",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:HomoLuzonensisRestoration.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:HomoLuzonensisRestoration.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Luzonensis",
+          "datum": "2019-04-18",
+          "datum_original": "2019-04-18",
+          "datum_fil": "2019-04-20 16:47:37",
+          "kredit": "Own work",
+          "beskrivning": "A mostly hypothetical reconstruction of Homo luzonensis, a newly-described species of primitive human from Luzon, Philippines.",
+          "bredd": 1080,
+          "hojd": 794,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/HomoLuzonensisRestoration.jpg/960px-HomoLuzonensisRestoration.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Homo luzonensis",
+            "Speculative paleoart"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Homo luzonensis metatarsal.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Homo_luzonensis_metatarsal.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Luzonensis",
+          "datum": "2019-04-23",
+          "datum_original": "2019-04-23",
+          "datum_fil": "2019-04-24 05:07:58",
+          "kredit": "Own work",
+          "beskrivning": "CCH1, a third metatarsal bone (MT3) discovered on May 5, 2007 in Callao Cave, belonging to Homo luzonensis, a species of primitive human.",
+          "bredd": 1595,
+          "hojd": 1230,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Homo_luzonensis_metatarsal.jpg/960px-Homo_luzonensis_metatarsal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Homo luzonensis",
+            "Human metatarsus",
+            "Museum collections from the Philippines"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:LuzonensisMolars.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:LuzonensisMolars.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Luzonensis",
+          "datum": "2019-05-26 16:29:34",
+          "datum_original": "2019-05-26 16:29:34",
+          "datum_fil": "2019-05-27 00:41:04",
+          "kredit": "Own work",
+          "beskrivning": "Five teeth attributed to Homo luzonensis.",
+          "bredd": 2208,
+          "hojd": 1242,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/LuzonensisMolars.jpg/960px-LuzonensisMolars.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Hominidae fossils",
+            "Homo luzonensis"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "sabeltandade-kattungen-i-jakutien",
+      "titel": "Den frusna sabeltandade kattungen i Jakutien",
+      "start": -35069,
+      "plats": "Floden Badjaricha, biflod till Indigirka, Jakutien, Ryssland",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Homotherium latidens cub mummy fig1.webp",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Homotherium_latidens_cub_mummy_fig1.webp",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "A. V. Lopatin, M. V. Sotnikova, A. I. Klimovsky, A. V. Lavrov, A. V. Protopopov, D. O. Gimranov & E. V. Parkhomchuk",
+          "datum": "2024-11-14",
+          "datum_original": "2024-11-14",
+          "datum_fil": "2024-11-15 04:10:24",
+          "kredit": "https://www.nature.com/articles/s41598-024-79546-1",
+          "beskrivning": "The frozen mummy of Homotherium latidens (Owen, 1846), specimen DMF AS RS, no. Met-20-1, Russia, Republic of Sakha (Yakutia), Indigirka River basin, Badyarikha River; Upper Pleistocene: (A) external appearance; (B) skeleton, CT-scan, dorsal view.",
+          "bredd": 1926,
+          "hojd": 907,
+          "mime": "image/webp",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Homotherium_latidens_cub_mummy_fig1.webp/960px-Homotherium_latidens_cub_mummy_fig1.webp?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Homotherium fossils",
+            "Homotherium latidens mummies"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Homotherium and lion cub skulls.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Homotherium_and_lion_cub_skulls.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "A. V. Lopatin, M. V. Sotnikova, A. I. Klimovsky, A. V. Lavrov, A. V. Protopopov, D. O. Gimranov & E. V. Parkhomchuk",
+          "datum": "2024-11-14",
+          "datum_original": "2024-11-14",
+          "datum_fil": "2024-11-15 20:25:35",
+          "kredit": "https://www.nature.com/articles/s41598-024-79546-1",
+          "beskrivning": "Skulls of three-week-old large felid cubs, left lateral view (A, C) and dorsal view (B, D): A, B, Homotherium latidens (Owen, 1846), specimen DMF AS RS, no. Met-20-1, frozen mummy, 3D computer models (image is reconstructed based on the undeformed right half of the skull, mirrored); Russia, Republic of Sakha (Yakutia), Indigirka River basin, Badyarikha River; Upper Pleistocene; C, D, Panthera leo (Linnaeus, 1758), specimen ZMMU, no. S-3034, photographs; Recent.",
+          "bredd": 1858,
+          "hojd": 1223,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Homotherium_and_lion_cub_skulls.png/960px-Homotherium_and_lion_cub_skulls.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Homotherium latidens mummies",
+            "Homotherium skulls",
+            "Panthera leo skulls"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Homotherium cub - Lopatin et al 2024.tif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Homotherium_cub_-_Lopatin_et_al_2024.tif",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Lopatin et al.",
+          "datum": "2024",
+          "datum_original": "2024",
+          "datum_fil": "2024-11-15 17:11:24",
+          "kredit": "A. V. Lopatin, M. V. Sotnikova, A. I. Klimovsky, A. V. Lavrov, A. V. Protopopov, D. O. Gimranov and E. V. Parkhomchuk: Mummy of a juvenile sabre-toothed cat Homotherium latidens from the Upper Pleistocene of Siberia. Scientific Reports 14, 2024, pp. 28016 (fig. 1), doi:10.1038/s41598-024-79546-1",
+          "beskrivning": "The frozen mummy of Homotherium latidens (Owen, 1846), specimen DMF AS RS, no. Met-20-1, Russia, Republic of Sakha (Yakutia), Indigirka River basin, Badyarikha River; Upper Pleistocene: (A) external appearance; (B) skeleton, CT-scan, dorsal view.",
+          "bredd": 1926,
+          "hojd": 907,
+          "mime": "image/tiff",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Homotherium_cub_-_Lopatin_et_al_2024.tif/lossy-page1-960px-Homotherium_cub_-_Lopatin_et_al_2024.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Homotherium fossils",
+            "Homotherium latidens mummies"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "xianrendong-keramik",
+      "titel": "Keramik under istiden i Xianrendong",
+      "start": -17999,
+      "plats": "Xianrendonggrottan i Wannian, Jiangxi, Kina",
+      "wikidata": "Q2812194",
+      "kandidater": [
+        {
+          "fil": "File:Wannian Xianrendong yizhi 8789.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wannian_Xianrendong_yizhi_8789.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Zhangzhugang",
+          "datum": "2011-05-15",
+          "datum_original": "2011-05-15",
+          "datum_fil": "2011-05-16 10:32:47",
+          "kredit": "Own work",
+          "beskrivning": "​江西万年仙人洞遗址，全国重点文物保护单位",
+          "bredd": 1800,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Wannian_Xianrendong_yizhi_8789.jpg/960px-Wannian_Xianrendong_yizhi_8789.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Signs of the Major Historical and Cultural Site Protected at the National Level in Jiangxi",
+            "Xianrendong & Diaotonghuan Site"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|cc-by-sa-3.0}}, {{self|GFDL}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0",
+              "self|GFDL"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "torressundet-bildas",
+      "titel": "Havet skiljer Nya Guinea från Australien",
+      "start": -9999,
+      "plats": "Torressundet mellan Kap York i Australien och Nya Guinea",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:C. Homann. Map of Asia. 1730. Caucasus.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:C._Homann._Map_of_Asia._1730._Caucasus.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Johann Christoph Homann",
+          "datum": "circa 1730 date QS:P571,+1730-00-00T00:00:00Z/9,P1480,Q5727902 (undated)",
+          "datum_original": "circa 1730 date QS:P571,+1730-00-00T00:00:00Z/9,P1480,Q5727902 (undated)",
+          "datum_fil": "2014-08-20 08:49:40",
+          "kredit": "This file was provided to Wikimedia Commons by Geographicus Rare Antique Maps , a specialist dealer in rare maps and other cartography of the 15th, 16th, 17th, 18th and 19th centuries, as part of a cooperation project .",
+          "beskrivning": "A rare and attractive 18th century map of Asia by German map publisher Johann Christoph Homann. Covers the entire continent of Asia as well as parts of Europe and northeastern Africa. This is essentially a revised and updated version of J. B. Homann’s 1712 map of Asia. Features some interesting and important updates. Most notably, we see the addition of the Kamchatka Peninsula in the upper right hand quadrant. The lower part of the peninsula is labeled “Kurilorum Regio”, no doubt an early reference to the Kuril Islands. While Hokkaido is not present, Japan itself is separated from the mainland by a small archipelago. Just east of these islands we see the Canal de Piecko, and beyond that a large and curious land mass labeled Compagnie Land. Compagnie Land is a mythical landmass that can be traced the work of an unknown Spanish pilot who supposedly traveled from China to New Span and published his finding along with the works of Thevenot. Present in both the 1712 map and this one, Compagnie’s Land could possibly be an early representation of Alaska or a misrepresentation of Hokkaido. Korea or Corea is present if misshapen in roughly the correct location. Further south New Guinea, New Britannia, Australia (New Holland), Hoch Land, and Carpentaria (part of Australia), are personated in tentative form with largely unexplored boundaries. At the center of the map the Caspian Sea is displayed according to the 1722 surveys of Karl van Verden. Bottom left quadrant features a decorative title cartouche displaying an enthroned king in Middle Eastern or Indian garb, exotic animals including a lion and leopard, trade goods, Camels, and bowing supplicants. A spectacular and important 18th century map of Asia.",
+          "bredd": 1287,
+          "hojd": 640,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/C._Homann._Map_of_Asia._1730._Caucasus.jpg/960px-C._Homann._Map_of_Asia._1730._Caucasus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1730s maps of Turkey",
+            "1730s maps of Ukraine",
+            "1730s maps of the Caucasus",
+            "1730s maps of the Russian Empire",
+            "18th-century maps of the Black Sea",
+            "Details of old maps of Asia",
+            "Latin-language maps",
+            "Maps by Johann Christoph Homann"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        },
+        {
+          "fil": "File:Australia and the Great Barrier Reef (MODIS 2018-04-30).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Australia_and_the_Great_Barrier_Reef_(MODIS_2018-04-30).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Jeff Schmaltz, MODIS Land Rapid Response Team, NASA GSFC",
+          "datum": "Taken on 26 April 2018",
+          "datum_original": "Taken on 26 April 2018",
+          "datum_fil": "2024-02-17 01:47:07",
+          "kredit": "This image or video was catalogued by Goddard Space Flight Center of the United States National Aeronautics and Space Administration (NASA) under Photo ID: 2018-04-30 .",
+          "beskrivning": "One of the most easily recognizable and unique landforms of Australia, the Cape York Peninsula juts about 500 miles (800 km) northward from the Jardine River to the Torres Strait. The “Tip” –as it is sometimes called - lays claim to the only international border in Australia, with the northernmost post laying only 80 miles (129 km) south of Papua New Guinea. Traditionally the land of indigenous Australians, Cape York is home to three world heritage sites: the Wet Tropics of Queensland, Riversleigh (the country’s largest fossil mammal site), and the Great Barrier Reef. The Great Barrier Reef stretches about 1,700 miles (2,300 km) along the northeastern coast of Australia. It contains more than 3,000 separate reefs and cays and is one of the most complex natural ecosystems on Earth. The Reef provides homes to thousands of animal species ranging from microscopic plankton to massive whales as well as approximately 600 types of corals. According to a number of sources, including BBC News Australia, in recent years the reef has lost roughly 30% of its coral due to damage from a number of hazards, such as rising sea level temperatures, predation by the crown-of-thorn starfish, and pesticide, nitrogen, and sediment runoff. Aerial surveys in 2017 gave evidence of coral bleaching to about two-thirds of the reef. On April 29, 2018, the Australian government announced their renewed commitment to rescue and restore the Great Barrier Reef. According to the New York Times, Environment Minister Josh Frydenberg said that 500 million Australian dollars ($379 million US) would be set aside to help the reef after years of devastating damage from warming waters caused by climate change. “We’ll be improving the monitoring of the reef’s health and the measurement of its impacts,” Mr. Frydenberg was reported to have said. “The more we understand about the reef, the better we can protect it.” The money is slated to be used to improve water quality, control the predatory starfish, and invest in coral restoration, as well as to enhance underwater monitoring of the reef ecosystem. On April 26, 2018, the Moderate Resolution Imaging Spectroradiometer (MODIS) aboard NASA’s Terra satellite acquired a true-color image of the Cape York Peninsula and the Great Barrier Reef.",
+          "bredd": 4153,
+          "hojd": 3959,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Australia_and_the_Great_Barrier_Reef_%28MODIS_2018-04-30%29.jpg/960px-Australia_and_the_Great_Barrier_Reef_%28MODIS_2018-04-30%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2018 satellite pictures",
+            "Photos of Australia by the Terra (satellite) MODIS",
+            "Satellite pictures of the Great Barrier Reef"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA"
+            ]
+          }
+        },
+        {
+          "fil": "File:Portugal Império total.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Portugal_Imp%C3%A9rio_total.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "The Ogre at English Wikipedia / Later versions were uploaded by The Red Hat of Pat Ferrick at English Wikipedia .",
+          "datum": "30 March 2007 (original upload date)",
+          "datum_original": "30 March 2007 (original upload date)",
+          "datum_fil": "2010-07-25 12:53:55",
+          "kredit": "Transferred from en.wikipedia to Commons.",
+          "beskrivning": "An anachronous map of the Portuguese Empire (1415-1999). Red - actual possessions Olive green - explorations Orange - areas of influence and trade Pink - claims of sovereignty Light green - trading posts Blue - main sea explorations, routes and areas of influence.",
+          "bredd": 1425,
+          "hojd": 625,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Portugal_Imp%C3%A9rio_total.png/960px-Portugal_Imp%C3%A9rio_total.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of sea routes",
+            "Maps of the Portuguese Empire",
+            "Maps of the history of India",
+            "Maps using Tordesillas prime meridian"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen är inte tillåten: fair ({{PD-user-en}}, {{Copyrighted free use}}; API: \"Public domain\")",
+              "motsägelse: en tillåten och en otillåten licens anges"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-user-en}}, {{Copyrighted free use}}. Commons API (LicenseShortName): \"Public domain\". Källorna är oeniga om licensen; använd inte bilden förrän det är utrett.",
+            "risker": [],
+            "mallar": [
+              "PD-user-en",
+              "Copyrighted free use"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "jerikos-torn",
+      "titel": "Tornet i Jeriko",
+      "start": -7999,
+      "plats": "Tell es-Sultan, Jeriko, Västbanken",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Ausgrabungen bei Tell es-Sultan (3709391491).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ausgrabungen_bei_Tell_es-Sultan_(3709391491).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "random exposure",
+          "datum": "2009-04-24 11:23",
+          "datum_original": "2009-04-24 11:23",
+          "datum_fil": "2014-08-17 06:39:31",
+          "kredit": "Ausgrabungen bei Tell es-Sultan",
+          "beskrivning": "...die die Anfänge der wahrscheinlich ältesten Stadt der Welt freilegen.",
+          "bredd": 1024,
+          "hojd": 768,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Ausgrabungen_bei_Tell_es-Sultan_%283709391491%29.jpg/960px-Ausgrabungen_bei_Tell_es-Sultan_%283709391491%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Tower of Jericho"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Jericho Neolitic Tower P1190761.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Jericho_Neolitic_Tower_P1190761.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Deror_avi",
+          "datum": "2012-12-05 12:20:13",
+          "datum_original": "2012-12-05 12:20:13",
+          "datum_fil": "2012-12-13 18:22:31",
+          "kredit": "Own work",
+          "beskrivning": "The Neolitic Tower, Tell Es Sultan, Jericho",
+          "bredd": 4000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Jericho_Neolitic_Tower_P1190761.JPG/960px-Jericho_Neolitic_Tower_P1190761.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Tower of Jericho"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-sa-3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-3.0,2.5,2.0,1.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Jericho Neolitic Tower P1190752.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Jericho_Neolitic_Tower_P1190752.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Deror_avi",
+          "datum": "2012-12-05 12:16:04",
+          "datum_original": "2012-12-05 12:16:04",
+          "datum_fil": "2012-12-13 17:43:25",
+          "kredit": "Own work",
+          "beskrivning": "The Neolitic Tower, Tell Es Sultan, Jericho",
+          "bredd": 4000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Jericho_Neolitic_Tower_P1190752.JPG/960px-Jericho_Neolitic_Tower_P1190752.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Tower of Jericho"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-sa-3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-3.0,2.5,2.0,1.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "tygerna-i-tjortovy-vorota",
+      "titel": "Vävda tyger i grottan Tjortovy Vorota",
+      "start": -7450,
+      "plats": "Grottan Tjortovy Vorota nära Dalnegorsk, Primorje kraj, Ryssland",
+      "wikidata": "Q30590768",
+      "kandidater": [
+        {
+          "fil": "File:Chertovy Vorota cave.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chertovy_Vorota_cave.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Романвер",
+          "datum": "2016-02-04 13:12:24",
+          "datum_original": "2016-02-04 13:12:24",
+          "datum_fil": "2017-05-10 02:12:53",
+          "kredit": "Own work",
+          "beskrivning": "Выход из пещеры",
+          "bredd": 1944,
+          "hojd": 2592,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Chertovy_Vorota_cave.jpg/960px-Chertovy_Vorota_cave.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Devil's Gate cave"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "qafzeh-och-skhul",
+      "titel": "Tidiga Homo sapiens utanför Afrika i Qafzeh och Skhūl?",
+      "start": -127999,
+      "plats": "Grottorna Qafzeh och Skhūl i nuvarande Israel",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "sodra-kina-tidiga-tander",
+      "titel": "Omstridda tidiga fynd av Homo sapiens i södra och centrala Kina",
+      "start": -124999,
+      "plats": "Fuyangrottan och andra grottor i södra och centrala Kina",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "denisova-11",
+      "titel": "Denisova 11: barn till en neandertalare och en denisovan",
+      "start": -115999,
+      "plats": "Denisovagrottan i Altaj, Sibirien (Ryssland)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "al-wusta",
+      "titel": "Ett tidigt fynd av Homo sapiens i Arabien",
+      "start": -87999,
+      "plats": "Al Wusta, Saudiarabien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "gua-dagang-arkaisk-manniska",
+      "titel": "En arkaisk människa på Borneo",
+      "start": -52999,
+      "plats": "Gua Dagang i Niah nationalpark, Sarawak (Malaysia)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "utbrottet-som-skapade-maninjausjon",
+      "titel": "Utbrottet som skapade Maninjausjön",
+      "start": -50050,
+      "plats": "Maninjausjön, Västsumatra, Indonesien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "leang-karampuang",
+      "titel": "Grottmålningar med en berättelse på Sulawesi",
+      "start": -49199,
+      "plats": "Leang Karampuang i karsten i Maros-Pangkep, Sulawesi, Indonesien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "pil-och-bage-i-fa-hien-lena",
+      "titel": "Pil och båge i Fa-Hien Lena",
+      "start": -46050,
+      "plats": "Grottan Fa-Hien Lena, Kalutara, Sri Lanka",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "mammutkalven-ljuba",
+      "titel": "Mammutkalven Ljuba dör i leran",
+      "start": -40050,
+      "plats": "Floden Juribej på Jamalhalvön, Ryssland; punkten är flodens mynning i Bajdaratskajabukten, inte fyndplatsen",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "tonfisk-i-jerimalai",
+      "titel": "Fiske i grottan Jerimalai",
+      "start": -40050,
+      "plats": "Grottan Jerimalai sydost om Tutuala, Lautém, Östtimor",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "amputationen-i-liang-tebo",
+      "titel": "En amputation som läkte i Liang Tebo",
+      "start": -29569,
+      "plats": "Grottan Liang Tebo i karstområdet Sangkulirang–Mangkalihat, Östkalimantan, Indonesien; punkten är karstområdets mitt, inte grottan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "baturs-kalderor",
+      "titel": "Vulkanen Batur rasar samman i två steg",
+      "start": -27350,
+      "plats": "Vulkanen Batur, Bangli, Bali, Indonesien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "obsidian-fran-nya-britannien",
+      "titel": "Obsidian från Nya Britannien förs över havet",
+      "start": -21049,
+      "plats": "Nya Britannien i Bismarckarkipelagen, Papua Nya Guinea",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "kuskusen-till-nya-irland",
+      "titel": "Kuskusen kommer till Nya Irland",
+      "start": -17999,
+      "plats": "Nya Irland i Bismarckarkipelagen, Papua Nya Guinea",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "havet-dranker-sundaland",
+      "titel": "Havet dränker Sundaland",
+      "start": -16050,
+      "plats": "Sundaschelfen; punkten är ett representativt läge i Javasjön, inte en särskild plats",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "sutlej-lamnar-sin-gamla-dal",
+      "titel": "Sutlej lämnar sin gamla dal",
+      "start": -13050,
+      "plats": "Ghaggar–Hakras torra flodfåra vid Kalibangan, Rajasthan, Indien; punkten är studiens borrhål vid Kalibangan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "noshorning-i-vargvalpens-mage",
+      "titel": "Ullhårig noshörning i en vargvalps mage",
+      "start": -12450,
+      "plats": "Tumat i Jakutien, Ryssland; punkten är byn Tumat, inte fyndplatsen",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "persiska-viken-fylls",
+      "titel": "Havet fyller Persiska viken efter istiden",
+      "start": -10050,
+      "plats": "Persiska viken; punkten är vikens mitt",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "vaxtresterna-i-spirit-cave",
+      "titel": "Växtresterna i Spirit Cave",
+      "start": -9799,
+      "plats": "Spirit Cave, Pang Mapha, Mae Hong Son, Thailand",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "havet-fyller-palksundet",
+      "titel": "Havet fyller Palksundet",
+      "start": -9750,
+      "plats": "Adams bro mellan Indien och Sri Lanka",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "keramiken-i-gosan-ri",
+      "titel": "Tidig keramik i Gosan-ri på Jeju",
+      "start": -7999,
+      "plats": "Gosan-ri på Jeju, Sydkorea",
+      "wikidata": "Q23995027",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "ulleungdos-kaldera-bildas",
+      "titel": "Utbrottet som gav Ulleungdo dess kaldera",
+      "start": -7999,
+      "plats": "Ön Ulleungdo, Sydkorea",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "hundarna-pa-zjochovon",
+      "titel": "Hundarna på Zjochovön",
+      "start": -7574,
+      "plats": "Zjochovön i Östsibiriska havet, Jakutien, Ryssland",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "salfangst-vid-bajkalsjon",
+      "titel": "Sälfångst vid Bajkalsjön",
+      "start": -7070,
+      "plats": "Boplatsen Sagan-Zaba II på Bajkalsjöns västra strand, Ryssland; punkten är byn Bugulʹdejka längre söderut längs stranden, inte boplatsen",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    }
+  ]
+}

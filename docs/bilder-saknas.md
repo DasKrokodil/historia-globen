@@ -427,3 +427,41 @@ Följande händelser i #2098 lämnas utan bild; granskningslistan och valen finn
 | `lattes-chacaltaya-1947` | 2026-11-26: Kandidaterna är porträtt av César Lattes (1949 och 1954) ur Arquivo Nacional, Fundo Correio da Manhã. Licensmallen ("Arquivo Nacional PD-license") kunde inte tolkas av programmet (API: Public domain) och används inte utan en människas bedömning; bilderna visar dessutom inte händelsen. |
 | `gabriela-mistral-nobelpris-1945` | 2026-11-26: Enda kandidaten ([Gabriela Mistral 1945.jpg](https://commons.wikimedia.org/wiki/File:Gabriela_Mistral_1945.jpg), Anna Riwkin-Brick) är 280 × 396 px och fotografen dog 1970 enligt Wikimedia; filsidans skäl till public domain är inte kontrollerat. |
 | `gronland-upphor-vara-koloni` | 2026-11-26: Enda kandidaten är en bokbild från 1911 med licensen "No restrictions", som programmet inte kan avgöra och som inte visar händelsen. |
+
+## Asien 178000 f.Kr.–7071 f.Kr. (#2056 och #2057, 2026-11-26)
+
+14 av 40 händelser fick bild i den här omgången. Ytterligare 5 har en utsedd kandidat som inte kunde hämtas (HTTP 429) och står i `data/utkast/bildbatch/asien-1-ej-hamtade.txt`. Följande 21 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-1.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `baishiya-denisovaner` | 2026-11-26: Enda kandidaten är ett diagram ur en artikel (Deep Tibetan admixture graph modeling) och visar inte platsen; en egen sökning på grottan gav inga träffar. |
+| `sodra-kina-tidiga-tander` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `denisova-11` | 2026-11-26: Fotona av Denisovagrottan på Commons har licensmallen Wikimapia, som programmet inte kan tolka; de används inte utan en människas bedömning (ett annat foto av grottan används för `denisovaner`). |
+| `neandertalare` | 2026-11-26: Händelsen saknades i granskningslistan; ingen egen sökning hann göras. |
+| `al-wusta` | 2026-11-26: Ingen kandidat; sökningen på Al Wusta och fyndet gav inga träffar. |
+| `tam-pa-ling` | 2026-11-26: Kandidaterna (figurer ur en vetenskaplig artikel, CC BY 4.0, och en tafonomibild) öppnades inte och bedömdes inte i den här omgången. |
+| `gua-dagang-arkaisk-manniska` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `utbrottet-som-skapade-maninjausjon` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `pil-och-bage-i-fa-hien-lena` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `mammutkalven-ljuba` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `tonfisk-i-jerimalai` | 2026-11-26: Ingen kandidat i listan; en sökning på grottan nekades med HTTP 429. |
+| `kilugrottan` | 2026-11-26: Händelsen saknades i granskningslistan; ingen egen sökning hann göras. |
+| `amputationen-i-liang-tebo` | 2026-11-26: Ingen kandidat i listan; sökningen på Liang Tebo gav bara orelaterade böcker. |
+| `obsidian-fran-nya-britannien` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kuskusen-till-nya-irland` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `havet-dranker-sundaland` | 2026-11-26: Enda träffarna är kartor under 800 px (Sunda shelf.jpg, 638 × 416 px) eller regionala kartor; ingen lämplig bild. |
+| `sutlej-lamnar-sin-gamla-dal` | 2026-11-26: Enda träffen är en modern karta över flodlopp (Sarasvati river.jpg); ämnet är omstritt och kartan visar inte händelsen, så den används inte utan bedömning. |
+| `noshorning-i-vargvalpens-mage` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `torressundet-bildas` | 2026-11-26: Kandidaterna var fel motiv (en gammal karta över Kaukasus, en satellitbild av hela Australien) eller hade en otillåten licens; en egen sökning gav bara en bild på 444 × 446 px. |
+| `vaxtresterna-i-spirit-cave` | 2026-11-26: Sökningen på Spirit Cave gav bara bilder av en annan grotta (Spirit Well Cave); ingen lämplig bild. |
+| `keramiken-i-gosan-ri` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+
+Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
+
+| Händelse (id) | Kandidat |
+|---|---|
+| `hundarna-pa-zjochovon` | Zhokhov - Landsat.jpg (PD, NASA/USGS) |
+| `salfangst-vid-bajkalsjon` | Из жизни байкальской нерпы близ Ушканьих островов 02.jpg (CC BY-SA 4.0) |
+| `persiska-viken-fylls` | PersianGulf vue satellite du golfe persique.jpg (PD, NASA) |
+| `ulleungdos-kaldera-bildas` | Ulleung Island ISS064.jpg (PD, NASA) |
+| `altaifloden` | Katun AltaiRepublicBoundary 013 1368.jpg (CC BY-SA 4.0) |
