@@ -7070,5 +7070,325 @@
     "source": "commons-bild-oc-eo",
     "id": "oc-eo",
     "file": "oc-eo.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "tidig-medeltid",
+    "caption": {
+      "sv": "Teckning av Eugène Flandin från 1840 (ur Voyage en Perse, 1851): \"Château de Nehavend\", slottet i Nahavand. Teckningen är gjord nästan 1 200 år efter slaget (642) och visar platsen, inte slaget. Licens: Public domain.",
+      "en": "Drawing by Eugène Flandin from 1840 (from Voyage en Perse, 1851): \"Château de Nehavend\", the castle at Nahavand. The drawing was made almost 1,200 years after the battle (642) and shows the place, not the battle. Licence: Public domain.",
+      "de": "Zeichnung von Eugène Flandin von 1840 (aus Voyage en Perse, 1851): „Château de Nehavend“, die Burg von Nahawand. Die Zeichnung entstand fast 1200 Jahre nach der Schlacht (642) und zeigt den Ort, nicht die Schlacht. Lizenz: gemeinfrei.",
+      "es": "Dibujo de Eugène Flandin de 1840 (de Voyage en Perse, 1851): «Château de Nehavend», el castillo de Nahavand. El dibujo se hizo casi 1200 años después de la batalla (642) y muestra el lugar, no la batalla. Licencia: dominio público.",
+      "fr": "Dessin d'Eugène Flandin de 1840 (tiré de Voyage en Perse, 1851) : « Château de Nehavend », le château de Nahavand. Le dessin a été réalisé près de 1 200 ans après la bataille (642) et montre le lieu, pas la bataille. Licence : domaine public."
+    },
+    "credit": "Eugène Flandin / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-nahavand",
+    "id": "slaget-vid-nahavand",
+    "file": "slaget-vid-nahavand.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Lärda i ett bibliotek: miniatyr av Yahya ibn Mahmud al-Wasiti i en handskrift av al-Hariris Maqamat, Bagdad 1237 (Bibliothèque nationale de France). Filsidans arabiska text kallar scenen Visdomens hus, men miniatyren är målad cirka 480 år efter händelsens år (754) och är en senare bild av ett bibliotek. Licens: Public domain.",
+      "en": "Scholars in a library: miniature by Yahya ibn Mahmud al-Wasiti in a manuscript of al-Hariri's Maqamat, Baghdad 1237 (Bibliothèque nationale de France). The Arabic text on the file page calls the scene the House of Wisdom, but the miniature was painted about 480 years after the year of the event (754) and is a later picture of a library. Licence: Public domain.",
+      "de": "Gelehrte in einer Bibliothek: Miniatur von Yahya ibn Mahmud al-Wasiti in einer Handschrift von al-Hariris Maqamat, Bagdad 1237 (Bibliothèque nationale de France). Der arabische Text der Dateiseite nennt die Szene das Haus der Weisheit, doch die Miniatur wurde etwa 480 Jahre nach dem Jahr des Ereignisses (754) gemalt und ist ein späteres Bild einer Bibliothek. Lizenz: gemeinfrei.",
+      "es": "Eruditos en una biblioteca: miniatura de Yahya ibn Mahmud al-Wasiti en un manuscrito de las Maqamat de al-Hariri, Bagdad 1237 (Bibliothèque nationale de France). El texto árabe de la página del archivo llama a la escena la Casa de la Sabiduría, pero la miniatura se pintó unos 480 años después del año del acontecimiento (754) y es una imagen posterior de una biblioteca. Licencia: dominio público.",
+      "fr": "Savants dans une bibliothèque : miniature de Yahya ibn Mahmud al-Wasiti dans un manuscrit des Maqamat d'al-Hariri, Bagdad 1237 (Bibliothèque nationale de France). Le texte arabe de la page du fichier appelle la scène la Maison de la sagesse, mais la miniature a été peinte environ 480 ans après l'année de l'événement (754) et constitue une image postérieure d'une bibliothèque. Licence : domaine public."
+    },
+    "credit": "Yahya ibn Mahmud al-Wasiti / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-visdomens-hus-bagdad",
+    "id": "visdomens-hus-bagdad",
+    "file": "visdomens-hus-bagdad.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Nutida foto (2010) av Oilstreet av Fenixhallen (Phoenix Hall) i Byōdō-in i Uji, Kyoto prefektur. Filsidan anger årtalet 1059 för hallen. Inte från händelsens tid (1052). Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2010) by Oilstreet of the Phoenix Hall at Byōdō-in in Uji, Kyoto Prefecture. The file page gives the year 1059 for the hall. Not from the time of the event (1052). Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2010) von Oilstreet der Phönix-Halle des Byōdō-in in Uji, Präfektur Kyōto. Die Dateiseite nennt für die Halle das Jahr 1059. Nicht aus der Zeit des Ereignisses (1052). Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2010) de Oilstreet del Pabellón del Fénix de Byōdō-in, en Uji, prefectura de Kioto. La página del archivo indica el año 1059 para el pabellón. No es de la época del acontecimiento (1052). Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2010) d'Oilstreet du Pavillon du Phénix du Byōdō-in, à Uji, préfecture de Kyoto. La page du fichier indique l'année 1059 pour le pavillon. Pas de l'époque de l'événement (1052). Licence : CC BY-SA 3.0."
+    },
+    "credit": "Oilstreet / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-byodo-in-blir-tempel",
+    "id": "byodo-in-blir-tempel",
+    "file": "byodo-in-blir-tempel.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Katsukawa Shunteis färgträsnitt (triptyk) \"Kurikaradani Kassen Zu\", 1810, Library of Congress: slaget vid Kurikaradani den 2 juni 1183. Gjort 627 år efter slaget; en senare, tolkande bild med våldsskildring. Licens: Public domain.",
+      "en": "Katsukawa Shuntei's colour woodblock print (triptych) \"Kurikaradani Kassen Zu\", 1810, Library of Congress: the battle of Kurikaradani on 2 June 1183. Made 627 years after the battle; a later, interpretive picture showing violence. Licence: Public domain.",
+      "de": "Katsukawa Shunteis Farbholzschnitt (Triptychon) „Kurikaradani Kassen Zu“, 1810, Library of Congress: die Schlacht von Kurikaradani am 2. Juni 1183. 627 Jahre nach der Schlacht entstanden; ein späteres, deutendes Bild mit Gewaltdarstellung. Lizenz: gemeinfrei.",
+      "es": "Grabado en madera en color (tríptico) de Katsukawa Shuntei «Kurikaradani Kassen Zu», 1810, Library of Congress: la batalla de Kurikaradani del 2 de junio de 1183. Hecho 627 años después de la batalla; una imagen posterior e interpretativa con escenas de violencia. Licencia: dominio público.",
+      "fr": "Estampe sur bois en couleur (triptyque) de Katsukawa Shuntei « Kurikaradani Kassen Zu », 1810, Library of Congress : la bataille de Kurikaradani du 2 juin 1183. Réalisée 627 ans après la bataille ; une image postérieure et interprétative montrant de la violence. Licence : domaine public."
+    },
+    "credit": "Katsukawa Shuntei / Library of Congress",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-kurikara",
+    "id": "slaget-vid-kurikara",
+    "file": "slaget-vid-kurikara.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Den högra av två vikskärmar med scener ur Heikes saga, av Kanoskolan, cirka 1650 (Minneapolis Institute of Art): scener kring slaget vid Ichi-no-Tani den 20 mars 1184. Gjord cirka 470 år efter slaget; en senare bild som bygger på Heikes saga. Licens: Public domain.",
+      "en": "The right-hand screen of a pair of folding screens with scenes from the Tale of the Heike, by the Kano school, about 1650 (Minneapolis Institute of Art): scenes around the Battle of Ichi-no-Tani on 20 March 1184. Made about 470 years after the battle; a later picture based on the Tale of the Heike. Licence: Public domain.",
+      "de": "Der rechte von zwei Stellschirmen mit Szenen aus dem Heike-Monogatari, von der Kanō-Schule, um 1650 (Minneapolis Institute of Art): Szenen rund um die Schlacht von Ichi-no-Tani am 20. März 1184. Etwa 470 Jahre nach der Schlacht entstanden; ein späteres Bild nach dem Heike-Monogatari. Lizenz: gemeinfrei.",
+      "es": "El biombo derecho de un par de biombos con escenas del Heike monogatari, de la escuela Kano, hacia 1650 (Minneapolis Institute of Art): escenas de la batalla de Ichi-no-Tani del 20 de marzo de 1184. Hecho unos 470 años después de la batalla; una imagen posterior basada en el Heike monogatari. Licencia: dominio público.",
+      "fr": "Le paravent de droite d'une paire de paravents avec des scènes du Dit des Heike, de l'école Kano, vers 1650 (Minneapolis Institute of Art) : des scènes autour de la bataille d'Ichi-no-Tani du 20 mars 1184. Réalisé environ 470 ans après la bataille ; une image postérieure fondée sur le Dit des Heike. Licence : domaine public."
+    },
+    "credit": "Kanoskolan / Minneapolis Institute of Art via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-ichi-no-tani",
+    "id": "slaget-vid-ichi-no-tani",
+    "file": "slaget-vid-ichi-no-tani.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Den vänstra av två vikskärmar med scener ur Heikes saga, av Kanoskolan, cirka 1650, bläck, färg, guld och silver på papper (Minneapolis Institute of Art): slaget vid Yashima den 22 mars 1185. Gjord cirka 465 år efter slaget; en senare bild som bygger på Heikes saga. Licens: Public domain.",
+      "en": "The left-hand screen of a pair of folding screens with scenes from the Tale of the Heike, by the Kano school, about 1650, ink, colour, gold and silver on paper (Minneapolis Institute of Art): the Battle of Yashima on 22 March 1185. Made about 465 years after the battle; a later picture based on the Tale of the Heike. Licence: Public domain.",
+      "de": "Der linke von zwei Stellschirmen mit Szenen aus dem Heike-Monogatari, von der Kanō-Schule, um 1650, Tusche, Farbe, Gold und Silber auf Papier (Minneapolis Institute of Art): die Schlacht von Yashima am 22. März 1185. Etwa 465 Jahre nach der Schlacht entstanden; ein späteres Bild nach dem Heike-Monogatari. Lizenz: gemeinfrei.",
+      "es": "El biombo izquierdo de un par de biombos con escenas del Heike monogatari, de la escuela Kano, hacia 1650, tinta, color, oro y plata sobre papel (Minneapolis Institute of Art): la batalla de Yashima del 22 de marzo de 1185. Hecho unos 465 años después de la batalla; una imagen posterior basada en el Heike monogatari. Licencia: dominio público.",
+      "fr": "Le paravent de gauche d'une paire de paravents avec des scènes du Dit des Heike, de l'école Kano, vers 1650, encre, couleur, or et argent sur papier (Minneapolis Institute of Art) : la bataille de Yashima du 22 mars 1185. Réalisé environ 465 ans après la bataille ; une image postérieure fondée sur le Dit des Heike. Licence : domaine public."
+    },
+    "credit": "Kanoskolan / Minneapolis Institute of Art via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-yashima",
+    "id": "slaget-vid-yashima",
+    "file": "slaget-vid-yashima.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Filip II August (Philippe Auguste) och Rikard Lejonhjärta tar emot nycklarna till Akko (1191): illuminering i Grandes Chroniques de France, cirka 1375–1380 (Bibliothèque nationale de France, Français 2813). Gjord drygt 180 år efter 1191 och visar stadens överlämnande, inte belägringens början 1189. Licens: Public domain.",
+      "en": "Philip II Augustus (Philippe Auguste) and Richard the Lionheart receive the keys of Acre (1191): illumination in the Grandes Chroniques de France, about 1375–1380 (Bibliothèque nationale de France, Français 2813). Made more than 180 years after 1191 and shows the surrender of the city, not the start of the siege in 1189. Licence: Public domain.",
+      "de": "Philipp II. Augustus (Philippe Auguste) und Richard Löwenherz erhalten die Schlüssel von Akkon (1191): Buchmalerei in den Grandes Chroniques de France, um 1375–1380 (Bibliothèque nationale de France, Français 2813). Gut 180 Jahre nach 1191 entstanden; sie zeigt die Übergabe der Stadt, nicht den Beginn der Belagerung 1189. Lizenz: gemeinfrei.",
+      "es": "Felipe II Augusto (Philippe Auguste) y Ricardo Corazón de León reciben las llaves de Acre (1191): iluminación de las Grandes Chroniques de France, hacia 1375–1380 (Bibliothèque nationale de France, Français 2813). Hecha más de 180 años después de 1191; muestra la rendición de la ciudad, no el comienzo del asedio en 1189. Licencia: dominio público.",
+      "fr": "Philippe Auguste et Richard Cœur de Lion reçoivent les clés d'Acre (1191) : enluminure des Grandes Chroniques de France, vers 1375-1380 (Bibliothèque nationale de France, Français 2813). Réalisée plus de 180 ans après 1191 ; elle montre la reddition de la ville, pas le début du siège en 1189. Licence : domaine public."
+    },
+    "credit": "Okänd illuminatör / Bibliothèque nationale de France",
+    "license": "Public domain",
+    "source": "commons-bild-belagringen-av-akko-1189",
+    "id": "belagringen-av-akko-1189",
+    "file": "belagringen-av-akko-1189.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Slaget vid Valiyan (1221): miniatyr i en handskrift av Rashid al-Dins Jami' al-tawarikh, Herat 1430 (Bibliothèque nationale de France, Supplément persan 1113). Filsidan beskriver en strid mellan mongoliska officerare och Jalal al-Din. Gjord cirka 210 år efter striden och visar ett senare skede av erövringarna, inte deras början (1209). Licens: Public domain.",
+      "en": "The battle of Valiyan (1221): miniature in a manuscript of Rashid al-Din's Jami' al-tawarikh, Herat 1430 (Bibliothèque nationale de France, Supplément persan 1113). The file page describes a fight between Mongol officers and Jalal al-Din. Made about 210 years after the battle and shows a later stage of the conquests, not their beginning (1209). Licence: Public domain.",
+      "de": "Die Schlacht von Valiyan (1221): Miniatur in einer Handschrift von Raschid ad-Dins Dschami' at-tawarich, Herat 1430 (Bibliothèque nationale de France, Supplément persan 1113). Die Dateiseite beschreibt einen Kampf zwischen mongolischen Offizieren und Dschalal ad-Din. Etwa 210 Jahre nach der Schlacht entstanden; sie zeigt eine spätere Phase der Eroberungen, nicht deren Beginn (1209). Lizenz: gemeinfrei.",
+      "es": "La batalla de Valiyan (1221): miniatura en un manuscrito del Yami' al-tawarij de Rashid al-Din, Herat 1430 (Bibliothèque nationale de France, Supplément persan 1113). La página del archivo describe un combate entre oficiales mongoles y Yalal al-Din. Hecha unos 210 años después de la batalla; muestra una fase posterior de las conquistas, no su comienzo (1209). Licencia: dominio público.",
+      "fr": "La bataille de Valiyan (1221) : miniature dans un manuscrit du Jami' al-tawarikh de Rachid al-Din, Hérat 1430 (Bibliothèque nationale de France, Supplément persan 1113). La page du fichier décrit un combat entre des officiers mongols et Jalal al-Din. Réalisée environ 210 ans après la bataille ; elle montre une phase ultérieure des conquêtes, pas leur début (1209). Licence : domaine public."
+    },
+    "credit": "Sayf al-Vahidi (Herat) / Bibliothèque nationale de France",
+    "license": "Public domain",
+    "source": "commons-bild-mongolernas-erovringar",
+    "id": "mongolernas-erovringar",
+    "file": "mongolernas-erovringar.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Belägringen av Peking (1213/1214): miniatyr i en handskrift av Rashid al-Dins Jami' al-tawarikh, Herat 1430 (Bibliothèque nationale de France, Supplément persan 1113). Gjord drygt 215 år efter belägringen; en senare, persisk tolkning, inte en bild av stadens fall 1215. Licens: Public domain.",
+      "en": "The siege of Beijing (1213/1214): miniature in a manuscript of Rashid al-Din's Jami' al-tawarikh, Herat 1430 (Bibliothèque nationale de France, Supplément persan 1113). Made more than 215 years after the siege; a later Persian interpretation, not a picture of the fall of the city in 1215. Licence: Public domain.",
+      "de": "Die Belagerung von Peking (1213/1214): Miniatur in einer Handschrift von Raschid ad-Dins Dschami' at-tawarich, Herat 1430 (Bibliothèque nationale de France, Supplément persan 1113). Gut 215 Jahre nach der Belagerung entstanden; eine spätere persische Deutung, kein Bild vom Fall der Stadt 1215. Lizenz: gemeinfrei.",
+      "es": "El asedio de Pekín (1213/1214): miniatura en un manuscrito del Yami' al-tawarij de Rashid al-Din, Herat 1430 (Bibliothèque nationale de France, Supplément persan 1113). Hecha más de 215 años después del asedio; una interpretación persa posterior, no una imagen de la caída de la ciudad en 1215. Licencia: dominio público.",
+      "fr": "Le siège de Pékin (1213/1214) : miniature dans un manuscrit du Jami' al-tawarikh de Rachid al-Din, Hérat 1430 (Bibliothèque nationale de France, Supplément persan 1113). Réalisée plus de 215 ans après le siège ; une interprétation persane postérieure, pas une image de la chute de la ville en 1215. Licence : domaine public."
+    },
+    "credit": "Sayf al-Vahidi (Herat) / Bibliothèque nationale de France",
+    "license": "Public domain",
+    "source": "commons-bild-zhongdus-fall-1215",
+    "id": "zhongdus-fall-1215",
+    "file": "zhongdus-fall-1215.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "miniatyr",
+    "caption": {
+      "sv": "Nutida foto av Joydeep av ett hjul huggit i sten på Soltemplet i Konark i Odisha; filsidan anger att templet byggdes på 1200-talet. Filens datum (2025) är troligen uppladdningen, inte fotograferingen. Inte från händelsens tid. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo by Joydeep of a wheel carved in stone on the Konark Sun Temple in Odisha; the file page states that the temple was built in the 13th century. The file date (2025) is probably the upload, not the time of the photo. Not from the time of the event. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto von Joydeep eines in Stein gehauenen Rades am Sonnentempel von Konark in Odisha; laut Dateiseite wurde der Tempel im 13. Jahrhundert erbaut. Das Dateidatum (2025) ist wohl das Hochladedatum, nicht der Aufnahmezeitpunkt. Nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual de Joydeep de una rueda tallada en piedra del Templo del Sol de Konark, en Odisha; la página del archivo indica que el templo se construyó en el siglo XIII. La fecha del archivo (2025) es probablemente la de la subida, no la de la toma. No es de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle de Joydeep d'une roue sculptée dans la pierre du temple du Soleil de Konârak, en Odisha ; la page du fichier indique que le temple a été construit au XIIIe siècle. La date du fichier (2025) est probablement celle du téléversement, pas celle de la prise de vue. Pas de l'époque de l'événement. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Joydeep / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-soltemplet-i-konark",
+    "id": "soltemplet-i-konark",
+    "file": "soltemplet-i-konark.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Karta över fälttåget som ledde till slaget vid Ain Jalut 1260, med den mongoliska och den mamlukiska styrkans rörelser. Modern karta (2008) av MapMaster med Amitai-Preiss (1995) och Tschanz (2007) som källor; inte samtida. Licens: CC BY 3.0.",
+      "en": "Map of the campaign leading to the Battle of Ain Jalut in 1260, with the movements of the Mongol and Mamluk forces. Modern map (2008) by MapMaster citing Amitai-Preiss (1995) and Tschanz (2007); not contemporary. Licence: CC BY 3.0.",
+      "de": "Karte des Feldzugs, der zur Schlacht von Ain Dschalut 1260 führte, mit den Bewegungen der mongolischen und der mamlukischen Streitmacht. Moderne Karte (2008) von MapMaster mit Amitai-Preiss (1995) und Tschanz (2007) als Quellen; nicht zeitgenössisch. Lizenz: CC BY 3.0.",
+      "es": "Mapa de la campaña que condujo a la batalla de Ain Yalut en 1260, con los movimientos de las fuerzas mongola y mameluca. Mapa moderno (2008) de MapMaster, con Amitai-Preiss (1995) y Tschanz (2007) como fuentes; no es de la época. Licencia: CC BY 3.0.",
+      "fr": "Carte de la campagne qui mena à la bataille d'Aïn Djalout en 1260, avec les mouvements des forces mongoles et mameloukes. Carte moderne (2008) de MapMaster, citant Amitai-Preiss (1995) et Tschanz (2007) ; pas de l'époque. Licence : CC BY 3.0."
+    },
+    "credit": "MapMaster / Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "source": "commons-bild-slaget-vid-ain-jalut",
+    "id": "slaget-vid-ain-jalut",
+    "file": "slaget-vid-ain-jalut.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Kikuchi Yōsais \"Mongolinvasionen\" (Mōko shūrai), 1847, bläck och vattenfärg på papper, Tokyo National Museum: enligt filsidan mongolflottans förstörelse i en tyfon. Gjord cirka 570 år efter invasionerna (1274 och 1281); en senare, japansk tolkning. Licens: Public domain.",
+      "en": "Kikuchi Yōsai's \"Mongol Invasion\" (Mōko shūrai), 1847, ink and watercolour on paper, Tokyo National Museum: according to the file page the destruction of the Mongol fleet in a typhoon. Made about 570 years after the invasions (1274 and 1281); a later Japanese interpretation. Licence: Public domain.",
+      "de": "Kikuchi Yōsais „Mongoleneinfall“ (Mōko shūrai), 1847, Tusche und Wasserfarben auf Papier, Tokyo National Museum: laut Dateiseite die Zerstörung der mongolischen Flotte in einem Taifun. Etwa 570 Jahre nach den Invasionen (1274 und 1281) entstanden; eine spätere japanische Deutung. Lizenz: gemeinfrei.",
+      "es": "La «Invasión mongola» (Mōko shūrai) de Kikuchi Yōsai, 1847, tinta y acuarela sobre papel, Museo Nacional de Tokio: según la página del archivo, la destrucción de la flota mongola en un tifón. Hecha unos 570 años después de las invasiones (1274 y 1281); una interpretación japonesa posterior. Licencia: dominio público.",
+      "fr": "« L'invasion mongole » (Mōko shūrai) de Kikuchi Yōsai, 1847, encre et aquarelle sur papier, Musée national de Tokyo : selon la page du fichier, la destruction de la flotte mongole dans un typhon. Réalisée environ 570 ans après les invasions (1274 et 1281) ; une interprétation japonaise postérieure. Licence : domaine public."
+    },
+    "credit": "Kikuchi Yōsai / Tokyo National Museum",
+    "license": "Public domain",
+    "source": "commons-bild-mongolernas-invasioner-av-japan",
+    "id": "mongolernas-invasioner-av-japan",
+    "file": "mongolernas-invasioner-av-japan.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Japanska anfallsfartyg ur bildrullen Mōko Shūrai Ekotoba, som skildrar mongolernas invasioner av Japan; filsidan anger 1291, alltså ungefär tio år efter händelsen (1281). Filsidan säger inte vilken av de två invasionerna scenen hör till. Licens: Public domain.",
+      "en": "Japanese attack ships from the picture scroll Mōko Shūrai Ekotoba, which depicts the Mongol invasions of Japan; the file page gives 1291, that is about ten years after the event (1281). The file page does not say which of the two invasions the scene belongs to. Licence: Public domain.",
+      "de": "Japanische Angriffsschiffe aus der Bildrolle Mōko Shūrai Ekotoba, die die Invasionen der Mongolen in Japan darstellt; die Dateiseite nennt 1291, also etwa zehn Jahre nach dem Ereignis (1281). Die Dateiseite sagt nicht, zu welcher der beiden Invasionen die Szene gehört. Lizenz: gemeinfrei.",
+      "es": "Barcos de ataque japoneses del rollo ilustrado Mōko Shūrai Ekotoba, que representa las invasiones mongolas de Japón; la página del archivo indica 1291, es decir, unos diez años después del acontecimiento (1281). La página del archivo no dice a cuál de las dos invasiones pertenece la escena. Licencia: dominio público.",
+      "fr": "Navires d'attaque japonais du rouleau illustré Mōko Shūrai Ekotoba, qui représente les invasions mongoles du Japon ; la page du fichier indique 1291, soit environ dix ans après l'événement (1281). La page du fichier ne dit pas à laquelle des deux invasions la scène se rapporte. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär (Mōko Shūrai Ekotoba) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-andra-slaget-i-hakatabukten",
+    "id": "andra-slaget-i-hakatabukten",
+    "file": "andra-slaget-i-hakatabukten.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Nutida foto (2008) av 长夜无风 från Songyuan Yamen Sea Battle Cultural Tourism Zone, ett kulturturistområde för sjöslaget vid Yamen under Song och Yuan, i Xinhui-distriktet i Jiangmen. Ett modernt turistområde, inte från slaget 1279. Licens: CC BY 3.0.",
+      "en": "Modern photo (2008) by 长夜无风 of the Songyuan Yamen Sea Battle Cultural Tourism Zone, a cultural tourism area for the Song–Yuan naval battle of Yamen, in Xinhui District, Jiangmen. A modern tourist area, not from the battle of 1279. Licence: CC BY 3.0.",
+      "de": "Heutiges Foto (2008) von 长夜无风 der Songyuan Yamen Sea Battle Cultural Tourism Zone, eines kulturtouristischen Areals zur Seeschlacht von Yamen zwischen Song und Yuan, im Bezirk Xinhui in Jiangmen. Ein modernes Touristengelände, nicht aus der Zeit der Schlacht von 1279. Lizenz: CC BY 3.0.",
+      "es": "Foto actual (2008) de 长夜无风 de la Songyuan Yamen Sea Battle Cultural Tourism Zone, una zona de turismo cultural sobre la batalla naval de Yamen entre los Song y los Yuan, en el distrito de Xinhui, en Jiangmen. Una zona turística moderna, no de la batalla de 1279. Licencia: CC BY 3.0.",
+      "fr": "Photo actuelle (2008) de 长夜无风 de la Songyuan Yamen Sea Battle Cultural Tourism Zone, une zone de tourisme culturel consacrée à la bataille navale de Yamen entre les Song et les Yuan, dans le district de Xinhui, à Jiangmen. Une zone touristique moderne, pas de l'époque de la bataille de 1279. Licence : CC BY 3.0."
+    },
+    "credit": "(Long night without wind) 长夜无风 / Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "source": "commons-bild-slaget-vid-yamen",
+    "id": "slaget-vid-yamen",
+    "file": "slaget-vid-yamen.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Dominique Papetys målning \"Belägringen av Akko\" (cirka 1840, Versailles): johanniterordens mästare Mathieu de Clermont försvarar murarna 1291. Gjord cirka 550 år efter händelsen; en senare framställning av strid vid murarna. Licens: Public domain.",
+      "en": "Dominique Papety's painting \"The Siege of Acre\" (about 1840, Versailles): the Hospitaller Master Mathieu de Clermont defending the walls in 1291. Made about 550 years after the event; a later depiction of fighting at the walls. Licence: Public domain.",
+      "de": "Dominique Papetys Gemälde „Die Belagerung von Akkon“ (um 1840, Versailles): der Hospitaliter-Meister Mathieu de Clermont verteidigt 1291 die Mauern. Etwa 550 Jahre nach dem Ereignis entstanden; eine spätere Darstellung des Kampfes an den Mauern. Lizenz: gemeinfrei.",
+      "es": "Pintura «El asedio de Acre» de Dominique Papety (hacia 1840, Versalles): el maestre hospitalario Mathieu de Clermont defendiendo las murallas en 1291. Hecha unos 550 años después del acontecimiento; una representación posterior del combate en las murallas. Licencia: dominio público.",
+      "fr": "Tableau « Le siège d'Acre » de Dominique Papety (vers 1840, Versailles) : le maître hospitalier Mathieu de Clermont défendant les remparts en 1291. Réalisé environ 550 ans après l'événement ; une représentation postérieure du combat sur les remparts. Licence : domaine public."
+    },
+    "credit": "Dominique Papety / Château de Versailles",
+    "license": "Public domain",
+    "source": "commons-bild-akkos-fall-1291",
+    "id": "akkos-fall-1291",
+    "file": "akkos-fall-1291.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "miniatyr",
+    "caption": {
+      "sv": "Nutida foto (2015) av Aleksandr Zykov från Vijayanagara (Hampi) i Karnataka; filsidan anger inte byggnadens namn eller ålder, och bilden visar inte staden när riket grundades 1336. Inte från händelsens tid. Licens: CC BY-SA 2.0.",
+      "en": "Modern photo (2015) by Aleksandr Zykov from Vijayanagara (Hampi) in Karnataka; the file page does not give the name or age of the building, and the picture does not show the city at the founding of the empire in 1336. Not from the time of the event. Licence: CC BY-SA 2.0.",
+      "de": "Heutiges Foto (2015) von Aleksandr Zykov aus Vijayanagara (Hampi) in Karnataka; die Dateiseite nennt weder Namen noch Alter des Gebäudes, und das Bild zeigt nicht die Stadt zur Gründung des Reiches 1336. Nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 2.0.",
+      "es": "Foto actual (2015) de Aleksandr Zykov de Vijayanagara (Hampi), en Karnataka; la página del archivo no indica el nombre ni la antigüedad del edificio, y la imagen no muestra la ciudad en la fundación del imperio en 1336. No es de la época del acontecimiento. Licencia: CC BY-SA 2.0.",
+      "fr": "Photo actuelle (2015) d'Aleksandr Zykov de Vijayanagara (Hampi), dans le Karnataka ; la page du fichier n'indique ni le nom ni l'âge du bâtiment, et l'image ne montre pas la ville à la fondation de l'empire en 1336. Pas de l'époque de l'événement. Licence : CC BY-SA 2.0."
+    },
+    "credit": "Aleksandr Zykov / Wikimedia Commons (Flickr)",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-vijayanagarariket-grundas",
+    "id": "vijayanagarariket-grundas",
+    "file": "vijayanagarariket-grundas.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "miniatyr",
+    "caption": {
+      "sv": "\"Plan de Goa\", plan över Goa ur Prévost d'Exiles Histoire générale des voyages (Paris, Didot); filsidan anger 1750. Gjord cirka 240 år efter erövringen 1510 och visar staden som den ritades på 1700-talet, inte 1510. Licens: Public domain.",
+      "en": "\"Plan de Goa\", a plan of Goa from Prévost d'Exiles' Histoire générale des voyages (Paris, Didot); the file page gives 1750. Made about 240 years after the conquest in 1510 and shows the city as it was drawn in the 18th century, not in 1510. Licence: Public domain.",
+      "de": "„Plan de Goa“, ein Plan von Goa aus Prévost d'Exiles' Histoire générale des voyages (Paris, Didot); die Dateiseite nennt 1750. Etwa 240 Jahre nach der Eroberung von 1510 entstanden; er zeigt die Stadt, wie sie im 18. Jahrhundert gezeichnet wurde, nicht 1510. Lizenz: gemeinfrei.",
+      "es": "«Plan de Goa», un plano de Goa de la Histoire générale des voyages de Prévost d'Exiles (París, Didot); la página del archivo indica 1750. Hecho unos 240 años después de la conquista de 1510; muestra la ciudad tal como se dibujó en el siglo XVIII, no en 1510. Licencia: dominio público.",
+      "fr": "« Plan de Goa », un plan de Goa tiré de l'Histoire générale des voyages de Prévost d'Exiles (Paris, Didot) ; la page du fichier indique 1750. Réalisé environ 240 ans après la conquête de 1510 ; il montre la ville telle qu'elle fut dessinée au XVIIIe siècle, pas en 1510. Licence : domaine public."
+    },
+    "credit": "Okänd (Prévost d'Exiles) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-goa-1510",
+    "id": "goa-1510",
+    "file": "goa-1510.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Detalj ur Abraham Ortelius karta över Stilla havet (1590): Magellans skepp Victoria. Gjord knappt 70 år efter Magellans resa; en senare kartbild, inte en bild av ankomsten till Guam. Licens: Public domain.",
+      "en": "Detail from Abraham Ortelius's map of the Pacific (1590): Magellan's ship Victoria. Made less than 70 years after Magellan's voyage; a later map illustration, not a picture of the arrival at Guam. Licence: Public domain.",
+      "de": "Ausschnitt aus Abraham Ortelius' Karte des Pazifiks (1590): Magellans Schiff Victoria. Knapp 70 Jahre nach Magellans Reise entstanden; eine spätere Kartendarstellung, kein Bild der Ankunft auf Guam. Lizenz: gemeinfrei.",
+      "es": "Detalle del mapa del Pacífico de Abraham Ortelius (1590): la nao Victoria de Magallanes. Hecho menos de 70 años después del viaje de Magallanes; una imagen cartográfica posterior, no una imagen de la llegada a Guam. Licencia: dominio público.",
+      "fr": "Détail de la carte du Pacifique d'Abraham Ortelius (1590) : le navire Victoria de Magellan. Réalisé moins de 70 ans après le voyage de Magellan ; une illustration cartographique postérieure, pas une image de l'arrivée à Guam. Licence : domaine public."
+    },
+    "credit": "Abraham Ortelius / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-magellan-nar-guam",
+    "id": "magellan-nar-guam",
+    "file": "magellan-nar-guam.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "miniatyr",
+    "caption": {
+      "sv": "Nutida foto (2007) av Fulvio Spada från Oljeitus mausoleum (Gonbad-e Soltaniyeh) i Soltaniyeh: ett invändigt valv med dekor. Inte från händelsens tid (1307). Licens: CC BY-SA 2.0.",
+      "en": "Modern photo (2007) by Fulvio Spada from the Oljeitu Mausoleum (Gonbad-e Soltaniyeh) in Soltaniyeh: an interior vault with decoration. Not from the time of the event (1307). Licence: CC BY-SA 2.0.",
+      "de": "Heutiges Foto (2007) von Fulvio Spada aus dem Oljeitu-Mausoleum (Gonbad-e Soltaniyeh) in Soltaniyeh: ein Innengewölbe mit Dekor. Nicht aus der Zeit des Ereignisses (1307). Lizenz: CC BY-SA 2.0.",
+      "es": "Foto actual (2007) de Fulvio Spada del mausoleo de Oljeitu (Gonbad-e Soltaniyeh) en Soltaniyeh: una bóveda interior con decoración. No es de la época del acontecimiento (1307). Licencia: CC BY-SA 2.0.",
+      "fr": "Photo actuelle (2007) de Fulvio Spada du mausolée d'Oldjaïtou (Gonbad-e Soltaniyeh) à Soltaniyeh : une voûte intérieure décorée. Pas de l'époque de l'événement (1307). Licence : CC BY-SA 2.0."
+    },
+    "credit": "Fulvio Spada / Wikimedia Commons (Flickr)",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-mausoleet-i-soltaniyeh",
+    "id": "mausoleet-i-soltaniyeh",
+    "file": "mausoleet-i-soltaniyeh.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Nutida foto (2010) av DIMMIS av Shwezigon i Bagan, Myanmar. Inte från händelsens tid (byggstart 1059). Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2010) by DIMMIS of the Shwezigon in Bagan, Myanmar. Not from the time of the event (construction began 1059). Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2010) von DIMMIS der Shwezigon in Bagan, Myanmar. Nicht aus der Zeit des Ereignisses (Baubeginn 1059). Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2010) de DIMMIS de la Shwezigon, en Bagan, Myanmar. No es de la época del acontecimiento (inicio de las obras en 1059). Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2010) de DIMMIS de la Shwezigon, à Bagan, au Myanmar. Pas de l'époque de l'événement (début de la construction en 1059). Licence : CC BY-SA 3.0."
+    },
+    "credit": "DIMMIS / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-shwezigonpagoden",
+    "id": "shwezigonpagoden",
+    "file": "shwezigonpagoden.webp"
   }
 ]

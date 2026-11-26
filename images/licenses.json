@@ -78,6 +78,21 @@
       }
     },
     {
+      "eventId": "akkos-fall-1291",
+      "eventTitle": "Akkos fall",
+      "file": "images/events/akkos-fall-1291.webp",
+      "kind": "historisk",
+      "credit": "Dominique Papety / Château de Versailles",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-akkos-fall-1291",
+        "title": "SiegeOfAcre1291 – Dominique Papety (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:SiegeOfAcre1291.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "aksum-blir-kristet",
       "eventTitle": "Kung Ezana gör Aksum kristet",
       "file": "images/events/aksum-blir-kristet.webp",
@@ -234,6 +249,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:DRC-_Child_Soldiers.jpg",
         "license": "Public domain",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "andra-slaget-i-hakatabukten",
+      "eventTitle": "Andra invasionen: striderna i Hakatabukten",
+      "file": "images/events/andra-slaget-i-hakatabukten.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär (Mōko Shūrai Ekotoba) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-andra-slaget-i-hakatabukten",
+        "title": "Mooko-SamuraiShips (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mooko-SamuraiShips.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -687,6 +717,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:An_Iraqi_T-54,_T-55_or_Type_59_and_T-55A_on_Basra-Kuwait_Highway_near_Kuwait.JPEG",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "belagringen-av-akko-1189",
+      "eventTitle": "Belägringen av Akko",
+      "file": "images/events/belagringen-av-akko-1189.webp",
+      "kind": "historisk",
+      "credit": "Okänd illuminatör / Bibliothèque nationale de France",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-belagringen-av-akko-1189",
+        "title": "Philippe Auguste et Richard Acre (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Philippe_Auguste_et_Richard_Acre.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -1161,6 +1206,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Burke_and_wills_nicholas_chevalier-2.jpg",
         "license": "Public domain",
         "checked": "2026-11-09"
+      }
+    },
+    {
+      "eventId": "byodo-in-blir-tempel",
+      "eventTitle": "Byōdō-in i Uji blir buddhistiskt tempel",
+      "file": "images/events/byodo-in-blir-tempel.webp",
+      "kind": "historisk",
+      "credit": "Oilstreet / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-byodo-in-blir-tempel",
+        "title": "Byodoin Phoenix Hall Uji 10-2R – Oilstreet ( talk ) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Byodoin_Phoenix_Hall_Uji_10-2R.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2577,6 +2637,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Nixons_in_Ghana_1957.jpg",
         "license": "Public domain (USA:s federala myndighet)",
         "checked": "2026-11-01"
+      }
+    },
+    {
+      "eventId": "goa-1510",
+      "eventTitle": "Portugal erövrar Goa",
+      "file": "images/events/goa-1510.webp",
+      "kind": "historisk",
+      "credit": "Okänd (Prévost d'Exiles) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-goa-1510",
+        "title": "\"Plan de Goa\", in Histoire générale des voyages,1750 – Victorcouto (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%22Plan_de_Goa%22,_in_Histoire_g%C3%A9n%C3%A9rale_des_voyages,1750.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -4626,6 +4701,21 @@
       "source": null
     },
     {
+      "eventId": "magellan-nar-guam",
+      "eventTitle": "Magellans flotta når Guam",
+      "file": "images/events/magellan-nar-guam.webp",
+      "kind": "historisk",
+      "credit": "Abraham Ortelius / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-magellan-nar-guam",
+        "title": "Detail from a map of Ortelius - Magellan's ship Victoria – Abraham Ortelius (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Detail_from_a_map_of_Ortelius_-_Magellan%27s_ship_Victoria.png",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "magellans-jordenruntsegling",
       "eventTitle": "Den första seglingen jorden runt",
       "file": "images/events/magellans-jordenruntsegling.webp",
@@ -4875,6 +4965,21 @@
       }
     },
     {
+      "eventId": "mausoleet-i-soltaniyeh",
+      "eventTitle": "Mausoleet med kupolen i Soltaniyeh byggs",
+      "file": "images/events/mausoleet-i-soltaniyeh.webp",
+      "kind": "historisk",
+      "credit": "Fulvio Spada / Wikimedia Commons (Flickr)",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-mausoleet-i-soltaniyeh",
+        "title": "Oljeitu Mausoleum (Gonbad-e Soltaniyeh), Soltaniyeh (5110742444) – Fulvio Spada from Torino, Italy (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Oljeitu_Mausoleum_(Gonbad-e_Soltaniyeh),_Soltaniyeh_(5110742444).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "mayapan",
       "eventTitle": "Mayapán blir mayafolkets huvudstad i Yucatán",
       "file": "images/events/mayapan.webp",
@@ -5091,6 +5196,36 @@
         "url": "https://commons.wikimedia.org/wiki/File:Great_bath_view_Mohenjodaro.JPG",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "mongolernas-erovringar",
+      "eventTitle": "Mongolernas erövringar",
+      "file": "images/events/mongolernas-erovringar.webp",
+      "kind": "historisk",
+      "credit": "Sayf al-Vahidi (Herat) / Bibliothèque nationale de France",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-mongolernas-erovringar",
+        "title": "Bataille de vâliyân (1221) – Sayf al-Vâhidî. Hérât. Afghanistan (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bataille_de_v%C3%A2liy%C3%A2n_(1221).jpeg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "mongolernas-invasioner-av-japan",
+      "eventTitle": "Mongolernas invasioner av Japan",
+      "file": "images/events/mongolernas-invasioner-av-japan.webp",
+      "kind": "historisk",
+      "credit": "Kikuchi Yōsai / Tokyo National Museum",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-mongolernas-invasioner-av-japan",
+        "title": "Kikuchi Yoosai - Mongol Invasion (mōko shūrai) - Tokyo National Museum – Kikuchi Yoosai / (of the reproduction) Tokyo National Museum (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kikuchi_Yoosai_-_Mongol_Invasion_(m%C5%8Dko_sh%C5%ABrai)_-_Tokyo_National_Museum.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -6573,6 +6708,21 @@
       }
     },
     {
+      "eventId": "shwezigonpagoden",
+      "eventTitle": "Shwezigonpagoden i Paganriket byggs",
+      "file": "images/events/shwezigonpagoden.webp",
+      "kind": "historisk",
+      "credit": "DIMMIS / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-shwezigonpagoden",
+        "title": "Shwezigon – DIMMIS (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Shwezigon.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "sibudu-pil-och-bage",
       "eventTitle": "Tidiga spår av pil och båge i Sibudu",
       "file": "images/events/sibudu-pil-och-bage.webp",
@@ -6828,6 +6978,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:COLLECTIE_TROPENMUSEUM_De_slag_bij_Adua_TMnr_5956-2.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-ain-jalut",
+      "eventTitle": "Slaget vid Ain Jalut",
+      "file": "images/events/slaget-vid-ain-jalut.webp",
+      "kind": "historisk",
+      "credit": "MapMaster / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-slaget-vid-ain-jalut",
+        "title": "Campaign of the Battle of Ain Jalut 1260 – MapMaster (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Campaign_of_the_Battle_of_Ain_Jalut_1260.svg",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -7125,6 +7290,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-ichi-no-tani",
+      "eventTitle": "Slaget vid Ichi-no-Tani",
+      "file": "images/events/slaget-vid-ichi-no-tani.webp",
+      "kind": "historisk",
+      "credit": "Kanoskolan / Minneapolis Institute of Art via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-ichi-no-tani",
+        "title": "Battle of Ichi-no-Tani Folding Screen by Kano School – Kano School (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Ichi-no-Tani_Folding_Screen_by_Kano_School.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-isandlwana",
       "eventTitle": "Zulufolket segrar vid Isandlwana",
       "file": "images/events/slaget-vid-isandlwana.webp",
@@ -7227,6 +7407,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Koror%C4%81reka_before_the_assault.png",
         "license": "Public domain",
         "checked": "2026-11-09"
+      }
+    },
+    {
+      "eventId": "slaget-vid-kurikara",
+      "eventTitle": "Slaget vid Kurikara",
+      "file": "images/events/slaget-vid-kurikara.webp",
+      "kind": "historisk",
+      "credit": "Katsukawa Shuntei / Library of Congress",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-kurikara",
+        "title": "Battle of Kurikaradani Kassen Zu – Katsukawa Shuntei, 1770-1820, artist (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Kurikaradani_Kassen_Zu.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -7345,6 +7540,21 @@
         "id": "commons-bild-slaget-vid-moores-creek-bridge",
         "title": "MOCR earthworks 0948 – NPS Photo (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:MOCR_earthworks_0948.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "slaget-vid-nahavand",
+      "eventTitle": "Slaget vid Nahavand",
+      "file": "images/events/slaget-vid-nahavand.webp",
+      "kind": "historisk",
+      "credit": "Eugène Flandin / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-nahavand",
+        "title": "Castle Nahavend by Eugène Flandin – Eugène Flandin (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Castle_Nahavend_by_Eug%C3%A8ne_Flandin.jpg",
         "license": "Public domain",
         "checked": "2026-11-26"
       }
@@ -7713,6 +7923,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-yamen",
+      "eventTitle": "Slaget vid Yamen: Songdynastin faller",
+      "file": "images/events/slaget-vid-yamen.webp",
+      "kind": "historisk",
+      "credit": "(Long night without wind) 长夜无风 / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-slaget-vid-yamen",
+        "title": "Jingmen002 – (Long night without wind) 长夜无风 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Jingmen002.jpg",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-yarmuk",
       "eventTitle": "Slaget vid Yarmuk",
       "file": "images/events/slaget-vid-yarmuk.webp",
@@ -7725,6 +7950,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Hayton_BNF886_9v.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-yashima",
+      "eventTitle": "Slaget vid Yashima",
+      "file": "images/events/slaget-vid-yashima.webp",
+      "kind": "historisk",
+      "credit": "Kanoskolan / Minneapolis Institute of Art via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-yashima",
+        "title": "Battle of Yashima Folding Screens Kano School – Kano School (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Yashima_Folding_Screens_Kano_School.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -7825,6 +8065,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "soltemplet-i-konark",
+      "eventTitle": "Soltemplet i Konark byggs",
+      "file": "images/events/soltemplet-i-konark.webp",
+      "kind": "historisk",
+      "credit": "Joydeep / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-soltemplet-i-konark",
+        "title": "Wheel engraved in the 13th century built Konark Sun Temple in Orissa, India – Joydeep (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Wheel_engraved_in_the_13th_century_built_Konark_Sun_Temple_in_Orissa,_India.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "sovjetunionens-upplosning",
@@ -8877,6 +9132,21 @@
       }
     },
     {
+      "eventId": "vijayanagarariket-grundas",
+      "eventTitle": "Vijayanagarariket grundas",
+      "file": "images/events/vijayanagarariket-grundas.webp",
+      "kind": "historisk",
+      "credit": "Aleksandr Zykov / Wikimedia Commons (Flickr)",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-vijayanagarariket-grundas",
+        "title": "Vijayanagara, Hampi – Aleksandr Zykov (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Vijayanagara,_Hampi.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "vinkallaren-i-areni-1",
       "eventTitle": "Vinframställning i grottan Areni-1",
       "file": "images/events/vinkallaren-i-areni-1.webp",
@@ -8888,6 +9158,21 @@
         "title": "Areni-1 cave entrance – Serouj (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Areni-1_cave_entrance.jpg",
         "license": "CC BY 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "visdomens-hus-bagdad",
+      "eventTitle": "Visdomens hus i Bagdad",
+      "file": "images/events/visdomens-hus-bagdad.webp",
+      "kind": "historisk",
+      "credit": "Yahya ibn Mahmud al-Wasiti / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-visdomens-hus-bagdad",
+        "title": "Maqamat hariri – Zereshk (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Maqamat_hariri.jpg",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
@@ -9087,6 +9372,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Wu_bei_zhi_LOC_2004633695-20.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "zhongdus-fall-1215",
+      "eventTitle": "Zhongdu (Peking) faller",
+      "file": "images/events/zhongdus-fall-1215.webp",
+      "kind": "historisk",
+      "credit": "Sayf al-Vahidi (Herat) / Bibliothèque nationale de France",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-zhongdus-fall-1215",
+        "title": "Siège de Beijing (1213-1214) – Sayf al-Vâhidî. Hérât. Afghanistan (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Si%C3%A8ge_de_Beijing_(1213-1214).jpeg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     }
   ],
