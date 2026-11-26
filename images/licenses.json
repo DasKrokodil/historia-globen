@@ -123,6 +123,21 @@
       }
     },
     {
+      "eventId": "akvedukten-fran-zaghouan",
+      "eventTitle": "Akvedukten från Zaghouan leder vatten till Karthago",
+      "file": "images/events/akvedukten-fran-zaghouan.webp",
+      "kind": "historisk",
+      "credit": "Carole Raddato / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-akvedukten-fran-zaghouan",
+        "title": "Zaghouan Aqueduct, built by Hadrian from Zaghouan to Carthage, Tunisia – Carole Raddato (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Zaghouan_Aqueduct,_built_by_Hadrian_from_Zaghouan_to_Carthage,_Tunisia.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "al-bakri-beskriver-ghana",
       "eventTitle": "Al-Bakri beskriver Ghanarikets huvudstad",
       "file": "images/events/al-bakri-beskriver-ghana.webp",
@@ -1728,6 +1743,21 @@
       }
     },
     {
+      "eventId": "claudius-tunnel-vid-fucinosjon",
+      "eventTitle": "Claudius tunnel ska sänka Fucinosjön",
+      "file": "images/events/claudius-tunnel-vid-fucinosjon.webp",
+      "kind": "historisk",
+      "credit": "NASA / ISS Crew Earth Observations",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-claudius-tunnel-vid-fucinosjon",
+        "title": "Fuciner-lake nasa (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Fuciner-lake_nasa.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "codex-zouche-nuttall",
       "eventTitle": "Codex Zouche-Nuttall målas",
       "file": "images/events/codex-zouche-nuttall.webp",
@@ -2298,6 +2328,21 @@
         "url": "https://www.loc.gov/pictures/item/2022635976/",
         "license": "No known restrictions on publication",
         "checked": "2026-10-29"
+      }
+    },
+    {
+      "eventId": "eketorps-borg-byggs",
+      "eventTitle": "Eketorps borg byggs på Öland",
+      "file": "images/events/eketorps-borg-byggs.webp",
+      "kind": "historisk",
+      "credit": "Håkan Svensson (Xauxa) / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-eketorps-borg-byggs",
+        "title": "Eketorp main view – Håkan Svensson (Xauxa) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Eketorp_main_view.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -3210,6 +3255,21 @@
       }
     },
     {
+      "eventId": "guldgruvan-i-las-medulas",
+      "eventTitle": "Romarna bryter guld i stor skala i Las Médulas",
+      "file": "images/events/guldgruvan-i-las-medulas.webp",
+      "kind": "historisk",
+      "credit": "Frayle / Wikimedia Commons (Flickr)",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-guldgruvan-i-las-medulas",
+        "title": "Las Medulas (17504738221) – Frayle from Salamanca, España (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Las_Medulas_(17504738221).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "guldmannen-i-issyk",
       "eventTitle": "Guldmannen i Issykkurganen",
       "file": "images/events/guldmannen-i-issyk.webp",
@@ -3627,6 +3687,21 @@
       }
     },
     {
+      "eventId": "herkules-torn-i-a-coruna",
+      "eventTitle": "Herkules torn, en romersk fyr vid Atlanten",
+      "file": "images/events/herkules-torn-i-a-coruna.webp",
+      "kind": "historisk",
+      "credit": "Fernando / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-herkules-torn-i-a-coruna",
+        "title": "Torre de Hércules 2023 – Fernando (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Torre_de_H%C3%A9rcules_2023.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "herto",
       "eventTitle": "Homo sapiens i Herto",
       "file": "images/events/herto.webp",
@@ -3662,6 +3737,21 @@
         "title": "Proclamations of sovereignty over Aotearoa New Zealand, 21 May 1840 (16085443964) – Archives New Zealand from New Zealand (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Proclamations_of_sovereignty_over_Aotearoa_New_Zealand,_21_May_1840_(16085443964).jpg",
         "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "hobygraven-pa-lolland",
+      "eventTitle": "Hobygraven på Lolland",
+      "file": "images/events/hobygraven-pa-lolland.webp",
+      "kind": "historisk",
+      "credit": "Marie-Lan Nguyen / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-hobygraven-pa-lolland",
+        "title": "Silver cup Hoby Philoctetes Nationalmuseet – Marie-Lan Nguyen (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Silver_cup_Hoby_Philoctetes_Nationalmuseet.jpg",
+        "license": "CC BY 4.0",
         "checked": "2026-11-26"
       }
     },
@@ -3812,6 +3902,21 @@
         "title": "Ideal X – Karsten Kunibert (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Ideal_X.jpg",
         "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "idrottande-kvinnor-i-villa-romana-del-casale",
+      "eventTitle": "Idrottande kvinnor i Villa Romana del Casale",
+      "file": "images/events/idrottande-kvinnor-i-villa-romana-del-casale.webp",
+      "kind": "historisk",
+      "credit": "Moleskine / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-idrottande-kvinnor-i-villa-romana-del-casale",
+        "title": "Villa Romana del Casale - Bikini Girls mosaic Szene – Moleskine (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Villa_Romana_del_Casale_-_Bikini_Girls_mosaic_Szene.jpg",
+        "license": "CC BY-SA 4.0",
         "checked": "2026-11-26"
       }
     },
@@ -6450,6 +6555,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:View_of_the_Former_Dutch_Trading_Post_on_Dejima_from_Tamae_Bridge,_Nagasaki,_20240815_1458_3715.jpg",
         "license": "CC BY 4.0",
         "checked": "2026-11-12"
+      }
+    },
+    {
+      "eventId": "nero-och-korinthkanalen",
+      "eventTitle": "Nero börjar gräva en kanal genom Korinthiska näset",
+      "file": "images/events/nero-och-korinthkanalen.webp",
+      "kind": "historisk",
+      "credit": "Berthold Werner / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-nero-och-korinthkanalen",
+        "title": "Korinth BW 2017-10-10 09-53-23 – Berthold Werner (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Korinth_BW_2017-10-10_09-53-23.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -10413,6 +10533,21 @@
       }
     },
     {
+      "eventId": "trajanus-bro-over-donau",
+      "eventTitle": "Trajanus bro över nedre Donau",
+      "file": "images/events/trajanus-bro-over-donau.webp",
+      "kind": "historisk",
+      "credit": "Dan Mihai Pitea / Wikimedia Commons",
+      "license": "CC BY-SA 3.0 RO",
+      "source": {
+        "id": "commons-bild-trajanus-bro-over-donau",
+        "title": "Piciorul Podului lui Traian, malul românesc (19 august 2009) – Dan Mihai Pitea (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Piciorul_Podului_lui_Traian,_malul_rom%C3%A2nesc_(19_august_2009).jpg",
+        "license": "CC BY-SA 3.0 RO",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "trakiska-graven-i-kazanlak",
       "eventTitle": "Den trakiska graven i Kazanlak målas",
       "file": "images/events/trakiska-graven-i-kazanlak.webp",
@@ -10734,6 +10869,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Gold_Solidus_of_Romulus_Augustulus.jpg",
         "license": "CC0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "vattenkvarnarna-i-barbegal",
+      "eventTitle": "Vattenkvarnarna i Barbegal",
+      "file": "images/events/vattenkvarnarna-i-barbegal.webp",
+      "kind": "historisk",
+      "credit": "maarjaara / Wikimedia Commons (Flickr)",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-vattenkvarnarna-i-barbegal",
+        "title": "Barbegal aqueduct 01 – maarjaara (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Barbegal_aqueduct_01.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
       }
     },
     {
