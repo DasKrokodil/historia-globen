@@ -3185,7 +3185,7 @@ async function run(browser, vp) {
           btn: btn && { top: btn.top, bottom: btn.bottom }, detail: detail && { top: detail.top, bottom: detail.bottom }, covered,
           captionInCard: document.querySelectorAll('#detail .place-emblem figcaption').length,
           emblemInHeading: !!document.querySelector('#detail h3 img'), credit: document.querySelectorAll('#detail .place-emblem-credit').length,
-          introTop: document.querySelector('#detail .story > p:not(.place-type):not(.place-map-note):not(.theme-filter-note):not(.place-emblem-credit)')?.getBoundingClientRect().top ?? null,
+          introTop: document.querySelector('#detail .story > p:not(.place-type):not(.place-map-note):not(.theme-filter-note):not(.place-emblem-credit):not(.place-today):not(.place-state)')?.getBoundingClientRect().top ?? null,
           folds: [...document.querySelectorAll('#detail .story > details')].map(d => ({ tag: d.tagName, summary: d.querySelector(':scope > summary')?.getBoundingClientRect().height ?? 0 })), narrow: innerWidth <= 760 };
       });
       // I smal skärm ligger knappen före inledningen, så att den syns också med en längre text (tyska, franska) i det halva arket; på bred skärm efter den
@@ -5273,7 +5273,7 @@ async function run(browser, vp) {
   };
   // #1978: ett tryck på platsen man följer öppnar kortet utan nytt Fokus, också i regionvyn (där trycket förut bara fällde ihop markörerna
   // och aldrig nådde platsen), med mus och med finger (med finger efter klicket, annars tar klicket fokus från Stäng och träffar kortet som
-  // just öppnades). Statusraden säger vilket kort som öppnades, fokus står på krysset, Enter öppnar kortet också, och ett tryck bredvid
+  // just öppnades). Statusraden säger vilket kort som öppnades, fokus står på kortets rubrik (#1260), Enter öppnar kortet också, och ett tryck bredvid
   // platsen i regionvyn startar inget nytt Fokus. Rutan i regionvyn säger hur man får fakta: i den långa raden på bred yta och i en egen
   // rad i stående mobil; på en låg liggande yta (högst 480 px) har rutan inte plats för raden utan att kartans fria yta minskar (#1952).
   await check('tryck på platsen i Fokus öppnar kortet utan nytt Fokus, med mus och pekning, på globen och i Platt vys regionvy, och rutan säger hur man får fakta (#1978)', async () => {
@@ -5338,11 +5338,11 @@ async function run(browser, vp) {
           const got = await tp.evaluate(() => ({
             hash: location.hash, title: document.getElementById('focus-title').textContent,
             status: document.getElementById('screen-reader-status').textContent.trim(),
-            active: document.activeElement?.matches('#detail .detail-close') ?? false, where: document.activeElement?.id || document.activeElement?.tagName,
+            active: document.activeElement?.matches('#detail .place-head h3') ?? false, where: document.activeElement?.id || document.activeElement?.tagName,
           }));
           if (!got.hash.includes(`f=place:${sc.id}`) || !got.title.includes(place)) throw new Error(`${sc.name}, ${kind}: trycket ändrade Fokus (${got.hash}, "${got.title}")`);
           if (got.status !== `Plats: ${place}`) throw new Error(`${sc.name}, ${kind}: statusraden säger "${got.status}", väntade "Plats: ${place}"`);
-          if (!got.active) throw new Error(`${sc.name}, ${kind}: fokus står inte på krysset i kortet utan på ${got.where}`);
+          if (!got.active) throw new Error(`${sc.name}, ${kind}: fokus står inte på kortets rubrik (#1260) utan på ${got.where}`);
           await closeCard(tp);
         }
         if (sc.globe) {
@@ -6808,7 +6808,7 @@ async function run(browser, vp) {
     // Utan scrollIntoView: det som mäts är det besökaren ser när kortet har öppnats
     const measure = tp => tp.evaluate(() => {
       const d = document.getElementById('detail'), db = d.getBoundingClientRect(), btn = d.querySelector('[data-selection-action]');
-      const b = btn.getBoundingClientRect(), intro = [...d.querySelectorAll('.story > p')].find(p => !p.classList.contains('place-type') && !p.classList.contains('place-emblem-credit'));
+      const b = btn.getBoundingClientRect(), intro = [...d.querySelectorAll('.story > p')].find(p => !p.classList.contains('place-type') && !p.classList.contains('place-emblem-credit') && !p.classList.contains('place-today') && !p.classList.contains('place-state')); // inledningen, inte landkortets rader (#1260)
       const h3 = d.querySelector('h3').getBoundingClientRect(), top = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
       const tabbable = [...d.querySelectorAll('button, summary, a[href], [tabindex]:not([tabindex="-1"])')].filter(e => e.getClientRects().length && !e.classList.contains('sheet-handle')).slice(0, 2).map(e => e.className.toString().split(' ')[0] || e.tagName);
       return { scrollTop: d.scrollTop, inside: b.top >= db.top && b.bottom <= db.bottom + 0.5 && b.bottom <= innerHeight && b.top >= 0, covered: !(top === btn || btn.contains(top)),
