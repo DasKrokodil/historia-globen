@@ -61,6 +61,16 @@ FURTH = (12.84, 49.31)
 SCHENGEN = (6.36, 49.47)
 PERL = (6.385, 49.474)
 ZITTAU = (14.807, 50.896)
+# #1767, ur Wikidata (Special:EntityData öppnad 2026-11-26): Wissembourg Q22636, Scheibenhard Q21473, Lauterbourg Q22435 i
+# Frankrike, och Schweigen-Rechtenbach Q653244, Scheibenhardt Q657728, Neulauterburg Q127699918 i Tyskland (norr om Lauter)
+WISSEMBOURG = (7.946, 49.038)
+SCHEIBENHARD = (8.137, 48.979)
+LAUTERBOURG = (8.174, 48.975)
+SCHWEIGEN = (7.956, 49.053)
+SCHEIBENHARDT = (8.133, 48.983)
+NEULAUTERBURG = (8.183, 48.979)
+LAUTER_FR = ((WISSEMBOURG, 'Wissembourg'), (SCHEIBENHARD, 'Scheibenhard'), (LAUTERBOURG, 'Lauterbourg'))
+LAUTER_DE = ((SCHWEIGEN, 'Schweigen-Rechtenbach'), (SCHEIBENHARDT, 'Scheibenhardt'), (NEULAUTERBURG, 'Neulauterburg'))
 # #1771, ur Wikidata: Bregenz Q1737, Hörbranz Q261132, Lochau Q668055, Basel Q78, Riehen Q5262, Weil am Rhein Q61909,
 # Kreuzlingen Q63905, Schaffhausen Q9009, Nida Q1004306, Zwiesel Q163091, Passau Q4190, Bartoszyce Q809585 (polsk mark i Ermland),
 # Bagrationovsk Q104354, Altkirch Q208119, Delle Q676305, Ferrette Q392059
@@ -309,6 +319,23 @@ PUNKTER = [
     *[('frankrike', FORBACH, 'Forbach', y, True) for y in (1958, 1960, 1975, 1990, 1991, 2000, 2024)],
     *[('vasttyskland', FORBACH, 'Forbach', y, False) for y in (1958, 1960, 1975, 1990)],
     *[('tyskland', FORBACH, 'Forbach', y, False) for y in (1991, 2000, 2024)],
+    # Lauter (#1767): Natural Earth lägger gränsen cirka 0,8 km för långt söderut; remsan LAUTER i tools/riken.py rättar det
+    # 1920–1939 och från 1950. Orterna söder om Lauter är Frankrike, de norr om Lauter Tyskland
+    *[(g, p, n, y, True) for p, n in LAUTER_FR
+      for g, y in (('franska-kolonialvaldet', 1920), ('franska-kolonialvaldet', 1925), ('franska-kolonialvaldet', 1930),
+                   ('franska-kolonialvaldet', 1935), ('franska-kolonialvaldet', 1939), ('franska-kolonialvaldet', 1950),
+                   ('franska-kolonialvaldet', 1957), ('frankrike', 1958), ('frankrike', 1980), ('frankrike', 1990),
+                   ('frankrike', 1991), ('frankrike', 2000), ('frankrike', 2024))],
+    *[(g, p, n, y, False) for p, n in LAUTER_FR
+      for g, y in (('weimarrepubliken', 1925), ('weimarrepubliken', 1930), ('nazityskland', 1935), ('nazityskland', 1939),
+                   ('vasttyskland', 1950), ('vasttyskland', 1957), ('vasttyskland', 1980), ('vasttyskland', 1990),
+                   ('tyskland', 1991), ('tyskland', 2000), ('tyskland', 2024))],
+    *[(g, p, n, y, True) for p, n in LAUTER_DE
+      for g, y in (('weimarrepubliken', 1925), ('weimarrepubliken', 1930), ('nazityskland', 1935), ('vasttyskland', 1950),
+                   ('vasttyskland', 1980), ('tyskland', 1991), ('tyskland', 2024))],
+    *[(g, p, n, y, False) for p, n in LAUTER_DE
+      for g, y in (('franska-kolonialvaldet', 1925), ('franska-kolonialvaldet', 1935), ('franska-kolonialvaldet', 1955),
+                   ('frankrike', 1980), ('frankrike', 2024))],
     *[('tjeckoslovakien', SELB, 'Selb', y, False) for y in (1947, 1960, 1990)],
     *[('vasttyskland', SELB, 'Selb', y, True) for y in (1950, 1970, 1990)],
     ('tjeckien', SELB, 'Selb', 2000, False),
