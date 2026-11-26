@@ -2067,6 +2067,23 @@ KALININGRAD = (19.4, 54.2, 22.95, 55.4)
 # Rutan längs gränsen mellan Frankrike och Tyskland, från Schengen till Basel, och Tysklands och Frankrikes sidor av gränsen i
 # den ur Natural Earth (#1755)
 FRANSKA_GRANSEN = (6.3, 47.62, 8.4, 49.5)  # utan Luxemburg och Schweiz
+# Gränsen vid floden Lauter (#1767): Natural Earth 1:10m lägger gränsen mellan Frankrike och Tyskland cirka 0,8 km för långt
+# söderut, så att Wissembourg, Scheibenhard och Lauterbourg hamnar i Tyskland. Ingen källa i repot har en bättre linje där, så
+# rättningen är en approximation byggd bara på orternas punkter i Wikidata (CC0, Special:EntityData öppnad 2026-11-26):
+#   Frankrike: Wissembourg Q22636 (7,9461 / 49,0375), Scheibenhard Q21473 (8,1369 / 48,9789), Lauterbourg Q22435 (8,1739 / 48,9753)
+#   Tyskland:  Schweigen-Rechtenbach Q653244 (7,9561 / 49,0529), Scheibenhardt Q657728 (8,1331 / 48,9831),
+#              Neulauterburg Q127699918 (8,1831 / 48,9789), Berg (Pfalz) Q681063 (8,1997 / 48,9831)
+# Varje ruta (väst, syd, öst, nord) går 0,015 grader (cirka 1,1 km) väster och öster om de franska orternas punkter, och norrut
+# till breddgraden mitt emellan den franska orten och dess tyska granne (Wissembourg–Schweigen 49,045; Scheibenhard–Scheibenhardt
+# 48,981; Lauterbourg–Neulauterburg 48,977). Rutan vid Lauterbourg slutar i öster vid Natural Earths gränspunkt vid Rhen (8,189).
+# Rutornas kanter är alltså valda, inte uppmätta: den nya linjen ligger mellan orternas mittpunkter men följer inte floden, och kan
+# ligga några hundra meter fel. Mellan Wissembourg och Scheibenhard (Schleithal, Salmbach och Niederlauterbach ligger redan i
+# Frankrike i Natural Earth) och söder om Lauterbourg följer gränsen Natural Earth som förut. Tysklands mark i Natural Earth inom
+# rutorna räknas till Frankrike de år gränsen följer Natural Earth (1920–1939 och från 1950), inte 1940–1949
+LAUTER_RUTOR = [(7.931, 49.0, 7.961, 49.045), (8.122, 48.96, 8.155, 48.981), (8.155, 48.96, 8.189, 48.977)]
+LAUTER = ('snitt', ('ne', ['tyskland']), ('rutor', LAUTER_RUTOR))
+# Frankrike i Natural Earth med remsan vid Lauter, för reglerna som klipper Frankrike ur Tyskland (#1767)
+FRANKRIKE_LAUTER = ('union', ('ne', ['frankrike-ne']), LAUTER)
 # Rutan längs gränsen mellan Tjeckoslovakien och Tyskland (Bayern och Sachsen), #1755
 TJECKISKA_GRANSEN = (11.9, 48.5, 15.1, 51.1)
 # Rutorna vid Bodensee och Hochrhein (Basel, Schaffhausen, Konstanz, Vorarlberg) och längs gränsen mellan Österrike och Tyskland
@@ -2099,15 +2116,17 @@ JURA_NAZI, JURA_VICHY, JURA_ITALIEN = ['Nazi Germany'], ['Vichy France', '(Vichy
 ALLGAU = (9.5, 47.25, 10.5, 48.1)
 ALLGAU_BY = ('snitt', ('snitt', ('ne', ['tyskland']), ('ne', ['vasttyska-granslander'])), ('rutor', [ALLGAU]))
 LINDAU_PUNKT = (9.684, 47.546)  # Lindau, Q153969
-TYSKA_SIDAN = ('snitt', ('ne', ['tyskland']), ('rutor', [FRANSKA_GRANSEN]))
+# Utan remsan vid Lauter, som räknas till Frankrike (#1767)
+TYSKA_SIDAN = ('skillnad', ('snitt', ('ne', ['tyskland']), ('rutor', [FRANSKA_GRANSEN])), LAUTER)
 # Rhenlandet 1920–1929 (#1766, beslut 2026-11-20): Weimarrepublikens egen gräns i Cliopatria 1930 (efter ockupationen) väster
 # om 9 grader öst, där Cliopatria ritar zonerna och brohuvudena som Frankrike, Belgien, Storbritannien och USA. Utan det som
 # Natural Earth räknar till Nederländerna, Frankrike och Schweiz, utan Saarområdet och utan Cliopatrias Luxemburg, så att
 # Cliopatrias överlapp mot grannarna (Venlo, Luxemburgs gräns) inte ritas in i Tyskland de åren
 RHENLANDET_RUTA = (5.8, 47.5, 9.0, 52.2)
 RHENLANDET = ('skillnad', ('snitt', ('clio', 'Weimar Republic', 1930), ('rutor', [RHENLANDET_RUTA])),
-              ('union', ('ne', ['nederlanderna-ne', 'frankrike-ne', 'schweiz-ne', 'saarland']), ('clio', 'Luxembourg', 1925)))
-FRANSKA_SIDAN = ('snitt', ('ne', ['frankrike-ne']), ('rutor', [FRANSKA_GRANSEN]))
+              ('union', ('ne', ['nederlanderna-ne', 'frankrike-ne', 'schweiz-ne', 'saarland']), ('clio', 'Luxembourg', 1925), LAUTER))
+# Med remsan vid Lauter (#1767)
+FRANSKA_SIDAN = ('union', ('snitt', ('ne', ['frankrike-ne']), ('rutor', [FRANSKA_GRANSEN])), LAUTER)
 # Tysklands sida av gränsen mot Nederländerna 1950–1962 enligt Förbundsrepublikens gräns i Cliopatria 1955 (utan Selfkant och
 # Elten), utan det som ligger i Nederländerna i Natural Earth (Gangelt, #1755)
 BRD_MOT_NEDERLANDERNA = ('snitt', ('skillnad', ('clio', 'Federal Republic of Germany', 1955), ('ne', ['nederlanderna-ne'])),
@@ -2306,12 +2325,19 @@ DISPUTED = {
     # Femte republikens gräns slutar där cirka 0,035 grader från Forbach. Gränsen mellan Frankrike och Tyskland är dagens efter att
     # Saar blev tyskt 1957, så Frankrikes gräns i Natural Earth klipps ur Västtyskland och Tyskland, och Frankrikes sida av gränsen
     # läggs till Frankrike, som 1920–1939 (#1750, #1755). Bara efter förenklingen, som för Saar
-    'frankrike-brd': {'area': ('ne', ['frankrike-ne']), 'from': 1958, 'to': 1990, 'strict': True, 'efter': True,
+    'frankrike-brd': {'area': FRANKRIKE_LAUTER, 'from': 1958, 'to': 1990, 'strict': True, 'efter': True,
                       'remove': ['vasttyskland'], 'add': []},
-    'frankrike-tyskland': {'area': ('ne', ['frankrike-ne']), 'from': 1991, 'strict': True, 'efter': True,
+    'frankrike-tyskland': {'area': FRANKRIKE_LAUTER, 'from': 1991, 'strict': True, 'efter': True,
                            'remove': ['tyskland'], 'add': []},
     'gransen-frankrike-1958': {'area': FRANSKA_SIDAN, 'from': 1958, 'strict': True, 'efter': True,
                                'remove': [], 'add': ['frankrike']},
+    # Lauter 1950–1957 (#1767): Cliopatria räknar remsan vid Lauter (LAUTER) till Förbundsrepubliken från 1950 och Fjärde
+    # republiken har Frankrike till och med 1957. Remsan klipps ur Västtyskland och läggs till Fjärde republiken, bara efter
+    # förenklingen; från 1958 sköts den av frankrike-brd, frankrike-tyskland och gransen-frankrike-1958
+    'lauter-brd-1950': {'area': LAUTER, 'from': 1950, 'to': 1957, 'strict': True, 'efter': True,
+                        'remove': ['vasttyskland'], 'add': []},
+    'lauter-frankrike-1950': {'area': LAUTER, 'from': 1950, 'to': 1957, 'strict': True, 'efter': True,
+                              'remove': [], 'add': ['franska-kolonialvaldet']},
     # Kehl: Cliopatria räknar staden till Förbundsrepubliken från 1950 och till Fjärde republiken till och med 1949
     # (en.wikipedia "Kehl": frigiven i 42 delar 29 juli 1949–8 april 1953). Fjärde republiken har sin gräns från 1949
     # också 1950–1957 efter sammanslagningen och förenklingen; Västtysklands gräns klipps bort ur den från 1950
@@ -2438,13 +2464,14 @@ DISPUTED = {
     # Forbach i Lorraine: Cliopatria räknar en bit av Moselle till Weimarrepubliken från 1932 och till Nazityskland, men den hörde
     # till Frankrike 1919–1940. Frankrikes gräns i Natural Earth klipps ur Tyskland 1920–1939 (inte 1940–1944, då Alsace-Moselle
     # var annekterat i praktiken och Cliopatria räknar det till Nazityskland)
-    'frankrike-weimar': {'area': ('ne', ['frankrike-ne']), 'from': 1920, 'to': 1932, 'strict': True, 'efter': True,
+    'frankrike-weimar': {'area': FRANKRIKE_LAUTER, 'from': 1920, 'to': 1932, 'strict': True, 'efter': True,
                          'remove': ['weimarrepubliken'], 'add': []},
-    'frankrike-nazityskland': {'area': ('ne', ['frankrike-ne']), 'from': 1933, 'to': 1939, 'strict': True, 'efter': True,
+    'frankrike-nazityskland': {'area': FRANKRIKE_LAUTER, 'from': 1933, 'to': 1939, 'strict': True, 'efter': True,
                                'remove': ['nazityskland'], 'add': []},
     # Gränsen följer Natural Earth på båda sidor 1920–1939 (1930–1939 före #1766, när Rhenlandet ritades som Frankrike till och
     # med 1929), så att förenklingen inte lämnar tomma fält eller ritar dubbelt. Saarområdet hålls utanför Tyskland till och med 1934.
-    # Natural Earths gräns vid Lauter ligger ungefär en km fel: Wissembourg och Lauterbourg hamnar i Tyskland (Om kartan)
+    # Natural Earths gräns vid Lauter ligger ungefär en km fel; remsan LAUTER (#1767) räknas till Frankrike i TYSKA_SIDAN och
+    # FRANSKA_SIDAN, så att Wissembourg, Scheibenhard och Lauterbourg ritas i Frankrike (en approximation, se LAUTER)
     'gransen-weimar': {'area': ('skillnad', TYSKA_SIDAN, SAAR), 'from': 1920, 'to': 1932, 'strict': True, 'efter': True,
                        'remove': [], 'add': ['weimarrepubliken']},
     'gransen-nazityskland-saar': {'area': ('skillnad', TYSKA_SIDAN, SAAR), 'from': 1933, 'to': 1934, 'strict': True, 'efter': True,
@@ -2887,6 +2914,68 @@ def ne_shapes():
             for f in json.loads((ROOT / 'tools/ne-omstridda-omraden.geojson').read_text())['features']}
 
 
+def land_10m(window):
+    """Landet i Natural Earth 1:10m (data/land-10m.json, en ekvirektangulär path i pixlar) inom rutan, i grader (#1444).
+    Ringarna läggs ihop med jämn-udda-regeln, som när kartan ritar pathen."""
+    doc = json.loads((ROOT / 'data/land-10m.json').read_text())
+    w, h = doc['width'], doc['height']
+    env, acc, ring = box(*window), Polygon(), []
+
+    def close(r):
+        nonlocal acc
+        if len(r) > 2:
+            p = Polygon(r)
+            if box(*p.bounds).intersects(env):
+                acc = acc.symmetric_difference(polygons_only(shapely.make_valid(p)))
+    for cmd, xs, ys in re.findall(r'([MLZ])(?:(-?[\d.]+),(-?[\d.]+))?', doc['path']):
+        if cmd in 'MZ':
+            close(ring)
+            ring = []
+        if cmd in 'ML':
+            ring.append((float(xs) / w * 360 - 180, 90 - float(ys) / h * 180))
+    close(ring)
+    return polygons_only(acc.intersection(env))
+
+
+_KUST_HAV = {}
+
+
+def kust_hav(gid):
+    """Havet i gruppens ruta i KUST_KLIPP: rutan minus landet med KUST_MARGINAL grader runt (#1444)."""
+    if gid not in _KUST_HAV:
+        ruta = KUST_KLIPP[gid]
+        pad = KUST_MARGINAL + 0.1
+        land = land_10m((ruta[0] - pad, ruta[1] - pad, ruta[2] + pad, ruta[3] + pad))
+        mask = land.buffer(KUST_MARGINAL, quad_segs=4).simplify(KUST_FORENKLA)
+        _KUST_HAV[gid] = polygons_only(box(*ruta).difference(mask))
+    return _KUST_HAV[gid]
+
+
+def klipp_kust(q, gid):
+    """Klipper bort havet (kust_hav) ur periodens gräns, bara i de delar som havet når (#1444). Namnets plats flyttas bara om den
+    hamnar i havet."""
+    sea = kust_hav(gid)
+    g = shape(q['geometry'])
+    parts = list(g.geoms) if g.geom_type == 'MultiPolygon' else [g]
+    rest = [x for x in parts if not x.intersects(sea)]
+    hit = [polygons_only(shapely.make_valid(x)) for x in parts if x.intersects(sea)]
+    if not hit:
+        return
+    ng = polygons_only(unary_union(hit).difference(sea))
+    new = [x for x in getattr(ng, 'geoms', [ng]) if not x.is_empty and x.area >= KUST_REST]
+    polys = [mapping(x)['coordinates'] for x in rest]
+    if new:
+        nw = valid_rounded(unary_union(new), KUST_DEC)
+        polys += nw['coordinates'] if nw['type'] == 'MultiPolygon' else [nw['coordinates']]
+    polys = [json.loads(json.dumps(c)) for c in polys]
+    q['geometry'] = ({'type': 'Polygon', 'coordinates': polys[0]} if len(polys) == 1
+                     else {'type': 'MultiPolygon', 'coordinates': polys})
+    g = shape(q['geometry'])
+    if not g.buffer(0).contains(shapely.Point(q['label'])):
+        c = (max(g.geoms, key=lambda x: x.area) if g.geom_type == 'MultiPolygon' else g).buffer(0).representative_point()
+        q['label'] = [round(c.x, 1), round(c.y, 1)]
+
+
 def holder_part(land, wrong, y, holder, others, by_name):
     """Den del av land (Natural Earth) som Cliopatria räknar till holder år y (#1781).
 
@@ -3209,6 +3298,21 @@ DECIMALS = {'israel': 2, 'palestina': 2, 'osttyskland': 2, 'vasttyskland': 2, 't
 # en gräns som korsar sig själv. Bara de här grupperna, så att övriga rikens filer blir exakt som förut: Aragoniska kronan
 # vid norra Sicilien (15,4° Ö 38,2° N) 1450–1458 och från 1507 (#645, geografens granskning av PR #2037)
 MAKE_VALID = {'aragoniska-kronan'}
+
+# Kustriken klipps mot land (#1444, pilot, docs/beslut/2026-11-26-kustriken-klipps-mot-land.md). Cliopatrias ytor är grova, och för
+# små kustriken på fastland ligger en stor del i havet (docs/granskningar/2026-11-23-rikesytor-i-havet-1444.md). I rutan (väst, syd,
+# öst, nord) klipps havet bort efter förenklingen: allt som ligger längre än KUST_MARGINAL grader från land i Natural Earth 1:10m
+# (data/land-10m.json, public domain). Marginalen gör att kuststäder, hamnar, flodmynningar och småöar nära kusten står kvar.
+# Bara de delar av gränsen som havet når räknas om (avrundade till KUST_DEC decimaler); övriga delar och allt utanför rutan behåller
+# sina koordinater. Perioderna, namnets plats (om den inte hamnar i havet) och areaKm2 (Cliopatrias yta) ändras inte.
+# Ö-stater och skärgårdsriken klipps inte. Omans ruta omfattar bara Arabiska halvön och Hormuzsundet: Östafrikas kust följer
+# redan Natural Earth (#1787), och Gwadar ligger utanför
+KUST_KLIPP = {'chimor': (-82.5, -13.0, -75.5, -2.0), 'dal-riata': (-8.0, 53.5, -1.0, 60.0),
+              'almoravider': (-18.0, 16.0, 5.5, 43.5), 'oman': (50.0, 15.0, 61.0, 27.5)}
+KUST_MARGINAL = 0.05  # grader (cirka 5,5 km i nord–sydlig led); mätningen i docs/granskningar/2026-11-26-kustriken-klippta-1444.md
+KUST_FORENKLA = 0.02  # kustlinjen förenklas så här mycket (under marginalen, så att allt land står kvar inom gränsen)
+KUST_DEC = 2
+KUST_REST = 0.0005  # bitar som klippningen lämnar efter sig, mindre än så här (kvadratgrader, cirka 6 km2), tas bort
 
 
 def rnd(o, nd=1):
@@ -3882,6 +3986,9 @@ def main():
                             for a, r in post:
                                 hg = polygons_only(hg.difference(a)) if r else hg
                             q['homeland'] = valid_rounded(hg, 3)
+                # Kustriken (#1444): havet klipps bort sist, efter förenklingen och DISPUTED, så att perioderna står kvar
+                if gid in KUST_KLIPP:
+                    klipp_kust(q, gid)
                 del q['_shape']
                 q.pop('_g', None)
                 q.pop('_nd', None)
@@ -4029,6 +4136,10 @@ def main():
              'Zhoushanön likaså (Folkrepubliken tog Zhoushan 17 maj 1950). '
              'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
              '(ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.')
+    if KUST_KLIPP:
+        notes += (f' Kustriken (#1444, pilot): i {", ".join(KUST_KLIPP)} är havet som ligger mer än {KUST_MARGINAL} grader från kusten i '
+                  'Natural Earth 1:10m (data/land-10m.json, public domain) bortklippt efter förenklingen (KUST_KLIPP i tools/riken.py, '
+                  'i Oman bara på Arabiska halvön), så att kuststäder och småöar nära kusten står kvar. areaKm2 är ändå Cliopatrias yta.')
     # Delade gränser (#1765, steg 2): en mening per region, ur SHARED_REGIONS
     regs = []
     for region, reg in SHARED_REGIONS.items():
