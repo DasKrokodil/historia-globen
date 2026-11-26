@@ -124,3 +124,5 @@ Världsdelarnas andel av landytan (norr om 60° S): Europa 8 %, Asien 32 %, Afri
 ## Nästa steg (kräver DasKrokodils ja, #1444)
 
 Rekommendationen i issuet står kvar: klippning mot land vid ritning ändrar kartans utseende (öriken, kolonialvälden och sund) och kräver ett beslut. `areaKm2` är Cliopatrias egen siffra och ändras inte.
+
+**Tillägg 2026-11-26:** DasKrokodil beslutade en pilot ([docs/beslut/2026-11-26-kustriken-klipps-mot-land.md](../beslut/2026-11-26-kustriken-klipps-mot-land.md)): Chimor, Dalriada, Almoravider och Oman klipps mot kusten i `tools/riken.py`, inte vid ritning, med en marginal på 0,05 grader. Tabellerna ovan gäller ytorna före klippningen; mätningen efter står i [2026-11-26-kustriken-klippta-1444.md](2026-11-26-kustriken-klippta-1444.md).

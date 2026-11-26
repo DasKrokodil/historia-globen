@@ -582,7 +582,7 @@ def sea_table(root):
     step = str(SEA_STEP).replace('.', ',')
     out += [f'Andelen av varje rikesgräns som ligger i havet enligt kusten i `{land_file}`, mätt rad för rad var {step} grad '
             '(#1444). Cliopatrias ytor är grova, så små kustriken hamnar delvis i havet, och `areaKm2` och ytkurvan räknar med '
-            f'det. Inget klipps mot land här. {num(len(rows))} perioder mättes; {len(over)} perioder i {len({r[1] for r in over})} '
+            f'det. Mätningen klipper inget; rikena i `KUST_KLIPP` i `tools/riken.py` är klippta mot kusten med en liten marginal (#1444), och marginalen räknas här som hav. {num(len(rows))} perioder mättes; {len(over)} perioder i {len({r[1] for r in over})} '
             f'riken har mer än {round(SEA_SHARE * 100)} % i havet.', '']
 
     def table(sel):

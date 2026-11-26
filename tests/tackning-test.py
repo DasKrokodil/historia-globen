@@ -135,7 +135,12 @@ assert tackning.sea_share(box(5, 22, 15, 28), bands) < 0.01, 'Sahara'
 # Två polygoner som täcker samma ruta räknas en gång
 twice = {'type': 'MultiPolygon', 'coordinates': [box(-40, 20, -30, 30)['coordinates'], box(-40, 20, -30, 30)['coordinates']]}
 assert abs(tackning.sea_share(twice, bands) - tackning.sea_share(box(-40, 20, -30, 30), bands)) < 1e-9
-chimor = json.loads((ROOT / 'data/empires/chimor.json').read_text(encoding='utf-8'))['polities'][0]['periods']
+# Chimors gräns före klippningen mot kusten (#1444, steg 2) ligger i tests/fixtures, så att metoden prövas mot samma gräns som i issuet
+chimor = json.loads((ROOT / 'tests/fixtures/chimor-oklippt-1444.json').read_text(encoding='utf-8'))['periods']
 got = {(p['start'], p['end']): round(100 * tackning.sea_share(p['geometry'], bands)) for p in chimor}
 assert got[(911, 1201)] == 44 and got[(1202, 1343)] == 33, got
+# Klippt mot kusten (#1444, steg 2, tools/riken.py KUST_KLIPP): Chimor har nu mindre än hälften så mycket i havet de åren
+now = json.loads((ROOT / 'data/empires/chimor.json').read_text(encoding='utf-8'))['polities'][0]['periods']
+got_now = {(p['start'], p['end']): round(100 * tackning.sea_share(p['geometry'], bands)) for p in now}
+assert all(got_now[k] * 2 < v for k, v in got.items()), (got, got_now)
 print('tackning-test: ok (räkning, markeringar, andelar, världsdelar, luckor, krig utan Fokus-slag, riken, rikesytor i havet och samma rapport vid samma indata)')
