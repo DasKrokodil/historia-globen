@@ -763,6 +763,11 @@
 "knut-blir-kung-av-england":{"place":{"de":"England"},"title":{"de":"Knut der Große wird König von England"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "slaget-vid-stiklestad":{"place":{"de":"Stiklestad in Verdal, Trøndelag, Norwegen"},"title":{"de":"Die Schlacht bei Stiklestad"},"note":{"title":{"de":"Zum Datum"}}},
 "slaget-vid-hastings":{"place":{"de":"Battle bei Hastings, England"},"title":{"de":"Die Schlacht bei Hastings"},"note":{"title":{"de":"Zum Kalender"}}},
+"ottar-fran-halogaland":{"place":{"de":"Hålogaland in Nordnorwegen (Markierung bei Tromsø)"},"title":{"de":"Ottar aus Hålogaland berichtet von den Samen"},"note":{"title":{"de":"Zum Ort"}}},
+"osebergskeppet":{"place":{"de":"Oseberg in Tønsberg, Vestfold, Norwegen (Markierung in Tønsberg)"},"title":{"de":"Das Oseberg-Schiff wird bestattet"}},
+"urnes-stavkyrka":{"place":{"de":"Urnes (Ornes) am Lustrafjord, Luster, Vestland, Norwegen"},"title":{"de":"Die Stabkirche von Urnes wird gebaut"}},
+"digerdoden-nar-norge":{"place":{"de":"Bergen, Vestland, Norwegen"},"title":{"de":"Der Schwarze Tod erreicht Norwegen"}},
+"hansan-pa-bryggen":{"place":{"de":"Bryggen in Bergen, Vestland, Norwegen"},"title":{"de":"Das Hansekontor an der Bryggen in Bergen"}},
 "imjinkriget":{"place":{"de":"Korea und die Meere um die Koreanische Halbinsel (begann bei Busan)"},"title":{"de":"Der Imjin-Krieg"},"note":{"title":{"de":"Zum Kalender"}}},
 "belagringen-av-busan-1592":{"place":{"de":"Busan, Korea"},"title":{"de":"Die Japaner stürmen Busan"}},
 "slaget-vid-chungju-1592":{"place":{"de":"Tangeumdae bei Chungju, Korea"},"title":{"de":"Die Schlacht bei Chungju"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
@@ -1135,6 +1140,7 @@
 "revolutionerna-1848":{"place":{"de":"Europa (die Markierung liegt in Palermo auf Sizilien, wo die erste Revolution begann)"},"title":{"de":"Die Revolutionen von 1848/1849"}},
 "kungariket-italien-utropas":{"place":{"de":"Palazzo Carignano, Turin, Italien"},"title":{"de":"Das Königreich Italien wird ausgerufen"}},
 "tyska-kejsardomet-utropas":{"place":{"de":"Spiegelsaal, Versailles, Frankreich"},"title":{"de":"Die Proklamation des Deutschen Kaiserreichs"}},
+"norges-grundlag-1814":{"place":{"de":"Norwegen (Markierung am Eidsvollsgebäude)"},"title":{"de":"Norwegens Verfassung wird in Eidsvoll unterzeichnet"}},
 "rifkriget":{"place":{"de":"Rif im Norden Marokkos, damals spanisches Protektorat (begann bei Annual)"},"title":{"de":"Rifkrieg"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "slaget-vid-annual":{"place":{"de":"Annual im Nordosten Marokkos, etwa 60 km westlich von Melilla"},"title":{"de":"Die Rifkämpfer besiegen Spanien bei Annual"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "massakern-vid-monte-arruit":{"place":{"de":"Monte Arruit bei Al Aaroui, etwa 35 km südlich von Melilla"},"title":{"de":"Das Massaker von Monte Arruit"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
@@ -1265,6 +1271,8 @@
 "jordbavningen-i-san-juan-1944":{"place":{"de":"San Juan, Westargentinien"},"title":{"de":"Das Erdbeben von San Juan"}},
 "brasiliens-arbetsratt-clt-1943":{"place":{"de":"Brasilien (Hauptstadt war damals Rio de Janeiro)"},"title":{"de":"Brasilien fasst seine Arbeitsgesetze zusammen"}},
 "malariamyggan-utrotas-i-brasilien-1940":{"place":{"de":"Nordosten Brasiliens"},"title":{"de":"Eine afrikanische Malariamücke wird in Brasilien ausgerottet"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
+"unionsupplosningen-1905":{"place":{"de":"Norwegen (Markierung am Storting in Oslo)"},"title":{"de":"Norwegen verlässt die Union mit Schweden"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
+"kvinnlig-rostratt-norge-1913":{"place":{"de":"Norwegen (Markierung am Storting in Oslo)"},"title":{"de":"Frauen erhalten das allgemeine Wahlrecht zum Storting"}},
 "bangladeshs-befrielsekrig":{"place":{"de":"Ostpakistan, heute Bangladesch (Beginn in Dhaka)"},"title":{"de":"Bangladesch-Befreiungskrieg"},"note":{"title":{"de":"Zum Beginn des Krieges"}}},
 "operation-searchlight":{"place":{"de":"Dhaka und andere Städte in Ostpakistan"},"title":{"de":"Operation Searchlight"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "bangladeshs-sjalvstandighet-utropas":{"place":{"de":"Dhaka"},"title":{"de":"Die Unabhängigkeit Bangladeschs wird ausgerufen"},"note":{"title":{"de":"Nur eine Quelle für den Ort"}}},
@@ -1500,5 +1508,7 @@
 "klimatkonventionen-rio-1992":{"place":{"de":"Rio de Janeiro, Brasilien"},"title":{"de":"Die Klimarahmenkonvention wird in Rio unterzeichnet"}},
 "kyotoprotokollet":{"place":{"de":"Kyōto, Japan"},"title":{"de":"Das Kyoto-Protokoll wird angenommen"}},
 "baijin-forklaras-funktionellt-utdod":{"place":{"de":"Jangtsekiang, China"},"title":{"de":"Der Chinesische Flussdelfin Baiji wird für funktionell ausgestorben erklärt"}},
-"himmelska-fridens-torg-1989":{"place":{"de":"Tian’anmen-Platz, Peking, China"},"title":{"de":"Die Proteste auf dem Tian’anmen-Platz und das Massaker"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}}
+"himmelska-fridens-torg-1989":{"place":{"de":"Tian’anmen-Platz, Peking, China"},"title":{"de":"Die Proteste auf dem Tian’anmen-Platz und das Massaker"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
+"sametinget-norge-1989":{"place":{"de":"Karasjok (Kárášjohka), Finnmark, Norwegen"},"title":{"de":"Das Samenparlament Norwegens wird eröffnet"}},
+"svalbards-globala-frovalv":{"place":{"de":"Longyearbyen, Spitzbergen, Norwegen"},"title":{"de":"Der Svalbard Global Seed Vault wird eröffnet"}}
 }}
