@@ -14,6 +14,7 @@ import { t } from '../model.js';
 import { ui } from '../i18n.js';
 import { printLesson } from './print-sheet.js';
 import { missionsForLesson, fitsLesson } from '../uppdrag-rules.js';
+import { LOW_WINDOW } from '../tour-format.js';
 
 export class LessonMode {
   /**
@@ -34,7 +35,7 @@ export class LessonMode {
     this.retry?.addEventListener('click', () => { if (this.noticeUrl) history.replaceState(null, '', this.noticeUrl); location.reload(); });
     this.noticeClose?.addEventListener('click', () => this.hideNotice());
     // Uppdragslänken står i kortets fasta rad (#1861); i låg skärm tar den för mycket av det som går att läsa och står kvar i det som rullar
-    this.low = window.matchMedia?.('(max-height: 600px)');
+    this.low = window.matchMedia?.(LOW_WINDOW);
     this.low?.addEventListener?.('change', () => this.placeEnd());
   }
 

@@ -3115,11 +3115,19 @@ span.theme-event:hover { background: none; outline: none; }
   .tour-card .tour-foot { margin-top: 0; padding: 2px 0 8px; }
   .app.app.app #detail, .app.app.app #funfact { scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-3); }
 }
-/* Låga fönster (#2147): hela foten följer texten. Ingen överlagrad läsknapp tar läsyta.
-   Samma höjdgräns som lektionens rullande uppdragslänk (js/ui/lesson.js). */
-@media (max-height: 600px) {
+/* Låga fönster (#2147, #2169): hela foten följer texten. Ingen överlagrad läsknapp tar läsyta.
+   Gränsen är 600 px höjd, men i bred layout 700 px: 1366×650 och 1280×700 gav annars bara en textrad bredvid Fortsätt läsa.
+   Samma gräns som js/ui/tour.js (lowWindow) och lektionens rullande uppdragslänk (js/ui/lesson.js) använder. */
+@media (max-height: 600px), (min-width: 761px) and (max-height: 700px) {
   .tour-card .tour-bar { position: static; }
   .tour-card .tour-more { display: none; }
+  /* Tonad nederkant (#2169): utan knappen Fortsätt läsa visar den att mer finns tills foten med Nästa kommer i bild. Klassen sätts av
+     tour.js medan kortet har mer att rulla, och --tour-mer-lyft lyfter tonen över den del av foten som redan syns, så att den aldrig ligger över en knapp. Den är ren dekor
+     (pointer-events: none, ingen text), tar ingen plats (negativ marginal) och rör inte fokus eller Tab. */
+  .tour-card.tour-mer-nedan::after {
+    content: ''; display: block; position: sticky; bottom: var(--tour-mer-lyft, 0px); height: 28px; margin-top: -28px; pointer-events: none;
+    background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--night-2) 85%, transparent) 60%, var(--night-2));
+  }
 }
 /* I telefonens lägsta fönster behöver även kortets huvud vara kompakt. Stegnumret
    ersätter den dubblerade grafiska mätaren; kapitlet och rubriken står kvar. */

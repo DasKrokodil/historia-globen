@@ -47,6 +47,9 @@
 
 export const TOUR_VERSION = 1;
 export const TOUR_REVIEW = ['draft', 'source-checked', 'two-sources'];
+// Låg fönsterhöjd (#2147, #2169): foten rullar med texten och Fortsätt läsa är dold. 600 px, men 700 px i bred layout.
+// Samma gräns står i css/style.css (@media med "Låga fönster (#2147, #2169)"); tests/lagt-turkort-2169.test.mjs håller dem lika.
+export const LOW_WINDOW = '(max-height: 600px), (min-width: 761px) and (max-height: 700px)';
 export const STEP_STATUS = ['belagt', 'omtvistat', 'okant'];
 export const LESSON_GRADES = ['F-3', '4-6', '7-9', 'gy'];
 const ID = /^[a-z0-9-]+$/;
