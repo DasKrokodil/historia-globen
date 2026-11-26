@@ -631,7 +631,7 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 
 ## Asien 1856–1950 (#2068 och #2069, 2026-11-26)
 
-11 av 40 händelser fick bild i den här omgången. Följande 29 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-7.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+10 av 40 händelser fick bild i den här omgången. Följande 30 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-7.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
 
 | Händelse (id) | Varför ingen bild |
 |---|---|
@@ -664,6 +664,7 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `arabisk-israeliska-kriget-1948` | 2026-11-26: Enda kandidaten är en karta (1948 Arab Israeli War, May 15–June 10); används inte. |
 | `lydda-och-ramle-1948` | 2026-11-26: Kandidaterna är en israelisk soldatbild och en bild av palestinier i Ramle (liten) med oklar koppling till fördrivningen; avstås tills en människa bedömt urvalet av perspektiv. |
 | `operation-uvda` | 2026-11-26: Enda kandidaten (Raising the Ink Flag at Umm Rashrash) har licensflagga och är ett senare, uppsatt foto; används inte. |
+| `operation-yoav` | 2026-11-26: Kandidaten (Beersheba 1948.jpg, Israels statliga presskontor, PD-Israel) är fri enligt israelisk lag men fotot från 1948 kan fortfarande vara upphovsrättsskyddat i USA (URAA); används inte tills en människa bedömt det. |
 
 
 ## Asien 1950–1975 (#2070 och #2071, 2026-11-26)

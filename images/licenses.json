@@ -6096,21 +6096,6 @@
       }
     },
     {
-      "eventId": "operation-yoav",
-      "eventTitle": "Operation Yoav i Negev",
-      "file": "images/events/operation-yoav.webp",
-      "kind": "historisk",
-      "credit": "Hugo Mendelson / Government Press Office (Israel)",
-      "license": "Public domain",
-      "source": {
-        "id": "commons-bild-operation-yoav",
-        "title": "Beersheba 1948 – Hugo Mendelson (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Beersheba_1948.jpg",
-        "license": "Public domain",
-        "checked": "2026-11-26"
-      }
-    },
-    {
       "eventId": "orakelben-skrift",
       "eventTitle": "Orakelbenen, Kinas äldsta bevarade skrift",
       "file": "images/events/orakelben-skrift.webp",
