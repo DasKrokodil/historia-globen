@@ -35,6 +35,11 @@ export class Hunt {
   constructor(els, missions, app) {
     Object.assign(this, els, { missions, app });
     this.mission = null; this.found = []; this.opener = null;
+    // Knapparna uppe till höger flyttas när lektionsbandet eller en notis visas eller försvinner, och det kan ske efter att
+    // jakten startat (omladdning med #u i adressen, #2178 fynd 6). Rutan läggs om då i stället för att stå kvar under Mer.
+    const appRoot = this.root.closest?.('.app');
+    if (appRoot && typeof MutationObserver === 'function') new MutationObserver(() => { if (this.mission) this.place(); }).observe(appRoot, { attributes: true, attributeFilter: ['class'] });
+    if (typeof window !== 'undefined') window.addEventListener('resize', () => { if (this.mission) this.place(); });
     this.closeBtn.addEventListener('click', () => this.end());
     this.endBtn.addEventListener('click', () => this.end());
     this.root.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); this.end(); } });
