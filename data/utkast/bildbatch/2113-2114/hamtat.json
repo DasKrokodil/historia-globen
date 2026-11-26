@@ -1,0 +1,207 @@
+[
+  {
+    "ref": "File:Raoul Island, New Zealand (STS008-36-1403, cropped rotated).jpg",
+    "kalla": "commons",
+    "handelse": "polynesier-pa-raoul",
+    "status": "klar",
+    "skal": [],
+    "todo": [
+      "credit: upphovsperson saknas i metadata",
+      "liten källbild (754 × 518 px): bilden förstoras till 800 × 600",
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:Raoul_Island,_New_Zealand_(STS008-36-1403,_cropped_rotated).jpg",
+      "titel": "Raoul Island, New Zealand (STS008-36-1403, cropped rotated)",
+      "upphovsperson": "",
+      "credit_rad_i_metadata": "",
+      "datum": "",
+      "beskrivning_i_metadata": "",
+      "mime": "image/jpeg",
+      "bredd": 754,
+      "hojd": 518,
+      "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Raoul_Island%2C_New_Zealand_%28STS008-36-1403%2C_cropped_rotated%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "licens_api": "Public domain",
+      "licensmallar": [
+        "PD-USGov-NASA"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-polynesier-pa-raoul",
+      "title": "Raoul Island, New Zealand (STS008-36-1403, cropped rotated) (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:Raoul_Island,_New_Zealand_(STS008-36-1403,_cropped_rotated).jpg",
+      "license": "Public domain",
+      "checked": "2026-11-26"
+    },
+    "image": {
+      "file": "images/events/polynesier-pa-raoul.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "TODO: upphovsperson (skriv Okänd fotograf eller Okänd konstnär om filsidan säger det) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-polynesier-pa-raoul"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "TODO: upphovsperson (skriv Okänd fotograf eller Okänd konstnär om filsidan säger det) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-polynesier-pa-raoul",
+      "id": "polynesier-pa-raoul"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2113-2114/polynesier-pa-raoul.webp",
+      "bytes": 54248
+    }
+  },
+  {
+    "ref": "File:Rangitoto02.jpg",
+    "kalla": "commons",
+    "handelse": "rangitoto-bildas",
+    "status": "klar",
+    "skal": [],
+    "todo": [
+      "liten källbild (800 × 588 px): bilden förstoras till 800 × 600",
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:Rangitoto02.jpg",
+      "titel": "Rangitoto02",
+      "upphovsperson": "User:Grutness",
+      "credit_rad_i_metadata": "English Wikipedia",
+      "datum": "2005-12-12",
+      "beskrivning_i_metadata": "Rangitoto Island from One Tree Hill",
+      "mime": "image/jpeg",
+      "bredd": 800,
+      "hojd": 588,
+      "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Rangitoto02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "licens_api": "Public domain",
+      "licensmallar": [
+        "pd-author"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-rangitoto-bildas",
+      "title": "Rangitoto02 – User:Grutness (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:Rangitoto02.jpg",
+      "license": "Public domain",
+      "checked": "2026-11-26"
+    },
+    "image": {
+      "file": "images/events/rangitoto-bildas.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "User:Grutness / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-rangitoto-bildas"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "User:Grutness / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-rangitoto-bildas",
+      "id": "rangitoto-bildas"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2113-2114/rangitoto-bildas.webp",
+      "bytes": 54076
+    }
+  },
+  {
+    "ref": "File:Ambrym ali 2012348 lrg.jpg",
+    "kalla": "commons",
+    "handelse": "ambryms-kaldera",
+    "status": "klar",
+    "skal": [],
+    "todo": [
+      "liten källbild (960 × 480 px): bilden förstoras till 800 × 600",
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:Ambrym_ali_2012348_lrg.jpg",
+      "titel": "Ambrym ali 2012348 lrg",
+      "upphovsperson": "Robert Simmon",
+      "credit_rad_i_metadata": "http://visibleearth.nasa.gov/view.php?id=80014",
+      "datum": "2012-12-14 03:36:20",
+      "beskrivning_i_metadata": "he Advanced Land Imager (ALI) aboard the Earth Observing-1 (EO-1) satellite captured this natural-color image of activity within Ambrym’s caldera on December 13, 2012. Twin lava lakes on Ambrym’s Marum cone are visible. The larger of the two, which is gray, lies within Mbuelesu crater; to the southwest, Mbuelesu has a secondary crater that contains a pinkish-gray lava lake. Active lava lakes often have a partly-solid, shiny gray crust that forms as the atmosphere cools their surfaces. The crust is rarely more than 5 to 30 centimeters (2 to 12 inches) thick and usually lasts just a few hours because it continually circulates, breaks, and sinks into the molten lava below. The pink color of the smaller lake suggests that surface was especially agitated and the crust was absent or in the process of sinking back into the lake.",
+      "mime": "image/jpeg",
+      "bredd": 5097,
+      "hojd": 2550,
+      "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Ambrym_ali_2012348_lrg.jpg/960px-Ambrym_ali_2012348_lrg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "licens_api": "Public domain",
+      "licensmallar": [
+        "PD-USGov-NASA"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-ambryms-kaldera",
+      "title": "Ambrym ali 2012348 lrg – Robert Simmon (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:Ambrym_ali_2012348_lrg.jpg",
+      "license": "Public domain",
+      "checked": "2026-11-26"
+    },
+    "image": {
+      "file": "images/events/ambryms-kaldera.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "Robert Simmon / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-ambryms-kaldera"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "Robert Simmon / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-ambryms-kaldera",
+      "id": "ambryms-kaldera"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2113-2114/ambryms-kaldera.webp",
+      "bytes": 79030
+    }
+  }
+]
