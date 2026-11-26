@@ -585,6 +585,21 @@
       }
     },
     {
+      "eventId": "baturs-kalderor",
+      "eventTitle": "Vulkanen Batur rasar samman i två steg",
+      "file": "images/events/baturs-kalderor.webp",
+      "kind": "historisk",
+      "credit": "Alexey Komarov / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-baturs-kalderor",
+        "title": "Mount Batur Caldera - panoramio – Alexey Komarov (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mount_Batur_Caldera_-_panoramio.jpg",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "befrielsen-av-kuwait",
       "eventTitle": "Markoffensiven befriar Kuwait",
       "file": "images/events/befrielsen-av-kuwait.webp",
@@ -1463,6 +1478,21 @@
         "title": "Thylacines (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Thylacines.jpg",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "denisovaner",
+      "eventTitle": "Denisovaner, en grupp människor som påvisats genom DNA",
+      "file": "images/events/denisovaner.webp",
+      "kind": "historisk",
+      "credit": "Алексей Демин / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-denisovaner",
+        "title": "Известная на весь Мир Денисова пещера. 01 – Демин Алексей Барнаул (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%D0%98%D0%B7%D0%B2%D0%B5%D1%81%D1%82%D0%BD%D0%B0%D1%8F_%D0%BD%D0%B0_%D0%B2%D0%B5%D1%81%D1%8C_%D0%9C%D0%B8%D1%80_%D0%94%D0%B5%D0%BD%D0%B8%D1%81%D0%BE%D0%B2%D0%B0_%D0%BF%D0%B5%D1%89%D0%B5%D1%80%D0%B0._01.jpg",
+        "license": "CC BY-SA 4.0",
         "checked": "2026-11-26"
       }
     },
@@ -2622,6 +2652,21 @@
       }
     },
     {
+      "eventId": "havet-fyller-palksundet",
+      "eventTitle": "Havet fyller Palksundet",
+      "file": "images/events/havet-fyller-palksundet.webp",
+      "kind": "historisk",
+      "credit": "Jeff Schmaltz, MODIS Land Rapid Response Team, NASA GSFC / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-havet-fyller-palksundet",
+        "title": "Palk Strait (MODIS 2018-07-27) – Jeff Schmaltz, MODIS Land Rapid Response Team, NASA GSFC (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Palk_Strait_(MODIS_2018-07-27).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "hawaiis-enande",
       "eventTitle": "Kamehamehas krig och Hawaiis enande",
       "file": "images/events/hawaiis-enande.webp",
@@ -2717,6 +2762,51 @@
         "title": "Proclamations of sovereignty over Aotearoa New Zealand, 21 May 1840 (16085443964) – Archives New Zealand from New Zealand (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Proclamations_of_sovereignty_over_Aotearoa_New_Zealand,_21_May_1840_(16085443964).jpg",
         "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "homo-erectus-ngandong",
+      "eventTitle": "Homo erectus vid Ngandong på Java",
+      "file": "images/events/homo-erectus-ngandong.webp",
+      "kind": "historisk",
+      "credit": "Ryan Somma / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-homo-erectus-ngandong",
+        "title": "Ngandong 7-Homo erectus – Ryan Somma from Occoquan, USA (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ngandong_7-Homo_erectus.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "homo-floresiensis",
+      "eventTitle": "Homo floresiensis på Flores",
+      "file": "images/events/homo-floresiensis.webp",
+      "kind": "historisk",
+      "credit": "Rosino / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-homo-floresiensis",
+        "title": "Homo floresiensis cave – Rosino (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Homo_floresiensis_cave.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "homo-luzonensis",
+      "eventTitle": "Homo luzonensis på Luzon",
+      "file": "images/events/homo-luzonensis.webp",
+      "kind": "historisk",
+      "credit": "Luzonensis / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-homo-luzonensis",
+        "title": "Homo luzonensis metatarsal – Luzonensis (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Homo_luzonensis_metatarsal.jpg",
+        "license": "CC BY-SA 4.0",
         "checked": "2026-11-26"
       }
     },
@@ -3048,6 +3138,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Edward_Jenner._Mezzotint_by_J._R._Smith,_1800,_after_himself_Wellcome_V0003069.jpg",
         "license": "CC BY 4.0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "jerikos-torn",
+      "eventTitle": "Tornet i Jeriko",
+      "file": "images/events/jerikos-torn.webp",
+      "kind": "historisk",
+      "credit": "Deror_avi / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-jerikos-torn",
+        "title": "Jericho Neolitic Tower P1190761 – Deror_avi (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Jericho_Neolitic_Tower_P1190761.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -3963,6 +4068,21 @@
       }
     },
     {
+      "eventId": "leang-karampuang",
+      "eventTitle": "Grottmålningar med en berättelse på Sulawesi",
+      "file": "images/events/leang-karampuang.webp",
+      "kind": "historisk",
+      "credit": "Anhar Karim / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-leang-karampuang",
+        "title": "Karampuang, a cave which has world's oldest cave painting – Anhar Karim (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Karampuang,_a_cave_which_has_world%27s_oldest_cave_painting.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "lei-aurea-1888",
       "eventTitle": "Brasilien avskaffar slaveriet",
       "file": "images/events/lei-aurea-1888.webp",
@@ -4522,6 +4642,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "misliya",
+      "eventTitle": "Misliya: ett möjligt tidigt fynd av Homo sapiens utanför Afrika",
+      "file": "images/events/misliya.webp",
+      "kind": "historisk",
+      "credit": "Reuveny / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-misliya",
+        "title": "Misliya Cave – Reuveny (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Misliya_Cave.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "moafaglarna-dor-ut",
@@ -5544,6 +5679,21 @@
       }
     },
     {
+      "eventId": "qafzeh-och-skhul",
+      "eventTitle": "Tidiga Homo sapiens utanför Afrika i Qafzeh och Skhūl?",
+      "file": "images/events/qafzeh-och-skhul.webp",
+      "kind": "historisk",
+      "credit": "LS / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-qafzeh-och-skhul",
+        "title": "Eingang der Qafzeh-Höhle – LS (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Eingang_der_Qafzeh-H%C3%B6hle.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "qi-ger-upp-221-fkr",
       "eventTitle": "Qi ger upp och Kina enas",
       "file": "images/events/qi-ger-upp-221-fkr.webp",
@@ -5744,6 +5894,21 @@
         "title": "00 1100 Ruapehu volcano – W. Bulach (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:00_1100_Ruapehu_volcano.jpg",
         "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "sabeltandade-kattungen-i-jakutien",
+      "eventTitle": "Den frusna sabeltandade kattungen i Jakutien",
+      "file": "images/events/sabeltandade-kattungen-i-jakutien.webp",
+      "kind": "historisk",
+      "credit": "A. V. Lopatin m.fl. / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-sabeltandade-kattungen-i-jakutien",
+        "title": "Homotherium latidens cub mummy fig1 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Homotherium_latidens_cub_mummy_fig1.webp",
+        "license": "CC BY 4.0",
         "checked": "2026-11-26"
       }
     },
@@ -7833,6 +7998,21 @@
       }
     },
     {
+      "eventId": "tobautbrottet",
+      "eventTitle": "Tobautbrottet",
+      "file": "images/events/tobautbrottet.webp",
+      "kind": "historisk",
+      "credit": "NASA/METI/AIST/Japan Space Systems och U.S./Japan ASTER Science Team / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tobautbrottet",
+        "title": "Toba Caldera, Sumatra (ASTER) – NASA/METI/AIST/Japan Space Systems, and U.S./Japan ASTER Science Team (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Toba_Caldera,_Sumatra_(ASTER).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "torressundsoarna-befolkas",
       "eventTitle": "Torressundsöarna befolkas",
       "file": "images/events/torressundsoarna-befolkas.webp",
@@ -7950,6 +8130,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Kikuchi_Yoosai_-_Mongol_Invasion_(m%C5%8Dko_sh%C5%ABrai)_-_Tokyo_National_Museum.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "tygerna-i-tjortovy-vorota",
+      "eventTitle": "Vävda tyger i grottan Tjortovy Vorota",
+      "file": "images/events/tygerna-i-tjortovy-vorota.webp",
+      "kind": "historisk",
+      "credit": "Романвер / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-tygerna-i-tjortovy-vorota",
+        "title": "Chertovy Vorota cave – Романвер (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Chertovy_Vorota_cave.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -8203,6 +8398,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "xianrendong-keramik",
+      "eventTitle": "Keramik under istiden i Xianrendong",
+      "file": "images/events/xianrendong-keramik.webp",
+      "kind": "historisk",
+      "credit": "Zhangzhugang / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-xianrendong-keramik",
+        "title": "Wannian Xianrendong yizhi 8789 – Zhangzhugang (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Wannian_Xianrendong_yizhi_8789.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "xinhairevolutionen",

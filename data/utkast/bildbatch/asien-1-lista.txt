@@ -1,0 +1,12 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:Deep Tibetan admixture graph modeling.webp	baishiya-denisovaner
+# File:Ngandong 7-Homo erectus.jpg	homo-erectus-ngandong
+# File:Homo floresiensis cave.jpg	homo-floresiensis
+# File:Taphonomy.jpg	tam-pa-ling
+# File:HomoLuzonensisRestoration.jpg	homo-luzonensis
+# File:Homotherium latidens cub mummy fig1.webp	sabeltandade-kattungen-i-jakutien
+# File:Wannian Xianrendong yizhi 8789.jpg	xianrendong-keramik
+# File:C. Homann. Map of Asia. 1730. Caucasus.jpg	torressundet-bildas
+# File:Ausgrabungen bei Tell es-Sultan (3709391491).jpg	jerikos-torn
+# File:Chertovy Vorota cave.jpg	tygerna-i-tjortovy-vorota

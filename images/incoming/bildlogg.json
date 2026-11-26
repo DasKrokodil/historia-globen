@@ -6190,5 +6190,229 @@
     "source": "commons-bild-slaget-vid-santa-clara",
     "id": "slaget-vid-santa-clara",
     "file": "slaget-vid-santa-clara.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Skalle av Homo erectus från Ngandong (Ngandong 7), utställd i David H. Koch Hall of Human Origins på Smithsonian National Museum of Natural History. Foto av Ryan Somma; filsidan anger inget fotodatum och inte om skallen är original eller avgjutning. Bilden visar ett fynd, inte platsen. Licens: CC BY-SA 2.0.",
+      "en": "Skull of Homo erectus from Ngandong (Ngandong 7), on display in the David H. Koch Hall of Human Origins at the Smithsonian National Museum of Natural History. Photo by Ryan Somma; the file page gives no photo date and does not say whether the skull is an original or a cast. The image shows a find, not the site. Licence: CC BY-SA 2.0.",
+      "de": "Schädel von Homo erectus aus Ngandong (Ngandong 7), ausgestellt in der David H. Koch Hall of Human Origins im Smithsonian National Museum of Natural History. Foto von Ryan Somma; die Dateiseite nennt kein Aufnahmedatum und nicht, ob der Schädel ein Original oder ein Abguss ist. Das Bild zeigt einen Fund, nicht den Ort. Lizenz: CC BY-SA 2.0.",
+      "es": "Cráneo de Homo erectus de Ngandong (Ngandong 7), expuesto en el David H. Koch Hall of Human Origins del Smithsonian National Museum of Natural History. Foto de Ryan Somma; la página del archivo no indica la fecha de la foto ni si el cráneo es un original o una copia. La imagen muestra un hallazgo, no el yacimiento. Licencia: CC BY-SA 2.0.",
+      "fr": "Crâne d'Homo erectus de Ngandong (Ngandong 7), exposé au David H. Koch Hall of Human Origins du Smithsonian National Museum of Natural History. Photo de Ryan Somma ; la page du fichier n'indique pas de date de prise de vue ni si le crâne est un original ou un moulage. L'image montre une trouvaille, pas le site. Licence : CC BY-SA 2.0."
+    },
+    "credit": "Ryan Somma / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-homo-erectus-ngandong",
+    "id": "homo-erectus-ngandong",
+    "file": "homo-erectus-ngandong.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Grottan Liang Bua på Flores i Indonesien, där resterna av Homo floresiensis upptäcktes 2003, enligt filsidan. Nutida foto (2007) av Rosino. Licens: CC BY-SA 2.0.",
+      "en": "Liang Bua Cave on Flores, Indonesia, where the remains of Homo floresiensis were discovered in 2003, according to the file page. Modern photo (2007) by Rosino. Licence: CC BY-SA 2.0.",
+      "de": "Die Höhle Liang Bua auf Flores in Indonesien, in der laut Dateiseite 2003 die Überreste von Homo floresiensis entdeckt wurden. Heutiges Foto (2007) von Rosino. Lizenz: CC BY-SA 2.0.",
+      "es": "La cueva de Liang Bua, en Flores (Indonesia), donde según la página del archivo se descubrieron en 2003 los restos de Homo floresiensis. Foto actual (2007) de Rosino. Licencia: CC BY-SA 2.0.",
+      "fr": "La grotte de Liang Bua, sur Flores, en Indonésie, où les restes d'Homo floresiensis ont été découverts en 2003, selon la page du fichier. Photo actuelle (2007) de Rosino. Licence : CC BY-SA 2.0."
+    },
+    "credit": "Rosino / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-homo-floresiensis",
+    "id": "homo-floresiensis",
+    "file": "homo-floresiensis.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Tredje mellanfotsbenet (MT3, CCH1) som hittades den 5 maj 2007 i Callaogrottan på Luzon och tillskrivs Homo luzonensis, enligt filsidan. Foto (2019) av användaren Luzonensis. Licens: CC BY-SA 4.0.",
+      "en": "Third metatarsal bone (MT3, CCH1) discovered on 5 May 2007 in Callao Cave on Luzon and attributed to Homo luzonensis, according to the file page. Photo (2019) by the user Luzonensis. Licence: CC BY-SA 4.0.",
+      "de": "Dritter Mittelfußknochen (MT3, CCH1), am 5. Mai 2007 in der Callao-Höhle auf Luzon entdeckt und laut Dateiseite Homo luzonensis zugeordnet. Foto (2019) des Nutzers Luzonensis. Lizenz: CC BY-SA 4.0.",
+      "es": "Tercer hueso metatarsiano (MT3, CCH1), descubierto el 5 de mayo de 2007 en la cueva de Callao, en Luzón, y atribuido a Homo luzonensis según la página del archivo. Foto (2019) del usuario Luzonensis. Licencia: CC BY-SA 4.0.",
+      "fr": "Troisième os métatarsien (MT3, CCH1), découvert le 5 mai 2007 dans la grotte de Callao, à Luçon, et attribué à Homo luzonensis selon la page du fichier. Photo (2019) de l'utilisateur Luzonensis. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Luzonensis / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-homo-luzonensis",
+    "id": "homo-luzonensis",
+    "file": "homo-luzonensis.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Den frusna mumien av en ung sabeltandkatt (Homotherium latidens) från Badjarichafloden i Jakutien i Ryssland, övre pleistocen: (A) yttre utseende, (B) skelett, datortomografi, sett uppifrån. Figur 1 ur Lopatin m.fl. (2024). Licens: CC BY 4.0.",
+      "en": "The frozen mummy of a young sabre-toothed cat (Homotherium latidens) from the Badyarikha River in Yakutia, Russia, Upper Pleistocene: (A) external appearance, (B) skeleton, CT scan, dorsal view. Figure 1 from Lopatin et al. (2024). Licence: CC BY 4.0.",
+      "de": "Die gefrorene Mumie einer jungen Säbelzahnkatze (Homotherium latidens) vom Fluss Badjaricha in Jakutien, Russland, Oberpleistozän: (A) äußeres Erscheinungsbild, (B) Skelett, CT-Aufnahme, Ansicht von oben. Abbildung 1 aus Lopatin et al. (2024). Lizenz: CC BY 4.0.",
+      "es": "La momia congelada de un joven felino de dientes de sable (Homotherium latidens) del río Badyarikha, en Yakutia (Rusia), Pleistoceno superior: (A) aspecto externo, (B) esqueleto, tomografía computarizada, vista dorsal. Figura 1 de Lopatin y otros (2024). Licencia: CC BY 4.0.",
+      "fr": "La momie congelée d'un jeune félin à dents de sabre (Homotherium latidens) de la rivière Badyarikha, en Iakoutie (Russie), Pléistocène supérieur : (A) aspect extérieur, (B) squelette, scanner, vue dorsale. Figure 1 de Lopatin et al. (2024). Licence : CC BY 4.0."
+    },
+    "credit": "A. V. Lopatin m.fl. / Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "commons-bild-sabeltandade-kattungen-i-jakutien",
+    "id": "sabeltandade-kattungen-i-jakutien",
+    "file": "sabeltandade-kattungen-i-jakutien.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Skylt som markerar Xianrendong-lokalen i Wannian i Jiangxi, Kina, som nationellt skyddad kulturminnesplats (filsidans beskrivning), uppsatt i juni 2001 enligt skylten. Nutida foto (2011) av Zhangzhugang. Bilden visar skylten, inte grottan eller keramiken. Licens: CC BY-SA 3.0.",
+      "en": "Sign marking the Xianrendong site in Wannian, Jiangxi, China, as a nationally protected cultural heritage site (the file page description), erected in June 2001 according to the sign. Modern photo (2011) by Zhangzhugang. The image shows the sign, not the cave or the pottery. Licence: CC BY-SA 3.0.",
+      "de": "Schild, das die Fundstätte Xianrendong in Wannian in Jiangxi, China, als national geschützte Kulturstätte kennzeichnet (Beschreibung der Dateiseite), laut Schild im Juni 2001 aufgestellt. Heutiges Foto (2011) von Zhangzhugang. Das Bild zeigt das Schild, nicht die Höhle oder die Keramik. Lizenz: CC BY-SA 3.0.",
+      "es": "Cartel que señala el yacimiento de Xianrendong, en Wannian (Jiangxi, China), como sitio de patrimonio cultural protegido a nivel nacional (descripción de la página del archivo), colocado en junio de 2001 según el cartel. Foto actual (2011) de Zhangzhugang. La imagen muestra el cartel, no la cueva ni la cerámica. Licencia: CC BY-SA 3.0.",
+      "fr": "Panneau signalant le site de Xianrendong, à Wannian (Jiangxi, Chine), comme site du patrimoine culturel protégé au niveau national (description de la page du fichier), posé en juin 2001 selon le panneau. Photo actuelle (2011) de Zhangzhugang. L'image montre le panneau, pas la grotte ni la céramique. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Zhangzhugang / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-xianrendong-keramik",
+    "id": "xianrendong-keramik",
+    "file": "xianrendong-keramik.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Det neolitiska tornet vid Tell es-Sultan (Jeriko). Nutida foto (2012) av Deror_avi; inte från händelsens tid. Licens: CC BY-SA 3.0.",
+      "en": "The Neolithic Tower at Tell es-Sultan (Jericho). Modern photo (2012) by Deror_avi; not from the time of the event. Licence: CC BY-SA 3.0.",
+      "de": "Der neolithische Turm von Tell es-Sultan (Jericho). Heutiges Foto (2012) von Deror_avi; nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 3.0.",
+      "es": "La torre neolítica de Tell es-Sultan (Jericó). Foto actual (2012) de Deror_avi; no es de la época del acontecimiento. Licencia: CC BY-SA 3.0.",
+      "fr": "La tour néolithique de Tell es-Sultan (Jéricho). Photo actuelle (2012) de Deror_avi ; pas de l'époque de l'événement. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Deror_avi / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-jerikos-torn",
+    "id": "jerikos-torn",
+    "file": "jerikos-torn.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Utsikt ut genom ingången till grottan Tjortovy Vorota (Djävulens port) i Primorje kraj i Ryssland; filsidans beskrivning är \"utgång ur grottan\". Nutida foto (2016) av Романвер, inte från händelsens tid. Licens: CC BY-SA 4.0.",
+      "en": "View out through the entrance of the Chertovy Vorota (Devil's Gate) cave in Primorsky Krai, Russia; the file page description is \"exit from the cave\". Modern photo (2016) by Романвер, not from the time of the event. Licence: CC BY-SA 4.0.",
+      "de": "Blick aus dem Eingang der Höhle Tschertowy Worota (Teufelstor) in der Region Primorje, Russland; die Beschreibung der Dateiseite lautet „Ausgang der Höhle\". Heutiges Foto (2016) von Романвер, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+      "es": "Vista desde la entrada de la cueva de Chertovy Vorota (Puerta del Diablo), en el krai de Primorie (Rusia); la descripción de la página del archivo es «salida de la cueva». Foto actual (2016) de Романвер, no de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+      "fr": "Vue à travers l'entrée de la grotte de Tchertovy Vorota (Porte du Diable), dans le kraï du Primorié (Russie) ; la description de la page du fichier est « sortie de la grotte ». Photo actuelle (2016) de Романвер, pas de l'époque de l'événement. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Романвер / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-tygerna-i-tjortovy-vorota",
+    "id": "tygerna-i-tjortovy-vorota",
+    "file": "tygerna-i-tjortovy-vorota.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Satellitbild (ASTER, 28 januari 2006) av Tobakalderan på Sumatra i Indonesien. Filsidan anger att utbrottet för 75 000 år sedan gav Young Toba Tuff och att kalderan är 30 × 100 km. NASA, METI, AIST och Japan Space Systems; inte från händelsen. Licens: Public domain.",
+      "en": "Satellite image (ASTER, 28 January 2006) of the Toba caldera on Sumatra, Indonesia. The file page states that the eruption 75,000 years ago produced the Young Toba Tuff and that the caldera measures 30 × 100 km. NASA, METI, AIST and Japan Space Systems; not from the event. Licence: Public domain.",
+      "de": "Satellitenbild (ASTER, 28. Januar 2006) der Toba-Caldera auf Sumatra in Indonesien. Laut Dateiseite erzeugte der Ausbruch vor 75 000 Jahren den Young Toba Tuff, und die Caldera misst 30 × 100 km. NASA, METI, AIST und Japan Space Systems; nicht vom Ereignis. Lizenz: gemeinfrei.",
+      "es": "Imagen de satélite (ASTER, 28 de enero de 2006) de la caldera de Toba, en Sumatra (Indonesia). Según la página del archivo, la erupción de hace 75 000 años produjo la Young Toba Tuff, y la caldera mide 30 × 100 km. NASA, METI, AIST y Japan Space Systems; no es del acontecimiento. Licencia: dominio público.",
+      "fr": "Image satellite (ASTER, 28 janvier 2006) de la caldeira de Toba, à Sumatra (Indonésie). Selon la page du fichier, l'éruption d'il y a 75 000 ans a produit le Young Toba Tuff, et la caldeira mesure 30 × 100 km. NASA, METI, AIST et Japan Space Systems ; pas de l'événement. Licence : domaine public."
+    },
+    "credit": "NASA/METI/AIST/Japan Space Systems och U.S./Japan ASTER Science Team / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-tobautbrottet",
+    "id": "tobautbrottet",
+    "file": "tobautbrottet.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (2016) av Alexey Komarov av Baturkalderan på Bali i Indonesien (filsidans titel \"Mount Batur Caldera\"). Inte från händelsens tid. Licens: CC BY 3.0.",
+      "en": "Modern photo (2016) by Alexey Komarov of the Batur caldera on Bali, Indonesia (the file page title is \"Mount Batur Caldera\"). Not from the time of the event. Licence: CC BY 3.0.",
+      "de": "Heutiges Foto (2016) von Alexey Komarov der Batur-Caldera auf Bali in Indonesien (Titel der Dateiseite: „Mount Batur Caldera\"). Nicht aus der Zeit des Ereignisses. Lizenz: CC BY 3.0.",
+      "es": "Foto actual (2016) de Alexey Komarov de la caldera del Batur, en Bali (Indonesia) (el título de la página del archivo es «Mount Batur Caldera»). No es de la época del acontecimiento. Licencia: CC BY 3.0.",
+      "fr": "Photo actuelle (2016) d'Alexey Komarov de la caldeira du Batur, à Bali, en Indonésie (le titre de la page du fichier est « Mount Batur Caldera »). Pas de l'époque de l'événement. Licence : CC BY 3.0."
+    },
+    "credit": "Alexey Komarov / Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "source": "commons-bild-baturs-kalderor",
+    "id": "baturs-kalderor",
+    "file": "baturs-kalderor.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Blick mot ingången till Denisovagrottan från Anuidalen, Solonesjenskij rajon i Altaj kraj i Ryssland. Nutida foto (2008) av Алексей Демин (Барнаул); inte från de forntida fynden. Licens: CC BY-SA 4.0.",
+      "en": "View toward the entrance of Denisova Cave from the Anui valley, Soloneshensky district, Altai Krai, Russia. Modern photo (2008) by Алексей Демин (Barnaul); not from the time of the ancient finds. Licence: CC BY-SA 4.0.",
+      "de": "Blick zum Eingang der Denisova-Höhle vom Anui-Tal aus, Rajon Soloneschenski, Region Altai, Russland. Heutiges Foto (2008) von Алексей Демин (Barnaul); nicht aus der Zeit der urzeitlichen Funde. Lizenz: CC BY-SA 4.0.",
+      "es": "Vista hacia la entrada de la cueva de Denísova desde el valle del Anui, distrito de Soloneshenski, krai de Altái (Rusia). Foto actual (2008) de Алексей Демин (Barnaúl); no es de la época de los hallazgos antiguos. Licencia: CC BY-SA 4.0.",
+      "fr": "Vue vers l'entrée de la grotte de Denissova depuis la vallée de l'Anouï, district de Soloneshenski, kraï de l'Altaï (Russie). Photo actuelle (2008) d'Алексей Демин (Barnaoul) ; pas de l'époque des découvertes anciennes. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Алексей Демин / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-denisovaner",
+    "id": "denisovaner",
+    "file": "denisovaner.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Ingången till Qafzehgrottan i utkanten av Nazareth i Israel. Nutida foto (2013) av LS; inte från händelsens tid. Licens: CC BY-SA 4.0.",
+      "en": "The entrance to Qafzeh Cave on the edge of Nazareth, Israel. Modern photo (2013) by LS; not from the time of the event. Licence: CC BY-SA 4.0.",
+      "de": "Der Eingang der Qafzeh-Höhle am Stadtrand von Nazareth in Israel. Heutiges Foto (2013) von LS; nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+      "es": "La entrada de la cueva de Qafzeh, en las afueras de Nazaret (Israel). Foto actual (2013) de LS; no es de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+      "fr": "L'entrée de la grotte de Qafzeh, en bordure de Nazareth, en Israël. Photo actuelle (2013) de LS ; pas de l'époque de l'événement. Licence : CC BY-SA 4.0."
+    },
+    "credit": "LS / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-qafzeh-och-skhul",
+    "id": "qafzeh-och-skhul",
+    "file": "qafzeh-och-skhul.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Leang Karampuang i karstområdet Maros-Pangkep på Sulawesi i Indonesien, där enligt filsidan världens äldsta kända berättande grottmålning, 51 200 år gammal, finns. Nutida foto (2024) av Anhar Karim av grottan; målningen syns inte. Licens: CC BY-SA 4.0.",
+      "en": "Leang Karampuang in the Maros-Pangkep karst area on Sulawesi, Indonesia, where according to the file page the world's oldest known narrative cave painting, 51,200 years old, is found. Modern photo (2024) by Anhar Karim of the cave; the painting is not visible. Licence: CC BY-SA 4.0.",
+      "de": "Leang Karampuang im Karstgebiet Maros-Pangkep auf Sulawesi in Indonesien, wo laut Dateiseite das älteste bekannte erzählende Höhlengemälde der Welt, 51 200 Jahre alt, zu finden ist. Heutiges Foto (2024) von Anhar Karim der Höhle; das Gemälde ist nicht zu sehen. Lizenz: CC BY-SA 4.0.",
+      "es": "Leang Karampuang, en la zona kárstica de Maros-Pangkep, en Sulawesi (Indonesia), donde según la página del archivo se encuentra la pintura rupestre narrativa más antigua conocida del mundo, de 51 200 años. Foto actual (2024) de Anhar Karim de la cueva; la pintura no se ve. Licencia: CC BY-SA 4.0.",
+      "fr": "Leang Karampuang, dans la zone karstique de Maros-Pangkep, à Sulawesi (Indonésie), où se trouve selon la page du fichier la plus ancienne peinture rupestre narrative connue au monde, vieille de 51 200 ans. Photo actuelle (2024) d'Anhar Karim de la grotte ; la peinture n'est pas visible. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Anhar Karim / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-leang-karampuang",
+    "id": "leang-karampuang",
+    "file": "leang-karampuang.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Satellitbild (MODIS, 23 juli 2018) av Palksundet mellan Sri Lanka och Indiens sydspets. Sundet är som smalast cirka 53 km brett, och filsidan säger att vissa data tyder på att \"Adams bro\" kan vara rester av en tidigare landbrygga. NASA; inte från händelsen. Licens: Public domain.",
+      "en": "Satellite image (MODIS, 23 July 2018) of the Palk Strait between Sri Lanka and the tip of India. The strait is about 53 km wide at its narrowest, and the file page says some data suggest \"Adam's Bridge\" may be the remnants of a former land bridge. NASA; not from the event. Licence: Public domain.",
+      "de": "Satellitenbild (MODIS, 23. Juli 2018) der Palkstraße zwischen Sri Lanka und der Südspitze Indiens. Die Meerenge ist an der schmalsten Stelle etwa 53 km breit, und laut Dateiseite deuten einige Daten darauf hin, dass die „Adamsbrücke\" Reste einer früheren Landbrücke sein könnte. NASA; nicht vom Ereignis. Lizenz: gemeinfrei.",
+      "es": "Imagen de satélite (MODIS, 23 de julio de 2018) del estrecho de Palk, entre Sri Lanka y la punta de la India. El estrecho mide unos 53 km en su punto más estrecho, y la página del archivo dice que algunos datos sugieren que el «Puente de Adán» podría ser restos de un antiguo puente de tierra. NASA; no es del acontecimiento. Licencia: dominio público.",
+      "fr": "Image satellite (MODIS, 23 juillet 2018) du détroit de Palk entre le Sri Lanka et la pointe de l'Inde. Le détroit mesure environ 53 km à son point le plus étroit, et la page du fichier indique que certaines données suggèrent que le « pont d'Adam » pourrait être le vestige d'un ancien pont terrestre. NASA ; pas de l'événement. Licence : domaine public."
+    },
+    "credit": "Jeff Schmaltz, MODIS Land Rapid Response Team, NASA GSFC / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-havet-fyller-palksundet",
+    "id": "havet-fyller-palksundet",
+    "file": "havet-fyller-palksundet.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Misliyagrottan, en förhistorisk plats på Karmelberget i Israel. Nutida foto av Reuveny (filsidan anger inget fotodatum); inte från händelsens tid. Licens: CC BY-SA 3.0.",
+      "en": "Misliya Cave, a prehistoric site on Mount Carmel, Israel. Modern photo by Reuveny (the file page gives no photo date); not from the time of the event. Licence: CC BY-SA 3.0.",
+      "de": "Die Misliya-Höhle, eine prähistorische Stätte am Karmel in Israel. Heutiges Foto von Reuveny (die Dateiseite nennt kein Aufnahmedatum); nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 3.0.",
+      "es": "La cueva de Misliya, un sitio prehistórico del monte Carmelo, en Israel. Foto actual de Reuveny (la página del archivo no indica la fecha); no es de la época del acontecimiento. Licencia: CC BY-SA 3.0.",
+      "fr": "La grotte de Misliya, un site préhistorique du mont Carmel, en Israël. Photo actuelle de Reuveny (la page du fichier n'indique pas de date) ; pas de l'époque de l'événement. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Reuveny / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-misliya",
+    "id": "misliya",
+    "file": "misliya.webp"
   }
 ]
