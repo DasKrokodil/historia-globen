@@ -34,7 +34,7 @@ export class Hunt {
    */
   constructor(els, missions, app) {
     Object.assign(this, els, { missions, app });
-    this.mission = null; this.found = []; this.opener = null;
+    this.mission = null; this.found = []; this.opener = null; this.placedBelow = null; this.following = false;
     // Knapparna uppe till höger flyttas när lektionsbandet eller en notis visas eller försvinner, och det kan ske efter att
     // jakten startat (omladdning med #u i adressen, #2178 fynd 6). Rutan läggs om då i stället för att stå kvar under Mer.
     const appRoot = this.root.closest?.('.app');
@@ -154,7 +154,27 @@ export class Hunt {
   /** Rutan läggs under knapparna uppe till höger, som Hjälp (help.js). */
   place() {
     const r = (document.querySelector('.top-actions') ?? document.body).getBoundingClientRect();
+    this.placedBelow = Math.round(r.bottom);
     this.root.style.top = `${Math.round(r.bottom + 10)}px`;
     this.root.style.maxHeight = `calc(100dvh - ${Math.round(r.bottom + 160)}px)`;
+    this.follow();
+  }
+
+  /**
+   * Knapparna kan flytta sig utan att appens klass eller fönstrets storlek ändras (typsnitt som laddas, en övergång, lektionsbandet
+   * som kommer efter jakten). Klass- och storleksbevakningen i konstruktorn missade det i Firefox efter omladdning (#2178, fynd 6:
+   * rutan stod kvar på 54 px medan knapparna slutade på 104 px). Så länge jakten pågår läses därför knapparnas nederkant varje
+   * bildruta, och rutan läggs om när den ändrats. Slingan stannar av sig själv när jakten är slut.
+   */
+  follow() {
+    if (this.following || typeof requestAnimationFrame !== 'function') return;
+    this.following = true;
+    const tick = () => {
+      if (!this.mission) { this.following = false; return; }
+      const r = (document.querySelector('.top-actions') ?? document.body).getBoundingClientRect();
+      if (Math.round(r.bottom) !== this.placedBelow) this.place();
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
   }
 }

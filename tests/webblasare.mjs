@@ -12349,6 +12349,46 @@ async function run(browser, vp) {
       return 'fri uppdragstext, gamla faktarutan stängd, omladdning och återgång med fokus fungerar';
     } finally { await lp.close(); }
   });
+  // #2178 (fynd 6): jaktrutan ligger under knapparna uppe till höger också när knapparna flyttar sig utan att appens klass eller fönstrets
+  // storlek ändras (typsnitt som laddas, en övergång). Kontrollen flyttar knapparna med en inline-stil, som varken klass- eller
+  // storleksbevakningen ser, och kräver att rutan följer efter. Kravet på rutans läge är detsamma som i kontrollen ovan.
+  await check('jaktrutan följer knapparna när de flyttas utan att klassen ändras (#2178)', async () => {
+    const lp = await context.newPage();
+    const errors = [];
+    lp.on('pageerror', e => errors.push(e.message));
+    try {
+      await lp.setViewportSize({ width: vp.width > 760 ? 1280 : 400, height: 800 });
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      await lp.goto(`${BASE}#y=1500&u=samtidighetsjakten-1500`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#hunt', { state: 'visible', timeout: T.step });
+      // Rutans inställda överkant (inte den uppmätta, som följer med inflygningen) mot knapparnas nederkant
+      const gap = () => lp.evaluate(() => {
+        const hunt = document.getElementById('hunt'), actions = document.querySelector('.top-actions');
+        return { jakt: parseFloat(hunt.style.top), knappar: Math.round(actions.getBoundingClientRect().bottom) };
+      });
+      const before = await gap();
+      if (before.jakt < before.knappar) throw new Error(`jaktrutan börjar ovanför knapparnas nederkant redan vid start (${JSON.stringify(before)})`);
+      await lp.evaluate(() => {
+        const actions = document.querySelector('.top-actions');
+        actions.style.top = `${actions.getBoundingClientRect().top + 60}px`;
+      });
+      try {
+        await lp.waitForFunction(() => {
+          const hunt = document.getElementById('hunt'), actions = document.querySelector('.top-actions');
+          return parseFloat(hunt.style.top) >= Math.round(actions.getBoundingClientRect().bottom);
+        }, null, { timeout: T.step });
+      } catch {
+        throw new Error(`jaktrutan följde inte med när knapparna flyttades 60 px ned (${JSON.stringify(before)} före, ${JSON.stringify(await gap())} efter)`);
+      }
+      if (errors.length) throw new Error(`sidfel: ${errors.join('; ')}`);
+      return 'rutan läggs om när knapparna flyttas utan klass- eller storleksändring';
+    } finally { await lp.close(); }
+  });
   // #1861: lektionens sista steg. Uppdragslänken ligger helt ovanför de fasta knapparna (inte halvt under dem), sista steget har en
   // avslutande knapp (Klar, nåbar med tangentbordet) som går till lektionens utgång, och frågan om att lämna lektionen säger vad som
   // händer med vyn. Kortets rullning är oförändrad: ett nytt steg börjar överst (#1856).
