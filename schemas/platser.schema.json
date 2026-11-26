@@ -74,7 +74,8 @@
                 "empire": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Gruppens id i data/empires/index.json; Följ riket startar Fokus på den." },
                 "polity": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Delen (polity) i gruppen vars namn och perioder gäller, till exempel sverige-norge i gruppen svenska-stormaktsvaldet." },
                 "from": { "type": "integer", "description": "Första året; början på en av delens perioder i rikets fil." },
-                "to": { "type": "integer", "description": "Sista året; slutet på en av delens perioder i rikets fil." }
+                "to": { "type": "integer", "description": "Sista året; slutet på en av delens perioder i rikets fil." },
+                "status": { "enum": ["belagt", "tolkat"], "description": "Valfri märkning av perioden (#1260, beslut 2026-11-26): belagt = riket täcker området enligt en öppnad källa utöver kartan, tolkat = bara Cliopatrias karta eller vår tolkning av den visar att området hörde dit. Syns som text i raden och i knappens namn. Saknas fältet visas perioden som förut, utan märkning (bakåtkompatibelt med platser@1)." }
               }
             }
           },

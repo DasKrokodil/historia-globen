@@ -3185,7 +3185,7 @@ async function run(browser, vp) {
           btn: btn && { top: btn.top, bottom: btn.bottom }, detail: detail && { top: detail.top, bottom: detail.bottom }, covered,
           captionInCard: document.querySelectorAll('#detail .place-emblem figcaption').length,
           emblemInHeading: !!document.querySelector('#detail h3 img'), credit: document.querySelectorAll('#detail .place-emblem-credit').length,
-          introTop: document.querySelector('#detail .story > p:not(.place-type):not(.place-map-note):not(.theme-filter-note):not(.place-emblem-credit)')?.getBoundingClientRect().top ?? null,
+          introTop: document.querySelector('#detail .story > p:not(.place-type):not(.place-map-note):not(.theme-filter-note):not(.place-emblem-credit):not(.place-today):not(.place-state)')?.getBoundingClientRect().top ?? null,
           folds: [...document.querySelectorAll('#detail .story > details')].map(d => ({ tag: d.tagName, summary: d.querySelector(':scope > summary')?.getBoundingClientRect().height ?? 0 })), narrow: innerWidth <= 760 };
       });
       // I smal skärm ligger knappen före inledningen, så att den syns också med en längre text (tyska, franska) i det halva arket; på bred skärm efter den
@@ -4753,13 +4753,82 @@ async function run(browser, vp) {
       await lp.keyboard.press('Enter');
       await lp.waitForFunction(() => new URLSearchParams(location.hash.slice(1)).get('f') === 'place:sverige', null, { timeout: T.step });
       await lp.waitForSelector('#detail.detail-selection', { state: 'visible', timeout: T.step });
-      await lp.waitForFunction(() => document.activeElement?.hasAttribute('data-close') && document.querySelector('#detail').contains(document.activeElement), null, { timeout: T.step });
+      // Platskortet tar fokus på rubriken (#1260), inte på Stäng
+      await lp.waitForFunction(() => document.activeElement?.tagName === 'H3' && document.querySelector('#detail').contains(document.activeElement), null, { timeout: T.step });
       if (!(await lp.locator('#focus-origin').isHidden())) throw new Error('knappen står kvar när platsen följs igen');
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
-      return `Följ riket ger knappen "${origin.text}" (${Math.round(origin.w)}×${Math.round(origin.h)} px), inga etiketter över årtalsrutan, och knappen följer platsen igen med fokus i kortet`;
+      return `Följ riket ger knappen "${origin.text}" (${Math.round(origin.w)}×${Math.round(origin.h)} px), inga etiketter över årtalsrutan, och knappen följer platsen igen med fokus på kortets rubrik`;
     } finally {
       await lp.close();
     }
+  });
+
+  // #1260: landet som plats. Kortet för ett land skiljer dagens land från rikena: en fast rad på första skärmen, en tillståndsrad när året
+  // ligger före landets form, rikena som riktiga knappar (minst 44 px på mobil) och Escape som stänger kortet. Texterna räknas ur språkfilen
+  // och data/platser.json; årtalen ur platsens perioder, aldrig ur testet. Hoppet till året görs med årshoppet, som besökaren gör.
+  await check('landkortet: fast rad, tillståndsrad vid hopp till år före landet, rikeslänk och Escape (#1448)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      const narrow = tp.viewportSize().width <= 760;
+      const want = await (async () => {
+        const [ui, pl] = await Promise.all([fetch(`${BASE}data/ui/sv.json`).then(r => r.json()), fetch(`${BASE}data/platser.json`).then(r => r.json())]);
+        const place = pl.places.find(p => p.id === 'sverige');
+        return { today: `${ui['place.today'].replace('{name}', place.name.sv)} ${ui['place.todayEmpires']}`, before: ui['place.stateBefore'], first: Math.min(...place.periods.map(p => p.from)) };
+      })();
+      await tp.goto(`${BASE}?ny=landkort-1260#y=1700&f=place:sverige`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#detail .place-today', { state: 'visible', timeout: T.step });
+      // Fokus går till rubriken, och den fasta raden syns på första skärmen (inte längst ned): inom fönstret och inte täckt av annat
+      await tp.waitForFunction(() => document.activeElement?.tagName === 'H3' && document.querySelector('#detail').contains(document.activeElement), null, { timeout: T.step });
+      const first = await tp.evaluate(() => {
+        const row = document.querySelector('#detail .place-today'), r = row.getBoundingClientRect();
+        const at = document.elementFromPoint(r.x + Math.min(r.width / 2, 40), r.y + r.height / 2);
+        const type = document.querySelector('#detail .place-type');
+        return { text: row.textContent.trim(), top: r.top, bottom: r.bottom, vh: innerHeight, covered: !(at && row.contains(at)), after: type ? type.compareDocumentPosition(row) & Node.DOCUMENT_POSITION_FOLLOWING : 0,
+          state: document.querySelector('#detail [data-place-state]').hidden, live: document.querySelector('#detail [data-place-state]').closest('[aria-live]') !== null };
+      });
+      if (first.text !== want.today) throw new Error(`fasta raden är "${first.text}", väntat "${want.today}"`);
+      if (first.top < 0 || first.bottom > first.vh || first.covered) throw new Error(`fasta raden syns inte på första skärmen: ${JSON.stringify(first)}`);
+      if (!first.after) throw new Error('fasta raden står inte efter typraden');
+      if (!first.state) throw new Error('tillståndsraden syns 1700, när landet fanns');
+      if (first.live) throw new Error('tillståndsraden ligger i en live-region (skulle läsas upp vid varje år)');
+      // Hopp till ett år före landets form: tillståndsraden säger det, i stället för ett tomt kort
+      const jump = async year => {
+        if (await tp.isHidden('#jump-input')) await tp.click('#year-jump');
+        await tp.waitForSelector('#jump-input', { state: 'visible', timeout: T.step });
+        await tp.fill('#jump-input', String(year));
+        await tp.locator('#jump-pop').evaluate(form => form.requestSubmit());
+      };
+      await jump(want.first - 300);
+      await tp.waitForFunction(() => !document.querySelector('#detail [data-place-state]').hidden, null, { timeout: T.step });
+      const state = await tp.evaluate(() => ({ text: document.querySelector('#detail [data-place-state]').textContent.trim(), card: !document.querySelector('#detail').hidden, empty: document.querySelector('#detail .theme-events')?.children.length ?? 0 }));
+      if (!state.text.startsWith(want.before)) throw new Error(`tillståndsraden säger "${state.text}", väntat "${want.before}"`);
+      if (!state.card || !state.empty) throw new Error(`kortet är tomt eller stängt vid hoppet: ${JSON.stringify(state)}`);
+      // Hopp tillbaka till ett år med landet: raden försvinner
+      await jump(1700);
+      await tp.waitForFunction(() => document.querySelector('#detail [data-place-state]').hidden, null, { timeout: T.step });
+      // Rikeslänken är en riktig knapp, med träffyta på minst 44 px i smal skärm, och ingen horisontell scroll
+      await tp.evaluate(() => { document.querySelector('#detail .place-empire-list').open = true; });
+      const btn = tp.locator('#detail button[data-place-empire]').first();
+      await btn.scrollIntoViewIfNeeded();
+      const box = await btn.boundingBox();
+      if (narrow && box.height < 43.5) throw new Error(`rikeslänken är ${Math.round(box.height)} px hög, väntat minst 44`);
+      if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error('horisontell scroll med landkortet');
+      // Escape stänger kortet (som i dag) och platsen följs kvar
+      await tp.evaluate(() => document.querySelector('#detail h3').focus());
+      await tp.keyboard.press('Escape');
+      await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      if (await tp.evaluate(() => new URLSearchParams(location.hash.slice(1)).get('f')) !== 'place:sverige') throw new Error('Escape lämnade platsen');
+      // Om platsen öppnar kortet igen, med fokus på rubriken, och rikeslänken följer riket med en sak i taget: kortet byts mot rikets
+      await tp.click('#focus-facts');
+      await tp.waitForSelector('#detail .place-today', { state: 'visible', timeout: T.step });
+      await tp.evaluate(() => { document.querySelector('#detail .place-empire-list').open = true; });
+      await tp.locator('#detail button[data-place-empire]').first().click();
+      await tp.waitForFunction(() => /^empire:/.test(new URLSearchParams(location.hash.slice(1)).get('f') ?? ''), null, { timeout: T.step });
+      if (await tp.locator('#detail .place-today').count()) throw new Error('landkortet står kvar efter Följ riket (mer än en sak i taget)');
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `fasta raden "${want.today}" syns på första skärmen, tillståndsraden efter hopp till ${want.first - 300}, rikeslänken (${Math.round(box.height)} px) och Escape fungerar`;
+    } finally { await tctx.close(); }
   });
 
   // #1713 (punkt 8): en händelse som öppnas från en numrerad markör i regionvyn ger fokus till kortets Stäng (inte kvar på markören),
@@ -5204,7 +5273,7 @@ async function run(browser, vp) {
   };
   // #1978: ett tryck på platsen man följer öppnar kortet utan nytt Fokus, också i regionvyn (där trycket förut bara fällde ihop markörerna
   // och aldrig nådde platsen), med mus och med finger (med finger efter klicket, annars tar klicket fokus från Stäng och träffar kortet som
-  // just öppnades). Statusraden säger vilket kort som öppnades, fokus står på krysset, Enter öppnar kortet också, och ett tryck bredvid
+  // just öppnades). Statusraden säger vilket kort som öppnades, fokus står på kortets rubrik (#1260), Enter öppnar kortet också, och ett tryck bredvid
   // platsen i regionvyn startar inget nytt Fokus. Rutan i regionvyn säger hur man får fakta: i den långa raden på bred yta och i en egen
   // rad i stående mobil; på en låg liggande yta (högst 480 px) har rutan inte plats för raden utan att kartans fria yta minskar (#1952).
   await check('tryck på platsen i Fokus öppnar kortet utan nytt Fokus, med mus och pekning, på globen och i Platt vys regionvy, och rutan säger hur man får fakta (#1978)', async () => {
@@ -5269,11 +5338,11 @@ async function run(browser, vp) {
           const got = await tp.evaluate(() => ({
             hash: location.hash, title: document.getElementById('focus-title').textContent,
             status: document.getElementById('screen-reader-status').textContent.trim(),
-            active: document.activeElement?.matches('#detail .detail-close') ?? false, where: document.activeElement?.id || document.activeElement?.tagName,
+            active: document.activeElement?.matches('#detail .place-head h3') ?? false, where: document.activeElement?.id || document.activeElement?.tagName,
           }));
           if (!got.hash.includes(`f=place:${sc.id}`) || !got.title.includes(place)) throw new Error(`${sc.name}, ${kind}: trycket ändrade Fokus (${got.hash}, "${got.title}")`);
           if (got.status !== `Plats: ${place}`) throw new Error(`${sc.name}, ${kind}: statusraden säger "${got.status}", väntade "Plats: ${place}"`);
-          if (!got.active) throw new Error(`${sc.name}, ${kind}: fokus står inte på krysset i kortet utan på ${got.where}`);
+          if (!got.active) throw new Error(`${sc.name}, ${kind}: fokus står inte på kortets rubrik (#1260) utan på ${got.where}`);
           await closeCard(tp);
         }
         if (sc.globe) {
@@ -6739,7 +6808,7 @@ async function run(browser, vp) {
     // Utan scrollIntoView: det som mäts är det besökaren ser när kortet har öppnats
     const measure = tp => tp.evaluate(() => {
       const d = document.getElementById('detail'), db = d.getBoundingClientRect(), btn = d.querySelector('[data-selection-action]');
-      const b = btn.getBoundingClientRect(), intro = [...d.querySelectorAll('.story > p')].find(p => !p.classList.contains('place-type') && !p.classList.contains('place-emblem-credit'));
+      const b = btn.getBoundingClientRect(), intro = [...d.querySelectorAll('.story > p')].find(p => !p.classList.contains('place-type') && !p.classList.contains('place-emblem-credit') && !p.classList.contains('place-today') && !p.classList.contains('place-state')); // inledningen, inte landkortets rader (#1260)
       const h3 = d.querySelector('h3').getBoundingClientRect(), top = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
       const tabbable = [...d.querySelectorAll('button, summary, a[href], [tabindex]:not([tabindex="-1"])')].filter(e => e.getClientRects().length && !e.classList.contains('sheet-handle')).slice(0, 2).map(e => e.className.toString().split(' ')[0] || e.tagName);
       return { scrollTop: d.scrollTop, inside: b.top >= db.top && b.bottom <= db.bottom + 0.5 && b.bottom <= innerHeight && b.top >= 0, covered: !(top === btn || btn.contains(top)),
