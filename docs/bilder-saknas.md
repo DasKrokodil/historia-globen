@@ -309,3 +309,25 @@ De sex bilder som först inte gick att hämta (HTTP 429), `ounjougou-keramik`, `
 | `muskotkrigen` | 2026-11-26: Enda kandidaten (MaoriWardanceKahuroa.jpg, Merrett, cirka 1845, public domain) visar en maoriskt krigsdans med personer; avstått i väntan på mänsklig bedömning. |
 
 Tillägg 2026-11-26 (#2113): `ambryms-kaldera`. Bilden [Ambrym ali 2012348 lrg.jpg](https://commons.wikimedia.org/wiki/File:Ambrym_ali_2012348_lrg.jpg) (NASA, public domain) hämtades i Actions, men både 4:3-utsnittet och hela bilden visar mest moln och en askplym; kalderan syns inte. Den används därför inte. De andra kandidaterna (Sentinel-2-bilden ESA380358 har licensen CC BY-SA 3.0 IGO, som inte är med på listan över tillåtna licenser, och MODIS-bilderna visar vulkanrök över ön) har inte prövats vidare.
+
+## Oceanien och övrigt 1928–2022 (#2116 och #2117, 2026-11-26)
+
+17 av 35 händelser fick bild i den här omgången, och tre till (`den-sista-pungvargen-dor`, `os-i-melbourne-1956`, `black-saturday-branderna-2009`) är valda och licenskontrollerade men väntar på hämtning i Actions. Följande 15 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/2116-2117.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Urfolksmotiv, gravar och bilder med oklart ursprung har avståtts.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `coniston-massakern` | 2026-11-26: Enda kandidaten (Dowling 145.jpg, CC BY-SA 4.0) visar Frederick Brooks grav och är ett stående foto; gravar och bilder kopplade till våld mot aboriginer avstås i väntan på mänsklig bedömning. |
+| `ostgronlandsmalet` | 2026-11-26: Kandidaterna visar Lindberghs flygplan och en kokkärl från hans flygningar, inte målet eller platsen. En Commons-sökning på målet i Permanent Court gav bara skannade böcker. |
+| `caledon-bay-krisen` | 2026-11-26: Enda kandidaten är en användargjord topografisk skiss av Arnhem Land utan angiven källa; fel motiv. |
+| `emukriget` | 2026-11-26: Kandidaten är en collage gjord av en användare. Commons-sökningen Great Emu War gav arkivfoton med okänd fotograf, märkta PD-AustraliaGov men med källor som en säljare av arkivfilm (Wazee Digital) och en hembygdsförenings sida; ursprunget är oklart, så de används inte. |
+| `black-friday-skogsbranderna-1939` | 2026-11-26: Fotot [Black Friday 1939.jpg](https://commons.wikimedia.org/wiki/File:Black_Friday_1939.jpg) har motsägande licensuppgifter: filsidan har både cc-by-sa-4.0 och PD-Australia och bara en uppgift om att en förening "gave permission to use", med okänd fotograf. Går inte att avgöra, används inte. |
+| `westminsterstadgan-antas-i-australien-1942` | 2026-11-26: Inga kandidater; händelsen är en lag och ingen relevant bild hittades. |
+| `westminsterstadgan-antas-1947` | 2026-11-26: Inga kandidater; händelsen är en lag och ingen relevant bild hittades. |
+| `fiji-blir-sjalvstandigt` | 2026-11-26: Enda kandidaten är ett foto från 2019 av en gata i Nadi utan koppling till självständigheten; Commons-sökningen Fiji independence 1970 gav bara skannade tidskrifter. |
+| `waitangitribunalen-inrattas` | 2026-11-26: Inga kandidater och ingen relevant bild hittades. |
+| `constitution-act-1986` | 2026-11-26: Inga kandidater; händelsen är en lag och ingen relevant bild hittades. |
+| `maori-officiellt-sprak` | 2026-11-26: Kandidaterna var vulkanfoton (Whakaari, Taranaki) och en handling om det nyzeeländska teckenspråket; fel motiv. |
+| `mabodomen` | 2026-11-26: Inga kandidater och ingen relevant bild hittades; urfolkens markrätt avstås i väntan på mänsklig bedömning. |
+| `waikato-tainui-uppgorelsen` | 2026-11-26: Inga kandidater och ingen relevant bild hittades. |
+| `fredssamtalen-i-nya-zeeland` | 2026-11-26: Inga kandidater och ingen relevant bild hittades. |
+| `samoa-hoppar-over-en-dag-2011` | 2026-11-26: Inga kandidater. En Commons-sökning (Samoa International Date Line) nekades med HTTP 429 och hann inte upprepas; ingen bild har valts. |
