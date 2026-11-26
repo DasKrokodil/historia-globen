@@ -3120,6 +3120,21 @@
       }
     },
     {
+      "eventId": "giottos-fresker-i-padua",
+      "eventTitle": "Giottos fresker i Scrovegnikapellet",
+      "file": "images/events/giottos-fresker-i-padua.webp",
+      "kind": "historisk",
+      "credit": "Andrea Piroddi / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-giottos-fresker-i-padua",
+        "title": "La Cappella degli Scrovegni – Andrea Piroddi (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:La_Cappella_degli_Scrovegni.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "glacier-peak-utbrott-omkring-200",
       "eventTitle": "Vulkanen Glacier Peak får ett utbrott",
       "file": "images/events/glacier-peak-utbrott-omkring-200.webp",
@@ -3131,6 +3146,21 @@
         "title": "Glacier Peak (aerial view) – brewbooks (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Glacier_Peak_(aerial_view).jpg",
         "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "glagolitiska-alfabetet",
+      "eventTitle": "Kyrillos, Methodios och det glagolitiska alfabetet",
+      "file": "images/events/glagolitiska-alfabetet.webp",
+      "kind": "historisk",
+      "credit": "Primož Trubar / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-glagolitiska-alfabetet",
+        "title": "Tabla Za Dicu 03 – Trubar, Primož [editor] Anton Dalmatin [translator] Consul, Stephan [translator] (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tabla_Za_Dicu_03.jpg",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
@@ -3891,6 +3921,21 @@
       }
     },
     {
+      "eventId": "ibn-khalduns-muqaddima",
+      "eventTitle": "Ibn Khaldun skriver Muqaddiman",
+      "file": "images/events/ibn-khalduns-muqaddima.webp",
+      "kind": "historisk",
+      "credit": "Riad Salih / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-ibn-khalduns-muqaddima",
+        "title": "La Muqaddima d'Ibn Khaldoun – Riad Salih (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:La_Muqaddima_d%27Ibn_Khaldoun.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "ideal-x-containerfartyget",
       "eventTitle": "Ideal X och containerfrakten",
       "file": "images/events/ideal-x-containerfartyget.webp",
@@ -4236,6 +4281,21 @@
       }
     },
     {
+      "eventId": "jellingestenen",
+      "eventTitle": "Harald Blåtand reser den stora Jellingestenen",
+      "file": "images/events/jellingestenen.webp",
+      "kind": "historisk",
+      "credit": "Niels Elgaard Larsen / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-jellingestenen",
+        "title": "JellingStoneTextside – Niels Elgaard Larsen (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:JellingStoneTextside.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "jenners-vaccin",
       "eventTitle": "Edward Jenner och det första vaccinet",
       "file": "images/events/jenners-vaccin.webp",
@@ -4322,6 +4382,21 @@
         "title": "Jintian Uprising Site (21) – STW932 (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Jintian_Uprising_Site_(21).jpg",
         "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "jordbavningen-i-basel-1356",
+      "eventTitle": "Jordbävningen i Basel",
+      "file": "images/events/jordbavningen-i-basel-1356.webp",
+      "kind": "historisk",
+      "credit": "Karl Jauslin / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-jordbavningen-i-basel-1356",
+        "title": "Erdbeben Basel Jauslin – Karl Jauslin (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Erdbeben_Basel_Jauslin.JPG",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
@@ -4526,6 +4601,21 @@
         "title": "Penny Ice Cap – NASA / Michael Studinger (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Penny_Ice_Cap.jpg",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "kalmarunionen-bildas",
+      "eventTitle": "Kalmarunionen: Danmark, Norge och Sverige får en gemensam kung",
+      "file": "images/events/kalmarunionen-bildas.webp",
+      "kind": "historisk",
+      "credit": "Grand Parc - Bordeaux / Wikimedia Commons (Flickr)",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-kalmarunionen-bildas",
+        "title": "Castle Château Kalmar Suède Sweden - photo picture image photography (9586502122) – Grand Parc - Bordeaux, France from France (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Castle_Ch%C3%A2teau_Kalmar_Su%C3%A8de_Sweden_-_photo_picture_image_photography_(9586502122).jpg",
+        "license": "CC BY 2.0",
         "checked": "2026-11-26"
       }
     },
@@ -4923,6 +5013,21 @@
       }
     },
     {
+      "eventId": "kopenhamns-universitet-invigs",
+      "eventTitle": "Köpenhamns universitet invigs",
+      "file": "images/events/kopenhamns-universitet-invigs.webp",
+      "kind": "historisk",
+      "credit": "Mik Hartwell / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-kopenhamns-universitet-invigs",
+        "title": "University Main Building – Mik Hartwell (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:University_Main_Building.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "kopernikus-de-revolutionibus",
       "eventTitle": "Kopernikus: jorden kretsar kring solen",
       "file": "images/events/kopernikus-de-revolutionibus.webp",
@@ -4953,6 +5058,21 @@
       }
     },
     {
+      "eventId": "koret-i-saint-denis",
+      "eventTitle": "Koret i Saint-Denis, den första gotiska byggnaden",
+      "file": "images/events/koret-i-saint-denis.webp",
+      "kind": "historisk",
+      "credit": "Chabe01 / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-koret-i-saint-denis",
+        "title": "Basilique St Denis façade ouest St Denis Seine St Denis 20 – Chabe01 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Basilique_St_Denis_fa%C3%A7ade_ouest_St_Denis_Seine_St_Denis_20.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "korsfastelsen",
       "eventTitle": "Jesus korsfästs",
       "file": "images/events/korsfastelsen.webp",
@@ -4965,6 +5085,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Cristo_crucificado.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "korstagen",
+      "eventTitle": "Korstågen",
+      "file": "images/events/korstagen.webp",
+      "kind": "historisk",
+      "credit": "Émile Signol / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-korstagen",
+        "title": "Taking of Jerusalem by the Crusaders, 15th July 1099 – Émile Signol (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Taking_of_Jerusalem_by_the_Crusaders,_15th_July_1099.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5174,6 +5309,21 @@
         "title": "Kyoto International Conference Center - exterior – Daderot (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Kyoto_International_Conference_Center_-_exterior.JPG",
         "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "kyrkomotet-i-clermont",
+      "eventTitle": "Påven Urban II kallar till korståg i Clermont",
+      "file": "images/events/kyrkomotet-i-clermont.webp",
+      "kind": "historisk",
+      "credit": "Jean Colombe / Bibliothèque nationale de France",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kyrkomotet-i-clermont",
+        "title": "Passages d'outremer Fr5594, fol. 19r, Concile de Clermont – Jean Colombe (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Passages_d%27outremer_Fr5594,_fol._19r,_Concile_de_Clermont.jpg",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
@@ -5573,6 +5723,36 @@
         "title": "USAF F-16A F-15C F-15E Desert Storm edit2 – US Air Force (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:USAF_F-16A_F-15C_F-15E_Desert_Storm_edit2.jpg",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "lund-blir-arkebiskopssate",
+      "eventTitle": "Lund blir ärkebiskopssäte för hela Norden",
+      "file": "images/events/lund-blir-arkebiskopssate.webp",
+      "kind": "historisk",
+      "credit": "Kallekn / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-lund-blir-arkebiskopssate",
+        "title": "Lunds domkyrka1 – Kallekn (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lunds_domkyrka1.jpeg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "lund-grundas",
+      "eventTitle": "Lund grundas",
+      "file": "images/events/lund-grundas.webp",
+      "kind": "historisk",
+      "credit": "Anton Holmquist Soasta / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-lund-grundas",
+        "title": "Stortorget lund 080508 – Anton Holmquist Soasta (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Stortorget_lund_080508.jpg",
+        "license": "CC BY-SA 3.0",
         "checked": "2026-11-26"
       }
     },
@@ -7149,6 +7329,21 @@
       }
     },
     {
+      "eventId": "paven-flyttar-till-avignon",
+      "eventTitle": "Påvarna flyttar till Avignon",
+      "file": "images/events/paven-flyttar-till-avignon.webp",
+      "kind": "historisk",
+      "credit": "Chimigi / Wikimedia Commons",
+      "license": "CC BY-SA 2.0 FR",
+      "source": {
+        "id": "commons-bild-paven-flyttar-till-avignon",
+        "title": "Façade du Palais des Papes – Chimigi (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Fa%C3%A7ade_du_Palais_des_Papes.jpg",
+        "license": "CC BY-SA 2.0 FR",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "penicillinet-upptacks",
       "eventTitle": "Penicillinet upptäcks",
       "file": "images/events/penicillinet-upptacks.webp",
@@ -7236,6 +7431,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Plimpton_322.jpg",
         "license": "Public domain",
         "checked": "2026-11-12"
+      }
+    },
+    {
+      "eventId": "plundringen-av-konstantinopel-1204",
+      "eventTitle": "Fjärde korståget plundrar Konstantinopel",
+      "file": "images/events/plundringen-av-konstantinopel-1204.webp",
+      "kind": "historisk",
+      "credit": "Palma il Giovane / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-plundringen-av-konstantinopel-1204",
+        "title": "PriseDeConstantinople1204PalmaLeJeune – Palma Le Jeune (1544–1620) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:PriseDeConstantinople1204PalmaLeJeune.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -8685,6 +8895,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-guadalete",
+      "eventTitle": "Slaget vid Guadalete",
+      "file": "images/events/slaget-vid-guadalete.webp",
+      "kind": "historisk",
+      "credit": "Mariano Barbasán Lagueruela / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-guadalete",
+        "title": "Mariano Barbasán - Batalla de Guadalete – Mariano Barbasán Lagueruela (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mariano_Barbas%C3%A1n_-_Batalla_de_Guadalete.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-hattin",
       "eventTitle": "Slaget vid Hattin",
       "file": "images/events/slaget-vid-hattin.webp",
@@ -8802,6 +9027,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Relief_Kadesh_Breasted.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-kalka",
+      "eventTitle": "Slaget vid Kalka",
+      "file": "images/events/slaget-vid-kalka.webp",
+      "kind": "historisk",
+      "credit": "Okänd miniatyrist (rysk handskrift) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-kalka",
+        "title": "Битва на Калке (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%D0%91%D0%B8%D1%82%D0%B2%D0%B0_%D0%BD%D0%B0_%D0%9A%D0%B0%D0%BB%D0%BA%D0%B5.png",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -8980,6 +9220,21 @@
         "id": "commons-bild-slaget-vid-milne-bay",
         "title": "Australian troops at Milne Bay – Bagnall, Frank N (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Australian_troops_at_Milne_Bay.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "slaget-vid-mohi",
+      "eventTitle": "Slaget vid Mohi",
+      "file": "images/events/slaget-vid-mohi.webp",
+      "kind": "historisk",
+      "credit": "Okänd illuminatör / Österrikiska nationalbiblioteket",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-mohi",
+        "title": "Battle of Mohi 1241 – Anonymous illumination (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Mohi_1241.PNG",
         "license": "Public domain",
         "checked": "2026-11-26"
       }
@@ -9291,6 +9546,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:%D0%A4%D0%BE%D0%BD%D1%82%D0%B0%D0%BD_%C2%AB%D0%94%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D0%B9_%D1%85%D0%BE%D1%80%D0%BE%D0%B2%D0%BE%D0%B4%C2%BB.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-stiklestad",
+      "eventTitle": "Slaget vid Stiklestad",
+      "file": "images/events/slaget-vid-stiklestad.webp",
+      "kind": "historisk",
+      "credit": "Peter Nicolai Arbo / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-stiklestad",
+        "title": "Stiklestad – Peter Nicolai Arbo (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Stiklestad.jpeg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -10750,6 +11020,36 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "uppsala-universitet-grundas",
+      "eventTitle": "Uppsala universitet grundas",
+      "file": "images/events/uppsala-universitet-grundas.webp",
+      "kind": "historisk",
+      "credit": "Okänd uppladdare / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-uppsala-universitet-grundas",
+        "title": "Universitas Regia Upsaliensis (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Universitas_Regia_Upsaliensis.jpg",
+        "license": "CC0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "uret-i-salisbury",
+      "eventTitle": "Uret i Salisburys katedral",
+      "file": "images/events/uret-i-salisbury.webp",
+      "kind": "historisk",
+      "credit": "Rwendland / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-uret-i-salisbury",
+        "title": "Salisbury Cathedral, medieval clock – Rwendland (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Salisbury_Cathedral,_medieval_clock.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "usa-gar-in-i-forsta-varldskriget",
