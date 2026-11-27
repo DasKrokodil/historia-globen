@@ -926,6 +926,8 @@
 "arvsmassa-fran-kulubnarti":{"place":{"de":"Kulubnarti am Nil, Nordsudan"},"title":{"de":"Erbgut aus dem christlichen Nubien"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
 "svalt-och-kris-i-egypten-1065":{"place":{"de":"Unterägypten (ungefähre Lage)"},"title":{"de":"Hungersnot und Krise im Ägypten der Fatimiden"},"note":{"title":{"de":"Nur eine Quelle"}}},
 "storhogarna-i-hogom":{"place":{"de":"Högom, Selånger, Medelpad"},"title":{"de":"Die Großhügel von Högom"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
+"garden-pa-genesmon":{"place":{"de":"Genesmon, Gene, Ångermanland"},"title":{"de":"Der eisenzeitliche Hof von Genesmon"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
+"fornborgen-pa-rogstaklippen":{"place":{"de":"Rogstaklippen, Torsåker, Ångermanland"},"title":{"de":"Die Fliehburg auf dem Rogstaklippen"}},
 "sunset-crater-bildas":{"place":{"de":"Sunset Crater, Nord-Arizona, USA"},"title":{"de":"Der Schlackenkegel Sunset Crater entsteht"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
 "stenmurar-i-falefadalen":{"place":{"de":"Falefa-Tal auf Upolu, Samoa (der Punkt ist das Dorf Falefa am Nordrand des Tals)"},"title":{"de":"Steinmauern um das Ackerland im Falefa-Tal"},"note":{"title":{"de":"Nur eine Quelle"}}},
 "imjinkriget":{"place":{"de":"Korea und die Meere um die Koreanische Halbinsel (begann bei Busan)"},"title":{"de":"Der Imjin-Krieg"},"note":{"title":{"de":"Zum Kalender"}}},
@@ -1175,6 +1177,7 @@
 "sundsvall-grundas":{"place":{"de":"Sundsvall (südsamisch Sjädtavallie), Medelpad"},"title":{"de":"Gründung von Sundsvall"}},
 "galtstroms-bruk":{"place":{"de":"Galtström, Njurunda, Medelpad"},"title":{"de":"Das Eisenwerk von Galtström"}},
 "slaget-vid-selanger":{"place":{"de":"Selånger und Sundsvall, Medelpad"},"title":{"de":"Die Schlacht bei Selånger"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
+"harnosand-grundas":{"place":{"de":"Härnösand, Ångermanland"},"title":{"de":"Gründung von Härnösand"}},
 "forsta-opiumkriget":{"place":{"de":"Küste Chinas von der Perlflussmündung bis zum Jangtse (begann bei Kowloon, im heutigen Hongkong)"},"title":{"de":"Erster Opiumkrieg"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
 "skarmytslingen-vid-kowloon-1839":{"place":{"de":"Kowloon, heute Hongkong"},"title":{"de":"Scharmützel bei Kowloon"}},
 "britterna-intar-zhoushan-1840":{"place":{"de":"Dinghai auf der Insel Zhoushan (Chusan), Zhejiang"},"title":{"de":"Die Briten nehmen Zhoushan ein"}},
@@ -1406,6 +1409,7 @@
 "forsta-angsagen-i-tunadal":{"place":{"de":"Tunadal, Sundsvall, Medelpad"},"title":{"de":"Schwedens erstes Dampfsägewerk"}},
 "sundsvallsstrejken-1879":{"place":{"de":"Sundsvall, Medelpad"},"title":{"de":"Der Streik von Sundsvall"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "sundsvallsbranden":{"place":{"de":"Sundsvall, Medelpad"},"title":{"de":"Der Brand von Sundsvall"}},
+"ornskoldsvik-grundas":{"place":{"de":"Örnsköldsvik (südsamisch Orrestaare), Ångermanland"},"title":{"de":"Gründung von Örnsköldsvik"}},
 "rifkriget":{"place":{"de":"Rif im Norden Marokkos, damals spanisches Protektorat (begann bei Annual)"},"title":{"de":"Rifkrieg"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "slaget-vid-annual":{"place":{"de":"Annual im Nordosten Marokkos, etwa 60 km westlich von Melilla"},"title":{"de":"Die Rifkämpfer besiegen Spanien bei Annual"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "massakern-vid-monte-arruit":{"place":{"de":"Monte Arruit bei Al Aaroui, etwa 35 km südlich von Melilla"},"title":{"de":"Das Massaker von Monte Arruit"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
@@ -1597,6 +1601,7 @@
 "szent-gyorgyi-och-c-vitaminet":{"place":{"de":"Szeged, Ungarn"},"title":{"de":"Szent-Györgyi und das Vitamin C"}},
 "forintelsen-i-ungern":{"place":{"de":"Ungarn (die Markierung am Ghetto in Budapest)"},"title":{"de":"Der Holocaust in Ungarn"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "forsta-vasaloppet":{"place":{"de":"Von Sälen nach Mora, Dalarna"},"title":{"de":"Der erste Wasalauf"}},
+"adalshandelserna-1931":{"place":{"de":"Lunde, Ådalen, Ångermanland"},"title":{"de":"Die Schüsse von Ådalen"}},
 "bangladeshs-befrielsekrig":{"place":{"de":"Ostpakistan, heute Bangladesch (Beginn in Dhaka)"},"title":{"de":"Bangladesch-Befreiungskrieg"},"note":{"title":{"de":"Zum Beginn des Krieges"}}},
 "operation-searchlight":{"place":{"de":"Dhaka und andere Städte in Ostpakistan"},"title":{"de":"Operation Searchlight"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "bangladeshs-sjalvstandighet-utropas":{"place":{"de":"Dhaka"},"title":{"de":"Die Unabhängigkeit Bangladeschs wird ausgerufen"},"note":{"title":{"de":"Nur eine Quelle für den Ort"}}},
@@ -1899,5 +1904,6 @@
 "slovakien-gar-med-i-eu":{"place":{"de":"Die ganze Slowakei (die Markierung in Bratislava)"},"title":{"de":"Die Slowakei tritt der EU bei"}},
 "paneuropeiska-picknicken":{"place":{"de":"Die Grenze zu Österreich bei Sopron, Ungarn"},"title":{"de":"Das Paneuropäische Picknick"}},
 "ungern-gar-med-i-eu":{"place":{"de":"Ganz Ungarn (die Markierung in Budapest)"},"title":{"de":"Ungarn tritt der EU bei"}},
-"falu-gruva-blir-varldsarv":{"place":{"de":"Falun, Dalarna"},"title":{"de":"Das Bergwerk von Falun wird Welterbe"}}
+"falu-gruva-blir-varldsarv":{"place":{"de":"Falun, Dalarna"},"title":{"de":"Das Bergwerk von Falun wird Welterbe"}},
+"hoga-kusten-blir-varldsarv":{"place":{"de":"Skuleberget, Höga kusten, Ångermanland"},"title":{"de":"Die Höga Kusten wird Welterbe"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}}
 }}
