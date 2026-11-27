@@ -60,7 +60,7 @@ test('rikets egen rad Om kartan står vid raden bara när gruppen har en enda de
 });
 
 test('Skåne (landskap) och platser utan beslut har inga perioder', () => {
-  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
+  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
 });
 
 test('raderna får rikets eget namn ur indexet och en lucka för år som ingen period täcker', () => {
@@ -77,8 +77,8 @@ test('raderna får rikets eget namn ur indexet och en lucka för år som ingen p
     .filter(r => r.kind === 'gap'), []);
 });
 
-test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien, Nederländerna, Luxemburg och Tyskland räknas ur datan: inga av de listade delarna täcker luckans år', () => {
-  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland']) {
+test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien, Nederländerna, Luxemburg, Tyskland och Österrike räknas ur datan: inga av de listade delarna täcker luckans år', () => {
+  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike']) {
     const pl = places.find(p => p.id === id);
     const rows = placeEmpireRows(pl, groups);
     assert.equal(rows.filter(r => r.kind === 'empire').length, pl.periods.length, `${id}: alla perioder blir rader`);
@@ -159,6 +159,29 @@ test('Tysklands luckor och kartavvikelser är de som kortets inledning nämner (
   assert.deepEqual(end('osttyskland'), [[1949, 1990]]);
   assert.deepEqual(end('vasttyskland'), [[1950, 1990]]);
   assert.deepEqual(end('tyskland'), [[1991, 2024]]);
+});
+
+test('Österrikes luckor och kartavvikelser är de som kortets inledning nämner (#1821): rikena följer Wien', () => {
+  const pl = places.find(p => p.id === 'osterrike');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]), [[455, 499], [546, 787], [911, 959], [1683, 1686], [1805, 1805], [1807, 1867]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    // Luckorna, Romarriket (Noricum 16 f.Kr., kartan 14 f.Kr. och Wien från 43), Matthias Corvinus, belägringen 1683,
+    // Spanska imperiet och Habsburgska riket (raderna som inte står i kortet), Kejsardömet Österrike, Österrike-Ungern,
+    // republiken, gränserna 1919–1921, Nazityskland och ockupationen
+    for (const years of ['455–499', '546–787', '911–959', '1683–1686', '1805', '1807–1867', '16 ', '14 ', '43', '1485–1490', '1487–1491',
+      '1534–1555', '1529–1555', '1521', '1804–1867', '1806', '1867', '1868–1918', '12', '1918', '1919', '1920', '1921', '1938', '1938–1944', '1945–1955']) {
+      assert.ok(pl.intro[lang].includes(years), `osterrike: inledningen (${lang}) nämner inte ${years}`);
+    }
+    // Ötzi ligger i Italien men innanför kartans grova gräns
+    assert.ok(pl.intro[lang].includes('Ötzi'), `osterrike: inledningen (${lang}) nämner inte Ötzi`);
+  }
+  // Spanska imperiet i Wien 1534–1555 står inte i kortet; Kungariket Ungern (Matthias Corvinus) gör det
+  assert.ok(!pl.periods.some(p => p.empire === 'spanska-imperiet'));
+  const span = id => pl.periods.filter(p => p.empire === id).map(p => [p.from, p.to]);
+  assert.deepEqual(span('kungariket-ungern'), [[1487, 1491]]);
+  assert.deepEqual(span('nazityskland'), [[1938, 1944]]);
+  assert.deepEqual(span('osterrike'), [[1919, 1937], [1945, 2024]]);
 });
 
 test('kortet visar rikena som knappar med hela namnet, luckan som en rad och i en tur bara text', () => {
