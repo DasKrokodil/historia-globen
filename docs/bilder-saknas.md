@@ -665,3 +665,71 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `lydda-och-ramle-1948` | 2026-11-26: Kandidaterna är en israelisk soldatbild och en bild av palestinier i Ramle (liten) med oklar koppling till fördrivningen; avstås tills en människa bedömt urvalet av perspektiv. |
 | `operation-uvda` | 2026-11-26: Enda kandidaten (Raising the Ink Flag at Umm Rashrash) har licensflagga och är ett senare, uppsatt foto; används inte. |
 | `operation-yoav` | 2026-11-26: Kandidaten (Beersheba 1948.jpg, Israels statliga presskontor, PD-Israel) är fri enligt israelisk lag men fotot från 1948 kan fortfarande vara upphovsrättsskyddat i USA (URAA); används inte tills en människa bedömt det. |
+
+
+## Asien 1950–1975 (#2070 och #2071, 2026-11-26)
+
+13 av 40 händelser fick bild i den här omgången. Följande 27 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-8.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `nordkoreas-anfall-1950` | 2026-11-26: Kandidaterna ("Korean War, train attack", en kinesisk krigsfartygsbild, en övning 2020-talet) hör inte till anfallet i juni 1950 eller är nutida; används inte. Ingen egen vidare sökning hann göras. |
+| `slaget-vid-onjong` | 2026-11-26: Enda kandidaten är en karta (Map Chinese intervention.jpg); används inte. |
+| `tredje-slaget-om-seoul` | 2026-11-26: Enda kandidaten (UK 29th Brigade Prisoner.jpg) är bara 450 px bred; används inte. |
+| `vietnamkriget` | 2026-11-26: Händelsen saknades i den automatiska listan. Kandidat utsedd (USMC-foto från landstigningen vid Da Nang, mars 1965, PD-USGov-Military-Marines) men inte hämtad (HTTP 429); kan tas i nästa omgång. |
+| `ambedkar-blir-buddhist` | 2026-11-26: Ingen kandidat i listan; egen sökning gav bara bilder under 500 px (460 × 275 px m.fl.), som blir suddiga i kortet; används inte. |
+| `stora-spranget` | 2026-11-26: Enda kandidaten (People's commune canteen) är 400 × 416 px; används inte. |
+| `sexdagarskriget` | 2026-11-26: Händelsen saknades i den automatiska listan. Egen sökning gav foton av Boris Carmi (CC BY 4.0) som verktyget flaggade (ingen igenkänd licensmall) och israeliska GPO-bilder från 1967 med oklar USA-status; används inte utan närmare kontroll. |
+| `slaget-vid-abu-ageila-1967` | 2026-11-26: Enda kandidaten (GPO, Centurion Tanks, CC BY-SA 3.0) har licensflagga; används inte utan närmare kontroll. |
+| `golanhojderna-1967` | 2026-11-26: Kandidaten (Israeli tanks advancing on the Golan Heights, D327-098) har CC BY-SA 4.0 enligt API:et men ingen igenkänd licensmall på filsidan; verktyget flaggade den, så den används inte. |
+| `belagringen-av-khe-sanh` | 2026-11-26: Enda kandidaten (Tquad.jpg) är bara 699 × 344 px; används inte. |
+| `faltaget-i-kambodja-1970` | 2026-11-26: Enda kandidaten är en karta (Map Cambodian Incursion May 70); används inte. |
+| `ohsumi-japans-forsta-satellit` | 2026-11-26: Kandidaten (Ohsumi.jpg, CC BY-SA 3.0) är en montage av en satellitbild och en NASA-bild där delbildens licens inte är kontrollerad; används inte. |
+| `bangladeshs-befrielsekrig` | 2026-11-26: Enda kandidaten är en karta (Bangladesh 1971 Liberation.jpg); används inte. |
+| `operation-searchlight` | 2026-11-26: Kandidaterna är ett diagram, en montage och ett modernt verk med oklar proveniens; används inte. |
+| `bangladeshs-sjalvstandighet-utropas` | 2026-11-26: Kandidaterna är foton från 2026 av ministrar och minnesceremonier, inte utropandet 1971; används inte. |
+| `mujibnagarregeringen` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `slaget-vid-hilli` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `operation-lam-son-719` | 2026-11-26: Enda kandidaten är en karta (Map Lam Son 719); används inte. |
+| `saljut-1` | 2026-11-26: Enda kandidaten (frimärke från 1972, PD-RU-exempt) visar en rymdstation med ett rymdskepp men filsidan nämner inte Saljut 1 och licensen för frimärken är osäker; används inte. |
+| `ramsarkonventionen` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `jom-kippurkriget` | 2026-11-26: Enda kandidaten (Yom Kippur War. XXXVI, CC BY-SA 3.0) har licensflagga; används inte utan närmare kontroll. Händelsen "slaget om Suez" har fått en egen bild. |
+| `tararnas-dal-1973` | 2026-11-26: Enda kandidaten är en karta (Golan heights theater); används inte. |
+| `slaget-vid-kinesiska-farmen` | 2026-11-26: Enda kandidaten är en karta (1973 Sinai war maps); används inte. |
+| `saigons-fall` | 2026-11-26: Enda kandidaten är en karta (HCMCampaign.svg); används inte. |
+| `papua-nya-guinea-blir-sjalvstandigt` | 2026-11-26: Kandidaterna är kartor; används inte. |
+| `aryabhata-indiens-forsta-satellit` | 2026-11-26: Enda kandidaten (Aryabhata Satellite.jpg) är bara 484 × 381 px; används inte. |
+| `folkmordet-i-kambodja` | 2026-11-26: Enda kandidaten visar skallar från "killing fields" (mänskliga kvarlevor); bilder av kvarlevor avstås. |
+
+
+## Asien 1978–2021 (#2072 och #2073, 2026-11-26)
+
+13 av 38 händelser fick bild i den här omgången. Följande 25 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-9.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `iranska-revolutionen` | 2026-11-26: Kandidaterna (demonstrationsbilder 1979) är under 800 px eller har oklar licens (GFDL ensamt, okänd fotograf); används inte. |
+| `iran-irak-kriget` | 2026-11-26: Enda kandidaten är en montage (380 px); används inte. |
+| `tankerkriget` | 2026-11-26: Händelsen saknades i den automatiska listan; egen sökning gav inga lämpliga bilder. |
+| `operation-ramadan` | 2026-11-26: Enda kandidaten är en liten karta (328 px); används inte. |
+| `svalten-i-etiopien-1983-1985` | 2026-11-26: Enda kandidaten (Opbushel.jpg) är bara 500 px bred och har licensflagga; bilder av hungersnöden avstås tills en människa bedömt om en värdig bild finns. |
+| `forsta-slaget-om-al-faw` | 2026-11-26: Enda kandidaten (Al-faw.jpg) är bara 495 px bred; används inte. |
+| `halabja-1988` | 2026-11-26: Enda kandidaten visar familjegravar för offren (gravar); bilder av gravar avstås. |
+| `vapenvilan-iran-irak-1988` | 2026-11-26: Enda kandidaten är en liten montage (572 px); används inte. |
+| `bougainvillekonflikten` | 2026-11-26: Händelsen saknades i den automatiska listan; egen sökning efter Panguna gav inga träffar. |
+| `upproret-vid-panguna` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `panguna-gruvan-stangs` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `himmelska-fridens-torg-1989` | 2026-11-26: Enda kandidaten (CC BY 2.5, 550 × 749 px) är liten och stående; används inte. Pressbilder från protesterna är inte fria. |
+| `irak-invaderar-kuwait` | 2026-11-26: Enda kandidaten visar ett övergivet irakiskt stridsvagn på vägen till Kuwait City i februari 1991, alltså efter befrielsen och inte invasionen 1990; används inte. |
+| `slaget-vid-khafji` | 2026-11-26: Kandidaterna är en bred bild (1000 × 442) och en bild (Cleaning up Khafji.jpg) som efter konvertering ser konstgjord ut; används inte utan närmare kontroll. |
+| `slaget-vid-73-easting` | 2026-11-26: Enda kandidaten (Type 69 Operation Desert Storm.jpg) visar enligt filsidan en irakisk stridsvagn som brinner efter en attack av brittiska 1:a pansardivisionen och hör inte till slaget vid 73 Easting; används inte. |
+| `vapenvila-i-gulfkriget` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `arawa-aterintas` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `sandlineaffaren` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `asienkrisen-1997` | 2026-11-26: Enda kandidaten är en karta (PIIGS Mk 4 map.png) och hör inte till Asienkrisen; används inte. |
+| `kriget-i-afghanistan-2001` | 2026-11-26: Enda kandidaten är en collage (926 px); används inte. |
+| `slaget-vid-tora-bora` | 2026-11-26: Enda kandidaten är en liten karta (450 px) med licensflagga; används inte. |
+| `operation-anaconda` | 2026-11-26: Enda kandidaten är en karta (AnacondaAreaOfOperations.jpg); används inte. |
+| `saddam-hussein-tillfangatas` | 2026-11-26: Enda kandidaten (SaddamSpiderHole.jpg) är 640 × 480 px och blir suddig i kortet; används inte. |
+| `folkomrostning-om-bougainvilles-sjalvstandighet` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `talibanerna-intar-kabul-2021` | 2026-11-26: Enda kandidaten (Crowds in front of Kabul International Airport) har licensflagga; används inte. |

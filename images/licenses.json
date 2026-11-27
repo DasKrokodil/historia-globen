@@ -282,6 +282,21 @@
       }
     },
     {
+      "eventId": "andra-slaget-om-falluja",
+      "eventTitle": "Andra slaget om Falluja",
+      "file": "images/events/andra-slaget-om-falluja.webp",
+      "kind": "historisk",
+      "credit": "CPL Joel A. Chaverri / U.S. Marine Corps",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-andra-slaget-om-falluja",
+        "title": "Fallujah 2004 – CPL Joel A. Chaverri, United States Marine Corps (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Fallujah_2004.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "andra-slaget-vid-el-alamein",
       "eventTitle": "Andra slaget vid el-Alamein",
       "file": "images/events/andra-slaget-vid-el-alamein.webp",
@@ -426,6 +441,21 @@
       }
     },
     {
+      "eventId": "aralsjon-borjar-krympa",
+      "eventTitle": "Aralsjön börjar krympa",
+      "file": "images/events/aralsjon-borjar-krympa.webp",
+      "kind": "historisk",
+      "credit": "NASA (bearbetning: Zafiroblue05) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-aralsjon-borjar-krympa",
+        "title": "Aral Sea 1989-2008 – NASA, derivative work by Zafiroblue05 at en.wikipedia (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Aral_Sea_1989-2008.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "askia-muhammad-tar-makten",
       "eventTitle": "Askia Muhammad tar makten i Songhairiket",
       "file": "images/events/askia-muhammad-tar-makten.webp",
@@ -561,6 +591,21 @@
       }
     },
     {
+      "eventId": "attentatet-mot-al-askarimosken",
+      "eventTitle": "Attentatet mot al-Askarimoskén",
+      "file": "images/events/attentatet-mot-al-askarimosken.webp",
+      "kind": "historisk",
+      "credit": "Toushiro / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-attentatet-mot-al-askarimosken",
+        "title": "Al Askari Mosque – Toushiro (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Al_Askari_Mosque.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "auschwitz-befrias",
       "eventTitle": "Auschwitz befrias",
       "file": "images/events/auschwitz-befrias.webp",
@@ -621,6 +666,21 @@
       }
     },
     {
+      "eventId": "bagdad-faller-2003",
+      "eventTitle": "Bagdad faller",
+      "file": "images/events/bagdad-faller-2003.webp",
+      "kind": "historisk",
+      "credit": "Okänd (U.S. military) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-bagdad-faller-2003",
+        "title": "SaddamStatue – Unknown U.S. military or Department of Defense employee (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:SaddamStatue.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "bagdads-fall-1258",
       "eventTitle": "Bagdads fall",
       "file": "images/events/bagdads-fall-1258.webp",
@@ -636,6 +696,21 @@
       }
     },
     {
+      "eventId": "baijin-forklaras-funktionellt-utdod",
+      "eventTitle": "Jangtsedelfinen baiji förklaras funktionellt utdöd",
+      "file": "images/events/baijin-forklaras-funktionellt-utdod.webp",
+      "kind": "historisk",
+      "credit": "Huangdan2060 / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-baijin-forklaras-funktionellt-utdod",
+        "title": "Chinese Baiji dolphin specimen Qi Qi – Huangdan2060 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Chinese_Baiji_dolphin_specimen_Qi_Qi.jpg",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "bain-fax",
       "eventTitle": "Faxens föregångare patenteras",
       "file": "images/events/bain-fax.webp",
@@ -643,6 +718,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "bamiyan-buddhorna-forstors",
+      "eventTitle": "Buddhastatyerna i Bamiyan förstörs",
+      "file": "images/events/bamiyan-buddhorna-forstors.webp",
+      "kind": "historisk",
+      "credit": "EFarid / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-bamiyan-buddhorna-forstors",
+        "title": "17- Buddha Salsal – EFarid (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:17-_Buddha_Salsal.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "bantuexpansionen",
@@ -1896,6 +1986,21 @@
       }
     },
     {
+      "eventId": "dong-fang-hong-1",
+      "eventTitle": "Dong Fang Hong 1, Kinas första satellit",
+      "file": "images/events/dong-fang-hong-1.webp",
+      "kind": "historisk",
+      "credit": "Brücke-Osteuropa / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-dong-fang-hong-1",
+        "title": "DFH-1 Satellite – Brücke-Osteuropa (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:DFH-1_Satellite.jpg",
+        "license": "CC0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "dosarna-i-gochang",
       "eventTitle": "Dösarna i Gochang",
       "file": "images/events/dosarna-i-gochang.webp",
@@ -2148,6 +2253,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:YagbeaSionBattlingAdaSultan.JPG",
         "license": "Public domain",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "everest-bestigs-1953",
+      "eventTitle": "Tenzing Norgay och Edmund Hillary når toppen av Mount Everest",
+      "file": "images/events/everest-bestigs-1953.webp",
+      "kind": "historisk",
+      "credit": "Pavel Novak / Wikimedia Commons",
+      "license": "CC BY-SA 2.5",
+      "source": {
+        "id": "commons-bild-everest-bestigs-1953",
+        "title": "Everest kalapatthar – Pavel Novak (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Everest_kalapatthar.jpg",
+        "license": "CC BY-SA 2.5",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2925,6 +3045,21 @@
       }
     },
     {
+      "eventId": "gulfkriget",
+      "eventTitle": "Gulfkriget",
+      "file": "images/events/gulfkriget.webp",
+      "kind": "historisk",
+      "credit": "Tech. Sgt. David McLeod / U.S. Air Force",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-gulfkriget",
+        "title": "Operation Desert Storm 22 – Tech. Sgt. David McLeod (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Operation_Desert_Storm_22.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "guru-nanak",
       "eventTitle": "Guru Nanak grundar sikhismen",
       "file": "images/events/guru-nanak.webp",
@@ -3261,6 +3396,21 @@
       }
     },
     {
+      "eventId": "hoga-dammen-vid-assuan",
+      "eventTitle": "Höga dammen vid Assuan byggs",
+      "file": "images/events/hoga-dammen-vid-assuan.webp",
+      "kind": "historisk",
+      "credit": "شرف الدين / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-hoga-dammen-vid-assuan",
+        "title": "Aswan High Dam-1 – شرف الدين (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Aswan_High_Dam-1.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "homo-erectus-ngandong",
       "eventTitle": "Homo erectus vid Ngandong på Java",
       "file": "images/events/homo-erectus-ngandong.webp",
@@ -3546,6 +3696,36 @@
       }
     },
     {
+      "eventId": "irakkriget",
+      "eventTitle": "Irakkriget",
+      "file": "images/events/irakkriget.webp",
+      "kind": "historisk",
+      "credit": "Technical Sergeant John L. Houghton, Jr. / U.S. Air Force",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-irakkriget",
+        "title": "UStanks baghdad 2003 – Technical Sergeant John L. Houghton, Jr., United States Air Force (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:UStanks_baghdad_2003.JPEG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "iraks-invasion-av-iran",
+      "eventTitle": "Irak invaderar Iran",
+      "file": "images/events/iraks-invasion-av-iran.webp",
+      "kind": "historisk",
+      "credit": "Kazem Akhavan / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-iraks-invasion-av-iran",
+        "title": "Battle of khorramshahr 4 – Kazem Akhavan (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Battle_of_khorramshahr_4.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "ishangobenet",
       "eventTitle": "Ishangobenet",
       "file": "images/events/ishangobenet.webp",
@@ -3676,6 +3856,21 @@
         "id": "commons-bild-jerikos-torn",
         "title": "Jericho Neolitic Tower P1190761 – Deror_avi (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Jericho_Neolitic_Tower_P1190761.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "jerusalem-1967",
+      "eventTitle": "Israel tar Östra Jerusalem",
+      "file": "images/events/jerusalem-1967.webp",
+      "kind": "historisk",
+      "credit": "deror_avi / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-jerusalem-1967",
+        "title": "Ammunition Hill P1000932 – deror_avi (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ammunition_Hill_P1000932.JPG",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-26"
       }
@@ -4518,6 +4713,21 @@
       }
     },
     {
+      "eventId": "kyotoprotokollet",
+      "eventTitle": "Kyotoprotokollet antas",
+      "file": "images/events/kyotoprotokollet.webp",
+      "kind": "historisk",
+      "credit": "Daderot / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-kyotoprotokollet",
+        "title": "Kyoto International Conference Center - exterior – Daderot (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kyoto_International_Conference_Center_-_exterior.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "kyros-grundar-perserriket",
       "eventTitle": "Kyros den store besegrar mederna och grundar Perserriket",
       "file": "images/events/kyros-grundar-perserriket.webp",
@@ -4854,6 +5064,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Dock_at_lothal.JPG",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "luftkriget-mot-irak-1991",
+      "eventTitle": "Koalitionen inleder luftkriget",
+      "file": "images/events/luftkriget-mot-irak-1991.webp",
+      "kind": "historisk",
+      "credit": "U.S. Air Force",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-luftkriget-mot-irak-1991",
+        "title": "USAF F-16A F-15C F-15E Desert Storm edit2 – US Air Force (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:USAF_F-16A_F-15C_F-15E_Desert_Storm_edit2.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5514,6 +5739,21 @@
       }
     },
     {
+      "eventId": "mount-lamingtons-utbrott",
+      "eventTitle": "Mount Lamingtons utbrott",
+      "file": "images/events/mount-lamingtons-utbrott.webp",
+      "kind": "historisk",
+      "credit": "Capt. Jacobson / Bureau of Mineral Resources (Australien)",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-mount-lamingtons-utbrott",
+        "title": "Mount Lamington 1951 eruption column (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mount_Lamington_1951_eruption_column.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "mount-st-helens-yn-utbrottet",
       "eventTitle": "Mount St. Helens största kända utbrott",
       "file": "images/events/mount-st-helens-yn-utbrottet.webp",
@@ -5946,6 +6186,21 @@
       }
     },
     {
+      "eventId": "opec-grundas",
+      "eventTitle": "OPEC grundas i Bagdad",
+      "file": "images/events/opec-grundas.webp",
+      "kind": "historisk",
+      "credit": "C.Stadler/Bwag / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-opec-grundas",
+        "title": "Wien - OPEC-Zentrale (a) – C.Stadler/Bwag (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Wien_-_OPEC-Zentrale_(a).JPG",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "operation-badr-1973",
       "eventTitle": "Egypten går över Suezkanalen (Operation Badr)",
       "file": "images/events/operation-badr-1973.webp",
@@ -5988,6 +6243,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Six_Day_War._Egyptian_air_force_base_attacked._Egyptian_planes_destroyed_on_the_ground._June_1967._D326-011.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "operation-moshtarak",
+      "eventTitle": "Operation Moshtarak i Marjah",
+      "file": "images/events/operation-moshtarak.webp",
+      "kind": "historisk",
+      "credit": "Sgt. Brian A. Tuthill / U.S. Marine Corps",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-operation-moshtarak",
+        "title": "1st Battalion 3rd Marines near Marja – Sgt. Brian A. Tuthill (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:1st_Battalion_3rd_Marines_near_Marja.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -7038,6 +7308,36 @@
       }
     },
     {
+      "eventId": "sista-amerikanska-trupperna-lamnar-afghanistan",
+      "eventTitle": "De sista amerikanska soldaterna lämnar Afghanistan",
+      "file": "images/events/sista-amerikanska-trupperna-lamnar-afghanistan.webp",
+      "kind": "historisk",
+      "credit": "Master Sgt. Alexander Burnett / U.S. Army",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-sista-amerikanska-trupperna-lamnar-afghanistan",
+        "title": "The last American Soldier to leave Afghanistan – Photo by Master Sgt. Alexander Burnett (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_last_American_Soldier_to_leave_Afghanistan.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "sista-amerikanska-trupperna-lamnar-irak",
+      "eventTitle": "De sista amerikanska trupperna lämnar Irak",
+      "file": "images/events/sista-amerikanska-trupperna-lamnar-irak.webp",
+      "kind": "historisk",
+      "credit": "Cpl. Jordan Johnson / U.S. Army",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-sista-amerikanska-trupperna-lamnar-irak",
+        "title": "Last US convoy crosses into Kuwait – U.S. Army (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Last_US_convoy_crosses_into_Kuwait.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "sista-giljotinen",
       "eventTitle": "Sista avrättningen med giljotin",
       "file": "images/events/sista-giljotinen.webp",
@@ -7161,6 +7461,21 @@
       }
     },
     {
+      "eventId": "slaget-i-ia-drang",
+      "eventTitle": "Slaget i Ia Drang",
+      "file": "images/events/slaget-i-ia-drang.webp",
+      "kind": "historisk",
+      "credit": "U.S. Army Center of Military History",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-i-ia-drang",
+        "title": "Ia Drang Infantry disembarking from Helicopter – United States Army (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ia_Drang_Infantry_disembarking_from_Helicopter.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-om-guadalcanal",
       "eventTitle": "Slaget om Guadalcanal",
       "file": "images/events/slaget-om-guadalcanal.webp",
@@ -7191,6 +7506,21 @@
       }
     },
     {
+      "eventId": "slaget-om-pusanperimetern",
+      "eventTitle": "Slaget om Pusanperimetern",
+      "file": "images/events/slaget-om-pusanperimetern.webp",
+      "kind": "historisk",
+      "credit": "Pfc. Thomas Nebbia / U.S. Army Signal Corps",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-om-pusanperimetern",
+        "title": "27th Infantry Regiment soldiers at the Pusan Perimeter, September 4, 1950 – Pfc. Thomas Nebbia (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:27th_Infantry_Regiment_soldiers_at_the_Pusan_Perimeter,_September_4,_1950.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-om-storbritannien",
       "eventTitle": "Slaget om Storbritannien",
       "file": "images/events/slaget-om-storbritannien.webp",
@@ -7203,6 +7533,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Supermarine_Spitfire_Mark_Is_of_No._610_Squadron_based_at_Biggin_Hill,_flying_in_'vic'_formation,_24_July_1940._CH740.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "slaget-om-suez-1973",
+      "eventTitle": "Slaget om Suez och den sista vapenvilan",
+      "file": "images/events/slaget-om-suez-1973.webp",
+      "kind": "historisk",
+      "credit": "Central Intelligence Agency",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-om-suez-1973",
+        "title": "Egyptians Crossing Suez Canal - Flickr - The Central Intelligence Agency – The Central Intelligence Agency (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Egyptians_Crossing_Suez_Canal_-_Flickr_-_The_Central_Intelligence_Agency.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -8988,6 +9333,21 @@
       }
     },
     {
+      "eventId": "tereshkova-vostok-6",
+      "eventTitle": "Valentina Teresjkova blir första kvinnan i rymden",
+      "file": "images/events/tereshkova-vostok-6.webp",
+      "kind": "historisk",
+      "credit": "HPH / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-tereshkova-vostok-6",
+        "title": "Vostok spacecraft – The original uploader was HPH at German Wikipedia . (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Vostok_spacecraft.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "terrakottaarmen",
       "eventTitle": "Terrakottaarmén",
       "file": "images/events/terrakottaarmen.webp",
@@ -9213,6 +9573,21 @@
       }
     },
     {
+      "eventId": "trieste-nar-challengerdjupet",
+      "eventTitle": "Trieste når botten av Challengerdjupet",
+      "file": "images/events/trieste-nar-challengerdjupet.webp",
+      "kind": "historisk",
+      "credit": "U.S. Navy / Naval History and Heritage Command",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-trieste-nar-challengerdjupet",
+        "title": "Bathyscaphe Trieste (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bathyscaphe_Trieste.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "tripitaka-koreana",
       "eventTitle": "Tripitaka Koreana skärs i 81 352 träblock",
       "file": "images/events/tripitaka-koreana.webp",
@@ -9414,6 +9789,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Armisticetrain.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "vapenstilleståndet-i-korea",
+      "eventTitle": "Vapenstilleståndet i Korea",
+      "file": "images/events/vapenstilleståndet-i-korea.webp",
+      "kind": "historisk",
+      "credit": "U.S. Department of State / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-vapenstilleståndet-i-korea",
+        "title": "Korean Armistice Agreement in Chinese (1953) – United States Department of State (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Korean_Armistice_Agreement_in_Chinese_(1953).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {

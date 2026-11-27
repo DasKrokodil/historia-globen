@@ -1,0 +1,33 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:Korean War, train attack.jpg	nordkoreas-anfall-1950
+# File:27th Infantry Regiment soldiers at the Pusan Perimeter, September 4, 1950.jpg	slaget-om-pusanperimetern
+# File:Map Chinese intervention.jpg	slaget-vid-onjong
+# File:UK 29th Brigade Prisoner.jpg	tredje-slaget-om-seoul
+# File:Mount Lamington 1951 eruption column.jpg	mount-lamingtons-utbrott
+# File:Everest kalapatthar.jpg	everest-bestigs-1953
+# File:Korean Armistice Agreement in Chinese (1953).jpg	vapenstilleståndet-i-korea
+# File:People's commone canteen3.jpg	stora-spranget
+# File:Aral Sea 1989-2008.jpg	aralsjon-borjar-krympa
+# File:Aswan High Dam-1.jpg	hoga-dammen-vid-assuan
+# File:Wien - OPEC-Zentrale (a).JPG	opec-grundas
+# File:Vostok spacecraft.jpg	tereshkova-vostok-6
+# File:Ia Drang Infantry disembarking from Helicopter.jpg	slaget-i-ia-drang
+# File:Ammunition Hill P1000932.JPG	jerusalem-1967
+# File:Flickr - Government Press Office (GPO) - Centurion Tanks.jpg	slaget-vid-abu-ageila-1967
+# File:Tquad.jpg	belagringen-av-khe-sanh
+# File:DFH-1 Satellite.jpg	dong-fang-hong-1
+# File:Map Cambodian Incursion May 70 from USMA.jpg	faltaget-i-kambodja-1970
+# File:Ohsumi.jpg	ohsumi-japans-forsta-satellit
+# File:Bangladesh 1971 Liberation.jpg	bangladeshs-befrielsekrig
+# File:2026-03-26 Tarique Rahman laying wreaths at tombs of Ziaur Rahman and Khaleda Zia on Independence and National Day, Zia Udyan, Sher-e-Bangla Nagar, Dhaka.jpg	bangladeshs-sjalvstandighet-utropas
+# File:Map Lam Son 719.jpg	operation-lam-son-719
+# File:Chart 1 1971 Operation Searchlight-some instances of number of Hindus killed in different places.png	operation-searchlight
+# File:1972 CPA 4112.jpg	saljut-1
+# File:Yom Kippur War. XXXVI.jpg	jom-kippurkriget
+# File:1973 sinai war maps2.png	slaget-vid-kinesiska-farmen
+# File:1973 Yom Kippur War - Golan heights theater.jpg	tararnas-dal-1973
+# File:Aryabhata Satellite.jpg	aryabhata-indiens-forsta-satellit
+# File:Skulls from the killing fields.jpg	folkmordet-i-kambodja
+# File:Papua new guinea provinces (numbers) 2012.png	papua-nya-guinea-blir-sjalvstandigt
+# File:HCMCampaign.svg	saigons-fall
