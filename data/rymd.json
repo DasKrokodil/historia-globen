@@ -1,0 +1,51 @@
+{
+  "schema": "historia-globen/rymd@1",
+  "about": "Rymden, etapp 1 (#1527, beslut docs/beslut/2026-11-14-rymden-forsta-steget.md): händelser på jorden som har en plats på en annan himlakropp. En post kopplar en händelse (eventId) till en punkt på himlakroppen (body); händelsens egen location är alltid en jordplats och ändras inte. Knappen Visa på månen i händelsens faktaruta finns bara när händelsen har en post här, och tas filen bort försvinner funktionen. coord är [längd, bredd] i grader på månen (selenografiska koordinater, östlig längd positiv, −180 till 180, samma som kartan i maps; NASA och kartan anger planetocentriska och Gazetteer planetografiska koordinater, som är samma tal på månens referenssfär). Månkoordinater och namn kommer bara ur öppnade källor (NASA och USGS), aldrig ur minnet. review som för händelserna: two-sources bara när en oberoende andra källa ger samma punkt. js/ui/moon.js visar posten i en platt månvy i en dialog.",
+  "maps": {
+    "moon": {
+      "file": "images/rymd/manen-lroc-wac-2048.webp",
+      "width": 2048,
+      "height": 1024,
+      "projection": "equirectangular",
+      "bounds": [-180, -90, 180, 90],
+      "source": "usgs-lroc-wac-global-100m",
+      "credit": "NASA/GSFC/Arizona State University (LROC), via USGS Astrogeology Science Center",
+      "license": "Public domain",
+      "made": "Förminskad från originalet (Lunar_LRO_LROC-WAC_Mosaic_global_100m_June2013.tif, 109 164 × 54 582 pixlar) med gdal_translate -outsize 2048 1024 -r average och sparad som WebP i gråskala med kvalitet 45 (#1527, samma metod som i docs/granskningar/2026-11-26-manskarta-14.md).",
+      "caption": {
+        "sv": "Gråskala, bearbetad, inte skalenlig. Bilder från 2009–2011. Områdena nära polerna är kraftigt utdragna på bredden.",
+        "en": "Greyscale, processed, not to scale. Images from 2009–2011. Areas near the poles are greatly stretched from east to west.",
+        "de": "Graustufen, bearbeitet, nicht maßstabsgetreu. Aufnahmen von 2009–2011. Gebiete nahe den Polen sind in Ost-West-Richtung stark gedehnt.",
+        "es": "Escala de grises, procesada, no a escala. Imágenes de 2009–2011. Las zonas cercanas a los polos aparecen muy estiradas de este a oeste.",
+        "fr": "Niveaux de gris, traitée, pas à l’échelle. Images de 2009–2011. Les régions proches des pôles sont très étirées d’est en ouest."
+      }
+    }
+  },
+  "items": [
+    {
+      "id": "apollo-11-landningsplats",
+      "eventId": "apollo-11",
+      "body": "moon",
+      "coord": [23.47314, 0.67416],
+      "placeType": "landing-site",
+      "name": {
+        "sv": "Statio Tranquillitatis",
+        "en": "Statio Tranquillitatis",
+        "de": "Statio Tranquillitatis",
+        "es": "Statio Tranquillitatis",
+        "fr": "Statio Tranquillitatis"
+      },
+      "summary": {
+        "sv": "Apollo 11:s månlandare Eagle landade i Mare Tranquillitatis (Stillhetens hav) den 20 juli 1969 (världstid). Vid landningen kallades platsen Tranquility Base, och 1970 godkände Internationella astronomiska unionen namnet Statio Tranquillitatis. Punkten på kartan är landarens plats, mätt i bilder från rymdsonden Lunar Reconnaissance Orbiter.",
+        "en": "Apollo 11’s lunar module Eagle landed in Mare Tranquillitatis (the Sea of Tranquillity) on 20 July 1969 (UT). At the landing the site was called Tranquility Base, and in 1970 the International Astronomical Union approved the name Statio Tranquillitatis. The point on the map is the lander’s position, measured in images from the Lunar Reconnaissance Orbiter spacecraft.",
+        "de": "Die Mondlandefähre Eagle von Apollo 11 landete am 20. Juli 1969 (Weltzeit) im Mare Tranquillitatis (Meer der Ruhe). Bei der Landung wurde der Ort Tranquility Base genannt, und 1970 nahm die Internationale Astronomische Union den Namen Statio Tranquillitatis an. Der Punkt auf der Karte ist die Position der Landefähre, gemessen auf Bildern der Raumsonde Lunar Reconnaissance Orbiter.",
+        "es": "El módulo lunar Eagle del Apolo 11 alunizó en el Mare Tranquillitatis (mar de la Tranquilidad) el 20 de julio de 1969 (hora universal). En el alunizaje, el lugar fue llamado Tranquility Base, y en 1970 la Unión Astronómica Internacional aprobó el nombre Statio Tranquillitatis. El punto del mapa es la posición del módulo, medida en imágenes de la sonda Lunar Reconnaissance Orbiter.",
+        "fr": "Le module lunaire Eagle d’Apollo 11 s’est posé dans la Mare Tranquillitatis (mer de la Tranquillité) le 20 juillet 1969 (temps universel). Lors de l’alunissage, le site a été appelé Tranquility Base, et en 1970 l’Union astronomique internationale a approuvé le nom Statio Tranquillitatis. Le point sur la carte est la position du module, mesurée sur des images de la sonde Lunar Reconnaissance Orbiter."
+      },
+      "sources": ["nasa-nssdca-apollo-landningsplatser", "nasa-nssdca-apollo-11", "nasa-nssdca-apollo-11-30", "usgs-gazetteer-statio-tranquillitatis"],
+      "coordSources": ["nasa-nssdca-apollo-landningsplatser", "usgs-gazetteer-statio-tranquillitatis"],
+      "review": "two-sources",
+      "checkNote": "Punkten är månlandarens plats enligt NASA NSSDCA (0,67416° N, 23,47314° Ö, planetocentriska koordinater, Mean Earth/Polar Axis, mätt i LRO-bilder enligt Wagner m.fl. 2017). USGS Gazetteer of Planetary Nomenclature (Statio Tranquillitatis, Feature 5684) visar med kontrollnätet LOLA 2011 0,67° N, 23,47° Ö (planetografiska, positiv östlig längd, −180 till 180; på månens referenssfär samma tal som planetocentriska), och mitten av sidans WKT-polygon ligger inom cirka 1–2 meter från NASA:s punkt; Webbsidan visar bara två decimaler; värdena 0,6741° N, 23,4732° Ö kommer ur Gazetteer-filen MOON_nomenclature_center_pts.zip. De äldre kontrollnäten på samma sida (ULCN 2005 och UNKNOWN) ger 0,80° N, 23,50° Ö, cirka 4 km bort, vilket är mindre än en bildpunkt på kartan (cirka 5,3 km vid ekvatorn). Gazetteers polygon bygger troligen också på LRO-bilder, så mätningarna är inte helt oberoende, men källorna kommer från två institutioner. Att landningen skedde i Mare Tranquillitatis står hos NSSDCA (apollo11info.html), och punkten ligger innanför Gazetteers polygon för havet (Feature 3691, LOLA 2011). Namnet Tranquility Base står i citatet ”Houston, Tranquility Base here. The Eagle has landed.” på NSSDCA:s 30-årssida och i Gazetteers ursprungsrad för Statio Tranquillitatis; årtalet 1970 för IAU:s godkännande har bara Gazetteer som källa. Kontrollerat 2026-11-27."
+    }
+  ]
+}

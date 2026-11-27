@@ -2,7 +2,7 @@
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
 // Ansvaret ligger i js/controllers/ (#402): val av händelse, fokusläget, faktarutor om riken och religioner,
 // omritningen, uppspelningens pauser, krigets berättelse och etiketterna. Här skapas delarna och kopplas ihop.
-import { loadAll, loadAllEventDetails, loadReligionPolities, loadRoutes, loadSources, t, formatYear, formatEventTime, isVisibleReview, CAT } from './model.js';
+import { loadAll, loadAllEventDetails, loadReligionPolities, loadRoutes, loadSources, loadSpace, spaceFor, t, formatYear, formatEventTime, isVisibleReview, CAT } from './model.js';
 import { buildIndex, search as searchIndex } from './search-index.js';
 import { placeSuggestions, eventsNear, RADIUS_KM } from './place-search.js';
 import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO, ui } from './i18n.js';
@@ -15,6 +15,7 @@ import { hasTag } from './layers/events.js';
 import { Panel } from './ui/panel.js';
 import { FunFacts } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
+import { MoonView } from './ui/moon.js';
 import { LayerMenu, loadViews } from './ui/layers.js';
 import { ReligionLegend, EmpireLegend } from './ui/legend.js';
 import { RoutePop } from './ui/routepop.js';
@@ -756,6 +757,31 @@ async function start() {
   surfaces.watch('intro', $('intro'), 'dialog', refocus => intro.close(refocus !== false), { opener: $('btn-intro') });
   surfaces.watch('quiz', $('quiz'), 'dialog', refocus => quiz.close(refocus !== false), { opener: $('btn-teacher') });
   surfaces.watch('feedback', $('feedback'), 'dialog', () => feedback.close());
+  // Månvyn (#1527): Visa på månen i faktarutan öppnar en platt månkarta i en dialog. Knappen finns bara när händelsen har en post i
+  // data/rymd.json, som laddas efter starten (loadSpace); kartbilden laddas först när dialogen öppnas. Escape (centralt) och Tillbaka
+  // till jorden stänger på samma sätt, och fokus går tillbaka till knappen. Dialogen döljer faktarutan och Samtidigt-kortet medan den är öppen.
+  const moon = new MoonView({ root: $('moon-dialog'), title: $('moon-title'), body: $('moon-body'), back: $('moon-back'), live: $('moon-live'), app: $('app') }, data);
+  const moonButton = () => $('detail').querySelector('[data-moon]');
+  panel.moonFor = e => spaceFor(e.id, 'moon');
+  // Byter eller stängs faktarutan medan månvyn är öppen (Bakåt och Framåt, en länk), stängs månvyn utan att flytta fokus
+  const detailChanged = panel.onDetailChange;
+  panel.onDetailChange = open => {
+    detailChanged(open);
+    if (moon.isOpen && (!open || $('detail').dataset.eventId !== moon.eventId)) moon.close(false);
+  };
+  panel.onMoon = async e => {
+    const item = spaceFor(e.id, 'moon'), map = data.space?.maps?.[item?.body];
+    if (!item || !map) return;
+    await loadSources().catch(err => console.warn(err)); // källornas titlar; utan dem står "saknas" och vyn fungerar ändå
+    if ($('detail').hidden || $('detail').dataset.eventId !== e.id) return; // faktarutan bytte medan källorna laddades
+    moon.open({ event: e, item, map, year: timeline.year, opener: moonButton });
+  };
+  surfaces.watch('moon', $('moon-dialog'), 'dialog', refocus => moon.close(refocus !== false), { opener: moonButton });
+  loadSpace().then(() => {
+    // En faktaruta som öppnades innan filen hade laddats får knappen nu
+    const id = $('detail').dataset.eventId, e = id && data.byId[id];
+    if (e && !$('detail').hidden && spaceFor(id, 'moon') && !moonButton() && panel.selectedId === id) panel.showDetail(e);
+  });
   surfaces.watch('hunt', $('hunt'), 'uppdrag', refocus => hunt.end(refocus !== false), { opener: $('btn-teacher') });
   surfaces.register('tours', 'meny', () => tour.closeMenu(), { isOpen: () => !$('tour-menu').hidden, opener: $('btn-tour'), central: true });
   document.addEventListener('keydown', e => {

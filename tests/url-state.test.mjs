@@ -3,7 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { encodeHash, decodeHash, decodeProblems, decodeTour, decodeMode, decodeMission, decodeRole, isNewStep, RESERVED_HASH_FIELDS } from '../js/url-state.js';
 import { noticeText, noticeKey, cleanName, NAME_MAX } from '../js/controllers/link-notice.js';
-import { MIN_YEAR, MAX_YEAR, RESERVED_STATE_KEYS, toJSON, fromJSON } from '../js/state.js';
+import { MIN_YEAR, MAX_YEAR, RESERVED_STATE_KEYS, CELESTIAL_BODIES, celestialBody, toJSON, fromJSON } from '../js/state.js';
 import { readFileSync } from 'node:fs';
 
 const base = { v: 1, year: 1325, camera: { lat: 34, lon: -50, zoom: 1.6 }, focus: null, layers: ['areas', 'events'], filters: ['krig', 'kultur'], calm: false };
@@ -229,7 +229,7 @@ test('länkarkivet täcker varje släppt version, varje adressdel och varje foku
 
 // Reserverade namn för tidsdomänen i version 8 (#397, beslut 2026-11-13): d i adressen, domain i tillståndet
 test('d och domain är reserverade: de skrivs inte, och en länk med d öppnas som förut (#397)', () => {
-  assert.deepEqual(RESERVED_HASH_FIELDS, { d: 'domain' });
+  assert.deepEqual(RESERVED_HASH_FIELDS, { d: 'domain', b: 'body' }); // b och body: himlakroppen (#1527)
   assert.ok(RESERVED_STATE_KEYS.includes('domain'));
   // Inget fält som skrivs i dag får ha ett reserverat namn
   const full = encodeHash({ ...base, focus: 'war:hundraarskriget', yearEnd: 1400, period: 'medeltiden', tag: 'oversikt' }, [], { id: 'en-tur', step: 'ett-steg' }, 'ett-uppdrag', 'lektion');
@@ -241,6 +241,29 @@ test('d och domain är reserverade: de skrivs inte, och en länk med d öppnas s
   const json = toJSON({ year: 1325, focus: null, layers: { areas: true }, filters: new Set(['krig']), tag: null, calm: false, range: null });
   for (const key of RESERVED_STATE_KEYS) assert.ok(!(key in json), `${key} är reserverat (#397)`);
   assert.ok(!('domain' in fromJSON({ ...json, domain: 'jorden' })));
+});
+
+// Himlakroppen (#1527, beslut 2026-11-14-rymden-forsta-steget.md): b i adressen, body i tillståndet. Reserverade, skrivs inte i etapp 1
+test('b och body är reserverade för himlakroppen: de skrivs inte, gamla länkar bryts inte och ett okänt värde är jorden (#1527)', () => {
+  assert.equal(RESERVED_HASH_FIELDS.b, 'body');
+  assert.ok(RESERVED_STATE_KEYS.includes('body'));
+  assert.deepEqual(CELESTIAL_BODIES, ['earth', 'moon']);
+  // Inget fält som skrivs i dag heter b, inte heller i en tur, ett uppdrag eller en lektion
+  const full = encodeHash({ ...base, focus: 'war:hundraarskriget', yearEnd: 1400, period: 'medeltiden', tag: 'oversikt' }, [], { id: 'en-tur', step: 'ett-steg' }, 'ett-uppdrag', 'lektion');
+  assert.ok(![...new URLSearchParams(full.slice(1)).keys()].includes('b'), 'b= är reserverat (#1527)');
+  // En länk med b (känt, okänt eller tomt värde) öppnas i etapp 1 som om b saknades, med samma problem i felkanalen
+  for (const b of ['moon', 'earth', 'mars', '', 'Moon']) {
+    assert.deepEqual(decodeHash(`#y=1969&b=${b}&l=events`), decodeHash('#y=1969&l=events'), `b=${b}`);
+    assert.deepEqual(decodeProblems(`#y=1969&b=${b}`), [], `b=${b} är inget fel i länken`);
+  }
+  // Gamla länkar utan b, och tillståndet: body skrivs inte och läses som ett okänt fält
+  assert.equal(decodeHash('#y=1969').year, 1969);
+  const json = toJSON({ year: 1969, focus: null, layers: { events: true }, filters: new Set(['rymden']), tag: null, calm: false, range: null });
+  assert.ok(!('body' in json));
+  assert.ok(!('body' in fromJSON({ ...json, body: 'moon' })));
+  // Ett okänt eller saknat värde räknas som jorden
+  assert.equal(celestialBody('moon'), 'moon');
+  for (const x of ['mars', '', null, undefined, 'MOON', 'jorden']) assert.equal(celestialBody(x), 'earth', String(x));
 });
 
 // Felkanalen (#1324): vad i en länk som inte gick att tolka. Länken öppnas som förut; kanalen ändrar inget i tolkningen.
