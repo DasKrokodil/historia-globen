@@ -760,6 +760,7 @@
 "magyarerna-tar-karpaterbackenet":{"place":{"es":"Gran Llanura Húngara (Hungría; lugar aproximado)"},"title":{"es":"Los húngaros ocupan la cuenca de los Cárpatos"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "pannonhalma-grundas":{"place":{"es":"Pannonhalma, al sudeste de Győr (Hungría)"},"title":{"es":"Fundación de la abadía de Pannonhalma"}},
 "stefan-krons-till-kung":{"place":{"es":"Esztergom o Székesfehérvár (Hungría; el marcador en Esztergom)"},"title":{"es":"Esteban es coronado primer rey de Hungría"},"note":{"title":{"es":"Sobre el lugar"}}},
+"kopparberget-i-falun-i-skrift":{"place":{"es":"Mina de Falun, Falun, Dalarna"},"title":{"es":"El monte de cobre de Falun aparece por escrito"}},
 "imjinkriget":{"place":{"es":"Corea y los mares que rodean la península de Corea (comenzó en Busan)"},"title":{"es":"La guerra de Imjin"},"note":{"title":{"es":"Sobre el calendario"}}},
 "belagringen-av-busan-1592":{"place":{"es":"Busan, Corea"},"title":{"es":"Los japoneses toman Busan al asalto"}},
 "slaget-vid-chungju-1592":{"place":{"es":"Tangeumdae, junto a Chungju, Corea"},"title":{"es":"La batalla de Chungju"},"note":{"title":{"es":"Las fuentes difieren"}}},
@@ -893,6 +894,7 @@
 "osmanerna-intar-buda":{"place":{"es":"Buda, hoy parte de Budapest (Hungría)"},"title":{"es":"Los otomanos toman Buda"}},
 "serberna-i-szentendre":{"place":{"es":"Szentendre, al norte de Budapest (Hungría)"},"title":{"es":"Los serbios se asientan en Szentendre"}},
 "tokajs-vingardar-klassas":{"place":{"es":"Tokaj, en el nordeste de Hungría"},"title":{"es":"Se clasifican los viñedos de Tokaj"}},
+"stora-stoten":{"place":{"es":"Stora Stöten, mina de Falun, Dalarna"},"title":{"es":"El derrumbe de la mina de Falun: Stora Stöten"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "nya-zeelandkrigen":{"note":{"title":{"es":"Las fuentes difieren"}}},
 "forsta-missionen-rangihoua":{"place":{"es":"Oihi, en Rangihoua, Bay of Islands, Nueva Zelanda"},"title":{"es":"La primera misión cristiana en Nueva Zelanda"}},
 "muskotkrigen":{"place":{"es":"Toda Nueva Zelanda, incluidas las islas Chatham (la primera batalla conocida con mosquetes fue en Moremonui, en Northland)"},"title":{"es":"Guerras de los Mosquetes"},"note":{"title":{"es":"Las fuentes difieren"}}},
@@ -1179,6 +1181,7 @@
 "slovakiska-nationalupproret":{"place":{"es":"Banská Bystrica (Eslovaquia)"},"title":{"es":"El Levantamiento Nacional Eslovaco"}},
 "szent-gyorgyi-och-c-vitaminet":{"place":{"es":"Szeged (Hungría)"},"title":{"es":"Szent-Györgyi y la vitamina C"}},
 "forintelsen-i-ungern":{"place":{"es":"Hungría (el marcador en el gueto de Budapest)"},"title":{"es":"El Holocausto en Hungría"},"note":{"title":{"es":"Las fuentes difieren"}}},
+"forsta-vasaloppet":{"place":{"es":"De Sälen a Mora, Dalarna"},"title":{"es":"La primera Vasaloppet"}},
 "bangladeshs-befrielsekrig":{"place":{"es":"Pakistán Oriental, hoy Bangladés (comenzó en Daca)"},"title":{"es":"Guerra de Liberación de Bangladés"},"note":{"title":{"es":"Sobre el comienzo de la guerra"}}},
 "operation-searchlight":{"place":{"es":"Daca y otras ciudades de Pakistán Oriental"},"title":{"es":"Operación Searchlight"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "bangladeshs-sjalvstandighet-utropas":{"place":{"es":"Daca"},"title":{"es":"Se proclama la independencia de Bangladés"},"note":{"title":{"es":"Solo una fuente para el lugar"}}},
@@ -1389,5 +1392,6 @@
 "slovakien-blir-egen-stat-1993":{"place":{"es":"Toda Eslovaquia (el marcador en Bratislava)"},"title":{"es":"Eslovaquia se convierte en un Estado propio"},"note":{"title":{"es":"Sobre la fecha"}}},
 "slovakien-gar-med-i-eu":{"place":{"es":"Toda Eslovaquia (el marcador en Bratislava)"},"title":{"es":"Eslovaquia entra en la UE"}},
 "paneuropeiska-picknicken":{"place":{"es":"La frontera con Austria cerca de Sopron (Hungría)"},"title":{"es":"El Picnic Paneuropeo"}},
-"ungern-gar-med-i-eu":{"place":{"es":"Toda Hungría (el marcador en Budapest)"},"title":{"es":"Hungría entra en la UE"}}
+"ungern-gar-med-i-eu":{"place":{"es":"Toda Hungría (el marcador en Budapest)"},"title":{"es":"Hungría entra en la UE"}},
+"falu-gruva-blir-varldsarv":{"place":{"es":"Falun, Dalarna"},"title":{"es":"La mina de Falun entra en la Lista del Patrimonio Mundial"}}
 }}

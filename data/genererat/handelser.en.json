@@ -871,6 +871,7 @@
 "magyarerna-tar-karpaterbackenet":{"place":{"en":"The Great Hungarian Plain, Hungary (approximate location)"},"title":{"en":"The Hungarians take the Carpathian Basin"},"note":{"title":{"en":"The sources differ"}}},
 "pannonhalma-grundas":{"place":{"en":"Pannonhalma, south-east of Győr, Hungary"},"title":{"en":"Pannonhalma Abbey is founded"}},
 "stefan-krons-till-kung":{"place":{"en":"Esztergom or Székesfehérvár, Hungary (the marker in Esztergom)"},"title":{"en":"Stephen is crowned the first King of Hungary"},"note":{"title":{"en":"About the place"}}},
+"kopparberget-i-falun-i-skrift":{"place":{"en":"Falun Mine, Falun, Dalarna"},"title":{"en":"The copper mountain at Falun appears in writing"}},
 "imjinkriget":{"place":{"en":"Korea and the seas around the Korean Peninsula (began at Busan)"},"title":{"en":"The Imjin War"},"note":{"title":{"en":"About the calendar"}}},
 "belagringen-av-busan-1592":{"place":{"en":"Busan, Korea"},"title":{"en":"The Japanese storm Busan"}},
 "slaget-vid-chungju-1592":{"place":{"en":"Tangeumdae at Chungju, Korea"},"title":{"en":"The Battle of Chungju"},"note":{"title":{"en":"The sources differ"}}},
@@ -1112,6 +1113,7 @@
 "osmanerna-intar-buda":{"place":{"en":"Buda, today part of Budapest, Hungary"},"title":{"en":"The Ottomans take Buda"}},
 "serberna-i-szentendre":{"place":{"en":"Szentendre, north of Budapest, Hungary"},"title":{"en":"Serbs settle in Szentendre"}},
 "tokajs-vingardar-klassas":{"place":{"en":"Tokaj in north-eastern Hungary"},"title":{"en":"Tokaj’s vineyards are classified"}},
+"stora-stoten":{"place":{"en":"Stora Stöten, Falun Mine, Dalarna"},"title":{"en":"The collapse of Falun Mine: Stora Stöten"},"note":{"title":{"en":"The sources differ"}}},
 "forsta-opiumkriget":{"place":{"en":"China's coast from the Pearl River to the Yangtze (began at Kowloon, in present-day Hong Kong)"},"title":{"en":"First Opium War"},"note":{"title":{"en":"The sources differ"}}},
 "skarmytslingen-vid-kowloon-1839":{"place":{"en":"Kowloon, present-day Hong Kong"},"title":{"en":"Skirmish at Kowloon"}},
 "britterna-intar-zhoushan-1840":{"place":{"en":"Dinghai on Zhoushan Island (Chusan), Zhejiang"},"title":{"en":"The British take Zhoushan"}},
@@ -1527,6 +1529,7 @@
 "slovakiska-nationalupproret":{"place":{"en":"Banská Bystrica, Slovakia"},"title":{"en":"The Slovak National Uprising"}},
 "szent-gyorgyi-och-c-vitaminet":{"place":{"en":"Szeged, Hungary"},"title":{"en":"Szent-Györgyi and vitamin C"}},
 "forintelsen-i-ungern":{"place":{"en":"Hungary (the marker at the ghetto in Budapest)"},"title":{"en":"The Holocaust in Hungary"},"note":{"title":{"en":"The sources differ"}}},
+"forsta-vasaloppet":{"place":{"en":"From Sälen to Mora, Dalarna"},"title":{"en":"The first Vasaloppet"}},
 "bangladeshs-befrielsekrig":{"place":{"en":"East Pakistan, today Bangladesh (began in Dhaka)"},"title":{"en":"Bangladesh Liberation War"},"note":{"title":{"en":"About the start of the war"}}},
 "operation-searchlight":{"place":{"en":"Dhaka and other cities in East Pakistan"},"title":{"en":"Operation Searchlight"},"note":{"title":{"en":"The sources differ"}}},
 "bangladeshs-sjalvstandighet-utropas":{"place":{"en":"Dhaka"},"title":{"en":"Bangladesh's independence is proclaimed"},"note":{"title":{"en":"Only one source for the place"}}},
@@ -1828,5 +1831,6 @@
 "slovakien-blir-egen-stat-1993":{"place":{"en":"All of Slovakia (the marker in Bratislava)"},"title":{"en":"Slovakia becomes a state of its own"},"note":{"title":{"en":"About the date"}}},
 "slovakien-gar-med-i-eu":{"place":{"en":"All of Slovakia (the marker in Bratislava)"},"title":{"en":"Slovakia joins the EU"}},
 "paneuropeiska-picknicken":{"place":{"en":"The border with Austria near Sopron, Hungary"},"title":{"en":"The Pan-European Picnic"}},
-"ungern-gar-med-i-eu":{"place":{"en":"All of Hungary (the marker in Budapest)"},"title":{"en":"Hungary joins the EU"}}
+"ungern-gar-med-i-eu":{"place":{"en":"All of Hungary (the marker in Budapest)"},"title":{"en":"Hungary joins the EU"}},
+"falu-gruva-blir-varldsarv":{"place":{"en":"Falun, Dalarna"},"title":{"en":"Falun Mine becomes a World Heritage Site"}}
 }}
