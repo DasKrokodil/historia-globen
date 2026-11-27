@@ -1146,7 +1146,7 @@
   "focus.places.toNear": "Zu „In der Nähe eines Ortes“",
   "space.show": "Auf dem Mond zeigen",
   "space.showLabel": "Auf dem Mond zeigen: {title}",
-  "space.band": "Der Mond · außerhalb von Zeit und Ort der Erde",
+  "space.band": "Der Mond · ein Ort außerhalb der Erde",
   "space.year": "Das Jahr ist {year}, Erdzeit",
   "space.back": "Zurück zur Erde",
   "space.mapAlt": "Karte der gesamten Mondoberfläche, flach ausgebreitet und nicht maßstabsgetreu; Gebiete nahe den Polen sind in Ost-West-Richtung gedehnt. Markierter Ort: {places}.",

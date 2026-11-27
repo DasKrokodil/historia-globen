@@ -991,7 +991,7 @@
   "focus.places.toNear": "Gå till Nära en plats",
   "space.show": "Visa på månen",
   "space.showLabel": "Visa på månen: {title}",
-  "space.band": "Månen · utanför jordens tid och plats",
+  "space.band": "Månen · en plats utanför jorden",
   "space.year": "Året är {year}, jordens tid",
   "space.back": "Tillbaka till jorden",
   "space.mapAlt": "Karta över hela månens yta, utlagd platt och inte skalenlig; områdena nära polerna är utdragna på bredden. Markerad plats: {places}.",

@@ -16684,7 +16684,7 @@ async function run(browser, vp) {
           ff: getComputedStyle(document.getElementById('funfact')).visibility,
         };
       });
-      if (!/utanför jordens tid och plats/.test(dlg.band)) throw new Error(`bandet saknas: "${dlg.band}"`);
+      if (!/Månen · en plats utanför jorden/.test(dlg.band)) throw new Error(`bandet saknas: "${dlg.band}"`);
       if (!/Året är 1969, jordens tid/.test(dlg.year)) throw new Error(`året saknas: "${dlg.year}"`);
       if (!/Statio Tranquillitatis/.test(dlg.alt) || !/inte skalenlig/.test(dlg.alt)) throw new Error(`textalternativet är fel: "${dlg.alt}"`);
       if (!/inte skalenlig/.test(dlg.caption) || !/Public domain/.test(dlg.caption)) throw new Error(`bildtexten saknar märkning eller licens: "${dlg.caption}"`);
