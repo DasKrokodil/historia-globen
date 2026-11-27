@@ -312,6 +312,21 @@
       }
     },
     {
+      "eventId": "antoninska-pesten",
+      "eventTitle": "Antoninska pesten",
+      "file": "images/events/antoninska-pesten.webp",
+      "kind": "historisk",
+      "credit": "Peter Johann Nepomuk Geiger / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-antoninska-pesten",
+        "title": "Peter Johann Nepomuk Geiger - Antonine Plague in Rome, 165-180 – Peter Johann Nepomuk Geiger (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Peter_Johann_Nepomuk_Geiger_-_Antonine_Plague_in_Rome,_165-180.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "apollo-11",
       "eventTitle": "Apollo 11 landar på månen",
       "file": "images/events/apollo-11.webp",
@@ -1209,6 +1224,21 @@
       }
     },
     {
+      "eventId": "cai-lun-papper",
+      "eventTitle": "Cai Lun förbättrar papperet",
+      "file": "images/events/cai-lun-papper.webp",
+      "kind": "historisk",
+      "credit": "Okänd (Mingdynastin) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-cai-lun-papper",
+        "title": "Five Steps of Papermaking - Step 4 - Pressing the Paper - As described by Cai Lun in 105 CE – Unknown author from the time of Ming dynasty (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Five_Steps_of_Papermaking_-_Step_4_-_Pressing_the_Paper_-_As_described_by_Cai_Lun_in_105_CE.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "callaos-fall-1826",
       "eventTitle": "Callao faller",
       "file": "images/events/callaos-fall-1826.webp",
@@ -1524,6 +1554,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Embl%C3%A8me_du_roi_Agadja-Mus%C3%A9e_africain_de_Lyon.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "daisen-kofun",
+      "eventTitle": "Daisen kofun, Japans största gravhög",
+      "file": "images/events/daisen-kofun.webp",
+      "kind": "historisk",
+      "credit": "Saigen Jiro / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-daisen-kofun",
+        "title": "Daisenryo Kofun zenkei-2 – Saigen Jiro (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Daisenryo_Kofun_zenkei-2.jpg",
+        "license": "CC0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -1990,6 +2035,21 @@
         "id": "commons-bild-explorer-1",
         "title": "Ignition of Jupiter-C with Explorer 1 – NASA (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Ignition_of_Jupiter-C_with_Explorer_1.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "faxians-pilgrimsresa",
+      "eventTitle": "Faxians pilgrimsresa till Indien",
+      "file": "images/events/faxians-pilgrimsresa.webp",
+      "kind": "historisk",
+      "credit": "Faxian (5:e århundradet), 1100-talstryck / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-faxians-pilgrimsresa",
+        "title": "Faxian zhuan – Faxian (5th century) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Faxian_zhuan.JPG",
         "license": "Public domain",
         "checked": "2026-11-26"
       }
@@ -2470,6 +2530,21 @@
         "id": "commons-bild-garfagelns-sista-pa-eldey",
         "title": "Keulemans-GreatAuk – John Gerrard Keulemans (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Keulemans-GreatAuk.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "garimaevangelierna",
+      "eventTitle": "Garimaevangelierna skrivs på ge’ez",
+      "file": "images/events/garimaevangelierna.webp",
+      "kind": "historisk",
+      "credit": "Okänd (Garimaevangelierna) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-garimaevangelierna",
+        "title": "Garima-Gospels-1 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Garima-Gospels-1.jpg",
         "license": "Public domain",
         "checked": "2026-11-26"
       }
@@ -3108,6 +3183,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Bronze_ceremonial_vessel_in_form_of_a_snail_shell,_9th_century,_Igbo-Ukwu,_Nigeria.JPG",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "imenkovokulturen-vid-volga",
+      "eventTitle": "Imenkovokulturen vid mellersta Volga",
+      "file": "images/events/imenkovokulturen-vid-volga.webp",
+      "kind": "historisk",
+      "credit": "Engelberthumperdink / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-imenkovokulturen-vid-volga",
+        "title": "Semi-dugout of Imenkovo culture – Engelberthumperdink (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Semi-dugout_of_Imenkovo_culture.JPG",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -4173,6 +4263,21 @@
       }
     },
     {
+      "eventId": "lakekonst-i-mawangdui",
+      "eventTitle": "Läkekonst i gravarna vid Mawangdui",
+      "file": "images/events/lakekonst-i-mawangdui.webp",
+      "kind": "historisk",
+      "credit": "Wellcome Collection / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-lakekonst-i-mawangdui",
+        "title": "Daoyin tu - chart for leading and guiding people in exercise Wellcome L0036007 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Daoyin_tu_-_chart_for_leading_and_guiding_people_in_exercise_Wellcome_L0036007.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "lalibelas-klippkyrkor",
       "eventTitle": "Klippkyrkorna i Lalibela huggs ut",
       "file": "images/events/lalibelas-klippkyrkor.webp",
@@ -5124,6 +5229,21 @@
       }
     },
     {
+      "eventId": "muzirispapyrusen",
+      "eventTitle": "Muzirispapyrusen",
+      "file": "images/events/muzirispapyrusen.webp",
+      "kind": "historisk",
+      "credit": "Okänd (papyrus) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-muzirispapyrusen",
+        "title": "Muziris Papyrus P.Vindob. G 40822 verso Austrian National Library (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Muziris_Papyrus_P.Vindob._G_40822_verso_Austrian_National_Library.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "myall-creek-massakern",
       "eventTitle": "Myall Creek-massakern",
       "file": "images/events/myall-creek-massakern.webp",
@@ -5151,6 +5271,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Calendar_aswan.JPG",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "nalanda",
+      "eventTitle": "Nalanda, buddhistiskt lärosäte",
+      "file": "images/events/nalanda.webp",
+      "kind": "historisk",
+      "credit": "Sumitsurai / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-nalanda",
+        "title": "Temple 12 - Nalanda Mahavihara (17) – Sumitsurai (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Temple_12_-_Nalanda_Mahavihara_(17).jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5364,6 +5499,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ann_Zingha.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "oc-eo",
+      "eventTitle": "Óc Eo, Funans hamnstad",
+      "file": "images/events/oc-eo.webp",
+      "kind": "historisk",
+      "credit": "Gary Todd / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-oc-eo",
+        "title": "Oc Eo Culture Statue – Gary Todd (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Oc_Eo_Culture_Statue.jpg",
+        "license": "CC0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5646,6 +5796,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Pakistan_Instrument_of_Surrender_signed_by_A_A_K_Niazi_and_Jagjit_Singh_Aurora_at_Ramna_Race_Course_Maidan_1971-12-16_(PID-h0029).jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "palmyras-tulltaxa",
+      "eventTitle": "Palmyras tulltaxa",
+      "file": "images/events/palmyras-tulltaxa.webp",
+      "kind": "historisk",
+      "credit": "Okänd (inskrift från Palmyra) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-palmyras-tulltaxa",
+        "title": "Palmyra Tariff col. 1 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Palmyra_Tariff_col._1.png",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -8876,6 +9041,21 @@
         "title": "Emiliano Zapata4 – Agustín Casasola (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Emiliano_Zapata4.jpg",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "zhang-hengs-seismoskop",
+      "eventTitle": "Zhang Hengs seismoskop",
+      "file": "images/events/zhang-hengs-seismoskop.webp",
+      "kind": "historisk",
+      "credit": "Zarateman / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-zhang-hengs-seismoskop",
+        "title": "Valladolid - Museo Oriental de Valladolid 09 – Zarateman (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Valladolid_-_Museo_Oriental_de_Valladolid_09.jpg",
+        "license": "CC0",
         "checked": "2026-11-26"
       }
     },

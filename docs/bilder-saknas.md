@@ -530,3 +530,38 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `qin-erovrar-chu` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
 | `chu-han-kriget` | 2026-11-26: Enda kandidaten är en modern karta (Chu-Han Contention.png); används inte. |
 | `slaget-vid-pengcheng` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+
+## Asien 205 f.Kr.–637 (#2062 och #2063, 2026-11-26)
+
+12 av 40 händelser fick bild i den här omgången. Följande 28 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-4.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Många står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `slaget-vid-jingxing` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `slaget-vid-weifloden` | 2026-11-26: Enda kandidaten (Battle at the Wei River (Weihe).jpg) visar enligt filsidan en scen ur Dunganupproret (1862–1877) och inte slaget 204 f.Kr.; den används inte. |
+| `liu-bang-blir-kejsare` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `jordbavningen-i-judeen-31-fkr` | 2026-11-26: Kandidaterna visar Tiberias (David Roberts, 1855) och en bokbild; ingen koppling till jordbävningen. Ingen lämplig bild. |
+| `handelshamnen-adulis` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `han-folkrakningen-ar-2` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `gula-floden-byter-lopp-ar-11` | 2026-11-26: Enda träffen ("Old Course of the Yellow River", foto 2012) anger inte vilken flodfåra eller vilken ändring den visar och kan gälla ett senare lopp; används inte utan säker koppling. |
+| `vita-hastens-tempel` | 2026-11-26: Kandidaterna visar det thailändska templet i Vita hästens tempelområde, inte det ursprungliga templet; används inte utan säker koppling. |
+| `gan-ying-mot-rom` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `rabatakinskriften` | 2026-11-26: Enda träffen (RabatakInscription.jpg) har en filbeskrivning som själv säger att identifieringen är omstridd ("however, this is disputed"); används inte. |
+| `sandebud-fran-rom-via-rinan` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `gaststjarnan-sn-185` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `slaget-vid-vita-vargens-berg` | 2026-11-26: Enda kandidaten är en modern karta (End of Han Dynasty Warlords.png); används inte. |
+| `yingpanmannen` | 2026-11-26: Händelsen gäller en man begravd med en mumie (mänskliga kvarlevor och grav); bilder av kvarlevor avstås och ingen sökning gjordes. |
+| `aksums-mynt` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `antoniusklostret` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `aksums-stora-steler` | 2026-11-26: Kandidaten (Aksum, stele 3, Sailko, CC BY 3.0) kunde inte öppnas på Commons med den angivna filnamnsskrivningen (HTTP 404 på filsidan) och användes därför inte. |
+| `slakten-i-imdang-och-joyeong` | 2026-11-26: Händelsen gäller släktband bland människor begravda i gravar (kvarlevor och gravar); bilder avstås och ingen sökning gjordes. |
+| `loulan-overges` | 2026-11-26: Enda träffen är en karta (The Ruins of Lou-lan, 1935); används inte. |
+| `ge-hongs-handbok-mot-feber` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `offerpalarna-i-kutai` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `jordbavningarna-i-galileen-363` | 2026-11-26: Kandidaterna är synagogan vid Nevoraya i Biriyaskogen och Nabratein-synagogan; filsidorna kopplar dem inte till jordbävningarna år 363, så de används inte. |
+| `torka-i-sasanidernas-persien` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `aryabhatiya` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `justinianska-pesten-nar-egypten` | 2026-11-26: Utsedd men inte hämtad: Yersinia pestis wayson.jpg (CDC, PD), HTTP 429. Står i `data/utkast/bildbatch/asien-4-ej-hamtade.txt`. |
+| `arabiska-erovringarna` | 2026-11-26: Enda kandidaten är en karta (Map of expansion of Caliphate.svg); används inte. |
+| `slaget-vid-qadisiyya` | 2026-11-26: Utsedd men inte hämtad: handskriftsbild ur Shahnameh (British Library, 1614), HTTP 429. Står i `data/utkast/bildbatch/asien-4-ej-hamtade.txt`. |
+| `jerusalem-intas-637` | 2026-11-26: Enda kandidaten visar Al-Aqsa-moskén (foto 1982, dubbellicens); kopplingen till kapitulationen är otydlig och platsen helig, så den används inte utan bedömning. |
