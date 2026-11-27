@@ -17,14 +17,9 @@ Omgång 1 gav historiska bilder från Wikimedia Commons till krigens viktigaste 
 
 **AI-omgången (2026-10-30):** `slaget-vid-gaixia`, `qi-ger-upp-221-fkr`, `sjoslaget-vid-noryang`, `kalinga-erovras`, `eviansavtalen`, `slaget-vid-nuuanu`, `sista-giljotinen`, `nanjing-blir-tianjing-1853`, `bougainville-utropar-sjalvstandighet` och `upproret-i-goma-1998` har fått illustrationer gjorda med promptarna i [bildpromptar-299.md](bildpromptar-299.md). Bougainville och Goma gjordes om utan flaggor, eftersom de första versionerna hade flaggor som inte stämde (en påhittad flagga för Bougainville och Rwandas flagga från 2001 i Goma 1998).
 
-## Turerna och lektionerna (#1875, 2026-11-20)
+## Turerna och lektionerna (#1875): klart
 
-Sökt på Wikimedia Commons 2026-11-20. Väntar på en AI-illustration som en människa gör i ChatGPT ([bilder-ai-illustrationer.md](bilder-ai-illustrationer.md)), med promptarna i [bildpromptar-1875.md](bildpromptar-1875.md).
-
-| Händelse (id) | Varför ingen bild |
-|---|---|
-| `al-bakri-beskriver-ghana` | Ingen bild av al-Bakris bok eller av huvudstaden. Under Koumbi Saleh finns bara en plan av fyndplatsen (karta, CC BY-SA 4.0), en satellitbild av gravfältet och ett museifoto av en skifferplatta med inskrift (CC BY-SA 4.0). Det är omstritt om Koumbi Saleh är den stad al-Bakri beskrev, så ett fynd därifrån visar inte säkert händelsen. |
-| `slaget-vid-tondibi` | Bara kartor (Saadiernas erövringar, Songhairiket). Ingen avbildning av slaget eller av arméerna hittades. |
+Alla åtta tursteg har bild. De två som väntade på en AI-illustration, `al-bakri-beskriver-ghana` och `slaget-vid-tondibi`, har fått den (gjord av en människa i ChatGPT enligt [bilder-ai-illustrationer.md](bilder-ai-illustrationer.md), kontrollerat på `main` 2026-11-27). Promptarna ligger kvar i [bildpromptar-1875.md](bildpromptar-1875.md). Skälen till att ingen fri bild hittades står i den här filens historik (före 2026-11-27).
 
 ## Bilder att se över
 
@@ -286,7 +281,7 @@ De sex bilder som först inte gick att hämta (HTTP 429), `ounjougou-keramik`, `
 
 ## Oceanien och övrigt 1200 f.Kr.–1814 (#2113 och #2114, 2026-11-26)
 
-18 av 38 händelser fick bild i den här omgången och tre till (`polynesier-pa-raoul`, `rangitoto-bildas`, `ambryms-kaldera`) är valda men väntar på hämtning i Actions. Följande 17 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/2113-2114.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Urfolkens kulturarv, kvarlevor, gravplatser och bilder med personer har avståtts i väntan på en mänsklig bedömning (CLAUDE.md, Bilder).
+18 av 38 händelser fick bild direkt. Efter [Actions-körningen](https://github.com/DasKrokodil/historia-globen/actions/runs/45827026571) fick även `polynesier-pa-raoul` och `rangitoto-bildas` bild. För `ambryms-kaldera` skymmer molnen kalderan (se tillägget nedan). Följande 17 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/2113-2114.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Urfolkens kulturarv, kvarlevor, gravplatser och bilder med personer har avståtts i väntan på en mänsklig bedömning (CLAUDE.md, Bilder).
 
 | Händelse (id) | Varför ingen bild |
 |---|---|
@@ -312,7 +307,7 @@ Tillägg 2026-11-26 (#2113): `ambryms-kaldera`. Bilden [Ambrym ali 2012348 lrg.j
 
 ## Oceanien och övrigt 1928–2022 (#2116 och #2117, 2026-11-26)
 
-17 av 35 händelser fick bild i den här omgången, och tre till (`den-sista-pungvargen-dor`, `os-i-melbourne-1956`, `black-saturday-branderna-2009`) är valda och licenskontrollerade men väntar på hämtning i Actions. Följande 15 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/2116-2117.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Urfolksmotiv, gravar och bilder med oklart ursprung har avståtts.
+17 av 35 händelser fick bild direkt. Efter [Actions-körningen](https://github.com/DasKrokodil/historia-globen/actions/runs/45831239023) fick även `den-sista-pungvargen-dor`, `os-i-melbourne-1956` och `black-saturday-branderna-2009` bild. Följande 15 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/2116-2117.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Urfolksmotiv, gravar och bilder med oklart ursprung har avståtts.
 
 | Händelse (id) | Varför ingen bild |
 |---|---|
@@ -334,7 +329,7 @@ Tillägg 2026-11-26 (#2113): `ambryms-kaldera`. Bilden [Ambrym ali 2012348 lrg.j
 
 ## Afrika (förhistoria) och Oceanien 1830–1907 (#2103 och #2115, 2026-11-26)
 
-16 av 37 händelser fick bild i den här omgången, och två till (`florisbad`, `blombosgrottan`) är valda och licenskontrollerade men väntar på hämtning i Actions. Följande 19 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/2115-2103.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Urfolksmotiv, gravar och kvarlevor har avståtts i väntan på mänsklig bedömning.
+16 av 37 händelser fick bild direkt. Efter [Actions-körningen](https://github.com/DasKrokodil/historia-globen/actions/runs/45840521891) fick även `florisbad` och `blombosgrottan` bild. Följande 19 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/2115-2103.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Urfolksmotiv, gravar och kvarlevor har avståtts i väntan på mänsklig bedömning.
 
 | Händelse (id) | Varför ingen bild |
 |---|---|
@@ -1069,5 +1064,5 @@ Bilder som först gav HTTP 429 hämtades i Actions (arbetsflödet `bild-ej-hamta
 | `justinianska-pesten-nar-egypten` | Yersinia pestis wayson.jpg (PD, CDC) |
 | `slaget-vid-qadisiyya` | Shahnameh-miniatyr, British Library (PD-Art) |
 
-`ambryms-kaldera` används inte (se tillägget för #2113 ovan: bilden visar mest moln).
+Avstämning av de 14 ursprungslistorna i [#2342](https://github.com/DasKrokodil/historia-globen/issues/2342): 31 av 32 unika händelser har bild. För `ambryms-kaldera` kvarstår skälet i tillägget för #2113: satellitbilden visar mest moln och en askplym som skymmer kalderan.
 

@@ -692,11 +692,30 @@ Antagna områden och vågor i förhistorien, som lagret Människans spridning (`
   - `places` (område) eller `paths` (våg, en lista per gren). En plats är `{ "event": "<händelse-id>" }` (samma koordinat som händelsens markör) eller `{ "coord": [lon, lat], "wikidata": "Q…", "name": "…" }` med koordinaten ur Wikidata. En plats som saknar Wikidata-id kan i stället ha `coordSource`: id:t för den källa i `sources.json` som anger koordinaten (till exempel Dhaba i Clarkson m.fl. 2020). Platsen ska vara kontrollerad: id:t öppnat och namnet jämfört.
   - `radiusKm` (område): hur långt ut höljet ritas runt varje plats. Ytan blir ett mjukt, konvext hölje och ska aldrig läsas som en gräns.
   - `parts` (område, i stället för `places`): flera listor med platser. Varje del blir ett eget hölje, och delarna ritas som en yta med gemensam ytterkant. Så kan en yta följa en båge (Iberien–Kaukasus–Altaj) utan att täcka det som ligger innanför, till exempel Nordafrika.
+  - En del i `parts` kan också vara ett objekt `{ "radiusKm": 435, "places": [...] }` med en egen radie, som då gäller i stället för ytans `radiusKm` (#1593, [beslut 2026-11-27](beslut/2026-11-27-egen-radie-per-del.md)). Det används där en fast radie skulle dra kanten genom en ö, till exempel Palawan och Luzon i `sapiens-asien`.
   - `clipLand` (område): ytan klipps mot dagens land (`land.json`). Används bara där havet inte har ändrats mycket, eftersom landbryggorna under istiden (#1096) annars skulle klippas bort.
   - Vågornas sträckor ritas längs storcirkeln mellan platserna.
   - `title`, `label` (valfri, kort namn på kartan), `summary`, `note` (valfri, till exempel "Källorna skiljer sig"): texter per språk.
   - `sources` (id i `sources.json`) och `review` som för händelser (`draft` visas inte).
 - `scripts/validate-site.py` kontrollerar att källorna och händelserna finns och att varje plats har `event` eller `coord`. `tools/oversattning.py` räknar texterna.
+
+## `rymd.json`: platser på andra himlakroppar (#1527)
+
+Rymden, etapp 1 ([beslut 2026-11-14](beslut/2026-11-14-rymden-forsta-steget.md)): en händelse på jorden som har en plats på månen får knappen **Visa på månen** i faktarutan, och platsen visas på en platt månkarta i en dialog (`js/ui/moon.js`). Kopplingen ligger i den här filen och inte som fält på händelsen: händelsens `location` är alltid en jordplats (WGS 84) och används av platssökning, Platt vy, fokus och bågar. Tas filen bort försvinner knappen och vyn. Schema: `schemas/rymd.schema.json`.
+
+- `schema`: `historia-globen/rymd@1`.
+- `maps.<himlakropp>`: kartan för himlakroppen (i etapp 1 bara `moon`).
+  - `file` (`images/rymd/<namn>.webp`), `width`, `height`: bilden i pixlar. Månkartan är LROC WAC Global Morphology Mosaic 100 m (USGS Astropedia, public domain), förminskad till 2048 × 1024 och WebP kvalitet 45 (286 890 byte). Den laddas först när dialogen öppnas.
+  - `projection` (`equirectangular`) och `bounds` `[väst, syd, öst, nord]` i grader (`[-180, -90, 180, 90]`). En punkt `[längd, bredd]` ritas på `(längd − väst) / (öst − väst)` av bredden och `(nord − bredd) / (nord − syd)` av höjden (`mapPosition` i `js/ui/moon.js`).
+  - `source` (id i `sources.json`), `credit`, `license` och `caption` (text per språk, "Gråskala, bearbetad, inte skalenlig."), som visas i bildtexten. `made` säger hur bilden gjordes ur originalet.
+- `items[]`, en post per plats:
+  - `id`; `eventId` (händelsens id i `events.json`); `body` (himlakroppen: `moon`, samma värden som `CELESTIAL_BODIES` i `js/state.js` utom `earth`). En händelse har högst en post per himlakropp.
+  - `coord`: `[längd, bredd]` i grader, selenografiska koordinater med östlig längd positiv, −180 till 180 (samma som kartan). Koordinater och namn kommer bara ur öppnade källor (NASA, USGS), aldrig ur minnet.
+  - `placeType`: vad platsen är (`landing-site`); texten står i `space.type.<typ>` i `data/ui/<språk>.json`.
+  - `name`, `summary`, valfri `note` (till exempel "Källorna skiljer sig"): texter per språk.
+  - `sources` (id i `sources.json`) och `coordSources` (de av dem som ger koordinaten). `review` som för händelser: `draft` visas inte, `two-sources` bara när två oberoende källor i `coordSources` ger samma punkt. `checkNote` (valfri, bara svenska, visas inte) säger vad som jämfördes.
+- `scripts/validate-site.py` kontrollerar schemat, att händelsen, källorna och kartfilen finns, att `id` är unika, att `coord` ligger inom kartan och att `two-sources` har två källor i `coordSources`. `scripts/build-site.sh` kopierar filen och kartbilden. `tools/oversattning.py` räknar texterna.
+- I tillståndet och adressen är himlakroppen reserverad (`body` och `b`), men skrivs inte i etapp 1; se docs/arkitektur.md, Tillståndet i adressen.
 
 ## `upptackt.json`: upptäcktsvyn (#101)
 

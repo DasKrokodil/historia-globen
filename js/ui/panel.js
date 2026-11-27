@@ -1049,6 +1049,7 @@ export class Panel {
         `<li><button type="button" class="link-btn" data-goto="${esc(b.id)}">${esc(t(b.title))}</button> <span class="meta">${esc(formatEventTime(b))}</span></li>`).join('')}</ol></div>` : ''}
       ${empireList(e._empires ?? e._war?._empires)}
       ${(() => { const h = this.huntFor?.(e); return h ? `<button type="button" class="chip-btn hunt-add" data-hunt${h.disabled ? ' disabled' : ''}>${esc(h.label)}</button>` : ''; })()}
+      ${this.moonFor?.(e) ? `<button type="button" class="chip-btn moon-btn" data-moon aria-label="${esc(ui('space.showLabel', { title: t(e.title) }))}"><span class="moon-btn-icon" aria-hidden="true"></span>${esc(ui('space.show'))}</button>` : ''}
       <details class="detail-about"${aboutOpen ? ' open' : ''}><summary>${esc(String(ui('detail.aboutData')[srcs.length === 1 ? 0 : 1]).replace('{n}', srcs.length))} · ${esc(reviewLabel(e.review, 'Händelsen'))}</summary>
         ${unc}
         ${placeLong ? `<p class="detail-place-full"><b>${esc(ui('place.label'))}:</b> ${esc(placeText)}</p>` : ''}
@@ -1071,6 +1072,8 @@ export class Panel {
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     this.detail.querySelector('[data-focus]')?.addEventListener('click', ev => this.onFocus(ev.currentTarget.dataset.focus));
     this.detail.querySelector('[data-show-place]')?.addEventListener('click', () => this.onShowPlace(e));
+    // Visa på månen (#1527): bara händelser med en post i data/rymd.json har knappen (moonFor, main.js); månvyn är en dialog
+    this.detail.querySelector('[data-moon]')?.addEventListener('click', ev => this.onMoon?.(e, ev.currentTarget));
     // Samtidighetsjakten (#741): lägg händelsen i jakten; knappen visar resultatet
     this.detail.querySelector('[data-hunt]')?.addEventListener('click', ev => {
       this.onHunt?.(e);

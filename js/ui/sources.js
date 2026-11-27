@@ -36,7 +36,7 @@ async function loadVersion() {
 }
 
 /** Räknar fram vilka uppgifter som pekar på varje källa, grupp för grupp. */
-function collect({ sources, events, funfacts, polities, empireGroups = [], land, borders, discovery, imageLayers }, religionsDoc) {
+function collect({ sources, events, funfacts, polities, empireGroups = [], land, borders, discovery, imageLayers, space }, religionsDoc) {
   const groups = Object.fromEntries(GROUPS.map(g => [g.id, { ...g, uses: new Map(), items: [] }]));
   const add = (gid, ids, label, review, item = true) => {
     const g = groups[gid];
@@ -48,6 +48,11 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
   };
   for (const e of events) add('events', [...(e.sources ?? []), ...(e.story?.sources ?? [])], t(e.title), e.review);
   for (const f of funfacts) add('events', f.sources ?? [], ui('sources.funfact', { text: short(t(f.text)) }), f.review);
+  // Rymden (#1527): platsen på månen för en händelse har egna källor och egen status
+  for (const x of space?.items ?? []) {
+    if (!settings.showDrafts && x.review === 'draft') continue;
+    add('events', x.sources ?? [], ui('sources.spacePlace', { name: t(x.name), title: t(events.find(e => e.id === x.eventId)?.title ?? '') }), x.review);
+  }
   for (const p of polities) add('empires', p.sources ?? [], t(p.name), p.review);
   // Faktarutan om riket (#170) och dess nyckelår
   for (const g of empireGroups) {
@@ -81,6 +86,8 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
   }
   if (land?.source) add('maps', [land.source], ui('sources.baseMap'), null);
   if (borders?.source) add('maps', [borders.source], ui('sources.modernBorders'), null);
+  // Månkartan i månvyn (#1527): en kartbild utan egen granskningsnivå, som upptäcktsvyns bilder
+  for (const m of Object.values(space?.maps ?? {})) if (m.source) add('maps', [m.source], ui('sources.moonMap'), null, false);
   // Upptäcktsvyns kartbilder (#101): havsmonster och kompassrosor ur gamla kartor, public domain
   for (const d of new Map((discovery?.decorations ?? []).map(d => [d.source, d])).values()) if (d.source) add('maps', [d.source], ui('sources.discovery', { title: t(d.title) }), null, false);
   // Bildlagren (#54, #1325): varje skiva som sidan visar (imageRows tar bort utkast) med sin källa och granskningsstatus (#1410)
