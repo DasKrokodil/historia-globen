@@ -108,6 +108,7 @@
         "commons-bild-taputapuatea-marae",
         "commons-bild-terrakottaarmen",
         "commons-bild-tjurhoppning-pa-knossos",
+        "commons-bild-vattenkvarnarna-i-barbegal",
         "commons-bild-yellowstone-nationalpark"
       ]
     },
@@ -179,6 +180,7 @@
         "commons-bild-gagarin-vostok-1",
         "commons-bild-galileo-sidereus-nuncius",
         "commons-bild-gao-saney-handelsstad",
+        "commons-bild-hobygraven-pa-lolland",
         "commons-bild-jenners-vaccin",
         "commons-bild-lakekonst-i-mawangdui",
         "commons-bild-lister-antiseptik",
@@ -371,6 +373,7 @@
       "sourceIds": [
         "commons-bild-adenakulturen",
         "commons-bild-aksum-blir-kristet",
+        "commons-bild-akvedukten-fran-zaghouan",
         "commons-bild-brollopet-i-hvalsey",
         "commons-bild-bronsgjutare-i-ban-chiang",
         "commons-bild-caral",
@@ -442,6 +445,7 @@
         "commons-bild-cyklonen-tracy",
         "commons-bild-diepkloof-strutsaggsskal",
         "commons-bild-dingon-nar-australien",
+        "commons-bild-eketorps-borg-byggs",
         "commons-bild-flintgruvorna-i-spiennes",
         "commons-bild-fogo-utbrottet-1680",
         "commons-bild-ganggriften-i-rossberga",
@@ -477,6 +481,7 @@
         "commons-bild-mohenjo-daro",
         "commons-bild-moundville-hovdingadome",
         "commons-bild-nabta-playa",
+        "commons-bild-nero-och-korinthkanalen",
         "commons-bild-nok-kulturen",
         "commons-bild-panamakanalen-oppnas",
         "commons-bild-polynesier-nar-marquesas",
@@ -525,6 +530,12 @@
         "commons-bild-auschwitz-befrias",
         "commons-bild-berlinmurens-fall",
         "commons-bild-frankrikes-fall"
+      ]
+    },
+    {
+      "license": "CC BY-SA 3.0 RO",
+      "sourceIds": [
+        "commons-bild-trajanus-bro-over-donau"
       ]
     },
     {
@@ -577,8 +588,10 @@
         "commons-bild-guru-nanak",
         "commons-bild-hans-egede-kommer-till-gronland",
         "commons-bild-hekla-3-utbrottet",
+        "commons-bild-herkules-torn-i-a-coruna",
         "commons-bild-homo-luzonensis",
         "commons-bild-hopewell-jordverken",
+        "commons-bild-idrottande-kvinnor-i-villa-romana-del-casale",
         "commons-bild-ilopango-utbrottet",
         "commons-bild-imenkovokulturen-vid-volga",
         "commons-bild-ishangobenet",
@@ -3943,6 +3956,7 @@
         "commons-bild-chaco-canyon",
         "commons-bild-chauvetgrottan",
         "commons-bild-chicago-pile-1",
+        "commons-bild-claudius-tunnel-vid-fucinosjon",
         "commons-bild-cook-gar-i-land-turanganui",
         "commons-bild-cook-nar-australien",
         "commons-bild-cortes-moter-moctezuma",
@@ -3982,6 +3996,7 @@
         "commons-bild-garimaevangelierna",
         "commons-bild-goa-1510",
         "commons-bild-gronland-far-egen-biskop",
+        "commons-bild-guldgruvan-i-las-medulas",
         "commons-bild-guldrushen-i-kalifornien",
         "commons-bild-guldrushen-i-victoria",
         "commons-bild-gulfkriget",

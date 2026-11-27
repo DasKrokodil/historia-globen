@@ -910,3 +910,41 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `slaget-vid-gindarus` | 2026-11-26: Kandidaterna är kartor; används inte. |
 | `damhjortar-fors-till-britannien` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
 | `gravar-av-estnisk-typ-vid-kroggardsmalmen` | 2026-11-26: Ingen kandidat i listan; gäller gravar; ingen egen sökning hann göras. |
+
+
+## Europa 1–670 (#2081 och #2082, 2026-11-26)
+
+10 av 40 händelser fick bild i den här omgången. Följande 30 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/europa-4.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `romerska-fynd-vid-drumanagh` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kalendern-fran-coligny` | 2026-11-26: Ingen kandidat i listan; sökningen efter museifoton gav inga träffar; ingen egen vidare sökning hann göras. |
+| `gravfaltet-vid-driffield-terrace` | 2026-11-26: Enda kandidaten är en karta (Bell Beaker Culture.png); gäller ett gravfält med kvarlevor; används inte. |
+| `tjerniachovkulturen` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `antiokia-jordbavningen-115` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `torka-i-romerska-nordafrika-under-hadrianus` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `vaxtavlan-fran-alburnus-maior` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `runorna-fran-vimose` | 2026-11-26: Kandidaterna (Nationalmuseets foto av kammen med runor, DO-4148) har licensflagga; används inte utan närmare kontroll. |
+| `guldet-i-timra` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `handelsplatsen-pa-helgo` | 2026-11-26: Ingen kandidat i listan; sökningen efter Helgö gav inga träffar; ingen egen vidare sökning hann göras. |
+| `fynden-pa-fjallens-isfalt-okar` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `hastarna-i-litauens-gravar` | 2026-11-26: Ingen kandidat i listan; gäller gravar med hästben; ingen egen sökning hann göras. |
+| `baiae-sjunker-i-havet` | 2026-11-26: Ingen kandidat i listan; sökningen gav bara bokskanningar (PDF); ingen egen vidare sökning hann göras. |
+| `kyla-i-syditalien-245-275` | 2026-11-26: Kandidaterna är en satellitbild av saharadamm och en väderkarta från 2024 som inte hör till händelsen; används inte. |
+| `cyprianus-pest` | 2026-11-26: Kandidaterna är porträtt av helgonet Cyprianus (liten och stående); de visar inte pesten och används inte; pest och död, bilder avstås. |
+| `aldsta-hona-i-finland-pa-aland` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `vattengraven-i-levanluhta` | 2026-11-26: Kandidaterna visar människoben (mänskliga kvarlevor) och en modern skulptur; kvarlevor och gravar avstås. |
+| `goternas-gravar-i-bulgarien` | 2026-11-26: Ingen kandidat i listan; gäller gravar; ingen egen sökning hann göras. |
+| `jordbavningen-i-nicomedia-358` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `hovdingagravarna-i-snartemo` | 2026-11-26: Ingen kandidat i listan; gäller gravar; ingen egen sökning hann göras. |
+| `augustinus-skriver-bekannelser` | 2026-11-26: Enda träffen (Augustine Confessiones.jpg) är bara 227 × 350 px; används inte. |
+| `guldhornen-fran-gallehus` | 2026-11-26: Enda kandidaten (Guldhornene.jpg) är bara 650 × 384 px och har licensflagga; används inte. |
+| `caelius-aurelianus-oversatter-soranos` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `martianus-capella-och-de-sju-fria-konsterna` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `spetalska-i-great-chesterford` | 2026-11-26: Ingen kandidat i listan; gäller människoben (kvarlevor); bilder avstås. |
+| `spetalska-i-fallward` | 2026-11-26: Ingen kandidat i listan; gäller en grav med kvarlevor; bilder avstås. |
+| `malaria-i-barngravarna-vid-lugnano` | 2026-11-26: Ingen kandidat i listan; gäller barngravar; bilder avstås. |
+| `vesuvius-472` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras (sökningen efter Vesuvius gav bara bokskanningar). |
+| `justinianska-pesten-541` | 2026-11-26: Kandidaterna (Barberinidiptyken och en bild av pestbakterien, 600 × 441 px) hör inte till pestens förlopp eller är för små; pest, bilder avstås tills en människa bedömt dem. |
+| `kairouan-grundas` | 2026-11-26: Enda kandidaten (vy över Kairouan från 1899) är bara 600 × 443 px; används inte. |
