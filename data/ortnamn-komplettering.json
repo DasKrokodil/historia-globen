@@ -253,6 +253,50 @@
     ],
     "checked": "2026-11-27"
    }
+  ],
+  "gastrikland": [
+   {
+    "wikidata": "Q2955468",
+    "coordinates": [
+     16.23,
+     60.54
+    ],
+    "name": {
+     "sv": "Edsken",
+     "en": "Edsken",
+     "de": "Edsken",
+     "es": "Edsken",
+     "fr": "Edsken"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "bessemerstal-i-edsken"
+    ],
+    "checked": "2026-11-27"
+   },
+   {
+    "wikidata": "Q3283732",
+    "coordinates": [
+     17.19,
+     60.766
+    ],
+    "name": {
+     "sv": "Björke",
+     "en": "Björke",
+     "de": "Björke",
+     "es": "Björke",
+     "fr": "Björke"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "bjorkebaten"
+    ],
+    "checked": "2026-11-27"
+   }
   ]
  }
 }
