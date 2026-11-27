@@ -69,6 +69,13 @@ export function huntCandidates(events, mission, isVisible) {
   return out;
 }
 
+/**
+ * Är händelsen ett långt tillstånd, något som pågick (ett rike, en kultur, en handel), och inte något som hände?
+ * Det står i datan (fältet lasting, typat med källa i omgångar, #1451). Jakten räknar tillstånden som förut men
+ * märker dem "pågick då". En händelse utan fältet märks inte alls, eftersom bara en del av händelserna är typade.
+ */
+export const isLasting = e => e?.lasting === true;
+
 /** Är jakten klar? */
 export const huntDone = (mission, found) => found.length >= mission.count;
 
