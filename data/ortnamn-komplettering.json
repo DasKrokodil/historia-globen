@@ -253,6 +253,48 @@
     ],
     "checked": "2026-11-27"
    }
+  ],
+  "halsingland": [
+   {
+    "wikidata": "Q642964",
+    "coordinates": [
+     17.112,
+     61.729
+    ],
+    "name": {
+     "sv": "Hudiksvall",
+     "en": "Hudiksvall",
+     "de": "Hudiksvall",
+     "es": "Hudiksvall",
+     "fr": "Hudiksvall"
+    },
+    "events": [
+     "hudiksvall-grundas",
+     "ryssarna-branner-hudiksvall"
+    ],
+    "checked": "2026-11-27"
+   },
+   {
+    "wikidata": "Q2367619",
+    "coordinates": [
+     16.166,
+     61.71
+    ],
+    "name": {
+     "sv": "Järvsö",
+     "en": "Järvsö",
+     "de": "Järvsö",
+     "es": "Järvsö",
+     "fr": "Järvsö"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "halsingegardar-blir-varldsarv"
+    ],
+    "checked": "2026-11-27"
+   }
   ]
  }
 }
