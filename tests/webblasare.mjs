@@ -1147,8 +1147,14 @@ async function run(browser, vp) {
     if (/(^|\s)oxford(\s|$)/.test((await page.locator('#flat-view').getAttribute('data-visible-events')) ?? '')) throw new Error('Oxford-markören syns i Platt vy år 1612');
     await clickView('#btn-flat');
     await page.click('#btn-panel'); await visible('#panel');
-    const more = page.locator('#event-list [data-panel-region]:not([hidden]) [data-region]').first();
-    if (await more.count()) { if (!/Visa \d+ till i /.test((await more.textContent()) ?? '')) throw new Error('Visa fler saknar synlig datastyrd världsdel'); await more.focus(); await page.keyboard.press('Enter'); if ((await more.getAttribute('aria-expanded')) !== 'true') throw new Error('Visa fler öppnas inte med tangentbord'); }
+    // panelEvent fäller ut en grupp när Oxford ligger bortom taket; prova därför en hopfälld knapp (#2372).
+    const moreSel = '#event-list [data-panel-region]:not([hidden]) .panel-more[data-region]';
+    let more = page.locator(`${moreSel}[aria-expanded="false"]`).first();
+    if (!(await more.count())) {
+      const open = page.locator(`${moreSel}[aria-expanded="true"]`).first();
+      if (await open.count()) { await open.click(); more = page.locator(`${moreSel}[aria-expanded="false"]`).first(); }
+    }
+    if (await more.count()) { if (!/Visa \d+ till i /.test((await more.textContent()) ?? '')) throw new Error('Visa fler saknar synlig datastyrd världsdel'); const kind = await more.getAttribute('data-kind'); const valda = page.locator(`${moreSel}[data-kind="${kind}"]`).first(); await valda.focus(); await page.keyboard.press('Enter'); if ((await valda.getAttribute('aria-expanded')) !== 'true') throw new Error('Visa fler öppnas inte med tangentbord'); }
     await jumpTo(1889);
     return 'Oxford: Pågick då i Europa även 1612, markör bara 1100; Visa fler nås med tangentbord';
   });
