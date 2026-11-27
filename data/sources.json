@@ -4650,6 +4650,27 @@
     { "id": "nasa-nssdca-apollo-11", "title": "NASA NSSDCA: Apollo 11 (uppskjutning, landning och landningsplats)", "url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo11info.html", "license": "Public domain (USA:s federala myndighet)", "checked": "2026-11-27" },
     { "id": "nasa-nssdca-apollo-11-30", "title": "NASA NSSDCA: Apollo 11 – 30th Anniversary (förloppet och citatet ”Houston, Tranquility Base here”)", "url": "https://nssdc.gsfc.nasa.gov/planetary/lunar/apollo_11_30th.html", "license": "Public domain (USA:s federala myndighet)", "checked": "2026-11-27" },
     { "id": "usgs-gazetteer-statio-tranquillitatis", "title": "USGS/IAU Gazetteer of Planetary Nomenclature: Statio Tranquillitatis (Feature 5684)", "url": "https://planetarynames.wr.usgs.gov/Feature/5684", "license": "Public domain (USGS; metadata i MOON_nomenclature_center_pts.zip)", "checked": "2026-11-27" },
-    { "id": "usgs-lroc-wac-global-100m", "title": "USGS Astropedia: Moon LRO LROC WAC Global Morphology Mosaic 100m, June 2013 (LROC Team, Arizona State University)", "url": "https://astrogeology.usgs.gov/search/map/moon_lro_lroc_wac_global_morphology_mosaic_100m", "license": "Public domain", "checked": "2026-11-27" }
+    { "id": "usgs-lroc-wac-global-100m", "title": "USGS Astropedia: Moon LRO LROC WAC Global Morphology Mosaic 100m, June 2013 (LROC Team, Arizona State University)", "url": "https://astrogeology.usgs.gov/search/map/moon_lro_lroc_wac_global_morphology_mosaic_100m", "license": "Public domain", "checked": "2026-11-27" },
+    {"id": "wp-prehistoric-egypt", "title": "Prehistoric Egypt – Wikipedia", "url": "https://en.wikipedia.org/wiki/Prehistoric_Egypt", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-faiyum-oasis", "title": "Faiyum Oasis – Wikipedia", "url": "https://en.wikipedia.org/wiki/Faiyum_Oasis", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-badarian-culture", "title": "Badarian culture – Wikipedia", "url": "https://en.wikipedia.org/wiki/Badarian_culture", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-kadero", "title": "Kadero (archaeological site) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kadero_(archaeological_site)", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-lake-turkana", "title": "Lake Turkana – Wikipedia", "url": "https://en.wikipedia.org/wiki/Lake_Turkana", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-dabous-giraffes", "title": "Dabous Giraffes – Wikipedia", "url": "https://en.wikipedia.org/wiki/Dabous_Giraffes", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-guitarrero-cave", "title": "Guitarrero Cave – Wikipedia", "url": "https://en.wikipedia.org/wiki/Guitarrero_Cave", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-las-vegas-culture", "title": "Las Vegas culture (archaeology) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Las_Vegas_culture_(archaeology)", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-real-alto", "title": "Real Alto – Wikipedia", "url": "https://en.wikipedia.org/wiki/Real_Alto", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-valdivia-culture", "title": "Valdivia culture – Wikipedia", "url": "https://en.wikipedia.org/wiki/Valdivia_culture", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-nevado-de-toluca", "title": "Nevado de Toluca – Wikipedia", "url": "https://en.wikipedia.org/wiki/Nevado_de_Toluca", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-hudson-volcano", "title": "Hudson Volcano – Wikipedia", "url": "https://en.wikipedia.org/wiki/Hudson_Volcano", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-paloma-peru", "title": "Paloma (archaeological site) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Paloma_(archaeological_site)", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-es-distrito-de-chilca", "title": "Distrito de Chilca (Cañete) – Wikipedia (spanska)", "url": "https://es.wikipedia.org/wiki/Distrito_de_Chilca_(Ca%C3%B1ete)", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-boomerang", "title": "Boomerang – Wikipedia", "url": "https://en.wikipedia.org/wiki/Boomerang", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-allocasuarina-decaisneana", "title": "Allocasuarina decaisneana – Wikipedia", "url": "https://en.wikipedia.org/wiki/Allocasuarina_decaisneana", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-millicent-sa", "title": "Millicent, South Australia – Wikipedia", "url": "https://en.wikipedia.org/wiki/Millicent,_South_Australia", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-rotoma-caldera", "title": "Rotomā Caldera – Wikipedia", "url": "https://en.wikipedia.org/wiki/Rotom%C4%81_Caldera", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-lake-rotoma", "title": "Lake Rotomā – Wikipedia", "url": "https://en.wikipedia.org/wiki/Lake_Rotom%C4%81", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-mayor-island-tuhua", "title": "Mayor Island / Tūhua – Wikipedia", "url": "https://en.wikipedia.org/wiki/Mayor_Island_/_T%C5%ABhua", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-kangaroo-island", "title": "Kangaroo Island – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kangaroo_Island", "license": "CC BY-SA 4.0", "checked": "2026-11-27"}
   ]
 }
