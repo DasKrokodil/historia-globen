@@ -181,6 +181,10 @@ const identicalUiExceptions = {
   'poster.filename': ['en', 'de', 'es', 'fr'], // Filnamnet använder produktnamnet.
   'sourceVersion.version': ['en', 'de', 'fr'], // Version stavas lika.
   'sourcesSummary.filter': ['en', 'de'], // Status stavas lika.
+  'space.placeSaid': ['en', 'de', 'es'], // Bara platshållare och skiljetecken (#1527); franskan har mellanrum före kolon.
+  'space.coord': ['en', 'de', 'es', 'fr'], // Bara platshållare och gradtecken (#1527).
+  'space.north': ['en', 'de', 'es', 'fr'], // N för nord på alla fem språken (#1527).
+  'space.south': ['en', 'de', 'es', 'fr'], // S för syd på alla fem språken (#1527).
 };
 
 const properNameExceptions = [

@@ -26,6 +26,9 @@
 // Reserverade fält (#397, beslut 2026-11-13) skrivs inte än och får inte användas till något annat:
 //   d = tidsdomänen i version 8 (människans eller jordens historia), tillståndets fält domain (RESERVED_STATE_KEYS i
 //   js/state.js). Värdena bestäms när läget byggs. En länk med d öppnas i dag som om d saknades.
+//   b = himlakroppen (#1527, beslut 2026-11-14-rymden-forsta-steget.md), tillståndets fält body: earth (standard) eller moon
+//   (CELESTIAL_BODIES i js/state.js). Skrivs inte förrän en vy för en annan himlakropp är ett eget läge; månvyn i etapp 1 är en
+//   dialog. En länk med b öppnas i dag som om b saknades, och ett okänt värde räknas som jorden (celestialBody).
 //
 // Felkanalen (#1324): decodeProblems() säger vad i en länk som inte gick att tolka, som en lista med { kind, why, value }
 // (kind: 'tour', 'focus' eller 'year'). Länken öppnas som förut; kanalen ändrar inget i tolkningen och skriver inget i
@@ -38,7 +41,7 @@ import { STATE_VERSION, fromJSON, parseFocusKey, MIN_YEAR, MAX_YEAR } from './st
 
 const ID = /^[a-z0-9-]+$/;
 /** Adressfält som är reserverade för en senare version (#397): fältets namn och tillståndets fält det ska bära. */
-export const RESERVED_HASH_FIELDS = { d: 'domain' };
+export const RESERVED_HASH_FIELDS = { d: 'domain', b: 'body' };
 export const LESSON_MODE = 'lektion';
 /** Lärarens väg i lektionsläget (#885): `r=lararen` i en lektionslänk ger knappen för elev- och lärarblad. Skrivs aldrig tillbaka till adressen. */
 export const TEACHER_ROLE = 'lararen';

@@ -85,9 +85,16 @@ export const STATE_VERSION = 1;
 /**
  * Reserverade namn i tillståndet (#397, beslut 2026-11-13): fält som en senare version ska använda och som ingen annan
  * del får ta. `domain` är tidsdomänen, alltså om globen visar människans historia eller jordens historia (version 8).
- * Den byggs inte nu: toJSON() skriver den inte, och fromJSON() hoppar över den som andra okända fält.
+ * `body` är himlakroppen som visas (#1527, beslut 2026-11-14-rymden-forsta-steget.md): CELESTIAL_BODIES nedan, standard earth.
+ * Namnet gäller fältet i tillståndet och har inget med DOM-elementet <body> att göra. `body` och `domain` är olika saker
+ * (himlakropp mot tidsdomän). Ingen av dem byggs nu: toJSON() skriver dem inte, och fromJSON() hoppar över dem som andra
+ * okända fält. Månvyn i etapp 1 är en dialog (js/ui/moon.js), inget tillstånd.
  */
-export const RESERVED_STATE_KEYS = ['domain'];
+export const RESERVED_STATE_KEYS = ['domain', 'body'];
+/** Himlakropparna som fältet body får ha (#1527). Den första är standard; ett okänt värde räknas som den (celestialBody). */
+export const CELESTIAL_BODIES = ['earth', 'moon'];
+/** Himlakroppen för ett värde ur en länk eller ett sparat tillstånd: ett känt värde, annars jorden (#1527). */
+export const celestialBody = value => (CELESTIAL_BODIES.includes(value) ? value : CELESTIAL_BODIES[0]);
 export const FOCUS_TYPES = ['war', 'empire', 'religion', 'route', 'theme', 'place']; // theme (#398) och place (#579): ett tema och en plats är fokus, inget eget läge; varje typ har en post i js/focus/ (#1327)
 
 // ---------------------------------------------------------------------------------------------------------

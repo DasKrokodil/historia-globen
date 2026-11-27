@@ -64,6 +64,7 @@ js/ui/status.js       gemensam statusrad för skärmläsare med prioritet för f
 js/ui/panel.js        "Samtidigt i världen" per världsdel, filter, detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts m.m.) och bågar
 js/ui/sources.js      sidan Om källorna
+js/ui/moon.js         månvyn: Visa på månen öppnar en platt månkarta i en dialog, ingen ny renderingsväg (#1527)
 js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering
 js/ui/region-marks.js regionvyns numrerade markörer, bricka, högar och ortnamn som knappar och på kartans canvas (#1642)
 js/ui/globe-region.js samma markörer ovanpå globen när den har flugit in till en stor plats (regionvyn på globen, #1644)
@@ -117,6 +118,7 @@ data/textlangd.json   spärren mot långa faktatexter: sammanfattningar över 30
 data/upptackt.json    upptäcktsvyn: perspektivrad, dimma och kartbilder (#101)
 data/ortnamn/         ortnamn för regionvyn (#1643): en fil per plats med orter, grannländer och hav på fem språk ur Natural Earth; skrivs av tools/ortnamn.py, redigeras inte
 data/spridning.json   människans spridning: områden och vågor med platser ur händelser och Wikidata (#1094)
+data/rymd.json        platser på andra himlakroppar (händelse, punkt på månen, källor) och månkartan, schema i schemas/rymd.schema.json (#1527)
 data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
 data/ui/              gränssnittets texter: sprak.json (språken, vem som översatte och granskade) och en fil per språk (#63)
 data/religions.json   religioner som områden (statsreligion per rike ur Cliopatria) och faktarutor
@@ -127,9 +129,10 @@ images/events/        bilder till händelser, <händelse-id>.webp, 800 × 600
 images/licenses.json  genererat register över händelsebildernas licenser (#393)
 images/karta/         kartbilder till upptäcktsvyn (public domain, ur gamla kartor)
 images/lager/         bildlagrens bilder: nattljus 2016 (NASA) och istidens kust, en bild per modellsteg 10 000–80 000 år sedan (#1096)
+images/rymd/          månkartan i månvyn: LROC WAC Global Morphology Mosaic, 2048 × 1024 WebP (#1527)
 images/incoming/      Rikards nya bilder, innan de konverteras
 img/                  sidans ikon, markörernas symboler i icons/ och rikesflaggorna i flags/
-schemas/              JSON Schema för innehållsformaten, bland annat händelser, riken, turer, teman, platser och bildlager
+schemas/              JSON Schema för innehållsformaten, bland annat händelser, riken, turer, teman, platser, bildlager och rymden
 tools/                hjälpskript som körs för hand; tools/license_manifests.py genererar licensmanifesten, och dela_data.py körs efter ändring i data/handelser/ eller empires/index.json
 docs/                 dokumentation: produkt (vision, användare, användningsfall, UX, granskningslinser i docs/produkt/), arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, publicering (DEPLOYMENT.md), besökarnas förslag (feedback.md), externa granskningar (granskningar/)
 scripts/              build-site.sh kopierar webbplatsens filer till dist/ och kör validate-site.py (publicering, ingen kodändring); pages-function-check.sh startar formulärets funktion som Cloudflare (#663); kontrolltackning.mjs bevisar att varje webbläsarkontroll ligger i exakt ett CI-jobb (#864)
