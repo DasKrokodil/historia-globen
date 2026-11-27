@@ -4370,7 +4370,7 @@ async function run(browser, vp) {
       if (order.join() !== want.join()) throw new Error(`världsdelarna står ${order.join(', ')}, inte i Samtidigts ordning ${want.join(', ')}`);
       if (tree.regions.some(r => r.expanded !== 'true')) throw new Error('en världsdel är ihopfälld från början');
       const europa = tree.regions.find(r => r.id === 'Europa');
-      if (europa?.rows.join() !== 'place:danmark,place:estland,place:finland,place:frankrike,place:irland,place:island,place:lettland,place:litauen,place:norge,place:storbritannien,place:sverige') throw new Error(`Europa visar ${europa?.rows.join(', ')}, inte Danmark, Estland, Finland, Frankrike, Irland, Island, Lettland, Litauen, Norge, Storbritannien och Sverige i namnordning`);
+      if (europa?.rows.join() !== 'place:belgien,place:danmark,place:estland,place:finland,place:frankrike,place:irland,place:island,place:lettland,place:litauen,place:norge,place:storbritannien,place:sverige') throw new Error(`Europa visar ${europa?.rows.join(', ')}, inte Belgien, Danmark, Estland, Finland, Frankrike, Irland, Island, Lettland, Litauen, Norge, Storbritannien och Sverige i namnordning`);
       if (tree.regions.find(r => r.id === 'Amerika')?.rows.join() !== 'place:gronland') throw new Error('Grönland står inte under Amerika (som i Samtidigt)');
       // Landskapen är ihopfällda under sitt land, och knappen säger landets namn ur datan
       const kids = tp.locator('#focus-menu [data-node="c:sverige:landskap"]');
@@ -4417,8 +4417,8 @@ async function run(browser, vp) {
       const at = () => tp.evaluate(() => { const a = document.activeElement; return a?.dataset.key ?? (a?.dataset.node ? `nod ${a.dataset.node}` : a?.className); });
       const walk = async keys => { const out = []; for (const k of keys) { await tp.keyboard.press(k); out.push(await at()); } return out; };
       await tp.locator('#focus-menu [data-node="r:Europa"]').focus();
-      const down = await walk(['ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown']);
-      const want = ['place:danmark', 'place:estland', 'place:finland', 'place:frankrike', 'place:irland', 'place:island', 'place:lettland', 'place:litauen', 'place:norge', 'place:storbritannien', 'place:sverige', 'nod c:sverige:landskap', 'nod r:Amerika', 'place:gronland'];
+      const down = await walk(['ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown']);
+      const want = ['place:belgien', 'place:danmark', 'place:estland', 'place:finland', 'place:frankrike', 'place:irland', 'place:island', 'place:lettland', 'place:litauen', 'place:norge', 'place:storbritannien', 'place:sverige', 'nod c:sverige:landskap', 'nod r:Amerika', 'place:gronland'];
       if (down.join() !== want.join()) throw new Error(`pil ner gick ${down.join(' → ')}, inte ${want.join(' → ')} (Skåne är ihopfällt och ska hoppas över)`);
       // Fäll ut landskapen med Enter: nu kommer Skåne efter knappen
       await tp.locator('#focus-menu [data-node="c:sverige:landskap"]').focus();
@@ -4616,7 +4616,7 @@ async function run(browser, vp) {
               tabScroll: tabs.scrollWidth > tabs.clientWidth, wide: document.documentElement.scrollWidth > innerWidth, sort: getComputedStyle(menu.querySelector('.focus-sort')).display };
           });
           const where = `${size.width} × ${size.height}`;
-          if (m.key !== 'place:danmark') throw new Error(`${where}: första landet är ${m.key}, inte Danmark`);
+          if (m.key !== 'place:belgien') throw new Error(`${where}: första landet är ${m.key}, inte Belgien`);
           if (m.scrollTop !== 0) throw new Error(`${where}: listan var rullad (${m.scrollTop} px)`);
           if (m.bottom > Math.min(m.bodyBottom, m.menuBottom, size.height) + 1 || m.top < m.bodyTop - 1) throw new Error(`${where}: första landet ligger ${Math.round(m.top)}–${Math.round(m.bottom)} px, utanför listan (${Math.round(m.bodyTop)}–${Math.round(Math.min(m.bodyBottom, size.height))})`);
           if (m.tabRows !== 1) throw new Error(`${where}: flikarna ligger på ${m.tabRows} rader, inte en rullrad`);
@@ -4630,7 +4630,7 @@ async function run(browser, vp) {
           await tp.locator('#focus-menu .menu-x').click({ timeout: T.step });
           await tp.waitForSelector('#focus-menu', { state: 'hidden', timeout: T.step });
           if (errs.length) throw new Error(`${where}: fel i konsolen: ${errs.join(' | ')}`);
-          out.push(`${where}: Danmark ${Math.round(m.top)}–${Math.round(m.bottom)} px`);
+          out.push(`${where}: Belgien ${Math.round(m.top)}–${Math.round(m.bottom)} px`);
         } finally { await tctx.close(); }
       }
       return out.join('; ');
