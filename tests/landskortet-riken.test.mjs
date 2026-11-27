@@ -60,7 +60,7 @@ test('rikets egen rad Om kartan står vid raden bara när gruppen har en enda de
 });
 
 test('Skåne (landskap) och platser utan beslut har inga perioder', () => {
-  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
+  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
 });
 
 test('raderna får rikets eget namn ur indexet och en lucka för år som ingen period täcker', () => {
@@ -77,8 +77,8 @@ test('raderna får rikets eget namn ur indexet och en lucka för år som ingen p
     .filter(r => r.kind === 'gap'), []);
 });
 
-test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien och Nederländerna räknas ur datan: inga av de listade delarna täcker luckans år', () => {
-  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna']) {
+test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien, Nederländerna och Luxemburg räknas ur datan: inga av de listade delarna täcker luckans år', () => {
+  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg']) {
     const pl = places.find(p => p.id === id);
     const rows = placeEmpireRows(pl, groups);
     assert.equal(rows.filter(r => r.kind === 'empire').length, pl.periods.length, `${id}: alla perioder blir rader`);
@@ -117,6 +117,23 @@ test('Nederländernas luckor är de som kortets inledning nämner (#1818): Amste
     }
   }
   assert.ok(pl.boundary.geometry.coordinates.every(poly => poly[0].every(([lon]) => lon > 0)), 'nederlanderna: en del av konturen ligger i Karibien');
+});
+
+test('Luxemburgs luckor och kartavvikelser är de som kortets inledning nämner (#1819): staden Luxemburg i inget rike på kartan', () => {
+  const pl = places.find(p => p.id === 'luxemburg');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]),
+    [[261, 282], [407, 409], [451, 451], [661, 665], [860, 869], [1450, 1481], [1700, 1701], [1794, 1814]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    // Luckorna, kartans avvikande år (Frankrike, Belgien, Tyska riket, Nazityskland, raderna som inte står i kortet) och delningarna
+    for (const years of ['261–282', '407–409', '451', '661–665', '860–869', '1450–1481', '1700–1701', '1794–1814', '1687–1699', '1834–1839',
+      '1815–1889', '1915–1918', '1940–1944', '1757–1761', '1956–1957', '1658', '1839']) {
+      assert.ok(pl.intro[lang].includes(years), `luxemburg: inledningen (${lang}) nämner inte ${years}`);
+    }
+    for (const town of ['Echternach', 'Schengen']) assert.ok(pl.intro[lang].includes(town), `luxemburg: inledningen (${lang}) nämner inte ${town}`);
+  }
+  // Raderna som kortet inte visar: Frankrike 1757–1761 och 1956–1957 överlappar andra rader i rikenas data
+  assert.ok(!pl.periods.some(p => (p.from <= 1761 && p.to >= 1757 && p.empire === 'kungariket-frankrike') || p.empire === 'franska-kolonialvaldet'));
 });
 
 test('kortet visar rikena som knappar med hela namnet, luckan som en rad och i en tur bara text', () => {
