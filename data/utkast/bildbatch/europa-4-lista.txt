@@ -1,0 +1,17 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:Silver cup Hoby Philoctetes Nationalmuseet.jpg	hobygraven-pa-lolland
+# File:Fuciner-lake nasa.jpg	claudius-tunnel-vid-fucinosjon
+# File:Las Medulas (17504738221).jpg	guldgruvan-i-las-medulas
+# File:Torre de Hércules 2023.jpg	herkules-torn-i-a-coruna
+# File:Bell Beaker Culture.png	gravfaltet-vid-driffield-terrace
+# File:Barbegal aqueduct 01.jpg	vattenkvarnarna-i-barbegal
+# File:Piciorul Podului lui Traian, malul românesc (19 august 2009).jpg	trajanus-bro-over-donau
+# File:Kam-med-runer-fra-Vimose DO-4148 2000.jpg	runorna-fran-vimose
+# File:Saharan dust over the Mediterranean Sea (MODIS 2016-03-08).jpg	kyla-i-syditalien-245-275
+# File:Heiliger Cyprianus.jpg	cyprianus-pest
+# File:Leväluhta bog, Merovingian age bones - National Museum of Finland - DSC04176.JPG	vattengraven-i-levanluhta
+# File:Eketorp main view.jpg	eketorps-borg-byggs
+# File:Guldhornene.jpg	guldhornen-fran-gallehus
+# File:Diptych Barberini Louvre OA9063 whole.jpg	justinianska-pesten-541
+# File:View of Kairouan from the Minaret of the Great Mosque - Tunisia - 1899.jpg	kairouan-grundas
