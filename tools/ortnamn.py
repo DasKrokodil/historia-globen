@@ -22,7 +22,8 @@ Innehållet:
   landets delar inom padKm och inom ramen (Island vid Grönland). Ger de ingen punkt, läggs den på landets delar inom
   landsmarginalen, i landsramen (ramen utvidgad med landsmarginalen åt öst och väst men inte åt nord och syd) och högst
   landsmarginalen från platsens gräns, och landet får far: true (Australiens sydöstra del vid Aotearoa). Regionvyn prövar ett land
-  med far först efter orterna och haven. Platsens eget land (för ett län landet vars ADM0_A3 står först i adm1_code) är inte med.
+  med far först efter orterna och haven. Platsens eget land utelämnas. För ett landskap används landet som partOf pekar på.
+  För ett län används annars landet vars ADM0_A3 står först i adm1_code.
 - seas: hav, sund och vikar ur ne_10m_geography_marine_polys som ligger inom ramen, högst MAX_SEAS, med en punkt för namnet.
 Punkten för ett namn är den punkt i ett rutnät över ramen som ligger inne i området och längst från dess kant och ramens kant
 (en enkel "pol för otillgänglighet"). Ett område utan en enda sådan punkt tas inte med.
@@ -270,12 +271,15 @@ def km_between(a, b):
     return math.hypot((a[0] - b[0]) * KM_PER_DEG * math.cos(lat0), (a[1] - b[1]) * KM_PER_DEG)
 
 
-def own_iso(place, countries):
-    """ISO 3166-1 numeriskt id för platsens eget land: boundary.ne, eller för ett län (boundary.admin1, till exempel SWE-3429)
-    landet vars ADM0_A3 står först i adm1_code (Natural Earths egen kod för landet)."""
+def own_iso(place, countries, country_ne):
+    """Platsens eget lands ISO-id hämtas från boundary.ne, landskapets partOf eller länets ADM0_A3 i adm1_code."""
     b = place['boundary']
     if b.get('ne'):
         return str(b['ne'])
+    if place['type'] == 'landskap':
+        ne = country_ne.get(place.get('partOf'))
+        if ne:
+            return str(ne)
     a3 = str(b.get('admin1', '')).split('-')[0]
     for f in countries['features']:
         if f['properties'].get('ADM0_A3') == a3:
@@ -333,7 +337,7 @@ def sea_neighbours(place, countries, fr, pad_km, skip):
     return out
 
 
-def build(place, ne_places, marine, countries):
+def build(place, ne_places, marine, countries, country_ne):
     fr, own, pad_km = frame(place)
     out = {'schema': 'historia-globen/ortnamn@1', 'place': place['id'], 'source': SOURCE,
            'frame': [round(normal(fr[0]), 2), round(fr[1], 2), round(normal(fr[2]), 2), round(fr[3], 2)], 'padKm': pad_km,
@@ -397,7 +401,7 @@ def build(place, ne_places, marine, countries):
     # landsmarginalen åt alla håll, och namnets punkt ligger inom landsmarginalen från platsens gräns.
     lfr, land_km = land_frame(place)
     reach = (grid_km(lfr, boundary_points(place)), land_km)
-    skip = {str(nb.get('ne')) for nb in place['boundary']['neighbours']} | {own_iso(place, countries)}
+    skip = {str(nb.get('ne')) for nb in place['boundary']['neighbours']} | {own_iso(place, countries, country_ne)}
     # Först som förut: namnet på landets delar inom ortmarginalen och inom ramen (Island vid Grönland). Ger de ingen punkt, läggs
     # namnet på delarna inom landsmarginalen och landet får far: true, så att regionvyn prövar det först efter orterna och haven.
     close = {iso: near for _, iso, _, near in sea_neighbours(place, countries, fr, pad_km, skip)}
@@ -438,11 +442,12 @@ def build(place, ne_places, marine, countries):
 def main():
     cache = sys.argv[1] if len(sys.argv) > 1 else None
     doc = json.loads(PLATSER.read_text(encoding='utf-8'))
+    country_ne = {place['id']: place['boundary'].get('ne') for place in doc['places'] if place['type'] == 'country'}
     ne_places, marine, countries = load(cache, 'places'), load(cache, 'marine'), load(cache, 'countries')
     OUT.mkdir(exist_ok=True)
     wanted = set()
     for place in doc['places']:
-        data = build(place, ne_places, marine, countries)
+        data = build(place, ne_places, marine, countries, country_ne)
         path = OUT / f"{place['id']}.json"
         text = json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n'
         path.write_text(text, encoding='utf-8')
