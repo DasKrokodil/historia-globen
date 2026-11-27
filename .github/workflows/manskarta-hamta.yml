@@ -1,0 +1,89 @@
+# Hämtar utkast till månkarta (#1528, rapport docs/granskningar/2026-11-26-manskarta-14.md) i Actions, eftersom
+# agentmiljön nekas filerna (HTTP 403). Hämtar NASA SVS "CGI Moon Kit" (https://svs.gsfc.nasa.gov/4720/), mäter filen och
+# gör en förminskad webp, och lägger resultatet på en ny gren bildbatch/manskarta-<körnings-id> under
+# data/utkast/manskarta/. Inget läggs i images/ eller data/, ingen pull request, aldrig main. Inga hemligheter.
+# Startar vid push till grenen claude/manskarta-hamta-* (workflow_dispatch fungerar först när filen ligger på main).
+name: Hämta månkarta (utkast)
+
+on:
+  push:
+    branches: ['claude/manskarta-hamta-*']
+    paths: ['.github/workflows/manskarta-hamta.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: manskarta-hamta
+  cancel-in-progress: false
+
+jobs:
+  hamta:
+    name: Hämta och mät månkartan
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Hämta kartfilerna och mät dem
+        run: |
+          set -uo pipefail
+          python3 -m pip install pillow
+          ut=data/utkast/manskarta
+          mkdir -p "$ut"
+          UA='HistoriaGlobenBildverktyg/1.1 (https://github.com/DasKrokodil/historia-globen; manskarta-hamta)'
+          bas=https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720
+          curl -sS -m 60 -A "$UA" -o "$ut/svs-4720.html" -w 'sida %{http_code}\n' https://svs.gsfc.nasa.gov/4720/ || true
+          : > "$ut/hamtat.txt"
+          for f in lroc_color_2k.jpg lroc_color_poles_2k.tif lroc_color_poles_1k.jpg; do
+            kod=$(curl -sS -L -m 120 -A "$UA" -D "$ut/$f.huvud" -o "$ut/$f" -w '%{http_code}' "$bas/$f" || echo 000)
+            echo "$f HTTP $kod $(stat -c %s "$ut/$f" 2>/dev/null || echo 0) byte" | tee -a "$ut/hamtat.txt"
+            [ "$kod" = 200 ] || rm -f "$ut/$f"
+          done
+          python3 - "$ut" <<'PY'
+          import glob, hashlib, json, os, sys
+          from PIL import Image
+          ut = sys.argv[1]
+          rapport = []
+          for f in sorted(glob.glob(ut + '/lroc_*')):
+              if f.endswith('.huvud'): continue
+              b = open(f, 'rb').read()
+              r = {'fil': os.path.basename(f), 'byte': len(b), 'sha256': hashlib.sha256(b).hexdigest()}
+              try:
+                  im = Image.open(f); im.load()
+                  r.update(storlek=list(im.size), lage=im.mode, format=im.format)
+                  rgb = im.convert('RGB')
+                  w, h = rgb.size
+                  # Polkant: medelvarde och om översta/understa raderna är nästan enfärgade (fyllda ur en grövre karta).
+                  def rad(y): return [round(sum(p[i] for p in rgb.crop((0, y, w, y + 1)).getdata()) / w) for i in range(3)]
+                  r['rad_ovan'] = rad(0); r['rad_under'] = rad(h - 1); r['rad_mitt'] = rad(h // 2)
+                  ut2 = rgb.resize((2048, 1024), Image.LANCZOS) if (w, h) != (2048, 1024) else rgb
+                  for q in (80, 70):
+                      p = f"{ut}/manskarta-2048x1024-q{q}.webp"
+                      ut2.save(p, 'WEBP', quality=q, method=6)
+                      r['webp_q%d_byte' % q] = os.path.getsize(p)
+              except Exception as e:
+                  r['fel'] = str(e)
+              rapport.append(r)
+          json.dump(rapport, open(ut + '/rapport.json', 'w'), indent=2, ensure_ascii=False)
+          print(json.dumps(rapport, indent=2, ensure_ascii=False))
+          PY
+          { echo '### Månkartan'; echo '```'; cat "$ut/hamtat.txt"; echo '```'; echo '```json'; cat "$ut/rapport.json"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - name: Lägg resultatet på en ny gren
+        run: |
+          set -euo pipefail
+          andra=$(git status --porcelain | grep -v ' data/utkast/' || true)
+          if [ -n "$andra" ]; then echo "::error::Körningen ändrade filer utanför data/utkast/:"; echo "$andra"; exit 1; fi
+          gren="bildbatch/manskarta-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$gren"
+          git add -f data/utkast/manskarta
+          git commit -m "Månkarta (utkast), hämtad i Actions (#1528)"
+          git push origin "$gren"
+          echo "Grenen **$gren** har filerna under data/utkast/manskarta/." >> "$GITHUB_STEP_SUMMARY"
