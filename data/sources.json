@@ -4759,6 +4759,19 @@
     {"id": "wp-sv-sundsvallsstrejken", "title": "Sundsvallsstrejken – Wikipedia (svenska)", "url": "https://sv.wikipedia.org/wiki/Sundsvallsstrejken", "license": "CC BY-SA 4.0", "checked": "2026-11-27", "note": "26 maj–4 juni 1879, sågverksarbetare i Sundsvalls sågverksdistrikt mot sänkta löner; som mest 5 000 deltagare; landshövding Curry Treffenberg kallade in militär och gav ett ultimatum; en av landets första och 1800-talets mest omfattande strejk i Sverige; för flertalet ledde den inte till bättre villkor."},
     {"id": "wd-sundsvallsstrejken", "title": "Sundsvallsstrejken (Q10683864) – Wikidata", "url": "https://www.wikidata.org/wiki/Q10683864", "license": "CC0", "checked": "2026-11-27", "note": "Starttid (P580) 26 maj 1879. Ingen koordinat."},
     {"id": "wp-sv-sundsvallsbranden", "title": "Sundsvallsbranden – Wikipedia (svenska)", "url": "https://sv.wikipedia.org/wiki/Sundsvallsbranden", "license": "CC BY-SA 4.0", "checked": "2026-11-27", "note": "25 juni 1888, den största stadsbranden i Sveriges historia; troligen en gnista från ångslupen Selånger; staden i ruiner inom nio timmar, 9 000 hemlösa, fem döda; stadsfullmäktige beslöt 1889 att bara tillåta stenhus i centrum (Stenstaden); samma dag brann Umeå."},
-    {"id": "wd-sundsvallsbranden", "title": "Sundsvallsbranden (Q10683860) – Wikidata", "url": "https://www.wikidata.org/wiki/Q10683860", "license": "CC0", "checked": "2026-11-27", "note": "Tidpunkt (P585) 25 juni 1888; koordinat 62,393 N, 17,290 Ö."}
+    {"id": "wd-sundsvallsbranden", "title": "Sundsvallsbranden (Q10683860) – Wikidata", "url": "https://www.wikidata.org/wiki/Q10683860", "license": "CC0", "checked": "2026-11-27", "note": "Tidpunkt (P585) 25 juni 1888; koordinat 62,393 N, 17,290 Ö."},
+    {"id": "wp-olsen-chubbuck", "title": "Olsen–Chubbuck Bison Kill Site – Wikipedia", "url": "https://en.wikipedia.org/wiki/Olsen%E2%80%93Chubbuck_Bison_Kill_Site", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-kit-carson-colorado", "title": "Kit Carson, Colorado – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kit_Carson,_Colorado", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-horrs-island", "title": "Horr's Island – Wikipedia", "url": "https://en.wikipedia.org/wiki/Horr%27s_Island", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-marco-island", "title": "Marco Island, Florida – Wikipedia", "url": "https://en.wikipedia.org/wiki/Marco_Island,_Florida", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-champlain-sea", "title": "Champlain Sea – Wikipedia", "url": "https://en.wikipedia.org/wiki/Champlain_Sea", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-danger-cave", "title": "Danger Cave – Wikipedia", "url": "https://en.wikipedia.org/wiki/Danger_Cave", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-lanse-amour", "title": "L'Anse Amour – Wikipedia", "url": "https://en.wikipedia.org/wiki/L%27Anse_Amour", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-banwari-trace", "title": "Banwari Trace – Wikipedia", "url": "https://en.wikipedia.org/wiki/Banwari_Trace", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-twyfelfontein", "title": "Twyfelfontein – Wikipedia", "url": "https://en.wikipedia.org/wiki/Twyfelfontein", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-bosumpra-cave", "title": "Bosumpra Cave – Wikipedia", "url": "https://en.wikipedia.org/wiki/Bosumpra_Cave", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-tenerian-culture", "title": "Tenerian culture – Wikipedia", "url": "https://en.wikipedia.org/wiki/Tenerian_culture", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-adrar-bous", "title": "Adrar Bous – Wikipedia", "url": "https://en.wikipedia.org/wiki/Adrar_Bous", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "wp-tiwi-islands", "title": "Tiwi Islands – Wikipedia", "url": "https://en.wikipedia.org/wiki/Tiwi_Islands", "license": "CC BY-SA 4.0", "checked": "2026-11-27"}
   ]
 }
