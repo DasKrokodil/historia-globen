@@ -1,0 +1,1888 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "asien-3",
+  "datum": "2026-11-26",
+  "urval": "ids=35 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "belagringen-av-dapur",
+      "titel": "Ramses II belägrar Dapur",
+      "start": -1268,
+      "plats": "Dapur, troligen i Syrien norr om Kadesh (läget är omstritt)",
+      "wikidata": "Q1629242",
+      "kandidater": [
+        {
+          "fil": "File:Ramses II besieging the Cheta people in Dapur.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ramses_II_besieging_the_Cheta_people_in_Dapur.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown, published in 1879",
+          "datum": "1879-01-01",
+          "datum_original": "1879-01-01",
+          "datum_fil": "2020-06-14 10:48:36",
+          "kredit": "German lithography published in 1879",
+          "beskrivning": "Other version Ramses II besieging the Cheta people in Dapur",
+          "bredd": 1846,
+          "hojd": 850,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Ramses_II_besieging_the_Cheta_people_in_Dapur.jpg/960px-Ramses_II_besieging_the_Cheta_people_in_Dapur.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Illustrations of Ramses II"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Ugglan"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "feniciska-alfabetet",
+      "titel": "Det feniciska alfabetet",
+      "start": -1049,
+      "plats": "Fenicien, med Byblos i dagens Libanon",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Phoenician alphabet as was discovered in Byblos.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Phoenician_alphabet_as_was_discovered_in_Byblos.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1949",
+          "datum_original": "1949",
+          "datum_fil": "2019-05-26 15:17:12",
+          "kredit": "Taken from a book entitled Tarikh Lubnan al-'am (General history of Lebanon), 2nd edition, published in Lebanon in 1949. Check AUB Records",
+          "beskrivning": "Phoenician alphabet as was discovered in Byblos.",
+          "bredd": 1776,
+          "hojd": 1512,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Phoenician_alphabet_as_was_discovered_in_Byblos.png/960px-Phoenician_alphabet_as_was_discovered_in_Byblos.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Byblos syllabary"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Lebanon"
+            ]
+          }
+        },
+        {
+          "fil": "File:Hamakar's comparison of \"Phoenician\" inscriptions, 1828.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Hamakar%27s_comparison_of_%22Phoenician%22_inscriptions,_1828.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Hendrik Arent Hamaker",
+          "datum": "1828",
+          "datum_original": "1828",
+          "datum_fil": "2020-10-23 08:01:30",
+          "kredit": "Hamaker, Hendrik Arent et J. Luchtmans Miscellanea Phoenicia, sive Commentarii de rebus Phoenicum, quibus inscriptiones multae lapidum ac nummorum, nominaque propria hominum et locorum explicantur, item Punicae gentis lingua et religiones passim illustrantur",
+          "beskrivning": "Plates from Hamaker's Miscellanea Phoenicia",
+          "bredd": 4307,
+          "hojd": 3478,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Hamakar%27s_comparison_of_%22Phoenician%22_inscriptions%2C_1828.jpg/960px-Hamakar%27s_comparison_of_%22Phoenician%22_inscriptions%2C_1828.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Hendrik Arent Hamaker",
+            "Phoenician alphabet charts"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-scan"
+            ]
+          }
+        },
+        {
+          "fil": "File:Phoenicians' alphabet.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Phoenicians%27_alphabet.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "रोहित साव27",
+          "datum": "2020-08-28",
+          "datum_original": "2020-08-28",
+          "datum_fil": "2020-08-27 23:23:39",
+          "kredit": "Own work",
+          "beskrivning": "{| class=\"licensetpl\" style=\"display:none\" | Public domain Public domain false false |} This work is in the public domain in its country of origin and other countries and areas where the copyright term is the author's life plus 70 years or fewer . You must also include a United States public domain tag to indicate why this work is in the public domain in the United States. Note that a few countries have copyright terms longer than 70 years: Mexico has 100 years, Jamaica has 95 years, Colombia has 80 years, and Guatemala and Samoa have 75 years. This image may not be in the public domain in these countries, which moreover do not implement the rule of the shorter term . Honduras has a general copyright term of 75 years, but it does implement the rule of the shorter term. Copyright may extend on works created by French who died for France in World War II ( more information ), Russians who served in the Eastern Front of World War II (known as the Great Patriotic War in Russia) and posthumously rehabilitated victims of Soviet repressions ( more information ). This file has been identified as being free of known restrictions under copyright law, including all related and neighboring rights. https://creativecommons.org/publicdomain/mark/1.0/ PDM Creative Commons Public Domain Mark 1.0 false false",
+          "bredd": 2752,
+          "hojd": 2340,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Phoenicians%27_alphabet.jpg/960px-Phoenicians%27_alphabet.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Phoenician alphabet charts"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 4.0",
+            "skal": [
+              "flera licenser: Public domain, CC BY-SA 4.0"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-old-auto}}, {{self|cc-by-sa-4.0}}. Commons API (LicenseShortName): \"CC BY-SA 4.0\". Flera licenser anges (Public domain och CC BY-SA 4.0); bilden används under CC BY-SA 4.0. Kontrollera vilken licens som gäller vilken del (verk respektive foto).",
+            "risker": [],
+            "mallar": [
+              "PD-old-auto",
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "bronstrummor-fran-dong-son",
+      "titel": "Bronstrummorna från Đông Sơn",
+      "start": -999,
+      "plats": "Röda flodens delta, Vietnam; punkten är Cổ Loa, där en av trummorna hittades",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Tambour-song-da2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tambour-song-da2.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2014-02-25 20:28:34",
+          "datum_original": null,
+          "datum_fil": "2014-02-25 20:28:34",
+          "kredit": "Own work",
+          "beskrivning": "Drum From Song Da Vietnam . Dong Son II Culture. Mid 1st millennium BCE. Bronze",
+          "bredd": 3255,
+          "hojd": 2917,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Tambour-song-da2.jpg/960px-Tambour-song-da2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Art of Vietnam in the Musée Guimet",
+            "Dong Son bronze drums"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "flera licenser: Public domain, CC0"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-Art}}, {{self|cc-zero}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (Public domain och CC0); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto).",
+            "risker": [],
+            "mallar": [
+              "PD-Art",
+              "self|cc-zero"
+            ]
+          }
+        },
+        {
+          "fil": "File:Warring States and Han Bronze Drums.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Warring_States_and_Han_Bronze_Drums.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Gary Todd",
+          "datum": "2011-03-17 16:38:34",
+          "datum_original": "2011-03-17 16:38:34",
+          "datum_fil": "2021-02-03 06:49:29",
+          "kredit": "https://www.flickr.com/photos/101561334@N08/10082738954/",
+          "beskrivning": "Guangxi Provincial Museum, Nanning. Complete indexed photo collection at WorldHistoryPics.com.",
+          "bredd": 4752,
+          "hojd": 3168,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Warring_States_and_Han_Bronze_Drums.jpg/960px-Warring_States_and_Han_Bronze_Drums.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bronze drums of China",
+            "Bronze in the Guangxi Museum",
+            "Dong Son bronze drums"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-zero"
+            ]
+          }
+        },
+        {
+          "fil": "File:Warring States and Han Bronze Drums 2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Warring_States_and_Han_Bronze_Drums_2.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Gary Todd",
+          "datum": "2011-03-17 16:38:12",
+          "datum_original": "2011-03-17 16:38:12",
+          "datum_fil": "2021-02-03 08:03:16",
+          "kredit": "https://www.flickr.com/photos/101561334@N08/10082822376/",
+          "beskrivning": "Guangxi Provincial Museum, Nanning. Complete indexed photo collection at WorldHistoryPics.com.",
+          "bredd": 3168,
+          "hojd": 4752,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Warring_States_and_Han_Bronze_Drums_2.jpg/960px-Warring_States_and_Han_Bronze_Drums_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bronze drums of China",
+            "Bronze in the Guangxi Museum",
+            "Dong Son bronze drums"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-zero"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "babyloniska-astronomiska-dagbocker",
+      "titel": "Babyloniska astronomiska dagböcker",
+      "start": -746,
+      "plats": "Babylon i dagens Irak",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Babylonian astronomical diary recording the death of Alexander the Great (British Museum).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Babylonian_astronomical_diary_recording_the_death_of_Alexander_the_Great_(British_Museum).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Shaunnol",
+          "datum": "2006-08-22",
+          "datum_original": "2006-08-22",
+          "datum_fil": "2008-09-18 16:04:00",
+          "kredit": "en:wiki",
+          "beskrivning": "A diary of space and weather observations from the year 323-322 BC that records the death of Alexander the Great , referring to him simply as \"The King\". On display at the British Museum , London . British Museum 45962: https://www.britishmuseum.org/collection/object/W_1881-0706-403",
+          "bredd": 2272,
+          "hojd": 1704,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Babylonian_astronomical_diary_recording_the_death_of_Alexander_the_Great_%28British_Museum%29.jpg/960px-Babylonian_astronomical_diary_recording_the_death_of_Alexander_the_Great_%28British_Museum%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "320s BC",
+            "Astronomy clay tablets",
+            "Babylonian astronomy",
+            "Babylonian clay tablets",
+            "Death of Alexander the Great",
+            "Department of the Middle East, British Museum",
+            "Room 52, British Museum"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        },
+        {
+          "fil": "File:British Museum, Babylon Astronomical Diary, 331-330 BC.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:British_Museum,_Babylon_Astronomical_Diary,_331-330_BC.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Brigade Piron",
+          "datum": "2023-02-19 11:15:07",
+          "datum_original": "2023-02-19 11:15:07",
+          "datum_fil": "2023-02-19 18:23:53",
+          "kredit": "Own work",
+          "beskrivning": "Babylonian tablet forming part of an astronomical diary which is the earliest contemporary record of the battle of Gaugamela in 331 BC. It records a lunar eclipse supposedly bringing about death and plague linked to Darius' defeat. Babylon (Iraq), 331-330 BC. British Museum, 1880.0617.496.",
+          "bredd": 4000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/British_Museum%2C_Babylon_Astronomical_Diary%2C_331-330_BC.jpg/960px-British_Museum%2C_Babylon_Astronomical_Diary%2C_331-330_BC.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Astronomy clay tablets",
+            "Battle of Gaugamela",
+            "Darius III",
+            "Room 52, British Museum"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Plejaden-Schaltregel.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Plejaden-Schaltregel.png",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Bautsch",
+          "datum": "2022-10-11",
+          "datum_original": "2022-10-11",
+          "datum_fil": "2022-10-10 23:30:52",
+          "kredit": "Own work",
+          "beskrivning": "Die Plejaden-Schaltregel im Monat Nisannu (Horizont dunkelgrün, Ekliptik rot gepunktet): Im Jahr X ist das Neulicht des Mondes am 1. Nisannu noch direkt über dem Horizont neben den Plejaden zu sehen. Im Jahr X steht die Sonne am 15. Nissanu neben den Plejaden im Frühlingspunkt (Epoche J-2600). Im Jahr X+1 steht die Mondsichel am 2. Nisannu neben den Plejaden. Im Jahr X+2 steht die Mondsichel am 3. Nisannu neben den Plejaden.",
+          "bredd": 6980,
+          "hojd": 2880,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Plejaden-Schaltregel.png/960px-Plejaden-Schaltregel.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Babylonian astronomy",
+            "Pleiades (star cluster)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-zero"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "dosarna-i-gochang",
+      "titel": "Dösarna i Gochang",
+      "start": -699,
+      "plats": "Gochang, Jeonbuk, Sydkorea (punkten är kommunens mitt)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Gochang Dolmens, South Korea.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Gochang_Dolmens,_South_Korea.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Lance Vanlewen",
+          "datum": "2018-12-16 11:26:06",
+          "datum_original": "2018-12-16 11:26:06",
+          "datum_fil": "2020-05-07 23:23:03",
+          "kredit": "Own work",
+          "beskrivning": "Gochang Dolmens, South Korea",
+          "bredd": 4096,
+          "hojd": 3072,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Gochang_Dolmens%2C_South_Korea.jpg/960px-Gochang_Dolmens%2C_South_Korea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Gochang Dolmens"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Gochang Dolmens Skyline, South Korea.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Gochang_Dolmens_Skyline,_South_Korea.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Lance Vanlewen",
+          "datum": "2018-12-16 11:58:19",
+          "datum_original": "2018-12-16 11:58:19",
+          "datum_fil": "2020-05-07 23:23:01",
+          "kredit": "Own work",
+          "beskrivning": "Gochang Dolmens Skyline, South Korea",
+          "bredd": 4336,
+          "hojd": 896,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Gochang_Dolmens_Skyline%2C_South_Korea.jpg/960px-Gochang_Dolmens_Skyline%2C_South_Korea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Gochang Dolmens"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Korea-Gwangju-Gochang Dolmens 5349-06.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Korea-Gwangju-Gochang_Dolmens_5349-06.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Steve46814",
+          "datum": "2006-06-19",
+          "datum_original": "2006-06-19",
+          "datum_fil": "2009-09-21 22:01:45",
+          "kredit": "Own work",
+          "beskrivning": "This dolmen is one of the largest dolmens at the Gochang Jungnim-ri Dolmens and are centered in Maesan village, Gochang County, North Jeolla province.",
+          "bredd": 1178,
+          "hojd": 826,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Korea-Gwangju-Gochang_Dolmens_5349-06.JPG/960px-Korea-Gwangju-Gochang_Dolmens_5349-06.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Gochang Dolmens"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|cc-by-sa-3.0}}, {{self|GFDL}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0",
+              "self|GFDL"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "qanaterna-i-gonabad",
+      "titel": "Qanaterna i Gonabad",
+      "start": -699,
+      "plats": "Gonabad, Razavi Khorasan, Iran",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Ghasabe Qanats of Gonabad.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ghasabe_Qanats_of_Gonabad.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Tavasoli mohsen",
+          "datum": "2015-04-06 10:55:53",
+          "datum_original": "2015-04-06 10:55:53",
+          "datum_fil": "2020-10-03 18:13:47",
+          "kredit": "Own work",
+          "beskrivning": "This is a photo of a monument in Iran identified by the ID",
+          "bredd": 4610,
+          "hojd": 2593,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Ghasabe_Qanats_of_Gonabad.jpg/960px-Ghasabe_Qanats_of_Gonabad.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Qasabeh Qanat"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Ghanat ghasabeh, khorasan razavi, gonabad (cropped).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ghanat_ghasabeh,_khorasan_razavi,_gonabad_(cropped).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Behzadjourabchi",
+          "datum": "2019-03-01 12:32:40",
+          "datum_original": "2019-03-01 12:32:40",
+          "datum_fil": "2021-05-18 06:44:57",
+          "kredit": "Own work",
+          "beskrivning": "This is a photo of a monument in Iran identified by the ID",
+          "bredd": 5724,
+          "hojd": 1298,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Ghanat_ghasabeh%2C_khorasan_razavi%2C_gonabad_%28cropped%29.jpg/960px-Ghanat_ghasabeh%2C_khorasan_razavi%2C_gonabad_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Qasabeh Qanat"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Ghanat ghasabeh, khorasan razavi, gonabad.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ghanat_ghasabeh,_khorasan_razavi,_gonabad.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Behzadjourabchi",
+          "datum": "2019-03-01 12:32:40",
+          "datum_original": "2019-03-01 12:32:40",
+          "datum_fil": "2020-10-05 15:10:38",
+          "kredit": "Own work",
+          "beskrivning": "This is a photo of a monument in Iran identified by the ID",
+          "bredd": 5724,
+          "hojd": 3888,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Ghanat_ghasabeh%2C_khorasan_razavi%2C_gonabad.jpg/960px-Ghanat_ghasabeh%2C_khorasan_razavi%2C_gonabad.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Qasabeh Qanat"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "meroe-blir-huvudstad",
+      "titel": "Meroë blir Kushrikets huvudstad",
+      "start": -590,
+      "plats": "Meroë vid Nilen (i dag Sudan)",
+      "wikidata": "Q5780",
+      "kandidater": [
+        {
+          "fil": "File:Sudan Meroe Pyramids 2001.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sudan_Meroe_Pyramids_2001.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 1.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/1.0",
+          "upphovsperson": "Photographer: B N Chagny",
+          "datum": "roku 2001 SFDAS 2001",
+          "datum_original": "roku 2001 SFDAS 2001",
+          "datum_fil": "2005-09-24 11:41:57",
+          "kredit": "taken from en.wikipedia.org, there under CC 1.0, with descripton: Aerial view of the Nubian pyramids at Meroe Image owner: Francis Geius - Mission SFDAS 2001",
+          "beskrivning": "Aerial view of the Nubian pyramids at Meroe in 2001",
+          "bredd": 591,
+          "hojd": 403,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/53/Sudan_Meroe_Pyramids_2001.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "2001 photographs of Sudan",
+            "Aerial photographs of Sudan",
+            "Pyramids of Meroe"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 1.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-1.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "kyros-grundar-perserriket",
+      "titel": "Kyros den store besegrar mederna och grundar Perserriket",
+      "start": -549,
+      "plats": "Ekbatana, mederrikets huvudstad (i dag Hamadan i Iran)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:The story of the greatest nations; a comprehensive history, extending from the earliest times to the present, founded on the most modern authorities, and including chronological summaries and (14780871184).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_story_of_the_greatest_nations;_a_comprehensive_history,_extending_from_the_earliest_times_to_the_present,_founded_on_the_most_modern_authorities,_and_including_chronological_summaries_and_(14780871184).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1913",
+          "datum_original": "1913",
+          "datum_fil": "2015-09-14 16:23:38",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14780871184/ Source book page: https://archive.org/stream/storyofgreatestn01elli/storyofgreatestn01elli#page/n319/mode/1up",
+          "beskrivning": "Identifier : storyofgreatestn01elli ( find matches ) Title : The story of the greatest nations; a comprehensive history, extending from the earliest times to the present, founded on the most modern authorities, and including chronological summaries and pronouncing vocabularies for each nation; and the world's famous events, told in a series of brief sketches forming a single continuous story of history and illumined by a complete series of notable illustrations from the great historic paintings of all lands Year : 1913 ( 1910s ) Authors : Ellis, Edward Sylvester, 1840-1916 Horne, Charles F. (Charles Francis), 1870-1942 Subjects : World history Publisher : New York : Niglutsch Contributing Library : University of California Libraries Digitizing Sponsor : MSN View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: Rock Carving of Darius Conquering Gomates and other Rebels Text Appearing After Image: The Greek-Persian City of Pergamos. CHRONOLOGICAL OUTLINE OF PERSIAN HISTORY .C. 1500 (?)—Teachings of Zoroaster. 1000 (?)—The Per-sians and Medes enter Persia from the north and graduallytake possession of it. 750 (?)—Possible rule of Acha^menesin Persia, the first Persian king. 700 (?)—Deioces saidto have gathered the Medes into a single kingdom. 647(?)—Phraortes. the IMedian leader, rules also over Persiaand Elam; he attacks the Assyrians and is slain. 625—Cyaxares, son of Phraortes, rallies the Medes after hisfathers defeat; he attacks Nineveh. He defeats the610—He unites with Babylon in a third war on Assyria. Scyths. 607—He destroys Nineveh, and estabhshes a Median Empire.593—He wars against Lydia. 585—Astyages succeeds Cyaxaresas the Median monarch. 553—Cyrus, the vassal king of Persia,revolts against Astyages. 550—Cyrus conquers Ecbatana, theMedian capital, and becomes ruler of the united Medes and Per-sians. The Persian Empire begins. 548—Lydia, Egyp Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 1994,
+          "hojd": 796,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/The_story_of_the_greatest_nations%3B_a_comprehensive_history%2C_extending_from_the_earliest_times_to_the_present%2C_founded_on_the_most_modern_authorities%2C_and_including_chronological_summaries_and_%2814780871184%29.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Pergamon in art",
+            "The story of the greatest nations; a comprehensive history, extending from the earliest times to the present (1913)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:The story of the greatest nations; a comprehensive history, extending from the earliest times to the present, founded on the most modern authorities, and including chronological summaries and (14803083693).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_story_of_the_greatest_nations;_a_comprehensive_history,_extending_from_the_earliest_times_to_the_present,_founded_on_the_most_modern_authorities,_and_including_chronological_summaries_and_(14803083693).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1913",
+          "datum_original": "1913",
+          "datum_fil": "2015-09-14 15:42:43",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14803083693/ Source book page: https://archive.org/stream/storyofgreatestn01elli/storyofgreatestn01elli#page/n319/mode/1up",
+          "beskrivning": "Identifier : storyofgreatestn01elli ( find matches ) Title : The story of the greatest nations; a comprehensive history, extending from the earliest times to the present, founded on the most modern authorities, and including chronological summaries and pronouncing vocabularies for each nation; and the world's famous events, told in a series of brief sketches forming a single continuous story of history and illumined by a complete series of notable illustrations from the great historic paintings of all lands Year : 1913 ( 1910s ) Authors : Ellis, Edward Sylvester, 1840-1916 Horne, Charles F. (Charles Francis), 1870-1942 Subjects : World history Publisher : New York : Niglutsch Contributing Library : University of California Libraries Digitizing Sponsor : MSN View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: he attacks the Assyrians and is slain. 625—Cyaxares, son of Phraortes, rallies the Medes after hisfathers defeat; he attacks Nineveh. He defeats the610—He unites with Babylon in a third war on Assyria. Scyths. 607—He destroys Nineveh, and estabhshes a Median Empire.593—He wars against Lydia. 585—Astyages succeeds Cyaxaresas the Median monarch. 553—Cyrus, the vassal king of Persia,revolts against Astyages. 550—Cyrus conquers Ecbatana, theMedian capital, and becomes ruler of the united Medes and Per-sians. The Persian Empire begins. 548—Lydia, Egypt, Babylon,and Sparta unite against Cyrus: he attacks Lydia. 546—Hestorms Sardis, the Lydian capital, and conquers Croesus, its king. 545—Cyrus completely subjugates Asia Minor and begins the conquest ofcentral Asia. 539—Returning from his eastern victories, he attacks Babylon.538—Cyrus conquers Babylon. 529—Death of Cyrus; his son Cambysesslays his other son Smerdis, and sets out to conquer Egypt. 525—Battle of 102 Text Appearing After Image: viaaug rk^-is 3ht inoiJ3i-i7i-jU iifiwA ,-J3clo*i \\i;..iT t ■ • ■ nr If MlUi Bill 111 . ^ .viacfuu. .... . M in I. (intiJisiJ/L i)>nii>ii 111 Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 508,
+          "hojd": 1382,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/13/The_story_of_the_greatest_nations%3B_a_comprehensive_history%2C_extending_from_the_earliest_times_to_the_present%2C_founded_on_the_most_modern_authorities%2C_and_including_chronological_summaries_and_%2814803083693%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "B in art",
+            "The story of the greatest nations; a comprehensive history, extending from the earliest times to the present (1913)"
+          ],
+          "smal": true,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "smal",
+            "staende",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "guldmannen-i-issyk",
+      "titel": "Guldmannen i Issykkurganen",
+      "start": -399,
+      "plats": "Issyk, omkring 50 km öster om Almaty, Kazakstan",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Issyk kurgan (Golden Man belt).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Issyk_kurgan_(Golden_Man_belt).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "eggry",
+          "datum": "2018-12-05 19:21:51",
+          "datum_original": "2018-12-05 19:21:51",
+          "datum_fil": "2023-10-20 16:00:50",
+          "kredit": "https://www.flickr.com/photos/eggry/44750548250/",
+          "beskrivning": "Issyk kurgan (Golden Man belt)",
+          "bredd": 3238,
+          "hojd": 2160,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Issyk_kurgan_%28Golden_Man_belt%29.jpg/960px-Issyk_kurgan_%28Golden_Man_belt%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Issyk Golden Cataphract Warrior",
+            "Issyk kurgan",
+            "The Cradleland of the Golden Man"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Issyk kurgan Flying elk with griffin.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Issyk_kurgan_Flying_elk_with_griffin.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "eggry",
+          "datum": "2018-12-05 19:16:50",
+          "datum_original": "2018-12-05 19:16:50",
+          "datum_fil": "2023-10-20 16:33:10",
+          "kredit": "https://www.flickr.com/photos/eggry/44750550200/",
+          "beskrivning": "Issyk kurgan tiger",
+          "bredd": 2879,
+          "hojd": 1780,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Issyk_kurgan_Flying_elk_with_griffin.jpg/960px-Issyk_kurgan_Flying_elk_with_griffin.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Issyk kurgan",
+            "The Cradleland of the Golden Man"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Issyk Kurgan sword.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Issyk_Kurgan_sword.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "eggry",
+          "datum": "2025-03-13",
+          "datum_original": "2025-03-13",
+          "datum_fil": "2025-03-13 06:57:07",
+          "kredit": "This image has been extracted from another file",
+          "beskrivning": "Issyk Kurgan sword",
+          "bredd": 1644,
+          "hojd": 449,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Issyk_Kurgan_sword.jpg/960px-Issyk_Kurgan_sword.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Issyk Golden Cataphract Warrior",
+            "Issyk kurgan"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.5",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.5"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "belagringen-av-tyros",
+      "titel": "Belägringen av Tyros",
+      "start": -331,
+      "plats": "Tyros i Fenikien, i dagens Libanon",
+      "wikidata": "Q815233",
+      "kandidater": [
+        {
+          "fil": "File:Siege tryre.gif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Siege_tryre.gif",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Frank Martini. Cartographer, Department of History, United States Military Academy",
+          "datum": "2006-02-24 13:09:24",
+          "datum_original": null,
+          "datum_fil": "2006-02-24 13:09:24",
+          "kredit": "The Department of History, United States Military Academy [1]",
+          "beskrivning": "Siege of Tyre.",
+          "bredd": 738,
+          "hojd": 563,
+          "mime": "image/gif",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Siege_tryre.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Ancient wars",
+            "Macedonian army",
+            "Maps of Alexander the Great's wars",
+            "Maps of Asia in the 4th century BC",
+            "Maps of Phoenicia",
+            "Maps of the United States Military Academy",
+            "Siege of Tyre"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "datum-osakert",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "nearchos-flotta-fran-indus",
+      "titel": "Nearchos flotta seglar från Indus till Persiska viken",
+      "start": -325,
+      "plats": "Kusten vid Karachi, Pakistan; Manora, som har identifierats med Nearchos Morontobara",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:The story of the greatest nations, from the dawn of history to the twentieth century - a comprehensive history, founded upon the leading authorities, including a complete chronology of the world, and (14578669410).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_story_of_the_greatest_nations,_from_the_dawn_of_history_to_the_twentieth_century_-_a_comprehensive_history,_founded_upon_the_leading_authorities,_including_a_complete_chronology_of_the_world,_and_(14578669410).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Ellis, Edward Sylvester, 1840-1916; Horne, Charles F. (Charles Francis), 1870-1942",
+          "datum": "1900",
+          "datum_original": "1900",
+          "datum_fil": "2015-10-18 23:02:08",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14578669410/ Source book page: https://archive.org/stream/storyofgreatestn02elli/storyofgreatestn02elli#page/n136/mode/1up",
+          "beskrivning": "Identifier : storyofgreatestn02elli ( find matches ) Title : The story of the greatest nations, from the dawn of history to the twentieth century : a comprehensive history, founded upon the leading authorities, including a complete chronology of the world, and a pronouncing vocabulary of each nation Year : 1900 ( 1900s ) Authors : Ellis, Edward Sylvester, 1840-1916 Horne, Charles F. (Charles Francis), 1870-1942 Subjects : World history Publisher : New York : F.R. Niglutsch Contributing Library : University of California Libraries Digitizing Sponsor : Internet Archive View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: endlesstramping and fighting, and so homesick that when it reached the southernboundary of the Punjaub, it refused to go any farther. The king could nothelp himself, and, after erecting twelve immense altars, on the banks of theriver, to mark the limit of his conquests, he gave the order to march homeward.Arriving at the newly founded cities of Nicasa and Bucephala, he separated thearmy into three divisions, two of which were ordered to pass down the river onopposite banks, while Alexander himself with eight thousand men embarked ona fleet, which had been built with a view of descending the Indus to its mouth. Setting out in the latter part of November, B.C. 327, several months wereoccupied, during which there was considerable fighting with the natives. Al-exander never had a narrower escape than in the storming of a town standingon the present site of Mooltan. A ladder was placed against the wall, and hewas the first to run to the top. He was closely followed by four of his officers, Text Appearing After Image: Greece—Alexanders Plans of Empire 251 but as the fifth placed his foot on the ground the ladder broke and the kingwas left on the wall, a fair target for the missiles of the enemy. If he stoodstill but for a minute, he was certain to be killed; he must either leap downamong his own friends or among his enemies. He chose the latter desperatealternative, and, dropping on his feet, placed his back against the wall andfaced the clamoring mob who fought among themselves to get to him. Twochiefs who ventured within reach of his sword were killed, but an arrow piercedhis corselet, and, overcome with weakness, he sank to the ground. Two of theofficers who had followed him fought off their assailants until the arrival ofmore soldiers, who had scaled the walls and opened the gates. The place wasquickly taken and every defender put to the sword. Having reached the ocean, Alexander ordered Nearchus, the commander ofthe fleet, to sail to the Persian Gulf, while he pushed inland with a division o Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 3008,
+          "hojd": 2124,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/The_story_of_the_greatest_nations%2C_from_the_dawn_of_history_to_the_twentieth_century_-_a_comprehensive_history%2C_founded_upon_the_leading_authorities%2C_including_a_complete_chronology_of_the_world%2C_and_%2814578669410%29.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Alexander the Great and Hephaistion",
+            "Engravings of Alexander the Great",
+            "Marriage in art",
+            "Stateira II",
+            "Susa",
+            "The story of the greatest nations, from the dawn of history to the twentieth century (1900)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "slaget-vid-hydaspes",
+      "titel": "Slaget vid Hydaspes",
+      "start": -325,
+      "plats": "Floden Hydaspes (i dag Jhelum) i Punjab, Pakistan",
+      "wikidata": "Q213074",
+      "kandidater": [
+        {
+          "fil": "File:Le Brun, Alexander and Porus.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Le_Brun,_Alexander_and_Porus.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Charles Le Brun",
+          "datum": "1673 date QS:P571,+1673-00-00T00:00:00Z/9",
+          "datum_original": "1673 date QS:P571,+1673-00-00T00:00:00Z/9",
+          "datum_fil": "2015-11-04 09:04:11",
+          "kredit": "http://www.ibiblio.org/wm/paint/auth/le-brun/",
+          "beskrivning": "Alexander and Porus by Charles Le Brun , painted 1673. Le Brun also spelled LEBRUN (b. Feb. 24, 1619, Paris, France--d. Feb. 12, 1690, Paris), painter and designer who became the arbiter of artistic production in France during the last half of the 17th century. Possessing both technical facility and the capacity to organize and carry out many vast projects, Le Brun personally created or supervised the production of most of the paintings, sculptures, and decorative objects commissioned by the French government for three decades during the reign of Louis XIV. Under his direction French artists created a homogeneous style that came to be accepted throughout Europe as the paragon of academic and propagandistic art. [Encyclopaedia Britannica, 1994] Lebrun, Charles (1619-90). French painter and art theorist, the dominant artist of Louis XIV's reign. After training with Vouet he went to Rome in 1642 and worked under Poussin, becoming a convert to the latter's theories of art. He returned to Paris in 1646. From 1661 he became established in the employ of Louis XIV, in 1662 he was raised to the nobility and named Premier Paintre du roi, and in 1663 he was made director of the reorganized Academie, which he turned into a channel for imposing a codified system of orthodoxy in matters of art. His lectures came to be accepted as providing the official standards of artistic correctness and, formulated on the basis of the Classicism of Poussin, gave authority to the view that every aspect of artistic creation can be reduced to teachable rule and precept. In 1698 his small illustrated treatise Methode pour apprendre a dessiner les passions... was posthumously published; in this, again following theories of Poussin, he purported to codify the visual expression of the emotions in painting. Despite the Classicism of his theories, Lebrun's own talents lay rather in the direction of flamboyant and grandiose decorative effects. Among the most outstanding of his works for the king were the Galerie d'Apollon at the Louvre (1663), and the famous Galerie des Glaces (1679-84) and the Great Staircase (1671-78, destroyed in 1752) at Versailles. His importance in the history of French art is twofold: his contributions to the magnificence of the Grand Manner of Louis XIV and his influence in laying the basis of academicism. Many of the leading French artists of the next generation trained in his studio. Lebrun was a fine portraitist and an extremely prolific draughtsman.",
+          "bredd": 2000,
+          "hojd": 868,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Le_Brun%2C_Alexander_and_Porus.jpg/960px-Le_Brun%2C_Alexander_and_Porus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "History of Alexander the great (Le Brun)",
+            "Paintings of Alexander the Great and Porus"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        },
+        {
+          "fil": "File:The phalanx attacking the centre in the battle of the Hydaspes by Andre Castaigne (1898-1899).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_phalanx_attacking_the_centre_in_the_battle_of_the_Hydaspes_by_Andre_Castaigne_(1898-1899).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "André Castaigne",
+          "datum": "between circa 1898 and circa 1899 date QS:P,+1898-00-00T00:00:00Z/8,P1319,+1898-00-00T00:00:00Z/9,P1326,+1899-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "between circa 1898 and circa 1899 date QS:P,+1898-00-00T00:00:00Z/8,P1319,+1898-00-00T00:00:00Z/9,P1326,+1899-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2011-12-25 15:02:29",
+          "kredit": "http://www.alexanderstomb.com/main/imageslibrary/alexander/index.htm , https://archive.org/details/sim_century-illustrated-monthly-magazine_1899-08_58_4/page/533/mode/1up?q=alexander",
+          "beskrivning": "Alexander old drawings from Century Magazine.",
+          "bredd": 1534,
+          "hojd": 2244,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/The_phalanx_attacking_the_centre_in_the_battle_of_the_Hydaspes_by_Andre_Castaigne_%281898-1899%29.jpg/960px-The_phalanx_attacking_the_centre_in_the_battle_of_the_Hydaspes_by_Andre_Castaigne_%281898-1899%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1911 in art",
+            "Battle of Hydaspes",
+            "Engravings of Alexander the Great (André Castaigne)",
+            "Military drawings",
+            "People with elephants in art",
+            "War elephants of India"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-auto-expired"
+            ]
+          }
+        },
+        {
+          "fil": "File:LubokAlexanderPorus.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:LubokAlexanderPorus.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Anonymous folk artist",
+          "datum": "XVIIIth century (first half)",
+          "datum_original": "XVIIIth century (first half)",
+          "datum_fil": "2008-03-03 18:29:27",
+          "kredit": "http://www.varvar.ru/arhiv/slovo/images/alexander_the_great_porus_indus.jpg",
+          "beskrivning": "The glorious battle of Alexander, King of Macedon, and Porus, King of India. Russian lubok.",
+          "bredd": 700,
+          "hojd": 273,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/49/LubokAlexanderPorus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Alexander the Great and Porus",
+            "Battle of Hydaspes",
+            "Lubok",
+            "Miniatures of Alexander the Great"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "indien-relief"
+    },
+    {
+      "id": "alexanders-dod",
+      "titel": "Alexander dör i Babylon",
+      "start": -322,
+      "plats": "Nebukadnessar II:s palats i Babylon, i dagens Irak",
+      "wikidata": "Q5247391",
+      "kandidater": [
+        {
+          "fil": "File:Entry of Alexander in Babylon.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Entry_of_Alexander_in_Babylon.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Charles Le Brun (design)",
+          "datum": "between 1670 and 1682 date QS:P,+1650-00-00T00:00:00Z/7,P1319,+1670-00-00T00:00:00Z/9,P1326,+1682-00-00T00:00:00Z/9",
+          "datum_original": "between 1670 and 1682 date QS:P,+1650-00-00T00:00:00Z/7,P1319,+1670-00-00T00:00:00Z/9,P1326,+1682-00-00T00:00:00Z/9",
+          "datum_fil": "2015-11-04 09:52:11",
+          "kredit": "[1]",
+          "beskrivning": "Entry of Alexander in Babylon",
+          "bredd": 2143,
+          "hojd": 1314,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Entry_of_Alexander_in_Babylon.jpg/960px-Entry_of_Alexander_in_Babylon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Gobelins tapestries after Le Brun History of Alexander"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-100"
+            ]
+          }
+        },
+        {
+          "fil": "File:Alexander the Great's Entry into Babylon - Thorvaldsens Museum - DSC08773.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Alexander_the_Great%27s_Entry_into_Babylon_-_Thorvaldsens_Museum_-_DSC08773.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Daderot",
+          "datum": "2012-05-11 09:36:43",
+          "datum_original": "2012-05-11 09:36:43",
+          "datum_fil": "2012-07-05 10:25:52",
+          "kredit": "Own work",
+          "beskrivning": "Sculpture in Thorvaldsens Museum, Copenhagen, Denmark. Sculptor: Bertel Thorvaldsen (c. 1770-1844). Photography was permitted in the museum without restriction. This artwork is now in the public domain because the artist died more than 70 years ago.",
+          "bredd": 4320,
+          "hojd": 3240,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Alexander_the_Great%27s_Entry_into_Babylon_-_Thorvaldsens_Museum_-_DSC08773.JPG/960px-Alexander_the_Great%27s_Entry_into_Babylon_-_Thorvaldsens_Museum_-_DSC08773.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Alexander the Great in Babylon frieze by Bertel Thorvaldsen (Thorvaldsen Museum)",
+            "Entrance of Alexander the Great into Babylon"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Alexander the Great's Entry into Babylon - Thorvaldsens Museum - DSC08771.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Alexander_the_Great%27s_Entry_into_Babylon_-_Thorvaldsens_Museum_-_DSC08771.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Daderot",
+          "datum": "2012-05-11 09:36:15",
+          "datum_original": "2012-05-11 09:36:15",
+          "datum_fil": "2012-07-05 10:25:37",
+          "kredit": "Own work",
+          "beskrivning": "Sculpture in Thorvaldsens Museum, Copenhagen, Denmark. Sculptor: Bertel Thorvaldsen (c. 1770-1844). Photography was permitted in the museum without restriction. This artwork is now in the public domain because the artist died more than 70 years ago.",
+          "bredd": 4320,
+          "hojd": 3240,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Alexander_the_Great%27s_Entry_into_Babylon_-_Thorvaldsens_Museum_-_DSC08771.JPG/960px-Alexander_the_Great%27s_Entry_into_Babylon_-_Thorvaldsens_Museum_-_DSC08771.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Alexander the Great in Babylon frieze by Bertel Thorvaldsen (Thorvaldsen Museum)",
+            "Entrance of Alexander the Great into Babylon"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "cuju-bollspel-i-kina",
+      "titel": "Cuju, ett tidigt bollspel i Kina",
+      "start": -299,
+      "plats": "Ruinerna av Linzi, Qis huvudstad, i Zibo, Shandong, Kina",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Chinese Football Charm - China Numismatics (中國錢幣) 02.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chinese_Football_Charm_-_China_Numismatics_(%E4%B8%AD%E5%9C%8B%E9%8C%A2%E5%B9%A3)_02.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown authorship during the Song Dynasty period (960-1279 AD).",
+          "datum": "Song Dynasty period (960-1279 AD).",
+          "datum_original": "Song Dynasty period (960-1279 AD).",
+          "datum_fil": "2023-07-23 17:35:10",
+          "kredit": "Issue #112 (2011) of “China Numismatics” (中國錢幣).",
+          "beskrivning": "The reverse side of this old Song Dynasty period Chinese football charm would display, in a minimalist style, the traditional symbols of a man (Chinese dragon) and a woman (Fenghuang). The animated dragon can be recognised at the right side of the coin charm even though it lacks such details as scales. The Fenghuang (or \"phoenix\") with its wings and graceful posture is located at the left side of the cash coin amulet.",
+          "bredd": 600,
+          "hojd": 598,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Chinese_Football_Charm_-_China_Numismatics_%28%E4%B8%AD%E5%9C%8B%E9%8C%A2%E5%B9%A3%29_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Chinese football charms",
+            "Numismatic charms of the Song Dynasty"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Coin scan"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "asokas-inskrifter",
+      "titel": "Asokas inskrifter",
+      "start": -267,
+      "plats": "Girnar i Gujarat, en av många platser i dagens Indien, Nepal, Pakistan, Bangladesh och Afghanistan",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Ashoka's Major Rock Edict, Girnar Gujarat 001.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ashoka%27s_Major_Rock_Edict,_Girnar_Gujarat_001.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Snehrashmi",
+          "datum": "2020-02-21 18:09:43",
+          "datum_original": "2020-02-21 18:09:43",
+          "datum_fil": "2020-09-21 04:25:26",
+          "kredit": "Own work",
+          "beskrivning": "Ashokan Rock Edicts, Girnar, Junagadh",
+          "bredd": 4000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Ashoka%27s_Major_Rock_Edict%2C_Girnar_Gujarat_001.jpg/960px-Ashoka%27s_Major_Rock_Edict%2C_Girnar_Gujarat_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ashoka Major Rock Edict, Girnar"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Ashoka Rock Edict at Junagadh.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ashoka_Rock_Edict_at_Junagadh.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Jadia gaurang at English Wikipedia",
+          "datum": "25 December 2007 (original upload date)",
+          "datum_original": "25 December 2007 (original upload date)",
+          "datum_fil": "2012-11-01 02:45:09",
+          "kredit": "Transferred from en.wikipedia to Commons by Wiki-uk .",
+          "beskrivning": "This image is of Ashoka's Rock edict at Junagadh. I have captured it when I visited Janagadh early 2007.",
+          "bredd": 1280,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Ashoka_Rock_Edict_at_Junagadh.jpg/960px-Ashoka_Rock_Edict_at_Junagadh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ashoka Major Rock Edict, Girnar"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{GFDL-user-en-no-disclaimers}}, {{GFDL-user-en-no-disclaimers|migration=relicense}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "GFDL-user-en-no-disclaimers",
+              "GFDL-user-en-no-disclaimers|migration=relicense"
+            ]
+          }
+        },
+        {
+          "fil": "File:Well prserved rock edict from Gujarat.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Well_prserved_rock_edict_from_Gujarat.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Prince Roy",
+          "datum": "2006-01-13",
+          "datum_original": "2006-01-13",
+          "datum_fil": "2009-08-01 05:47:23",
+          "kredit": "https://www.flickr.com/photos/princeroy/94914077/",
+          "beskrivning": "Replica of Ashoka's Major Rock Edict from Girnar, Gujarat displayed outside the main entrance of the National Museum, Delhi",
+          "bredd": 500,
+          "hojd": 375,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Well_prserved_rock_edict_from_Gujarat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Ashoka Major Rock Edict, Girnar",
+            "Collections of the National Museum, New Delhi"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "indien-relief"
+    },
+    {
+      "id": "qins-enandekrig",
+      "titel": "Qins enandekrig",
+      "start": -229,
+      "plats": "Norra och mellersta Kina (började i staten Han)",
+      "wikidata": "Q2986801",
+      "kandidater": [
+        {
+          "fil": "File:Hou Xuanxuan The situation map of Qin's war.gif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Hou_Xuanxuan_The_situation_map_of_Qin%27s_war.gif",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Benedetta blair",
+          "datum": "2015-12-14",
+          "datum_original": "2015-12-14",
+          "datum_fil": "2015-12-14 14:24:59",
+          "kredit": "Own work",
+          "beskrivning": "Qin's wars of unification Describe the Strength of 6 states before the wars and the year and the process of unification. Compare the annual change in the territory.",
+          "bredd": 2372,
+          "hojd": 2074,
+          "mime": "image/gif",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Hou_Xuanxuan_The_situation_map_of_Qin%27s_war.gif/960px-Hou_Xuanxuan_The_situation_map_of_Qin%27s_war.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Animated maps of China",
+            "Maps of the Qin Dynasty"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "lejontemplet-i-musawwarat-es-sufra",
+      "titel": "Lejontemplet åt Apedemak i Musawwarat es-Sufra",
+      "start": -219,
+      "plats": "Musawwarat es-Sufra, Sudan",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Apedemak temple in Musawwarat es-sufra 2018.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Apedemak_temple_in_Musawwarat_es-sufra_2018.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Vaido Otsar",
+          "datum": "2018-02-23 11:44:08",
+          "datum_original": "2018-02-23 11:44:08",
+          "datum_fil": "2018-03-06 18:52:11",
+          "kredit": "Own work",
+          "beskrivning": "Apedemak (lion) temple in Musawwarat es-sufra",
+          "bredd": 4522,
+          "hojd": 3015,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Apedemak_temple_in_Musawwarat_es-sufra_2018.jpg/960px-Apedemak_temple_in_Musawwarat_es-sufra_2018.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Temple of Apedemak in Musawwarat es-Sufra"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Apedemak (lion) temple in Musawwarat es-sufra (1) (34081397596).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Apedemak_(lion)_temple_in_Musawwarat_es-sufra_(1)_(34081397596).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Hans Birger Nilsen",
+          "datum": "2017-03-24 10:35",
+          "datum_original": "2017-03-24 10:35",
+          "datum_fil": "2017-06-23 19:57:37",
+          "kredit": "Apedemak (lion) temple in Musawwarat es-sufra (1)",
+          "beskrivning": "Apedemak (lion) temple in Musawwarat es-sufra (1)",
+          "bredd": 3482,
+          "hojd": 2019,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Apedemak_%28lion%29_temple_in_Musawwarat_es-sufra_%281%29_%2834081397596%29.jpg/960px-Apedemak_%28lion%29_temple_in_Musawwarat_es-sufra_%281%29_%2834081397596%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "March 2017 in Sudan",
+            "Temple of Apedemak in Musawwarat es-Sufra"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:MusawwaratLionTemple.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:MusawwaratLionTemple.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Clemens Schmillen",
+          "datum": "2017-01-01",
+          "datum_original": "2017-01-01",
+          "datum_fil": "2018-12-30 17:47:31",
+          "kredit": "Own work",
+          "beskrivning": "Musawwarat Apademak Temple",
+          "bredd": 1024,
+          "hojd": 683,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/MusawwaratLionTemple.jpg/960px-MusawwaratLionTemple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Temple of Apedemak in Musawwarat es-Sufra"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "chu-han-kriget",
+      "titel": "Chu–Han-kriget",
+      "start": -205,
+      "plats": "Guanzhong runt Qins gamla huvudstad Xianyang, nordvästra Kina (samtidigt uppror i Qi i öster)",
+      "wikidata": "Q1151705",
+      "kandidater": [
+        {
+          "fil": "File:Chu-Han Contention.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chu-Han_Contention.png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "SY",
+          "datum": "2017-07-08",
+          "datum_original": "2017-07-08",
+          "datum_fil": "2017-07-08 21:56:39",
+          "kredit": "Own work",
+          "beskrivning": "Map of Chu-Han Contention between Qin and Han dynasties.",
+          "bredd": 1275,
+          "hojd": 902,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Chu-Han_Contention.png/960px-Chu-Han_Contention.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Liu Bang",
+            "Maps of the Qin Dynasty",
+            "Maps of the Western Han Dynasty"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "nauru-befolkas",
+      "titel": "Nauru befolkas",
+      "start": -999,
+      "plats": "Nauru",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "risodlingen-nar-japan",
+      "titel": "Risodlingen når Japan",
+      "start": -999,
+      "plats": "Itazuke i Hakata-ku, Fukuoka, Kyushu, Japan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "arvsmassa-fran-palau",
+      "titel": "Palauernas långa släktlinje",
+      "start": -974,
+      "plats": "Gravgrottan Ucheliungs bland Rock Islands, Palau; punkten är öarnas mitt",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "lapitafolket-pa-taumako",
+      "titel": "Lapitafolket på Taumako",
+      "start": -899,
+      "plats": "Taumako i Duffgruppen (i dag Salomonöarna)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "riket-dmt",
+      "titel": "Riket D'mt på Etiopiens och Eritreas högland",
+      "start": -799,
+      "plats": "Yeha och höglandet i Tigray och Eritrea (i dag Etiopien och Eritrea)",
+      "wikidata": "Q139315",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "stora-dammen-i-marib",
+      "titel": "Den stora dammen i Marib",
+      "start": -799,
+      "plats": "Marib, Jemen; punkten är den nya dammen, cirka 3 km uppströms ruinerna av den gamla",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "arvsmassa-fran-watom",
+      "titel": "Arvsmassa från Watom under lapitatiden",
+      "start": -750,
+      "plats": "Reber–Rakival på ön Watom utanför Nya Britannien (i dag Papua Nya Guinea); punkten är ön",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "paninis-grammatik",
+      "titel": "Pāṇinis grammatik för sanskrit",
+      "start": -599,
+      "plats": "Gandhara, nuvarande norra Pakistan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "indien-relief"
+    },
+    {
+      "id": "skylax-seglar-nerfor-indus",
+      "titel": "Skylax seglar nerför Indus",
+      "start": -518,
+      "plats": "Indus vid Attock, Pakistan (ett förslag om var resan började)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "indien-relief"
+    },
+    {
+      "id": "kungsvagen-susa-sardes",
+      "titel": "Kungsvägen mellan Susa och Sardes",
+      "start": -499,
+      "plats": "Susa, Iran; vägen gick till Sardes",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "meroitisk-skrift",
+      "titel": "Kushriket får egen skrift: meroitisk skrift",
+      "start": -299,
+      "plats": "Meroë och Kushriket (i dag Sudan)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "qin-erovrar-han",
+      "titel": "Qin erövrar Han",
+      "start": -229,
+      "plats": "Zheng (dagens Xinzheng), staten Han",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "handan-faller-228-fkr",
+      "titel": "Zhaos huvudstad Handan faller",
+      "start": -227,
+      "plats": "Handan, staten Zhao",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "qin-intar-ji",
+      "titel": "Qin intar Yans huvudstad Ji",
+      "start": -225,
+      "plats": "Ji (dagens Peking), staten Yan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "daliang-satts-under-vatten",
+      "titel": "Qin sätter Daliang under vatten",
+      "start": -224,
+      "plats": "Daliang (nordväst om dagens Kaifeng), staten Wei",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "qin-erovrar-chu",
+      "titel": "Chu faller",
+      "start": -222,
+      "plats": "Shouchun (dagens Shou), staten Chu",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "slaget-vid-pengcheng",
+      "titel": "Slaget vid Pengcheng",
+      "start": -204,
+      "plats": "Pengcheng, Västra Chus huvudstad, i dag Xuzhou i provinsen Jiangsu",
+      "wikidata": "Q847402",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    }
+  ]
+}
