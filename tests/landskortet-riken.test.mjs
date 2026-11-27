@@ -62,7 +62,7 @@ test('rikets egen rad Om kartan står vid raden bara när gruppen har en enda de
 });
 
 test('Skåne (landskap) och platser utan beslut har inga perioder', () => {
-  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
+  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
 });
 
 test('raderna får rikets eget namn ur indexet och en lucka för år som ingen period täcker', () => {
@@ -79,8 +79,8 @@ test('raderna får rikets eget namn ur indexet och en lucka för år som ingen p
     .filter(r => r.kind === 'gap'), []);
 });
 
-test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien, Nederländerna, Luxemburg, Tyskland och Österrike räknas ur datan: inga av de listade delarna täcker luckans år', () => {
-  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike']) {
+test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien, Nederländerna, Luxemburg, Tyskland, Österrike och Schweiz räknas ur datan: inga av de listade delarna täcker luckans år', () => {
+  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz']) {
     const pl = places.find(p => p.id === id);
     const rows = placeEmpireRows(pl, groups);
     assert.equal(rows.filter(r => r.kind === 'empire').length, pl.periods.length, `${id}: alla perioder blir rader`);
@@ -185,6 +185,28 @@ test('Österrikes luckor och kartavvikelser är de som kortets inledning nämner
   assert.deepEqual(span('kungariket-ungern'), [[1487, 1491]]);
   assert.deepEqual(span('nazityskland'), [[1938, 1944]]);
   assert.deepEqual(span('osterrike'), [[1919, 1937], [1945, 2024]]);
+});
+
+test('Schweiz luckor och kartavvikelser är de som kortets inledning nämner (#1822): rikena följer Bern', () => {
+  const pl = places.find(p => p.id === 'schweiz');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]), [[451, 533], [661, 673], [922, 925], [936, 1009], [1799, 1814]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    // Luckorna, Romarriket (Genève och Basel från 50 f.Kr., Bern från 14 f.Kr.), förbundsbrevet, Tysk-romerska riket,
+    // Schwabiska kriget och Westfaliska freden, Basel som kanton, Helvetiska republiken, Genève (allierat, franskt, kanton,
+    // och på kartan i inget rike, i Frankrike och i Schweiz först från 1919)
+    for (const years of ['451–533', '661–673', '922–925', '936–1009', '1799–1814', '50 ', '14 ', '1291', '1010–1647', '1499', '1648',
+      '1501', '1648–1814', '1798–1803', '1803', '1798–1813', '1815', '1794–1859', '1860–1918', '1919']) {
+      assert.ok(introAll(pl, lang).includes(years), `schweiz: inledningen (${lang}) nämner inte ${years}`);
+    }
+    assert.ok(introAll(pl, lang).includes('Liechtenstein'), `schweiz: inledningen (${lang}) nämner inte Liechtenstein`);
+  }
+  // Kungariket Frankrike (Genève 1540-talet) står inte i kortet, eftersom raderna följer Bern
+  assert.ok(!pl.periods.some(p => ['kungariket-frankrike', 'franska-kolonialvaldet'].includes(p.empire)));
+  const span = id => pl.periods.filter(p => p.empire === id).map(p => [p.from, p.to]);
+  assert.deepEqual(span('romarriket'), [[-13, 394], [395, 450]]);
+  assert.deepEqual(span('tysk-romerska-riket'), [[1010, 1647]]);
+  assert.deepEqual(span('schweiz'), [[1648, 1798], [1815, 2024]]);
 });
 
 test('kortet visar rikena som knappar med hela namnet, luckan som en rad och i en tur bara text', () => {
