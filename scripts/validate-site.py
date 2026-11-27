@@ -220,9 +220,12 @@ while todo:
 for f in sorted(set(graph) - seen):
     err(f'{f} importeras inte från js/main.js (onödig fil i dist/, eller saknas importen?)')
 
-# 6. Datafiler som laddas med getJSON('…')
+# 6. Datafiler som laddas med getJSON('…'). Valfria filer (sidan klarar sig utan dem) får saknas: data/rymd.json (#1527)
+OPTIONAL_DATA = {'data/rymd.json'}
 for p in sorted(DIST.rglob('*.js')):
     for path in re.findall(r'''getJSON\(\s*['"]([^'"]+)['"]''', p.read_text(encoding='utf-8')):
+        if path in OPTIONAL_DATA and not (DIST / path).exists():
+            continue
         exists(path, f'{rel(p)} (getJSON)')
 
 # 7. Filer som data pekar på
@@ -365,13 +368,53 @@ for item in (spread or {}).get('items', []):
     for s in item.get('sources', []):
         if s not in src_ids:
             err(f"data/spridning.json ({item.get('id')}): källan {s} finns inte i sources.json")
-    for place in item.get('places', []) + [p for part in item.get('parts', []) for p in part] + [p for path in item.get('paths', []) for p in path]:
+    # En del är en lista med platser eller { radiusKm, places } med egen radie (#1593)
+    part_places = [part if isinstance(part, list) else part.get('places', []) for part in item.get('parts', [])]
+    for part in item.get('parts', []):
+        if isinstance(part, dict) and not (isinstance(part.get('radiusKm'), (int, float)) and part['radiusKm'] > 0 and part.get('places')):
+            err(f"data/spridning.json ({item.get('id')}): en del med egen radie saknar radiusKm > 0 eller places")
+    for place in item.get('places', []) + [p for part in part_places for p in part] + [p for path in item.get('paths', []) for p in path]:
         if 'event' in place and place['event'] not in ev_ids:
             err(f"data/spridning.json ({item.get('id')}): händelsen {place['event']} finns inte i events.json")
         elif place.get('coordSource') and place['coordSource'] not in src_ids:
             err(f"data/spridning.json ({item.get('id')}): koordinatens källa {place['coordSource']} finns inte i sources.json")
         elif 'event' not in place and not (isinstance(place.get('coord'), list) and len(place['coord']) == 2):
             err(f"data/spridning.json ({item.get('id')}): en plats saknar event och coord")
+# Rymden (#1527): platser på andra himlakroppar. Händelsen och källorna finns, id är unika, en händelse har högst en post per
+# himlakropp, kartfilen finns och punkten ligger inom kartan (längd −180 till 180, bredd −90 till 90). Schemat prövas i 8b.
+space = load('data/rymd.json') if (DIST / 'data/rymd.json').is_file() else None  # valfri: utan filen finns ingen månvy
+if space:
+    seen_space, seen_pairs = set(), set()
+    for name, m in (space.get('maps') or {}).items():
+        if isinstance(m, dict):
+            if m.get('file'):
+                exists(m['file'], f'data/rymd.json (kartan {name})')
+            if m.get('source') and m['source'] not in src_ids:
+                err(f"data/rymd.json (kartan {name}): källan {m['source']} finns inte i sources.json")
+    for item in space.get('items', []):
+        iid = item.get('id')
+        if iid in seen_space:
+            err(f'data/rymd.json: id {iid} förekommer flera gånger')
+        seen_space.add(iid)
+        pair = (item.get('eventId'), item.get('body'))
+        if pair in seen_pairs:
+            err(f'data/rymd.json ({iid}): händelsen {pair[0]} har redan en post för {pair[1]}')
+        seen_pairs.add(pair)
+        if item.get('eventId') not in ev_ids:
+            err(f"data/rymd.json ({iid}): händelsen {item.get('eventId')} finns inte i events.json")
+        if item.get('body') not in (space.get('maps') or {}):
+            err(f"data/rymd.json ({iid}): himlakroppen {item.get('body')} saknar karta i maps")
+        for s in item.get('sources', []) + item.get('coordSources', []):
+            if s not in src_ids:
+                err(f'data/rymd.json ({iid}): källan {s} finns inte i sources.json')
+        for s in item.get('coordSources', []):
+            if s not in item.get('sources', []):
+                err(f'data/rymd.json ({iid}): koordinatens källa {s} saknas i postens sources')
+        c = item.get('coord')
+        if not (isinstance(c, list) and len(c) == 2 and -180 <= c[0] <= 180 and -90 <= c[1] <= 90):
+            err(f'data/rymd.json ({iid}): coord ska vara [längd, bredd] inom −180–180 och −90–90, är {c!r}')
+        if item.get('review') == 'two-sources' and len(set(item.get('coordSources', []))) < 2:
+            err(f'data/rymd.json ({iid}): two-sources kräver minst två källor i coordSources')
 funfacts = load('data/funfacts.json') or {'funfacts': []}
 for f in funfacts['funfacts']:
     for i in f.get('events', []):
@@ -446,6 +489,8 @@ validate_schema_file('data/routes/index.json', routes_index or {}, 'routes-index
 for path, route in routes:
     validate_schema_file(path, {'routes': [route]}, 'route.schema.json')
 validate_schema_file('data/funfacts.json', funfacts, 'funfact.schema.json')
+if space:
+    validate_schema_file('data/rymd.json', space, 'rymd.schema.json')  # rymden (#1527)
 validate_schema_file('data/turer/index.json', tours_index or {}, 'tours-index.schema.json')
 for path, tour in tours:
     validate_schema_file(path, tour, 'tour.schema.json')

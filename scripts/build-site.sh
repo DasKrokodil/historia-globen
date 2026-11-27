@@ -18,6 +18,7 @@
 #   data/ui/              gränssnittets texter: sprak.json och en fil per språk (#63)
 #   images/events/        bilderna som events.json pekar på (image.file)
 #   images/karta/         upptäcktsvyns bilder som data/upptackt.json pekar på (decorations[].file, #101)
+#   images/rymd/          månkartan som data/rymd.json pekar på (maps.<himlakropp>.file, #1527)
 #   _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 #   LICENSE, data/LICENSE licenserna för kod (GPL-3.0) och data (CC BY 4.0) följer med de publicerade filerna
 #   robots.txt, sitemap.xml indexeringsfiler för startsidan (#467)
@@ -73,7 +74,7 @@ for f in img/icons/*.svg; do copy "$f"; done
 ls img/flags/*.svg >/dev/null 2>&1 || fail "inga flaggor i img/flags/"
 for f in img/flags/*.svg; do copy "$f"; done
 
-# Datafiler som js/model.js och UI-modulerna laddar, inklusive introduktionen (#363) och elevuppdragen (#741) och människans spridning (#1094)
+# Datafiler som js/model.js och UI-modulerna laddar, inklusive introduktionen (#363), elevuppdragen (#741), människans spridning (#1094) och rymden (#1527)
 for f in events funfacts missuppfattningar quiz perioder teman platser intro uppdrag sources land land-10m borders styles religions religions-polities upptackt upptackt-europa bildlager vyer version spridning; do
   copy "data/$f.json"
 done
@@ -165,6 +166,19 @@ for layer in json.load(open('data/bildlager.json')).get('layers', []):
             print(part['mask'])
 PY
 )
+
+# Rymden (#1527): data/rymd.json och kartorna den pekar på (maps.<himlakropp>.file). Filen är valfri: tas den bort försvinner
+# knappen Visa på månen, och bygget och kontrollen fungerar som förut (docs/datamodell.md)
+if [ -f data/rymd.json ]; then
+  copy data/rymd.json
+  while IFS= read -r f; do copy "$f"; done < <(python3 -I - <<'PY'
+import json
+for m in json.load(open('data/rymd.json')).get('maps', {}).values():
+    if m.get('file'):
+        print(m['file'])
+PY
+)
+fi
 
 echo "build-site: $(find "$DIST" -type f | wc -l) filer i dist/ ($(du -sh "$DIST" | cut -f1))"
 

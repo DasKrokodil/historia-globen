@@ -10,7 +10,7 @@
 //             stänger panelen, den som öppnas sist vinner (i bred skärm också, där de annars la sig över varandra). Kortet stängs
 //             som med krysset: platsen följs kvar och Om platsen öppnar kortet igen. Faktarutan för en händelse är inte med
 //   popover   årshoppet och intervallformuläret (#1141): de ligger i lagret --z-poppa ovanför menyerna och stänger varandra
-//   dialog    Källor, Hjälp, Kom igång, Quiz och förslagsformuläret (#1323): bara en åt gången. En öppen dialog pausar
+//   dialog    Källor, Hjälp, Kom igång, Quiz, förslagsformuläret (#1323) och månvyn (#1527): bara en åt gången. En öppen dialog pausar
 //             uppspelningen och nedräkningen, och de fortsätter inte av sig själva (onDialogOpen)
 //   uppdrag   Samtidighetsjakten (#1323): ett kort som inte stänger något annat, men som Escape stänger centralt
 //   besked    raden om en trasig länk (#1324): ett kort som inte stänger något, men som Escape stänger centralt och som
@@ -31,7 +31,7 @@ export const CLOSES = {
  * Ytorna som ligger ovanpå kartan och tar Escape före lägena (#1641): så länge någon av dem är öppen lämnar Escape varken
  * regionvyn, Fokus på ett urval eller Platt vy. En lista, delad av js/main.js, js/controllers/focus.js och js/controllers/region.js.
  */
-export const OVERLAY_IDS = ['detail', 'focus-menu', 'layer-menu', 'help', 'teacher', 'settings', 'feedback', 'sources-dialog', 'jump-pop', 'religion-pop', 'route-pop'];
+export const OVERLAY_IDS = ['detail', 'focus-menu', 'layer-menu', 'help', 'teacher', 'settings', 'feedback', 'sources-dialog', 'moon-dialog', 'jump-pop', 'religion-pop', 'route-pop'];
 
 // Escape stänger det översta öppna i den första gruppen som har något öppet (#1323). Menyerna och sidopanelen har egna
 // Escape-lyssnare och tas bara med när de är anmälda med `central: true` (Turer-menyn, vars lyssnare kräver fokus i menyn).

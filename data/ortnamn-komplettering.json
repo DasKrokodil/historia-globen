@@ -273,6 +273,133 @@
     ],
     "checked": "2026-11-27"
    }
+  ],
+  "gastrikland": [
+   {
+    "wikidata": "Q2955468",
+    "coordinates": [
+     16.23,
+     60.54
+    ],
+    "name": {
+     "sv": "Edsken",
+     "en": "Edsken",
+     "de": "Edsken",
+     "es": "Edsken",
+     "fr": "Edsken"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "bessemerstal-i-edsken"
+    ],
+    "checked": "2026-11-27"
+   },
+   {
+    "wikidata": "Q3283732",
+    "coordinates": [
+     17.19,
+     60.766
+    ],
+    "name": {
+     "sv": "Björke",
+     "en": "Björke",
+     "de": "Björke",
+     "es": "Björke",
+     "fr": "Björke"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "bjorkebaten"
+    ],
+    "checked": "2026-11-27"
+   }
+  ],
+  "halsingland": [
+   {
+    "wikidata": "Q642964",
+    "coordinates": [
+     17.112,
+     61.729
+    ],
+    "name": {
+     "sv": "Hudiksvall",
+     "en": "Hudiksvall",
+     "de": "Hudiksvall",
+     "es": "Hudiksvall",
+     "fr": "Hudiksvall"
+    },
+    "events": [
+     "hudiksvall-grundas",
+     "ryssarna-branner-hudiksvall"
+    ],
+    "checked": "2026-11-27"
+   },
+   {
+    "wikidata": "Q2367619",
+    "coordinates": [
+     16.166,
+     61.71
+    ],
+    "name": {
+     "sv": "Järvsö",
+     "en": "Järvsö",
+     "de": "Järvsö",
+     "es": "Järvsö",
+     "fr": "Järvsö"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "halsingegardar-blir-varldsarv"
+    ],
+    "checked": "2026-11-27"
+   }
+  ],
+  "jamtland": [
+   {
+    "wikidata": "Q1004166",
+    "coordinates": [
+     14.016,
+     63.379
+    ],
+    "name": {
+     "sv": "Glösa",
+     "en": "Glösa",
+     "de": "Glösa",
+     "es": "Glösa",
+     "fr": "Glösa"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "hallristningarna-i-glosa"
+    ],
+    "checked": "2026-11-27"
+   },
+   {
+    "wikidata": "Q1004189",
+    "coordinates": [
+     14.542,
+     63.192
+    ],
+    "name": {
+     "sv": "Frösön",
+     "en": "Frösön",
+     "de": "Frösön",
+     "es": "Frösön",
+     "fr": "Frösön"
+    },
+    "events": [
+     "frosostenen"
+    ],
+    "checked": "2026-11-27"
+   }
   ]
  }
 }

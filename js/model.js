@@ -832,9 +832,26 @@ export function loadSpread() {
   return spreadPromise;
 }
 
-/** Allt som Om källorna räknar med: källregistret, alla händelsers källor och bilder, rikenas faktarutor och gränserna. */
+/**
+ * Rymden (data/rymd.json, #1527): platser på andra himlakroppar. Filen är liten och laddas efter starten, så att knappen
+ * Visa på månen kan visas i faktarutan; själva månkartan (bilden) laddas först när månvyn öppnas. Saknas filen, eller
+ * går den inte att läsa, finns ingen post och ingen knapp (DATA.space blir { maps: {}, items: [] }).
+ */
+let spacePromise = null;
+export function loadSpace() {
+  spacePromise ??= getJSON('data/rymd.json').catch(err => { console.warn(err.message); return { maps: {}, items: [] }; })
+    .then(doc => (DATA.space = doc));
+  return spacePromise;
+}
+/** Händelsens post för en himlakropp (#1527), eller null. Bara poster som inte är utkast visas, som för händelserna. */
+export function spaceFor(eventId, body = 'moon') {
+  const item = DATA.space?.items?.find(x => x.eventId === eventId && x.body === body);
+  return item && (settings.showDrafts || item.review !== 'draft') ? item : null;
+}
+
+/** Allt som Om källorna räknar med: källregistret, alla händelsers källor och bilder, rikenas faktarutor och gränserna, och rymden (#1527). */
 export function loadForSources() {
-  return Promise.all([loadSources(), loadAllEventDetails(), loadEmpireFacts(), loadBorders()]);
+  return Promise.all([loadSources(), loadAllEventDetails(), loadEmpireFacts(), loadBorders(), loadSpace()]);
 }
 
 /** Ett rikes gränser (data/empires/<grupp>.json), laddas första gången riket behövs.
