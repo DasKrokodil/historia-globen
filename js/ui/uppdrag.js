@@ -4,7 +4,7 @@
 // Reglerna står i js/uppdrag-rules.js och uppdragen i data/uppdrag.json. Ingen poäng sparas.
 import { t, formatEventTime, formatYear, isVisibleReview, needDetails } from '../model.js';
 import { ui } from '../i18n.js';
-import { checkHunt, huntDone, missionProblems, span, eventRegion, fitsLesson, defaultMission } from '../uppdrag-rules.js';
+import { checkHunt, huntDone, missionProblems, span, eventRegion, fitsLesson, defaultMission, isLasting } from '../uppdrag-rules.js';
 
 /** Uppdragen i data/uppdrag.json. Ett uppdrag med fel hoppas över (varning i konsolen). */
 export async function loadMissions() {
@@ -104,7 +104,8 @@ export class Hunt {
     const title = t(e?.title);
     if (r.ok) {
       this.found.push(e);
-      this.message.textContent = ui('hunt.ok', { title, region: regionName(r.region) });
+      // Ett långt tillstånd (fältet lasting, #1451) räknas också, men meddelandet säger att det pågick då
+      this.message.textContent = ui(isLasting(e) ? 'hunt.okLasting' : 'hunt.ok', { title, region: regionName(r.region) });
     } else {
       // Ett uppdrag med window 0 gäller ett enda år (#1340): "pågick inte år 1945" i stället för "utanför åren 1945–1945"
       const key = r.reason === 'time' && from === to ? 'hunt.timeYear' : `hunt.${r.reason}`;
@@ -126,12 +127,15 @@ export class Hunt {
     this.list.replaceChildren(...this.found.map(e => {
       const li = el('li');
       li.append(el('span', 'hunt-region', regionName(eventRegion(e))), ' ', el('span', 'hunt-title', t(e.title)), ' ', el('span', 'hunt-time', formatEventTime(e)));
+      if (isLasting(e)) li.append(' ', el('span', 'hunt-lasting', ui('hunt.lasting')));
       return li;
     }));
     const done = huntDone(m, this.found);
     this.done.hidden = !done;
     if (done) {
-      this.reflection.textContent = t(m.reflection);
+      // Är något av de hittade ett långt tillstånd får frågan en rad till: vad hände, och vad pågick länge? (#1451)
+      const more = this.found.some(isLasting) ? [el('span', 'hunt-reflection-more', ui('hunt.reflectLasting'))] : [];
+      this.reflection.replaceChildren(t(m.reflection), ...more);
       this.showSources();
     }
   }
