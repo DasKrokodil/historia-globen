@@ -1,0 +1,7 @@
+HTTP 200 5959263751 byte
+87159ead1888ae31bb647e957ec60943022b707ec804cb5353a304575936fd55  Lunar_LRO_LROC-WAC_Mosaic_global_100m_June2013.tif
+total 292
+-rw-r--r-- 1 runner runner   1445 Nov 27 17:13 gdalinfo.txt
+-rw-r--r-- 1 runner runner    142 Nov 27 17:13 hamtat.txt
+-rw-r--r-- 1 runner runner 286890 Nov 27 17:13 manen-lroc-wac-2048.webp
+261ebd3c26e40ff56b36c98a57dd37be0845f6992db6e808f246bf9c0d283c8f  data/utkast/manskarta-1527/manen-lroc-wac-2048.webp
