@@ -1,0 +1,3 @@
+# Ej hämtade (HTTP 429), europa-5. En rad per bild: referens, tabb, händelse-id, tabb, passa-in.
+File:Urfacastle.jpg	belagringen-av-edessa-1144
+File:Liber abbaci magliab f124r.jpg	fibonaccis-liber-abaci	passa-in

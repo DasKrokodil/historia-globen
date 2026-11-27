@@ -1,0 +1,28 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:The battle of Guadelete.jpg	slaget-vid-guadalete
+# File:Battle of Al-Zāb.jpg	slaget-vid-zab
+# File:Tabla Za Dicu 03.jpg	glagolitiska-alfabetet
+# File:Stortorget lund 080508.jpg	lund-grundas
+# File:Stiklestad.jpeg	slaget-vid-stiklestad
+# File:Bayeux Tapestry scene57 Harold death.jpg	slaget-vid-hastings
+# File:Passages d'outremer Fr5594, fol. 19r, Concile de Clermont.jpg	kyrkomotet-i-clermont
+# File:Lunds domkyrka1.jpeg	lund-blir-arkebiskopssate
+# File:Basilique St Denis façade ouest St Denis Seine St Denis 20.jpg	koret-i-saint-denis
+# File:Urfacastle.jpg	belagringen-av-edessa-1144
+# File:Campanile Dôme - Pise (IT52) - 2022-08-31 - 20.jpg	tornet-i-pisa-grundlaggs
+# File:PriseDeConstantinople1204PalmaLeJeune.JPG	plundringen-av-konstantinopel-1204
+# File:Битва на Калке.png	slaget-vid-kalka
+# File:Codex Holmiensis CE 1350.jpg	jyske-lov
+# File:Battle of Mohi 1241.PNG	slaget-vid-mohi
+# File:Fiorino d'oro.jpg	florinen-praglas
+# File:Letter signed Sara, London, to (Ernst Filsinger), Stockholm, September 18, 1923 - DPLA - cfc5f32c3d747a4e06370d01a5421541 (page 2).jpg	stockholm-namns-1252
+# File:La Cappella degli Scrovegni.JPG	giottos-fresker-i-padua
+# File:Façade du Palais des Papes.jpg	paven-flyttar-till-avignon
+# File:Great famine.jpg	stora-svalten-1315
+# File:Erdbeben Basel Jauslin.JPG	jordbavningen-i-basel-1356
+# File:La Muqaddima d'Ibn Khaldoun.jpg	ibn-khalduns-muqaddima
+# File:Salisbury Cathedral, medieval clock.JPG	uret-i-salisbury
+# File:Castle Château Kalmar Suède Sweden - photo picture image photography (9586502122).jpg	kalmarunionen-bildas
+# File:Universitas Regia Upsaliensis.jpg	uppsala-universitet-grundas
+# File:University Main Building.jpg	kopenhamns-universitet-invigs

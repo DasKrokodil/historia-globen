@@ -948,3 +948,31 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `vesuvius-472` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras (sökningen efter Vesuvius gav bara bokskanningar). |
 | `justinianska-pesten-541` | 2026-11-26: Kandidaterna (Barberinidiptyken och en bild av pestbakterien, 600 × 441 px) hör inte till pestens förlopp eller är för små; pest, bilder avstås tills en människa bedömt dem. |
 | `kairouan-grundas` | 2026-11-26: Enda kandidaten (vy över Kairouan från 1899) är bara 600 × 443 px; används inte. |
+
+
+## Europa 705–1494 (#2083 och #2084, 2026-11-26)
+
+20 av 40 händelser fick bild i den här omgången. Följande 20 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/europa-5.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `ribe-handelsplats` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `slaget-vid-zab` | 2026-11-26: Enda kandidaten (Battle of Al-Zāb.jpg, 1962, PD-Lebanon) är en tecknad serieliknande illustration från 1962 utan känd upphovsperson; svag proveniens, används inte. |
+| `skane-namns-forsta-gangen` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `ansgar-i-birka` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `knut-blir-kung-av-england` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `slaget-vid-hastings` | 2026-11-26: Enda kandidaten (Bayeux Tapestry scene 57, Harolds död, foto av Myrabella) flaggades av verktyget: filsidan anger "eget verk" av en bild från 1070-talet; används inte tills en människa kontrollerat licensen. |
+| `belagringen-av-edessa-1144` | 2026-11-26: Utsedd men inte hämtad: Urfacastle.jpg (CC BY-SA 3.0, foto av Urfa-borgen), HTTP 429. Står i `data/utkast/bildbatch/europa-5-ej-hamtade.txt`. |
+| `uppsala-blir-arkebiskopssate` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `absalons-borg-kopenhamn` | 2026-11-26: Ingen kandidat i listan; sökningen efter Absalonstatyn i Köpenhamn gav inga träffar (HTTP 429). |
+| `tornet-i-pisa-grundlaggs` | 2026-11-26: Kandidaten (Pisatornet, Chabe01, CC BY-SA 4.0) är en mycket hög och smal bild (2601 × 5767 px) som blir liten i kortet; används inte. |
+| `gerard-av-cremona-almagest` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `fibonaccis-liber-abaci` | 2026-11-26: Utsedd men inte hämtad: Liber abbaci magliab f124r.jpg (handskriftssida, PD-Art), HTTP 429. Står i `data/utkast/bildbatch/europa-5-ej-hamtade.txt`. |
+| `jyske-lov` | 2026-11-26: Enda kandidaten (Codex Holmiensis) är bara 385 px; används inte. |
+| `stockholm-namns-1252` | 2026-11-26: Kandidaterna är brev från 1900-talet utan koppling till händelsen och med licensflagga; används inte. |
+| `florinen-praglas` | 2026-11-26: Enda kandidaten (Fiorino d'oro, CC BY-SA 2.0) har licensflagga; används inte utan närmare kontroll. |
+| `stora-svalten-1315` | 2026-11-26: Enda kandidaten (Great famine.jpg) har licensrisk (PD-US) och visar svält; bilder av hungrande människor avstås tills en människa bedömt dem. |
+| `skane-under-magnus-eriksson` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `karantan-i-ragusa-1377` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `brunelleschis-kupol` | 2026-11-26: Ingen kandidat i listan; sökningen efter Florens domkyrka gav inga träffar; ingen egen vidare sökning hann göras. |
+| `tordesillasfordraget` | 2026-11-26: Händelsen saknades i den automatiska listan; sökningen gav bara bokskanningar och ett gränsmärke; används inte. |
