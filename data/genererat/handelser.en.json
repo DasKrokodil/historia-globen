@@ -926,6 +926,8 @@
 "arvsmassa-fran-kulubnarti":{"place":{"en":"Kulubnarti on the Nile, northern Sudan"},"title":{"en":"DNA from Christian Nubia"},"note":{"title":{"en":"The sources differ"}}},
 "svalt-och-kris-i-egypten-1065":{"place":{"en":"Lower Egypt (the point is approximate)"},"title":{"en":"Famine and crisis in Fatimid Egypt"},"note":{"title":{"en":"Only one source"}}},
 "storhogarna-i-hogom":{"place":{"en":"Högom, Selånger, Medelpad"},"title":{"en":"The great mounds at Högom"},"note":{"title":{"en":"The sources differ"}}},
+"garden-pa-genesmon":{"place":{"en":"Genesmon, Gene, Ångermanland"},"title":{"en":"The Iron Age farm at Genesmon"},"note":{"title":{"en":"The sources differ"}}},
+"fornborgen-pa-rogstaklippen":{"place":{"en":"Rogstaklippen, Torsåker, Ångermanland"},"title":{"en":"The hillfort on Rogstaklippen"}},
 "imjinkriget":{"place":{"en":"Korea and the seas around the Korean Peninsula (began at Busan)"},"title":{"en":"The Imjin War"},"note":{"title":{"en":"About the calendar"}}},
 "belagringen-av-busan-1592":{"place":{"en":"Busan, Korea"},"title":{"en":"The Japanese storm Busan"}},
 "slaget-vid-chungju-1592":{"place":{"en":"Tangeumdae at Chungju, Korea"},"title":{"en":"The Battle of Chungju"},"note":{"title":{"en":"The sources differ"}}},
@@ -1173,6 +1175,7 @@
 "sundsvall-grundas":{"place":{"en":"Sundsvall (Southern Sami Sjädtavallie), Medelpad"},"title":{"en":"Sundsvall is founded"}},
 "galtstroms-bruk":{"place":{"en":"Galtström, Njurunda, Medelpad"},"title":{"en":"The ironworks at Galtström"}},
 "slaget-vid-selanger":{"place":{"en":"Selånger and Sundsvall, Medelpad"},"title":{"en":"The Battle of Selånger"},"note":{"title":{"en":"The sources differ"}}},
+"harnosand-grundas":{"place":{"en":"Härnösand, Ångermanland"},"title":{"en":"Härnösand is founded"}},
 "forsta-opiumkriget":{"place":{"en":"China's coast from the Pearl River to the Yangtze (began at Kowloon, in present-day Hong Kong)"},"title":{"en":"First Opium War"},"note":{"title":{"en":"The sources differ"}}},
 "skarmytslingen-vid-kowloon-1839":{"place":{"en":"Kowloon, present-day Hong Kong"},"title":{"en":"Skirmish at Kowloon"}},
 "britterna-intar-zhoushan-1840":{"place":{"en":"Dinghai on Zhoushan Island (Chusan), Zhejiang"},"title":{"en":"The British take Zhoushan"}},
@@ -1404,6 +1407,7 @@
 "forsta-angsagen-i-tunadal":{"place":{"en":"Tunadal, Sundsvall, Medelpad"},"title":{"en":"Sweden’s first steam sawmill"}},
 "sundsvallsstrejken-1879":{"place":{"en":"Sundsvall, Medelpad"},"title":{"en":"The Sundsvall strike"},"note":{"title":{"en":"The sources differ"}}},
 "sundsvallsbranden":{"place":{"en":"Sundsvall, Medelpad"},"title":{"en":"The Sundsvall fire"}},
+"ornskoldsvik-grundas":{"place":{"en":"Örnsköldsvik (Southern Sami Orrestaare), Ångermanland"},"title":{"en":"Örnsköldsvik is founded"}},
 "rifkriget":{"place":{"en":"Rif in northern Morocco, then a Spanish protectorate (began near Annual)"},"title":{"en":"Rif War"},"note":{"title":{"en":"The sources differ"}}},
 "slaget-vid-annual":{"place":{"en":"Annual in north-eastern Morocco, about 60 km west of Melilla"},"title":{"en":"The Riffians defeat Spain at Annual"},"note":{"title":{"en":"The sources differ"}}},
 "massakern-vid-monte-arruit":{"place":{"en":"Monte Arruit at Al Aaroui, about 35 km south of Melilla"},"title":{"en":"The massacre at Monte Arruit"},"note":{"title":{"en":"The sources differ"}}},
@@ -1595,6 +1599,7 @@
 "szent-gyorgyi-och-c-vitaminet":{"place":{"en":"Szeged, Hungary"},"title":{"en":"Szent-Györgyi and vitamin C"}},
 "forintelsen-i-ungern":{"place":{"en":"Hungary (the marker at the ghetto in Budapest)"},"title":{"en":"The Holocaust in Hungary"},"note":{"title":{"en":"The sources differ"}}},
 "forsta-vasaloppet":{"place":{"en":"From Sälen to Mora, Dalarna"},"title":{"en":"The first Vasaloppet"}},
+"adalshandelserna-1931":{"place":{"en":"Lunde, Ådalen, Ångermanland"},"title":{"en":"The Ådalen shootings"}},
 "bangladeshs-befrielsekrig":{"place":{"en":"East Pakistan, today Bangladesh (began in Dhaka)"},"title":{"en":"Bangladesh Liberation War"},"note":{"title":{"en":"About the start of the war"}}},
 "operation-searchlight":{"place":{"en":"Dhaka and other cities in East Pakistan"},"title":{"en":"Operation Searchlight"},"note":{"title":{"en":"The sources differ"}}},
 "bangladeshs-sjalvstandighet-utropas":{"place":{"en":"Dhaka"},"title":{"en":"Bangladesh's independence is proclaimed"},"note":{"title":{"en":"Only one source for the place"}}},
@@ -1897,5 +1902,6 @@
 "slovakien-gar-med-i-eu":{"place":{"en":"All of Slovakia (the marker in Bratislava)"},"title":{"en":"Slovakia joins the EU"}},
 "paneuropeiska-picknicken":{"place":{"en":"The border with Austria near Sopron, Hungary"},"title":{"en":"The Pan-European Picnic"}},
 "ungern-gar-med-i-eu":{"place":{"en":"All of Hungary (the marker in Budapest)"},"title":{"en":"Hungary joins the EU"}},
-"falu-gruva-blir-varldsarv":{"place":{"en":"Falun, Dalarna"},"title":{"en":"Falun Mine becomes a World Heritage Site"}}
+"falu-gruva-blir-varldsarv":{"place":{"en":"Falun, Dalarna"},"title":{"en":"Falun Mine becomes a World Heritage Site"}},
+"hoga-kusten-blir-varldsarv":{"place":{"en":"Skuleberget, High Coast, Ångermanland"},"title":{"en":"The High Coast becomes a World Heritage Site"},"note":{"title":{"en":"The sources differ"}}}
 }}
