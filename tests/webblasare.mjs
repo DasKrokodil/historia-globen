@@ -4414,7 +4414,7 @@ async function run(browser, vp) {
       // Landskapen är ihopfällda under sitt land, och knappen säger landets namn ur datan
       const kids = tp.locator('#focus-menu [data-node="c:sverige:landskap"]');
       const kidsText = (await kids.textContent()).replace(/\s+/g, ' ').trim();
-      if (!/^Landskap i Sverige \(1\)$/.test(kidsText)) throw new Error(`landskapens knapp säger "${kidsText}", inte "Landskap i Sverige (1)"`);
+      if (!/^Landskap i Sverige \(2\)$/.test(kidsText)) throw new Error(`landskapens knapp säger "${kidsText}", inte "Landskap i Sverige (2)" (Skåne och Uppland, #1850)`);
       if (await kids.getAttribute('aria-expanded') !== 'false') throw new Error('landskapen är utfällda från början');
       if (await tp.locator('#focus-menu [data-key="place:skane"]').isVisible()) throw new Error('Skåne syns fast landskapen är ihopfällda');
       await kids.click();
