@@ -152,7 +152,17 @@ export function inNeighbour(place, lon, lat) {
  */
 export function inPlace(place, lon, lat) {
   const g = place.boundary.geometry;
-  return inGeometry(g, lon, lat) || (edgeKm(g, lon, lat) <= COAST_MARGIN_KM && !inNeighbour(place, lon, lat));
+  return inGeometry(g, lon, lat) || (edgeKm(g, lon, lat) <= COAST_MARGIN_KM && !inNeighbour(place, lon, lat) && !inSibling(place, lon, lat));
+}
+
+/**
+ * Ligger punkten inne i ett syskonlandskap (#1847), ett annat landskap med samma `partOf`? Då hör den till det landskapet och inte
+ * till det här via kustmarginalen: marginalen är till för punkter som hamnat i havet av kustens skull, inte för land i nästa landskap
+ * (Gustav Vasa i Strängnäs, Södermanland, ligger 14 km från Upplands gräns). Listan `_siblings` sätts av linkIncludeEvents; saknas
+ * den (platserna är inte länkade) finns inga syskon, som förut.
+ */
+export function inSibling(place, lon, lat) {
+  return (place._siblings ?? []).some(s => inGeometry(s.boundary.geometry, lon, lat));
 }
 
 /**
@@ -190,13 +200,17 @@ export function placeEvents(place, events) {
 
 /**
  * Knyter ihop platsernas `includeEvents` (#2333): varje plats av typen `country` får `_claimedElsewhere`, id för händelser som ett
- * annat land listar, så att placeEvents inte räknar dem till det här landet. Landskap och andra typer får ingen lista och påverkas
- * inte. Anropas av loadPlaces i js/model.js (och av testerna) med alla platser; ger samma lista tillbaka.
+ * annat land listar, så att placeEvents inte räknar dem till det här landet. Landskap får ingen sådan lista, men `_siblings`
+ * (#1847): de andra landskapen med samma `partOf`, som inPlace använder så att kustmarginalen inte tar land i ett syskonlandskap.
+ * Andra typer får ingenting och påverkas inte. Anropas av loadPlaces i js/model.js (och av testerna) med alla platser; ger samma lista tillbaka.
  */
 export function linkIncludeEvents(places) {
   const countries = places.filter(p => p?.type === 'country');
   for (const p of countries) {
     p._claimedElsewhere = new Set(countries.filter(q => q !== p).flatMap(q => q.includeEvents ?? []));
+  }
+  for (const p of places.filter(p => p?.type === 'landskap')) {
+    p._siblings = places.filter(q => q !== p && q?.type === 'landskap' && q.partOf === p.partOf && q.boundary?.geometry);
   }
   return places;
 }
