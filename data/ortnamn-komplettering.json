@@ -211,6 +211,26 @@
     "checked": "2026-11-27"
    }
   ],
+  "vastergotland": [
+   {
+    "wikidata": "Q862885",
+    "coordinates": [
+     13.767,
+     58.4
+    ],
+    "name": {
+     "sv": "Billingen",
+     "en": "Billingen",
+     "de": "Billingen",
+     "es": "Billingen",
+     "fr": "Billingen"
+    },
+    "events": [
+     "baltiska-issjon-tappas-ut"
+    ],
+    "checked": "2026-11-27"
+   }
+  ],
   "gotland": [
    {
     "wikidata": "Q413420",
