@@ -253,6 +253,26 @@
     ],
     "checked": "2026-11-27"
    }
+  ],
+  "dalarna": [
+   {
+    "wikidata": "Q849874",
+    "coordinates": [
+     14.564,
+     61.01
+    ],
+    "name": {
+     "sv": "Mora",
+     "en": "Mora",
+     "de": "Mora",
+     "es": "Mora",
+     "fr": "Mora"
+    },
+    "events": [
+     "forsta-vasaloppet"
+    ],
+    "checked": "2026-11-27"
+   }
   ]
  }
 }
