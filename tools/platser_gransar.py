@@ -9,6 +9,11 @@ fyra punkter tas bort.
 Ett län eller en delstat väljs med adm1_code (boundary.admin1, till exempel SWE-3429 för Skåne län) ur Natural Earth 1:10m admin 1
 version 5.1.2; koordinaterna avrundas där till tre decimaler (cirka 100 m). Filen är cirka 40 MB; en nedladdad kopia kan ges som
 argument: python3 tools/platser_gransar.py ne_10m_admin_1_states_provinces.geojson
+Ett landskap (#1847, beslut 2026-11-27) väljs med namnet i boundary.landskap (till exempel "Uppland") ur svenska-landskap.geo.json i
+perliedman/svenska-landskap (Lantmäteriets Distriktsindelning, CC0), fastlåst till en commit (LANDSKAP_URL); filen är cirka 1 MB och en
+nedladdad kopia kan ges med --landskap=<fil>. Landskapet klipps mot Natural Earth 1:10m (data/land-10m.json, public domain),
+förenklas till LANDSKAP_FORENKLA grader och avrundas till tre decimaler; delar mindre än LANDSKAP_MIN_DEL grader² tas bort.
+Kör bara de platser som anges med --plats=<id>[,<id>] (annars alla); övriga platser rörs inte. Kräver shapely, som de andra verktygen.
 Ringar som korsar datumlinjen (±180°, till exempel Ryssland och Fiji) delas vid 180° med nya sömpunkter, så att varje delring ligger
 på ena sidan och ingen ring har ett hopp större än 180° i längdgrad (#1268). Delningen är data: schemat är oförändrat, och
 js/place-geo.js och scripts/validate-site.py skyddar ändå mot en ring som hoppar.
@@ -17,13 +22,19 @@ Grannländerna (#1449): för varje plats skrivs också boundary.neighbours, poly
 placeEvents() i js/place-geo.js räknar en punkt inne i en av dem som utanför platsen, också inom kustmarginalen på 20 km: en punkt
 på land hör bara till landet den ligger i, och marginalen hjälper bara punkter som hamnat i havet av kustens skull. Platsens eget land
 är inte med (för Skåne är det Sverige). Ingen ny datakälla: samma world-atlas som platsernas länder, public domain."""
-import contextlib, io, json, math, sys, urllib.request
+import contextlib, io, json, math, re, sys, urllib.request
 from pathlib import Path
 
 URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json'
 # Län och delstater (boundary.admin1 = adm1_code): Natural Earth 1:10m admin 1, version 5.1.2, public domain.
 # Skåne finns bara i 1:10m. Koordinaterna avrundas till tre decimaler (cirka 100 m).
 ADMIN1_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson'
+# Landskap (#1847): Lantmäteriets Distriktsindelning (CC0) sammanslagen till landskap av Per Liedman (CC0 enligt repots README), den oklippta
+# filen, fastlåst till commit 64f033e (2022-03-22). Klipps mot data/land-10m.json (Natural Earth 1:10m, public domain).
+LANDSKAP_URL = ('https://raw.githubusercontent.com/perliedman/svenska-landskap/'
+                '64f033ea4cab359d6810e27b221ca6b7f10ce649/svenska-landskap.geo.json')
+LANDSKAP_FORENKLA = 0.001   # grader (cirka 100 m), samma ordning som avrundningen till tre decimaler
+LANDSKAP_MIN_DEL = 0.0005   # grader² (cirka 3,5 km²): mindre öar och skär tas bort ur konturen
 # Grannländerna (#1449): delarna av andra länders polygoner som ligger inom så här många km från platsens gräns. Måste vara minst
 # COAST_MARGIN_KM i js/place-geo.js (20 km), eftersom bara punkter inom marginalen prövas mot dem; 10 km extra för det platta
 # närmevärdet och avrundningen. tests/place-geo.test.mjs kontrollerar att fältet boundary.neighbourKm är minst marginalen.
@@ -200,6 +211,54 @@ def admin1_geometry(collection, code):
     return {'type': 'MultiPolygon', 'coordinates': out}
 
 
+def land_10m(window):
+    """Landet i Natural Earth 1:10m (data/land-10m.json, en ekvirektangulär path i pixlar) inom rutan [väst, syd, öst, nord], i grader.
+    Samma läsning som land_10m i tools/riken.py: ringarna läggs ihop med jämn-udda-regeln, som när kartan ritar pathen."""
+    from shapely.geometry import Polygon, box
+    import shapely
+    doc = json.loads((FILE.parent / 'land-10m.json').read_text(encoding='utf-8'))
+    w, h = doc['width'], doc['height']
+    env, acc, ring = box(*window), Polygon(), []
+
+    def close(r):
+        nonlocal acc
+        if len(r) > 2:
+            p = Polygon(r)
+            if box(*p.bounds).intersects(env):
+                acc = acc.symmetric_difference(shapely.make_valid(p).buffer(0))
+    for cmd, xs, ys in re.findall(r'([MLZ])(?:(-?[\d.]+),(-?[\d.]+))?', doc['path']):
+        if cmd in 'MZ':
+            close(ring)
+            ring = []
+        if cmd in 'ML':
+            ring.append((float(xs) / w * 360 - 180, 90 - float(ys) / h * 180))
+    close(ring)
+    return acc.intersection(env)
+
+
+def landskap_geometry(collection, name):
+    """Landskapet name (egenskapen landskap) ur svenska-landskap.geo.json, klippt mot kusten i data/land-10m.json, förenklat
+    och avrundat till tre decimaler. Ger en MultiPolygon, som admin1_geometry. Delar mindre än LANDSKAP_MIN_DEL grader² tas bort."""
+    import shapely
+    from shapely.geometry import MultiPolygon, shape
+    from shapely.geometry.polygon import orient
+    f = next(f for f in collection['features'] if f['properties'].get('landskap') == name)
+    g = shapely.make_valid(shape(f['geometry'])).buffer(0)
+    x0, y0, x1, y1 = g.bounds
+    land = land_10m((x0 - 0.2, y0 - 0.2, x1 + 0.2, y1 + 0.2))
+    # set_precision snappar till rutnätet 0,001 grader och ger en giltig geometri; avrundningen ensam kan göra att ringen skär sig själv
+    clipped = shapely.set_precision(g.intersection(land).simplify(LANDSKAP_FORENKLA, preserve_topology=True), 0.001)
+    parts = [p for p in (clipped.geoms if hasattr(clipped, 'geoms') else [clipped]) if p.geom_type == 'Polygon' and p.area >= LANDSKAP_MIN_DEL]
+    out = []
+    for p in sorted(parts, key=lambda p: -p.area):
+        p = orient(p)
+        rings = [dedupe([[round(x, 3), round(y, 3)] for x, y in r.coords]) for r in [p.exterior, *p.interiors]]
+        rings = [r for r in rings if len(r) >= 4]
+        if rings:
+            out.append(rings)
+    return {'type': 'MultiPolygon', 'coordinates': out}
+
+
 def clip_rect(ring, x0, y0, x1, y1):
     """Klipper en sluten ring mot rutan [x0, x1] × [y0, y1] (Sutherland–Hodgman, fyra halvplan). Ger en sluten ring, eller None
     om inget blir kvar. För en konkav ring som skär rutan på flera ställen blir det en ring med oändligt smala förbindelser längs
@@ -331,18 +390,38 @@ def clip_neighbours(countries, place, pad_km=None):
 
 
 def main():
+    only, landskap_fil, rest = None, None, []
+    for a in sys.argv[1:]:
+        if a.startswith('--plats='):
+            only = set(a.split('=', 1)[1].split(','))
+        elif a.startswith('--landskap='):
+            landskap_fil = a.split('=', 1)[1]
+        else:
+            rest.append(a)
     doc = json.loads(FILE.read_text(encoding='utf-8'))
+    if only and not only <= {p['id'] for p in doc['places']}:
+        sys.exit(f"--plats: okänd plats {', '.join(sorted(only - {p['id'] for p in doc['places']}))}")
     with urllib.request.urlopen(URL, timeout=60) as r:
         topo = json.load(r)
     arcs = decode(topo)
     countries = load_countries(topo, arcs)
-    admin1 = None
+    admin1 = landskap = None
     for place in doc['places']:
+        if only and place['id'] not in only:
+            continue
         b = place['boundary']
-        if 'admin1' in b:
+        if 'landskap' in b:
+            if landskap is None:
+                if landskap_fil:
+                    landskap = json.loads(Path(landskap_fil).read_text(encoding='utf-8'))
+                else:
+                    with urllib.request.urlopen(LANDSKAP_URL, timeout=120) as r:
+                        landskap = json.load(r)
+            b['geometry'] = landskap_geometry(landskap, b['landskap'])
+        elif 'admin1' in b:
             if admin1 is None:
-                if len(sys.argv) > 1:
-                    admin1 = json.loads(Path(sys.argv[1]).read_text(encoding='utf-8'))
+                if rest:
+                    admin1 = json.loads(Path(rest[0]).read_text(encoding='utf-8'))
                 else:
                     with urllib.request.urlopen(ADMIN1_URL, timeout=300) as r:
                         admin1 = json.load(r)

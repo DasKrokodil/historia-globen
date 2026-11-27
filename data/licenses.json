@@ -3133,6 +3133,7 @@
         "wp-sv-skedemosse",
         "wp-sv-sodra-stambanan",
         "wp-sv-stockholms-historia",
+        "wp-sv-uppland",
         "wp-sv-uppsala-universitet",
         "wp-sv-verginasolen",
         "wp-svalbard-global-seed-vault",
@@ -3731,6 +3732,7 @@
         "wd-ulleungdo",
         "wd-union-sweden-norway",
         "wd-united-states",
+        "wd-uppland",
         "wd-uppsala-universitet",
         "wd-vasa",
         "wd-vietnam",
@@ -5286,7 +5288,8 @@
         "lex-skane",
         "lex-skanske-krig",
         "lex-tabet-af-skane",
-        "lex-uppakra"
+        "lex-uppakra",
+        "lex-uppland"
       ]
     },
     {
@@ -5343,7 +5346,8 @@
     {
       "license": "© Store norske leksikon, begrenset gjenbruk (bara länkad, ingen text kopierad)",
       "sourceIds": [
-        "snl-skane"
+        "snl-skane",
+        "snl-uppland"
       ]
     },
     {

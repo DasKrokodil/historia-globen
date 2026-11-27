@@ -830,10 +830,11 @@ if places_doc is not None:
         """Som inGeometry i js/place-geo.js: punkten ligger i en polygon och inte i något av dess hål."""
         return any(in_ring(poly[0], lon, lat) and not any(in_ring(h, lon, lat) for h in poly[1:]) for poly in plys)
 
-    def in_place(polys, nb_polys, lon, lat):
+    def in_place(polys, nb_polys, lon, lat, sib_polys=()):
         """Som inPlace i js/place-geo.js (#1449): inom gränsen, eller inom kustmarginalen och inte inne i ett annat lands polygon
         (grannländerna, nb_polys). En punkt på land räknas till landet den ligger i; marginalen är för det som hamnat i havet."""
-        return inside_polys(polys, lon, lat) or (edge_km(polys, lon, lat) <= COAST_MARGIN_KM and not inside_polys(nb_polys, lon, lat))
+        return inside_polys(polys, lon, lat) or (edge_km(polys, lon, lat) <= COAST_MARGIN_KM and not inside_polys(nb_polys, lon, lat)
+                                                 and not inside_polys(sib_polys, lon, lat))
 
     for pl in places_doc.get('places', []):
         pid = pl.get('id', '?')
@@ -904,12 +905,20 @@ if places_doc is not None:
         # Som linkIncludeEvents i js/place-geo.js: händelser som ett annat land (som får visas) listar räknas inte till det här landet
         claimed = {eid for q in places_doc.get('places', []) if q is not pl and q.get('type') == 'country' and q.get('review') in VISIBLE
                    for eid in q.get('includeEvents', [])} if pl.get('type') == 'country' else set()
+        # Som _siblings i js/place-geo.js (#1847): ett landskaps syskon är de andra landskapen med samma partOf; land i ett syskon tas inte via marginalen
+        sib_polys = []
+        for q in (places_doc.get('places', []) if pl.get('type') == 'landskap' else []):
+            if q is not pl and q.get('type') == 'landskap' and q.get('partOf') == pl.get('partOf') and q.get('review') in VISIBLE:
+                g2 = q.get('boundary', {}).get('geometry', {})
+                sib_polys += [g2['coordinates']] if g2.get('type') == 'Polygon' else g2.get('coordinates', [])
         inside_all = [e for e in ev_all if e['id'] in listed
-                      or (e['id'] not in claimed and in_place(polys, nb_polys, *e['location']['coordinates'][:2]))]
+                      or (e['id'] not in claimed and in_place(polys, nb_polys, *e['location']['coordinates'][:2], sib_polys))]
         # Som placeEvents i js/place-geo.js: scope "wide" (#1806) gäller ett större område och är inte platsens händelse
         inside = [e for e in inside_all if e.get('scope') != 'wide']
-        if len(inside) < 5:
-            err(f'{where}: minst 5 synliga händelser ska ligga inom gränsen, men det är {len(inside)}')
+        # Kravet: fem för länder, tre för landskap (beslut 2026-11-16, punkt 5)
+        need = 3 if pl.get('type') == 'landskap' else 5
+        if len(inside) < need:
+            err(f'{where}: minst {need} synliga händelser ska ligga inom gränsen, men det är {len(inside)}')
         # Rikena i landskortet (#1448): bara id och år, och åren hämtas ur rikets egna data. from är början och to slutet på
         # någon av delens perioder i rikets fil, och perioderna emellan följer på varandra utan lucka. Listan står i tidsordning.
         prev_from = None
