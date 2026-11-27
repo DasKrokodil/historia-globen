@@ -1,0 +1,2259 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "asien-6",
+  "datum": "2026-11-26",
+  "urval": "ids=37 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "forsta-slaget-vid-panipat",
+      "titel": "Första slaget vid Panipat",
+      "start": 1526,
+      "plats": "Panipat, norr om Delhi (i dag Haryana, Indien)",
+      "wikidata": "Q605321",
+      "kandidater": [
+        {
+          "fil": "File:Battle of Panipat (20 April 1526). Baburnama of 1598.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Battle_of_Panipat_(20_April_1526)._Baburnama_of_1598.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "1598 artist",
+          "datum": "1598",
+          "datum_original": "1598",
+          "datum_fil": "2024-12-28 04:40:48",
+          "kredit": "The Illustrated Baburnama, Som Prakash Verma, Routledge, 2016",
+          "beskrivning": "Battle of Panipat (20 April 1526). Baburnama of 1598",
+          "bredd": 3690,
+          "hojd": 3048,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Battle_of_Panipat_%2820_April_1526%29._Baburnama_of_1598.jpg/960px-Battle_of_Panipat_%2820_April_1526%29._Baburnama_of_1598.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Baburnama, National Museum, New Delhi",
+            "First Battle of Panipat"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        },
+        {
+          "fil": "File:Vaki'at-i Baburi - The Battle of Panipat (1526) by Deo Gujarati.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Vaki%27at-i_Baburi_-_The_Battle_of_Panipat_(1526)_by_Deo_Gujarati.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Deo Gujarati",
+          "datum": "circa 1590 date QS:P571,+1590-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1590 date QS:P571,+1590-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2024-04-29 18:29:11",
+          "kredit": "http://www.columbia.edu/itc/mealac/pritchett/00routesdata/1500_1599/babur/panipat/panipat.html",
+          "beskrivning": "The battle of Panipat between the armies of Babur and Ibrahim Lodi (1526). An illustration to the Vaqi 'at-i Baburi , a Persian translation of the Baburnama, c.1590. This miniature is in the Mughal/Akbar style. British Library Or. 3714, f. 368r",
+          "bredd": 1173,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Vaki%27at-i_Baburi_-_The_Battle_of_Panipat_%281526%29_by_Deo_Gujarati.jpg/960px-Vaki%27at-i_Baburi_-_The_Battle_of_Panipat_%281526%29_by_Deo_Gujarati.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Baburnama, British Library",
+            "First Battle of Panipat",
+            "Ibrahim Lodi"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "slaget-vid-wofla",
+      "titel": "Slaget vid Wofla",
+      "start": 1542,
+      "plats": "Wofla (Ofla) nära sjön Ashenge, Tigray",
+      "wikidata": "Q835180",
+      "kandidater": [
+        {
+          "fil": "File:Burning of churches by the Adalites and the execution of Cristóvão da Gama.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Burning_of_churches_by_the_Adalites_and_the_execution_of_Crist%C3%B3v%C3%A3o_da_Gama.png",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Kegneketa Jemlieri Hailu of Gondar (fl.1900)",
+          "datum": "1900",
+          "datum_original": "1900",
+          "datum_fil": "2025-02-02 15:05:49",
+          "kredit": "Horniman Museum, London, UK. Photographic Rights The Bridgeman Art Library.",
+          "beskrivning": "The execution of Cristóvão da Gama by Ahmad Gragn",
+          "bredd": 2258,
+          "hojd": 786,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Burning_of_churches_by_the_Adalites_and_the_execution_of_Crist%C3%B3v%C3%A3o_da_Gama.png/960px-Burning_of_churches_by_the_Adalites_and_the_execution_of_Crist%C3%B3v%C3%A3o_da_Gama.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-zero"
+            ]
+          }
+        },
+        {
+          "fil": "File:FallAhmedGragn.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:FallAhmedGragn.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kegneketa Jemlieri Hailu of Gondar (fl.1900)",
+          "datum": "1900",
+          "datum_original": "1900",
+          "datum_fil": "2017-09-06 16:47:06",
+          "kredit": "Horniman Museum, London, UK. Photographic Rights The Bridgeman Art Library.",
+          "beskrivning": "Burning of Churches Muslims and the Death of Cristobal de Gama and the Fall and Death of Ahmad ibn Ibrahim al-Ghazi Shot by a Portuguese Musketeer",
+          "bredd": 588,
+          "hojd": 399,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/55/FallAhmedGragn.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Ahmad ibn Ibrahim al-Ghazi",
+            "Paintings"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        },
+        {
+          "fil": "File:Adal.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Adal.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "אליש 00:53, 6 בדצמבר 2007 (IST)",
+          "datum": "6 בדצמבר 2007",
+          "datum_original": "6 בדצמבר 2007",
+          "datum_fil": "2012-01-06 07:28:34",
+          "kredit": "נוצר על ידי משתמש:אדעולם ,",
+          "beskrivning": "The Horn of Africa on the eve of the Battle of Adal in 1529. The Ethiopian Empire (Christians, in orange) and Adal (Muslims, in green).",
+          "bredd": 600,
+          "hojd": 532,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/de/Adal.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1529 in Africa",
+            "Maps of Africa in the 16th century",
+            "Maps of the Adal Sultanate",
+            "Maps of the Ethiopian Empire",
+            "Maps showing 1529"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "smal",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 3.0\" men ingen licensmall kändes igen på filsidan ({{GFDL}})"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "GFDL"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "etiopien"
+    },
+    {
+      "id": "andra-slaget-vid-panipat",
+      "titel": "Andra slaget vid Panipat",
+      "start": 1556,
+      "plats": "Panipat, norr om Delhi (i dag Haryana, Indien)",
+      "wikidata": "Q233414",
+      "kandidater": [
+        {
+          "fil": "File:The defeat of Hemu, Akbarnama.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_defeat_of_Hemu,_Akbarnama.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kankar",
+          "datum": "between 1595 and 1600 date QS:P,+1500-00-00T00:00:00Z/6,P1319,+1595-00-00T00:00:00Z/9,P1326,+1600-00-00T00:00:00Z/9",
+          "datum_original": "between 1595 and 1600 date QS:P,+1500-00-00T00:00:00Z/6,P1319,+1595-00-00T00:00:00Z/9,P1326,+1600-00-00T00:00:00Z/9",
+          "datum_fil": "2026-11-06 03:53:18",
+          "kredit": "National Gallery of Victoria",
+          "beskrivning": "The defeat of Hemu at the Second Battle of Panipat, a c. 1590s painting by Kankar from the Akbarnama. Neither Hemu nor Akbar are depicted here suggesting that this might be part of a double-page composition.",
+          "bredd": 2000,
+          "hojd": 3321,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/The_defeat_of_Hemu%2C_Akbarnama.jpg/960px-The_defeat_of_Hemu%2C_Akbarnama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Akbarnama",
+            "Art of India in the National Gallery of Victoria",
+            "Elephant riding in art of India",
+            "Islamic miniatures of elephants (India)",
+            "Second Battle of Panipat",
+            "War elephants of the Mughal Empire"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "jordbavningen-i-shaanxi-1556",
+      "titel": "Jordbävningen i Shaanxi",
+      "start": 1556,
+      "plats": "Huaxian (i dag Huazhou) i Weidalen, Shaanxi, Mingrikets Kina",
+      "wikidata": "Q191293",
+      "kandidater": [
+        {
+          "fil": "File:The Daci'en Temple, Xi'an (50613091213).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Daci%27en_Temple,_Xi%27an_(50613091213).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Hugh Llewelyn from Keynsham, UK",
+          "datum": "2009-04-22 09:22",
+          "datum_original": "2009-04-22 09:22",
+          "datum_fil": "2023-10-03 12:10:32",
+          "kredit": "The Daci'en Temple, Xi'an",
+          "beskrivning": "A Buddha inside the Great Wild Goose Pagoda (Da Yan Pagoda) in the Daci'en Temple complex, Xi'an (formerly Chang'an), Shaanxi, 22 April 2009. The Budhist temple is a complex of temples, pagodas and pavilions. It was built in 648-52 and rebuilt in 1466. The Pagoda was built in 652 and rebuilt and heigtened in 704. However, a severe earthquake in 1556 reduced its height to the present seven stories. It was subsequently renovated several times since.",
+          "bredd": 4592,
+          "hojd": 3056,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/The_Daci%27en_Temple%2C_Xi%27an_%2850613091213%29.jpg/960px-The_Daci%27en_Temple%2C_Xi%27an_%2850613091213%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Buddhist art in Shaanxi",
+            "Daci'en Temple"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:The Daci'en Temple, Xi'an (50613945967).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Daci%27en_Temple,_Xi%27an_(50613945967).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Hugh Llewelyn from Keynsham, UK",
+          "datum": "2009-04-22 09:23",
+          "datum_original": "2009-04-22 09:23",
+          "datum_fil": "2023-10-03 12:10:31",
+          "kredit": "The Daci'en Temple, Xi'an",
+          "beskrivning": "Inside the Great Wild Goose Pagoda (Da Yan Pagoda) in the Daci'en Temple complex, Xi'an (formerly Chang'an), Shaanxi, 22 April 2009. The Budhist temple is a complex of temples, pagodas and pavilions. It was built in 648-52 and rebuilt in 1466. The Pagoda was built in 652 and rebuilt and heigtened in 704. However, a severe earthquake in 1556 reduced its height to the present seven stories. It was subsequently renovated several times since.",
+          "bredd": 4592,
+          "hojd": 3056,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/The_Daci%27en_Temple%2C_Xi%27an_%2850613945967%29.jpg/960px-The_Daci%27en_Temple%2C_Xi%27an_%2850613945967%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Daci'en Temple"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Shaanxi 1556 earthquake map of provinces.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Shaanxi_1556_earthquake_map_of_provinces.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": null,
+          "datum": "2005-11-07 04:46:15",
+          "datum_original": null,
+          "datum_fil": "2005-11-07 04:46:15",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 700,
+          "hojd": 554,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Shaanxi_1556_earthquake_map_of_provinces.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1556 earthquakes in China",
+            "Disasters and accidents in Shaanxi",
+            "History of Shaanxi",
+            "Maps of Shaanxi",
+            "Maps of earthquakes in China",
+            "Maps using Pinyin",
+            "Shaanxi in the 16th century"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "datum-osakert",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{Self|GFDL}}, {{Self|Cc-by-sa-3.0-migrated}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "Self|GFDL",
+              "Self|Cc-by-sa-3.0-migrated"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "mendana-nar-salomonoarna",
+      "titel": "Mendaña når Salomonöarna",
+      "start": 1568,
+      "plats": "Santa Isabel (i dag Salomonöarna)",
+      "wikidata": "Q713182",
+      "kandidater": [
+        {
+          "fil": "File:SantaIsabelmap.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:SantaIsabelmap.png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "This map's source is here , with the uploader's modifications, and the GMT homepage says that the tools are released under the GNU General Public License.",
+          "datum": "Originally uploaded to en:Wikipedia ( log ) in April 2006 by Kelisi ( talk ).",
+          "datum_original": "Originally uploaded to en:Wikipedia ( log ) in April 2006 by Kelisi ( talk ).",
+          "datum_fil": "2008-03-03 19:59:19",
+          "kredit": "English Wikipedia en:Image:SantaIsabelmap.png",
+          "beskrivning": "Map of Santa Isabel and neighbouring islands in the Solomon Islands.",
+          "bredd": 495,
+          "hojd": 487,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/db/SantaIsabelmap.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Maps of Santa Isabel Island"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{GFDL-self-with-disclaimers}}, {{GFDL}}, {{GFDL|migration=relicense}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "GFDL-self-with-disclaimers",
+              "GFDL",
+              "GFDL|migration=relicense"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "renassans"
+    },
+    {
+      "id": "slaget-vid-komaki-nagakute",
+      "titel": "Striderna vid Komaki och Nagakute",
+      "start": 1584,
+      "plats": "Komaki och Nagakute i Owari, nära dagens Nagoya, Japan",
+      "wikidata": "Q1353633",
+      "kandidater": [
+        {
+          "fil": "File:Nagakute Historic Battlefield.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Nagakute_Historic_Battlefield.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "立花左近",
+          "datum": "2011-09-20",
+          "datum_original": "2011-09-20",
+          "datum_fil": "2011-09-20 15:39:53",
+          "kredit": "Own work",
+          "beskrivning": "Nagakute Historic Battlefield located in Aichi pref.,Japan",
+          "bredd": 1280,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Nagakute_Historic_Battlefield.jpg/960px-Nagakute_Historic_Battlefield.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battlefield of Nagakute",
+            "Memorial stones in Japan"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "licensmallen (action=raw) kunde inte hämtas, så API:ets licens är inte korskontrollerad",
+              "licensmallen (action=raw) ej hämtad: HTTP 429 efter 3 försök"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "renassans"
+    },
+    {
+      "id": "belagringen-av-busan-1592",
+      "titel": "Japanerna stormar Busan",
+      "start": 1592,
+      "plats": "Busan, Korea",
+      "wikidata": "Q497046",
+      "kandidater": [
+        {
+          "fil": "File:Siege-of-Busanjin-1592.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Siege-of-Busanjin-1592.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "2019-06-25 20:39:00",
+          "datum_original": null,
+          "datum_fil": "2019-06-25 20:39:00",
+          "kredit": "http://www.cha.go.kr/unisearch/Culresult_Db_View.jsp?VdkVgwKey=12,03910000,11",
+          "beskrivning": "Japanese Siege of Busanjin (1592)",
+          "bredd": 968,
+          "hojd": 1467,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Siege-of-Busanjin-1592.jpg/960px-Siege-of-Busanjin-1592.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Busanjin sunjeoldo",
+            "Piracy"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "korea-joseon"
+    },
+    {
+      "id": "farden-till-vastern-1592",
+      "titel": "Färden till Västern ges ut",
+      "start": 1592,
+      "plats": "Nanjing, Kina",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:HXD1D 0681 with Y406@NJH (20260519135010).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:HXD1D_0681_with_Y406@NJH_(20260519135010).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "N509FZ",
+          "datum": "2026-05-19 13:50:10",
+          "datum_original": "2026-05-19 13:50:10",
+          "datum_fil": "2026-05-19 17:48:08",
+          "kredit": "Own work",
+          "beskrivning": "Y406 \"Delta Star Express\" from Shanghai West to Tianshui, departing on this \"China Tourism Day\". CR Shanghai's latest charter train using modified 25K's, with a 5-digit price for a 18-day journey along the Silk Road, covering Tianshui, Yining, Beitun, Korla, Kashgar, Kuqa and Hami. As for the livery, somehow like Keikyu, and also a salute to the old 13/14 Beijing-Shanghai Through Train in 1987, but it reminds me of a brown sugar-filled steamed triangular bun called Tangsanjiao !",
+          "bredd": 5254,
+          "hojd": 3503,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/HXD1D_0681_with_Y406%40NJH_%2820260519135010%29.jpg/960px-HXD1D_0681_with_Y406%40NJH_%2820260519135010%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "China Railway HXD1D",
+            "Delta Star Express",
+            "May 2026 in rail transport in China",
+            "Trains at Nanjing Railway Station"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:HXD1D 0681 with Y406@NJH (20260519135012).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:HXD1D_0681_with_Y406@NJH_(20260519135012).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "N509FZ",
+          "datum": "2026-05-19 13:50:12",
+          "datum_original": "2026-05-19 13:50:12",
+          "datum_fil": "2026-05-19 17:48:08",
+          "kredit": "Own work",
+          "beskrivning": "Y406 \"Delta Star Express\" from Shanghai West to Tianshui, departing on this \"China Tourism Day\". CR Shanghai's latest charter train using modified 25K's, with a 5-digit price for a 18-day journey along the Silk Road, covering Tianshui, Yining, Beitun, Korla, Kashgar, Kuqa and Hami. As for the livery, somehow like Keikyu, and also a salute to the old 13/14 Beijing-Shanghai Through Train in 1987, but it reminds me of a brown sugar-filled steamed triangular bun called Tangsanjiao !",
+          "bredd": 6013,
+          "hojd": 4009,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/HXD1D_0681_with_Y406%40NJH_%2820260519135012%29.jpg/960px-HXD1D_0681_with_Y406%40NJH_%2820260519135012%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "China Railway HXD1D",
+            "Delta Star Express",
+            "May 2026 in rail transport in China",
+            "Trains at Nanjing Railway Station"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "sjoslaget-vid-hansan",
+      "titel": "Sjöslaget vid Hansan",
+      "start": 1592,
+      "plats": "Vid ön Hansan utanför Koreas sydkust",
+      "wikidata": "Q487332",
+      "kandidater": [
+        {
+          "fil": "File:Documentary painting of the Battle of Hansan Island.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Documentary_painting_of_the_Battle_of_Hansan_Island.jpg",
+          "kalla": "commons-sok",
+          "licens": "KOGL Type 1",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "http://www.kogl.or.kr/info/licenseType1.do",
+          "upphovsperson": "War Memorial of Korea Open Archives",
+          "datum": "2023-11-24",
+          "datum_original": "2023-11-24",
+          "datum_fil": "2023-11-24 06:21:37",
+          "kredit": "https://archives.warmemo.or.kr:8443/pss/media/pssMediaDetail.do?MID=UM00015&archvNttNo=5914 – The source is archived here ( - Archive.today)",
+          "beskrivning": "This is a documentary paint depicting the Joseon Navy under Admiral Yi Sun-shin defeating the Japanese Navy in the sea off Hansan Island in 1592.",
+          "bredd": 1200,
+          "hojd": 781,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Documentary_painting_of_the_Battle_of_Hansan_Island.jpg/960px-Documentary_painting_of_the_Battle_of_Hansan_Island.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Hansan Island",
+            "Japanese invasions of Korea in art",
+            "Naval battles of the Imjin War"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: KOGL Type 1",
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"KOGL Type 1\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "korea-joseon"
+    },
+    {
+      "id": "slaget-vid-chungju-1592",
+      "titel": "Slaget vid Chungju",
+      "start": 1592,
+      "plats": "Tangeumdae vid Chungju, Korea",
+      "wikidata": "Q486979",
+      "kandidater": [
+        {
+          "fil": "File:회본태합기신립.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%ED%9A%8C%EB%B3%B8%ED%83%9C%ED%95%A9%EA%B8%B0%EC%8B%A0%EB%A6%BD.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "일본, 조선왕조",
+          "datum": "2013-06-05 09:20:19",
+          "datum_original": "2013-06-05 09:20:19",
+          "datum_fil": "2013-09-24 16:24:21",
+          "kredit": "회본태합기 삽화, 북관도첩 일전해위도",
+          "beskrivning": "회본태합기 삽화",
+          "bredd": 588,
+          "hojd": 404,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/8/82/%ED%9A%8C%EB%B3%B8%ED%83%9C%ED%95%A9%EA%B8%B0%EC%8B%A0%EB%A6%BD.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Ehon Taikōki",
+            "Japanese invasions of Korea in art"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "korea-joseon"
+    },
+    {
+      "id": "belagringen-av-pyongyang-1593",
+      "titel": "Belägringen av Pyongyang",
+      "start": 1593,
+      "plats": "Pyongyang, Korea",
+      "wikidata": "Q14475856",
+      "kandidater": [
+        {
+          "fil": "File:Chinapyongyangimjin.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chinapyongyangimjin.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "before 1644 date QS:P,+1644-00-00T00:00:00Z/7,P1326,+1644-00-00T00:00:00Z/9",
+          "datum_original": "before 1644 date QS:P,+1644-00-00T00:00:00Z/7,P1326,+1644-00-00T00:00:00Z/9",
+          "datum_fil": "2011-01-22 15:04:03",
+          "kredit": "http://www.historyfans.com/Sanguo/Ocean/jpwarstates_4.html",
+          "beskrivning": "Chinese cavalry and infantry attacking the walls of Pyongyang in 1593, from a Chinese painted screen in the Hizen-Nagoya castle museum",
+          "bredd": 600,
+          "hojd": 424,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Chinapyongyangimjin.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Pyongyangseong gongbangdo",
+            "Soldiers of Ming"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "korea-joseon"
+    },
+    {
+      "id": "slaget-vid-haengju",
+      "titel": "Slaget vid Haengju",
+      "start": 1593,
+      "plats": "Fästningen Haengju vid Hanfloden, väster om Hanseong (Seoul)",
+      "wikidata": "Q279611",
+      "kandidater": [
+        {
+          "fil": "File:Haengjudaecheopbi.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Haengjudaecheopbi.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "IRTC1015",
+          "datum": "2016-05-28 17:51:25",
+          "datum_original": "2016-05-28 17:51:25",
+          "datum_fil": "2016-06-05 15:02:34",
+          "kredit": "Own work",
+          "beskrivning": "행주대첩 비(재건).",
+          "bredd": 3120,
+          "hojd": 4160,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Haengjudaecheopbi.jpg/960px-Haengjudaecheopbi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Haengjusanseong",
+            "Monuments and memorials to the Japanese invasions of Korea",
+            "Siege of Haengju"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "korea-joseon"
+    },
+    {
+      "id": "sjoslaget-vid-myeongnyang",
+      "titel": "Sjöslaget vid Myeongnyang",
+      "start": 1597,
+      "plats": "Myeongnyangsundet vid ön Jindo, Korea",
+      "wikidata": "Q385677",
+      "kandidater": [
+        {
+          "fil": "File:Navalzhugenu2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Navalzhugenu2.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 1.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/1.0",
+          "upphovsperson": "太田天洋(1884～1946)",
+          "datum": "2006-08-12 19:13:00",
+          "datum_original": "2006-08-12 19:13:00",
+          "datum_fil": "2006-08-12 19:13:11",
+          "kredit": "\"Chinese Siege Warfare: Mechanical Artillery & Siege Weapons of Antiquity\" by Liang Jieming, ISBN 981-05-5380-3 , [1]",
+          "beskrivning": "『朝鮮戦役海戦図屏風』／昭和16年前後／太田天洋（海軍発注の戦意高揚画であり、特定の戦役を描写したものではないことに注意）",
+          "bredd": 464,
+          "hojd": 368,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/14/Navalzhugenu2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Naval ships of Korea"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 1.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-by-1.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "korea-joseon"
+    },
+    {
+      "id": "adi-granth-i-gyllene-templet",
+      "titel": "Adi Granth placeras i Gyllene templet",
+      "start": 1604,
+      "plats": "Harmandir Sahib (Gyllene templet), Amritsar, Indien",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Golden Temple - Amritsar - Punjab - 0002.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Golden_Temple_-_Amritsar_-_Punjab_-_0002.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Rupeshsarkar",
+          "datum": "2019-08-13 22:33:14",
+          "datum_original": "2019-08-13 22:33:14",
+          "datum_fil": "2020-09-11 09:35:40",
+          "kredit": "Own work",
+          "beskrivning": "The night view of the Golden Temple, also known as “Harmandir Sahib”, meaning \"abode of God\", is the preeminent spiritual site of Sikhism. The Gurdwara is built around a man-made pool (sarovar) that was completed by the fourth Sikh Guru, Guru Ram Das in 1577. In 1604, Guru Arjan placed a copy of the Adi Granth in Harmandir Sahib.",
+          "bredd": 4032,
+          "hojd": 3024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Golden_Temple_-_Amritsar_-_Punjab_-_0002.jpg/960px-Golden_Temple_-_Amritsar_-_Punjab_-_0002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Atta Mandi Deori",
+            "Darshani Deori (Golden Temple)",
+            "Golden Temple (Harmandir Sahib) illuminated",
+            "Harmandir Sahib causeway",
+            "Ramgarhia Bunga"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Golden Temple - Amritsar - Punjab - 003.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Golden_Temple_-_Amritsar_-_Punjab_-_003.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Rupeshsarkar",
+          "datum": "2019-08-13 10:13:49",
+          "datum_original": "2019-08-13 10:13:49",
+          "datum_fil": "2020-09-12 04:39:49",
+          "kredit": "Own work",
+          "beskrivning": "Panoramic View of The Golden Temple, also known as “Harmandir Sahib”, meaning \"abode of God\", is the preeminent spiritual site of Sikhism. The Gurdwara is built around a man-made pool (sarovar) that was completed by the fourth Sikh Guru, Guru Ram Das in 1577. In 1604, Guru Arjan placed a copy of the Adi Granth in Harmandir Sahib.",
+          "bredd": 6547,
+          "hojd": 1922,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Golden_Temple_-_Amritsar_-_Punjab_-_003.jpg/960px-Golden_Temple_-_Amritsar_-_Punjab_-_003.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Atta Mandi Deori",
+            "Ghanta Ghar Deori",
+            "Golden Temple (Harmandir Sahib)",
+            "Holy trees at Harmandir Sahib"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Golden Temple - Amritsar - Punjab - 0001.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Golden_Temple_-_Amritsar_-_Punjab_-_0001.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Rupeshsarkar",
+          "datum": "2019-08-13 12:01:54",
+          "datum_original": "2019-08-13 12:01:54",
+          "datum_fil": "2020-09-12 04:10:39",
+          "kredit": "Own work",
+          "beskrivning": "The Golden Temple, also known as “Harmandir Sahib”, meaning \"abode of God\", is the preeminent spiritual site of Sikhism. The Gurdwara is built around a man-made pool (sarovar) that was completed by the fourth Sikh Guru, Guru Ram Das in 1577. In 1604, Guru Arjan placed a copy of the Adi Granth in Harmandir Sahib.",
+          "bredd": 4032,
+          "hojd": 2865,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Golden_Temple_-_Amritsar_-_Punjab_-_0001.jpg/960px-Golden_Temple_-_Amritsar_-_Punjab_-_0001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ath Sath Tirath",
+            "Atta Mandi Deori",
+            "Golden Temple (Harmandir Sahib)",
+            "Harmandir Sahib causeway"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "torres-seglar-genom-torressundet",
+      "titel": "Torres seglar genom Torressundet",
+      "start": 1606,
+      "plats": "Torressundet mellan Nya Guinea och Kap Yorkhalvön (i dag Papua Nya Guinea och Australien)",
+      "wikidata": "Q179188",
+      "kandidater": [
+        {
+          "fil": "File:Torres Strait.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Torres_Strait.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Transferred from en.wikipedia to Commons by OAlexander .",
+          "datum": "27 February 2008",
+          "datum_original": "27 February 2008",
+          "datum_fil": "2008-02-27 22:55:05",
+          "kredit": "Mission: STS035 Roll: 87 Frame: 48",
+          "beskrivning": "The Torres Strait. Image courtesy of the Image Analysis Laboratory, NASA Johnson Space Center.",
+          "bredd": 444,
+          "hojd": 446,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Torres_Strait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "PD NASA-AP",
+            "Torres Strait"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA-AP"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "renassans"
+    },
+    {
+      "id": "sakoku-japan-stanger",
+      "titel": "Japan stänger sig (sakoku)",
+      "start": 1633,
+      "plats": "Japan (Dejima, Nagasaki)",
+      "wikidata": "Q332075",
+      "kandidater": [
+        {
+          "fil": "File:志筑忠雄訳「鎖国論」.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%E5%BF%97%E7%AD%91%E5%BF%A0%E9%9B%84%E8%A8%B3%E3%80%8C%E9%8E%96%E5%9B%BD%E8%AB%96%E3%80%8D.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "大島明秀",
+          "datum": "2016-03-24 12:12:05",
+          "datum_original": "2016-03-24 12:12:05",
+          "datum_fil": "2019-07-28 04:28:03",
+          "kredit": "Own work",
+          "beskrivning": "「鎖国論」上巻の内題、ケンペルの名が「検夫尓」と表記されている",
+          "bredd": 2054,
+          "hojd": 3015,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/%E5%BF%97%E7%AD%91%E5%BF%A0%E9%9B%84%E8%A8%B3%E3%80%8C%E9%8E%96%E5%9B%BD%E8%AB%96%E3%80%8D.jpg/960px-%E5%BF%97%E7%AD%91%E5%BF%A0%E9%9B%84%E8%A8%B3%E3%80%8C%E9%8E%96%E5%9B%BD%E8%AB%96%E3%80%8D.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "History of Japan",
+            "Sakoku"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "japan-ukiyoe"
+    },
+    {
+      "id": "spansk-chamorriska-krigen",
+      "titel": "De spansk-chamorriska krigen",
+      "start": 1670,
+      "plats": "Marianerna, började i Hagåtña på Guam (i dag Guam och Nordmarianerna, USA)",
+      "wikidata": "Q105973572",
+      "kandidater": [
+        {
+          "fil": "File:Women tending the gardens outside the government center on Guam.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Women_tending_the_gardens_outside_the_government_center_on_Guam.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Louis-Auguste de Sainson (1801-1887)",
+          "datum": "19 th century date QS:P,+1850-00-00T00:00:00Z/7",
+          "datum_original": "19 th century date QS:P,+1850-00-00T00:00:00Z/7",
+          "datum_fil": "2021-02-28 07:30:11",
+          "kredit": "https://www.academia.edu/23563686/When_Cultures_Clash_Revisiting_the_Spanish-Chamorro_Wars , p. 46",
+          "beskrivning": "Women tending the gardens outside the Spanish government center in Hagåtña, Guam",
+          "bredd": 604,
+          "hojd": 391,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/47/Women_tending_the_gardens_outside_the_government_center_on_Guam.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Guam in the 19th century",
+            "Louis-Auguste de Sainson",
+            "Mariana Islands in the Spanish East Indies"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-US-expired"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "barock"
+    },
+    {
+      "id": "khalsa-grundas",
+      "titel": "Guru Gobind Singh grundar Khalsa",
+      "start": 1699,
+      "plats": "Anandpur Sahib, Punjab, Indien",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Fresco depicting Guru Gobind Singh formalizing the Khalsa Panth with the Panj Piare at Anandpur Sahib, from Gurdwara Babe-di-Ber, Sialkot, circa 19th century.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Fresco_depicting_Guru_Gobind_Singh_formalizing_the_Khalsa_Panth_with_the_Panj_Piare_at_Anandpur_Sahib,_from_Gurdwara_Babe-di-Ber,_Sialkot,_circa_19th_century.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "MaplesyrupSushi",
+          "datum": "September 2019",
+          "datum_original": "September 2019",
+          "datum_fil": "2026-04-09 01:02:06",
+          "kredit": "Own work",
+          "beskrivning": "Fresco depicting Guru Gobind Singh formalizing the Khalsa Panth with the Panj Piare/Pyare at Anandpur Sahib in 1699, from Gurdwara Babe-di-Ber/Beri Sahib, Sialkot, circa 19th century. The frescoes of the gurdwara were uncovered/restored in 2014: [1] Based upon a photograph taken in September 2019 by Umar Farooq: [2] (cropped and enhanced by me)",
+          "bredd": 1322,
+          "hojd": 800,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Fresco_depicting_Guru_Gobind_Singh_formalizing_the_Khalsa_Panth_with_the_Panj_Piare_at_Anandpur_Sahib%2C_from_Gurdwara_Babe-di-Ber%2C_Sialkot%2C_circa_19th_century.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:1 Sri Kesgarh Takhat Anandpur Sahib Khalsa birthplace Punjab India.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1_Sri_Kesgarh_Takhat_Anandpur_Sahib_Khalsa_birthplace_Punjab_India.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Ms Sarah Welch",
+          "datum": "2017-09-18 13:13:28",
+          "datum_original": "2017-09-18 13:13:28",
+          "datum_fil": "2017-09-24 19:04:51",
+          "kredit": "Own work",
+          "beskrivning": "Takht Sri Keshgarh Sahib also known as Anandpur Sahib is the historic site in Sikhism where Khalsa was founded by Guru Gobind Singh. It is located near Himalayan foothills near the river Satluj. The site is second only to Amritsar, the city of Golden Temple in the Sikh tradition. Anandpur Sahib was founded in the year 1665 by the ninth Sikh Guru, Tegh Bahadur. A small town is the site of major annual gathering of Sikhs for Hola Mohalla festival every year in spring when other parts of India are celebrating Holi. It is a festive gathering with a display of martial arts, fairs and gaiety.",
+          "bredd": 4032,
+          "hojd": 3024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/1_Sri_Kesgarh_Takhat_Anandpur_Sahib_Khalsa_birthplace_Punjab_India.jpg/960px-1_Sri_Kesgarh_Takhat_Anandpur_Sahib_Khalsa_birthplace_Punjab_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Khalsa",
+            "Takht Sri Kesgarh Sahib"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:3 Sri Kesgarh Takhat Anandpur Sahib Punjab India Khalsa birthplace.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:3_Sri_Kesgarh_Takhat_Anandpur_Sahib_Punjab_India_Khalsa_birthplace.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Ms Sarah Welch",
+          "datum": "2017-09-18 13:35:53",
+          "datum_original": "2017-09-18 13:35:53",
+          "datum_fil": "2017-09-24 19:04:48",
+          "kredit": "Own work",
+          "beskrivning": "Takht Sri Keshgarh Sahib also known as Anandpur Sahib is the historic site in Sikhism where Khalsa was founded by Guru Gobind Singh. It is located near Himalayan foothills near the river Satluj. The site is second only to Amritsar, the city of Golden Temple in the Sikh tradition. Anandpur Sahib was founded in the year 1665 by the ninth Sikh Guru, Tegh Bahadur. A small town is the site of major annual gathering of Sikhs for Hola Mohalla festival every year in spring when other parts of India are celebrating Holi. It is a festive gathering with a display of martial arts, fairs and gaiety.",
+          "bredd": 4032,
+          "hojd": 3024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/3_Sri_Kesgarh_Takhat_Anandpur_Sahib_Punjab_India_Khalsa_birthplace.jpg/960px-3_Sri_Kesgarh_Takhat_Anandpur_Sahib_Punjab_India_Khalsa_birthplace.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Khalsa",
+            "Takht Sri Kesgarh Sahib"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "afghansk-marathiska-kriget",
+      "titel": "Afghansk-marathiska kriget",
+      "start": 1758,
+      "plats": "Punjab och trakten kring Delhi (började vid Sirhind)",
+      "wikidata": "Q127257738",
+      "kandidater": [
+        {
+          "fil": "File:The Third battle of Panipat 13 January 1761.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Third_battle_of_Panipat_13_January_1761.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Anonymous Unknown author",
+          "datum": "circa 1770 date QS:P,+1770-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1770 date QS:P,+1770-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2026-01-29 04:25:18",
+          "kredit": "British Library",
+          "beskrivning": "A circa 1770 date QS:P,+1770-00-00T00:00:00Z/9,P1480,Q5727902 Faizabad style drawing of the Third battle of Panipat which took place on 13 January 1761. The centre of the image is dominated by the twin arcs of the lines of guns firing at each other with smoke and devastation in between. The names of the principal combatants are written in Persian. Ahmad Shah Durrani is shown riding a brown horse, Najib Khan and Shuja-ud-Daula are seen on the left; Ahmad Khan Bangash and Hafiz Rahmat Khan are on the right and before them a cavalry attack is being executed by Shah Wali Khan . Outside the camp, a wounded Sadashivrao Bhau is being helped from his horse.",
+          "bredd": 2000,
+          "hojd": 1563,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/The_Third_battle_of_Panipat_13_January_1761.jpg/960px-The_Third_battle_of_Panipat_13_January_1761.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "History of Haryana",
+            "Military history of Maharashtra",
+            "Military history of the Mughal Empire",
+            "Najibabad",
+            "Third Battle of Panipat"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        },
+        {
+          "fil": "File:The Richness of Indian Heritage.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Richness_of_Indian_Heritage.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Aryan Jadav",
+          "datum": "2018-07-08 14:03:50",
+          "datum_original": "2018-07-08 14:03:50",
+          "datum_fil": "2021-09-03 10:36:27",
+          "kredit": "Own work",
+          "beskrivning": "Chhatrapati Shivaji Terminus Chhatrapati Shivaji Terminus (officially Chhatrapati Shivaji Maharaj Terminus; station code: CSTM (mainline)/ST (suburban)), is a historic terminal train station and UNESCO World Heritage Site in Mumbai, Maharashtra, India. The terminus was designed by British born architectural engineer Frederick William Stevens from an initial design by Axel Haig, in an exuberant Italian Gothic style. Its construction began in 1878, in a location south of the old Bori Bunder railway station, and was completed in 1887, the year marking 50 years of Queen Victoria's rule. In March 1996 the station's name was changed to \"Chhatrapati Shivaji Terminus\" (with station code CST) after Shivaji, the 17th-century warrior king who employed guerrilla tactics to contest the declining Mughal Empire and found a new state in the western Marathi-speaking regions of the Deccan Plateau. During the 18th-century the state was expanded by the Peshwas to extend over many interior regions of India as the Maratha Confederacy, or the Maratha Empire. The expansion was checked in 1761 by the Afghans in the Third Battle of Panipat, and the empire defeated by the British in 1817–18 in the Third Anglo-Maratha War. Shivaji's name is often preceded by \"Chhatrapati\", a title with literal meaning, \"a king dignified by the emblem of a parasol; a great king.\" In 2017, the station was again renamed \"Chhatrapati Shivaji Maharaj Terminus\" (with code CSTM), where the title Maharaj has literal meaning, \"Great king; emperor.\" Both former initials \"VT\" and the current, \"CST\", are also commonly used. The terminus is the headquarters of India's Central Railway. It is one of the busiest railway stations in India, serving as a terminal for both long-distance- and suburban trains.",
+          "bredd": 4032,
+          "hojd": 3024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/The_Richness_of_Indian_Heritage.jpg/960px-The_Richness_of_Indian_Heritage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Chhatrapati Shivaji Maharaj Terminus building"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Map of the Battles and Battlefields of the Bengal Subah.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Map_of_the_Battles_and_Battlefields_of_the_Bengal_Subah.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Borders drawn by Greatswrd",
+          "datum": "2025-03-30",
+          "datum_original": "2025-03-30",
+          "datum_fil": "2025-03-30 12:13:33",
+          "kredit": "References: Border: Reference(s)----> [ 1 ] [ 2 ] Early battles fought against Bengal Sultanate, Baro-Bhuyans and other regional kingdoms: Reference(s)----> [ 3 ] [ 4 ] [ 5 ] [ 6 ] [ 7 ] [ 8 ] Dano-Mughal(Bengal) War Reference(s)----> [ 9 ] Ahom Campaigns Reference(s)----> [ 10 ] [ 11 ] Conquest of Tripura Reference(s)----> [ 12 ] [ 13 ] Battles fought against Zamindars of Bihar: Reference(s)----> [ 14 ] Afghan Insurrections in Bengal Reference(s)----> [ 15 ] [ 16 ] [ 17 ] Maratha Invasions of Bengal Reference(s)----> [ 18 ] [ 19 ] [ 20 ] [ 21 ] [ 22 ] [ 23 ] [ 24 ] [ 25 ] [ 26 ] Battle symbol used",
+          "beskrivning": "Map of the Bengal Subah and Nawabs of Bengal (1576-1793) and the approximate locations of their major recorded battles and battlefields.",
+          "bredd": 1200,
+          "hojd": 1000,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Map_of_the_Battles_and_Battlefields_of_the_Bengal_Subah.png/960px-Map_of_the_Battles_and_Battlefields_of_the_Bengal_Subah.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of the history of Bengal"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "sirhind-1758",
+      "titel": "Marathas och sikher intar Sirhind",
+      "start": 1758,
+      "plats": "Sirhind, Punjab",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Marathi letter references on Ala Singh of Patiala State (1).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Marathi_letter_references_on_Ala_Singh_of_Patiala_State_(1).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Maratha Confederacy",
+          "datum": "ca.1760's",
+          "datum_original": "ca.1760's",
+          "datum_fil": "2024-08-23 22:47:01",
+          "kredit": "Book titled 'Baba Ala Singh: Founder of Patiala Kingdom' by Kirpal Singh (2005; 2nd ed., document published on pages 71a–71b, translation/description published on pages 127–129), via: [1]",
+          "beskrivning": "Marathi letter references on Ala Singh of Patiala State. Description [sic]: APPENDIX NO. 4. Marathi References on Baba Ala Singh From Vasu Deva Dikshitam to the Peshwa (Balaji Baji Rao). Nagar Mai, the representative of Salabat Jang at Delhi has dispatched a pair of messengers who reached Aurangabad after 18 days and who re-started for Salabat Jang's camp. Valji the chief messenger orally gave out the news brought by the pairs :- \"While the Pathan's son was carrying away the treasure, Ala Jat, the resident of Sirhind, a place about two hundred miles from Delhi and Sikhs of the Sect of Nanak united together, over-powered the Pathan's son by blocking his way and completely snatched away his treasure\". Selection from Peshwa Daftar, Vol. 21 letter No. 116. From Laxman Appaji Ekbote to the Peshwa \"I was deputed by the Bhau to Sirhind along with Laxmi Narain. When misfortune fell over army, Laxmi Narain being a Hindustani, secured a place for himself. With 50 or 60 Maratha Sowars, I was left in the lurch. There was no place at all. A heavy rush followed. So I approached Ala Singh Jat who out of regard for your honour, gave me shelter. Up to now I am with the Jat Sardar. \"Your honour had sent some letters to Ala Singh Jat, which have been replied by the Jat. All the details will be known from them. \"Your servant searched for the dead body in this province, but no trace could be found. I am conducting further searches. \"Abdali has left Delhi and is on his way to his own country. He had reached Sirhind where he is staying for two or three days.\" Selection from Peshwa Daftar, Vol. 27, letter No. 262. Purushottama Maha Deva (Higne) requests the Subedar Sahib (Malhar Rao Holkar) thus: \"I am happy at Shamli, included in the province of Interved (delta between the Jamna and the Ganges) till the 1st of Shahban. Your honour must have known the happenings here through my detailed letters sent with about five pairs of couriers but I have neither received any reply nor any pair has returned as yet. At present Abdali has marched from Lahore, has pursued the Sikhs, has reached the Sutlej within two days with light equipment and has given a battle with Sikhs. About seven thousand Sikhs have perished. Some were imprisoned and some took to heels. Now he is at a distance of forty miles beyond Sirhind. He wishes to encamp at Sirhind for some days and has repaired the garden Shalimar in Sirhind with that view. Raja Lakshmi Narain of Sirhind who was formerly the servant of our government and who is now the Dewan (manager) of Zain Khan, the Faujdar of the Shah, has planned and attacked on the fortress of Ala Jat by promising a ransom of fifty lakhs of rupees to the Shah. This will take more months.\" Rajwade, Vol. VI, letter No. 465. \"The servants Bapuji Mahadeva and Purshottama Maha Deva (Higne) request his honour Nana Swami after many obeisances thus : We are happy at Sirhind till the 11th of Shahban and expect to hear the same about your honour. We have received no reply though we have sent to your honour letters from time to time. We, therefore, request your honour to write us about your honour's good health every now and then. Presently Shah Abdali marched from Lahore with light equipment and gave a battle with Sikhs near Sirhind. Then he invaded the territory of Ala Jat, after arresting him, devastated his territory, returned to Lahore with him and sent him to Kandhar. We have received the news to the above effect. Rajwade Vol. VI, letter No. 382.",
+          "bredd": 525,
+          "hojd": 775,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Marathi_letter_references_on_Ala_Singh_of_Patiala_State_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Marathi language"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende",
+            "ur-sokning",
+            "samma-fil"
+          ],
+          "samma_fil_som": [
+            "marathas-tar-delhi-1760"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-scan"
+            ]
+          }
+        },
+        {
+          "fil": "File:Marathi letter references on Ala Singh of Patiala State (2).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Marathi_letter_references_on_Ala_Singh_of_Patiala_State_(2).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Maratha Confederacy",
+          "datum": "ca.1760's",
+          "datum_original": "ca.1760's",
+          "datum_fil": "2024-08-23 22:47:01",
+          "kredit": "Book titled 'Baba Ala Singh: Founder of Patiala Kingdom' by Kirpal Singh (2005; 2nd ed., document published on pages 71a–71b, translation/description published on pages 127–129), via: [1]",
+          "beskrivning": "Marathi letter references on Ala Singh of Patiala State. Description [sic]: APPENDIX NO. 4. Marathi References on Baba Ala Singh From Vasu Deva Dikshitam to the Peshwa (Balaji Baji Rao). Nagar Mai, the representative of Salabat Jang at Delhi has dispatched a pair of messengers who reached Aurangabad after 18 days and who re-started for Salabat Jang's camp. Valji the chief messenger orally gave out the news brought by the pairs :- \"While the Pathan's son was carrying away the treasure, Ala Jat, the resident of Sirhind, a place about two hundred miles from Delhi and Sikhs of the Sect of Nanak united together, over-powered the Pathan's son by blocking his way and completely snatched away his treasure\". Selection from Peshwa Daftar, Vol. 21 letter No. 116. From Laxman Appaji Ekbote to the Peshwa \"I was deputed by the Bhau to Sirhind along with Laxmi Narain. When misfortune fell over army, Laxmi Narain being a Hindustani, secured a place for himself. With 50 or 60 Maratha Sowars, I was left in the lurch. There was no place at all. A heavy rush followed. So I approached Ala Singh Jat who out of regard for your honour, gave me shelter. Up to now I am with the Jat Sardar. \"Your honour had sent some letters to Ala Singh Jat, which have been replied by the Jat. All the details will be known from them. \"Your servant searched for the dead body in this province, but no trace could be found. I am conducting further searches. \"Abdali has left Delhi and is on his way to his own country. He had reached Sirhind where he is staying for two or three days.\" Selection from Peshwa Daftar, Vol. 27, letter No. 262. Purushottama Maha Deva (Higne) requests the Subedar Sahib (Malhar Rao Holkar) thus: \"I am happy at Shamli, included in the province of Interved (delta between the Jamna and the Ganges) till the 1st of Shahban. Your honour must have known the happenings here through my detailed letters sent with about five pairs of couriers but I have neither received any reply nor any pair has returned as yet. At present Abdali has marched from Lahore, has pursued the Sikhs, has reached the Sutlej within two days with light equipment and has given a battle with Sikhs. About seven thousand Sikhs have perished. Some were imprisoned and some took to heels. Now he is at a distance of forty miles beyond Sirhind. He wishes to encamp at Sirhind for some days and has repaired the garden Shalimar in Sirhind with that view. Raja Lakshmi Narain of Sirhind who was formerly the servant of our government and who is now the Dewan (manager) of Zain Khan, the Faujdar of the Shah, has planned and attacked on the fortress of Ala Jat by promising a ransom of fifty lakhs of rupees to the Shah. This will take more months.\" Rajwade, Vol. VI, letter No. 465. \"The servants Bapuji Mahadeva and Purshottama Maha Deva (Higne) request his honour Nana Swami after many obeisances thus : We are happy at Sirhind till the 11th of Shahban and expect to hear the same about your honour. We have received no reply though we have sent to your honour letters from time to time. We, therefore, request your honour to write us about your honour's good health every now and then. Presently Shah Abdali marched from Lahore with light equipment and gave a battle with Sikhs near Sirhind. Then he invaded the territory of Ala Jat, after arresting him, devastated his territory, returned to Lahore with him and sent him to Kandhar. We have received the news to the above effect. Rajwade Vol. VI, letter No. 382.",
+          "bredd": 529,
+          "hojd": 769,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/61/Marathi_letter_references_on_Ala_Singh_of_Patiala_State_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Marathi language"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende",
+            "ur-sokning",
+            "samma-fil"
+          ],
+          "samma_fil_som": [
+            "marathas-tar-delhi-1760"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-scan"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "marathas-tar-delhi-1760",
+      "titel": "Marathas tar Delhi",
+      "start": 1760,
+      "plats": "Delhi",
+      "wikidata": "Q125745882",
+      "kandidater": [
+        {
+          "fil": "File:1768 Jeffreys Wall Map of India and Ceylon - Geographicus - India-jeffreys-1768.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1768_Jeffreys_Wall_Map_of_India_and_Ceylon_-_Geographicus_-_India-jeffreys-1768.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "http://www.geographicus.com/mm5/cartographers/jefferys.txt",
+          "datum": "1768",
+          "datum_original": "1768",
+          "datum_fil": "2011-03-23 13:16:39",
+          "kredit": "This file was provided to Wikimedia Commons by Geographicus Rare Antique Maps , a specialist dealer in rare maps and other cartography of the 15th, 16th, 17th, 18th and 19th centuries, as part of a cooperation project .",
+          "beskrivning": "This is a staggering wall size map of India and Ceylon issued in 1768 by Thomas Jeffreys. Covers the Indian subcontinent from Mekran in the west to Assam and Aracan in the east, and from Bhutan in the north, south to Ceylon and the Maldives. Offers extraordinary detail throughout, with numerous notations on matters geographical, historical, and cultural. Shows roads, caravan routes, oases, temples, cities, treaty lines, archeological sites, mountain ranges, lakes, swamps and rivers. This map offers a smorgasbord of information for the historian interested political changes in India during the 18th century. Identifies Delhi (or Shah Jehan Abad), Agra, Bombay, Goa, Calcutta, Pondicherry, and countless other major and minor cities. Our map predates the definitive Alexander Dalrymple mapping of India in the 1770s and so is quite vague in a number of areas - especially those controlled the independent Maratha Confederacy southwest of Bihar. In this area there are several speculative rivers as well as large lake, labeled Chilea or Ganga. This is most likely an erroneous mapping of Chilka Lake (Chilika Lake). Chilka Lake is the second largest salt water lagoon in the world - but was clearly missed by early mapmakers working on the Orissa coast. Far to the north, just outside the border of the map, a note reads, A cow cut in the rock. This is supposed to refer to the source of the Ganga or Ganges River. In Hindi this site is called Gomukh, which translates literally as, The Cow's Mouth. The site itself is a cave that does in fact somewhat resemble the mouth a cow - but in this case something seems to have been lost in translation. In Assam, Jefferys maps the supposed locations of the apocryphal Lake of Chiamay. Early cartographers speculated that such a lake must exist as the source of four important Southeast Asian river systems including the Irrawaddy, the Dharla, the Chao Phraya, and the Brahmaputra. This lake began to appear in maps of this region as early as the 16th century and persisted well into the late 18th century. Its origins are unknown but may originate in a lost 16th century geography prepared by the Portuguese scholar Jao de Barros. It was also heavily discussed in the journals of Sven Hedin, who believed it to be associated with Indian mythology that a sacred lake linked several holy river systems. There are even records that the King of Siam led an invasionary force to take control of the lake in the 16th century. Nonetheless, the theory of Lake Chimmay was ultimately disproved and it disappeared from maps entirely by the 1780s. On the far east of the map, Jefferys identifies the Kingdom of Arakan, which flourished in the 16th and 17th centuries. The city of Mrauk-U, marked here as Arakan, was once described by Portuguese merchants as one of the most beautiful locations on earth, is today a spectacular but derelict ruin. All in all a spectacular map with much to offer and a welcome addition to any serious collection focusing on the subcontinent. This map was prepared by Jefferys and originally published by Sayer and Bennet. This is the second edition, and was published by Laurie & Whittle in Kitchin's 1794 General Atlas .",
+          "bredd": 7000,
+          "hojd": 5455,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/1768_Jeffreys_Wall_Map_of_India_and_Ceylon_-_Geographicus_-_India-jeffreys-1768.jpg/960px-1768_Jeffreys_Wall_Map_of_India_and_Ceylon_-_Geographicus_-_India-jeffreys-1768.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "The East Indies, with the roads (1768)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art-100"
+            ]
+          }
+        },
+        {
+          "fil": "File:Marathi letter references on Ala Singh of Patiala State (1).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Marathi_letter_references_on_Ala_Singh_of_Patiala_State_(1).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Maratha Confederacy",
+          "datum": "ca.1760's",
+          "datum_original": "ca.1760's",
+          "datum_fil": "2024-08-23 22:47:01",
+          "kredit": "Book titled 'Baba Ala Singh: Founder of Patiala Kingdom' by Kirpal Singh (2005; 2nd ed., document published on pages 71a–71b, translation/description published on pages 127–129), via: [1]",
+          "beskrivning": "Marathi letter references on Ala Singh of Patiala State. Description [sic]: APPENDIX NO. 4. Marathi References on Baba Ala Singh From Vasu Deva Dikshitam to the Peshwa (Balaji Baji Rao). Nagar Mai, the representative of Salabat Jang at Delhi has dispatched a pair of messengers who reached Aurangabad after 18 days and who re-started for Salabat Jang's camp. Valji the chief messenger orally gave out the news brought by the pairs :- \"While the Pathan's son was carrying away the treasure, Ala Jat, the resident of Sirhind, a place about two hundred miles from Delhi and Sikhs of the Sect of Nanak united together, over-powered the Pathan's son by blocking his way and completely snatched away his treasure\". Selection from Peshwa Daftar, Vol. 21 letter No. 116. From Laxman Appaji Ekbote to the Peshwa \"I was deputed by the Bhau to Sirhind along with Laxmi Narain. When misfortune fell over army, Laxmi Narain being a Hindustani, secured a place for himself. With 50 or 60 Maratha Sowars, I was left in the lurch. There was no place at all. A heavy rush followed. So I approached Ala Singh Jat who out of regard for your honour, gave me shelter. Up to now I am with the Jat Sardar. \"Your honour had sent some letters to Ala Singh Jat, which have been replied by the Jat. All the details will be known from them. \"Your servant searched for the dead body in this province, but no trace could be found. I am conducting further searches. \"Abdali has left Delhi and is on his way to his own country. He had reached Sirhind where he is staying for two or three days.\" Selection from Peshwa Daftar, Vol. 27, letter No. 262. Purushottama Maha Deva (Higne) requests the Subedar Sahib (Malhar Rao Holkar) thus: \"I am happy at Shamli, included in the province of Interved (delta between the Jamna and the Ganges) till the 1st of Shahban. Your honour must have known the happenings here through my detailed letters sent with about five pairs of couriers but I have neither received any reply nor any pair has returned as yet. At present Abdali has marched from Lahore, has pursued the Sikhs, has reached the Sutlej within two days with light equipment and has given a battle with Sikhs. About seven thousand Sikhs have perished. Some were imprisoned and some took to heels. Now he is at a distance of forty miles beyond Sirhind. He wishes to encamp at Sirhind for some days and has repaired the garden Shalimar in Sirhind with that view. Raja Lakshmi Narain of Sirhind who was formerly the servant of our government and who is now the Dewan (manager) of Zain Khan, the Faujdar of the Shah, has planned and attacked on the fortress of Ala Jat by promising a ransom of fifty lakhs of rupees to the Shah. This will take more months.\" Rajwade, Vol. VI, letter No. 465. \"The servants Bapuji Mahadeva and Purshottama Maha Deva (Higne) request his honour Nana Swami after many obeisances thus : We are happy at Sirhind till the 11th of Shahban and expect to hear the same about your honour. We have received no reply though we have sent to your honour letters from time to time. We, therefore, request your honour to write us about your honour's good health every now and then. Presently Shah Abdali marched from Lahore with light equipment and gave a battle with Sikhs near Sirhind. Then he invaded the territory of Ala Jat, after arresting him, devastated his territory, returned to Lahore with him and sent him to Kandhar. We have received the news to the above effect. Rajwade Vol. VI, letter No. 382.",
+          "bredd": 525,
+          "hojd": 775,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Marathi_letter_references_on_Ala_Singh_of_Patiala_State_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Marathi language"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende",
+            "ur-sokning",
+            "samma-fil"
+          ],
+          "samma_fil_som": [
+            "sirhind-1758"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-scan"
+            ]
+          }
+        },
+        {
+          "fil": "File:Marathi letter references on Ala Singh of Patiala State (2).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Marathi_letter_references_on_Ala_Singh_of_Patiala_State_(2).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Maratha Confederacy",
+          "datum": "ca.1760's",
+          "datum_original": "ca.1760's",
+          "datum_fil": "2024-08-23 22:47:01",
+          "kredit": "Book titled 'Baba Ala Singh: Founder of Patiala Kingdom' by Kirpal Singh (2005; 2nd ed., document published on pages 71a–71b, translation/description published on pages 127–129), via: [1]",
+          "beskrivning": "Marathi letter references on Ala Singh of Patiala State. Description [sic]: APPENDIX NO. 4. Marathi References on Baba Ala Singh From Vasu Deva Dikshitam to the Peshwa (Balaji Baji Rao). Nagar Mai, the representative of Salabat Jang at Delhi has dispatched a pair of messengers who reached Aurangabad after 18 days and who re-started for Salabat Jang's camp. Valji the chief messenger orally gave out the news brought by the pairs :- \"While the Pathan's son was carrying away the treasure, Ala Jat, the resident of Sirhind, a place about two hundred miles from Delhi and Sikhs of the Sect of Nanak united together, over-powered the Pathan's son by blocking his way and completely snatched away his treasure\". Selection from Peshwa Daftar, Vol. 21 letter No. 116. From Laxman Appaji Ekbote to the Peshwa \"I was deputed by the Bhau to Sirhind along with Laxmi Narain. When misfortune fell over army, Laxmi Narain being a Hindustani, secured a place for himself. With 50 or 60 Maratha Sowars, I was left in the lurch. There was no place at all. A heavy rush followed. So I approached Ala Singh Jat who out of regard for your honour, gave me shelter. Up to now I am with the Jat Sardar. \"Your honour had sent some letters to Ala Singh Jat, which have been replied by the Jat. All the details will be known from them. \"Your servant searched for the dead body in this province, but no trace could be found. I am conducting further searches. \"Abdali has left Delhi and is on his way to his own country. He had reached Sirhind where he is staying for two or three days.\" Selection from Peshwa Daftar, Vol. 27, letter No. 262. Purushottama Maha Deva (Higne) requests the Subedar Sahib (Malhar Rao Holkar) thus: \"I am happy at Shamli, included in the province of Interved (delta between the Jamna and the Ganges) till the 1st of Shahban. Your honour must have known the happenings here through my detailed letters sent with about five pairs of couriers but I have neither received any reply nor any pair has returned as yet. At present Abdali has marched from Lahore, has pursued the Sikhs, has reached the Sutlej within two days with light equipment and has given a battle with Sikhs. About seven thousand Sikhs have perished. Some were imprisoned and some took to heels. Now he is at a distance of forty miles beyond Sirhind. He wishes to encamp at Sirhind for some days and has repaired the garden Shalimar in Sirhind with that view. Raja Lakshmi Narain of Sirhind who was formerly the servant of our government and who is now the Dewan (manager) of Zain Khan, the Faujdar of the Shah, has planned and attacked on the fortress of Ala Jat by promising a ransom of fifty lakhs of rupees to the Shah. This will take more months.\" Rajwade, Vol. VI, letter No. 465. \"The servants Bapuji Mahadeva and Purshottama Maha Deva (Higne) request his honour Nana Swami after many obeisances thus : We are happy at Sirhind till the 11th of Shahban and expect to hear the same about your honour. We have received no reply though we have sent to your honour letters from time to time. We, therefore, request your honour to write us about your honour's good health every now and then. Presently Shah Abdali marched from Lahore with light equipment and gave a battle with Sikhs near Sirhind. Then he invaded the territory of Ala Jat, after arresting him, devastated his territory, returned to Lahore with him and sent him to Kandhar. We have received the news to the above effect. Rajwade Vol. VI, letter No. 382.",
+          "bredd": 529,
+          "hojd": 769,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/61/Marathi_letter_references_on_Ala_Singh_of_Patiala_State_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Marathi language"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende",
+            "ur-sokning",
+            "samma-fil"
+          ],
+          "samma_fil_som": [
+            "sirhind-1758"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-scan"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "svalten-i-bengalen-1770",
+      "titel": "Svälten i Bengalen 1770",
+      "start": 1769,
+      "plats": "Bengalen och Bihar, i dag Indien och Bangladesh (markören i Murshidabad)",
+      "wikidata": "Q2477522",
+      "kandidater": [
+        {
+          "fil": "File:Distressed Natives Going to the Relief Works - The Graphic 1874.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Distressed_Natives_Going_to_the_Relief_Works_-_The_Graphic_1874.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown artist Unknown artist",
+          "datum": "18 April 1874 date QS:P571,+1874-04-18T00:00:00Z/11",
+          "datum_original": "18 April 1874 date QS:P571,+1874-04-18T00:00:00Z/11",
+          "datum_fil": "2015-11-23 13:51:28",
+          "kredit": "http://www.columbia.edu/itc/mealac/pritchett/00routesdata/1600_1699/calcutta/famine/famine.html",
+          "beskrivning": "\"Distressed Natives Going to the Relief Works The Famine in Bengal. Illustration for The Graphic, 18 April 1874. https://www.lookandlearn.com/history-images/U233585/The-Famine-in-Bengal",
+          "bredd": 850,
+          "hojd": 567,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Distressed_Natives_Going_to_the_Relief_Works_-_The_Graphic_1874.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1874 in West Bengal",
+            "Bihar famine of 1873–74",
+            "Bundles (luggage)",
+            "Groups of people in West Bengal",
+            "The Graphic 1874"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-art-old-100-1923"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "tenmei-svalten",
+      "titel": "Den stora Tenmei-svälten",
+      "start": 1782,
+      "plats": "Tōhoku i norra Honshu, Japan (Hirosaki)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Great Tenmei famine.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Great_Tenmei_famine.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1790年代",
+          "datum_original": "1790年代",
+          "datum_fil": "2023-07-30 12:04:47",
+          "kredit": "http://www.edojidai.info/kurashi/tennmei-daikikinn.html",
+          "beskrivning": "Hungered people in the Great Tenmei famine (1782-1788). They ate horses and human meat. It was said to have been caused by the eruption of Mount Asama in 1783.",
+          "bredd": 1007,
+          "hojd": 705,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Great_Tenmei_famine.jpg/960px-Great_Tenmei_famine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Great Tenmei famine"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Shibamata-hachiman-jinja, sekihi-2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Shibamata-hachiman-jinja,_sekihi-2.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Saigen Jiro",
+          "datum": "2021-10-08 16:43:01",
+          "datum_original": "2021-10-08 16:43:01",
+          "datum_fil": "2021-10-10 22:34:34",
+          "kredit": "Own work",
+          "beskrivning": "柴又八幡神社 柴又勧農事績碑",
+          "bredd": 5568,
+          "hojd": 3712,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Shibamata-hachiman-jinja%2C_sekihi-2.jpg/960px-Shibamata-hachiman-jinja%2C_sekihi-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1826 sculptures in Japan",
+            "Great Tenmei famine",
+            "Steles at Shibamata-hachiman-jinja"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-zero"
+            ]
+          }
+        },
+        {
+          "fil": "File:Shibamata-hachiman-jinja 13.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Shibamata-hachiman-jinja_13.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Higa4",
+          "datum": "2023-06-24 12:38:10",
+          "datum_original": "2023-06-24 12:38:10",
+          "datum_fil": "2023-06-25 12:19:25",
+          "kredit": "Own work",
+          "beskrivning": "柴又八幡神社",
+          "bredd": 4032,
+          "hojd": 3024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Shibamata-hachiman-jinja_13.jpg/960px-Shibamata-hachiman-jinja_13.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1826 sculptures in Japan",
+            "Great Tenmei famine",
+            "Steles at Shibamata-hachiman-jinja"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-zero"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "japan-ukiyoe"
+    },
+    {
+      "id": "forsta-opiumkriget",
+      "titel": "Första opiumkriget",
+      "start": 1839,
+      "plats": "Kinas kust från Pärlfloden till Yangtze (började vid Kowloon, i dagens Hongkong)",
+      "wikidata": "Q191282",
+      "kandidater": [
+        {
+          "fil": "File:Destroying Chinese war junks, by E. Duncan (1843).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Destroying_Chinese_war_junks,_by_E._Duncan_(1843).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Edward Duncan",
+          "datum": "30 May 1843 date QS:P571,+1843-05-30T00:00:00Z/11",
+          "datum_original": "30 May 1843 date QS:P571,+1843-05-30T00:00:00Z/11",
+          "datum_fil": "2017-09-06 18:28:50",
+          "kredit": "http://ocw.mit.edu/ans7870/21f/21f.027/opium_wars_01/ow1_gallery/pages/1841_0792_nemesis_jm_nmm.htm",
+          "beskrivning": "The East India Company iron steam ship Nemesis , commanded by Lieutenant W. H. Hall, with boats from the Sulphur , Calliope , Larne and Starling , destroying the Chinese war junks in Anson's Bay, on 7 January 1841. An engagement in the First Opium War (1839-42), showing the ‘Nemesis’ (right background, in starboard broadside view) attacking a fleet of Chinese war junks in the middle ground. The war junk third from the left is shown being destroyed with splinters flying up into the air. Two rowing boats with Chinese passengers ew from the left foreground. Various men can be seen overboard and clinging on to debris throughout the scene. The lettering below includes lists of dimensions. PAH8193 and PAH8893 are additional copies, both hand-coloured, and the print is from an oil painting by Duncan presented to the Williamson Art Gallery at Birkenhead in 1925, with another showing Prince Albert visiting iron ships off Woolwich Dockyard. They were a gift from Alderman J.W.P. Laird, one of the Birkenhead shipbuilding family who built the 'Nemesis' and others of the vessels shown in them. On 7 January 1841, the 'Nemesis' of the Bombay Marine (the East India Company's naval service), commanded by William Hutcheon Hall, with boats from the ‘Sulphur’, ‘Calliope’, ‘Larne’ and ‘Starling’, destroyed Chinese war junks in Anson's Bay, Chuenpee, near the Bocca Tigris forts guarding the mouth of the Pearl River up to Canton. British forces then captured the forts themselves. Hall was a Royal Naval master at the time. He had steam experience and had been privately engaged by John Laird to command the 'Nemesis', which the latter had built experimentally as the first fully iron warship, and was so successful in it in China that in 1841 he was specially commissioned as a Naval lieutenant. He went on to later Royal Naval service as a captain in the Crimean War and was a retired admiral at his death in 1875. His portrait (BHC2733) and papers are also in the Museum collection.",
+          "bredd": 1040,
+          "hojd": 681,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Destroying_Chinese_war_junks%2C_by_E._Duncan_%281843%29.jpg/960px-Destroying_Chinese_war_junks%2C_by_E._Duncan_%281843%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1841 in water transport",
+            "1843 paintings",
+            "1843 paintings from the United Kingdom",
+            "19th-century oil paintings",
+            "Century of Humiliation",
+            "Chinese imperialism",
+            "Edward Duncan",
+            "HMS Calliope (ship, 1837)",
+            "HMS Larne (ship, 1829)",
+            "HMS Starling (ship, 1829)",
+            "HMS Sulphur (ship, 1826)",
+            "Imperialism studies",
+            "Junks of China",
+            "Landscape paintings of the Qing Dynasty",
+            "Nemesis (ship, 1839)",
+            "Paintings of junks (ships)",
+            "Second Battle of Chuenpi"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "skarmytslingen-vid-kowloon-1839",
+      "titel": "Skärmytslingen vid Kowloon",
+      "start": 1839,
+      "plats": "Kowloon, dagens Hongkong",
+      "wikidata": "Q4871489",
+      "kandidater": [
+        {
+          "fil": "File:Hong-kong, from Kow-loon.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Hong-kong,_from_Kow-loon.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Drawn by Thomas Allom, from a sketch by Capt. Stoddart, Royal Navy. Engraved by S. Fisher.",
+          "datum": "1841–1842 [1]",
+          "datum_original": "1841–1842 [1]",
+          "datum_fil": "2010-09-26 01:50:10",
+          "kredit": "Thomas Allom; G. N. Wright (1843). China, in a Series of Views, Displaying the Scenery, Architecture, and Social Habits, of That Ancient Empire . Volume 4. London: Fisher, Son, & Co. p. 45.",
+          "beskrivning": "Hong Kong from Kowloon.",
+          "bredd": 2258,
+          "hojd": 1476,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Hong-kong%2C_from_Kow-loon.jpg/960px-Hong-kong%2C_from_Kow-loon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Historical images of Hong Kong skylines (Hong Kong Island)",
+            "Historical images of Tsim Sha Tsui",
+            "Historical images of Victoria Harbour",
+            "Historical images of Victoria Peak",
+            "Hong Kong in the 1840s",
+            "Images from China, in a Series of Views, Displaying the Scenery, Architecture, and Social Habits of that Ancient Empire"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-100-1923"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "britterna-intar-zhoushan-1840",
+      "titel": "Britterna intar Zhoushan",
+      "start": 1840,
+      "plats": "Dinghai på ön Zhoushan (Chusan), Zhejiang",
+      "wikidata": "Q5036997",
+      "kandidater": [
+        {
+          "fil": "File:Chusan conference 1840.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chusan_conference_1840.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Drawn on the spot by Sir Harry Darell. Lithograph by James Henry Lynch.",
+          "datum": "Published January 1842",
+          "datum_original": "Published January 1842",
+          "datum_fil": "2016-06-26 23:02:55",
+          "kredit": "Anne S. K. Brown Military Collection",
+          "beskrivning": "Conference between Commodore Sir James John Gordon Bremer and Chinese Admiral Zhang Chaofa (Governor of Chusan) with the chief Mandarins, on board HMS Wellesley of Captain Thomas Maitland, on 4 July 1840, in the harbour of Chusan, the evening before the taking of the island. Karl Gützlaff (centre) served as interpreter.̈ Seated on the British side (left to right): Sir Harry Darell, Brigadier George Burrell, and Commodore James Bremer. Standing is Captain Thomas Maitland (top left) and Lord Robert Jocelyn. Seated on the Chinese side (left to right): Admiral Zhang, his flag captain Qian Binghuan, and chief magistrate of Chusan Yao Huaixiang.",
+          "bredd": 7780,
+          "hojd": 5205,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Chusan_conference_1840.jpg/960px-Chusan_conference_1840.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1842 lithographs",
+            "Capture of Chusan",
+            "George Burrell",
+            "Gordon Bremer",
+            "HMS Wellesley (ship, 1815)",
+            "James Henry Lynch",
+            "Karl Gützlaff",
+            "Thomas Maitland, 11th Earl of Lauderdale"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-100-1923"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "andra-slaget-vid-chuanbi",
+      "titel": "Andra slaget vid Chuanbi",
+      "start": 1841,
+      "plats": "Humen (Bogue) vid Pärlflodens mynning, Guangdong",
+      "wikidata": "Q7443080",
+      "kandidater": [
+        {
+          "fil": "File:Attack and Capture of Chuenpee, near Canton.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Attack_and_Capture_of_Chuenpee,_near_Canton.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Drawn by Thomas Allom, from a sketch by Lieut. White, Royal Marines. Engraved by H. Adlard.",
+          "datum": "published 1843",
+          "datum_original": "published 1843",
+          "datum_fil": "2010-09-18 20:01:58",
+          "kredit": "Thomas Allom; G. N. Wright (1843). China, in a Series of Views, Displaying the Scenery, Architecture, and Social Habits of That Ancient Empire . Volume 2. London: Fisher, Son, & Co. p. 5.",
+          "beskrivning": "Attack and capture of Chuenpee, near Canton.",
+          "bredd": 2277,
+          "hojd": 1404,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Attack_and_Capture_of_Chuenpee%2C_near_Canton.jpg/960px-Attack_and_Capture_of_Chuenpee%2C_near_Canton.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Henry Adlard",
+            "Images from China, in a Series of Views, Displaying the Scenery, Architecture, and Social Habits of that Ancient Empire",
+            "Paintings of the Qing Dynasty",
+            "Second Battle of Chuenpi"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-100-1923"
+            ]
+          }
+        },
+        {
+          "fil": "File:Nemesis in Anson's Bay.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Nemesis_in_Anson%27s_Bay.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Thomas Allom",
+          "datum": "published 1858",
+          "datum_original": "published 1858",
+          "datum_fil": "2016-08-06 03:15:29",
+          "kredit": "This file is from the Mechanical Curator collection , a set of over 1 million images scanned from out-of-copyright books and released to Flickr Commons by the British Library in London, England. View image on Flickr View all images from book View catalogue entry for book .",
+          "beskrivning": "The Nemesis and boats of the Sulphur, Calliope, Larne, and Starling destroying the Chinese war junks in Anson's Bay, 7 January 1841.",
+          "bredd": 2007,
+          "hojd": 1359,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Nemesis_in_Anson%27s_Bay.jpg/960px-Nemesis_in_Anson%27s_Bay.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Nemesis (ship, 1839)",
+            "Second Battle of Chuenpi",
+            "Thomas Allom"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-100-1923"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "slaget-vid-zhenjiang-1842",
+      "titel": "Slaget vid Zhenjiang",
+      "start": 1842,
+      "plats": "Zhenjiang vid Yangtze och Kejsarkanalen, Jiangsu",
+      "wikidata": "Q4870730",
+      "kandidater": [
+        {
+          "fil": "File:West Gate of Ching-Keang-Foo 1842.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:West_Gate_of_Ching-Keang-Foo_1842.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Drawn by Thomas Allom, from a sketch on the spot by Capt. James Stoddart, RN. Engraved by J. M. Starling.",
+          "datum": "published 1843",
+          "datum_original": "published 1843",
+          "datum_fil": "2016-06-24 20:55:06",
+          "kredit": "https://repository.library.brown.edu/studio/item/bdr:228378/",
+          "beskrivning": "West gate of Ching-Keang-Foo , 21 July 1842.",
+          "bredd": 4493,
+          "hojd": 2950,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/West_Gate_of_Ching-Keang-Foo_1842.jpg/960px-West_Gate_of_Ching-Keang-Foo_1842.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Chinkiang",
+            "J. M. Starling",
+            "Thomas Allom"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-100-1923"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "norra-expeditionen-taiping",
+      "titel": "Norra expeditionen mot Peking",
+      "start": 1853,
+      "plats": "Från Yangzhou norrut mot Tianjin",
+      "wikidata": "Q6140803",
+      "kandidater": [
+        {
+          "fil": "File:Chiang Kai-Shek paying reverence at the tomb of the late Dr. Sun Yat-Sen, August 04, 1928.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chiang_Kai-Shek_paying_reverence_at_the_tomb_of_the_late_Dr._Sun_Yat-Sen,_August_04,_1928.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "Taken on 6 July 1928",
+          "datum_original": "Taken on 6 July 1928",
+          "datum_fil": "2022-08-27 18:35:34",
+          "kredit": "one or more third parties have made copyright claims against Wikimedia Commons in relation to the work from which this is sourced or a purely mechanical reproduction thereof . This may be due to recognition of the \" sweat of the brow \" doctrine, allowing works to be eligible for protection through skill and labour, and not purely by originality as is the case in the United States (where this website is hosted). These claims may or may not be valid in all jurisdictions. As such, use of this image in the jurisdiction of the claimant or other countries may be regarded as copyright infringement . Please see Commons:When to use the PD-Art tag for more information.",
+          "beskrivning": "(Original Caption) 8/4/1928-Peking, China: China's three military leaders are paying reverence at the tomb of the late Dr. Sun Yat-Sen. This photo shows General Kiang Kin Shih, the speaker at this memorial service.",
+          "bredd": 2048,
+          "hojd": 1463,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Chiang_Kai-Shek_paying_reverence_at_the_tomb_of_the_late_Dr._Sun_Yat-Sen%2C_August_04%2C_1928.jpg/960px-Chiang_Kai-Shek_paying_reverence_at_the_tomb_of_the_late_Dr._Sun_Yat-Sen%2C_August_04%2C_1928.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1928 black and white photographs in Beijing",
+            "Chiang Kai-shek in 1928",
+            "Chiang Kai-shek in China",
+            "Northern Expedition",
+            "Sun Yat-sen",
+            "Temple of Azure Clouds"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-China-expired"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "saavedra-over-stilla-havet",
+      "titel": "Saavedra seglar från Mexiko över Stilla havet",
+      "start": 1527,
+      "plats": "Rongelap och Ailinginae, Marshallöarna",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "renassans"
+    },
+    {
+      "id": "portugiserna-landstiger-i-massawa",
+      "titel": "Portugisisk hjälp når Etiopien",
+      "start": 1541,
+      "plats": "Massawa vid Röda havet, i dag Eritrea",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "islamisk"
+    },
+    {
+      "id": "francis-xavier-i-japan",
+      "titel": "Francis Xavier kommer till Japan",
+      "start": 1549,
+      "plats": "Kagoshima, Japan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "renassans"
+    },
+    {
+      "id": "hoei-utbrottet-1707",
+      "titel": "Fuji får sitt senaste utbrott",
+      "start": 1707,
+      "plats": "Fuji, Japan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "japan-ukiyoe"
+    },
+    {
+      "id": "slaget-vid-barari-ghat",
+      "titel": "Slaget vid Barari Ghat",
+      "start": 1760,
+      "plats": "Barari Ghat vid floden Yamuna i Delhi (i dag Burari)",
+      "wikidata": "Q9385673",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "slaget-vid-kunjpura",
+      "titel": "Slaget vid Kunjpura",
+      "start": 1760,
+      "plats": "Kunjpura vid floden Yamuna, cirka 150 km norr om Delhi (i dag Haryana)",
+      "wikidata": "Q125758658",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "hanaoka-narkos-1804",
+      "titel": "Hanaoka Seishū opererar under narkos",
+      "start": 1804,
+      "plats": "Wakayama prefektur, Japan (där Hanaoka var läkare; källan anger inte var operationen gjordes)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "japan-ukiyoe"
+    },
+    {
+      "id": "bab-framtrader-1844",
+      "titel": "Báb träder fram i Shiraz",
+      "start": 1844,
+      "plats": "Shiraz, Iran",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    }
+  ]
+}

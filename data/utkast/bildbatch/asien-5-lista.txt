@@ -1,0 +1,25 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:BATTLE DISPOSITION 1-jalula.JPG	slaget-vid-jalula
+# File:Castle Nahavend by Eugène Flandin.jpg	slaget-vid-nahavand
+# File:Maqamat hariri.jpg	visdomens-hus-bagdad
+# File:Byodoin Phoenix Hall Uji 10-2R.jpg	slaget-vid-uji-1180
+# File:Battle of Kurikaradani Kassen Zu.jpg	slaget-vid-kurikara
+# File:Battle of Ichi-no-Tani Folding Screen by Kano School.jpg	slaget-vid-ichi-no-tani
+# File:Battle of Yashima Folding Screens Kano School.jpg	slaget-vid-yashima
+# File:Philippe Auguste et Richard Acre.jpg	belagringen-av-akko-1189
+# File:Bataille de vâliyân (1221).jpeg	mongolernas-erovringar
+# File:Siège de Beijing (1213-1214).jpeg	zhongdus-fall-1215
+# File:Sukhothai, Wat, Thailand.jpg	sukhothairiket-grundas
+# File:Wheel engraved in the 13th century built Konark Sun Temple in Orissa, India.jpg	soltemplet-i-konark
+# File:Campaign of the Battle of Ain Jalut 1260.svg	slaget-vid-ain-jalut
+# File:Mooko-HakataWall.jpg	forsta-slaget-i-hakatabukten
+# File:Da Qing fen sheng yu tu LOC 2002626726-1.jpg	mongolerna-landar-pa-tsushima-1274
+# File:Kikuchi Yoosai - Mongol Invasion (mōko shūrai) - Tokyo National Museum.jpg	mongolernas-invasioner-av-japan
+# File:Jingmen002.jpg	slaget-vid-yamen
+# File:Kikuchi Yoosai - Mongol Invasion (mōko shūrai) - Tokyo National Museum.jpg	andra-slaget-i-hakatabukten
+# File:SiegeOfAcre1291.jpg	akkos-fall-1291
+# File:Hampi, India, Watch Tower, The Zenana Enclosure, Vijayanagara Empire.jpg	vijayanagarariket-grundas
+# File:Soldo (Tin) - Portuguese Malacca (Dom Joao III) - Scott Semans 01.jpg	malacka-grundas
+# File:"Plan de Goa", in Histoire générale des voyages,1750.jpg	goa-1510
+# File:Detail from a map of Ortelius - Magellan's ship Victoria.png	magellan-nar-guam
