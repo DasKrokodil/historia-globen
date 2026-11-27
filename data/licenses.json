@@ -3254,6 +3254,7 @@
         "wp-sv-stockholms-historia",
         "wp-sv-uppland",
         "wp-sv-uppsala-universitet",
+        "wp-sv-vastergotland",
         "wp-sv-verginasolen",
         "wp-svalbard-global-seed-vault",
         "wp-svante-arrhenius",
@@ -3881,6 +3882,7 @@
         "wd-uppland",
         "wd-uppsala-universitet",
         "wd-vasa",
+        "wd-vastergotland",
         "wd-venus-of-moravany",
         "wd-vietnam",
         "wd-vijayanagara-empire",
@@ -5449,7 +5451,8 @@
         "lex-skanske-krig",
         "lex-tabet-af-skane",
         "lex-uppakra",
-        "lex-uppland"
+        "lex-uppland",
+        "lex-vastergotland"
       ]
     },
     {
@@ -5508,7 +5511,8 @@
       "sourceIds": [
         "snl-lappland",
         "snl-skane",
-        "snl-uppland"
+        "snl-uppland",
+        "snl-vastergotland"
       ]
     },
     {
