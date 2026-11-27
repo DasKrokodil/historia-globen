@@ -4409,12 +4409,12 @@ async function run(browser, vp) {
       if (order.join() !== want.join()) throw new Error(`världsdelarna står ${order.join(', ')}, inte i Samtidigts ordning ${want.join(', ')}`);
       if (tree.regions.some(r => r.expanded !== 'true')) throw new Error('en världsdel är ihopfälld från början');
       const europa = tree.regions.find(r => r.id === 'Europa');
-      if (europa?.rows.join() !== 'place:belgien,place:danmark,place:estland,place:finland,place:frankrike,place:irland,place:island,place:lettland,place:litauen,place:luxemburg,place:nederlanderna,place:norge,place:polen,place:schweiz,place:storbritannien,place:sverige,place:tjeckien,place:tyskland,place:osterrike') throw new Error(`Europa visar ${europa?.rows.join(', ')}, inte Belgien, Danmark, Estland, Finland, Frankrike, Irland, Island, Lettland, Litauen, Luxemburg, Nederländerna, Norge, Polen, Schweiz, Storbritannien, Sverige, Tjeckien, Tyskland och Österrike i namnordning`);
+      if (europa?.rows.join() !== 'place:belgien,place:danmark,place:estland,place:finland,place:frankrike,place:irland,place:island,place:lettland,place:litauen,place:luxemburg,place:nederlanderna,place:norge,place:polen,place:schweiz,place:slovakien,place:storbritannien,place:sverige,place:tjeckien,place:tyskland,place:osterrike') throw new Error(`Europa visar ${europa?.rows.join(', ')}, inte Belgien, Danmark, Estland, Finland, Frankrike, Irland, Island, Lettland, Litauen, Luxemburg, Nederländerna, Norge, Polen, Schweiz, Slovakien, Storbritannien, Sverige, Tjeckien, Tyskland och Österrike i namnordning`);
       if (tree.regions.find(r => r.id === 'Amerika')?.rows.join() !== 'place:gronland') throw new Error('Grönland står inte under Amerika (som i Samtidigt)');
       // Landskapen är ihopfällda under sitt land, och knappen säger landets namn ur datan
       const kids = tp.locator('#focus-menu [data-node="c:sverige:landskap"]');
       const kidsText = (await kids.textContent()).replace(/\s+/g, ' ').trim();
-      if (!/^Landskap i Sverige \(1\)$/.test(kidsText)) throw new Error(`landskapens knapp säger "${kidsText}", inte "Landskap i Sverige (1)"`);
+      if (!/^Landskap i Sverige \(2\)$/.test(kidsText)) throw new Error(`landskapens knapp säger "${kidsText}", inte "Landskap i Sverige (2)" (Skåne och Uppland, #1850)`);
       if (await kids.getAttribute('aria-expanded') !== 'false') throw new Error('landskapen är utfällda från början');
       if (await tp.locator('#focus-menu [data-key="place:skane"]').isVisible()) throw new Error('Skåne syns fast landskapen är ihopfällda');
       await kids.click();
@@ -4456,8 +4456,8 @@ async function run(browser, vp) {
       const at = () => tp.evaluate(() => { const a = document.activeElement; return a?.dataset.key ?? (a?.dataset.node ? `nod ${a.dataset.node}` : a?.className); });
       const walk = async keys => { const out = []; for (const k of keys) { await tp.keyboard.press(k); out.push(await at()); } return out; };
       await tp.locator('#focus-menu [data-node="r:Europa"]').focus();
-      const down = await walk(Array(22).fill('ArrowDown'));
-      const want = ['place:belgien', 'place:danmark', 'place:estland', 'place:finland', 'place:frankrike', 'place:irland', 'place:island', 'place:lettland', 'place:litauen', 'place:luxemburg', 'place:nederlanderna', 'place:norge', 'place:polen', 'place:schweiz', 'place:storbritannien', 'place:sverige', 'nod c:sverige:landskap', 'place:tjeckien', 'place:tyskland', 'place:osterrike', 'nod r:Amerika', 'place:gronland'];
+      const down = await walk(Array(23).fill('ArrowDown'));
+      const want = ['place:belgien', 'place:danmark', 'place:estland', 'place:finland', 'place:frankrike', 'place:irland', 'place:island', 'place:lettland', 'place:litauen', 'place:luxemburg', 'place:nederlanderna', 'place:norge', 'place:polen', 'place:schweiz', 'place:slovakien', 'place:storbritannien', 'place:sverige', 'nod c:sverige:landskap', 'place:tjeckien', 'place:tyskland', 'place:osterrike', 'nod r:Amerika', 'place:gronland'];
       if (down.join() !== want.join()) throw new Error(`pil ner gick ${down.join(' → ')}, inte ${want.join(' → ')} (Skåne är ihopfällt och ska hoppas över)`);
       // Fäll ut landskapen med Enter: nu kommer Skåne efter knappen
       await tp.locator('#focus-menu [data-node="c:sverige:landskap"]').focus();
