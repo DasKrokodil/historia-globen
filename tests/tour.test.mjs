@@ -80,6 +80,40 @@ test('Källdetektiven: händelser som ett steg öppnar, med 1–4 frågor (#742)
   }
 });
 
+test('förväntade svar och ordförklaringar bygger på turens källor (#1316)', () => {
+  const k = { ...known, sources: new Set(['s1', 's2']) };
+  const lesson = (over = {}) => ({
+    grades: '4-6', minutes: 30, curriculum: [{ text: { sv: 'Kopplad till Lgr22.' }, sources: ['s1'] }],
+    teacher: { sv: 'Instruktion.' }, exitTicket: { sv: 'Fråga.' }, ...over,
+  });
+  const ok = tour({
+    steps: [step({ question: { sv: 'Varför?' }, answer: { text: { sv: 'Därför.' }, sources: ['s1'] } })],
+    lesson: lesson({ exitAnswer: { text: { sv: 'Svar.' }, sources: ['s1'] }, glossary: [{ term: { sv: 'ord' }, text: { sv: 'Förklaring.' }, sources: ['s1'] }] }),
+  });
+  assert.deepEqual(tourProblems(ok, k), []);
+  const all = tourProblems(tour({
+    steps: [
+      step({ answer: { text: { sv: 'Svar utan fråga.' }, sources: ['s1'] } }),
+      step({ id: 'b', question: { sv: 'Varför?' }, answer: { text: { en: 'x' }, sources: ['s2'] } }),
+    ],
+    lesson: lesson({ exitAnswer: { text: { sv: 'Svar.' }, sources: [] }, glossary: [{ term: { sv: 'ord' }, text: 'x', sources: ['s2'] }] }),
+  }), k).join('\n');
+  for (const part of ['har ingen fråga', 'saknar text', 'källan s2 är inte en av källorna', 'exitAnswer\\) saknar källor', 'förklaringen saknas', 'källan s2 anges inte av något steg']) {
+    assert.match(all, new RegExp(part), `saknar ${part}`);
+  }
+  assert.match(tourProblems(tour({ lesson: lesson({ glossary: [] }) }), k).join(), /1–8 ord/);
+});
+
+test('lektionernas förväntade svar och ordförklaringar har alla språk som frågan (#1316)', () => {
+  for (const id of read('data/turer/index.json').tours) {
+    const t = read(`data/turer/${id}.json`);
+    const langs = x => Object.keys(x).sort();
+    for (const s of t.steps) if (s.answer) assert.deepEqual(langs(s.answer.text), langs(s.question), `${id} ${s.id}: svaret har inte samma språk som frågan`);
+    if (t.lesson?.exitAnswer) assert.deepEqual(langs(t.lesson.exitAnswer.text), langs(t.lesson.exitTicket), `${id}: svaret på exit ticket har inte samma språk`);
+    for (const g of t.lesson?.glossary ?? []) assert.deepEqual(langs(g.text), langs(g.term), `${id}: ordförklaringen ${g.term.sv} har inte samma språk som ordet`);
+  }
+});
+
 test('Källdetektivens händelser har en anteckning om källorna (note.kind, #742)', () => {
   const byId = new Map(read('data/events.json').events.map(e => [e.id, e]));
   for (const id of read('data/turer/index.json').tours) {

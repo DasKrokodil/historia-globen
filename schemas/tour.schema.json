@@ -38,6 +38,21 @@
         "prerequisites": { "$ref": "#/$defs/text" },
         "teacher": { "$ref": "#/$defs/text" },
         "exitTicket": { "$ref": "#/$defs/text" },
+        "exitAnswer": { "$ref": "#/$defs/answer" },
+        "glossary": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "required": ["term", "text", "sources"],
+            "properties": {
+              "term": { "$ref": "#/$defs/text" },
+              "text": { "$ref": "#/$defs/text" },
+              "sources": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+            }
+          }
+        },
         "sourceDetective": {
           "type": "array",
           "minItems": 1,
@@ -60,6 +75,14 @@
           },
           "additionalProperties": false
         }
+      }
+    },
+    "answer": {
+      "type": "object",
+      "required": ["text", "sources"],
+      "properties": {
+        "text": { "$ref": "#/$defs/text" },
+        "sources": { "type": "array", "minItems": 1, "items": { "type": "string" } }
       }
     },
     "text": {
@@ -85,6 +108,7 @@
         "title": { "$ref": "#/$defs/text" },
         "chapter": { "$ref": "#/$defs/text" },
         "question": { "$ref": "#/$defs/text" },
+        "answer": { "$ref": "#/$defs/answer" },
         "status": { "type": "string", "enum": ["belagt", "omtvistat", "okant"] },
         "text": { "$ref": "#/$defs/text" },
         "layers": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
