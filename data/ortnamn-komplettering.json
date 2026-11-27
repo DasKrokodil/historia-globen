@@ -273,6 +273,47 @@
     ],
     "checked": "2026-11-27"
    }
+  ],
+  "jamtland": [
+   {
+    "wikidata": "Q1004166",
+    "coordinates": [
+     14.016,
+     63.379
+    ],
+    "name": {
+     "sv": "Glösa",
+     "en": "Glösa",
+     "de": "Glösa",
+     "es": "Glösa",
+     "fr": "Glösa"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "hallristningarna-i-glosa"
+    ],
+    "checked": "2026-11-27"
+   },
+   {
+    "wikidata": "Q1004189",
+    "coordinates": [
+     14.542,
+     63.192
+    ],
+    "name": {
+     "sv": "Frösön",
+     "en": "Frösön",
+     "de": "Frösön",
+     "es": "Frösön",
+     "fr": "Frösön"
+    },
+    "events": [
+     "frosostenen"
+    ],
+    "checked": "2026-11-27"
+   }
   ]
  }
 }
