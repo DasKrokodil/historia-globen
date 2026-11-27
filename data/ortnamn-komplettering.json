@@ -400,6 +400,29 @@
     ],
     "checked": "2026-11-27"
    }
+  ],
+  "harjedalen": [
+   {
+    "wikidata": "Q3257468",
+    "coordinates": [
+     12.609,
+     62.534
+    ],
+    "name": {
+     "sv": "Ljusnedal",
+     "en": "Ljusnedal",
+     "de": "Ljusnedal",
+     "es": "Ljusnedal",
+     "fr": "Ljusnedal"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "kopparverket-i-ljusnedal"
+    ],
+    "checked": "2026-11-27"
+   }
   ]
  }
 }
