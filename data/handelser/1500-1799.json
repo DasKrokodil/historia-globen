@@ -2345,6 +2345,21 @@
      "de": "Wikipedia gibt an, dass die Belagerung Anfang März 1537 endete. Wikidata nennt den 18. April 1537. Der Beginn, der 6. Mai 1536, stimmt überein."
     }
    },
+   "image": {
+    "file": "images/events/belagringen-av-cusco-1536.webp",
+    "kind": "historisk",
+    "style": "inka",
+    "caption": {
+     "sv": "Teckning ur Felipe Guaman Poma de Ayalas krönika (cirka 1615, filsidan); rubriken lyder \"Mango Inga pega fuego\" och kategorierna kopplar bilden till belägringen av Cusco. En senare teckning, inte ett samtida dokument från 1536. Licens: Public domain.",
+     "en": "Drawing from Felipe Guaman Poma de Ayala's chronicle (about 1615, file page); the heading reads “Mango Inga pega fuego” and the categories link the image to the siege of Cuzco. A later drawing, not a contemporary document from 1536. Licence: Public domain.",
+     "de": "Zeichnung aus der Chronik von Felipe Guaman Poma de Ayala (um 1615, Dateiseite); die Überschrift lautet „Mango Inga pega fuego“, und die Kategorien verbinden das Bild mit der Belagerung von Cusco. Eine spätere Zeichnung, kein zeitgenössisches Dokument von 1536. Lizenz: gemeinfrei.",
+     "es": "Dibujo de la crónica de Felipe Guaman Poma de Ayala (hacia 1615, página del archivo); el encabezado dice «Mango Inga pega fuego» y las categorías vinculan la imagen con el cerco del Cuzco. Un dibujo posterior, no un documento contemporáneo de 1536. Licencia: dominio público.",
+     "fr": "Dessin tiré de la chronique de Felipe Guaman Poma de Ayala (vers 1615, page du fichier) ; l'intitulé porte « Mango Inga pega fuego » et les catégories rattachent l'image au siège de Cuzco. Un dessin postérieur, pas un document contemporain de 1536. Licence : domaine public."
+    },
+    "credit": "Felipe Guaman Poma de Ayala / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-belagringen-av-cusco-1536"
+   },
    "wikidata": "Q2398589",
    "sources": [
     "wp-siege-cusco",
@@ -4077,6 +4092,21 @@
      "en": "Wikipedia's articles on the law of 4 February 1794 and on Napoleon's expedition give 29 August 1793. One section of Wikipedia's article on the revolution says 1792, but the same article gives 1793 in another place.",
      "de": "Die Wikipedia-Artikel über das Gesetz vom 4. Februar 1794 und über Napoleons Expedition geben den 29. August 1793 an. Ein Abschnitt im Wikipedia-Artikel über die Revolution nennt 1792, doch derselbe Artikel nennt an anderer Stelle 1793."
     }
+   },
+   "image": {
+    "file": "images/events/slaveriet-avskaffas-1793.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Porträtt av Léger-Félicité Sonthonax (1763–1813), oljemålning från slutet av 1700-talet av okänd konstnär (filsidan). Visar kommissarien som person, inte själva frigivningen 1793. Licens: Public domain.",
+     "en": "Portrait of Léger-Félicité Sonthonax (1763–1813), an oil painting from the late 18th century by an unknown artist (file page). It shows the commissioner as a person, not the emancipation itself in 1793. Licence: Public domain.",
+     "de": "Porträt von Léger-Félicité Sonthonax (1763–1813), Ölgemälde vom Ende des 18. Jahrhunderts von unbekanntem Künstler (Dateiseite). Es zeigt den Kommissar als Person, nicht die Freilassung selbst im Jahr 1793. Lizenz: gemeinfrei.",
+     "es": "Retrato de Léger-Félicité Sonthonax (1763–1813), óleo de finales del siglo XVIII de un artista desconocido (página del archivo). Muestra al comisario como persona, no la emancipación misma de 1793. Licencia: dominio público.",
+     "fr": "Portrait de Léger-Félicité Sonthonax (1763–1813), huile de la fin du XVIIIe siècle d'un artiste inconnu (page du fichier). Il montre le commissaire en tant que personne, pas l'abolition elle-même en 1793. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaveriet-avskaffas-1793"
    },
    "sources": [
     "wp-law-4-february-1794",
