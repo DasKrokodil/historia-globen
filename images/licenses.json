@@ -177,6 +177,21 @@
       }
     },
     {
+      "eventId": "alexanders-faltag",
+      "eventTitle": "Alexander den stores fälttåg",
+      "file": "images/events/alexanders-faltag.webp",
+      "kind": "historisk",
+      "credit": "Okänd skapare (mosaik från Faunens hus) / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-alexanders-faltag",
+        "title": "Alexander and Bucephalus - Battle of Issus mosaic - Museo Archeologico Nazionale - Naples BW (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Alexander_and_Bucephalus_-_Battle_of_Issus_mosaic_-_Museo_Archeologico_Nazionale_-_Naples_BW.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "alexandria-grundas",
       "eventTitle": "Alexandria grundas",
       "file": "images/events/alexandria-grundas.webp",
@@ -1002,6 +1017,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Bm04004abm.jpg",
         "license": "Public domain",
         "checked": "2026-11-21"
+      }
+    },
+    {
+      "eventId": "belagringen-av-saguntum",
+      "eventTitle": "Hannibal belägrar Saguntum",
+      "file": "images/events/belagringen-av-saguntum.webp",
+      "kind": "historisk",
+      "credit": "Okänd uppladdare / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-belagringen-av-saguntum",
+        "title": "Castillo02 Sagunto (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Castillo02_Sagunto.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -1902,6 +1932,21 @@
       }
     },
     {
+      "eventId": "delfinmynt-i-olbia",
+      "eventTitle": "Olbia gjuter mynt formade som delfiner",
+      "file": "images/events/delfinmynt-i-olbia.webp",
+      "kind": "historisk",
+      "credit": "Krigore / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-delfinmynt-i-olbia",
+        "title": "Olbian dolphin coins – Krigore (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Olbian_dolphin_coins.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "demokratin-i-aten",
       "eventTitle": "Kleisthenes och demokratin i Aten",
       "file": "images/events/demokratin-i-aten.webp",
@@ -2343,6 +2388,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:YagbeaSionBattlingAdaSultan.JPG",
         "license": "Public domain",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "etnas-utbrott-122-fkr",
+      "eventTitle": "Etnas våldsamma utbrott 122 f.Kr.",
+      "file": "images/events/etnas-utbrott-122-fkr.webp",
+      "kind": "historisk",
+      "credit": "gnuckx / Wikimedia Commons (Flickr)",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-etnas-utbrott-122-fkr",
+        "title": "Mount Etna Volcano Dawn at Paternò Sicilia Italy - Creative Commons by gnuckx (4773785162) – gnuckx (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mount_Etna_Volcano_Dawn_at_Patern%C3%B2_Sicilia_Italy_-_Creative_Commons_by_gnuckx_(4773785162).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5457,6 +5517,21 @@
       }
     },
     {
+      "eventId": "lydiska-mynt",
+      "eventTitle": "Lydierna präglar några av världens första mynt",
+      "file": "images/events/lydiska-mynt.webp",
+      "kind": "historisk",
+      "credit": "brewbooks / Wikimedia Commons (Flickr)",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-lydiska-mynt",
+        "title": "Lydian electrum Lion coins - Flickr - brewbooks – brewbooks from near Seattle, USA (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lydian_electrum_Lion_coins_-_Flickr_-_brewbooks.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "machu-picchu",
       "eventTitle": "Machu Picchu byggs",
       "file": "images/events/machu-picchu.webp",
@@ -8346,6 +8421,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-eurymedon",
+      "eventTitle": "Slaget vid Eurymedon",
+      "file": "images/events/slaget-vid-eurymedon.webp",
+      "kind": "historisk",
+      "credit": "Adam Franco / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-slaget-vid-eurymedon",
+        "title": "Eurymedon Bridge, Aspendos, Turkey. Pic 01 – Adam Franco (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Eurymedon_Bridge,_Aspendos,_Turkey._Pic_01.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-eutaw-springs",
       "eventTitle": "Slaget vid Eutaw Springs",
       "file": "images/events/slaget-vid-eutaw-springs.webp",
@@ -8457,6 +8547,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Thure_de_Thulstrup_-_L._Prang_and_Co._-_Battle_of_Gettysburg_-_Restoration_by_Adam_Cuerden.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-granikos",
+      "eventTitle": "Slaget vid Granikos",
+      "file": "images/events/slaget-vid-granikos.webp",
+      "kind": "historisk",
+      "credit": "Charles Le Brun / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-granikos",
+        "title": "Charles Le Brun, Le Passage du Granique, 1665 – Charles Le Brun / Abraham Genoels (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Charles_Le_Brun,_Le_Passage_du_Granique,_1665.png",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -8595,6 +8700,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-karkemish",
+      "eventTitle": "Slaget vid Karkemish",
+      "file": "images/events/slaget-vid-karkemish.webp",
+      "kind": "historisk",
+      "credit": "Egisto C. / Hutchinson's History of the Nations",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-karkemish",
+        "title": "The Battle of Carchemish – Egisto C. (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Battle_of_Carchemish.png",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-kepaniwai",
       "eventTitle": "Slaget vid Kepaniwai",
       "file": "images/events/slaget-vid-kepaniwai.webp",
@@ -8681,6 +8801,21 @@
         "title": "Batalla de Maipú, por Rugendas – Johann Moritz Rugendas (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Batalla_de_Maip%C3%BA,_por_Rugendas.jpg",
         "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "slaget-vid-marathon",
+      "eventTitle": "Slaget vid Marathon",
+      "file": "images/events/slaget-vid-marathon.webp",
+      "kind": "historisk",
+      "credit": "John Steeple Davis / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-marathon",
+        "title": "Scene of the Battle of Marathon – John Steeple Davis (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Scene_of_the_Battle_of_Marathon.jpg",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
@@ -8886,6 +9021,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Lord_Clive_meeting_with_Mir_Jafar_after_the_Battle_of_Plassey.jpg",
         "license": "Public domain",
         "checked": "2026-11-12"
+      }
+    },
+    {
+      "eventId": "slaget-vid-plataiai",
+      "eventTitle": "Slaget vid Plataiai",
+      "file": "images/events/slaget-vid-plataiai.webp",
+      "kind": "historisk",
+      "credit": "John Steeple Davis / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-plataiai",
+        "title": "Scene of the Battle of Plataea – John Steeple Davis (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Scene_of_the_Battle_of_Plataea.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -10068,6 +10218,21 @@
       }
     },
     {
+      "eventId": "thebe-forstors",
+      "eventTitle": "Alexander förstör Thebe",
+      "file": "images/events/thebe-forstors.webp",
+      "kind": "historisk",
+      "credit": "Charles R. Stanton / Hutchinson's History of the Nations",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-thebe-forstors",
+        "title": "Charles R. Stantonː Alexander at the Sack of Thebes in 335 BC (illustration from Hutchinsons History of the Nations, 1915) – Charles Rebel Stanton (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Charles_R._Stanton%CB%90_Alexander_at_the_Sack_of_Thebes_in_335_BC_(illustration_from_Hutchinsons_History_of_the_Nations,_1915).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "thulefolket-nar-gronland",
       "eventTitle": "Thulefolket når Grönland",
       "file": "images/events/thulefolket-nar-gronland.webp",
@@ -10244,6 +10409,21 @@
         "title": "Toussaint Louverture - Girardin – Alexandre-François-Louis, comte de Girardin (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Toussaint_Louverture_-_Girardin.jpg",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "trakiska-graven-i-kazanlak",
+      "eventTitle": "Den trakiska graven i Kazanlak målas",
+      "file": "images/events/trakiska-graven-i-kazanlak.webp",
+      "kind": "historisk",
+      "credit": "Ivelin M. (uppladdare) / Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "source": {
+        "id": "commons-bild-trakiska-graven-i-kazanlak",
+        "title": "Kazanlak-tomb-fresco-1 – Original uploader was Ivelin Mincov at bg.wikipedia (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kazanlak-tomb-fresco-1.jpg",
+        "license": "CC BY 2.5",
         "checked": "2026-11-26"
       }
     },
