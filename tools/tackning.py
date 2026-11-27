@@ -58,6 +58,11 @@ REGIONS = _tr.REGIONS  # Europa, Asien, Afrika, Amerika, Oceanien
 CATEGORIES = ['natur', 'manniskan', 'civilisationer', 'religion', 'vetenskap', 'upptackter', 'krig',
               'kultur', 'sport', 'ekonomi', 'halsa', 'klimat', 'katastrofer', 'rymden']
 
+# Kategorier som bara gäller en del av tiden. `manniskan` heter "Människans ursprung" (js/model.js) och har därför
+# inget innehåll att fylla efter år 1500 (beslut 2026-11-27, #2349): en tom cell där är inte en lucka. Värdet är sista
+# år då kategorin väntas; en period som börjar senare räknas som "ej tillämplig". Finns det ändå händelser där visas de.
+ORIGIN_ONLY = {'manniskan': 1500}
+
 # Perioderna efter startår (astronomiskt år: 0 = 1 f.Kr.). (id, namn, första år, sista år).
 # Förhistorien räknas här från 10 000 f.Kr. när periodens längd vägs in; äldre händelser räknas ändå dit.
 PERIODS = [
@@ -346,6 +351,22 @@ def sea_rows(root, step=SEA_STEP):
 
 # ---------- Rapporten ----------
 
+def applicable(cat, pid):
+    """Om kategorin väntas ha innehåll under perioden (ORIGIN_ONLY: nej för perioder som börjar efter sista året)."""
+    last = ORIGIN_ONLY.get(cat)
+    if last is None:
+        return True
+    first = next(p[2] for p in PERIODS if p[0] == pid)
+    return first <= last
+
+
+def cat_cell(cat, pid, n):
+    """En cell i kategoritabellen: '–' där kategorin inte väntas och cellen är tom, annars samma markering som mark()."""
+    if n == 0 and not applicable(cat, pid):
+        return '–'
+    return mark(n)
+
+
 def pct(n, d):
     return '–' if not d else f'{round(100 * n / d)} %'
 
@@ -427,14 +448,15 @@ def build(root, today, cliopatria=None):
         out.append(f'| {c}-talet | ' + ' | '.join(mark(v) for v in vals) + f' | {sum(vals)} |')
 
     out += ['', '## Per period, världsdel och kategori', '',
-            'En tabell per period. Raderna är kategorierna i samma ordning som på sidan.']
+            'En tabell per period. Raderna är kategorierna i samma ordning som på sidan. **–** = kategorin väntas inte ha '
+            'innehåll i perioden: `manniskan` ("Människans ursprung") räknas inte efter år 1500 (beslut 2026-11-27, #2349).']
     for pid, name, *_ in PERIODS:
         out += ['', f'### {name}', '',
                 '| Kategori | ' + ' | '.join(REGIONS) + ' | Totalt |',
                 '| --- | ' + ' | '.join('---:' for _ in REGIONS) + ' | ---: |']
         for cat in CATEGORIES:
             vals = [count[(pid, r, cat)] for r in REGIONS]
-            out.append(f'| {cat} | ' + ' | '.join(mark(v) for v in vals) + f' | {sum(vals)} |')
+            out.append(f'| {cat} | ' + ' | '.join(cat_cell(cat, pid, v) for v in vals) + f' | {sum(vals)} |')
 
     def share_table(title, intro, key, rows=rows):
         N = len(rows)
@@ -508,8 +530,9 @@ def build(root, today, cliopatria=None):
     ]
     names = {p[0]: p[1] for p in PERIODS}
     for i, (_, _, pid, r, expected, actual) in enumerate(gaps[:TOP_GAPS], 1):
-        empty = [c for c in CATEGORIES if count[(pid, r, c)] == 0]
-        empty_text = 'alla' if len(empty) == len(CATEGORIES) else ', '.join(empty)
+        wanted = [c for c in CATEGORIES if applicable(c, pid)]
+        empty = [c for c in wanted if count[(pid, r, c)] == 0]
+        empty_text = 'alla' if len(empty) == len(wanted) else ', '.join(empty)
         out.append(f'| {i} | {names[pid]} | {r} | {actual} | {expected:.0f} | {empty_text} |')
     if not gaps:
         out.append('| – | Inga celler under det väntade | | | | |')
