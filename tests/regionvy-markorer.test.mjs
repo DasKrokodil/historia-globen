@@ -5,7 +5,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { placeEvents, placeBounds, inGeometry } from '../js/place-geo.js';
+import { placeEvents, placeBounds, inGeometry, linkIncludeEvents } from '../js/place-geo.js';
 import { regionFrame } from '../js/region-frame.js';
 import { isVisibleReview, CAT } from '../js/model.js';
 import {
@@ -14,7 +14,7 @@ import {
 } from '../js/region-markers.js';
 
 const read = p => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), 'utf8'));
-const places = read('data/platser.json').places.filter(p => isVisibleReview(p.review));
+const places = linkIncludeEvents(read('data/platser.json').places.filter(p => isVisibleReview(p.review))); // som loadPlaces (#2333)
 const place = id => places.find(p => p.id === id);
 const events = read('data/events.json').events;
 for (const e of events) if (e.location?.type === 'Point') [e._lon, e._lat] = e.location.coordinates;

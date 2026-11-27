@@ -147,8 +147,10 @@ test('Tysklands luckor och kartavvikelser är de som kortets inledning nämner (
       '1702–1806', '1815–1866', '1866–1871', '1919', '1920', '1945–1948', '1945–1946', '1945–1949', '1947', '1950', '1920–1934', '1947–1956']) {
       assert.ok(pl.intro[lang].includes(years), `tyskland: inledningen (${lang}) nämner inte ${years}`);
     }
-    // Händelserna utanför Tyskland som den grova gränsen eller kustmarginalen tar med i kortet
+    // Orterna utanför Tyskland som den grova gränsen eller kustmarginalen lägger i Tyskland; grannländernas includeEvents (#2333)
+    // räknar dem till sina länder, och inledningen säger det
     for (const town of ['Echternach', 'Schengen', 'Kelmis', 'Dybbøl']) assert.ok(pl.intro[lang].includes(town), `tyskland: inledningen (${lang}) nämner inte ${town}`);
+    assert.ok(!/syns därför i kortet|therefore appear on the card|erscheinen deshalb|por eso figuran|figurent donc/.test(pl.intro[lang]), `tyskland: inledningen (${lang}) säger fortfarande att gränsorterna står i kortet`);
   }
   // Svenska stormaktsväldet i Berlin står inte i kortet; Preussen och Tysk-romerska riket överlappar
   assert.ok(!pl.periods.some(p => p.empire === 'svenska-stormaktsvaldet'));
