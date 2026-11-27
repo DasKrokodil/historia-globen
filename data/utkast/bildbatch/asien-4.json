@@ -1,0 +1,1790 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "asien-4",
+  "datum": "2026-11-26",
+  "urval": "ids=33 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "slaget-vid-weifloden",
+      "titel": "Slaget vid Weifloden",
+      "start": -203,
+      "plats": "Weifloden vid Weifang i provinsen Shandong",
+      "wikidata": "Q4872718",
+      "kandidater": [
+        {
+          "fil": "File:Battle at the Wei River (Weihe).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Battle_at_the_Wei_River_(Weihe).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Qingkuan",
+          "datum": "between 1886 and 1890 date QS:P,+1850-00-00T00:00:00Z/7,P1319,+1886-00-00T00:00:00Z/9,P1326,+1890-00-00T00:00:00Z/9",
+          "datum_original": "between 1886 and 1890 date QS:P,+1850-00-00T00:00:00Z/7,P1319,+1886-00-00T00:00:00Z/9,P1326,+1890-00-00T00:00:00Z/9",
+          "datum_fil": "2010-05-16 01:46:32",
+          "kredit": "http://www.battle-of-qurman.com.cn/e/hist.htm",
+          "beskrivning": "A scene of the Dungan revolt (1862-1877)",
+          "bredd": 1143,
+          "hojd": 519,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Battle_at_the_Wei_River_%28Weihe%29.jpg/960px-Battle_at_the_Wei_River_%28Weihe%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Dungan revolt",
+            "Paintings of the Qing Dynasty"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        },
+        {
+          "fil": "File:Statue of a Virginia frontiersman on a monument at Point Pleaasant Battle Monument State Park, called Tu-Endie-Wei Park locally, in Point Pleasant, a city on the Ohio River in West Virginia LCCN2015631940.tif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Statue_of_a_Virginia_frontiersman_on_a_monument_at_Point_Pleaasant_Battle_Monument_State_Park,_called_Tu-Endie-Wei_Park_locally,_in_Point_Pleasant,_a_city_on_the_Ohio_River_in_West_Virginia_LCCN2015631940.tif",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Carol M. Highsmith",
+          "datum": "Taken on 9 May 2015, 15:33 (according to Exif data)",
+          "datum_original": "Taken on 9 May 2015, 15:33 (according to Exif data)",
+          "datum_fil": "2016-09-11 16:47:37",
+          "kredit": "Library of Congress Catalog: http://lccn.loc.gov/2015631940 Image download: https://cdn.loc.gov/master/pnp/highsm/31800/31865a.tif Original url: http://hdl.loc.gov/loc.pnp/highsm.31865",
+          "beskrivning": "Title: Statue of a Virginia frontiersman on a monument at Point Pleaasant Battle Monument State Park, called Tu-Endie-Wei Park locally, in Point Pleasant, a city on the Ohio River in West Virginia Physical description: 1 photograph : digital, tiff file, color. Notes: Purchase; Carol M. Highsmith Photography, Inc.; 2015; (DLC/PP-2015:055).; Credit line: West Virginia Collection within the Carol M. Highsmith Archive, Library of Congress, Prints and Photographs Division.; Forms part of: West Virginia Collection within the Carol M. Highsmith Archive.; Title, date and keywords based on information provided by the photographer.; The monument recalls the Battle of Point Pleasant, the most significant event of \"Lord Dunmore's War,\" fought at the confluence of the Kanawha and Ohio Rivers between British troops and a coalition of Indian tribes in what was then far-western Virginia, on October 10, 1774. The brief \"war\" was subsequently named for John Murray, 4th Earl of Dunmore, who was the royal governor of Britain's Virginia Colony. \"Tu-Endie-Wei\" is a Wyandotte word meaning \"point between two waters.\"",
+          "bredd": 4470,
+          "hojd": 6910,
+          "mime": "image/tiff",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Statue_of_a_Virginia_frontiersman_on_a_monument_at_Point_Pleaasant_Battle_Monument_State_Park%2C_called_Tu-Endie-Wei_Park_locally%2C_in_Point_Pleasant%2C_a_city_on_the_Ohio_River_in_West_Virginia_LCCN2015631940.tif/lossy-page1-960px-thumbnail.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Point Pleasant Monument",
+            "Mason County, West Virginia in the 2010s"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Highsmith"
+            ]
+          }
+        },
+        {
+          "fil": "File:Battle at the Wei River (Weihe) (cropped4to3).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Battle_at_the_Wei_River_(Weihe)_(cropped4to3).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Qingkuan",
+          "datum": "between 1886 and 1890 date QS:P,+1850-00-00T00:00:00Z/7,P1319,+1886-00-00T00:00:00Z/9,P1326,+1890-00-00T00:00:00Z/9",
+          "datum_original": "between 1886 and 1890 date QS:P,+1850-00-00T00:00:00Z/7,P1319,+1886-00-00T00:00:00Z/9,P1326,+1890-00-00T00:00:00Z/9",
+          "datum_fil": "2023-01-19 18:24:52",
+          "kredit": "http://www.battle-of-qurman.com.cn/e/hist.htm",
+          "beskrivning": "A scene of the Dungan revolt (1862-1877)",
+          "bredd": 692,
+          "hojd": 519,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Battle_at_the_Wei_River_%28Weihe%29_%28cropped4to3%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Dungan revolt",
+            "Paintings of the Qing Dynasty"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "lakekonst-i-mawangdui",
+      "titel": "Läkekonst i gravarna vid Mawangdui",
+      "start": -167,
+      "plats": "Mawangdui i Changsha, Hunan, Kina",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Daoyin tu - chart for leading and guiding people in exercise Wellcome L0036007.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Daoyin_tu_-_chart_for_leading_and_guiding_people_in_exercise_Wellcome_L0036007.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": null,
+          "datum": "2014-10-12 10:04:30",
+          "datum_original": null,
+          "datum_fil": "2014-10-12 10:04:30",
+          "kredit": "https://wellcomeimages.org/indexplus/obf_images/00/06/0caf990608df5e2ec39a2ca1a6e7.jpg Gallery: https://wellcomeimages.org/indexplus/image/L0036007.html Wellcome Collection gallery (2018-03-28): https://wellcomecollection.org/works/rrb7c7cm CC-BY-4.0",
+          "beskrivning": "Daoyin tu - chart for leading and guiding people in exercise for improving health and treatment of pain, containing animal postures such as bear walk. This is a reconstruction of a 'Guiding and Pulling Chart' excavated from the Mawangdui Tomb 3 (sealed in 168BC) in the former kingdom of Changsha. The original is in the Hunan Provincial Museum, Changsha, China. Wellcome Images Keywords: Tai Chi; Chinese; Asian Continental Ancestry Group; Delivery of Health Care; Chinese Medicine; China; Healthcare; Exercise; Posture",
+          "bredd": 8000,
+          "hojd": 4449,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Daoyin_tu_-_chart_for_leading_and_guiding_people_in_exercise_Wellcome_L0036007.jpg/960px-Daoyin_tu_-_chart_for_leading_and_guiding_people_in_exercise_Wellcome_L0036007.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Human postures",
+            "Mawangdui",
+            "Tai-chi in art"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Daoyin tu - chart for leading and guiding people in exercise Wellcome L0036007 (cropped).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Daoyin_tu_-_chart_for_leading_and_guiding_people_in_exercise_Wellcome_L0036007_(cropped).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": null,
+          "datum": "2025-01-02 09:30:38",
+          "datum_original": null,
+          "datum_fil": "2025-01-02 09:30:38",
+          "kredit": "https://wellcomeimages.org/indexplus/obf_images/00/06/0caf990608df5e2ec39a2ca1a6e7.jpg Gallery: https://wellcomeimages.org/indexplus/image/L0036007.html Wellcome Collection gallery (2018-03-28): https://wellcomecollection.org/works/rrb7c7cm CC-BY-4.0",
+          "beskrivning": "Daoyin tu - chart for leading and guiding people in exercise for improving health and treatment of pain, containing animal postures such as bear walk. This is a reconstruction of a 'Guiding and Pulling Chart' excavated from the Mawangdui Tomb 3 (sealed in 168BC) in the former kingdom of Changsha. The original is in the Hunan Provincial Museum, Changsha, China. Wellcome Images Keywords: Tai Chi; Chinese; Asian Continental Ancestry Group; Delivery of Health Care; Chinese Medicine; China; Healthcare; Exercise; Posture",
+          "bredd": 7394,
+          "hojd": 3706,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Daoyin_tu_-_chart_for_leading_and_guiding_people_in_exercise_Wellcome_L0036007_%28cropped%29.jpg/960px-Daoyin_tu_-_chart_for_leading_and_guiding_people_in_exercise_Wellcome_L0036007_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Human postures",
+            "Mawangdui",
+            "Tai-chi in art"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Daoyin tu - chart for leading and guiding people in exercise Wellcome L0040263.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Daoyin_tu_-_chart_for_leading_and_guiding_people_in_exercise_Wellcome_L0040263.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": null,
+          "datum": "2014-10-13 03:01:28",
+          "datum_original": null,
+          "datum_fil": "2014-10-13 03:01:28",
+          "kredit": "https://wellcomeimages.org/indexplus/obf_images/97/a4/d803125f5a070c8c21dd1de4275f.jpg Gallery: https://wellcomeimages.org/indexplus/image/L0040263.html Wellcome Collection gallery (2018-03-28): https://wellcomecollection.org/works/sybqrqu7 CC-BY-4.0",
+          "beskrivning": "Daoyin tu - chart for leading and guiding people in exercise for improving health and treatment of pain, containing animal postures such as bear walk. The images originally come from a 'Guiding and Pulling Chart' excavated from the Mawangdui Tomb 3 (sealed in 168BC) in the former kingdom of Changsha. Wellcome Images Keywords: Tai Chi; Chinese; Asian Continental Ancestry Group; Delivery of Health Care; Chinese Medicine; China; Healthcare; Exercise; Posture",
+          "bredd": 6845,
+          "hojd": 2739,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Daoyin_tu_-_chart_for_leading_and_guiding_people_in_exercise_Wellcome_L0040263.jpg/960px-Daoyin_tu_-_chart_for_leading_and_guiding_people_in_exercise_Wellcome_L0040263.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Asian continental ancestry group",
+            "Fitness in China",
+            "Human postures",
+            "Traditional Chinese medicine"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "jordbavningen-i-judeen-31-fkr",
+      "titel": "Jordbävningen i Judeen",
+      "start": -30,
+      "plats": "Judeen; punkten vid Jeriko är ungefärlig, eftersom epicentrum är okänt",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Tiberias from the walls. Safed in the distance. David Roberts. 1855.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tiberias_from_the_walls._Safed_in_the_distance._David_Roberts._1855.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "David Roberts",
+          "datum": "1855 (Originally from 1842}",
+          "datum_original": "1855 (Originally from 1842}",
+          "datum_fil": "2014-11-13 06:30:35",
+          "kredit": "The Holy Land, Syria, Idumea, Arabia, Egypt, & Nubia (1855)",
+          "beskrivning": "This Sketch, in addition to the view of the City, gives, in the distance, crowning a lofty hill, the City of Safed. The land is peculiarly liable to earthquakes ; Safed was fearfully visited in the middle of the last century (1759); but a still heavier visitation befell it in 1837. On the first day of the year, a succession of the most violent shocks rent the earth in many places, and almost instantly overthrew the chief part of the dwellings. The loss of life was dreadful, though perhaps too largely calculated at five thousand ; four-fifths of the sufferers were Jews. Safed is venerated as one of the four holy cities of Judea; the others being Jerusalem, Hebron, and Tiberias. Its prominent position led to its being fortified at an early period. By some authorities it has been supposed to occupy the site of Bethulia, and by others, that of Kitron, a city of Zebulon. But, nothing is distinctly known of the City before the Crusades, when it afforded shelter to Baldwin III. after his defeat at El-Huleh, in 1157. Safed is, however, chiefly celebrated for its Rabbinical school, one of the most distinguished among the Jews, and for many centuries it has been thus regarded; but the period of its scholastic foundation is not certain, it was probably long after the conquest by Bibars. Its palmy days were, however, during the sixteenth century, when the most eminent of the Rabbins lived and taught there; and at this early period (1578) it had an established printing-office, which, even as late as 1833, still gave regular employment to a considerable number of persons. 2 It has been supposed, that Safed was the \" City set on a Hill,\" to which allusion is made in the Sermon on the Mount, 3 and that the Hill itself was the Mount of the Transfiguration.* But both suppositions are unsustained by evidence.",
+          "bredd": 2003,
+          "hojd": 1390,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Tiberias_from_the_walls._Safed_in_the_distance._David_Roberts._1855.jpg/960px-Tiberias_from_the_walls._Safed_in_the_distance._David_Roberts._1855.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Sea of Galilee in art",
+            "The Holy Land, Syria, Idumea, Arabia, Egypt, and Nubia, volume 1",
+            "Tiberias by David Roberts"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        },
+        {
+          "fil": "File:The life of our Lord and Savior Jesus Christ - containing a full, accurate, and universal history from his taking upon himself our nature to his crucifixion, resurrection, and ascension- together with (14592569250).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_life_of_our_Lord_and_Savior_Jesus_Christ_-_containing_a_full,_accurate,_and_universal_history_from_his_taking_upon_himself_our_nature_to_his_crucifixion,_resurrection,_and_ascension-_together_with_(14592569250).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1830",
+          "datum_original": "1830",
+          "datum_fil": "2015-09-22 17:24:25",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14592569250/ Source book page: https://archive.org/stream/lifeofourlordsav00flee/lifeofourlordsav00flee#page/n425/mode/1up",
+          "beskrivning": "The Crucifixion Identifier : lifeofourlordsav00flee ( find matches ) Title : The life of our Lord and Savior Jesus Christ : containing a full, accurate, and universal history from his taking upon himself our nature to his crucifixion, resurrection, and ascension: together with the lives, transactions, and sufferings of his holy evangelists, apostles, disciples, and other primitive martyrs. To which is added the history of the Jews Year : 1830 ( 1830s ) Authors : Fleetwood, John Barber, John Warner, 1798-1885, engr Subjects : Jesus Christ Apostles Martyrs Jews -- History Publisher : New Haven, Conn. : Nathan Whiting Contributing Library : Princeton Theological Seminary Library Digitizing Sponsor : MSN View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: heaven, was now laidopen to all ^lations ; so the resurrection of a number of saintsfrom the dead demonstrated that the power of death, and thegrave, was broken ; the sting was taken from death, and the vic-tory wrested from the grave. In short, our dear Redeemersconquests over the enemies of mankind were shewn to be com-plete ; and an earnest was given of the general resurrection ofthe dead. Nor did the remarkable particulars which attended that awfulperiod, when Jesus gave up the ghost, affect the natives ofJudea only. The Roman centurion, who was placed near thecross, to prevent disorders of any kind, glorified the Almighty,and cried out, * Truly this was the Son of God ! And otherswho were with them, when they beheld heaven itself bearing wit-ness of the truth of our great Redeemers mission, smote theirbreasts, and retired. They had been incessant with loud voices to have him cruci-fied ; but when they saw the face of the creation wrapped in the ^J^SL, TiiE CUUCiFIXION. (Pago 3G.) Text Appearing After Image: ^Bat iclien they came to Jesus, and saw that he toas dead alrcadj/f Ihri/ brake notIds legs: ^But one of the soldiers ivilha spear iiierced Ids side, and forthwilh canu thereout blood and xcaler.^—John xix. 33, 34. LIFE OF CHRIST. 383 gloomy mantle of darkness, during his crucifixion, and foundhis death accompanied with an earthquake, as if nature hadbeen in an agony when he died, they rightly interpreted theseprodigies to be so many testimonies from the Almighty, of hisinnocence; and their passions, which had been inflamed andexasperated against him, became quite calm, or exerted in hisbehalf. Some were angry with themselves for neglecting theopportunity the governor gave them of saving his life. Somewere stung with remorse for having been active in procuringPilate to condemn him, and even offering the most bitter in-sults, while he labored under the cruellest of suflferings. Andothers were deeply affected at beholding the pains he suffered,which were rigorously severe. These vario Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 1928,
+          "hojd": 1392,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/The_life_of_our_Lord_and_Savior_Jesus_Christ_-_containing_a_full%2C_accurate%2C_and_universal_history_from_his_taking_upon_himself_our_nature_to_his_crucifixion%2C_resurrection%2C_and_ascension-_together_with_%2814592569250%29.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Jesus Christ between the felons",
+            "The life of our Lord and Savior Jesus Christ (1830)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Image from page 400 of \"Syria and the Holy Land - their scenery and their people - incidents of travel, &c. from the best and most recent authorities\" (1844) (14799073193).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Image_from_page_400_of_%22Syria_and_the_Holy_Land_-_their_scenery_and_their_people_-_incidents_of_travel,_%26c._from_the_best_and_most_recent_authorities%22_(1844)_(14799073193).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "2014-07-29 12:26",
+          "datum_original": "2014-07-29 12:26",
+          "datum_fil": "2014-09-06 12:11:24",
+          "kredit": "Image from page 400 of \"Syria and the Holy Land : their scenery and their people : incidents of travel, &c. from the best and most recent authorities\" (1844)",
+          "beskrivning": "Identifier : syriaholylandthe00kell Title : Syria and the Holy Land : their scenery and their people : incidents of travel, &c. from the best and most recent authorities Year : 1844 ( 1840s ) Authors : Kelly, Walter Keating Subjects : Publisher : London : Chapman and Hall View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: eries of rocky hills, valleys, and ravines, its line may be estimated at morethan twice that length. A little to the east of the pools, towards the region of the Dead Sea, is avery large grotto, supported by great pillars of the natural rock, perfectlydry, without petrification or stalactites: it is a complete labyrinth within,and, as in many of the ancient catacombs, a man might easily lose himselffor ever in its windings. It lies in the mountainous wilderness of Engaddi,and is supposed to be the Cave of Adullam, where David received themutinous and discontented spirits of his days, and where, when Saul was inpursuit of him, he cut off the skirts of his garment, and suffered him to goaway unharmed. Hebron, one of the oldest cities of Canaan, Davids capital before heconquered Jerusalem, is now a small town, containing seven or eight hun-dred Arab families. The present inhabitants are the wildest, most lawless,and desperate people in the Holy Land ; and it is a singular fact, that they Text Appearing After Image: Mosque of Hebron. sustain now the same mutinous character with the rebels of ancient dayswho armed with David against Saul, and with Absalom against David.The place bears no traces of the glory of its Jewish king: earthquakes, 390 SYRIA AND THE HOLY LAND. wars, pestilence, and famine have passed over it, and a small town of whitehouses, compactly built on the side of the mountain, a mosque and twominarets, are all that mark the ancient capital of Judea. There is little to detain the traveller at Hebron. The great mosque issaid to cover the site of the cave of Machpelah, nor does there appear to beany reason for doubting this tradition. In different parts of the inclosurethe Mohammedans have built tombs for the patriarchs, while their actualplace of sepulture is held to be in a cavern below, which even the faithful arenot permitted to enter. The Muslims of Hebron are exceedingly bigoted ;and when, with a Jewish companion, I stopped for a moment to look up atthe long marble staircase le Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 1762,
+          "hojd": 1208,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Image_from_page_400_of_%22Syria_and_the_Holy_Land_-_their_scenery_and_their_people_-_incidents_of_travel%2C_%26c._from_the_best_and_most_recent_authorities%22_%281844%29_%2814799073193%29.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cave of the Patriarchs in art",
+            "Syria and the Holy Land - their scenery and their people (1844)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "gula-floden-byter-lopp-ar-11",
+      "titel": "Gula floden byter lopp",
+      "start": 11,
+      "plats": "Wei-kommendanturen i södra Hebei och norra Henan, Kina; punkten är Ye, kommendanturens huvudort",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:黄河故道 - Old Course of the Yellow River - 2012.08 - panoramio.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%E9%BB%84%E6%B2%B3%E6%95%85%E9%81%93_-_Old_Course_of_the_Yellow_River_-_2012.08_-_panoramio.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "rheins",
+          "datum": "Taken on 13 August 2012",
+          "datum_original": "Taken on 13 August 2012",
+          "datum_fil": "2017-01-21 00:55:44",
+          "kredit": "https://web.archive.org/web/20161025203816/http://www.panoramio.com/photo/78353941",
+          "beskrivning": "黄河故道 - Old Course of the Yellow River - 2012.08",
+          "bredd": 3200,
+          "hojd": 2400,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/%E9%BB%84%E6%B2%B3%E6%95%85%E9%81%93_-_Old_Course_of_the_Yellow_River_-_2012.08_-_panoramio.jpg/960px-%E9%BB%84%E6%B2%B3%E6%95%85%E9%81%93_-_Old_Course_of_the_Yellow_River_-_2012.08_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Yellow River Estuary National Park"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-3.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:黄河故道 - Old Course of the Yellow River - 2012.08 - panoramio (1).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%E9%BB%84%E6%B2%B3%E6%95%85%E9%81%93_-_Old_Course_of_the_Yellow_River_-_2012.08_-_panoramio_(1).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "rheins",
+          "datum": "Taken on 13 August 2012",
+          "datum_original": "Taken on 13 August 2012",
+          "datum_fil": "2017-01-21 00:56:45",
+          "kredit": "https://web.archive.org/web/20161027023457/http://www.panoramio.com/photo/78353953",
+          "beskrivning": "黄河故道 - Old Course of the Yellow River - 2012.08",
+          "bredd": 3200,
+          "hojd": 2400,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/%E9%BB%84%E6%B2%B3%E6%95%85%E9%81%93_-_Old_Course_of_the_Yellow_River_-_2012.08_-_panoramio_%281%29.jpg/960px-%E9%BB%84%E6%B2%B3%E6%95%85%E9%81%93_-_Old_Course_of_the_Yellow_River_-_2012.08_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Yellow River Estuary National Park"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-3.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:黄河故道 - Old Course of Yellow River - 2012.06 - panoramio.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%E9%BB%84%E6%B2%B3%E6%95%85%E9%81%93_-_Old_Course_of_Yellow_River_-_2012.06_-_panoramio.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "rheins",
+          "datum": "Taken on 4 June 2012",
+          "datum_original": "Taken on 4 June 2012",
+          "datum_fil": "2017-01-04 21:18:02",
+          "kredit": "https://web.archive.org/web/20161025011102/http://www.panoramio.com/photo/74088801",
+          "beskrivning": "黄河故道 - Old Course of Yellow River - 2012.06",
+          "bredd": 3200,
+          "hojd": 2400,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/%E9%BB%84%E6%B2%B3%E6%95%85%E9%81%93_-_Old_Course_of_Yellow_River_-_2012.06_-_panoramio.jpg/960px-%E9%BB%84%E6%B2%B3%E6%95%85%E9%81%93_-_Old_Course_of_Yellow_River_-_2012.06_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Yellow River Estuary National Park"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "vita-hastens-tempel",
+      "titel": "Vita hästens tempel, Kinas första buddhistiska tempel enligt traditionen",
+      "start": 68,
+      "plats": "Luoyang i Henan, Kina",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:White Horse Thai Temple 27499-Luoyang (48757385163).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:White_Horse_Thai_Temple_27499-Luoyang_(48757385163).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "xiquinhosilva",
+          "datum": "2019-09-16 14:39",
+          "datum_original": "2019-09-16 14:39",
+          "datum_fil": "2023-10-05 14:14:50",
+          "kredit": "27499-Luoyang",
+          "beskrivning": "White Horse Temple is, according to tradition, the first Buddhist temple in China, established in 68 AD under the patronage of Emperor Ming in the Eastern Han dynasty capital Luoyang. The site is just outside the walls of the ancient Eastern Han capital, some 12–13 kilometres east of Luoyang in Henan Province.",
+          "bredd": 3000,
+          "hojd": 2335,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/White_Horse_Thai_Temple_27499-Luoyang_%2848757385163%29.jpg/960px-White_Horse_Thai_Temple_27499-Luoyang_%2848757385163%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Thailand Hall, White Horse Temple"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:White Horse Thai Temple 27504-Luoyang (48757708026).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:White_Horse_Thai_Temple_27504-Luoyang_(48757708026).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "xiquinhosilva",
+          "datum": "2019-09-16 14:41",
+          "datum_original": "2019-09-16 14:41",
+          "datum_fil": "2023-10-05 14:14:52",
+          "kredit": "27504-Luoyang",
+          "beskrivning": "White Horse Temple is, according to tradition, the first Buddhist temple in China, established in 68 AD under the patronage of Emperor Ming in the Eastern Han dynasty capital Luoyang. The site is just outside the walls of the ancient Eastern Han capital, some 12–13 kilometres east of Luoyang in Henan Province.",
+          "bredd": 3000,
+          "hojd": 2496,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/White_Horse_Thai_Temple_27504-Luoyang_%2848757708026%29.jpg/960px-White_Horse_Thai_Temple_27504-Luoyang_%2848757708026%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Thailand Hall, White Horse Temple"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:White Horse Thai Temple 27507-Luoyang (48757386323).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:White_Horse_Thai_Temple_27507-Luoyang_(48757386323).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "xiquinhosilva",
+          "datum": "2019-09-16 14:42",
+          "datum_original": "2019-09-16 14:42",
+          "datum_fil": "2023-10-05 14:14:51",
+          "kredit": "27507-Luoyang",
+          "beskrivning": "White Horse Temple is, according to tradition, the first Buddhist temple in China, established in 68 AD under the patronage of Emperor Ming in the Eastern Han dynasty capital Luoyang. The site is just outside the walls of the ancient Eastern Han capital, some 12–13 kilometres east of Luoyang in Henan Province.",
+          "bredd": 3000,
+          "hojd": 2195,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/White_Horse_Thai_Temple_27507-Luoyang_%2848757386323%29.jpg/960px-White_Horse_Thai_Temple_27507-Luoyang_%2848757386323%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Thailand Hall, White Horse Temple"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "palmyras-tulltaxa",
+      "titel": "Palmyras tulltaxa",
+      "start": 101,
+      "plats": "Palmyra, Homs, Syrien",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Palmyra Tariff col. 1.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Palmyra_Tariff_col._1.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1-2 Century AD",
+          "datum_original": "1-2 Century AD",
+          "datum_fil": "2017-04-27 19:45:06",
+          "kredit": "Palmyra",
+          "beskrivning": "Column 1 of the Palmyrian Tariff (or Tax Law of Palmyra).",
+          "bredd": 1718,
+          "hojd": 854,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Palmyra_Tariff_col._1.png/960px-Palmyra_Tariff_col._1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Palmyrian Tariff"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        },
+        {
+          "fil": "File:Palmyra Tariff col. 2.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Palmyra_Tariff_col._2.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1 or 2 Century AD",
+          "datum_original": "1 or 2 Century AD",
+          "datum_fil": "2017-04-27 19:46:35",
+          "kredit": "Palmyra",
+          "beskrivning": "Column 2 of the Palmyrian Tariff (or Tax Law of Palmyra).",
+          "bredd": 954,
+          "hojd": 1038,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Palmyra_Tariff_col._2.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Palmyrian Tariff"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        },
+        {
+          "fil": "File:Hermitage room 91 - Palmyra 02.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Hermitage_room_91_-_Palmyra_02.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Netelo",
+          "datum": "2019-09-27 19:34:08",
+          "datum_original": "2019-09-27 19:34:08",
+          "datum_fil": "2019-09-28 15:12:34",
+          "kredit": "Own work",
+          "beskrivning": "Эрмитаж - Зимний дворец - 1-й этаж - зал 91 - Зал Пальмиры",
+          "bredd": 5472,
+          "hojd": 3648,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Hermitage_room_91_-_Palmyra_02.jpg/960px-Hermitage_room_91_-_Palmyra_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Hermitage hall 91",
+            "History of Palmyra",
+            "Palmyrian Tariff"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "zhang-hengs-seismoskop",
+      "titel": "Zhang Hengs seismoskop",
+      "start": 132,
+      "plats": "Hanhovet i Luoyang, Kina",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Valladolid - Museo Oriental de Valladolid 09.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Valladolid_-_Museo_Oriental_de_Valladolid_09.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Zarateman",
+          "datum": "2016-09-30",
+          "datum_original": "2016-09-30",
+          "datum_fil": "2016-09-30 21:48:00",
+          "kredit": "Own work",
+          "beskrivning": "Museo Oriental de Valladolid",
+          "bredd": 2304,
+          "hojd": 1728,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Valladolid_-_Museo_Oriental_de_Valladolid_09.jpg/960px-Valladolid_-_Museo_Oriental_de_Valladolid_09.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Collections of the Museo Oriental de Valladolid",
+            "Houfeng Didong Yi"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-zero"
+            ]
+          }
+        },
+        {
+          "fil": "File:Zhang Heng's seismoscope.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Zhang_Heng%27s_seismoscope.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Pubblico dominio",
+          "datum": "2015-09-30",
+          "datum_original": "2015-09-30",
+          "datum_fil": "2015-09-30 12:32:15",
+          "kredit": "https://www.andrew.cmu.edu/course/79-104/Readings/Gallery/1.html",
+          "beskrivning": "Mechanisms Zhang Heng's seismoscope",
+          "bredd": 614,
+          "hojd": 281,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/92/Zhang_Heng%27s_seismoscope.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Houfeng Didong Yi"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-zero"
+            ]
+          }
+        },
+        {
+          "fil": "File:Wang Zhenduo's reprodution of Heng's seismoscope.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wang_Zhenduo%27s_reprodution_of_Heng%27s_seismoscope.png",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "WdW Review",
+          "datum": "2015-09-30",
+          "datum_original": "2015-09-30",
+          "datum_fil": "2015-09-30 13:39:48",
+          "kredit": "http://wdwreview.org/think/and-then-it-drops-on-suspended-sensing/",
+          "beskrivning": "Wang Zhenduo's reprodution of Heng's seismoscope",
+          "bredd": 450,
+          "hojd": 302,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/79/Wang_Zhenduo%27s_reprodution_of_Heng%27s_seismoscope.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Houfeng Didong Yi"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-zero"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "antoninska-pesten",
+      "titel": "Antoninska pesten",
+      "start": 165,
+      "plats": "Seleukia vid Tigris (först rapporterad), sedan Romarriket",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Peter Johann Nepomuk Geiger - Antonine Plague in Rome, 165-180.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Peter_Johann_Nepomuk_Geiger_-_Antonine_Plague_in_Rome,_165-180.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Peter Johann Nepomuk Geiger",
+          "datum": "circa 1871 date QS:P,+1871-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1871 date QS:P,+1871-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2025-09-26 02:04:55",
+          "kredit": "Zimmermann, Wilhelm: Illustrirte Geschichte des deutschen Volkes, Volume 1. Stuttgart, Verlag von Gustav Weise, 1873 (2nd edition). Online: https://www.digitale-sammlungen.de/de/view/bsb11686463",
+          "beskrivning": "Peter Johann Nepomuk Geiger - Antonine Plague in Rome, 165-180",
+          "bredd": 1657,
+          "hojd": 1196,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Peter_Johann_Nepomuk_Geiger_-_Antonine_Plague_in_Rome%2C_165-180.jpg/960px-Peter_Johann_Nepomuk_Geiger_-_Antonine_Plague_in_Rome%2C_165-180.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Antonine Plague",
+            "Illustrations by Peter J. N. Geiger in Illustrirte Geschichte des deutschen Volkes",
+            "Illustrirte Geschichte des deutschen Volkes, Volume 1 (Zimmerman)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-auto-expired"
+            ]
+          }
+        },
+        {
+          "fil": "File:The angel of death striking a door during the plague of Rome Wellcome V0010664.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_angel_of_death_striking_a_door_during_the_plague_of_Rome_Wellcome_V0010664.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": null,
+          "datum": "2014-10-28 16:37:05",
+          "datum_original": null,
+          "datum_fil": "2014-10-28 16:37:05",
+          "kredit": "https://wellcomeimages.org/indexplus/obf_images/70/48/4b5c28e57609137dd2009ae490f2.jpg Gallery: https://wellcomeimages.org/indexplus/image/V0010664.html Wellcome Collection gallery (2018-04-03): https://wellcomecollection.org/works/p8gxfxrp CC-BY-4.0",
+          "beskrivning": "The angel of death striking a door during the plague of Rome. Engraving by Jules Gabriel Levasseur after J. Delaunay. Iconographic Collections Keywords: Epidemics; EPIDEMIC; Rome; Plague; Jules-Elie Delaunay; Aesculapius; Levasseur",
+          "bredd": 3172,
+          "hojd": 2522,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/The_angel_of_death_striking_a_door_during_the_plague_of_Rome_Wellcome_V0010664.jpg/960px-The_angel_of_death_striking_a_door_during_the_plague_of_Rome_Wellcome_V0010664.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aesculapius",
+            "Angels in art",
+            "Antonine Plague",
+            "Jules Gabriel Levasseur",
+            "Paintings by Jules-Élie Delaunay",
+            "Plague in Rome in 1656",
+            "Rome in art"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Memorial plaque commemorating soldiers who died in the Antonine Plague.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Memorial_plaque_commemorating_soldiers_who_died_in_the_Antonine_Plague.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Quinet",
+          "datum": "2024-05-24 12:53:31",
+          "datum_original": "2024-05-24 12:53:31",
+          "datum_fil": "2025-08-18 16:07:53",
+          "kredit": "Own work",
+          "beskrivning": "Memorial plaque dedicated by legionary veterans and survivors",
+          "bredd": 1536,
+          "hojd": 2048,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Memorial_plaque_commemorating_soldiers_who_died_in_the_Antonine_Plague.jpg/960px-Memorial_plaque_commemorating_soldiers_who_died_in_the_Antonine_Plague.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Antonine Plague",
+            "Roman Empire",
+            "Roman legions"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "slaget-vid-vita-vargens-berg",
+      "titel": "Slaget vid Vita vargens berg",
+      "start": 207,
+      "plats": "Nära dagens Lingyuan i Liaoning, nordöstra Kina",
+      "wikidata": "Q848062",
+      "kandidater": [
+        {
+          "fil": "File:End of Han Dynasty Warlords.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:End_of_Han_Dynasty_Warlords.png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "SY",
+          "datum": "2017-07-07",
+          "datum_original": "2017-07-07",
+          "datum_fil": "2017-07-09 02:17:53",
+          "kredit": "Own work",
+          "beskrivning": "Map showing the major warlords in China in the 190s, before the definitive end of the Han dynasty in 220. Dong Zhuo faction : When Emperor Ling died in 189, Dong Zhuo was appointed protector over Emperor Shao, a position he abused to control the government and install Emperor Xian. Cao Cao and Yuan Shao launched the Campaign against Dong Zhuo (190–191), forcing Dong Zhuo's faction and the captive Emperor Xian to flee from Luoyang to Chang'an. Lü Bu staged a coup and killed Dong Zhuo in 192, but was expelled by Li Jue and Guo Si. These entered into war in 195, lost the emperor to Cao Cao in 196 and were eliminated in 198. Cao Cao faction : Cao Cao began his gradual conquest of Yan Province in 191, completing it by 195 and expanding into the neighbouring provinces of Xu, Yu and Sili (completed by 199), capturing the emperor in 196 and defeating numerous minor warlords until he clashed with the powerful and wealthy but indecisive Yuan Shao. Cao Cao's victory over Yuan Shao at Guandu in 200 and successive victories made him the most powerful warlord in China, laying the foundation of the later Kingdom of Wei. By 214, he had also conquered the northwestern provinces. Sun Ce faction : Sun Ce, son of Sun Jian, served under Yuan Shu until the latter declared himself emperor in 197, and was defeated by a coalition of warlords. Sun Ce seceded from Yuan Shu, established his own territory in Jiangdong, defeated Liu Yong in 198, and was succeeded by his brother Sun Quan in 200, laying the foundation of the later Kingdom of Wu. In 215, Sun Quan and Liu Bei divided the Jing Province between them, but in 219 Sun Quan conquered the whole province. In 226, Wu ally Shi Xie died and Wu general Lü Dai conquered and annexed Jiao Province from Shi Xie's sons. Liu Bei faction : Liu Bei succeeded Tao Qian as the governor of Xu Province in 194. He was captured by Lü Bu in 195, but escaped to Cao Cao in 196; in 199 they jointly defeated and executed Lü Bu and captured Xu Province. Liu Bei then defected to Yuan Shao, but when the latter was defeated by Cao Cao in 200, he fled south and eventually allied himself with Sun Quan. In 212–214 he conquered Yi Province, laying the foundation of the later Kingdom of Shu. He tried to remain allies with Wu while attacking Wei, conquering Hanzhong in 217–219. Yuan Shao faction : In 191, Yuan Shao tricked governor Han Fu into surrendering Ji Province to him. Yuan Shao's son Yuan Tan conquered Qing Province from Kong Rong in 196. Around 199, Yuan Shao's nephew Gao Gan became governor of Bing Province. Gongsun Zan was definitively defeated by Yuan Shao in 199, giving him control of most of You Province. Cao Cao heavily defeated Yuan Shao in the 200 Battle of Guandu, and successively eliminated the entire Yuan clan and conquered their four provinces by 207.",
+          "bredd": 1275,
+          "hojd": 902,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/End_of_Han_Dynasty_Warlords.png/960px-End_of_Han_Dynasty_Warlords.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of the Eastern Han Dynasty",
+            "Maps of the Three Kingdoms",
+            "Maps showing 3rd-century history"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "aksums-stora-steler",
+      "titel": "Aksums stora steler",
+      "start": 301,
+      "plats": "Norra stelparken i Aksum (i dag Etiopien)",
+      "wikidata": "Q2259366",
+      "kandidater": [
+        {
+          "fil": "File:Aksum, stele 3 detta di re ezana, l'unica mai crollata 05.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Aksum,_stele_3_detta_di_re_ezana,_l%27unica_mai_crollata_05.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Sailko",
+          "datum": "2018-11-16 07:23:17",
+          "datum_original": "2018-11-16 07:23:17",
+          "datum_fil": "2020-05-02 19:37:50",
+          "kredit": "Own work",
+          "beskrivning": "Aksum Stele n. 3 (King Ezana's Stele)",
+          "bredd": 2904,
+          "hojd": 5112,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Aksum%2C_stele_3_detta_di_re_ezana%2C_l%27unica_mai_crollata_05.jpg/960px-Aksum%2C_stele_3_detta_di_re_ezana%2C_l%27unica_mai_crollata_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aksum Stele n. 3 (King Ezana's Stele)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "imenkovokulturen-vid-volga",
+      "titel": "Imenkovokulturen vid mellersta Volga",
+      "start": 301,
+      "plats": "Mellersta Volga, Ryssland (punkten är byn Imenkovo i Tatarstan, som kulturen fått sitt namn efter)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Semi-dugout of Imenkovo culture.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Semi-dugout_of_Imenkovo_culture.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Engelberthumperdink",
+          "datum": "2018-07-04",
+          "datum_original": "2018-07-04",
+          "datum_fil": "2018-08-01 14:29:15",
+          "kredit": "Own work",
+          "beskrivning": "Реконструкция полуземлянки именьковской культуры по материалам В. Ф. Генинга, П. Н. Старостина.",
+          "bredd": 5152,
+          "hojd": 3864,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Semi-dugout_of_Imenkovo_culture.JPG/960px-Semi-dugout_of_Imenkovo_culture.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Collections of the National museum of the Republic of Tatarstan",
+            "Imenkovo culture",
+            "Models of buildings in Kazan"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Underground dwelling of Imenkovo culture.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Underground_dwelling_of_Imenkovo_culture.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Engelberthumperdink",
+          "datum": "2018-07-04",
+          "datum_original": "2018-07-04",
+          "datum_fil": "2018-08-01 14:28:43",
+          "kredit": "Own work",
+          "beskrivning": "Наземное жилище именьковской культуры V—VII вв. н. э. По материалам Г. И. Матвеевой, Н. А. Лифанова.",
+          "bredd": 5152,
+          "hojd": 3864,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Underground_dwelling_of_Imenkovo_culture.JPG/960px-Underground_dwelling_of_Imenkovo_culture.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Collections of the National museum of the Republic of Tatarstan",
+            "Imenkovo culture",
+            "Models of buildings in Kazan"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Origins 700.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Origins_700.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Hxseek at English Wikipedia",
+          "datum": "24 March 2008 (original upload date)",
+          "datum_original": "24 March 2008 (original upload date)",
+          "datum_fil": "2008-04-02 07:31:30",
+          "kredit": "Transferred from en.wikipedia to Commons by gallico .",
+          "beskrivning": "Archaeological cultures of Eastern Europe in the 8th century AD",
+          "bredd": 670,
+          "hojd": 458,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/43/Origins_700.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Archaeological maps of Ukraine",
+            "Avar Khaganate",
+            "Imenkovo culture",
+            "Maps of Eurasian Avars",
+            "Maps of White Serbia",
+            "Maps of the White Croatia",
+            "Maps of the history of Central Europe",
+            "Maps of the history of Romania in the Middle Ages",
+            "Maps of the origin of the Slavs",
+            "Maps showing 7th-century history",
+            "Maps showing history of the Early Middle Ages",
+            "Maps showing the 700s",
+            "Romania in the 6th century",
+            "Severians",
+            "Uralic peoples"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "smal",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 3.0",
+            "skal": [
+              "API:et säger \"CC BY 3.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "jordbavningarna-i-galileen-363",
+      "titel": "Jordbävningarna i Galileen år 363",
+      "start": 363,
+      "plats": "Galileen, norra Israel; skadorna nådde ända till Petra i Jordanien",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:PikiWiki Israel 3982 nevoraya synagogue.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:PikiWiki_Israel_3982_nevoraya_synagogue.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "אבישי טייכר (Avishai Teicher)",
+          "datum": "2008-06-02",
+          "datum_original": "2008-06-02",
+          "datum_fil": "2009-08-03 12:00:38",
+          "kredit": "Avishai Teicher via the PikiWiki - Israel free image collection project",
+          "beskrivning": "nevoraya synagogue in biriya forest",
+          "bredd": 2048,
+          "hojd": 1536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/PikiWiki_Israel_3982_nevoraya_synagogue.jpg/960px-PikiWiki_Israel_3982_nevoraya_synagogue.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Nevoraya synagogue"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.5",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.5"
+            ]
+          }
+        },
+        {
+          "fil": "File:Nabratein synagogue, 2005.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Nabratein_synagogue,_2005.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "he:User:אסף.צ at he.wikipedia at 18:16 on 6 Auguest 2005. (Original file name: קובץ:בית כנסת נבוריה.)",
+          "datum": "Auguest 2005",
+          "datum_original": "Auguest 2005",
+          "datum_fil": "2011-12-21 14:17:58",
+          "kredit": "\"תמונה שצילמתי\" - a photo that I took",
+          "beskrivning": "Remains of the Nabratein synagogue , northern Israel.",
+          "bredd": 640,
+          "hojd": 480,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Nabratein_synagogue%2C_2005.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Nevoraya synagogue"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-user-he"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "faxians-pilgrimsresa",
+      "titel": "Faxians pilgrimsresa till Indien",
+      "start": 399,
+      "plats": "Laoshan på Shandonghalvön, Kina, där Faxian gick i land 412; resan började i Chang'an",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Faxian zhuan.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Faxian_zhuan.JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Faxian (5th century)",
+          "datum": "12th-century book",
+          "datum_original": "12th-century book",
+          "datum_fil": "2009-07-05 23:49:20",
+          "kredit": "Faxian zhuan",
+          "beskrivning": "12th-century woodblock print, 1st page of the Travels of Faxian ( Record of the Buddhist Countries ). The first sentences read: \"In Chang'an, Faxian was distressed that the Vinaya collections was incomplete, so in the 2nd year of Hóngshǐ, or jǐ-​hài in the sexagenary cycle [year 399/400], he agreed with Huijing, Daozheng, Huiying and Huiwéi to go seek out more of the Vinaya in India.",
+          "bredd": 963,
+          "hojd": 1556,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Faxian_zhuan.JPG/960px-Faxian_zhuan.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Record of Buddhist Kingdoms"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "justinianska-pesten-nar-egypten",
+      "titel": "Justinianska pesten når Egypten",
+      "start": 541,
+      "plats": "Pelusium vid Nildeltat, nära Suez (i dag Egypten)",
+      "wikidata": "Q821711",
+      "kandidater": [
+        {
+          "fil": "File:Diptych Barberini Louvre OA9063 whole.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Diptych_Barberini_Louvre_OA9063_whole.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "early 6th century",
+          "datum_original": "early 6th century",
+          "datum_fil": "2011-03-26 14:00:42",
+          "kredit": "Marie-Lan Nguyen (2011)",
+          "beskrivning": "Barberini diptych. Constantinople, Late Roman Theodosian style.",
+          "bredd": 2500,
+          "hojd": 3125,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Diptych_Barberini_Louvre_OA9063_whole.jpg/960px-Diptych_Barberini_Louvre_OA9063_whole.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Barberini diptych"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        },
+        {
+          "fil": "File:Yersinia pestis wayson.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Yersinia_pestis_wayson.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S. Center for Disease Control",
+          "datum": "2005-03-30",
+          "datum_original": "2005-03-30",
+          "datum_fil": "2006-10-28 18:45:22",
+          "kredit": "https://www.cdc.gov/ncidod/dvbid/plague/bacterium.htm",
+          "beskrivning": "Wayson stain of Yersinia pestis. Note the characteristic \"safety pin\" appearance of the bacteria.",
+          "bredd": 600,
+          "hojd": 441,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Yersinia_pestis_wayson.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Yersinia pestis"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-HHS-CDC"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "arabiska-erovringarna",
+      "titel": "De arabiska erövringarna",
+      "start": 622,
+      "plats": "Från Arabiska halvön till Spanien och Indusdalen (började i Medina)",
+      "wikidata": "Q275918",
+      "kandidater": [
+        {
+          "fil": "File:Map of expansion of Caliphate.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Map_of_expansion_of_Caliphate.svg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "DieBuche",
+          "datum": "2010-07-03",
+          "datum_original": "2010-07-03",
+          "datum_fil": "2022-08-27 18:16:50",
+          "kredit": "Own work using: http://guides.library.iit.edu/content.php?pid=27903&sid=322018 ( archive1 , archive2 ) (via Image:Age_of_Caliphs.png ) Image:BlankMap-World6.svg The Times Concise Atlas of World History ed. by Geoffrey Barraclough published by Times Books Ltd. ISBN 0-7230-0274-6 pp. 40-41.",
+          "beskrivning": "Age of the Caliphs Expansion under Muhammad, 622-632 (darkest red) Expansion during the Rashidun Caliphate, 632-661 (medium tone) Expansion during the Umayyad Caliphate, 661-750 Shows modern borders.(lightest tone)",
+          "bredd": 900,
+          "hojd": 413,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Map_of_expansion_of_Caliphate.svg/960px-Map_of_expansion_of_Caliphate.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "History of the Arabs",
+            "Islam in Central Asia",
+            "Language-neutral maps",
+            "Maps of the Caliphate",
+            "Maps of the Rashidun Caliphate",
+            "Maps of the Umayyad Caliphate (Damascus)",
+            "Maps showing history of the Middle Ages"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "islamisk"
+    },
+    {
+      "id": "jerusalem-intas-637",
+      "titel": "Jerusalem kapitulerar för kalifen Umar",
+      "start": 636,
+      "plats": "Jerusalem",
+      "wikidata": "Q815154",
+      "kandidater": [
+        {
+          "fil": "File:Al aqsa moschee 2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Al_aqsa_moschee_2.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Barbara Kabel",
+          "datum": "1982",
+          "datum_original": "1982",
+          "datum_fil": "2006-07-10 15:10:16",
+          "kredit": "Own work",
+          "beskrivning": "Al Jamea Al Qebli i Jerusalem",
+          "bredd": 1600,
+          "hojd": 1050,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Al_aqsa_moschee_2.jpg/960px-Al_aqsa_moschee_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Al-Qibli Chapel in 1982"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{Self|GFDL}}, {{Self|Cc-by-sa-3.0-migrated}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "Self|GFDL",
+              "Self|Cc-by-sa-3.0-migrated"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "islamisk"
+    },
+    {
+      "id": "slaget-vid-qadisiyya",
+      "titel": "Slaget vid al-Qadisiyya",
+      "start": 636,
+      "plats": "Al-Qadisiyya, i dagens Irak",
+      "wikidata": "Q836844",
+      "kandidater": [
+        {
+          "fil": "File:Depiction of the Battle of al-Qādisiyyah from a manuscript of the Persian epic Shāh-nāmeh. Source- British Library (MS. I.O.Islamic 3265 (1614) f. 602r).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Depiction_of_the_Battle_of_al-Q%C4%81disiyyah_from_a_manuscript_of_the_Persian_epic_Sh%C4%81h-n%C4%81meh._Source-_British_Library_(MS._I.O.Islamic_3265_(1614)_f._602r).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown artist Unknown artist",
+          "datum": "January 1614 date QS:P571,+1614-01-00T00:00:00Z/10",
+          "datum_original": "January 1614 date QS:P571,+1614-01-00T00:00:00Z/10",
+          "datum_fil": "2013-02-18 04:53:29",
+          "kredit": "http://dglnotes.com/notes/qadisiyyah.htm#image4",
+          "beskrivning": "Depiction of the Battle of al-Qādisiyyah from a manuscript of the Persian epic Shāh-nāmeh from Astarabad. Source- British Library (MS. I.O.Islamic 3265 (1614) f. 602r)",
+          "bredd": 524,
+          "hojd": 800,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Depiction_of_the_Battle_of_al-Q%C4%81disiyyah_from_a_manuscript_of_the_Persian_epic_Sh%C4%81h-n%C4%81meh._Source-_British_Library_%28MS._I.O.Islamic_3265_%281614%29_f._602r%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of al-Qadisiyyah",
+            "British Library India Office Islamic Manuscripts",
+            "Manuscripts and illustrations of the Shahnameh in the British Library",
+            "Rostam Farrokhzad"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "islamisk"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "slaget-vid-jingxing",
+      "titel": "Slaget vid Jingxing",
+      "start": -204,
+      "plats": "Jingxingpasset i Taihangbergen, provinsen Hebei",
+      "wikidata": "Q835015",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "liu-bang-blir-kejsare",
+      "titel": "Liu Bang blir kejsare och Handynastin grundas",
+      "start": -201,
+      "plats": "Luoyang, Handynastins första huvudstad (var kröningen hölls anges inte i källan)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "oc-eo",
+      "titel": "Óc Eo, Funans hamnstad",
+      "start": -199,
+      "plats": "Óc Eo i Mekongdeltat, provinsen An Giang, Vietnam",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "handelshamnen-adulis",
+      "titel": "Adulis, Aksumrikets handelsplats vid Röda havet",
+      "start": 1,
+      "plats": "Adulis vid Zulabukten, Eritrea",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "han-folkrakningen-ar-2",
+      "titel": "Handynastins folkräkning år 2",
+      "start": 2,
+      "plats": "Chang'an (dagens Xi'an), Västra Hans huvudstad, Kina",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "gan-ying-mot-rom",
+      "titel": "Gan Ying söker vägen till Rom",
+      "start": 97,
+      "plats": "Charax Spasinu i Characene vid Persiska viken, i dagens Irak (Tiaozhi i den kinesiska krönikan)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "cai-lun-papper",
+      "titel": "Cai Lun förbättrar papperet",
+      "start": 105,
+      "plats": "Luoyang, Henan, Kina",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "sandebud-fran-rom-via-rinan",
+      "titel": "Sändebud från Rom når Hanriket",
+      "start": 166,
+      "plats": "Rinan, Hanrikets sydligaste kommendantur i dagens centrala Vietnam; punkten är Huế",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "gaststjarnan-sn-185",
+      "titel": "Kinesiska astronomer ser en gäststjärna",
+      "start": 185,
+      "plats": "Luoyang, Östra Hans huvudstad, Kina (var iakttagelsen gjordes anges inte)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "aksums-mynt",
+      "titel": "Aksum börjar prägla egna mynt",
+      "start": 270,
+      "plats": "Aksum (i dag Etiopien)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "slakten-i-imdang-och-joyeong",
+      "titel": "Släktband i gravarna i Imdang och Joyeong",
+      "start": 301,
+      "plats": "Gravfälten Imdang och Joyeong i Gyeongsan, Norra Gyeongsang, Sydkorea; punkten är staden",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "loulan-overges",
+      "titel": "Loulan överges, troligen när vattnet sinar",
+      "start": 330,
+      "plats": "Ruinerna av Loulan vid den uttorkade sjön Lop Nur, Bayingolin, Xinjiang, Kina",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "ge-hongs-handbok-mot-feber",
+      "titel": "Ge Hongs handbok med botemedel för nödfall",
+      "start": 340,
+      "plats": "Luofushan, Guangdong, Kina, där Ge Hong bodde och samlade läkeväxter (var boken skrevs anges inte)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "offerpalarna-i-kutai",
+      "titel": "Offerpålarna i Kutai",
+      "start": 350,
+      "plats": "Muara Kaman vid floden Mahakam, Östra Kalimantan, Indonesien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "daisen-kofun",
+      "titel": "Daisen kofun, Japans största gravhög",
+      "start": 450,
+      "plats": "Mozu-gravfältet i Sakai, Osaka prefektur, Japan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "torka-i-sasanidernas-persien",
+      "titel": "Torka i Sasanidernas Persien",
+      "start": 480,
+      "plats": "Sasanidernas Persien; punkten är Neorsjön nära Ardabil i nordvästra Iran, en av platserna där torkan syns",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    }
+  ]
+}

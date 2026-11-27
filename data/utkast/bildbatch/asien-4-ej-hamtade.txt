@@ -1,0 +1,3 @@
+# Ej hämtade av tools/bild_hamta.py; kör igen med --lista
+File:Yersinia pestis wayson.jpg	justinianska-pesten-nar-egypten
+File:Depiction of the Battle of al-Qādisiyyah from a manuscript of the Persian epic Shāh-nāmeh. Source- British Library (MS. I.O.Islamic 3265 (1614) f. 602r).jpg	slaget-vid-qadisiyya
