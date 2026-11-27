@@ -3,12 +3,14 @@
 // Perioder som börjar före tidslinjens början (nordisk stenålder, 12 000 f.Kr.) klipps vid minYear och märks clippedStart;
 // en öppen period ("från cirka 1900 till i dag") slutar vid maxYear och märks openEnd. Texterna om detta står öppet i knappen.
 
+import { clampYear } from './year-clamp.js';
+
 /** { from, to, clippedStart, openEnd } för en period; minYear och maxYear är tidslinjens gränser (astronomiska år). */
 export function periodToRange(period, minYear, maxYear) {
   const open = !!period.open;
-  const end = open ? maxYear : Math.min(period.end, maxYear);
+  const end = open ? maxYear : clampYear(period.end, { to: maxYear });
   return {
-    from: Math.max(period.start, minYear),
+    from: clampYear(period.start, { from: minYear }),
     to: end,
     clippedStart: period.start < minYear,
     openEnd: open,

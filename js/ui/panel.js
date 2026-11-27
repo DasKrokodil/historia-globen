@@ -4,8 +4,8 @@ import { buildAreaCurve } from './areacurve.js';
 import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, edtfHasDays, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, flagUrl, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow, groupDigits, tagViewNote } from '../model.js';
 import { ui, LANG, langAttr } from '../i18n.js';
 import { say } from './status.js';
-import { MIN_YEAR } from '../timeline.js';
-import { MAX_YEAR } from '../state.js';
+import { MIN_YEAR, MAX_YEAR } from '../state.js';
+import { clampYear } from '../year-clamp.js';
 import { eventCitation } from './citation.js';
 import { splitParagraphs } from '../paragraphs.js';
 
@@ -105,8 +105,10 @@ function sourceLink(source, target = false) {
   return `<li${target}><a href="${esc(source.url)}" target="_blank" rel="noopener">${esc(source.title)}</a></li>`;
 }
 
+const beforeHumanDomain = year => year < clampYear(year, { from: MIN_YEAR });
+
 /** Börjar händelsen före tidslinjens första år (#942)? Reglaget kan då inte stå på dess första år. */
-export const beforeTimelineStart = e => Number.isFinite(e?.start) && e.start < MIN_YEAR;
+export const beforeTimelineStart = e => Number.isFinite(e?.start) && beforeHumanDomain(e.start);
 
 /** Förhistoria före 10 000 f.Kr.: texten räknar i år sedan medan årtalen står i f.Kr., så faktarutan förklarar skillnaden (#1384). */
 const inDeepTime = e => Number.isFinite(e?.start) && e.start < -9999;
@@ -798,7 +800,7 @@ export class Panel {
     // Raderna är knappar med data-theme-event i händelsernas ordning. Regionvyn (js/controllers/region.js, #1642) läser dem: den sätter
     // markörernas nummer först på raderna och en ram på den markerade raden, och följer kortet med en MutationObserver. Ändras
     // markupen här ändras regionvyn också (provet i tests/regionvy-markorer.test.mjs fallerar då)
-    const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> <span${langAttr(e.title)}>${esc(t(e.title))}</span>${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
+    const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> <span${langAttr(e.title)}>${esc(t(e.title))}</span>${beforeHumanDomain(e.start) ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
     const actionHtml = action ? `<button type="button" class="chip-btn theme-exit place-flat" data-selection-action aria-label="${esc(action.label ?? action.text)}">${esc(action.text)}</button>` : '';
     const notesHtml = notes.map(note => `<p class="theme-filter-note">${esc(note)}</p>`).join('\n      ');
     // Platsens kort: Sluta följa platsen är en textlänk sist (Avsluta lät som att kortet stängs), temats kort har sin knapp som förut

@@ -4,6 +4,7 @@ import { formatYear, groupDigits, formatDate, isBCE, bce, BCE_TXT, parseYear, pa
 import { selectEventsForDate } from './date-events.js';
 import { say, clearStatus } from './ui/status.js';
 import { LANG, ui } from './i18n.js';
+import { clampYear } from './year-clamp.js';
 import { MIN_YEAR, MAX_YEAR } from './state.js'; // gränserna bor i state.js (#1141), så att url-state.js inte behöver importera hela tidsreglaget
 export { MIN_YEAR, MAX_YEAR };
 
@@ -13,7 +14,6 @@ export { HUMAN_SCALE, HUMAN_SCALES, scaleForYear };
 export const SEGMENTS = HUMAN_SCALES.flatMap(s => s.segments);
 
 const TICK_CHAR_PX = 6.3; // årtalens typsnitt (IBM Plex Mono, 10,5 px) är 0,6 em bredare per tecken
-const clampY = (y, scale = HUMAN_SCALE) => Math.max(scale.from, Math.min(scale.to, y));
 // Gränsen mellan två segment är ett runt årtal: -500 (astronomiskt) är 501 f.Kr., men segmentet heter 500 f.Kr. (nominal, js/time-scale.js, #1088).
 /** Skalnamnet för ett segment, bara årtal på valt språk: "3000–500 f.Kr.", "500 f.Kr.–1000", "sedan 1800". */
 export function segmentLabel(s, scale = HUMAN_SCALE) {
@@ -25,7 +25,7 @@ export function segmentLabel(s, scale = HUMAN_SCALE) {
 // Utan skala: reglaget som året hör till (scaleForYear). Gränsåret mellan två delar hör till delen som slutar där.
 const segFor = (y, scale = scaleForYear(y)) => scale.segments.find(s => y <= s.to) ?? scale.segments.at(-1);
 /** Segmentet som ett år ligger i (den synliga skalan, #1313). */
-export const segmentAt = (y, scale = scaleForYear(y)) => segFor(clampY(y, scale), scale);
+export const segmentAt = (y, scale = scaleForYear(y)) => segFor(clampYear(y, scale), scale);
 
 /**
  * Skalan i ett segment (#1313): hur många år en tiondel av tidslinjen rymmer där, räknat ur segmentets egna fält
@@ -68,7 +68,7 @@ export function focusTickStep(span, fit) {
 }
 
 export function yearToPos(y, scale = scaleForYear(y)) {
-  y = clampY(y, scale);
+  y = clampYear(y, scale);
   const s = segFor(y, scale);
   return s.a + (y - s.from) / (s.to - s.from) * (s.b - s.a);
 }
@@ -86,7 +86,7 @@ export function posToYear(p, scale) {
 export const spanInScale = (from, to, scale) => !(to < scale.from || from > scale.to);
 /** Hur många år som ryms i en viss andel av reglaget vid ett givet år. */
 export function yearsAcross(y, fraction, scale = scaleForYear(y)) {
-  const s = segFor(clampY(y, scale), scale);
+  const s = segFor(clampYear(y, scale), scale);
   return (s.to - s.from) / (s.b - s.a) * fraction;
 }
 // Året vid ett läge på reglaget, utan avrundning (samma räkning som posToYear).
@@ -104,7 +104,7 @@ function yearAtPos(p, scale) {
  * fram till 10 000 f.Kr. (#1958).
  */
 export function windowEdges(y, fraction, scale = scaleForYear(y)) {
-  y = clampY(y, scale);
+  y = clampYear(y, scale);
   const p = yearToPos(y, scale);
   const lo = p - fraction >= 0 ? y - yearAtPos(p - fraction, scale) : null;
   const hi = p + fraction <= 1 ? yearAtPos(p + fraction, scale) - y : null;
@@ -207,7 +207,7 @@ export class Timeline extends EventTarget {
   get scale() { return scaleForYear(this._year, this.scales); }
   scaleAt(y) { return scaleForYear(y, this.scales); }
   /** Året inom allt som går att välja (alla reglage), inte bara det som syns. */
-  clampYear(y) { return Math.max(this.domain.from, Math.min(this.domain.to, y)); }
+  clampYear(y) { return clampYear(y, this.domain); }
 
   /** Är reglaget låst för besökaren (tidslåset, #1322)? */
   get locked() { return this.lock()?.locked === true; }
@@ -219,7 +219,7 @@ export class Timeline extends EventTarget {
     const before = this.focus ? null : stepAt(this._year, this.scale);
     const segBefore = this.focus || this.range ? null : segFor(this._year, this.scale);
     const scaleBefore = this.scale;
-    this.year = l?.from != null ? Math.max(l.from, Math.min(l.to, y)) : y;
+    this.year = l?.from != null ? clampYear(y, l) : y;
     this._showScale(this.scale === scaleBefore ? segBefore : null); // byter reglage visar raden det nya reglagets namn i stället för "ny skala" (#1959)
     // Ny upplösning efter ett drag, en tangent eller en stegknapp (#1089): skärmläsaren får veta hur långt ett steg nu är.
     // Beskedet läses i statusraden tillsammans med året (takeStepNote, js/controllers/render.js), så att det inte skrivs över.
@@ -295,7 +295,7 @@ export class Timeline extends EventTarget {
   toYear(p) {
     // Reglagets upplösning (#1320): tusental eller hundratal i förhistorien. Ett drag byter aldrig reglage (#1958): avrundningen kan landa
     // på nästa reglages första år (-3000 avrundas till -2999), så resultatet klipps vid det synliga reglagets kanter.
-    if (!this.focus) { const sc = this.scale; return clampY(roundToStep(posToYear(p, sc), sc), sc); }
+    if (!this.focus) { const sc = this.scale; return clampYear(roundToStep(posToYear(p, sc), sc), sc); }
     const { from, to } = this.focus;
     const y = from + Math.max(0, Math.min(1, p)) * (to - from);
     return this.focus.fine ? y : Math.round(y);
@@ -327,7 +327,7 @@ export class Timeline extends EventTarget {
   format(y) { return this.focus?.fine ? formatDay(this._lastDay(y)) : formatYear(this.displayYear(y)); }
   formatParts(y) { return this.focus?.fine ? dayParts(this._lastDay(y)) : yearParts(this.displayYear(y)); }
   // Spannets slut är början av dagen efter krigets sista dag; där visas den sista dagen
-  _lastDay(y) { return Math.min(y, this.focus.to - 0.5 / DAYS_PER_YEAR); }
+  _lastDay(y) { return clampYear(y, { to: this.focus.to - 0.5 / DAYS_PER_YEAR }); }
   /**
    * Hur många år före och efter som räknas som "samtidigt" (#1319): { before, after }. Utanför Fokus är det 1,2 % av reglaget
    * åt varje håll, så att längden kan skilja sig vid en segmentgräns. I Fokus är det lika långt åt båda hållen.
@@ -493,7 +493,7 @@ export class Timeline extends EventTarget {
   set year(y) {
     // Hela år, eller hela dagar i fokusläget för korta krig, så att allt ritas om en gång per dag (#204)
     y = this.clampYear(this.focus?.fine ? roundDay(y) : Math.round(y));
-    if (this.focus) y = Math.max(this.focus.from, Math.min(this.focus.to, y)); // stanna inom fokusspannet
+    if (this.focus) y = clampYear(y, this.focus); // stanna inom fokusspannet
     if (y === this._year) return;
     const before = this.scale;
     const stepChanged = !this.focus && stepAt(y, this.scaleAt(y)) !== stepAt(this._year, before);

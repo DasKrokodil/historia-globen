@@ -1,5 +1,6 @@
 // Det fokustyperna delar (#1327): mittpunkter, urvalets spann och namnen som sökningen letar i.
 import { MIN_YEAR, MAX_YEAR } from '../state.js';
+import { clampYear } from '../year-clamp.js';
 import { ui } from '../i18n.js';
 import { eventRegion, span as missionSpan } from '../uppdrag-rules.js';
 
@@ -33,7 +34,8 @@ export function geoCenter(geoms) {
  */
 export function selectionSpan(events) {
   const lastEnd = Math.max(...events.map(e => e.end));
-  const from = Math.min(Math.max(MIN_YEAR, events[0].start), MAX_YEAR), to = Math.max(from, Math.min(MAX_YEAR, lastEnd));
+  const from = clampYear(events[0].start, { from: MIN_YEAR, to: MAX_YEAR });
+  const to = clampYear(lastEnd, { from, to: MAX_YEAR });
   return { from, to, lastEnd };
 }
 
