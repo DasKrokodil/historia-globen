@@ -29,7 +29,7 @@ isolering, test och bevis före pull request, tokenbudget, kontextgrupper, plane
 - **Codex (beslut 2026-10-31):** Codex tar också issues enligt [AGENTS.md](../AGENTS.md). Orkestern hoppar över issues med
   `pågår`, en tilldelad person eller en öppen pull request (`*/issue-<N>-*`) som skriver `Closes #N` (ett issue, en ägare).
   Dirigenten (och DasKrokodil, Andreas och hans Claude Code, med dirigentens stickprov) sätter `redo` på tydligt avgränsade
-  issues utan `beslut-krävs` och utan krock. Codex och Copilot tar inte `redo`-issues med fakta, data, källor, bilder eller
+  issues utan `beslut-krävs` och utan krock. Codex och Copilot tar inte `redo`-issues med fakta, data, källor, bilder (utom översättningar och riktiga bilder, beslut 2026-11-27) eller
   riken. Varje pass går igenom den pågående milstolpen efter nya `redo`; rapporten har raden "Nya redo: #…" (eller ingen
   rad). **Granskning (beslut 2026-11-23):** ingen separat Codex-granskning; dirigenten granskar före ihopslagning bara
   arkitektur, säkerhet och `functions/`.
