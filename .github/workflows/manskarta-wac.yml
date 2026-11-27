@@ -1,0 +1,92 @@
+# Månkarta, alternativ A (#1528, docs/granskningar/2026-11-26-manskarta-14.md): hämtar USGS Astropedias LROC WAC Global
+# Morphology Mosaic 100 m (5,5 GB GeoTIFF, public domain enligt produktsidan), kontrollerar projektion och storlek med
+# gdalinfo, förminskar till 2048 × 1024 med medelvärdesbildning och gör webp. Bara de små resultaten (gdalinfo-utskrift,
+# förminskad webp) läggs på en ny gren bildbatch/manskarta-wac-<körnings-id> under data/utkast/manskarta-wac/; originalet
+# raderas. Inget läggs i images/ eller data/, ingen pull request, aldrig main. Inga hemligheter.
+# Använder GDAL från Ubuntus paketkälla bara i den här körningen (ingen ny beroende i repot).
+# Startar vid push till claude/manskarta-hamta-*.
+name: Månkarta WAC (utkast)
+
+on:
+  push:
+    branches: ['claude/manskarta-hamta-*']
+    paths: ['.github/workflows/manskarta-wac.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: manskarta-wac
+  cancel-in-progress: false
+
+jobs:
+  hamta:
+    name: Hämta, mät och förminska WAC-kartan
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Installera GDAL och Pillow
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq gdal-bin
+          python3 -m pip install pillow
+          gdalinfo --version
+      - name: Hämta, mät och förminska
+        run: |
+          set -uo pipefail
+          ut=data/utkast/manskarta-wac
+          mkdir -p "$ut"
+          tmp="$RUNNER_TEMP/wac"; mkdir -p "$tmp"
+          UA='HistoriaGlobenBildverktyg/1.1 (https://github.com/DasKrokodil/historia-globen; manskarta-wac)'
+          url=https://planetarymaps.usgs.gov/mosaic/Lunar_LRO_LROC-WAC_Mosaic_global_100m_June2013.tif
+          df -h "$tmp" | tail -1 | tee "$ut/disk.txt"
+          curl -sS -L --retry 3 --retry-delay 20 -m 3000 -A "$UA" -D "$ut/huvud.txt" -o "$tmp/wac.tif" -w 'HTTP %{http_code} %{size_download} byte, %{time_total} s\n' "$url" | tee "$ut/hamtat.txt"
+          ls -l "$tmp/wac.tif" | tee -a "$ut/hamtat.txt"
+          sha256sum "$tmp/wac.tif" | tee -a "$ut/hamtat.txt"
+          gdalinfo "$tmp/wac.tif" > "$ut/gdalinfo.txt" 2>&1 || true
+          head -60 "$ut/gdalinfo.txt"
+          gdal_translate -q -of PNG -outsize 2048 1024 -r average "$tmp/wac.tif" "$tmp/wac-2048.png" 2> "$ut/gdal_translate.txt" || true
+          ls -l "$tmp"/ | tee -a "$ut/hamtat.txt"
+          python3 - "$tmp/wac-2048.png" "$ut" <<'PY'
+          import json, os, sys
+          from PIL import Image
+          src, ut = sys.argv[1], sys.argv[2]
+          r = {}
+          try:
+              im = Image.open(src); im.load()
+              r.update(storlek=list(im.size), lage=im.mode)
+              g = im.convert('L')
+              w, h = g.size
+              def medel(y0, y1):
+                  px = list(g.crop((0, y0, w, y1)).getdata()); return round(sum(px) / len(px), 1)
+              r['medel_helbild'] = medel(0, h); r['medel_ovre_5_procent'] = medel(0, h // 20); r['medel_undre_5_procent'] = medel(h - h // 20, h)
+              r['andel_svarta_pixlar'] = round(sum(1 for p in g.getdata() if p == 0) / (w * h), 4)
+              for q in (80, 70):
+                  p = f'{ut}/manskarta-wac-2048x1024-q{q}.webp'
+                  g.save(p, 'WEBP', quality=q, method=6); r[f'webp_q{q}_byte'] = os.path.getsize(p)
+              g.resize((1024, 512), Image.LANCZOS).save(f'{ut}/manskarta-wac-1024x512-q80.webp', 'WEBP', quality=80, method=6)
+              r['webp_1024_q80_byte'] = os.path.getsize(f'{ut}/manskarta-wac-1024x512-q80.webp')
+          except Exception as e:
+              r['fel'] = str(e)
+          json.dump(r, open(ut + '/rapport.json', 'w'), indent=2, ensure_ascii=False)
+          print(json.dumps(r, indent=2, ensure_ascii=False))
+          PY
+          rm -f "$tmp/wac.tif"
+          { echo '### Månkartan (WAC)'; echo '```'; cat "$ut/hamtat.txt"; echo '```'; echo '```'; head -40 "$ut/gdalinfo.txt"; echo '```'; echo '```json'; cat "$ut/rapport.json"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - name: Lägg resultatet på en ny gren
+        run: |
+          set -euo pipefail
+          andra=$(git status --porcelain | grep -v ' data/utkast/' || true)
+          if [ -n "$andra" ]; then echo "::error::Körningen ändrade filer utanför data/utkast/:"; echo "$andra"; exit 1; fi
+          gren="bildbatch/manskarta-wac-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$gren"
+          git add -f data/utkast/manskarta-wac
+          git commit -m "Månkarta WAC (utkast), hämtad i Actions (#1528)"
+          git push origin "$gren"
+          echo "Grenen **$gren** har resultatet under data/utkast/manskarta-wac/." >> "$GITHUB_STEP_SUMMARY"
