@@ -4420,7 +4420,11 @@ async function run(browser, vp) {
       // Landskapen är ihopfällda under sitt land, och knappen säger landets namn ur datan
       const kids = tp.locator('#focus-menu [data-node="c:sverige:landskap"]');
       const kidsText = (await kids.textContent()).replace(/\s+/g, ' ').trim();
-      if (!/^Landskap i Sverige \(2\)$/.test(kidsText)) throw new Error(`landskapens knapp säger "${kidsText}", inte "Landskap i Sverige (2)" (Skåne och Uppland, #1850)`);
+      // Antalet ur datan (visbara landskap med partOf sverige), inte ett fast tal: varje nytt landskap (#1848–#1852) ändrar det
+      const nLandskap = await tp.evaluate(async () => (await (await fetch('data/platser.json')).json()).places
+        .filter(p => p.type === 'landskap' && p.partOf === 'sverige' && ['source-checked', 'two-sources'].includes(p.review)).length);
+      if (nLandskap < 2) throw new Error(`datan har ${nLandskap} landskap under Sverige, färre än Skåne och Uppland`);
+      if (kidsText !== `Landskap i Sverige (${nLandskap})`) throw new Error(`landskapens knapp säger "${kidsText}", inte "Landskap i Sverige (${nLandskap})" (så många visbara landskap har datan)`);
       if (await kids.getAttribute('aria-expanded') !== 'false') throw new Error('landskapen är utfällda från början');
       if (await tp.locator('#focus-menu [data-key="place:skane"]').isVisible()) throw new Error('Skåne syns fast landskapen är ihopfällda');
       await kids.click();
@@ -4471,7 +4475,9 @@ async function run(browser, vp) {
       await tp.waitForFunction(() => document.querySelector('#focus-menu [data-node="c:sverige:landskap"]').getAttribute('aria-expanded') === 'true', null, { timeout: T.step });
       if (await at() !== 'nod c:sverige:landskap') throw new Error(`fokus står på ${await at()} efter Enter, inte kvar på knappen`);
       const open = await walk(['ArrowDown']);
-      if (open[0] !== 'place:skane') throw new Error(`pil ner efter utfällda landskap gick till ${open[0]}, inte Skåne`);
+      // Första raden under knappen ur listan (landskapen står i Samtidigts ordning, inte alltid Skåne först)
+      const firstKid = await tp.evaluate(() => { const b = document.querySelector('#focus-menu [data-node="c:sverige:landskap"]'); return document.getElementById(b.getAttribute('aria-controls'))?.querySelector('[data-key]')?.dataset.key; });
+      if (!firstKid?.startsWith('place:') || open[0] !== firstKid) throw new Error(`pil ner efter utfällda landskap gick till ${open[0]}, inte första landskapet i listan (${firstKid})`);
       // Fäll ihop Europa med Enter: pil ner hoppar till nästa världsdel
       await tp.locator('#focus-menu [data-node="r:Europa"]').focus();
       await tp.keyboard.press('Enter');
@@ -4481,7 +4487,7 @@ async function run(browser, vp) {
       const controls = await tp.evaluate(() => { const b = document.querySelector('#focus-menu [data-node="r:Europa"]'); return document.getElementById(b.getAttribute('aria-controls'))?.hidden; });
       if (controls !== true) throw new Error('aria-controls pekar inte på en dold lista när Europa är ihopfällt');
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
-      return `${down.join(' → ')}; utfällt: Skåne efter knappen; ihopfällt Europa → Amerika`;
+      return `${down.join(' → ')}; utfällt: ${firstKid} efter knappen; ihopfällt Europa → Amerika`;
     } finally { await tctx.close(); }
   });
 
