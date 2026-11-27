@@ -1,6 +1,6 @@
 {
   "schema": "historia-globen/rymd@1",
-  "about": "Rymden, etapp 1 (#1527, beslut docs/beslut/2026-11-14-rymden-forsta-steget.md): händelser på jorden som har en plats på en annan himlakropp. En post kopplar en händelse (eventId) till en punkt på himlakroppen (body); händelsens egen location är alltid en jordplats och ändras inte. Knappen Visa på månen i händelsens faktaruta finns bara när händelsen har en post här, och tas filen bort försvinner funktionen. coord är [längd, bredd] i grader på månen (selenografiska koordinater, östlig längd positiv, −180 till 180, samma som kartan i maps). Månkoordinater och namn kommer bara ur öppnade källor (NASA och USGS), aldrig ur minnet. review som för händelserna: two-sources bara när en oberoende andra källa ger samma punkt. js/ui/moon.js visar posten i en platt månvy i en dialog.",
+  "about": "Rymden, etapp 1 (#1527, beslut docs/beslut/2026-11-14-rymden-forsta-steget.md): händelser på jorden som har en plats på en annan himlakropp. En post kopplar en händelse (eventId) till en punkt på himlakroppen (body); händelsens egen location är alltid en jordplats och ändras inte. Knappen Visa på månen i händelsens faktaruta finns bara när händelsen har en post här, och tas filen bort försvinner funktionen. coord är [längd, bredd] i grader på månen (selenografiska koordinater, östlig längd positiv, −180 till 180, samma som kartan i maps; NASA och kartan anger planetocentriska och Gazetteer planetografiska koordinater, som är samma tal på månens referenssfär). Månkoordinater och namn kommer bara ur öppnade källor (NASA och USGS), aldrig ur minnet. review som för händelserna: two-sources bara när en oberoende andra källa ger samma punkt. js/ui/moon.js visar posten i en platt månvy i en dialog.",
   "maps": {
     "moon": {
       "file": "images/rymd/manen-lroc-wac-2048.webp",
@@ -13,11 +13,11 @@
       "license": "Public domain",
       "made": "Förminskad från originalet (Lunar_LRO_LROC-WAC_Mosaic_global_100m_June2013.tif, 109 164 × 54 582 pixlar) med gdal_translate -outsize 2048 1024 -r average och sparad som WebP i gråskala med kvalitet 45 (#1527, samma metod som i docs/granskningar/2026-11-26-manskarta-14.md).",
       "caption": {
-        "sv": "Gråskala, bearbetad, inte skalenlig.",
-        "en": "Greyscale, processed, not to scale.",
-        "de": "Graustufen, bearbeitet, nicht maßstabsgetreu.",
-        "es": "Escala de grises, procesada, no a escala.",
-        "fr": "Niveaux de gris, traitée, pas à l’échelle."
+        "sv": "Gråskala, bearbetad, inte skalenlig. Områdena nära polerna är kraftigt utdragna på bredden.",
+        "en": "Greyscale, processed, not to scale. Areas near the poles are greatly stretched from east to west.",
+        "de": "Graustufen, bearbeitet, nicht maßstabsgetreu. Gebiete nahe den Polen sind in Ost-West-Richtung stark gedehnt.",
+        "es": "Escala de grises, procesada, no a escala. Las zonas cercanas a los polos aparecen muy estiradas de este a oeste.",
+        "fr": "Niveaux de gris, traitée, pas à l’échelle. Les régions proches des pôles sont très étirées d’est en ouest."
       }
     }
   },
@@ -45,7 +45,7 @@
       "sources": ["nasa-nssdca-apollo-landningsplatser", "nasa-nssdca-apollo-11", "usgs-gazetteer-statio-tranquillitatis"],
       "coordSources": ["nasa-nssdca-apollo-landningsplatser", "usgs-gazetteer-statio-tranquillitatis"],
       "review": "two-sources",
-      "checkNote": "Punkten är månlandarens plats enligt NASA NSSDCA (0,67416° N, 23,47314° Ö, planetocentriska koordinater, Mean Earth/Polar Axis, mätt i LRO-bilder enligt Wagner m.fl. 2017). USGS Gazetteer of Planetary Nomenclature ger Statio Tranquillitatis mittpunkten 0,6741° N, 23,4732° Ö (positiv östlig längd, −180 till 180); skillnaden är under 0,0001 grader, cirka 3 meter. Mare Tranquillitatis sträcker sig enligt Gazetteer från 4,05° S till 19,37° N och från 16,92° Ö till 45,49° Ö, så punkten ligger i havet. Kontrollerat 2026-11-27."
+      "checkNote": "Punkten är månlandarens plats enligt NASA NSSDCA (0,67416° N, 23,47314° Ö, planetocentriska koordinater, Mean Earth/Polar Axis, mätt i LRO-bilder enligt Wagner m.fl. 2017). USGS Gazetteer of Planetary Nomenclature (Statio Tranquillitatis, Feature 5684) visar med kontrollnätet LOLA 2011 0,67° N, 23,47° Ö (planetografiska, positiv östlig längd, −180 till 180; på månens referenssfär samma tal som planetocentriska), och mitten av sidans WKT-polygon ligger inom cirka 1–2 meter från NASA:s punkt; Gazetteer-filen MOON_nomenclature_center_pts.zip ger 0,6741° N, 23,4732° Ö. De äldre kontrollnäten på samma sida (ULCN 2005 och UNKNOWN) ger 0,80° N, 23,50° Ö, cirka 4 km bort, vilket är mindre än en bildpunkt på kartan (cirka 5,3 km vid ekvatorn). Gazetteers polygon bygger troligen också på LRO-bilder, så mätningarna är inte helt oberoende, men källorna kommer från två institutioner. Mare Tranquillitatis sträcker sig enligt Gazetteer från 4,05° S till 19,37° N och från 16,92° Ö till 45,49° Ö, så punkten ligger i havet. Kontrollerat 2026-11-27."
     }
   ]
 }

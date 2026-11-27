@@ -1149,7 +1149,7 @@
   "space.band": "Der Mond · außerhalb von Zeit und Ort der Erde",
   "space.year": "Das Jahr ist {year}, Erdzeit",
   "space.back": "Zurück zur Erde",
-  "space.mapAlt": "Karte der gesamten Mondoberfläche, flach ausgebreitet und nicht maßstabsgetreu. Markierter Ort: {places}.",
+  "space.mapAlt": "Karte der gesamten Mondoberfläche, flach ausgebreitet und nicht maßstabsgetreu; Gebiete nahe den Polen sind in Ost-West-Richtung gedehnt. Markierter Ort: {places}.",
   "space.mapCredit": "Karte: {credit} · {license}",
   "space.places": "Orte auf der Karte",
   "space.loading": "Mondkarte wird geladen…",

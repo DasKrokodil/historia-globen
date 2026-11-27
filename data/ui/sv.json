@@ -994,7 +994,7 @@
   "space.band": "Månen · utanför jordens tid och plats",
   "space.year": "Året är {year}, jordens tid",
   "space.back": "Tillbaka till jorden",
-  "space.mapAlt": "Karta över hela månens yta, utlagd platt och inte skalenlig. Markerad plats: {places}.",
+  "space.mapAlt": "Karta över hela månens yta, utlagd platt och inte skalenlig; områdena nära polerna är utdragna på bredden. Markerad plats: {places}.",
   "space.mapCredit": "Karta: {credit} · {license}",
   "space.places": "Platser på kartan",
   "space.loading": "Laddar månkartan…",

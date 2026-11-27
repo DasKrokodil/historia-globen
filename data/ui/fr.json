@@ -1149,7 +1149,7 @@
   "space.band": "La Lune · hors du temps et du lieu de la Terre",
   "space.year": "Nous sommes en {year}, temps terrestre",
   "space.back": "Retour à la Terre",
-  "space.mapAlt": "Carte de toute la surface de la Lune, mise à plat et pas à l’échelle. Site marqué : {places}.",
+  "space.mapAlt": "Carte de toute la surface de la Lune, mise à plat et pas à l’échelle ; les régions proches des pôles sont étirées d’est en ouest. Site marqué : {places}.",
   "space.mapCredit": "Carte : {credit} · {license}",
   "space.places": "Sites sur la carte",
   "space.loading": "Chargement de la carte de la Lune…",
