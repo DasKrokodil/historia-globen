@@ -41,7 +41,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   `Closes #N` (beslut 2026-11-05 och 2026-11-06: ett issue, en ägare). För Codex pull requests gäller i stället beslutet 2026-11-23: ingen separat Codex-granskning, och dirigenten granskar före ihopslagning bara arkitektur, säkerhet och `functions/`; sist Rikards merge. Dirigentens granskning "innan pull requesten öppnas" nedan gäller orkesterns egna arbetare.
   Dirigenten (och sedan 2026-11-11 Rikard, Andreas och hans Claude Code, med dirigentens stickprov) sätter den gemensamma etiketten `redo` (beslut 2026-11-06, ersätter `codex: redo` och `copilot: redo`) på
   issues som någon agent får ta: tydligt avgränsade, utan `beslut-krävs` och utan krock med pågående eller planerat
-  arbete. Codex och Copilot tar inte `redo`-issues med fakta, data, källor, bilder eller riken; de tar Claude Code
+  arbete. Codex och Copilot tar inte `redo`-issues med fakta, data, källor, bilder (utom översättningar och riktiga bilder, beslut 2026-11-27) eller riken; de tar Claude Code
   (Rikards eller Andreas). Etiketten tas bort när issuet tas. Varje pass och varje planering går igenom den pågående
   milstolpen efter nya sådana issues, och rapporten till Rikard har raden "Nya redo: #…" (eller ingen rad när inget är
   nytt). Kökontrollen rättar issues som både är `redo` och tagna.

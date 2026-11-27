@@ -5,6 +5,7 @@
 // Gränssnittets texter hämtas med ui('nyckel') ur data/ui/<språk>.json.
 import { LANG, ui, hasUi } from './i18n.js';
 import { HUMAN_SCALE, HISTORY_FIRST } from './time-scale.js';
+import { linkIncludeEvents } from './place-geo.js';
 export { LANG, ui };
 const FALLBACK = ['en', 'sv'];
 
@@ -691,7 +692,7 @@ export function loadPerioder() {
 let placesPromise = null, placesList = [];
 export function loadPlaces() {
   placesPromise ??= getJSON('data/platser.json').then(doc => (Array.isArray(doc?.places) ? doc.places : [])
-    .filter(p => p && typeof p.id === 'string' && p.boundary?.geometry && isVisibleReview(p.review))).catch(err => {
+    .filter(p => p && typeof p.id === 'string' && p.boundary?.geometry && isVisibleReview(p.review))).then(linkIncludeEvents).catch(err => { // #2333
     console.warn('Platser kunde inte laddas', err);
     return [];
   }).then(list => (placesList = list));

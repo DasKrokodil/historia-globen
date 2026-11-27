@@ -60,7 +60,7 @@ test('rikets egen rad Om kartan står vid raden bara när gruppen har en enda de
 });
 
 test('Skåne (landskap) och platser utan beslut har inga perioder', () => {
-  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
+  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
 });
 
 test('raderna får rikets eget namn ur indexet och en lucka för år som ingen period täcker', () => {
@@ -77,8 +77,8 @@ test('raderna får rikets eget namn ur indexet och en lucka för år som ingen p
     .filter(r => r.kind === 'gap'), []);
 });
 
-test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien, Nederländerna och Luxemburg räknas ur datan: inga av de listade delarna täcker luckans år', () => {
-  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg']) {
+test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien, Nederländerna, Luxemburg och Tyskland räknas ur datan: inga av de listade delarna täcker luckans år', () => {
+  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland']) {
     const pl = places.find(p => p.id === id);
     const rows = placeEmpireRows(pl, groups);
     assert.equal(rows.filter(r => r.kind === 'empire').length, pl.periods.length, `${id}: alla perioder blir rader`);
@@ -134,6 +134,31 @@ test('Luxemburgs luckor och kartavvikelser är de som kortets inledning nämner 
   }
   // Raderna som kortet inte visar: Frankrike 1757–1761 och 1956–1957 överlappar andra rader i rikenas data
   assert.ok(!pl.periods.some(p => (p.from <= 1761 && p.to >= 1757 && p.empire === 'kungariket-frankrike') || p.empire === 'franska-kolonialvaldet'));
+});
+
+test('Tysklands luckor och kartavvikelser är de som kortets inledning nämner (#1820): Köln till 1806, Berlin därefter', () => {
+  const pl = places.find(p => p.id === 'tyskland');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]), [[261, 282], [661, 665], [860, 869], [1807, 1870]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    // Luckorna, Berlin i Tysk-romerska riket och Svenska stormaktsväldet (raderna som inte står i kortet), Preussen,
+    // Weimarrepubliken, ockupationszonerna, Västtyskland och Saarområdet
+    for (const years of ['261–282', '661–665', '860–869', '1807–1870', '936–989', '1169–1806', '1632–1635', '1640–1647', '1701', '1918',
+      '1702–1806', '1815–1866', '1866–1871', '1919', '1920', '1945–1948', '1945–1946', '1945–1949', '1947', '1950', '1920–1934', '1947–1956']) {
+      assert.ok(pl.intro[lang].includes(years), `tyskland: inledningen (${lang}) nämner inte ${years}`);
+    }
+    // Orterna utanför Tyskland som den grova gränsen eller kustmarginalen lägger i Tyskland; grannländernas includeEvents (#2333)
+    // räknar dem till sina länder, och inledningen säger det
+    for (const town of ['Echternach', 'Schengen', 'Kelmis', 'Dybbøl']) assert.ok(pl.intro[lang].includes(town), `tyskland: inledningen (${lang}) nämner inte ${town}`);
+    assert.ok(!/syns därför i kortet|therefore appear on the card|erscheinen deshalb|por eso figuran|figurent donc/.test(pl.intro[lang]), `tyskland: inledningen (${lang}) säger fortfarande att gränsorterna står i kortet`);
+  }
+  // Svenska stormaktsväldet i Berlin står inte i kortet; Preussen och Tysk-romerska riket överlappar
+  assert.ok(!pl.periods.some(p => p.empire === 'svenska-stormaktsvaldet'));
+  // Delningen: Östtyskland och Västtyskland båda till 1990, Tyskland från 1991
+  const end = id => pl.periods.filter(p => p.empire === id).map(p => [p.from, p.to]);
+  assert.deepEqual(end('osttyskland'), [[1949, 1990]]);
+  assert.deepEqual(end('vasttyskland'), [[1950, 1990]]);
+  assert.deepEqual(end('tyskland'), [[1991, 2024]]);
 });
 
 test('kortet visar rikena som knappar med hela namnet, luckan som en rad och i en tur bara text', () => {
