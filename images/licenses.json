@@ -1554,6 +1554,21 @@
       }
     },
     {
+      "eventId": "catalhoyuk",
+      "eventTitle": "Çatalhöyük, en tidig stor boplats",
+      "file": "images/events/catalhoyuk.webp",
+      "kind": "historisk",
+      "credit": "Verity Cridland / Wikimedia Commons (Flickr)",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-catalhoyuk",
+        "title": "Çatalhöyük overview – Verity Cridland (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%C3%87atalh%C3%B6y%C3%BCk_overview.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "celsius-temperaturskala",
       "eventTitle": "Anders Celsius föreslår sin temperaturskala",
       "file": "images/events/celsius-temperaturskala.webp",
@@ -1611,6 +1626,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Chan_Chan,_2023_(32).jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "chauvetgrottan",
+      "eventTitle": "Målningarna i Chauvetgrottan",
+      "file": "images/events/chauvetgrottan.webp",
+      "kind": "historisk",
+      "credit": "HTO / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-chauvetgrottan",
+        "title": "Lions painting, Chauvet Cave (museum replica) – HTO (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lions_painting,_Chauvet_Cave_(museum_replica).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2412,6 +2442,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Lehman_Brothers-NYC-20080915.jpg",
         "license": "CC BY 2.0",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "flintgruvorna-i-spiennes",
+      "eventTitle": "Flintgruvorna i Spiennes",
+      "file": "images/events/flintgruvorna-i-spiennes.webp",
+      "kind": "historisk",
+      "credit": "Thilo Parg / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-flintgruvorna-i-spiennes",
+        "title": "Neolithic Flint Mines at Spiennes 2 – Thilo Parg (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Neolithic_Flint_Mines_at_Spiennes_2.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -3240,6 +3285,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Laas_Geel_rock_paintings.JPG",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "hallristningarna-i-alta",
+      "eventTitle": "Hällristningarna i Alta",
+      "file": "images/events/hallristningarna-i-alta.webp",
+      "kind": "historisk",
+      "credit": "Karl Brodowsky / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-hallristningarna-i-alta",
+        "title": "Alta-Carvings-2012-07-17-12-15-018 – Karl Brodowsky (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Alta-Carvings-2012-07-17-12-15-018.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -4878,6 +4938,21 @@
       }
     },
     {
+      "eventId": "laacher-see-utbrottet",
+      "eventTitle": "Vulkanutbrottet vid Laacher See",
+      "file": "images/events/laacher-see-utbrottet.webp",
+      "kind": "historisk",
+      "credit": "Tsuhful / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-laacher-see-utbrottet",
+        "title": "Carrière du Wingertsberg - éruption du Laacher See – Tsuhful (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Carri%C3%A8re_du_Wingertsberg_-_%C3%A9ruption_du_Laacher_See.jpeg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "lakekonst-i-mawangdui",
       "eventTitle": "Läkekonst i gravarna vid Mawangdui",
       "file": "images/events/lakekonst-i-mawangdui.webp",
@@ -5040,6 +5115,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Lei_%C3%81urea_arquivo_nacional.jpg",
         "license": "CC0",
         "checked": "2026-11-01"
+      }
+    },
+    {
+      "eventId": "lejonmanniskan",
+      "eventTitle": "Lejonmänniskan",
+      "file": "images/events/lejonmanniskan.webp",
+      "kind": "historisk",
+      "credit": "Thilo Parg / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-lejonmanniskan",
+        "title": "Loewenmensch2 – Thilo Parg (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Loewenmensch2.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -6108,6 +6198,21 @@
       }
     },
     {
+      "eventId": "natet-fran-antrea",
+      "eventTitle": "Nätet från Antrea",
+      "file": "images/events/natet-fran-antrea.webp",
+      "kind": "historisk",
+      "credit": "Sakari Pälsi / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-natet-fran-antrea",
+        "title": "AntreaNet – Sakari Pälsi (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:AntreaNet.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "nazcalinjerna",
       "eventTitle": "Nazcalinjerna",
       "file": "images/events/nazcalinjerna.webp",
@@ -6150,6 +6255,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:View_of_the_Former_Dutch_Trading_Post_on_Dejima_from_Tamae_Bridge,_Nagasaki,_20240815_1458_3715.jpg",
         "license": "CC BY 4.0",
         "checked": "2026-11-12"
+      }
+    },
+    {
+      "eventId": "nevali-cori-kultbyggnad",
+      "eventTitle": "Kultbyggnaden i Nevalı Çori",
+      "file": "images/events/nevali-cori-kultbyggnad.webp",
+      "kind": "historisk",
+      "credit": "Dosseman / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-nevali-cori-kultbyggnad",
+        "title": "Urfa museum Nevalı Çori Temple in 2025 1225 – Dosseman (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Urfa_museum_Neval%C4%B1_%C3%87ori_Temple_in_2025_1225.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -6294,6 +6414,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ann_Zingha.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "obsidian-fran-melos-i-franchthi",
+      "eventTitle": "Obsidian från Melos i Franchthigrottan",
+      "file": "images/events/obsidian-fran-melos-i-franchthi.webp",
+      "kind": "historisk",
+      "credit": "Zde / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-obsidian-fran-melos-i-franchthi",
+        "title": "Paleolithic, obsidian, Franchthi Cave, 202046 – Zde (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Paleolithic,_obsidian,_Franchthi_Cave,_202046.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -7454,6 +7589,21 @@
         "title": "Seongsan Ilchulbong 01 – Bernard Gagnon (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Seongsan_Ilchulbong_01.jpg",
         "license": "CC0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "sesklo",
+      "eventTitle": "Bondebyn Sesklo i Thessalien",
+      "file": "images/events/sesklo.webp",
+      "kind": "historisk",
+      "credit": "Zde / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-sesklo",
+        "title": "Sesklo and Dimini neolithic 4800 BC, NAMA 080796 – Zde (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Sesklo_and_Dimini_neolithic_4800_BC,_NAMA_080796.jpg",
+        "license": "CC BY-SA 3.0",
         "checked": "2026-11-26"
       }
     },
@@ -9117,6 +9267,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Star_wars_cinema_1977.jpg",
         "license": "CC BY-SA 2.0",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "stenyxorna-fran-langdale",
+      "eventTitle": "Stenyxorna från Langdale",
+      "file": "images/events/stenyxorna-fran-langdale.webp",
+      "kind": "historisk",
+      "credit": "Derby Museums Trust / Portable Antiquities Scheme",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-stenyxorna-fran-langdale",
+        "title": "Neolithic polished stone axe fragment, Langdale stone (FindID 430451) – Derby Museums Trust, Rachel Atherton, 2011-03-08 12:34:54 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Neolithic_polished_stone_axe_fragment,_Langdale_stone_(FindID_430451).jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
