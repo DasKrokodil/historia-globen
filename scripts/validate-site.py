@@ -824,6 +824,7 @@ if places_doc is not None:
         return best
 
     COAST_MARGIN_KM = 20  # som COAST_MARGIN_KM i js/place-geo.js (tests/platser-granser-test.py jämför de två)
+    INCLUDE_MAX_KM = 5  # som INCLUDE_MAX_KM i js/place-geo.js (#2333; tests/platser-granser-test.py jämför de två)
 
     def inside_polys(plys, lon, lat):
         """Som inGeometry i js/place-geo.js: punkten ligger i en polygon och inte i något av dess hål."""
@@ -880,7 +881,27 @@ if places_doc is not None:
                     if any(abs(a[0] - b[0]) > 180 for a, b in zip(ring, ring[1:])):
                         err(f'{where}: en ring i {label} hoppar mer än 180 grader i längdgrad (korsar datumlinjen); dela den vid 180° med tools/platser_gransar.py (#1268)')
                         break
-        inside_all = [e for e in ev_all if in_place(polys, nb_polys, *e['location']['coordinates'][:2])]
+        # Händelser vid gränsen (#2333, beslut 2026-11-27): includeEvents räknas till platsen trots den grova gränsen, som placeEvents i
+        # js/place-geo.js. Listan är bara till för gränsorter som 1:50m lägger på fel sida (Echternach, Kelmis): händelsen ska finnas, ligga
+        # utanför platsen enligt gränsen och högst INCLUDE_MAX_KM från den, så att listan inte kan lägga till godtyckliga händelser.
+        listed = pl.get('includeEvents', [])
+        ev_by_id = {e['id']: e for e in ev_all}
+        for eid in listed:
+            e = ev_by_id.get(eid)
+            if e is None:
+                err(f'{where}: includeEvents: händelsen {eid} finns inte bland de synliga händelserna med en punkt i data/events.json')
+                continue
+            lon, lat = e['location']['coordinates'][:2]
+            if in_place(polys, nb_polys, lon, lat):
+                err(f'{where}: includeEvents: {eid} ligger redan inom gränsen och ska inte stå i listan')
+            elif edge_km(polys, lon, lat) > INCLUDE_MAX_KM:
+                err(f'{where}: includeEvents: {eid} ligger {edge_km(polys, lon, lat):.1f} km utanför gränsen, mer än {INCLUDE_MAX_KM} km (#2333)')
+            for other in places_doc.get('places', []):
+                og = other.get('boundary', {}).get('geometry', {})
+                if other is not pl and og and inside_polys([og['coordinates']] if og.get('type') == 'Polygon' else og.get('coordinates', []), lon, lat):
+                    print(f"validate-site: VARNING: {where}: includeEvents: {eid} ligger också inom gränsen för {other.get('id')} och räknas till båda korten (#2333)", file=sys.stderr)
+        listed = set(listed)
+        inside_all = [e for e in ev_all if e['id'] in listed or in_place(polys, nb_polys, *e['location']['coordinates'][:2])]
         # Som placeEvents i js/place-geo.js: scope "wide" (#1806) gäller ett större område och är inte platsens händelse
         inside = [e for e in inside_all if e.get('scope') != 'wide']
         if len(inside) < 5:

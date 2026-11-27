@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { placeAt, placeBounds, inGeometry, edgeKm, placeEvents, inPlace, inNeighbour, COAST_MARGIN_KM } from '../js/place-geo.js';
+import { placeAt, placeBounds, inGeometry, edgeKm, placeEvents, inPlace, inNeighbour, COAST_MARGIN_KM, INCLUDE_MAX_KM } from '../js/place-geo.js';
 import { entry } from '../js/layers/places.js';
 
 const square = (id, w, s, e, n) => ({ id, boundary: { geometry: { type: 'Polygon', coordinates: [[[w, s], [e, s], [e, n], [w, n], [w, s]]] } } });
@@ -270,4 +270,32 @@ test('scope "wide" (#1806): händelser för ett större område än platsen räk
   const dryas = realEvents.find(e => e.id === 'yngre-dryas');
   assert.ok(inPlace(place('danmark'), dryas._lon, dryas._lat), 'markören ligger i Danmark');
   assert.equal(idsIn('danmark').has('yngre-dryas'), false, 'Yngre dryas står inte bland Danmarks händelser');
+});
+
+test('includeEvents (#2333): en listad händelse räknas till platsen också i grannens polygon; utan listan gäller gränsen', () => {
+  const ev = (id, start, lon, lat, extra = {}) => ({ id, start, _lon: lon, _lat: lat, ...extra });
+  const pl = { ...fxPlace('ruta'), includeEvents: ['vid-floden', 'vid'] };
+  const list = [ev('granne', 1, 10.05, 5), ev('vid-floden', 2, 10.02, 5), ev('inne', 0, 5, 5), ev('vid', 3, 10.02, 5, { scope: 'wide' })];
+  assert.equal(inPlace(fxPlace('ruta'), 10.02, 5), false, 'punkten ligger i grannens polygon');
+  assert.deepEqual(placeEvents(pl, list).map(e => e.id), ['inne', 'vid-floden'], 'listad räknas, olistad granne inte, "wide" aldrig');
+  assert.deepEqual(placeEvents(fxPlace('ruta'), list).map(e => e.id), ['inne'], 'utan listan som förut');
+  assert.deepEqual(placeEvents({ ...pl, includeEvents: [] }, list).map(e => e.id), ['inne']);
+});
+
+test('includeEvents (#2333): gränsorterna räknas till sina länder, ligger utanför 1:50m-gränsen och högst INCLUDE_MAX_KM från den', () => {
+  const want = { luxemburg: ['klostret-i-echternach', 'schengenavtalet'], belgien: ['moresnet-blir-belgiskt'], estland: ['slaget-vid-narva-1700'] };
+  for (const [pid, ids] of Object.entries(want)) {
+    assert.deepEqual(place(pid).includeEvents, ids, `${pid}: listan`);
+    for (const id of ids) assert.ok(idsIn(pid).has(id), `${id} saknas i ${pid}`);
+  }
+  assert.ok(INCLUDE_MAX_KM < COAST_MARGIN_KM);
+  const byId = new Map(realEvents.map(e => [e.id, e]));
+  for (const p of real) {
+    for (const id of p.includeEvents ?? []) {
+      const e = byId.get(id);
+      assert.ok(e && e._lon != null, `${p.id}: ${id} finns inte eller saknar punkt`);
+      assert.equal(inPlace(p, e._lon, e._lat), false, `${p.id}: ${id} ligger redan inom gränsen`);
+      assert.ok(edgeKm(p.boundary.geometry, e._lon, e._lat) <= INCLUDE_MAX_KM, `${p.id}: ${id} ligger mer än ${INCLUDE_MAX_KM} km utanför`);
+    }
+  }
 });
