@@ -14,3 +14,8 @@ DasKrokodil valde det här alternativet i Claude Codes fråga 2026-11-27 (rekomm
 
 ## Gränser
 Radien är ett ritverktyg, inget påstående. Ytan är fortfarande ett antaget område och ingen gräns, och den visar inte var människor saknades.
+
+## Kontroll mot istidens kust (geograf och forhistoriker, 2026-11-27)
+- Ingen ö i Filippinerna eller i Sulu delas i något modellsteg. Förut delades Luzon och Mindoro i alla steg.
+- Taiwan ligger nu utanför ytan (förut innanför, utan källa). När Taiwan hänger ihop med fastlandet (30, 20 och 15 ka) ligger en smal remsa av den torrlagda hyllan norr om ön innanför.
+- Kvar: en liten lucka på Borneos östkust (cirka 118,5–118,8° O, 1,9–2,3° N, 3–4 bildpunkter), som det gamla breda höljet täckte. En större radie i delen Borneo–Tabon fyller den men delar då Tawi-Tawi och Mindanao. Sulawesi delas som förut; det kommer inte av den här ändringen.
