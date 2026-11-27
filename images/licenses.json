@@ -2910,6 +2910,21 @@
       }
     },
     {
+      "eventId": "ganggriften-i-rossberga",
+      "eventTitle": "Gånggriften i Rössberga",
+      "file": "images/events/ganggriften-i-rossberga.webp",
+      "kind": "historisk",
+      "credit": "Harri Blomberg / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-ganggriften-i-rossberga",
+        "title": "Rössberga 1, den 9 april 2006 – Harri Blomberg (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:R%C3%B6ssberga_1,_den_9_april_2006.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "gao-saney-handelsstad",
       "eventTitle": "Handelsstaden Gao-Saney vid Nigerfloden",
       "file": "images/events/gao-saney-handelsstad.webp",
@@ -3243,6 +3258,21 @@
       }
     },
     {
+      "eventId": "hagahogen",
+      "eventTitle": "Hågahögen byggs",
+      "file": "images/events/hagahogen.webp",
+      "kind": "historisk",
+      "credit": "Johan Jönsson (Julle) / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-hagahogen",
+        "title": "Hågahögen (2) – Johan Jönsson ( Julle ) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:H%C3%A5gah%C3%B6gen_(2).jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "hagia-sofia-byggs-532",
       "eventTitle": "Hagia Sofia byggs",
       "file": "images/events/hagia-sofia-byggs-532.webp",
@@ -3299,6 +3329,21 @@
         "title": "Alta-Carvings-2012-07-17-12-15-018 – Karl Brodowsky (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Alta-Carvings-2012-07-17-12-15-018.jpg",
         "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "hallristningarna-i-tanum",
+      "eventTitle": "Hällristningarna i Tanum",
+      "file": "images/events/hallristningarna-i-tanum.webp",
+      "kind": "historisk",
+      "credit": "Okänd uppladdare / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-hallristningarna-i-tanum",
+        "title": "Tanumshede 2005 rock carvings 7 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tanumshede_2005_rock_carvings_7.jpg",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
@@ -3488,6 +3533,21 @@
         "title": "He Whakaputanga o te Rangatiratanga o Nu Tireni (known as The Declaration of Independence) (Page 1 of 3), 1835 (10430000633) – Archives New Zealand from New Zealand (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:He_Whakaputanga_o_te_Rangatiratanga_o_Nu_Tireni_(known_as_The_Declaration_of_Independence)_(Page_1_of_3),_1835_(10430000633).jpg",
         "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "hekla-3-utbrottet",
+      "eventTitle": "Hekla får ett av sina största utbrott",
+      "file": "images/events/hekla-3-utbrottet.webp",
+      "kind": "historisk",
+      "credit": "Hornstrandir1 / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-hekla-3-utbrottet",
+        "title": "Hekla August 2019-02 – Hornstrandir1 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Hekla_August_2019-02.jpg",
+        "license": "CC BY-SA 4.0",
         "checked": "2026-11-26"
       }
     },
@@ -4206,6 +4266,21 @@
       }
     },
     {
+      "eventId": "kaali-kratern",
+      "eventTitle": "En meteorit slår ner vid Kaali",
+      "file": "images/events/kaali-kratern.webp",
+      "kind": "historisk",
+      "credit": "Bernt Rostad / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-kaali-kratern",
+        "title": "Kaali crater – Bernt Rostad (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kaali_crater.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "kabuki-borjar-1603",
       "eventTitle": "Kabukiteatern börjar i Kyoto",
       "file": "images/events/kabuki-borjar-1603.webp",
@@ -4392,6 +4467,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Carl_Wahlbom_-_Karl_XII-s_d%C3%B6d_-_NMH_5-1889_-_Nationalmuseum.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "karthago-grundas",
+      "eventTitle": "Kartago grundas",
+      "file": "images/events/karthago-grundas.webp",
+      "kind": "historisk",
+      "credit": "Calips / Patrick Giraud / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-karthago-grundas",
+        "title": "Tunisie Carthage Ruines 08 – Calips (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tunisie_Carthage_Ruines_08.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -4626,6 +4716,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Manifest_der_kommunistischen_Partei_%28Marx%29_001.jpg",
         "license": "Public domain",
         "checked": "2026-11-13"
+      }
+    },
+    {
+      "eventId": "kon-som-opererades-i-champ-durand",
+      "eventTitle": "En ko med ett hål i skallen i Champ-Durand",
+      "file": "images/events/kon-som-opererades-i-champ-durand.webp",
+      "kind": "historisk",
+      "credit": "Liberliger / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-kon-som-opererades-i-champ-durand",
+        "title": "Nieul-autise champ-durand 07 – Liberliger (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Nieul-autise_champ-durand_07.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5244,6 +5349,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Cataratas_Victoria,_Zambia-Zimbabue,_2018-07-27,_DD_05.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "los-millares",
+      "eventTitle": "Den befästa boplatsen Los Millares",
+      "file": "images/events/los-millares.webp",
+      "kind": "historisk",
+      "credit": "Yuntero / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-los-millares",
+        "title": "Los Millares Muralla – Yuntero (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Los_Millares_Muralla.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -6447,6 +6567,21 @@
       }
     },
     {
+      "eventId": "offerberget-vid-kokino",
+      "eventTitle": "Offergåvor på berget vid Kokino",
+      "file": "images/events/offerberget-vid-kokino.webp",
+      "kind": "historisk",
+      "credit": "BrankaVV / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-offerberget-vid-kokino",
+        "title": "Ancient observatory Kokino, Macedonia – BrankaVV (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ancient_observatory_Kokino,_Macedonia.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "oktoberrevolutionen",
       "eventTitle": "Oktoberrevolutionen i Ryssland",
       "file": "images/events/oktoberrevolutionen.webp",
@@ -7473,6 +7608,21 @@
       }
     },
     {
+      "eventId": "saltbrytning-i-hallstatt",
+      "eventTitle": "Saltgruvorna i Hallstatt blomstrar",
+      "file": "images/events/saltbrytning-i-hallstatt.webp",
+      "kind": "historisk",
+      "credit": "Balou46 / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-saltbrytning-i-hallstatt",
+        "title": "A-Hallstatt-salzw-eingang-stollen – Balou46 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:A-Hallstatt-salzw-eingang-stollen.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "saltmarschen",
       "eventTitle": "Gandhis saltmarsch",
       "file": "images/events/saltmarschen.webp",
@@ -7485,6 +7635,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Marche_sel.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "sammallahdenmaki",
+      "eventTitle": "Gravrösena i Sammallahdenmäki",
+      "file": "images/events/sammallahdenmaki.webp",
+      "kind": "historisk",
+      "credit": "Rauma museum / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-sammallahdenmaki",
+        "title": "Sammallahdenmäki Bronze age burial site Huilu Long ruin – Rauma museum (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Sammallahdenm%C3%A4ki_Bronze_age_burial_site_Huilu_Long_ruin.jpg",
+        "license": "CC0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -7863,6 +8028,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Capture_of_christianstad-claus_moinichen_1686.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "skara-brae",
+      "eventTitle": "Stenbyn Skara Brae",
+      "file": "images/events/skara-brae.webp",
+      "kind": "historisk",
+      "credit": "Dr. John F. Burka / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-skara-brae",
+        "title": "Orkney Skara Brae – Dr. John F. Burka (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Orkney_Skara_Brae.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -9990,6 +10170,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Zonnepoort_tiwanaku.jpg",
         "license": "Public domain",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "tjurhoppning-pa-knossos",
+      "eventTitle": "Tjurhopp på väggarna i Knossos",
+      "file": "images/events/tjurhoppning-pa-knossos.webp",
+      "kind": "historisk",
+      "credit": "George Groutas / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-tjurhoppning-pa-knossos",
+        "title": "Bull leaping, fresco from the Great Palace at Knossos, Crete, Heraklion Archaeological Museum – George Groutas (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bull_leaping,_fresco_from_the_Great_Palace_at_Knossos,_Crete,_Heraklion_Archaeological_Museum.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
       }
     },
     {

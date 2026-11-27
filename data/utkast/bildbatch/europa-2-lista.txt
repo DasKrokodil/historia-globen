@@ -1,0 +1,18 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:Rössberga 1, den 9 april 2006.JPG	ganggriften-i-rossberga
+# File:Nieul-autise champ-durand 07.jpg	kon-som-opererades-i-champ-durand
+# File:Orkney Skara Brae.jpg	skara-brae
+# File:Morasko krater zima.jpg	meteoritkratrarna-i-morasko
+# File:Gold foil with four ‘oculi’.jpg	elfenbensdamen-i-valencina
+# File:Late roman period temparature and moisture 1 1 1 1.png	kyla-i-alperna-4-2
+# File:Gol e zard mg ca data 4400 3800 BP 1 1 1 1.png	torka-i-mesopotamien-4-2
+# File:The political champion turned resurrection man! (BM 1868,0808.8476).jpg	pest-i-bronsalderns-britannien
+# File:Great Orme Copper Mines - geograph.org.uk - 2427618.jpg	kopparbrytning-pa-great-orme
+# File:Ancient observatory Kokino, Macedonia.jpg	offerberget-vid-kokino
+# File:1600 Himmelsscheibe von Nebra sky disk anagoria.jpg	nebra-himmelsskivan
+# File:Tanumshede 2005 rock carvings 7.jpg	hallristningarna-i-tanum
+# File:Bull leaping, fresco from the Great Palace at Knossos, Crete, Heraklion Archaeological Museum.jpg	tjurhoppning-pa-knossos
+# File:Solvognen DO-6865 2000.jpg	solvagnen-fran-trundholm
+# File:2006 T372 Bronze Age hoard (FindID 192417).jpg	bronsalderns-kollaps
+# File:Tunisie Carthage Ruines 08.JPG	karthago-grundas

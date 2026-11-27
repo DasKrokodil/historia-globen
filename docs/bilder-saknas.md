@@ -839,3 +839,38 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `lillberget` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
 | `majkopkurganen` | 2026-11-26: Händelsen saknades i den automatiska listan; gäller en gravhög; ingen egen sökning hann göras. |
 | `ggantija` | 2026-11-26: Händelsen saknades i den automatiska listan; sökningen gav inga träffar. |
+
+
+## Europa 3500 f.Kr.–800 f.Kr. (#2077 och #2078, 2026-11-26)
+
+13 av 40 händelser fick bild i den här omgången. Följande 27 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/europa-2.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `vagnshjulen-i-novokorsunskaja` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `otzi` | 2026-11-26: Händelsen saknades i den automatiska listan och gäller en mumifierad människa (mänskliga kvarlevor); bilder avstås och ingen sökning gjordes. |
+| `newgrange` | 2026-11-26: Händelsen saknades i den automatiska listan; sökningen efter Newgrange gav inga träffar; ingen egen vidare sökning hann göras. |
+| `meteoritkratrarna-i-morasko` | 2026-11-26: Enda kandidaten (Morasko krater zima.jpg) saknar fotograf och beskrivning på filsidan (GFDL/CC BY-SA 3.0 utan angiven upphovsperson); används inte. |
+| `tumlarna-blir-farre-i-ostra-ostersjon` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `elfenbensdamen-i-valencina` | 2026-11-26: Enda kandidaten (Gold foil with four oculi, CC BY 4.0, 2025) visar ett guldfolieföremål och inte elfenbensfiguren; används inte. |
+| `meningokocker-pa-ajvide` | 2026-11-26: Ingen kandidat i listan; gäller gravfynd; ingen egen sökning hann göras. |
+| `kalenderkarlet-fran-vinkovci` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `mjolk-i-lerkarlen-i-kyrkslatt` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kyla-i-alperna-4-2` | 2026-11-26: Kandidaterna är ett klimatdiagram (2025) och en svampbild; används inte. |
+| `torka-i-mesopotamien-4-2` | 2026-11-26: Enda kandidaten är ett diagram (2025); används inte. |
+| `pest-i-bronsalderns-britannien` | 2026-11-26: Enda kandidaterna (en karikatyr från 1819 och en gravbild) hör inte till händelsen; pest och gravar, bilder avstås. |
+| `metallen-till-sydskandinavien-byter-vag` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kopparbrytning-pa-great-orme` | 2026-11-26: Kandidaterna (geograph-foton av Great Orme Copper Mines, CC BY-SA 2.0) har licensflagga; används inte utan närmare kontroll. |
+| `kastelli-jattekyrka` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `megalitgravarna-vid-trafalgar` | 2026-11-26: Ingen kandidat i listan; gäller gravar; ingen egen sökning hann göras. |
+| `nebra-himmelsskivan` | 2026-11-26: Enda kandidaten (foto av skivan av Anagoria, PD enligt filsidan) har licensflagga; används inte utan närmare kontroll. |
+| `bete-vid-mortensnes` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `hirs-i-pielgrzymowice` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `solvagnen-fran-trundholm` | 2026-11-26: Kandidaten (Solvognen DO-6865 2000.jpg) har motstridiga licensuppgifter (filsidans mall CC BY-SA 2.5, API:et CC BY-SA 3.0) och flaggades av verktyget; används inte. |
+| `egtvedflickan` | 2026-11-26: Händelsen saknades i den automatiska listan och gäller en begravning med kvarlevor; bilder avstås och ingen sökning gjordes. |
+| `bronsalderns-kollaps` | 2026-11-26: Kandidaterna är fynd av en depå i England (Portable Antiquities Scheme) som inte hör till kollapsen; används inte. |
+| `terramarebyarna-overges` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `befasta-kullar-i-ostra-litauen` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `hastutrustningen-fran-eskelhem` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `faltnabbmus-i-aalborg` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `barnsten-och-brons-i-kukuliskiai` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
