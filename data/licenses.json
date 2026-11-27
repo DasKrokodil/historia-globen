@@ -3233,6 +3233,7 @@
         "wp-sv-kopenhamn",
         "wp-sv-kroggardsmalmen",
         "wp-sv-kvinnlig-rostratt",
+        "wp-sv-lappland",
         "wp-sv-nobelpriset",
         "wp-sv-nordsjovaldet",
         "wp-sv-normandernas-erovring",
@@ -3779,6 +3780,7 @@
         "wd-kungariket-skottland",
         "wd-kurile-lake",
         "wd-lake-ladoga",
+        "wd-lappland",
         "wd-lavo-kingdom",
         "wd-lego",
         "wd-liu-song-dynasty",
@@ -5435,6 +5437,7 @@
       "license": "© Lex.dk, begrænset genbrug (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "lex-freden-i-kobenhavn",
+        "lex-lappland",
         "lex-lund",
         "lex-lunds-domkirke",
         "lex-lunds-historie",
@@ -5503,6 +5506,7 @@
     {
       "license": "© Store norske leksikon, begrenset gjenbruk (bara länkad, ingen text kopierad)",
       "sourceIds": [
+        "snl-lappland",
         "snl-skane",
         "snl-uppland"
       ]
