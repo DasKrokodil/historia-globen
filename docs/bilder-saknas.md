@@ -499,3 +499,34 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `lapitakulturen-i-bismarckarkipelagen` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
 | `ambumstenen` | 2026-11-26: Händelsen saknades i granskningslistan; ingen egen sökning hann göras. |
 | `stort-utbrott-i-witori` | 2026-11-26: Ingen kandidat i listan; sökningen på Witori gav bara orelaterade träffar. |
+
+## Asien 1269 f.Kr.–205 f.Kr. (#2060 och #2061, 2026-11-26)
+
+16 av 40 händelser fick bild i den här omgången. Följande 24 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-3.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Många står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `nauru-befolkas` | 2026-11-26: Kandidaterna är krigsfoton och vapen/flaggor från 1943 och senare; inget visar platsen eller befolkningen. Ingen lämplig bild. |
+| `risodlingen-nar-japan` | 2026-11-26: Ingen kandidat i listan; sökningen på Toro-lämningarna gav inga träffar. |
+| `arvsmassa-fran-palau` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `lapitafolket-pa-taumako` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `stora-dammen-i-marib` | 2026-11-26: Enda träffarna visar den moderna dammen (1986) eller är otydliga; ingen bild som säkert visar den forntida dammen. |
+| `arvsmassa-fran-watom` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `paninis-grammatik` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `mahavira` | 2026-11-26: Händelsen saknades i granskningslistan; sökningen på statyer av Mahavira gav inga träffar. |
+| `skylax-seglar-nerfor-indus` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kungsvagen-susa-sardes` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `pazyrykgravarna` | 2026-11-26: Händelsen gäller gravar med människor och hästar; bilder av gravar och kvarlevor avstås och ingen sökning gjordes. |
+| `belagringen-av-tyros` | 2026-11-26: Enda kandidaten är en karta på 738 × 563 px (Siege tryre.gif); en egen sökning gav bara böcker utan användbar bild. |
+| `nearchos-flotta-fran-indus` | 2026-11-26: Enda kandidaten är en bokbild med licensen "No restrictions", som programmet inte kan avgöra. |
+| `meroitisk-skrift` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `cuju-bollspel-i-kina` | 2026-11-26: Enda kandidaten är ett kinesiskt fotbollsamulett (mynt) av oklar datering och upphov ("Unknown authorship"); används inte. |
+| `dujiangyan` | 2026-11-26: Händelsen saknades i granskningslistan; sökningen på Dujiangyan gav inga träffar. |
+| `qins-enandekrig` | 2026-11-26: Enda kandidaten är en karta (Hou Xuanxuan, CC BY-SA 4.0); en karta visar inte händelsen och används inte när något bättre kan finnas. |
+| `qin-erovrar-han` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `handan-faller-228-fkr` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `qin-intar-ji` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `daliang-satts-under-vatten` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `qin-erovrar-chu` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `chu-han-kriget` | 2026-11-26: Enda kandidaten är en modern karta (Chu-Han Contention.png); används inte. |
+| `slaget-vid-pengcheng` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
