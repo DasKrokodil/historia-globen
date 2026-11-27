@@ -8190,5 +8190,821 @@
     "source": "commons-bild-sista-amerikanska-trupperna-lamnar-afghanistan",
     "id": "sista-amerikanska-trupperna-lamnar-afghanistan",
     "file": "sista-amerikanska-trupperna-lamnar-afghanistan.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Sju mänskliga fotspår bevarade i istida gipsslam i White Sands, foto från National Park Service (30 januari 2020). Enligt filsidan är spåren från en tonårsflicka och uppskattas till 23 000–21 000 år sedan; ett fotografi av fynden på platsen, inte en rekonstruktion. Licens: Public domain.",
+      "en": "Seven human footprints preserved in Ice Age gypsum mud at White Sands, photo from the National Park Service (30 January 2020). According to the file page the prints are from an adolescent girl and are estimated at 23,000–21,000 years old; a photograph of the finds on site, not a reconstruction. Licence: Public domain.",
+      "de": "Sieben menschliche Fußspuren, in eiszeitlichem Gipsschlamm bei White Sands erhalten, Foto des National Park Service (30. Januar 2020). Laut Dateiseite stammen die Spuren von einem heranwachsenden Mädchen und werden auf 23 000–21 000 Jahre geschätzt; ein Foto der Funde vor Ort, keine Rekonstruktion. Lizenz: gemeinfrei.",
+      "es": "Siete huellas humanas conservadas en lodo de yeso de la Edad de Hielo en White Sands, foto del National Park Service (30 de enero de 2020). Según la página del archivo, las huellas son de una adolescente y se estiman en 23 000–21 000 años; una fotografía de los hallazgos in situ, no una reconstrucción. Licencia: dominio público.",
+      "fr": "Sept empreintes humaines conservées dans la boue de gypse de l'âge glaciaire à White Sands, photo du National Park Service (30 janvier 2020). Selon la page du fichier, les empreintes sont celles d'une adolescente et sont estimées à 23 000–21 000 ans ; une photographie des vestiges sur place, pas une reconstitution. Licence : domaine public."
+    },
+    "credit": "National Park Service",
+    "license": "Public domain",
+    "source": "commons-bild-white-sands-fotspar",
+    "id": "white-sands-fotspar",
+    "file": "white-sands-fotspar.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (2005) av Mariano av händer i Cueva de las Manos vid Río Pinturas nära Perito Moreno i provinsen Santa Cruz, Argentina (filsidan: \"Hands at the Cuevas de las Manos\"). Urfolkets kulturarv; fotot visar bergkonst och inga personer. Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2005) by Mariano of hands in the Cueva de las Manos at the Río Pinturas near Perito Moreno in Santa Cruz Province, Argentina (file page: \"Hands at the Cuevas de las Manos\"). Indigenous heritage; the photo shows rock art and no people. Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2005) von Mariano von Händen in der Cueva de las Manos am Río Pinturas bei Perito Moreno in der Provinz Santa Cruz, Argentinien (Dateiseite: „Hands at the Cuevas de las Manos“). Kulturerbe indigener Völker; das Foto zeigt Felskunst und keine Personen. Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2005) de Mariano de manos en la Cueva de las Manos, junto al río Pinturas, cerca de Perito Moreno, en la provincia de Santa Cruz, Argentina (página del archivo: «Hands at the Cuevas de las Manos»). Patrimonio de los pueblos indígenas; la foto muestra arte rupestre y ninguna persona. Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2005) de Mariano de mains dans la Cueva de las Manos, sur le Río Pinturas, près de Perito Moreno, dans la province de Santa Cruz, en Argentine (page du fichier : « Hands at the Cuevas de las Manos »). Patrimoine des peuples autochtones ; la photo montre de l'art rupestre et aucune personne. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Mariano / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-cueva-de-las-manos",
+    "id": "cueva-de-las-manos",
+    "file": "cueva-de-las-manos.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (2006) av Ken Lund av Wizard Island, en vulkanisk askkon som bildar en ö i västra delen av Crater Lake i Crater Lake National Park, Oregon. Inte från Mount Mazamas utbrott (cirka 5700 f.Kr.). Licens: CC BY-SA 2.0.",
+      "en": "Modern photo (2006) by Ken Lund of Wizard Island, a volcanic cinder cone forming an island at the west end of Crater Lake in Crater Lake National Park, Oregon. Not from the eruption of Mount Mazama (about 5700 BC). Licence: CC BY-SA 2.0.",
+      "de": "Heutiges Foto (2006) von Ken Lund von Wizard Island, einem vulkanischen Schlackenkegel, der im Westen des Crater Lake im Crater-Lake-Nationalpark in Oregon eine Insel bildet. Nicht vom Ausbruch des Mount Mazama (etwa 5700 v. Chr.). Lizenz: CC BY-SA 2.0.",
+      "es": "Foto actual (2006) de Ken Lund de Wizard Island, un cono de ceniza volcánico que forma una isla en el extremo oeste del lago del Cráter, en el Parque Nacional del Lago del Cráter, Oregón. No es de la erupción del monte Mazama (hacia 5700 a. C.). Licencia: CC BY-SA 2.0.",
+      "fr": "Photo actuelle (2006) de Ken Lund de Wizard Island, un cône de scories volcanique formant une île à l'extrémité ouest du lac du Cratère, dans le parc national de Crater Lake, en Oregon. Pas de l'éruption du mont Mazama (vers 5700 av. J.-C.). Licence : CC BY-SA 2.0."
+    },
+    "credit": "Ken Lund / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-mount-mazama-crater-lake",
+    "id": "mount-mazama-crater-lake",
+    "file": "mount-mazama-crater-lake.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Nutida foto (2020) av Bernard Gagnon av statyer i Mesita A i San Agustíns arkeologiska park i Colombia (filsidan). Urfolkens kulturarv; bilden visar stenstatyer under ett tak och inga personer. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2020) by Bernard Gagnon of statues in Mesita A in San Agustín Archaeological Park, Colombia (file page). Indigenous heritage; the picture shows stone statues under a roof and no people. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2020) von Bernard Gagnon von Statuen in der Mesita A im Archäologischen Park von San Agustín, Kolumbien (Dateiseite). Kulturerbe indigener Völker; das Bild zeigt Steinstatuen unter einem Dach und keine Personen. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2020) de Bernard Gagnon de estatuas en la Mesita A del Parque Arqueológico de San Agustín, en Colombia (página del archivo). Patrimonio de los pueblos indígenas; la imagen muestra estatuas de piedra bajo un techo y ninguna persona. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2020) de Bernard Gagnon de statues dans la Mesita A du parc archéologique de San Agustín, en Colombie (page du fichier). Patrimoine des peuples autochtones ; l'image montre des statues de pierre sous un toit et aucune personne. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Bernard Gagnon / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-san-agustins-statyer",
+    "id": "san-agustins-statyer",
+    "file": "san-agustins-statyer.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Nutida foto (2013) av Diego Delso av La Ciudadela i Teotihuacán, Mexiko (filsidan): en trappa med skulpterade huvuden i en pyramidfasad. Inte från templets tid (cirka år 150). Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2013) by Diego Delso of La Ciudadela in Teotihuacán, Mexico (file page): a staircase with sculpted heads in a pyramid facade. Not from the time of the temple (about the year 150). Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2013) von Diego Delso von La Ciudadela in Teotihuacán, Mexiko (Dateiseite): eine Treppe mit skulptierten Köpfen in einer Pyramidenfassade. Nicht aus der Zeit des Tempels (etwa im Jahr 150). Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2013) de Diego Delso de La Ciudadela en Teotihuacán, México (página del archivo): una escalera con cabezas esculpidas en la fachada de una pirámide. No es de la época del templo (hacia el año 150). Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2013) de Diego Delso de La Ciudadela à Teotihuacan, au Mexique (page du fichier) : un escalier avec des têtes sculptées dans la façade d'une pyramide. Pas de l'époque du temple (vers l'an 150). Licence : CC BY-SA 3.0."
+    },
+    "credit": "Diego Delso / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-befjadrade-ormens-tempel",
+    "id": "befjadrade-ormens-tempel",
+    "file": "befjadrade-ormens-tempel.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Nutida flygfoto (2006) av brewbooks av vulkanen Glacier Peak (3 213 m) i delstaten Washington, sedd från söder (filsidan). Inte från utbrottet omkring år 200. Licens: CC BY-SA 2.0.",
+      "en": "Modern aerial photo (2006) by brewbooks of the Glacier Peak volcano (3,213 m) in Washington state, seen from the south (file page). Not from the eruption around the year 200. Licence: CC BY-SA 2.0.",
+      "de": "Heutiges Luftfoto (2006) von brewbooks des Vulkans Glacier Peak (3213 m) im Bundesstaat Washington, von Süden gesehen (Dateiseite). Nicht vom Ausbruch um das Jahr 200. Lizenz: CC BY-SA 2.0.",
+      "es": "Foto aérea actual (2006) de brewbooks del volcán Glacier Peak (3213 m) en el estado de Washington, visto desde el sur (página del archivo). No es de la erupción hacia el año 200. Licencia: CC BY-SA 2.0.",
+      "fr": "Photo aérienne actuelle (2006) de brewbooks du volcan Glacier Peak (3 213 m), dans l'État de Washington, vu du sud (page du fichier). Pas de l'éruption vers l'an 200. Licence : CC BY-SA 2.0."
+    },
+    "credit": "brewbooks / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-glacier-peak-utbrott-omkring-200",
+    "id": "glacier-peak-utbrott-omkring-200",
+    "file": "glacier-peak-utbrott-omkring-200.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Nutida foto (2010) av Felipe Huerta Hdez av pyramiden i Cuicuilco söder om Mexico City (filnamnet: \"Pirámide de Cuicuilco al Sur del Distrito Federal\"). Inte från tiden före utbrottet från Xitle (cirka år 245). Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2010) by Felipe Huerta Hdez of the pyramid at Cuicuilco south of Mexico City (file name: \"Pirámide de Cuicuilco al Sur del Distrito Federal\"). Not from the time before the eruption of Xitle (about the year 245). Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2010) von Felipe Huerta Hdez der Pyramide von Cuicuilco südlich von Mexiko-Stadt (Dateiname: „Pirámide de Cuicuilco al Sur del Distrito Federal“). Nicht aus der Zeit vor dem Ausbruch des Xitle (etwa im Jahr 245). Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2010) de Felipe Huerta Hdez de la pirámide de Cuicuilco, al sur de la Ciudad de México (nombre del archivo: «Pirámide de Cuicuilco al Sur del Distrito Federal»). No es de la época anterior a la erupción del Xitle (hacia el año 245). Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2010) de Felipe Huerta Hdez de la pyramide de Cuicuilco, au sud de Mexico (nom du fichier : « Pirámide de Cuicuilco al Sur del Distrito Federal »). Pas de l'époque précédant l'éruption du Xitle (vers l'an 245). Licence : CC BY-SA 3.0."
+    },
+    "credit": "Felipe Huerta Hdez / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-xitle-begraver-cuicuilco",
+    "id": "xitle-begraver-cuicuilco",
+    "file": "xitle-begraver-cuicuilco.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Nutida bild (2021) av KMTRAGER av Ilopangosjön i El Salvador; filsidan anger att utbrottet \"TBJ\" skapade en 8 × 11 km stor kaldera fylld med vatten. Inte från utbrottet (cirka år 431). Licens: CC BY-SA 4.0.",
+      "en": "Modern image (2021) by KMTRAGER of Lake Ilopango in El Salvador; the file page states that the TBJ eruption created an 8 × 11 km caldera filled with water. Not from the eruption (about the year 431). Licence: CC BY-SA 4.0.",
+      "de": "Heutige Aufnahme (2021) von KMTRAGER des Ilopango-Sees in El Salvador; laut Dateiseite schuf der TBJ-Ausbruch eine 8 × 11 km große, mit Wasser gefüllte Caldera. Nicht vom Ausbruch (etwa im Jahr 431). Lizenz: CC BY-SA 4.0.",
+      "es": "Imagen actual (2021) de KMTRAGER del lago Ilopango, en El Salvador; según la página del archivo, la erupción TBJ creó una caldera de 8 × 11 km llena de agua. No es de la erupción (hacia el año 431). Licencia: CC BY-SA 4.0.",
+      "fr": "Image actuelle (2021) de KMTRAGER du lac d'Ilopango, au Salvador ; selon la page du fichier, l'éruption TBJ a créé une caldeira de 8 × 11 km remplie d'eau. Pas de l'éruption (vers l'an 431). Licence : CC BY-SA 4.0."
+    },
+    "credit": "KMTRAGER / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-ilopango-utbrottet",
+    "id": "ilopango-utbrottet",
+    "file": "ilopango-utbrottet.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (2019) av DKRKaynor från platsen ovanför Dry Falls i delstaten Washington, som enligt filsidan formades av Missoulaflodena. Inte från tiden för floderna (cirka 16000 f.Kr.). Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2019) by DKRKaynor from above Dry Falls in Washington state, which according to the file page was carved by the Missoula floods. Not from the time of the floods (about 16000 BC). Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2019) von DKRKaynor von oberhalb der Dry Falls im Bundesstaat Washington, die laut Dateiseite von den Missoula-Fluten geformt wurden. Nicht aus der Zeit der Fluten (etwa 16000 v. Chr.). Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2019) de DKRKaynor desde encima de Dry Falls, en el estado de Washington, que según la página del archivo fue excavada por las inundaciones de Missoula. No es de la época de las inundaciones (hacia 16000 a. C.). Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2019) de DKRKaynor depuis le haut de Dry Falls, dans l'État de Washington, qui selon la page du fichier a été creusée par les crues de Missoula. Pas de l'époque des crues (vers 16000 av. J.-C.). Licence : CC BY-SA 4.0."
+    },
+    "credit": "DKRKaynor / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-missoulafloderna",
+    "id": "missoulafloderna",
+    "file": "missoulafloderna.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Vy från Gila Cliff Dwellings National Monument i New Mexico, foto från National Park Service (okänt datum). Enligt filsidan visar platsen hem för mogollonfolket som levde här för mer än 700 år sedan, alltså långt efter kulturens begynnelse (cirka år 200). Licens: Public domain.",
+      "en": "View from Gila Cliff Dwellings National Monument in New Mexico, photo from the National Park Service (unknown date). According to the file page the site shows homes of the Mogollon people who lived here more than 700 years ago, that is long after the beginning of the culture (about the year 200). Licence: Public domain.",
+      "de": "Ansicht vom Gila Cliff Dwellings National Monument in New Mexico, Foto des National Park Service (Datum unbekannt). Laut Dateiseite zeigt der Ort Wohnstätten des Mogollon-Volkes, das hier vor mehr als 700 Jahren lebte, also lange nach dem Beginn der Kultur (etwa im Jahr 200). Lizenz: gemeinfrei.",
+      "es": "Vista del Gila Cliff Dwellings National Monument, en Nuevo México, foto del National Park Service (fecha desconocida). Según la página del archivo, el lugar muestra hogares del pueblo mogollón que vivió aquí hace más de 700 años, es decir, mucho después del comienzo de la cultura (hacia el año 200). Licencia: dominio público.",
+      "fr": "Vue du Gila Cliff Dwellings National Monument, au Nouveau-Mexique, photo du National Park Service (date inconnue). Selon la page du fichier, le site montre des habitations du peuple mogollon qui vivait ici il y a plus de 700 ans, donc bien après le début de la culture (vers l'an 200). Licence : domaine public."
+    },
+    "credit": "National Park Service",
+    "license": "Public domain",
+    "source": "commons-bild-mogollonkulturen",
+    "id": "mogollonkulturen",
+    "file": "mogollonkulturen.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Nutida foto (2015) av Diego Delso av några av Cantalloc-akvedukterna nära Nasca i Peru; enligt filsidan finns över 40 och byggdes av nascakulturen för cirka 1 500 år sedan. Spiralformade nedgångar till underjordiska vattenledningar. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2015) by Diego Delso of some of the Cantalloc aqueducts near Nasca in Peru; according to the file page there are more than 40, built by the Nasca culture about 1,500 years ago. Spiral-shaped entrances to underground water channels. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2015) von Diego Delso von einigen der Cantalloc-Aquädukte bei Nasca in Peru; laut Dateiseite gibt es mehr als 40, erbaut von der Nasca-Kultur vor etwa 1500 Jahren. Spiralförmige Zugänge zu unterirdischen Wasserkanälen. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2015) de Diego Delso de algunos de los acueductos de Cantalloc, cerca de Nasca, en Perú; según la página del archivo hay más de 40, construidos por la cultura nasca hace unos 1500 años. Accesos en espiral a canales de agua subterráneos. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2015) de Diego Delso de quelques-uns des aqueducs de Cantalloc, près de Nasca, au Pérou ; selon la page du fichier, il y en a plus de 40, construits par la culture nasca il y a environ 1 500 ans. Des accès en spirale à des canaux d'eau souterrains. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Diego Delso / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-nazcas-puquios",
+    "id": "nazcas-puquios",
+    "file": "nazcas-puquios.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Nutida foto (2017) av Hans Birger Nilsen av den hieroglyfiska trappan i Copán med stele M (filsidans titel). Filsidan anger inga årtal för monumenten; bilden är inte från dynastins grundande (cirka år 426). Licens: CC BY-SA 2.0.",
+      "en": "Modern photo (2017) by Hans Birger Nilsen of the Hieroglyphic Stairway at Copán with Stela M (file page title). The file page gives no dates for the monuments; the picture is not from the founding of the dynasty (about the year 426). Licence: CC BY-SA 2.0.",
+      "de": "Heutiges Foto (2017) von Hans Birger Nilsen der Hieroglyphentreppe in Copán mit Stele M (Titel der Dateiseite). Die Dateiseite nennt keine Jahreszahlen für die Monumente; das Bild stammt nicht von der Gründung der Dynastie (etwa im Jahr 426). Lizenz: CC BY-SA 2.0.",
+      "es": "Foto actual (2017) de Hans Birger Nilsen de la Escalinata de los Jeroglíficos de Copán con la estela M (título de la página del archivo). La página del archivo no da fechas de los monumentos; la imagen no es de la fundación de la dinastía (hacia el año 426). Licencia: CC BY-SA 2.0.",
+      "fr": "Photo actuelle (2017) de Hans Birger Nilsen de l'escalier des hiéroglyphes de Copán avec la stèle M (titre de la page du fichier). La page du fichier ne donne pas de dates pour les monuments ; l'image n'est pas de la fondation de la dynastie (vers l'an 426). Licence : CC BY-SA 2.0."
+    },
+    "credit": "Hans Birger Nilsen / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-copans-kungaatt-grundas",
+    "id": "copans-kungaatt-grundas",
+    "file": "copans-kungaatt-grundas.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "tidig-medeltid",
+    "caption": {
+      "sv": "Nutida foto (2013) av MongeNajera av en tempelpyramid i Tikal i Guatemala (filsidan: \"Tikal Guatemala\"). Inte från Tikals nederlag (562). Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2013) by MongeNajera of a temple pyramid at Tikal in Guatemala (file page: \"Tikal Guatemala\"). Not from the defeat of Tikal (562). Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2013) von MongeNajera einer Tempelpyramide in Tikal in Guatemala (Dateiseite: „Tikal Guatemala“). Nicht von der Niederlage Tikals (562). Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2013) de MongeNajera de una pirámide-templo en Tikal, en Guatemala (página del archivo: «Tikal Guatemala»). No es de la derrota de Tikal (562). Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2013) de MongeNajera d'une pyramide-temple à Tikal, au Guatemala (page du fichier : « Tikal Guatemala »). Pas de la défaite de Tikal (562). Licence : CC BY-SA 3.0."
+    },
+    "credit": "MongeNajera / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-tikals-nederlag-562",
+    "id": "tikals-nederlag-562",
+    "file": "tikals-nederlag-562.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Rancho La Brea Tar Pool, rekonstruktion av Charles R. Knight för American Museum of Natural History (1921): en marksengångare (Paramylodon) fast i tjärgropen och två som skyddar sig mot en sabeltandkatt, med kondorer i träden. En konstnärlig rekonstruktion från 1921, inte ett fotografi. Licens: Public domain.",
+      "en": "Rancho La Brea Tar Pool, restoration by Charles R. Knight for the American Museum of Natural History (1921): a ground sloth (Paramylodon) trapped in the tar pool and two guarding against a sabre-toothed cat, with condors in the trees. An artistic reconstruction from 1921, not a photograph. Licence: Public domain.",
+      "de": "Rancho La Brea Tar Pool, Rekonstruktion von Charles R. Knight für das American Museum of Natural History (1921): ein Riesenfaultier (Paramylodon) im Teer gefangen und zwei, die sich gegen eine Säbelzahnkatze verteidigen, mit Kondoren in den Bäumen. Eine künstlerische Rekonstruktion von 1921, kein Foto. Lizenz: gemeinfrei.",
+      "es": "Rancho La Brea Tar Pool, reconstrucción de Charles R. Knight para el American Museum of Natural History (1921): un perezoso terrestre (Paramylodon) atrapado en el pozo de alquitrán y dos que se protegen de un gato dientes de sable, con cóndores en los árboles. Una reconstrucción artística de 1921, no una fotografía. Licencia: dominio público.",
+      "fr": "Rancho La Brea Tar Pool, restitution de Charles R. Knight pour l'American Museum of Natural History (1921) : un paresseux terrestre (Paramylodon) pris dans le puits de goudron et deux qui se défendent contre un félin à dents de sabre, avec des condors dans les arbres. Une reconstitution artistique de 1921, pas une photographie. Licence : domaine public."
+    },
+    "credit": "Charles R. Knight / American Museum of Natural History",
+    "license": "Public domain",
+    "source": "commons-bild-megafaunan-forsvinner-i-amerika",
+    "id": "megafaunan-forsvinner-i-amerika",
+    "file": "megafaunan-forsvinner-i-amerika.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+      "sv": "Efter Moctezumas död lämnar Cortés och hans män Tenochtitlán; mexica upptäcker dem och anfaller spanjorerna och deras allierade häftigt (\"Noche Triste\"). Oljemålning från andra hälften av 1600-talet; en senare, spansk-mexikansk framställning, gjord ungefär 150 år efter händelsen (1520), med våldsskildring. Licens: Public domain.",
+      "en": "After the death of Moctezuma, Cortés and his men leave Tenochtitlán; the Mexica spot them and attack the Spaniards and their allies fiercely (\"Noche Triste\"). Oil painting from the second half of the 17th century; a later depiction made about 150 years after the event (1520), showing violence. Licence: Public domain.",
+      "de": "Nach dem Tod Moctezumas verlassen Cortés und seine Männer Tenochtitlán; die Mexica entdecken sie und greifen die Spanier und ihre Verbündeten heftig an („Noche Triste“). Ölgemälde aus der zweiten Hälfte des 17. Jahrhunderts; eine spätere Darstellung, etwa 150 Jahre nach dem Ereignis (1520) entstanden, mit Gewaltszenen. Lizenz: gemeinfrei.",
+      "es": "Tras la muerte de Moctezuma, Cortés y sus hombres abandonan Tenochtitlan; los mexicas los descubren y atacan con fiereza a los españoles y a sus aliados («Noche Triste»). Óleo de la segunda mitad del siglo XVII; una representación posterior, hecha unos 150 años después del acontecimiento (1520), con escenas de violencia. Licencia: dominio público.",
+      "fr": "Après la mort de Moctezuma, Cortés et ses hommes quittent Tenochtitlan ; les Mexicas les repèrent et attaquent violemment les Espagnols et leurs alliés (« Noche Triste »). Huile sur toile de la seconde moitié du XVIIe siècle ; une représentation postérieure, réalisée environ 150 ans après l'événement (1520), montrant de la violence. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-noche-triste",
+    "id": "noche-triste",
+    "file": "noche-triste.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "aztekisk-kodex",
+    "caption": {
+      "sv": "Slaget vid Otumba den 7 juli 1520: under flykten från Tenochtitlán möter Cortés och hans män Cuitláhuac, mexicas nye ledare och Moctezumas bror, som anfaller inkräktarna. Oljemålning från andra hälften av 1600-talet; en senare framställning, gjord ungefär 150 år efter slaget, med våldsskildring. Licens: Public domain.",
+      "en": "The Battle of Otumba on 7 July 1520: during the flight from Tenochtitlán, Cortés and his men encounter Cuitláhuac, the new Mexica leader and brother of Moctezuma, who attacks the invaders. Oil painting from the second half of the 17th century; a later depiction made about 150 years after the battle, showing violence. Licence: Public domain.",
+      "de": "Die Schlacht von Otumba am 7. Juli 1520: Auf der Flucht aus Tenochtitlán begegnen Cortés und seine Männer Cuitláhuac, dem neuen Anführer der Mexica und Bruder Moctezumas, der die Eindringlinge angreift. Ölgemälde aus der zweiten Hälfte des 17. Jahrhunderts; eine spätere Darstellung, etwa 150 Jahre nach der Schlacht entstanden, mit Gewaltszenen. Lizenz: gemeinfrei.",
+      "es": "La batalla de Otumba, el 7 de julio de 1520: durante la huida de Tenochtitlan, Cortés y sus hombres se encuentran con Cuitláhuac, el nuevo líder mexica y hermano de Moctezuma, que ataca a los invasores. Óleo de la segunda mitad del siglo XVII; una representación posterior, hecha unos 150 años después de la batalla, con escenas de violencia. Licencia: dominio público.",
+      "fr": "La bataille d'Otumba, le 7 juillet 1520 : lors de la fuite de Tenochtitlan, Cortés et ses hommes rencontrent Cuitláhuac, le nouveau chef mexica et frère de Moctezuma, qui attaque les envahisseurs. Huile sur toile de la seconde moitié du XVIIe siècle ; une représentation postérieure, réalisée environ 150 ans après la bataille, montrant de la violence. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-otumba",
+    "id": "slaget-vid-otumba",
+    "file": "slaget-vid-otumba.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "inka",
+    "caption": {
+      "sv": "Konfrontationen mellan inkafolket och spanjorerna i Cajamarca, där enligt filsidan Atahualpa finns med; gravyr av Theodor de Bry efter Girolamo Benzoni. Filsidan anger inget årtal; en europeisk framställning gjord av personer som inte var med, med våldsskildring. Licens: Public domain.",
+      "en": "The confrontation between the Inca and the Spaniards at Cajamarca, where according to the file page Atahualpa is present; engraving by Theodor de Bry after Girolamo Benzoni. The file page gives no year; a European depiction made by people who were not there, showing violence. Licence: Public domain.",
+      "de": "Die Konfrontation zwischen Inka und Spaniern in Cajamarca, bei der laut Dateiseite Atahualpa anwesend ist; Stich von Theodor de Bry nach Girolamo Benzoni. Die Dateiseite nennt kein Jahr; eine europäische Darstellung von Personen, die nicht dabei waren, mit Gewaltszenen. Lizenz: gemeinfrei.",
+      "es": "El enfrentamiento entre los incas y los españoles en Cajamarca, donde según la página del archivo está presente Atahualpa; grabado de Theodor de Bry según Girolamo Benzoni. La página del archivo no da año; una representación europea hecha por personas que no estuvieron presentes, con escenas de violencia. Licencia: dominio público.",
+      "fr": "L'affrontement entre les Incas et les Espagnols à Cajamarca, où, selon la page du fichier, Atahualpa est présent ; gravure de Theodor de Bry d'après Girolamo Benzoni. La page du fichier n'indique pas d'année ; une représentation européenne faite par des personnes qui n'étaient pas présentes, montrant de la violence. Licence : domaine public."
+    },
+    "credit": "Girolamo Benzoni / Theodor de Bry / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-spanska-erovringen-av-inkariket",
+    "id": "spanska-erovringen-av-inkariket",
+    "file": "spanska-erovringen-av-inkariket.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Nutida foto (2009) av Alvesgaspar av Praça Tiradentes i Ouro Preto i delstaten Minas Gerais, Brasilien, sedd från den gamla bergsskolan (filsidan). Inte från guldrushens början (1695). Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2009) by Alvesgaspar of Praça Tiradentes in Ouro Preto in the state of Minas Gerais, Brazil, seen from the old School of Mines (file page). Not from the beginning of the gold rush (1695). Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2009) von Alvesgaspar des Praça Tiradentes in Ouro Preto im Bundesstaat Minas Gerais, Brasilien, gesehen von der alten Bergbauschule (Dateiseite). Nicht vom Beginn des Goldrauschs (1695). Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2009) de Alvesgaspar de la Praça Tiradentes en Ouro Preto, en el estado de Minas Gerais, Brasil, vista desde la antigua Escuela de Minas (página del archivo). No es del comienzo de la fiebre del oro (1695). Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2009) d'Alvesgaspar de la Praça Tiradentes à Ouro Preto, dans l'État du Minas Gerais, au Brésil, vue depuis l'ancienne École des mines (page du fichier). Pas du début de la ruée vers l'or (1695). Licence : CC BY-SA 3.0."
+    },
+    "credit": "Alvesgaspar / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-guld-i-minas-gerais-1695",
+    "id": "guld-i-minas-gerais-1695",
+    "file": "guld-i-minas-gerais-1695.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Louis Moes illustration från 1898 om Hans Egede på Grönland: enligt filsidan hade den danske prästen en vision om att omvända de katolska nordborna på Grönland, men när han kom dit 1721 var de borta, så han vände sig i stället till inuiterna. Gjord 177 år efter ankomsten; en senare, europeisk framställning. Licens: CC BY-SA 4.0.",
+      "en": "Louis Moe's illustration from 1898 of Hans Egede in Greenland: according to the file page the Danish priest had a vision of converting the Catholic Norsemen in Greenland, but when he arrived in 1721 they had perished, so he turned to the Inuit instead. Made 177 years after his arrival; a later, European depiction. Licence: CC BY-SA 4.0.",
+      "de": "Louis Moes Illustration von 1898 zu Hans Egede in Grönland: Laut Dateiseite hatte der dänische Pastor die Vision, die katholischen Nordleute in Grönland zu bekehren, doch als er 1721 ankam, waren sie untergegangen, und er wandte sich stattdessen den Inuit zu. 177 Jahre nach seiner Ankunft entstanden; eine spätere, europäische Darstellung. Lizenz: CC BY-SA 4.0.",
+      "es": "Ilustración de Louis Moe de 1898 sobre Hans Egede en Groenlandia: según la página del archivo, el pastor danés tenía la visión de convertir a los nórdicos católicos de Groenlandia, pero cuando llegó en 1721 habían desaparecido, así que se dirigió a los inuit. Hecha 177 años después de su llegada; una representación europea posterior. Licencia: CC BY-SA 4.0.",
+      "fr": "Illustration de Louis Moe de 1898 sur Hans Egede au Groenland : selon la page du fichier, le pasteur danois avait la vision de convertir les Nordiques catholiques du Groenland, mais à son arrivée en 1721 ils avaient disparu, et il se tourna donc vers les Inuits. Réalisée 177 ans après son arrivée ; une représentation européenne postérieure. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Louis Moe / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-hans-egede-kommer-till-gronland",
+    "id": "hans-egede-kommer-till-gronland",
+    "file": "hans-egede-kommer-till-gronland.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Nutida foto (2013) av James St. John av Grand Prismatic Spring i delstaten Wyoming (filsidan); filsidan nämner Yellowstone bara i en bannerbild (\"Yellowstone National Park banner\"). Inte från tiden då nationalparken inrättades (1872). Licens: CC BY 2.0.",
+      "en": "Modern photo (2013) by James St. John of Grand Prismatic Spring in the state of Wyoming (file page); the file page mentions Yellowstone only in a banner image (\"Yellowstone National Park banner\"). Not from the time the national park was established (1872). Licence: CC BY 2.0.",
+      "de": "Heutiges Foto (2013) von James St. John der Grand Prismatic Spring im Bundesstaat Wyoming (Dateiseite); die Dateiseite erwähnt Yellowstone nur in einem Bannerbild („Yellowstone National Park banner“). Nicht aus der Zeit der Gründung des Nationalparks (1872). Lizenz: CC BY 2.0.",
+      "es": "Foto actual (2013) de James St. John de Grand Prismatic Spring, en el estado de Wyoming (página del archivo); la página del archivo menciona Yellowstone solo en una imagen de banner («Yellowstone National Park banner»). No es de la época de la creación del parque nacional (1872). Licencia: CC BY 2.0.",
+      "fr": "Photo actuelle (2013) de James St. John de la Grand Prismatic Spring, dans l'État du Wyoming (page du fichier) ; la page du fichier ne mentionne Yellowstone que dans une image de bannière (« Yellowstone National Park banner »). Pas de l'époque de la création du parc national (1872). Licence : CC BY 2.0."
+    },
+    "credit": "James St. John / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-yellowstone-nationalpark",
+    "id": "yellowstone-nationalpark",
+    "file": "yellowstone-nationalpark.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Foto av Stan Shebs av Gatúnslussarna i Panamakanalen (filsidan: 2 januari 2000). Inte från kanalens öppnande (1914). Licens: CC BY-SA 3.0.",
+      "en": "Photo by Stan Shebs of the Gatun Locks of the Panama Canal (file page: 2 January 2000). Not from the opening of the canal (1914). Licence: CC BY-SA 3.0.",
+      "de": "Foto von Stan Shebs der Gatún-Schleusen des Panamakanals (Dateiseite: 2. Januar 2000). Nicht von der Eröffnung des Kanals (1914). Lizenz: CC BY-SA 3.0.",
+      "es": "Foto de Stan Shebs de las esclusas de Gatún del canal de Panamá (página del archivo: 2 de enero de 2000). No es de la apertura del canal (1914). Licencia: CC BY-SA 3.0.",
+      "fr": "Photo de Stan Shebs des écluses de Gatún du canal de Panama (page du fichier : 2 janvier 2000). Pas de l'ouverture du canal (1914). Licence : CC BY-SA 3.0."
+    },
+    "credit": "Stan Shebs / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-panamakanalen-oppnas",
+    "id": "panamakanalen-oppnas",
+    "file": "panamakanalen-oppnas.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "inka",
+    "caption": {
+      "sv": "Gravyr \"La fortaleza de Tambo\" ur den spanska utgåvan av William H. Prescotts Historia de la conquista del Perú (1851 enligt filnamnet), digitaliserad av ett universitetsbibliotek. En senare, europeisk framställning av fästningen Tambo, gjord drygt 300 år efter inkasegern (1537). Licens: CC BY 2.0.",
+      "en": "Engraving \"La fortaleza de Tambo\" from the Spanish edition of William H. Prescott's Historia de la conquista del Perú (1851 according to the file name), digitised by a university library. A later, European depiction of the fortress of Tambo, made more than 300 years after the Inca victory (1537). Licence: CC BY 2.0.",
+      "de": "Stich „La fortaleza de Tambo“ aus der spanischen Ausgabe von William H. Prescotts Historia de la conquista del Perú (laut Dateiname 1851), von einer Universitätsbibliothek digitalisiert. Eine spätere, europäische Darstellung der Festung Tambo, mehr als 300 Jahre nach dem Sieg der Inka (1537) entstanden. Lizenz: CC BY 2.0.",
+      "es": "Grabado «La fortaleza de Tambo» de la edición española de la Historia de la conquista del Perú de William H. Prescott (1851 según el nombre del archivo), digitalizado por una biblioteca universitaria. Una representación europea posterior de la fortaleza de Tambo, hecha más de 300 años después de la victoria inca (1537). Licencia: CC BY 2.0.",
+      "fr": "Gravure « La fortaleza de Tambo » de l'édition espagnole de l'Historia de la conquista del Perú de William H. Prescott (1851 d'après le nom du fichier), numérisée par une bibliothèque universitaire. Une représentation européenne postérieure de la forteresse de Tambo, réalisée plus de 300 ans après la victoire inca (1537). Licence : CC BY 2.0."
+    },
+    "credit": "Fondo Antiguo de la Biblioteca / Wikimedia Commons (Flickr)",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-slaget-vid-ollantaytambo",
+    "id": "slaget-vid-ollantaytambo",
+    "file": "slaget-vid-ollantaytambo.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Túpac Amaru, den siste inkan i Vilcabamba; målning av Cuzcoskolan, 1700-talet enligt filsidan. Gjord ungefär 200 år efter hans avrättning (1572); ett porträtt av en avliden person, inte från händelsen. Licens: Public domain.",
+      "en": "Túpac Amaru, the last Inca of Vilcabamba; painting of the Cuzco School, 18th century according to the file page. Made about 200 years after his execution (1572); a portrait of a deceased person, not from the event. Licence: Public domain.",
+      "de": "Túpac Amaru, der letzte Inka von Vilcabamba; Gemälde der Cuzco-Schule, laut Dateiseite 18. Jahrhundert. Etwa 200 Jahre nach seiner Hinrichtung (1572) entstanden; ein Porträt einer verstorbenen Person, nicht vom Ereignis. Lizenz: gemeinfrei.",
+      "es": "Túpac Amaru, el último inca de Vilcabamba; pintura de la Escuela Cusqueña, siglo XVIII según la página del archivo. Hecha unos 200 años después de su ejecución (1572); un retrato de una persona fallecida, no del acontecimiento. Licencia: dominio público.",
+      "fr": "Túpac Amaru, le dernier Inca de Vilcabamba ; peinture de l'école de Cuzco, XVIIIe siècle selon la page du fichier. Réalisée environ 200 ans après son exécution (1572) ; un portrait d'une personne décédée, pas de l'événement. Licence : domaine public."
+    },
+    "credit": "Cuzcoskolan / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-tupac-amaru-avrattas",
+    "id": "tupac-amaru-avrattas",
+    "file": "tupac-amaru-avrattas.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Nutida foto (2022) av Fabian Roudra Baroi av byggnader och gator i gamla Québec (filsidan). Inte från grundandet (1608). Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2022) by Fabian Roudra Baroi of buildings and streets in Old Quebec City (file page). Not from the founding (1608). Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2022) von Fabian Roudra Baroi von Gebäuden und Straßen in der Altstadt von Québec (Dateiseite). Nicht von der Gründung (1608). Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2022) de Fabian Roudra Baroi de edificios y calles del casco antiguo de Quebec (página del archivo). No es de la fundación (1608). Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2022) de Fabian Roudra Baroi de bâtiments et de rues du Vieux-Québec (page du fichier). Pas de la fondation (1608). Licence : CC BY-SA 4.0."
+    },
+    "credit": "Fabian Roudra Baroi / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-quebec-grundas-1608",
+    "id": "quebec-grundas-1608",
+    "file": "quebec-grundas-1608.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Chico Diabo genomborrar Solano López med en lans, ur den brasilianska tidskriften Semana Illustrada nr 485, 27 mars 1870. En samtida brasiliansk illustration som visar hur Paraguays president dödades; en brasiliansk (allierad) syn, med våldsskildring. Licens: Public domain.",
+      "en": "Chico Diabo spears Solano López with a lance, from the Brazilian magazine Semana Illustrada no. 485, 27 March 1870. A contemporary Brazilian illustration showing how the president of Paraguay was killed; a Brazilian (allied) view, showing violence. Licence: Public domain.",
+      "de": "Chico Diabo durchbohrt Solano López mit einer Lanze, aus der brasilianischen Zeitschrift Semana Illustrada Nr. 485, 27. März 1870. Eine zeitgenössische brasilianische Illustration, die zeigt, wie der Präsident Paraguays getötet wurde; eine brasilianische (alliierte) Sicht, mit Gewaltdarstellung. Lizenz: gemeinfrei.",
+      "es": "Chico Diabo atraviesa con una lanza a Solano López, de la revista brasileña Semana Illustrada n.º 485, 27 de marzo de 1870. Una ilustración brasileña de la época que muestra cómo fue muerto el presidente de Paraguay; una visión brasileña (aliada), con escenas de violencia. Licencia: dominio público.",
+      "fr": "Chico Diabo transperce Solano López d'une lance, tiré de la revue brésilienne Semana Illustrada n° 485, 27 mars 1870. Une illustration brésilienne de l'époque montrant comment le président du Paraguay fut tué ; un point de vue brésilien (allié), montrant de la violence. Licence : domaine public."
+    },
+    "credit": "Okänd tecknare / Semana Illustrada",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-cerro-cora",
+    "id": "slaget-vid-cerro-cora",
+    "file": "slaget-vid-cerro-cora.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Titelsidan i första utgåvan av Rubén Daríos Azul… (Valparaíso, Imprenta y Litografía Excelsior, 1888): \"I. Cuentos en prosa, II. El año lírico\". Enligt filsidan publicerades boken första gången i Valparaíso den 30 juli 1888. Licens: Public domain.",
+      "en": "The title page of the first edition of Rubén Darío's Azul… (Valparaíso, Imprenta y Litografía Excelsior, 1888): \"I. Cuentos en prosa, II. El año lírico\". According to the file page the book was first published in Valparaíso on 30 July 1888. Licence: Public domain.",
+      "de": "Das Titelblatt der Erstausgabe von Rubén Daríos Azul… (Valparaíso, Imprenta y Litografía Excelsior, 1888): „I. Cuentos en prosa, II. El año lírico“. Laut Dateiseite erschien das Buch erstmals am 30. Juli 1888 in Valparaíso. Lizenz: gemeinfrei.",
+      "es": "La portada de la primera edición de Azul… de Rubén Darío (Valparaíso, Imprenta y Litografía Excelsior, 1888): «I. Cuentos en prosa, II. El año lírico». Según la página del archivo, el libro se publicó por primera vez en Valparaíso el 30 de julio de 1888. Licencia: dominio público.",
+      "fr": "La page de titre de la première édition d'Azul… de Rubén Darío (Valparaíso, Imprenta y Litografía Excelsior, 1888) : « I. Cuentos en prosa, II. El año lírico ». Selon la page du fichier, le livre a été publié pour la première fois à Valparaíso le 30 juillet 1888. Licence : domaine public."
+    },
+    "credit": "Rubén Darío / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-azul-ruben-dario-1888",
+    "id": "azul-ruben-dario-1888",
+    "file": "azul-ruben-dario-1888.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Handskriven text av Plan de Ayala, skriven av Emiliano Zapata och Otilio Montaño och undertecknad den 25 november 1911 (World Digital Library). Filsidan citerar historikern John Womack, som kallat planen zapatisternas \"heliga skrift\". Licens: Public domain.",
+      "en": "Handwritten text of the Plan of Ayala, written by Emiliano Zapata and Otilio Montaño and signed on 25 November 1911 (World Digital Library). The file page quotes the historian John Womack, who called the plan the \"Sacred Scripture\" of the Zapatistas. Licence: Public domain.",
+      "de": "Handschriftlicher Text des Plans von Ayala, verfasst von Emiliano Zapata und Otilio Montaño und am 25. November 1911 unterzeichnet (World Digital Library). Die Dateiseite zitiert den Historiker John Womack, der den Plan die „Heilige Schrift“ der Zapatisten nannte. Lizenz: gemeinfrei.",
+      "es": "Texto manuscrito del Plan de Ayala, escrito por Emiliano Zapata y Otilio Montaño y firmado el 25 de noviembre de 1911 (World Digital Library). La página del archivo cita al historiador John Womack, que llamó al plan la «Sagrada Escritura» de los zapatistas. Licencia: dominio público.",
+      "fr": "Texte manuscrit du plan d'Ayala, rédigé par Emiliano Zapata et Otilio Montaño et signé le 25 novembre 1911 (World Digital Library). La page du fichier cite l'historien John Womack, qui a appelé le plan l'« Écriture sacrée » des zapatistes. Licence : domaine public."
+    },
+    "credit": "Otilio Montaño och Emiliano Zapata / World Digital Library",
+    "license": "Public domain",
+    "source": "commons-bild-plan-de-ayala",
+    "id": "plan-de-ayala",
+    "file": "plan-de-ayala.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (2020) av Zde av fynd från Franchthigrottan i en monter: flintverktyg, obsidianverktyg av obsidian från Melos, benverktyg, genomborrade snäckskal och fiskben (filsidans numrerade beskrivning). Ett museiföremål, fotograferat som utställning. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2020) by Zde of finds from Franchthi Cave in a display case: flint tools, obsidian tools of obsidian from Melos, bone tools, perforated shells and fish bones (the numbered description on the file page). Museum objects, photographed as an exhibit. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2020) von Zde von Funden aus der Franchthi-Höhle in einer Vitrine: Feuersteinwerkzeuge, Obsidianwerkzeuge aus Obsidian von Melos, Knochenwerkzeuge, durchbohrte Muscheln und Fischknochen (die nummerierte Beschreibung der Dateiseite). Museumsobjekte, als Ausstellung fotografiert. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2020) de Zde de hallazgos de la cueva de Franchthi en una vitrina: herramientas de sílex, herramientas de obsidiana de Melos, herramientas de hueso, conchas perforadas y huesos de pescado (la descripción numerada de la página del archivo). Objetos de museo, fotografiados como exposición. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2020) de Zde de trouvailles de la grotte de Franchthi dans une vitrine : outils en silex, outils en obsidienne de Milos, outils en os, coquillages perforés et os de poisson (la description numérotée de la page du fichier). Objets de musée, photographiés comme exposition. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Zde / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-obsidian-fran-melos-i-franchthi",
+    "id": "obsidian-fran-melos-i-franchthi",
+    "file": "obsidian-fran-melos-i-franchthi.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (2011) av Tsuhful av avlagringar från Laacher See-utbrottet i ett brott vid Wingertsberg (filtiteln); filsidans text beskriver den övre, mellersta och nedre tefralagrets sammansättning. Visar lagren, inte själva utbrottet (cirka 11051 f.Kr.). Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2011) by Tsuhful of deposits from the Laacher See eruption in a quarry at Wingertsberg (file title); the text on the file page describes the composition of the upper, middle and lower tephra layers. Shows the layers, not the eruption itself (about 11051 BC). Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2011) von Tsuhful von Ablagerungen des Laacher-See-Ausbruchs in einem Steinbruch am Wingertsberg (Dateititel); der Text der Dateiseite beschreibt die Zusammensetzung der oberen, mittleren und unteren Tephraschicht. Zeigt die Schichten, nicht den Ausbruch selbst (etwa 11051 v. Chr.). Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2011) de Tsuhful de depósitos de la erupción del Laacher See en una cantera de Wingertsberg (título del archivo); el texto de la página del archivo describe la composición de las capas de tefra superior, media e inferior. Muestra las capas, no la erupción en sí (hacia 11051 a. C.). Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2011) de Tsuhful de dépôts de l'éruption du Laacher See dans une carrière du Wingertsberg (titre du fichier) ; le texte de la page du fichier décrit la composition des couches de téphra supérieure, moyenne et inférieure. Montre les couches, pas l'éruption elle-même (vers 11051 av. J.-C.). Licence : CC BY-SA 3.0."
+    },
+    "credit": "Tsuhful / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-laacher-see-utbrottet",
+    "id": "laacher-see-utbrottet",
+    "file": "laacher-see-utbrottet.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Foto (2025) av Dosseman av en museiutställning av templet i Nevalı Çori på Urfa-museet. Filsidans turkiska text beskriver templet, även kallat Obeliskbyggnaden, som den enda byggnaden med kvadratisk plan bland 29 utgrävda och 14 × 14 meter stor. Licens: CC BY-SA 4.0.",
+      "en": "Photo (2025) by Dosseman of a museum display of the temple at Nevalı Çori in the Urfa museum. The Turkish text on the file page describes the temple, also called the Obelisk Building, as the only structure with a square plan among 29 excavated and 14 × 14 metres in size. Licence: CC BY-SA 4.0.",
+      "de": "Foto (2025) von Dosseman einer Museumsausstellung des Tempels von Nevalı Çori im Museum von Urfa. Der türkische Text der Dateiseite beschreibt den Tempel, auch Obeliskengebäude genannt, als das einzige Gebäude mit quadratischem Grundriss unter 29 ausgegrabenen und 14 × 14 Meter groß. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto (2025) de Dosseman de una exposición museística del templo de Nevalı Çori en el Museo de Urfa. El texto turco de la página del archivo describe el templo, también llamado Edificio de los Obeliscos, como la única estructura de planta cuadrada entre las 29 excavadas, de 14 × 14 metros. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo (2025) de Dosseman d'une présentation muséale du temple de Nevalı Çori au musée d'Urfa. Le texte turc de la page du fichier décrit le temple, aussi appelé bâtiment aux obélisques, comme la seule structure à plan carré parmi les 29 mises au jour, de 14 × 14 mètres. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Dosseman / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-nevali-cori-kultbyggnad",
+    "id": "nevali-cori-kultbyggnad",
+    "file": "nevali-cori-kultbyggnad.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (2015) av Thilo Parg av de neolitiska flintgruvorna vid Spiennes i Belgien (filsidan: \"Neolithic Flint Mines at Spiennes\"); bilden visar en täckt utgrävning med besökare. Inte från gruvornas tid (cirka 4300 f.Kr.). Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2015) by Thilo Parg of the Neolithic flint mines at Spiennes in Belgium (file page: \"Neolithic Flint Mines at Spiennes\"); the picture shows a covered excavation with visitors. Not from the time of the mines (about 4300 BC). Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2015) von Thilo Parg der neolithischen Feuersteinminen von Spiennes in Belgien (Dateiseite: „Neolithic Flint Mines at Spiennes“); das Bild zeigt eine überdachte Ausgrabung mit Besuchern. Nicht aus der Zeit der Minen (etwa 4300 v. Chr.). Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2015) de Thilo Parg de las minas de sílex neolíticas de Spiennes, en Bélgica (página del archivo: «Neolithic Flint Mines at Spiennes»); la imagen muestra una excavación cubierta con visitantes. No es de la época de las minas (hacia 4300 a. C.). Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2015) de Thilo Parg des mines de silex néolithiques de Spiennes, en Belgique (page du fichier : « Neolithic Flint Mines at Spiennes ») ; l'image montre une fouille couverte avec des visiteurs. Pas de l'époque des mines (vers 4300 av. J.-C.). Licence : CC BY-SA 3.0."
+    },
+    "credit": "Thilo Parg / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-flintgruvorna-i-spiennes",
+    "id": "flintgruvorna-i-spiennes",
+    "file": "flintgruvorna-i-spiennes.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Fragment av en polerad neolitisk stenyxa av Langdalesten, foto av Derby Museums Trust (Portable Antiquities Scheme, FindID 430451). Ett enskilt yxfragment som hittats i England, inte från yxfabrikerna vid Langdale. Licens: CC BY-SA 4.0.",
+      "en": "Fragment of a Neolithic polished stone axehead of Langdale stone, photo by Derby Museums Trust (Portable Antiquities Scheme, FindID 430451). A single axe fragment found in England, not from the axe factories at Langdale. Licence: CC BY-SA 4.0.",
+      "de": "Fragment einer neolithischen polierten Steinaxt aus Langdale-Stein, Foto von Derby Museums Trust (Portable Antiquities Scheme, FindID 430451). Ein einzelnes Axtfragment aus England, nicht von den Axtfabriken bei Langdale. Lizenz: CC BY-SA 4.0.",
+      "es": "Fragmento de un hacha de piedra pulida neolítica de piedra de Langdale, foto de Derby Museums Trust (Portable Antiquities Scheme, FindID 430451). Un único fragmento de hacha hallado en Inglaterra, no de las fábricas de hachas de Langdale. Licencia: CC BY-SA 4.0.",
+      "fr": "Fragment d'une hache en pierre polie néolithique en pierre de Langdale, photo de Derby Museums Trust (Portable Antiquities Scheme, FindID 430451). Un seul fragment de hache trouvé en Angleterre, pas des ateliers de haches de Langdale. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Derby Museums Trust / Portable Antiquities Scheme",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-stenyxorna-fran-langdale",
+    "id": "stenyxorna-fran-langdale",
+    "file": "stenyxorna-fran-langdale.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (2014) av Zde av fynd från Sesklo, neolitisk tid, cirka 5300 f.Kr. enligt filsidan, på Nationella arkeologiska museet i Aten: bland annat en stor lerkruka. Fynden är yngre än bybyggets början (cirka 7510 f.Kr.) enligt händelsens data. Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2014) by Zde of finds from Sesklo, Neolithic period, about 5300 BC according to the file page, in the National Archaeological Museum of Athens: among them a large clay jar. The finds are later than the beginning of the village (about 7510 BC) according to the event data. Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2014) von Zde von Funden aus Sesklo, Jungsteinzeit, laut Dateiseite um 5300 v. Chr., im Nationalen Archäologischen Museum in Athen: darunter ein großes Tongefäß. Die Funde sind laut den Daten des Ereignisses jünger als der Beginn des Dorfes (etwa 7510 v. Chr.). Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2014) de Zde de hallazgos de Sesklo, periodo neolítico, hacia 5300 a. C. según la página del archivo, en el Museo Arqueológico Nacional de Atenas: entre ellos una gran vasija de arcilla. Los hallazgos son posteriores al comienzo de la aldea (hacia 7510 a. C.) según los datos del acontecimiento. Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2014) de Zde de trouvailles de Sesklo, période néolithique, vers 5300 av. J.-C. selon la page du fichier, au Musée archéologique national d'Athènes : parmi elles une grande jarre en argile. Les trouvailles sont postérieures au début du village (vers 7510 av. J.-C.) selon les données de l'événement. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Zde / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-sesklo",
+    "id": "sesklo",
+    "file": "sesklo.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Lejon målade i Chauvetgrottan (Ardèche, Frankrike): en kopia (replik) av målningen på museet Anthropos i Brno i Tjeckien, foto av HTO (2009). Filsidan påpekar att avsaknaden av man ibland gör att lejonen tas för andra djur. En replik, inte grottans egen vägg. Licens: Public domain.",
+      "en": "Lions painted in the Chauvet Cave (Ardèche, France): a copy (replica) of the painting in the Anthropos museum in Brno in the Czech Republic, photo by HTO (2009). The file page points out that the absence of a mane sometimes leads to the lions being mistaken for other animals. A replica, not the cave's own wall. Licence: Public domain.",
+      "de": "Löwen, gemalt in der Chauvet-Höhle (Ardèche, Frankreich): eine Kopie (Replik) des Gemäldes im Museum Anthropos in Brünn in Tschechien, Foto von HTO (2009). Die Dateiseite weist darauf hin, dass das Fehlen einer Mähne manchmal dazu führt, dass die Löwen für andere Tiere gehalten werden. Eine Replik, nicht die Höhlenwand selbst. Lizenz: gemeinfrei.",
+      "es": "Leones pintados en la cueva Chauvet (Ardèche, Francia): una copia (réplica) de la pintura del museo Anthropos de Brno, en la República Checa, foto de HTO (2009). La página del archivo señala que la ausencia de melena hace a veces que se confunda a los leones con otros animales. Una réplica, no la pared de la cueva. Licencia: dominio público.",
+      "fr": "Lions peints dans la grotte Chauvet (Ardèche, France) : une copie (réplique) de la peinture du musée Anthropos de Brno, en République tchèque, photo de HTO (2009). La page du fichier signale que l'absence de crinière conduit parfois à prendre les lions pour d'autres animaux. Une réplique, pas la paroi de la grotte elle-même. Licence : domaine public."
+    },
+    "credit": "HTO / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-chauvetgrottan",
+    "id": "chauvetgrottan",
+    "file": "chauvetgrottan.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Delar av Antranätet (filsidan: \"Some of the remains of the Paleolithic Antrea net\"), bild av Sakari Pälsi (1920). Ett fynd i form av nätrester; bilden är av äldre datum än dagens museiutställningar. Licens: Public domain.",
+      "en": "Parts of the Antrea net (file page: \"Some of the remains of the Paleolithic Antrea net\"), picture by Sakari Pälsi (1920). A find in the form of net remains; the picture is older than present-day museum displays. Licence: Public domain.",
+      "de": "Teile des Antrea-Netzes (Dateiseite: „Some of the remains of the Paleolithic Antrea net“), Bild von Sakari Pälsi (1920). Ein Fund in Form von Netzresten; das Bild ist älter als heutige Museumsausstellungen. Lizenz: gemeinfrei.",
+      "es": "Partes de la red de Antrea (página del archivo: «Some of the remains of the Paleolithic Antrea net»), imagen de Sakari Pälsi (1920). Un hallazgo en forma de restos de red; la imagen es anterior a las exposiciones museísticas actuales. Licencia: dominio público.",
+      "fr": "Parties du filet d'Antrea (page du fichier : « Some of the remains of the Paleolithic Antrea net »), image de Sakari Pälsi (1920). Une trouvaille sous forme de restes de filet ; l'image est antérieure aux expositions muséales actuelles. Licence : domaine public."
+    },
+    "credit": "Sakari Pälsi / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-natet-fran-antrea",
+    "id": "natet-fran-antrea",
+    "file": "natet-fran-antrea.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (2012) av Karl Brodowsky av hällristningar nära Alta i Norge (filsidan). Kulturarv i nordligaste Norge; fotot visar bergytan med figurer av djur och människor och inga personer. Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2012) by Karl Brodowsky of rock carvings near Alta in Norway (file page). Cultural heritage in the far north of Norway; the photo shows the rock surface with figures of animals and people and no visitors. Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2012) von Karl Brodowsky von Felsritzungen bei Alta in Norwegen (Dateiseite). Kulturerbe im äußersten Norden Norwegens; das Foto zeigt die Felsfläche mit Figuren von Tieren und Menschen und keine Besucher. Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2012) de Karl Brodowsky de grabados rupestres cerca de Alta, en Noruega (página del archivo). Patrimonio cultural del extremo norte de Noruega; la foto muestra la superficie rocosa con figuras de animales y personas y ningún visitante. Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2012) de Karl Brodowsky de gravures rupestres près d'Alta, en Norvège (page du fichier). Patrimoine culturel de l'extrême nord de la Norvège ; la photo montre la surface rocheuse avec des figures d'animaux et de personnes et aucun visiteur. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Karl Brodowsky / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-hallristningarna-i-alta",
+    "id": "hallristningarna-i-alta",
+    "file": "hallristningarna-i-alta.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (2013) av Thilo Parg av Lejonmänniskan från Stadel-grottan i Hohlenstein i Lonetal (filsidan): en statyett i museiutställning. Fotot är av ett museiföremål, inte av fyndplatsen. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2013) by Thilo Parg of the Lion Man from the Stadel Cave at Hohlenstein in the Lone Valley (file page): a statuette in a museum display. The photo is of a museum object, not of the find site. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2013) von Thilo Parg des Löwenmenschen aus der Stadel-Höhle im Hohlenstein im Lonetal (Dateiseite): eine Statuette in einer Museumsausstellung. Das Foto zeigt ein Museumsobjekt, nicht den Fundort. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2013) de Thilo Parg del Hombre León de la cueva de Stadel, en Hohlenstein, en el valle del Lone (página del archivo): una estatuilla en una exposición museística. La foto es de un objeto de museo, no del lugar del hallazgo. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2013) de Thilo Parg de l'Homme-lion de la grotte de Stadel, à Hohlenstein, dans la vallée de la Lone (page du fichier) : une statuette dans une exposition muséale. La photo montre un objet de musée, pas le lieu de la trouvaille. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Thilo Parg / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-lejonmanniskan",
+    "id": "lejonmanniskan",
+    "file": "lejonmanniskan.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Foto (2008) av Verity Cridland av utgrävningen vid Çatalhöyük under ett stort skyddstak; enligt filsidan finns många av de ursprungliga fynden i Ankara. Inte från bosättningens tid (cirka 7500 f.Kr.). Licens: CC BY 2.0.",
+      "en": "Photo (2008) by Verity Cridland of the excavation at Çatalhöyük under a large protective cover; according to the file page many of the original finds are in Ankara. Not from the time of the settlement (about 7500 BC). Licence: CC BY 2.0.",
+      "de": "Foto (2008) von Verity Cridland der Ausgrabung in Çatalhöyük unter einem großen Schutzdach; laut Dateiseite befinden sich viele der ursprünglichen Funde in Ankara. Nicht aus der Zeit der Siedlung (etwa 7500 v. Chr.). Lizenz: CC BY 2.0.",
+      "es": "Foto (2008) de Verity Cridland de la excavación de Çatalhöyük bajo una gran cubierta protectora; según la página del archivo, muchos de los hallazgos originales están en Ankara. No es de la época del asentamiento (hacia 7500 a. C.). Licencia: CC BY 2.0.",
+      "fr": "Photo (2008) de Verity Cridland de la fouille de Çatalhöyük sous une grande couverture protectrice ; selon la page du fichier, beaucoup des trouvailles d'origine se trouvent à Ankara. Pas de l'époque de l'établissement (vers 7500 av. J.-C.). Licence : CC BY 2.0."
+    },
+    "credit": "Verity Cridland / Wikimedia Commons (Flickr)",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-catalhoyuk",
+    "id": "catalhoyuk",
+    "file": "catalhoyuk.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (9 april 2006) av Harri Blomberg av gånggriften i Rössberga i Falköpings kommun. Enligt filsidan undersöktes graven 1962 och minst 128 individer hade begravts där; bilden visar monumentet utifrån och inga kvarlevor. Inte från byggtiden (cirka 3500 f.Kr.). Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (9 April 2006) by Harri Blomberg of the passage grave at Rössberga in Falköping Municipality. According to the file page the grave was investigated in 1962 and at least 128 individuals had been buried there; the picture shows the monument from outside and no remains. Not from the time of construction (about 3500 BC). Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (9. April 2006) von Harri Blomberg des Ganggrabs in Rössberga in der Gemeinde Falköping. Laut Dateiseite wurde das Grab 1962 untersucht, und mindestens 128 Individuen waren dort bestattet; das Bild zeigt das Monument von außen und keine sterblichen Überreste. Nicht aus der Bauzeit (etwa 3500 v. Chr.). Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (9 de abril de 2006) de Harri Blomberg de la tumba de corredor de Rössberga, en el municipio de Falköping. Según la página del archivo, la tumba se investigó en 1962 y al menos 128 individuos habían sido enterrados allí; la imagen muestra el monumento desde fuera y ningún resto humano. No es de la época de la construcción (hacia 3500 a. C.). Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (9 avril 2006) de Harri Blomberg de la tombe à couloir de Rössberga, dans la commune de Falköping. Selon la page du fichier, la tombe a été fouillée en 1962 et au moins 128 individus y avaient été enterrés ; l'image montre le monument de l'extérieur et aucun reste humain. Pas de l'époque de la construction (vers 3500 av. J.-C.). Licence : CC BY-SA 3.0."
+    },
+    "credit": "Harri Blomberg / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-ganggriften-i-rossberga",
+    "id": "ganggriften-i-rossberga",
+    "file": "ganggriften-i-rossberga.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (2018) av Liberliger av den förhistoriska inhägnaden Champ Durand i Nieul-sur-l'Autise i Frankrike (filsidan): murrester av torrmur. Bilden visar platsen och inga djur. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2018) by Liberliger of the prehistoric enclosure of Champ Durand at Nieul-sur-l'Autise in France (file page): remains of dry-stone walls. The picture shows the site and no animals. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2018) von Liberliger der vorgeschichtlichen Einfriedung von Champ Durand in Nieul-sur-l'Autise in Frankreich (Dateiseite): Reste von Trockenmauern. Das Bild zeigt den Ort und keine Tiere. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2018) de Liberliger del recinto prehistórico de Champ Durand, en Nieul-sur-l'Autise, en Francia (página del archivo): restos de muros de piedra seca. La imagen muestra el lugar y ningún animal. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2018) de Liberliger de l'enceinte préhistorique de Champ Durand à Nieul-sur-l'Autise, en France (page du fichier) : vestiges de murs en pierre sèche. L'image montre le site et aucun animal. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Liberliger / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-kon-som-opererades-i-champ-durand",
+    "id": "kon-som-opererades-i-champ-durand",
+    "file": "kon-som-opererades-i-champ-durand.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Foto (2002) av Dr. John F. Burka av de neolitiska utgrävningarna vid Skara Brae på Orkney i Skottland (filsidan): en stenbyggd bostad. Inte från byns tid (cirka 3180 f.Kr.). Licens: CC BY-SA 3.0.",
+      "en": "Photo (2002) by Dr. John F. Burka of the Neolithic excavations at Skara Brae on Orkney in Scotland (file page): a stone-built dwelling. Not from the time of the village (about 3180 BC). Licence: CC BY-SA 3.0.",
+      "de": "Foto (2002) von Dr. John F. Burka der neolithischen Ausgrabungen in Skara Brae auf den Orkney-Inseln in Schottland (Dateiseite): ein aus Stein gebautes Haus. Nicht aus der Zeit des Dorfes (etwa 3180 v. Chr.). Lizenz: CC BY-SA 3.0.",
+      "es": "Foto (2002) de Dr. John F. Burka de las excavaciones neolíticas de Skara Brae, en las Orcadas, Escocia (página del archivo): una vivienda construida en piedra. No es de la época de la aldea (hacia 3180 a. C.). Licencia: CC BY-SA 3.0.",
+      "fr": "Photo (2002) du Dr John F. Burka des fouilles néolithiques de Skara Brae, aux Orcades, en Écosse (page du fichier) : une habitation en pierre. Pas de l'époque du village (vers 3180 av. J.-C.). Licence : CC BY-SA 3.0."
+    },
+    "credit": "Dr. John F. Burka / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-skara-brae",
+    "id": "skara-brae",
+    "file": "skara-brae.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Nutida foto (2012) av BrankaVV från Kokino, en arkeologisk plats från bronsåldern i Nordmakedonien, cirka 30 km från Kumanovo (filsidan). Bilden visar klippor på platsen, med en person högst upp. Inte från offergåvornas tid (cirka 1900 f.Kr.). Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2012) by BrankaVV from Kokino, a Bronze Age archaeological site in North Macedonia, about 30 km from Kumanovo (file page). The picture shows rocks at the site, with a person at the top. Not from the time of the offerings (about 1900 BC). Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2012) von BrankaVV aus Kokino, einer archäologischen Stätte der Bronzezeit in Nordmazedonien, etwa 30 km von Kumanovo entfernt (Dateiseite). Das Bild zeigt Felsen an der Stätte, mit einer Person ganz oben. Nicht aus der Zeit der Opfergaben (etwa 1900 v. Chr.). Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2012) de BrankaVV de Kokino, un yacimiento arqueológico de la Edad del Bronce en Macedonia del Norte, a unos 30 km de Kumanovo (página del archivo). La imagen muestra rocas del yacimiento, con una persona en lo alto. No es de la época de las ofrendas (hacia 1900 a. C.). Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2012) de BrankaVV de Kokino, un site archéologique de l'âge du bronze en Macédoine du Nord, à environ 30 km de Kumanovo (page du fichier). L'image montre des rochers du site, avec une personne tout en haut. Pas de l'époque des offrandes (vers 1900 av. J.-C.). Licence : CC BY-SA 4.0."
+    },
+    "credit": "BrankaVV / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-offerberget-vid-kokino",
+    "id": "offerberget-vid-kokino",
+    "file": "offerberget-vid-kokino.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Foto (2005) av hällristningar vid Tanumshede (filtiteln): ett skepp, djur och andra figurer i bergytan. Filsidan anger varken fotograf eller datering av ristningarna. Licens: Public domain.",
+      "en": "Photo (2005) of rock carvings at Tanumshede (file title): a ship, animals and other figures on the rock surface. The file page gives neither photographer nor dating of the carvings. Licence: Public domain.",
+      "de": "Foto (2005) von Felsritzungen bei Tanumshede (Dateititel): ein Schiff, Tiere und andere Figuren auf der Felsfläche. Die Dateiseite nennt weder Fotografen noch Datierung der Ritzungen. Lizenz: gemeinfrei.",
+      "es": "Foto (2005) de grabados rupestres de Tanumshede (título del archivo): un barco, animales y otras figuras en la superficie rocosa. La página del archivo no indica ni el fotógrafo ni la datación de los grabados. Licencia: dominio público.",
+      "fr": "Photo (2005) de gravures rupestres de Tanumshede (titre du fichier) : un bateau, des animaux et d'autres figures sur la surface rocheuse. La page du fichier n'indique ni le photographe ni la datation des gravures. Licence : domaine public."
+    },
+    "credit": "Okänd uppladdare / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-hallristningarna-i-tanum",
+    "id": "hallristningarna-i-tanum",
+    "file": "hallristningarna-i-tanum.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Tjurhoppsfresk (målad puts) från en vägg i palatset i Knossos, foto (2008) av George Groutas av den restaurerade freskkopian i Heraklions arkeologiska museum (filtiteln). Enligt filsidan är den röda figuren troligen manlig. Ett museiföremål, inte väggen på platsen. Licens: CC BY 2.0.",
+      "en": "Bull-leaping fresco (painted plaster) from a wall of the palace at Knossos, photo (2008) by George Groutas of the restored fresco at the Heraklion Archaeological Museum (file title). According to the file page the red figure is probably male. A museum object, not the wall on site. Licence: CC BY 2.0.",
+      "de": "Stierspringer-Fresko (bemalter Putz) von einer Wand des Palasts von Knossos, Foto (2008) von George Groutas des restaurierten Freskos im Archäologischen Museum Heraklion (Dateititel). Laut Dateiseite ist die rote Figur wahrscheinlich männlich. Ein Museumsobjekt, nicht die Wand vor Ort. Lizenz: CC BY 2.0.",
+      "es": "Fresco de salto del toro (yeso pintado) de una pared del palacio de Cnosos, foto (2008) de George Groutas del fresco restaurado en el Museo Arqueológico de Heraclión (título del archivo). Según la página del archivo, la figura roja es probablemente masculina. Un objeto de museo, no la pared en el yacimiento. Licencia: CC BY 2.0.",
+      "fr": "Fresque du saut du taureau (plâtre peint) provenant d'un mur du palais de Cnossos, photo (2008) de George Groutas de la fresque restaurée du musée archéologique d'Héraklion (titre du fichier). Selon la page du fichier, la figure rouge est probablement masculine. Un objet de musée, pas le mur sur place. Licence : CC BY 2.0."
+    },
+    "credit": "George Groutas / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-tjurhoppning-pa-knossos",
+    "id": "tjurhoppning-pa-knossos",
+    "file": "tjurhoppning-pa-knossos.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Nutida foto av ruinerna i Karthago i Tunisien, taget av Patrick Giraud och uppladdat av Calips (filtiteln: \"Tunisie Carthage Ruines 08\"). Inte från stadens grundande (cirka 814 f.Kr.). Licens: CC BY-SA 3.0.",
+      "en": "Modern photo of the ruins of Carthage in Tunisia, taken by Patrick Giraud and uploaded by Calips (file title: \"Tunisie Carthage Ruines 08\"). Not from the founding of the city (about 814 BC). Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto der Ruinen von Karthago in Tunesien, aufgenommen von Patrick Giraud und hochgeladen von Calips (Dateititel: „Tunisie Carthage Ruines 08“). Nicht von der Gründung der Stadt (etwa 814 v. Chr.). Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual de las ruinas de Cartago, en Túnez, tomada por Patrick Giraud y subida por Calips (título del archivo: «Tunisie Carthage Ruines 08»). No es de la fundación de la ciudad (hacia 814 a. C.). Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle des ruines de Carthage, en Tunisie, prise par Patrick Giraud et téléversée par Calips (titre du fichier : « Tunisie Carthage Ruines 08 »). Pas de la fondation de la ville (vers 814 av. J.-C.). Licence : CC BY-SA 3.0."
+    },
+    "credit": "Calips / Patrick Giraud / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-karthago-grundas",
+    "id": "karthago-grundas",
+    "file": "karthago-grundas.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Flygfoto (2007) från Rauma museum över gravröseplatsen Sammallahdenmäki i västra Finland (filsidan: bronsåldersplats); bilden visar stenrösen från ovan och inga kvarlevor. Inte från röseplatsens tid (cirka 1500 f.Kr.). Licens: CC0.",
+      "en": "Aerial photo (2007) from Rauma Museum of the burial-cairn site Sammallahdenmäki in western Finland (file page: Bronze Age site); the picture shows stone cairns from above and no remains. Not from the time of the cairns (about 1500 BC). Licence: CC0.",
+      "de": "Luftfoto (2007) des Rauma-Museums von der Grabhügelstätte Sammallahdenmäki in Westfinnland (Dateiseite: bronzezeitliche Stätte); das Bild zeigt Steinhügel von oben und keine sterblichen Überreste. Nicht aus der Zeit der Hügel (etwa 1500 v. Chr.). Lizenz: CC0.",
+      "es": "Foto aérea (2007) del Museo de Rauma del yacimiento de túmulos funerarios de Sammallahdenmäki, en el oeste de Finlandia (página del archivo: yacimiento de la Edad del Bronce); la imagen muestra túmulos de piedra desde arriba y ningún resto humano. No es de la época de los túmulos (hacia 1500 a. C.). Licencia: CC0.",
+      "fr": "Photo aérienne (2007) du musée de Rauma du site de cairns funéraires de Sammallahdenmäki, dans l'ouest de la Finlande (page du fichier : site de l'âge du bronze) ; l'image montre des cairns de pierre vus d'en haut et aucun reste humain. Pas de l'époque des cairns (vers 1500 av. J.-C.). Licence : CC0."
+    },
+    "credit": "Rauma museum / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-sammallahdenmaki",
+    "id": "sammallahdenmaki",
+    "file": "sammallahdenmaki.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (2009) av Johan Jönsson av Hågahögen, även kallad Kung Björns hög, i Håga, Uppsala (filsidan); bilden visar högen utifrån. Inte från byggtiden (cirka 1100 f.Kr.). Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2009) by Johan Jönsson of Hågahögen, also called King Björn's mound, at Håga, Uppsala (file page); the picture shows the mound from outside. Not from the time of construction (about 1100 BC). Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2009) von Johan Jönsson des Hågahögen, auch König Björns Hügel genannt, in Håga, Uppsala (Dateiseite); das Bild zeigt den Hügel von außen. Nicht aus der Bauzeit (etwa 1100 v. Chr.). Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2009) de Johan Jönsson del Hågahögen, también llamado túmulo del rey Björn, en Håga, Uppsala (página del archivo); la imagen muestra el túmulo desde fuera. No es de la época de la construcción (hacia 1100 a. C.). Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2009) de Johan Jönsson du Hågahögen, aussi appelé tumulus du roi Björn, à Håga, Uppsala (page du fichier) ; l'image montre le tumulus de l'extérieur. Pas de l'époque de la construction (vers 1100 av. J.-C.). Licence : CC BY-SA 3.0."
+    },
+    "credit": "Johan Jönsson (Julle) / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-hagahogen",
+    "id": "hagahogen",
+    "file": "hagahogen.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Nutida foto (2019) av Hornstrandir1 av vulkanen Hekla på södra Island (filsidan). Inte från utbrottet (cirka 1203 f.Kr.). Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2019) by Hornstrandir1 of the volcano Hekla in South Iceland (file page). Not from the eruption (about 1203 BC). Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2019) von Hornstrandir1 des Vulkans Hekla in Südisland (Dateiseite). Nicht vom Ausbruch (etwa 1203 v. Chr.). Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2019) de Hornstrandir1 del volcán Hekla, en el sur de Islandia (página del archivo). No es de la erupción (hacia 1203 a. C.). Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2019) de Hornstrandir1 du volcan Hekla, dans le sud de l'Islande (page du fichier). Pas de l'éruption (vers 1203 av. J.-C.). Licence : CC BY-SA 4.0."
+    },
+    "credit": "Hornstrandir1 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-hekla-3-utbrottet",
+    "id": "hekla-3-utbrottet",
+    "file": "hekla-3-utbrottet.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Nutida foto (2013) av Bernt Rostad av en grön vattenpöl i den största av meteoritkratrarna vid Kaali på Saaremaa i Estland (filsidan: nio kratrar). Inte från nedslaget. Licens: CC BY 2.0.",
+      "en": "Modern photo (2013) by Bernt Rostad of a green pool of water in the largest of the meteorite craters at Kaali on Saaremaa in Estonia (file page: nine craters). Not from the impact. Licence: CC BY 2.0.",
+      "de": "Heutiges Foto (2013) von Bernt Rostad eines grünen Wassertümpels im größten der Meteoritenkrater bei Kaali auf Saaremaa in Estland (Dateiseite: neun Krater). Nicht vom Einschlag. Lizenz: CC BY 2.0.",
+      "es": "Foto actual (2013) de Bernt Rostad de una charca verde en el mayor de los cráteres de meteorito de Kaali, en Saaremaa, Estonia (página del archivo: nueve cráteres). No es del impacto. Licencia: CC BY 2.0.",
+      "fr": "Photo actuelle (2013) de Bernt Rostad d'une mare verte dans le plus grand des cratères de météorite de Kaali, sur Saaremaa, en Estonie (page du fichier : neuf cratères). Pas de l'impact. Licence : CC BY 2.0."
+    },
+    "credit": "Bernt Rostad / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-kaali-kratern",
+    "id": "kaali-kratern",
+    "file": "kaali-kratern.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Foto (2002) av Yuntero av en del av muren vid Los Millares i Gádor, Almería (filsidan: \"lienzo de muralla\"). Inte från bosättningens tid (cirka 3025 f.Kr.). Licens: CC BY-SA 3.0.",
+      "en": "Photo (2002) by Yuntero of a section of the wall at Los Millares in Gádor, Almería (file page: \"lienzo de muralla\"). Not from the time of the settlement (about 3025 BC). Licence: CC BY-SA 3.0.",
+      "de": "Foto (2002) von Yuntero eines Mauerabschnitts bei Los Millares in Gádor, Almería (Dateiseite: „lienzo de muralla“). Nicht aus der Zeit der Siedlung (etwa 3025 v. Chr.). Lizenz: CC BY-SA 3.0.",
+      "es": "Foto (2002) de Yuntero de un lienzo de muralla en Los Millares, en Gádor, Almería (página del archivo: «lienzo de muralla»). No es de la época del poblado (hacia 3025 a. C.). Licencia: CC BY-SA 3.0.",
+      "fr": "Photo (2002) de Yuntero d'un pan de muraille à Los Millares, à Gádor, Almería (page du fichier : « lienzo de muralla »). Pas de l'époque de l'établissement (vers 3025 av. J.-C.). Licence : CC BY-SA 3.0."
+    },
+    "credit": "Yuntero / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-los-millares",
+    "id": "los-millares",
+    "file": "los-millares.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Nutida foto (2017) av Balou46 av ingången till Christina-stollen i saltgruvan i Hallstatt i Övre Österrike (filsidan). Inte från bronsålderns eller järnålderns gruvdrift (cirka 800 f.Kr.). Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2017) by Balou46 of the entrance to the Christina adit of the salt mine at Hallstatt in Upper Austria (file page). Not from the mining of the Bronze or Iron Age (about 800 BC). Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2017) von Balou46 des Eingangs zum Christina-Stollen des Salzbergwerks in Hallstatt in Oberösterreich (Dateiseite). Nicht vom Bergbau der Bronze- oder Eisenzeit (etwa 800 v. Chr.). Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2017) de Balou46 de la entrada a la galería Christina de la mina de sal de Hallstatt, en la Alta Austria (página del archivo). No es de la minería de la Edad del Bronce o del Hierro (hacia 800 a. C.). Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2017) de Balou46 de l'entrée de la galerie Christina de la mine de sel de Hallstatt, en Haute-Autriche (page du fichier). Pas de l'exploitation de l'âge du bronze ou du fer (vers 800 av. J.-C.). Licence : CC BY-SA 4.0."
+    },
+    "credit": "Balou46 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-saltbrytning-i-hallstatt",
+    "id": "saltbrytning-i-hallstatt",
+    "file": "saltbrytning-i-hallstatt.webp"
   }
 ]

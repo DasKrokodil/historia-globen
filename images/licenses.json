@@ -651,6 +651,21 @@
       }
     },
     {
+      "eventId": "azul-ruben-dario-1888",
+      "eventTitle": "Rubén Darío ger ut Azul…",
+      "file": "images/events/azul-ruben-dario-1888.webp",
+      "kind": "historisk",
+      "credit": "Rubén Darío / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-azul-ruben-dario-1888",
+        "title": "Azul - Primera edición – Ruben Dario (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Azul_-_Primera_edici%C3%B3n.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "babyloniska-astronomiska-dagbocker",
       "eventTitle": "Babyloniska astronomiska dagböcker",
       "file": "images/events/babyloniska-astronomiska-dagbocker.webp",
@@ -821,6 +836,21 @@
         "title": "Mount Batur Caldera - panoramio – Alexey Komarov (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Mount_Batur_Caldera_-_panoramio.jpg",
         "license": "CC BY 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "befjadrade-ormens-tempel",
+      "eventTitle": "Den befjädrade ormens tempel i Teotihuacan",
+      "file": "images/events/befjadrade-ormens-tempel.webp",
+      "kind": "historisk",
+      "credit": "Diego Delso / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-befjadrade-ormens-tempel",
+        "title": "Teotihuacán, México, 2013-10-13, DD 80 – Diego Delso (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Teotihuac%C3%A1n,_M%C3%A9xico,_2013-10-13,_DD_80.JPG",
+        "license": "CC BY-SA 3.0",
         "checked": "2026-11-26"
       }
     },
@@ -1524,6 +1554,21 @@
       }
     },
     {
+      "eventId": "catalhoyuk",
+      "eventTitle": "Çatalhöyük, en tidig stor boplats",
+      "file": "images/events/catalhoyuk.webp",
+      "kind": "historisk",
+      "credit": "Verity Cridland / Wikimedia Commons (Flickr)",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-catalhoyuk",
+        "title": "Çatalhöyük overview – Verity Cridland (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%C3%87atalh%C3%B6y%C3%BCk_overview.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "celsius-temperaturskala",
       "eventTitle": "Anders Celsius föreslår sin temperaturskala",
       "file": "images/events/celsius-temperaturskala.webp",
@@ -1581,6 +1626,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Chan_Chan,_2023_(32).jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "chauvetgrottan",
+      "eventTitle": "Målningarna i Chauvetgrottan",
+      "file": "images/events/chauvetgrottan.webp",
+      "kind": "historisk",
+      "credit": "HTO / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-chauvetgrottan",
+        "title": "Lions painting, Chauvet Cave (museum replica) – HTO (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lions_painting,_Chauvet_Cave_(museum_replica).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -1692,6 +1752,21 @@
       }
     },
     {
+      "eventId": "copans-kungaatt-grundas",
+      "eventTitle": "K'inich Yax K'uk' Mo' grundar Copáns kungaätt",
+      "file": "images/events/copans-kungaatt-grundas.webp",
+      "kind": "historisk",
+      "credit": "Hans Birger Nilsen / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-copans-kungaatt-grundas",
+        "title": "Hieroglyphic Stairway of Copán and stela M (40008952385) – Hans Birger Nilsen (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Hieroglyphic_Stairway_of_Cop%C3%A1n_and_stela_M_(40008952385).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "cortes-moter-moctezuma",
       "eventTitle": "Cortés möter Moctezuma i Tenochtitlan",
       "file": "images/events/cortes-moter-moctezuma.webp",
@@ -1719,6 +1794,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:SARS-CoV-2_without_background.png",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "cueva-de-las-manos",
+      "eventTitle": "Händerna i Cueva de las Manos",
+      "file": "images/events/cueva-de-las-manos.webp",
+      "kind": "historisk",
+      "credit": "Mariano / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-cueva-de-las-manos",
+        "title": "SantaCruz-CuevaManos-P2210651b – Mariano (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:SantaCruz-CuevaManos-P2210651b.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2355,6 +2445,21 @@
       }
     },
     {
+      "eventId": "flintgruvorna-i-spiennes",
+      "eventTitle": "Flintgruvorna i Spiennes",
+      "file": "images/events/flintgruvorna-i-spiennes.webp",
+      "kind": "historisk",
+      "credit": "Thilo Parg / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-flintgruvorna-i-spiennes",
+        "title": "Neolithic Flint Mines at Spiennes 2 – Thilo Parg (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Neolithic_Flint_Mines_at_Spiennes_2.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "florisbad",
       "eventTitle": "Florisbad: ett möjligt tidigt fynd av Homo sapiens",
       "file": "images/events/florisbad.webp",
@@ -2805,6 +2910,21 @@
       }
     },
     {
+      "eventId": "ganggriften-i-rossberga",
+      "eventTitle": "Gånggriften i Rössberga",
+      "file": "images/events/ganggriften-i-rossberga.webp",
+      "kind": "historisk",
+      "credit": "Harri Blomberg / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-ganggriften-i-rossberga",
+        "title": "Rössberga 1, den 9 april 2006 – Harri Blomberg (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:R%C3%B6ssberga_1,_den_9_april_2006.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "gao-saney-handelsstad",
       "eventTitle": "Handelsstaden Gao-Saney vid Nigerfloden",
       "file": "images/events/gao-saney-handelsstad.webp",
@@ -2892,6 +3012,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Nixons_in_Ghana_1957.jpg",
         "license": "Public domain (USA:s federala myndighet)",
         "checked": "2026-11-01"
+      }
+    },
+    {
+      "eventId": "glacier-peak-utbrott-omkring-200",
+      "eventTitle": "Vulkanen Glacier Peak får ett utbrott",
+      "file": "images/events/glacier-peak-utbrott-omkring-200.webp",
+      "kind": "historisk",
+      "credit": "brewbooks / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-glacier-peak-utbrott-omkring-200",
+        "title": "Glacier Peak (aerial view) – brewbooks (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Glacier_Peak_(aerial_view).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -2996,6 +3131,21 @@
         "title": "Igaliku – Svickova (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Igaliku.JPG",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "guld-i-minas-gerais-1695",
+      "eventTitle": "Guldrushen i Minas Gerais börjar",
+      "file": "images/events/guld-i-minas-gerais-1695.webp",
+      "kind": "historisk",
+      "credit": "Alvesgaspar / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-guld-i-minas-gerais-1695",
+        "title": "Ouro Preto November 2009-7 – Alvesgaspar (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ouro_Preto_November_2009-7.jpg",
+        "license": "CC BY-SA 3.0",
         "checked": "2026-11-26"
       }
     },
@@ -3108,6 +3258,21 @@
       }
     },
     {
+      "eventId": "hagahogen",
+      "eventTitle": "Hågahögen byggs",
+      "file": "images/events/hagahogen.webp",
+      "kind": "historisk",
+      "credit": "Johan Jönsson (Julle) / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-hagahogen",
+        "title": "Hågahögen (2) – Johan Jönsson ( Julle ) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:H%C3%A5gah%C3%B6gen_(2).jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "hagia-sofia-byggs-532",
       "eventTitle": "Hagia Sofia byggs",
       "file": "images/events/hagia-sofia-byggs-532.webp",
@@ -3153,6 +3318,36 @@
       }
     },
     {
+      "eventId": "hallristningarna-i-alta",
+      "eventTitle": "Hällristningarna i Alta",
+      "file": "images/events/hallristningarna-i-alta.webp",
+      "kind": "historisk",
+      "credit": "Karl Brodowsky / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-hallristningarna-i-alta",
+        "title": "Alta-Carvings-2012-07-17-12-15-018 – Karl Brodowsky (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Alta-Carvings-2012-07-17-12-15-018.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "hallristningarna-i-tanum",
+      "eventTitle": "Hällristningarna i Tanum",
+      "file": "images/events/hallristningarna-i-tanum.webp",
+      "kind": "historisk",
+      "credit": "Okänd uppladdare / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-hallristningarna-i-tanum",
+        "title": "Tanumshede 2005 rock carvings 7 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tanumshede_2005_rock_carvings_7.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "hammurabis-lagar",
       "eventTitle": "Hammurabis lagar",
       "file": "images/events/hammurabis-lagar.webp",
@@ -3179,6 +3374,21 @@
         "title": "Image from \"Surgical Casebook\" by Hanaoka Seishu – Hanaoka Seishu (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Image_from_%22Surgical_Casebook%22_by_Hanaoka_Seishu.jpg",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "hans-egede-kommer-till-gronland",
+      "eventTitle": "Hans Egede kommer till Grönland",
+      "file": "images/events/hans-egede-kommer-till-gronland.webp",
+      "kind": "historisk",
+      "credit": "Louis Moe / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-hans-egede-kommer-till-gronland",
+        "title": "Hans Egede på Grønland - Louis Moe (17042) - cropped (cropped) – Louis Moe (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Hans_Egede_p%C3%A5_Gr%C3%B8nland_-_Louis_Moe_(17042)_-_cropped_(cropped).png",
+        "license": "CC BY-SA 4.0",
         "checked": "2026-11-26"
       }
     },
@@ -3323,6 +3533,21 @@
         "title": "He Whakaputanga o te Rangatiratanga o Nu Tireni (known as The Declaration of Independence) (Page 1 of 3), 1835 (10430000633) – Archives New Zealand from New Zealand (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:He_Whakaputanga_o_te_Rangatiratanga_o_Nu_Tireni_(known_as_The_Declaration_of_Independence)_(Page_1_of_3),_1835_(10430000633).jpg",
         "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "hekla-3-utbrottet",
+      "eventTitle": "Hekla får ett av sina största utbrott",
+      "file": "images/events/hekla-3-utbrottet.webp",
+      "kind": "historisk",
+      "credit": "Hornstrandir1 / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-hekla-3-utbrottet",
+        "title": "Hekla August 2019-02 – Hornstrandir1 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Hekla_August_2019-02.jpg",
+        "license": "CC BY-SA 4.0",
         "checked": "2026-11-26"
       }
     },
@@ -3573,6 +3798,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Bronze_ceremonial_vessel_in_form_of_a_snail_shell,_9th_century,_Igbo-Ukwu,_Nigeria.JPG",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "ilopango-utbrottet",
+      "eventTitle": "Vulkanutbrottet i Ilopango",
+      "file": "images/events/ilopango-utbrottet.webp",
+      "kind": "historisk",
+      "credit": "KMTRAGER / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-ilopango-utbrottet",
+        "title": "Lake Ilopango Caldera – KMTRAGER (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lake_Ilopango_Caldera.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -4026,6 +4266,21 @@
       }
     },
     {
+      "eventId": "kaali-kratern",
+      "eventTitle": "En meteorit slår ner vid Kaali",
+      "file": "images/events/kaali-kratern.webp",
+      "kind": "historisk",
+      "credit": "Bernt Rostad / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-kaali-kratern",
+        "title": "Kaali crater – Bernt Rostad (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kaali_crater.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "kabuki-borjar-1603",
       "eventTitle": "Kabukiteatern börjar i Kyoto",
       "file": "images/events/kabuki-borjar-1603.webp",
@@ -4212,6 +4467,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Carl_Wahlbom_-_Karl_XII-s_d%C3%B6d_-_NMH_5-1889_-_Nationalmuseum.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "karthago-grundas",
+      "eventTitle": "Kartago grundas",
+      "file": "images/events/karthago-grundas.webp",
+      "kind": "historisk",
+      "credit": "Calips / Patrick Giraud / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-karthago-grundas",
+        "title": "Tunisie Carthage Ruines 08 – Calips (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tunisie_Carthage_Ruines_08.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -4446,6 +4716,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Manifest_der_kommunistischen_Partei_%28Marx%29_001.jpg",
         "license": "Public domain",
         "checked": "2026-11-13"
+      }
+    },
+    {
+      "eventId": "kon-som-opererades-i-champ-durand",
+      "eventTitle": "En ko med ett hål i skallen i Champ-Durand",
+      "file": "images/events/kon-som-opererades-i-champ-durand.webp",
+      "kind": "historisk",
+      "credit": "Liberliger / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-kon-som-opererades-i-champ-durand",
+        "title": "Nieul-autise champ-durand 07 – Liberliger (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Nieul-autise_champ-durand_07.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -4758,6 +5043,21 @@
       }
     },
     {
+      "eventId": "laacher-see-utbrottet",
+      "eventTitle": "Vulkanutbrottet vid Laacher See",
+      "file": "images/events/laacher-see-utbrottet.webp",
+      "kind": "historisk",
+      "credit": "Tsuhful / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-laacher-see-utbrottet",
+        "title": "Carrière du Wingertsberg - éruption du Laacher See – Tsuhful (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Carri%C3%A8re_du_Wingertsberg_-_%C3%A9ruption_du_Laacher_See.jpeg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "lakekonst-i-mawangdui",
       "eventTitle": "Läkekonst i gravarna vid Mawangdui",
       "file": "images/events/lakekonst-i-mawangdui.webp",
@@ -4923,6 +5223,21 @@
       }
     },
     {
+      "eventId": "lejonmanniskan",
+      "eventTitle": "Lejonmänniskan",
+      "file": "images/events/lejonmanniskan.webp",
+      "kind": "historisk",
+      "credit": "Thilo Parg / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-lejonmanniskan",
+        "title": "Loewenmensch2 – Thilo Parg (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Loewenmensch2.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "lejontemplet-i-musawwarat-es-sufra",
       "eventTitle": "Lejontemplet åt Apedemak i Musawwarat es-Sufra",
       "file": "images/events/lejontemplet-i-musawwarat-es-sufra.webp",
@@ -5034,6 +5349,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Cataratas_Victoria,_Zambia-Zimbabue,_2018-07-27,_DD_05.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "los-millares",
+      "eventTitle": "Den befästa boplatsen Los Millares",
+      "file": "images/events/los-millares.webp",
+      "kind": "historisk",
+      "credit": "Yuntero / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-los-millares",
+        "title": "Los Millares Muralla – Yuntero (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Los_Millares_Muralla.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5445,6 +5775,21 @@
       }
     },
     {
+      "eventId": "megafaunan-forsvinner-i-amerika",
+      "eventTitle": "Megafaunan försvinner i Amerika",
+      "file": "images/events/megafaunan-forsvinner-i-amerika.webp",
+      "kind": "historisk",
+      "credit": "Charles R. Knight / American Museum of Natural History",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-megafaunan-forsvinner-i-amerika",
+        "title": "La Brea Tar Pits – Charles Robert Knight (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:La_Brea_Tar_Pits.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "megafaunan-forsvinner-i-australien",
       "eventTitle": "Australiens megafauna dör ut",
       "file": "images/events/megafaunan-forsvinner-i-australien.webp",
@@ -5589,6 +5934,21 @@
       }
     },
     {
+      "eventId": "missoulafloderna",
+      "eventTitle": "Missoulafloderna, istidens jätteflodvågor",
+      "file": "images/events/missoulafloderna.webp",
+      "kind": "historisk",
+      "credit": "DKRKaynor / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-missoulafloderna",
+        "title": "Above Dry Falls 02 – DKRKaynor (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Above_Dry_Falls_02.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "moafaglarna-dor-ut",
       "eventTitle": "Moafåglarna och moaörnen dör ut",
       "file": "images/events/moafaglarna-dor-ut.webp",
@@ -5616,6 +5976,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ahu_Tongariki.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "mogollonkulturen",
+      "eventTitle": "Mogollonkulturen växer fram",
+      "file": "images/events/mogollonkulturen.webp",
+      "kind": "historisk",
+      "credit": "National Park Service",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-mogollonkulturen",
+        "title": "Gila Cliff Dwellings National Monument GICL1711 – National Park Service Digital Image Archives (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Gila_Cliff_Dwellings_National_Monument_GICL1711.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5750,6 +6125,21 @@
         "title": "Mount Lamington 1951 eruption column (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Mount_Lamington_1951_eruption_column.jpg",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "mount-mazama-crater-lake",
+      "eventTitle": "Mount Mazama exploderar och Crater Lake bildas",
+      "file": "images/events/mount-mazama-crater-lake.webp",
+      "kind": "historisk",
+      "credit": "Ken Lund / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-mount-mazama-crater-lake",
+        "title": "Wizard Island, Crater Lake National Park, Oregon (219304137) – Ken Lund from Reno, Nevada, USA (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Wizard_Island,_Crater_Lake_National_Park,_Oregon_(219304137).jpg",
+        "license": "CC BY-SA 2.0",
         "checked": "2026-11-26"
       }
     },
@@ -5928,6 +6318,21 @@
       }
     },
     {
+      "eventId": "natet-fran-antrea",
+      "eventTitle": "Nätet från Antrea",
+      "file": "images/events/natet-fran-antrea.webp",
+      "kind": "historisk",
+      "credit": "Sakari Pälsi / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-natet-fran-antrea",
+        "title": "AntreaNet – Sakari Pälsi (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:AntreaNet.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "nazcalinjerna",
       "eventTitle": "Nazcalinjerna",
       "file": "images/events/nazcalinjerna.webp",
@@ -5943,6 +6348,21 @@
       }
     },
     {
+      "eventId": "nazcas-puquios",
+      "eventTitle": "Nazcas underjordiska vattenledningar (puquios)",
+      "file": "images/events/nazcas-puquios.webp",
+      "kind": "historisk",
+      "credit": "Diego Delso / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-nazcas-puquios",
+        "title": "Acueductos subterráneos de Cantalloc, Nazca, Perú, 2015-07-29, DD 09 – Diego Delso (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Acueductos_subterr%C3%A1neos_de_Cantalloc,_Nazca,_Per%C3%BA,_2015-07-29,_DD_09.JPG",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "nederlandarna-till-dejima",
       "eventTitle": "Nederländarna flyttas till Dejima",
       "file": "images/events/nederlandarna-till-dejima.webp",
@@ -5955,6 +6375,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:View_of_the_Former_Dutch_Trading_Post_on_Dejima_from_Tamae_Bridge,_Nagasaki,_20240815_1458_3715.jpg",
         "license": "CC BY 4.0",
         "checked": "2026-11-12"
+      }
+    },
+    {
+      "eventId": "nevali-cori-kultbyggnad",
+      "eventTitle": "Kultbyggnaden i Nevalı Çori",
+      "file": "images/events/nevali-cori-kultbyggnad.webp",
+      "kind": "historisk",
+      "credit": "Dosseman / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-nevali-cori-kultbyggnad",
+        "title": "Urfa museum Nevalı Çori Temple in 2025 1225 – Dosseman (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Urfa_museum_Neval%C4%B1_%C3%87ori_Temple_in_2025_1225.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -5994,6 +6429,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Mushibana_by_Nintendo_(early_Sh%C5%8Dwa_era).jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "noche-triste",
+      "eventTitle": "Noche Triste – mexica driver ut spanjorerna",
+      "file": "images/events/noche-triste.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-noche-triste",
+        "title": "The Sad Night (Noche Triste) (Conquest of Mexico) Painting (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Sad_Night_(Noche_Triste)_(Conquest_of_Mexico)_Painting.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -6087,6 +6537,21 @@
       }
     },
     {
+      "eventId": "obsidian-fran-melos-i-franchthi",
+      "eventTitle": "Obsidian från Melos i Franchthigrottan",
+      "file": "images/events/obsidian-fran-melos-i-franchthi.webp",
+      "kind": "historisk",
+      "credit": "Zde / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-obsidian-fran-melos-i-franchthi",
+        "title": "Paleolithic, obsidian, Franchthi Cave, 202046 – Zde (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Paleolithic,_obsidian,_Franchthi_Cave,_202046.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "oc-eo",
       "eventTitle": "Óc Eo, Funans hamnstad",
       "file": "images/events/oc-eo.webp",
@@ -6098,6 +6563,21 @@
         "title": "Oc Eo Culture Statue – Gary Todd (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Oc_Eo_Culture_Statue.jpg",
         "license": "CC0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "offerberget-vid-kokino",
+      "eventTitle": "Offergåvor på berget vid Kokino",
+      "file": "images/events/offerberget-vid-kokino.webp",
+      "kind": "historisk",
+      "credit": "BrankaVV / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-offerberget-vid-kokino",
+        "title": "Ancient observatory Kokino, Macedonia – BrankaVV (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ancient_observatory_Kokino,_Macedonia.jpg",
+        "license": "CC BY-SA 4.0",
         "checked": "2026-11-26"
       }
     },
@@ -6429,6 +6909,21 @@
       }
     },
     {
+      "eventId": "panamakanalen-oppnas",
+      "eventTitle": "Panamakanalen öppnas",
+      "file": "images/events/panamakanalen-oppnas.webp",
+      "kind": "historisk",
+      "credit": "Stan Shebs / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-panamakanalen-oppnas",
+        "title": "Panama Canal Gatun Locks – User:Stan Shebs (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Panama_Canal_Gatun_Locks.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "paquime",
       "eventTitle": "Paquimé (Casas Grandes)",
       "file": "images/events/paquime.webp",
@@ -6516,6 +7011,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Stele_Piye_submission_Mariette.jpg",
         "license": "Public domain",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "plan-de-ayala",
+      "eventTitle": "Zapata utropar Plan de Ayala",
+      "file": "images/events/plan-de-ayala.webp",
+      "kind": "historisk",
+      "credit": "Otilio Montaño och Emiliano Zapata / World Digital Library",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-plan-de-ayala",
+        "title": "Plan of Ayala WDL2970 – Montaño, Otilio (1877-1917) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Plan_of_Ayala_WDL2970.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -6781,6 +7291,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "quebec-grundas-1608",
+      "eventTitle": "Samuel de Champlain grundar Québec",
+      "file": "images/events/quebec-grundas-1608.webp",
+      "kind": "historisk",
+      "credit": "Fabian Roudra Baroi / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-quebec-grundas-1608",
+        "title": "Buildings and Roads of Old Quebec City 14 – Fabian Roudra Baroi (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Buildings_and_Roads_of_Old_Quebec_City_14.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "queiros-pa-espiritu-santo",
@@ -7083,6 +7608,21 @@
       }
     },
     {
+      "eventId": "saltbrytning-i-hallstatt",
+      "eventTitle": "Saltgruvorna i Hallstatt blomstrar",
+      "file": "images/events/saltbrytning-i-hallstatt.webp",
+      "kind": "historisk",
+      "credit": "Balou46 / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-saltbrytning-i-hallstatt",
+        "title": "A-Hallstatt-salzw-eingang-stollen – Balou46 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:A-Hallstatt-salzw-eingang-stollen.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "saltmarschen",
       "eventTitle": "Gandhis saltmarsch",
       "file": "images/events/saltmarschen.webp",
@@ -7098,6 +7638,21 @@
       }
     },
     {
+      "eventId": "sammallahdenmaki",
+      "eventTitle": "Gravrösena i Sammallahdenmäki",
+      "file": "images/events/sammallahdenmaki.webp",
+      "kind": "historisk",
+      "credit": "Rauma museum / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-sammallahdenmaki",
+        "title": "Sammallahdenmäki Bronze age burial site Huilu Long ruin – Rauma museum (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Sammallahdenm%C3%A4ki_Bronze_age_burial_site_Huilu_Long_ruin.jpg",
+        "license": "CC0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "samoa-blir-sjalvstandigt",
       "eventTitle": "Samoa blir självständigt",
       "file": "images/events/samoa-blir-sjalvstandigt.webp",
@@ -7109,6 +7664,21 @@
         "title": "Beach on Upolu Island, Samoa, 2009 – Stephen Glauser (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Beach_on_Upolu_Island,_Samoa,_2009.jpg",
         "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "san-agustins-statyer",
+      "eventTitle": "Stenstatyerna i San Agustín",
+      "file": "images/events/san-agustins-statyer.webp",
+      "kind": "historisk",
+      "credit": "Bernard Gagnon / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-san-agustins-statyer",
+        "title": "Parque Arqueológico de San Agustín-Mesita A 06 – Bernard Gagnon (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Parque_Arqueol%C3%B3gico_de_San_Agust%C3%ADn-Mesita_A_06.jpg",
+        "license": "CC BY-SA 4.0",
         "checked": "2026-11-26"
       }
     },
@@ -7184,6 +7754,21 @@
         "title": "Seongsan Ilchulbong 01 – Bernard Gagnon (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Seongsan_Ilchulbong_01.jpg",
         "license": "CC0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "sesklo",
+      "eventTitle": "Bondebyn Sesklo i Thessalien",
+      "file": "images/events/sesklo.webp",
+      "kind": "historisk",
+      "credit": "Zde / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-sesklo",
+        "title": "Sesklo and Dimini neolithic 4800 BC, NAMA 080796 – Zde (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Sesklo_and_Dimini_neolithic_4800_BC,_NAMA_080796.jpg",
+        "license": "CC BY-SA 3.0",
         "checked": "2026-11-26"
       }
     },
@@ -7443,6 +8028,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Capture_of_christianstad-claus_moinichen_1686.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "skara-brae",
+      "eventTitle": "Stenbyn Skara Brae",
+      "file": "images/events/skara-brae.webp",
+      "kind": "historisk",
+      "credit": "Dr. John F. Burka / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-skara-brae",
+        "title": "Orkney Skara Brae – Dr. John F. Burka (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Orkney_Skara_Brae.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -7711,6 +8311,21 @@
         "id": "commons-bild-slaget-vid-carabobo",
         "title": "BatallaCarabobo01 (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:BatallaCarabobo01.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "slaget-vid-cerro-cora",
+      "eventTitle": "Solano López dödas vid Cerro Corá",
+      "file": "images/events/slaget-vid-cerro-cora.webp",
+      "kind": "historisk",
+      "credit": "Okänd tecknare / Semana Illustrada",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-cerro-cora",
+        "title": "CHICO DIABO atravessando com uma lança Solano López (Semana Illustrada n 485, 27.03.1870) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:CHICO_DIABO_atravessando_com_uma_lan%C3%A7a_Solano_L%C3%B3pez_(Semana_Illustrada_n_485,_27.03.1870).JPG",
         "license": "Public domain",
         "checked": "2026-11-26"
       }
@@ -8184,6 +8799,21 @@
       "source": null
     },
     {
+      "eventId": "slaget-vid-ollantaytambo",
+      "eventTitle": "Inkasegern vid Ollantaytambo",
+      "file": "images/events/slaget-vid-ollantaytambo.webp",
+      "kind": "historisk",
+      "credit": "Fondo Antiguo de la Biblioteca / Wikimedia Commons (Flickr)",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-slaget-vid-ollantaytambo",
+        "title": "Historia de la conquista del Perú, 1851 427026 (3970910539) – Fondo Antiguo de la Biblioteca de la Universidad de Sevilla from Sevilla, España (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Historia_de_la_conquista_del_Per%C3%BA,_1851_427026_(3970910539).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-orakau",
       "eventTitle": "Slaget vid Ōrākau",
       "file": "images/events/slaget-vid-orakau.webp",
@@ -8209,6 +8839,21 @@
         "id": "commons-bild-slaget-vid-oriskany",
         "title": "Battle of Oriskany – John R. Chapin (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Oriskany.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "slaget-vid-otumba",
+      "eventTitle": "Slaget vid Otumba",
+      "file": "images/events/slaget-vid-otumba.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-otumba",
+        "title": "Battle of Otumba (Conquest of Mexico) Painting (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Otumba_(Conquest_of_Mexico)_Painting.jpg",
         "license": "Public domain",
         "checked": "2026-11-26"
       }
@@ -8727,6 +9372,21 @@
       }
     },
     {
+      "eventId": "spanska-erovringen-av-inkariket",
+      "eventTitle": "Spanska erövringen av Inkariket",
+      "file": "images/events/spanska-erovringen-av-inkariket.webp",
+      "kind": "historisk",
+      "credit": "Girolamo Benzoni / Theodor de Bry / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-spanska-erovringen-av-inkariket",
+        "title": "Inca-Spanish confrontation – Girolamo Benzoni / Theodor de Bry (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Inca-Spanish_confrontation.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "spanska-sjukan",
       "eventTitle": "Spanska sjukan",
       "file": "images/events/spanska-sjukan.webp",
@@ -8787,6 +9447,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Star_wars_cinema_1977.jpg",
         "license": "CC BY-SA 2.0",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "stenyxorna-fran-langdale",
+      "eventTitle": "Stenyxorna från Langdale",
+      "file": "images/events/stenyxorna-fran-langdale.webp",
+      "kind": "historisk",
+      "credit": "Derby Museums Trust / Portable Antiquities Scheme",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-stenyxorna-fran-langdale",
+        "title": "Neolithic polished stone axe fragment, Langdale stone (FindID 430451) – Derby Museums Trust, Rachel Atherton, 2011-03-08 12:34:54 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Neolithic_polished_stone_axe_fragment,_Langdale_stone_(FindID_430451).jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -9438,6 +10113,21 @@
       }
     },
     {
+      "eventId": "tikals-nederlag-562",
+      "eventTitle": "Caracol besegrar Tikal",
+      "file": "images/events/tikals-nederlag-562.webp",
+      "kind": "historisk",
+      "credit": "MongeNajera / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-tikals-nederlag-562",
+        "title": "Tikal Guatemala 5 – MongeNajera (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tikal_Guatemala_5.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "timbuktu-blir-fast-bosattning",
       "eventTitle": "Timbuktu blir en fast bosättning",
       "file": "images/events/timbuktu-blir-fast-bosattning.webp",
@@ -9480,6 +10170,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Zonnepoort_tiwanaku.jpg",
         "license": "Public domain",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "tjurhoppning-pa-knossos",
+      "eventTitle": "Tjurhopp på väggarna i Knossos",
+      "file": "images/events/tjurhoppning-pa-knossos.webp",
+      "kind": "historisk",
+      "credit": "George Groutas / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-tjurhoppning-pa-knossos",
+        "title": "Bull leaping, fresco from the Great Palace at Knossos, Crete, Heraklion Archaeological Museum – George Groutas (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bull_leaping,_fresco_from_the_Great_Palace_at_Knossos,_Crete,_Heraklion_Archaeological_Museum.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -9629,6 +10334,21 @@
         "title": "Telamones Tula – User:Luidger (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Telamones_Tula.jpg",
         "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "tupac-amaru-avrattas",
+      "eventTitle": "Den siste inkan, Túpac Amaru, avrättas",
+      "file": "images/events/tupac-amaru-avrattas.webp",
+      "kind": "historisk",
+      "credit": "Cuzcoskolan / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tupac-amaru-avrattas",
+        "title": "TupacamaruI – Cuzco School / Unidentified painter (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:TupacamaruI.JPG",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
@@ -10002,6 +10722,21 @@
       }
     },
     {
+      "eventId": "white-sands-fotspar",
+      "eventTitle": "Fotspår från istiden vid White Sands",
+      "file": "images/events/white-sands-fotspar.webp",
+      "kind": "historisk",
+      "credit": "National Park Service",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-white-sands-fotspar",
+        "title": "Ice Age Human Footprints (a45c5031-d519-43f0-8d64-7b81d653c3ff) – NPS (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ice_Age_Human_Footprints_(a45c5031-d519-43f0-8d64-7b81d653c3ff).JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "wright",
       "eventTitle": "Bröderna Wright flyger",
       "file": "images/events/wright.webp",
@@ -10047,6 +10782,36 @@
         "url": "https://www.loc.gov/item/2008660220/",
         "license": "No known restrictions on publication",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "xitle-begraver-cuicuilco",
+      "eventTitle": "Vulkanen Xitle begraver Cuicuilco",
+      "file": "images/events/xitle-begraver-cuicuilco.webp",
+      "kind": "historisk",
+      "credit": "Felipe Huerta Hdez / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-xitle-begraver-cuicuilco",
+        "title": "Pirámide de Cuicuilco al Sur del Distrito Federal – Felipe huerta hdez (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Pir%C3%A1mide_de_Cuicuilco_al_Sur_del_Distrito_Federal.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "yellowstone-nationalpark",
+      "eventTitle": "Yellowstone blir nationalpark",
+      "file": "images/events/yellowstone-nationalpark.webp",
+      "kind": "historisk",
+      "credit": "James St. John / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-yellowstone-nationalpark",
+        "title": "Grand Prismatic Spring 2013 – James St. John from Newark, Ohio (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Grand_Prismatic_Spring_2013.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
       }
     },
     {
