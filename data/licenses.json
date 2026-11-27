@@ -210,6 +210,7 @@
         "hallmann-2018-franska-polynesien",
         "hawkins-2016-skoldpaddor",
         "herrscher-2024-sigatoka",
+        "hutchinson-2019-white-river-ash",
         "inskip-2015-great-chesterford",
         "kavanagh-2026-budj-bim",
         "kinaston-2014-uripiv",
@@ -218,6 +219,7 @@
         "loftus-2025-sydafrika-klimat",
         "lougas-2023-tumlare",
         "martiniano-2016-york",
+        "matthews-bird-2017-quilotoa",
         "morales-2023-kanarieoarna",
         "moubtahij-2024-taforalt",
         "mousavi-2024-faltnabbmus",
@@ -306,6 +308,13 @@
       "license": "CC BY-NC-ND (enligt Europe PMC), länkad källa: ingen text kopierad (beslut 2026-10-29)",
       "sourceIds": [
         "pagani-2015-out-of-africa-route"
+      ]
+    },
+    {
+      "license": "CC BY-NC-ND 4.0 (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "lee-2024-baekdu",
+        "phong-2026-champa-rice"
       ]
     },
     {
@@ -723,6 +732,7 @@
         "svwp-musikaliska-akademiens-hus",
         "wikipedia-religion",
         "wp-115-antioch-earthquake",
+        "wp-1257-samalas-eruption",
         "wp-1303-crete-earthquake",
         "wp-1303-hongdong-earthquake",
         "wp-1356-basel-earthquake",
@@ -772,8 +782,11 @@
         "wp-365-crete-earthquake",
         "wp-4-2-kiloyear-event",
         "wp-73-easting",
+        "wp-735-737-japanese-smallpox",
         "wp-745-seventh-avenue",
         "wp-8-2-kiloyear-event",
+        "wp-869-sanriku-earthquake",
+        "wp-946-paektu-eruption",
         "wp-aachen-cathedral",
         "wp-abbasid-caliphate",
         "wp-abbey-of-echternach",
@@ -848,6 +861,7 @@
         "wp-ancient-carthage",
         "wp-ancient-linzi",
         "wp-andrianampoinimerina",
+        "wp-angkor",
         "wp-angkor-wat",
         "wp-anglo-norman-invasion-of-ireland",
         "wp-anglo-zulu-war",
@@ -870,6 +884,7 @@
         "wp-antonine-plague",
         "wp-antrea-net",
         "wp-antukyah",
+        "wp-aokigahara",
         "wp-apia",
         "wp-apollo-11",
         "wp-apollo-11-cave",
@@ -1071,6 +1086,7 @@
         "wp-bhirrana",
         "wp-biatec",
         "wp-bible-translations-into-welsh",
+        "wp-bidoup-nui-ba",
         "wp-big-hole",
         "wp-billingen",
         "wp-bilsk",
@@ -1214,6 +1230,7 @@
         "wp-chacaltaya",
         "wp-chaco",
         "wp-challenger-deep",
+        "wp-champa-rice",
         "wp-chan-chan",
         "wp-changan",
         "wp-changchun-town",
@@ -1242,10 +1259,12 @@
         "wp-chillan-earthquake-1939",
         "wp-chimborazo",
         "wp-chimor",
+        "wp-chinampa",
         "wp-chinchorro-culture",
         "wp-chinchorro-mummies",
         "wp-chinese-farm",
         "wp-chinkiang-1842",
+        "wp-chiribaya-culture",
         "wp-chittagong",
         "wp-cholula-massacre",
         "wp-chosin-reservoir",
@@ -1954,6 +1973,7 @@
         "wp-hawaiian-kingdom",
         "wp-he-whakaputanga",
         "wp-health-care-in-germany",
+        "wp-heijo-palace",
         "wp-hekla",
         "wp-helgo",
         "wp-helsingborg-1710",
@@ -2006,6 +2026,7 @@
         "wp-history-of-the-potato",
         "wp-history-of-the-republic-of-india",
         "wp-history-of-tonga",
+        "wp-history-of-tuberculosis",
         "wp-history-of-vanuatu",
         "wp-hlboke",
         "wp-hlobane",
@@ -2053,6 +2074,7 @@
         "wp-idrisid-dynasty",
         "wp-igbo-ukwu",
         "wp-ignaz-semmelweis",
+        "wp-ilo-peru",
         "wp-ilumetsa",
         "wp-imenkovo-culture",
         "wp-imerina",
@@ -2317,6 +2339,7 @@
         "wp-lahore-resolution",
         "wp-lahuradewa",
         "wp-lake-agassiz",
+        "wp-lake-chichancanab",
         "wp-lake-condah",
         "wp-lake-guatavita",
         "wp-lake-habbaniyah",
@@ -2562,6 +2585,7 @@
         "wp-moturiki",
         "wp-moundville",
         "wp-mount-batur",
+        "wp-mount-churchill",
         "wp-mount-elizabeth-station",
         "wp-mount-everest",
         "wp-mount-fuji",
@@ -2900,6 +2924,7 @@
         "wp-quagga",
         "wp-quarantine",
         "wp-quebec-city",
+        "wp-quilotoa",
         "wp-quirigua",
         "wp-qumran-caves",
         "wp-rabatak-inscription",
@@ -3029,6 +3054,7 @@
         "wp-samu-fossil",
         "wp-samuel-marsden",
         "wp-san-agustin-archaeological-park",
+        "wp-san-andres-mixquic",
         "wp-san-bartolo-maya-site",
         "wp-san-juan-earthquake-1944",
         "wp-san-lorenzo-tenochtitlan",
@@ -3312,6 +3338,7 @@
         "wp-szentendre",
         "wp-tabriz",
         "wp-taforalt",
+        "wp-taga-castle",
         "wp-taiping-heavenly-kingdom",
         "wp-taiping-rebellion",
         "wp-taj-mahal",
@@ -5522,9 +5549,22 @@
       ]
     },
     {
+      "license": "© Nature (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "bos-2014-tuberculosis"
+      ]
+    },
+    {
       "license": "© Nobel Prize Outreach (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "nobel-yukawa-bio"
+      ]
+    },
+    {
+      "license": "© PNAS, fri att läsa (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "buckley-2010-angkor",
+        "lavigne-2013-samalas"
       ]
     },
     {
