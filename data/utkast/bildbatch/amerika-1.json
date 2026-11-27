@@ -1,0 +1,1683 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "amerika-1",
+  "datum": "2026-11-26",
+  "urval": "ids=34 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "white-sands-fotspar",
+      "titel": "Fotspår från istiden vid White Sands",
+      "start": -21499,
+      "plats": "White Sands nationalpark, New Mexico, USA",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Ice Age Human Footprints (a45c5031-d519-43f0-8d64-7b81d653c3ff).JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ice_Age_Human_Footprints_(a45c5031-d519-43f0-8d64-7b81d653c3ff).JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NPS",
+          "datum": "Taken on 30 January 2020",
+          "datum_original": "Taken on 30 January 2020",
+          "datum_fil": "2023-08-14 22:32:19",
+          "kredit": "NPGallery",
+          "beskrivning": "Seven human footprints preserved in Ice Age gypsum cement. Ice Age footprints from adolescent female estimated to 23,000-21,000 years ago. During this time warming and drying events caused Lake Otero to significantly drop in water level, allowing for the footprints to be made in the drying gypsum mud. Keywords: Ice Age; Human; Footprint; Fossil; Gypsum",
+          "bredd": 6000,
+          "hojd": 4000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Ice_Age_Human_Footprints_%28a45c5031-d519-43f0-8d64-7b81d653c3ff%29.JPG/960px-Ice_Age_Human_Footprints_%28a45c5031-d519-43f0-8d64-7b81d653c3ff%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological sites in White Sands National Park",
+            "Footprints",
+            "Fossils",
+            "Gypsum in New Mexico",
+            "Ice ages"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NPS"
+            ]
+          }
+        },
+        {
+          "fil": "File:Archeologists Uncover Ice Age Footprints (7970cc77-e177-4e4f-a8dd-2ec1289d14fe).JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Archeologists_Uncover_Ice_Age_Footprints_(7970cc77-e177-4e4f-a8dd-2ec1289d14fe).JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NPS",
+          "datum": "Taken on 14 January 2020",
+          "datum_original": "Taken on 14 January 2020",
+          "datum_fil": "2023-08-14 21:08:25",
+          "kredit": "NPGallery",
+          "beskrivning": "Two researchers using two different methods to uncover footprints. Researchers must be careful to protect each archeological find whilst finding ways to best uncover their discoveries. Two methods include using a brush to gently brush away loose sediment and a small scraper to scrape away particles and provide more definition for fossil outlines. Keywords: Archeologist; Archeology; Excavation; Footprint; Brush",
+          "bredd": 4011,
+          "hojd": 2416,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Archeologists_Uncover_Ice_Age_Footprints_%287970cc77-e177-4e4f-a8dd-2ec1289d14fe%29.JPG/960px-Archeologists_Uncover_Ice_Age_Footprints_%287970cc77-e177-4e4f-a8dd-2ec1289d14fe%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological sites in White Sands National Park",
+            "Archaeologists",
+            "Brushes",
+            "Excavations",
+            "Fossil hominin footprints"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NPS"
+            ]
+          }
+        },
+        {
+          "fil": "File:Black and White Footprints (b0d6859c-17a5-4254-8901-cc116f9893e4).JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Black_and_White_Footprints_(b0d6859c-17a5-4254-8901-cc116f9893e4).JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NPS",
+          "datum": "Taken on 15 January 2020",
+          "datum_original": "Taken on 15 January 2020",
+          "datum_fil": "2023-08-14 23:00:32",
+          "kredit": "NPGallery",
+          "beskrivning": "Aerial image of three fossilized human footprints in black and white. Black and white photo filters aid in contrasting images and better illustrate the depth and impressions of the footprints in the sediment. Keywords: Footprint; Human; Fossil",
+          "bredd": 4592,
+          "hojd": 3448,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Black_and_White_Footprints_%28b0d6859c-17a5-4254-8901-cc116f9893e4%29.JPG/960px-Black_and_White_Footprints_%28b0d6859c-17a5-4254-8901-cc116f9893e4%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological sites in White Sands National Park",
+            "Footprints",
+            "Fossils",
+            "Gypsum in New Mexico",
+            "Ice ages"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NPS"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "monte-verde",
+      "titel": "Boplatsen Monte Verde i Chile",
+      "start": -12499,
+      "plats": "Monte Verde, Chile",
+      "wikidata": "Q975775",
+      "kandidater": [
+        {
+          "fil": "File:Monte Verde 3.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Monte_Verde_3.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Rodolfo Ditzel Lacoa",
+          "datum": "2012-09-30 15:45:46",
+          "datum_original": "2012-09-30 15:45:46",
+          "datum_fil": "2012-09-30 22:47:28",
+          "kredit": "Own work",
+          "beskrivning": "This is a photo of a national monument in Chile:",
+          "bredd": 4608,
+          "hojd": 2216,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Monte_Verde_3.JPG/960px-Monte_Verde_3.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Monte Verde, Chile"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "clovis-kulturen",
+      "titel": "Clovis-kulturen i Nordamerika",
+      "start": -11099,
+      "plats": "Blackwater Draw nära Clovis, New Mexico, USA (fynd över stora delar av Nordamerika)",
+      "wikidata": "Q3485378",
+      "kandidater": [
+        {
+          "fil": "File:Clovis spear point, British Museum.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Clovis_spear_point,_British_Museum.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Photograph by Mike Peel ( www.mikepeel.net ).",
+          "datum": "2010-09-12",
+          "datum_original": "2010-09-12",
+          "datum_fil": "2010-09-26 07:52:34",
+          "kredit": "Own work",
+          "beskrivning": "Clovis spear point. Object 5 of 100. British Museum",
+          "bredd": 1770,
+          "hojd": 2585,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Clovis_spear_point%2C_British_Museum.jpg/960px-Clovis_spear_point%2C_British_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "A History of The World in 100 Objects",
+            "Clovis points"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 4.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 4.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "havet-bryter-igenom-vid-berings-sund",
+      "titel": "Havet bryter igenom vid Berings sund",
+      "start": -9550,
+      "plats": "Berings sund mellan Tjuktjerhalvön och Alaska; punkten är tröskeln i sundet enligt studien",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:1772 Vaugondy and Diderot Map of the Pacific Northwest and the Northwest Passage - Geographicus - DeFonteAutres-vaugondy-1772.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1772_Vaugondy_and_Diderot_Map_of_the_Pacific_Northwest_and_the_Northwest_Passage_-_Geographicus_-_DeFonteAutres-vaugondy-1772.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "http://www.geographicus.com/mm5/cartographers/vaugondy.txt",
+          "datum": "1772 (undated)",
+          "datum_original": "1772 (undated)",
+          "datum_fil": "2011-03-17 19:22:17",
+          "kredit": "This file was provided to Wikimedia Commons by Geographicus Rare Antique Maps , a specialist dealer in rare maps and other cartography of the 15th, 16th, 17th, 18th and 19th centuries, as part of a cooperation project .",
+          "beskrivning": "One of the most splendid combinations of hard fact and speculative fantasy to appear in the history of cartography. This map, prepared by Joseph-Nicholas de Delisle 1762 and republished by Vaugondy in 1772, covers parts of Siberia and northeastern Asia as well as the northwestern parts of the American continent, including the Hudson Bay, and the legendary Northwest Passage. Traces the routes of several important explorers, most notably Tchirikow, Frondat, Bering and De Fonte. The origins of the wonderful map can be traced to a 1706 English publication entitled “Memoirs of the Curious”. This short-lived magazine published a previously unpublished account by a Spanish Admiral named Bartholomew de Fonte. De Fonte is said to have sailed up the Pacific coast of North America in 1640. On this voyage he apparently discovered a series of gigantic lakes, seas, and rivers heading eastward from the Pacific towards Hudson Bay. The De Fonte story relates how, on one of these great inland lakes, he met with a westward bound ship from Boston that must to have come through the Northwest Passage. Today, based upon inaccuracies and falsities, we know the entire De Fonte article to have been a fabrication, however, it set 18th century afire with speculation that a Northwest Passage must indeed exist. When Joseph-Nicolas Delisle , younger brother of the better known Guillaume Delisle , returned from his tenure at Russian Tzar Peter the Great’s “Academy of Sciences” he decided to publish a compilation of secret cartographic data obtained from previously unknown Russian expeditions to Kamtschaka and the coast of Siberia. These seminal explorations included the discoveries of Tchirikow, Frondat, Bering, among others. He produced a ground breaking and largely accurate mapping of the peninsula of Kamchatka and the coast of northeast Asia. However, across the Pacific, the contrast with reality could not be more extreme. De Delisle based the fantastical North American portion of this map entirely on the supposed journeys of De Fonte. This map traces the course of De Fonte from Cape Medocino northward, past the mouth of the mythical “Mer De L’Ouest” discovered by Juan de Fuca in 1692, around an unknown archipelago to access a series of lakes and rivers heading eastward to communicate with the Hudson Bay. It was on one of these great lakes, possibly the Lac Belle or the large Lac de Fonte, where De Fonte claims to have encountered a westward bound vessel heading from Boston. Heading north form this same archipelago, De Delisle also describes De Fonte’s Lac Valasco and Lake Bernarda, which run eastward towards Baffin Bay only to be blocked at their extreme eastern terminus. Dominating the northern part of the map is a great Arctic continent which blocks any further potential for a northwest passage to the north. The upper left quadrant of this map features an alternative take on De Fonte’s Strait of Anian. Anian was first mentioned in the journals of Marco Polo and was first noted on maps by Bolognini Zaltieri in 1561. Later the term was popularized in a John Donne poem, “Anyan if I go west by the North-West passage.” In the 18th century, it was interpreted as the Bering Strait by cartographers, successfully transitioning it from the realms of fiction to cartography. Anian presupposed the existence of a Northwest Passage and, as such, was entirely mythical, though the lands that are now Alaska long bore that name. This entire map is in sharp contrast to Jefferys’ map of the same region. In an alternative to the De Delisle map, Jefferys imagined a slightly more accurate picture of the extreme northeast with a series of large rivers running eastward towards Hudson Bay. These two disparate cartographic interpretations of the De Fonte story inspired considerable debate among European intellectual circles until the matter was finally put to rest by the expeditions of James Cook.",
+          "bredd": 4000,
+          "hojd": 3182,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/1772_Vaugondy_and_Diderot_Map_of_the_Pacific_Northwest_and_the_Northwest_Passage_-_Geographicus_-_DeFonteAutres-vaugondy-1772.jpg/960px-1772_Vaugondy_and_Diderot_Map_of_the_Pacific_Northwest_and_the_Northwest_Passage_-_Geographicus_-_DeFonteAutres-vaugondy-1772.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1772 maps",
+            "Northwest Passage",
+            "Old maps of Asia",
+            "Old maps of North America",
+            "Old maps of phantom islands",
+            "Old maps of the Arctic",
+            "Robert de Vaugondy",
+            "Russian Academy of Sciences"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-art"
+            ]
+          }
+        },
+        {
+          "fil": "File:Edited by Donald W. Hood and John A. Calder\" (1981).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Edited_by_Donald_W._Hood_and_John_A._Calder%22_(1981).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1981-01-01",
+          "datum_original": "1981-01-01",
+          "datum_fil": "2023-09-12 05:43:53",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/20944270120/",
+          "beskrivning": "Title: The Eastern Bering Sea Shelf : oceanography and resources / edited by Donald W. Hood and John A. Calder Identifier: easternberings00hood Year: 1981 (1980s) Authors: Hood, D. W. (Donald Wilbur), 1918-; Calder, John A; United States. Office of Marine Pollution Assessment; United States. Bureau of Land Management Subjects: Oceanography Bering Sea. Publisher: [Rockville, Md. ?] : U. S. Dept. of Commerce, National Oceanic and Atmospheric Administration, Office of Marine Pollution Assessment ; Seattle, Wash. : Distributed by the University of Washington Press Contributing Library: Penn State University Digitizing Sponsor: LYRASIS Members and Sloan Foundation View Book Page: Book Viewer About This Book: Catalog Entry View All Images: All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: Text Appearing After Image: ,1-^ / ^ â X^^ 'â V â ^ \\ Figure 11-9. LANDSAT image obtained 25 February 1976 showing the entrance to Norton Sound. It is difficult to ascribe any particular cause to this behavior. A rather abrupt bathymetric transition from 6 to 16 m crosses this zone. The more closely coincident part of the average ice edge agrees well with this break, whereas farther south the ice edges oscillate across the break. The coincident part lies along the edge of mud flats which mark the prodelta of a former mouth of the Yukon River; the oscillating part lies across the mouth of Hazen Bay. Possibly the edge of fast ice to the north is deter- mined by ice bottom-fast to the mud flats, and to the south the irregularity is caused by tidal currents into and from Hazen Bay. The depth of the bay is be- tween 4 and 5 m and the tidal range, which is as great as 3.5 m diurnally at Cape Romanzof, is sufficient to cause high-velocity tides into and out of the bay. South of Nelson Island, around to Cape Avinof, the seasonal edges of fast ice coincide again. These boundaries appear to coincide with the 8-m isobath. Offshore from here, as far south as the southern side of Nunivak Island, there are several shoals 4-6 m deep as far as 30 km from the coast. Ice passing from north to south through Etolin Strait between the mainland and Nunivak Island often piles on these Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 2116,
+          "hojd": 1636,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Edited_by_Donald_W._Hood_and_John_A._Calder%22_%281981%29.jpg/960px-Edited_by_Donald_W._Hood_and_John_A._Calder%22_%281981%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1980s maps of Alaska"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-zero"
+            ]
+          }
+        },
+        {
+          "fil": "File:Bering Strait ESA390553.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bering_Strait_ESA390553.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0 igo",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en",
+          "upphovsperson": "European Space Agency",
+          "datum": "2018-02-23",
+          "datum_original": "2018-02-23",
+          "datum_fil": "2018-02-23 16:56:53",
+          "kredit": "http://www.esa.int/spaceinimages/Images/2018/02/Bering_Strait",
+          "beskrivning": "The Copernicus Sentinel-1 mission takes us over the Bering Strait, which connects the Pacific and Arctic Oceans between Russia and the US state of Alaska. The image was created by combining three radar scans of 11 December 2017, 23 December 2017 and 4 January 2018. Each image has been assigned a different colour: blue, red and green, respectively. This creates a colourful composite that highlights how the sea ice changed over the four weeks. Since the Bering Strait lies slightly south of the polar circle, days are short during the winter. Thanks to its radar, Sentinel-1 can ‘see’ through clouds and in the dark, making it especially valuable for monitoring parts of the planet that endure relatively dark winter months. Offering this ‘radar vision’, images from Sentinel-1 can be used for charting icebergs and for generating maps of sea ice for year-round navigation. Additionally, monitoring changes in the extent of sea ice is critical for understanding the effect of climate change on our environment. It has been reported that sea ice in the Bering Strait has been particularly low this winter. This is because unusually warm water streamed up from the south, causing some of the sea ice to melt earlier than usual. As a result, areas that would have remained covered with reflective sea ice were open for much longer. The relatively dark surface of the sea was able to absorb a lot of energy from the Sun, which prevented sea ice forming in the autumn. Also, recent storms have helped to break up much of the sea ice that did manage to form. This image is also featured on the Earth from Space video programme.",
+          "bredd": 2000,
+          "hojd": 1335,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Bering_Strait_ESA390553.jpg/960px-Bering_Strait_ESA390553.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Sentinel-1 images"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0 IGO",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-by-sa-3.0-igo"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "lapa-do-santo-begravningar",
+      "titel": "Begravningsritualer i Lapa do Santo",
+      "start": -8599,
+      "plats": "Lapa do Santo i Lagoa Santa-karsten, Minas Gerais, Brasilien",
+      "wikidata": "Q56678621",
+      "kandidater": [
+        {
+          "fil": "File:Lapa do Santo - Overview mais esqueleto para apresentar.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lapa_do_Santo_-_Overview_mais_esqueleto_para_apresentar.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Strauss MAE-USP",
+          "datum": "2018-10-06 10:03:56",
+          "datum_original": "2018-10-06 10:03:56",
+          "datum_fil": "2018-10-06 13:07:05",
+          "kredit": "Own work",
+          "beskrivning": "Lapa do Santo - Vista aérea do maciço e esqueleto humano de cinco anos de idade. Os padrões de sepultamento do sítio arqueológico Lapa do Santo (Holoceno Inicial, Brasil) , p. 254 - Emílio Goeldi. A Lapa do Santo é um sítio arqueológico localizado na região de Lagoa Santa em Minas Gerais. Apresenta um rico registro da cultura material dos grupos que habitaram o Brasil central durante Holoceno Inicial, Médio e Final. Dezenas de sepultamentos humanos foram encontrados na Lapa do Santo. Também é o local onde foi descoberto o caso de decapitação mais antigo das américas.",
+          "bredd": 1742,
+          "hojd": 865,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Lapa_do_Santo_-_Overview_mais_esqueleto_para_apresentar.jpg/960px-Lapa_do_Santo_-_Overview_mais_esqueleto_para_apresentar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Lapa do Santo archaeological site",
+            "Museu de Arqueologia e Etnologia da Universidade de São Paulo"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 4.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 4.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "koster-hundgravar",
+      "titel": "Amerikas äldsta kända hundgravar",
+      "start": -7899,
+      "plats": "Koster nära Eldred i Illinoisflodens dal, Illinois, USA",
+      "wikidata": "Q16893638",
+      "kandidater": [
+        {
+          "fil": "File:COLLEGE STUDENTS WORK WITH ARCHAEOLOGISTS AT \"KOSTER DIG\" AN ANCIENT INDIAN BURIAL SITE - NARA - 552495.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:COLLEGE_STUDENTS_WORK_WITH_ARCHAEOLOGISTS_AT_%22KOSTER_DIG%22_AN_ANCIENT_INDIAN_BURIAL_SITE_-_NARA_-_552495.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Arthur Greenberg",
+          "datum": "June 1973 date QS:P571,+1973-06-00T00:00:00Z/10",
+          "datum_original": "June 1973 date QS:P571,+1973-06-00T00:00:00Z/10",
+          "datum_fil": "2011-10-29 07:48:05",
+          "kredit": "U.S. National Archives and Records Administration",
+          "beskrivning": null,
+          "bredd": 3000,
+          "hojd": 2010,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/COLLEGE_STUDENTS_WORK_WITH_ARCHAEOLOGISTS_AT_%22KOSTER_DIG%22_AN_ANCIENT_INDIAN_BURIAL_SITE_-_NARA_-_552495.jpg/960px-COLLEGE_STUDENTS_WORK_WITH_ARCHAEOLOGISTS_AT_%22KOSTER_DIG%22_AN_ANCIENT_INDIAN_BURIAL_SITE_-_NARA_-_552495.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1973 in archaeology",
+            "Archaeological sites in Illinois",
+            "DOCUMERICA photographs by Arthur Greenberg",
+            "DOCUMERICA photographs of Illinois",
+            "June 1973 in Illinois",
+            "Pre-Columbian cultures of North America"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-EPA"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "cueva-de-las-manos",
+      "titel": "Händerna i Cueva de las Manos",
+      "start": -7299,
+      "plats": "Cueva de las Manos, Santa Cruz, Argentina",
+      "wikidata": "Q223385",
+      "kandidater": [
+        {
+          "fil": "File:SantaCruz-CuevaManos-P2210651b.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:SantaCruz-CuevaManos-P2210651b.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Mariano",
+          "datum": "2005-08-12",
+          "datum_original": "2005-08-12",
+          "datum_fil": "2024-10-25 04:12:24",
+          "kredit": "Own work",
+          "beskrivning": "Hands at the Cuevas de las Manos upon Río Pinturas , near the town of Perito Moreno in Santa Cruz Province , Argentina . Picture taken by me in 2005.",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/SantaCruz-CuevaManos-P2210651b.jpg/960px-SantaCruz-CuevaManos-P2210651b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cave paintings in Cueva de las Manos, Río Pinturas",
+            "Rock paintings of hands"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "flera licenser: Public domain, CC BY-SA 3.0, CC BY-SA 2.5",
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-old-100-expired}}, {{Self|GFDL}}, {{Self|Cc-by-sa-3.0-migrated}}, {{Self|cc-by-sa-2.5}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (Public domain och CC BY-SA 3.0 och CC BY-SA 2.5); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under Public domain.",
+            "risker": [],
+            "mallar": [
+              "PD-old-100-expired",
+              "Self|GFDL",
+              "Self|Cc-by-sa-3.0-migrated",
+              "Self|cc-by-sa-2.5"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "kopparkulturen-vid-stora-sjoarna",
+      "titel": "Kopparkulturen vid de stora sjöarna",
+      "start": -6499,
+      "plats": "Området kring de stora sjöarna, Nordamerika (punkten: Oconto, Wisconsin)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Atlas Van der Hagen-KW1049B11 075 14-Aangezicht op het pavilioen van Samson en het meer van- sijn Hoogheyt.jpeg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Atlas_Van_der_Hagen-KW1049B11_075_14-Aangezicht_op_het_pavilioen_van_Samson_en_het_meer_van-_sijn_Hoogheyt.jpeg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Romeyn de Hooghe / Nicolaes Visscher II",
+          "datum": "circa 1685 date QS:P571,+1685-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1685 date QS:P571,+1685-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2015-07-18 12:51:48",
+          "kredit": "This digital media file - and/or the physical objects depicted on it - originates from the digital and/or physical collections of the Koninklijke Bibliotheek , national library of the Netherlands.",
+          "beskrivning": "The print shows the complex of pleasure gardens of Enghien near Brussels. The plan is part of a series of prints commissioned by Nicolaes Visscher II (1649-1702) and engraved by Romeyn de Hooghe (1645-1708). De Hooghe has drawn his visitors on the crossroad of two lanes. Left is the Grote Alleé that leads to a great lake in the Parc dEnguien. Across the lake is the Pavilion of Samson. To the right the Maliebaan, the playing grounds, where people are playing the Kolfspel. At the far end of the Maliebaan is the Malie house, an inn for the players to relax.",
+          "bredd": 5500,
+          "hojd": 4509,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Atlas_Van_der_Hagen-KW1049B11_075_14-Aangezicht_op_het_pavilioen_van_Samson_en_het_meer_van-_sijn_Hoogheyt.jpeg/960px-Atlas_Van_der_Hagen-KW1049B11_075_14-Aangezicht_op_het_pavilioen_van_Samson_en_het_meer_van-_sijn_Hoogheyt.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Atlas van der Hagen",
+            "Atlas van der Hagen (Volume 2)",
+            "Jeu de mail in art",
+            "Parc d’Enghien in art",
+            "Prints by Romeyn de Hooghe",
+            "Prints published by Nicolaes Visscher II"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "mount-mazama-crater-lake",
+      "titel": "Mount Mazama exploderar och Crater Lake bildas",
+      "start": -5699,
+      "plats": "Crater Lake i Kaskadbergen, Oregon, USA",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Wizard Island, Crater Lake National Park, Oregon (219304137).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wizard_Island,_Crater_Lake_National_Park,_Oregon_(219304137).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Ken Lund from Reno, Nevada, USA",
+          "datum": "2006-08-18 11:19",
+          "datum_original": "2006-08-18 11:19",
+          "datum_fil": "2025-12-09 15:04:16",
+          "kredit": "Wizard Island, Crater Lake National Park, Oregon",
+          "beskrivning": "Wizard Island is a volcanic cinder cone which forms an island at the west end of Crater Lake in Crater Lake National Park, Oregon. The top of the island reaches 6,933 feet (2,113 m) above sea level, about 755 feet (230 m) above the average surface of the lake. The cone is capped by a volcanic crater about 500 feet (150 m) wide and 100 feet (30 m) deep. The crater was named the \"Witches Cauldron\" by Will G. Steel in 1885, who also gave Wizard Island its name at the same time. The land area of the island is 315.85 acres (127.82 ha). Wizard Island was created after Mount Mazama, a large stratovolcano, erupted violently approximately 7,700 years ago, forming its caldera which now contains Crater Lake. Following the cataclysmic caldera-forming eruption, which left a hole about 4,000 feet (1,200 m) deep where the mountain had once stood, a series of smaller eruptions over the next several hundred years formed several cinder cones on the caldera floor. The highest of these cones, the only one to rise above the current lake level, is Wizard Island, which rises over 2,700 feet (820 m) above the lowest point on the caldera floor and the deepest point in the lake. Another large cinder cone, Merriam Cone, is located in the northeast part of the lake. Although Merriam Cone rises about 1,400 feet (430 m) above the caldera floor, its summit is still 505 feet (154 m) below the average lake level. Its surface features and lack of a crater indicate that Merriam Cone formed under water. Current public access to Wizard Island is available only during the summer months when boat tours on Crater Lake are in operation. The tours depart from Cleetwood Cove at the north end of the lake, and circle the lake in the counterclockwise direction, stopping at a dock at Governors Bay on the south side of Wizard Island. Passengers on boat trips early in the day may choose to disembark on the island, but must be prepared to spend the entire day on the island if subsequent boats are too full to take on additional passengers. Those on late afternoon boat trips are not permitted to disembark. A final boat is dispatched at the end of each day to pick up any stragglers since overnight camping is not permitted on the island. Two hiking trails are available on Wizard Island, one of which switchbacks up the flanks of the cone and circles the crater on top while the other trail meanders from the dock towards the western end of the island. <a href=\" http://en.wikipedia.org/wiki/Wizard_Island \" rel=\"nofollow\">en.wikipedia.org/wiki/Wizard_Island</a> <a href=\" http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License \" rel=\"nofollow\">en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_...</a>",
+          "bredd": 1280,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Wizard_Island%2C_Crater_Lake_National_Park%2C_Oregon_%28219304137%29.jpg/960px-Wizard_Island%2C_Crater_Lake_National_Park%2C_Oregon_%28219304137%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Crater Lake"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Wizard Island, Crater Lake National Park, Oregon (219303587).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wizard_Island,_Crater_Lake_National_Park,_Oregon_(219303587).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Ken Lund from Reno, Nevada, USA",
+          "datum": "2006-08-18 11:12",
+          "datum_original": "2006-08-18 11:12",
+          "datum_fil": "2025-12-09 15:03:43",
+          "kredit": "Wizard Island, Crater Lake National Park, Oregon",
+          "beskrivning": "Wizard Island is a volcanic cinder cone which forms an island at the west end of Crater Lake in Crater Lake National Park, Oregon. The top of the island reaches 6,933 feet (2,113 m) above sea level, about 755 feet (230 m) above the average surface of the lake. The cone is capped by a volcanic crater about 500 feet (150 m) wide and 100 feet (30 m) deep. The crater was named the \"Witches Cauldron\" by Will G. Steel in 1885, who also gave Wizard Island its name at the same time. The land area of the island is 315.85 acres (127.82 ha). Wizard Island was created after Mount Mazama, a large stratovolcano, erupted violently approximately 7,700 years ago, forming its caldera which now contains Crater Lake. Following the cataclysmic caldera-forming eruption, which left a hole about 4,000 feet (1,200 m) deep where the mountain had once stood, a series of smaller eruptions over the next several hundred years formed several cinder cones on the caldera floor. The highest of these cones, the only one to rise above the current lake level, is Wizard Island, which rises over 2,700 feet (820 m) above the lowest point on the caldera floor and the deepest point in the lake. Another large cinder cone, Merriam Cone, is located in the northeast part of the lake. Although Merriam Cone rises about 1,400 feet (430 m) above the caldera floor, its summit is still 505 feet (154 m) below the average lake level. Its surface features and lack of a crater indicate that Merriam Cone formed under water. Current public access to Wizard Island is available only during the summer months when boat tours on Crater Lake are in operation. The tours depart from Cleetwood Cove at the north end of the lake, and circle the lake in the counterclockwise direction, stopping at a dock at Governors Bay on the south side of Wizard Island. Passengers on boat trips early in the day may choose to disembark on the island, but must be prepared to spend the entire day on the island if subsequent boats are too full to take on additional passengers. Those on late afternoon boat trips are not permitted to disembark. A final boat is dispatched at the end of each day to pick up any stragglers since overnight camping is not permitted on the island. Two hiking trails are available on Wizard Island, one of which switchbacks up the flanks of the cone and circles the crater on top while the other trail meanders from the dock towards the western end of the island. <a href=\" http://en.wikipedia.org/wiki/Wizard_Island \" rel=\"nofollow\">en.wikipedia.org/wiki/Wizard_Island</a> <a href=\" http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License \" rel=\"nofollow\">en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_...</a>",
+          "bredd": 1280,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Wizard_Island%2C_Crater_Lake_National_Park%2C_Oregon_%28219303587%29.jpg/960px-Wizard_Island%2C_Crater_Lake_National_Park%2C_Oregon_%28219303587%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Crater Lake"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Rhyodacite pumice fall deposit (Holocene; south of Grouse Hill, Crater Lake Caldera, Oregon, USA) 5.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Rhyodacite_pumice_fall_deposit_(Holocene;_south_of_Grouse_Hill,_Crater_Lake_Caldera,_Oregon,_USA)_5.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "James St. John",
+          "datum": "2012-08-04 16:43:50",
+          "datum_original": "2012-08-04 16:43:50",
+          "datum_fil": "2020-10-22 19:04:06",
+          "kredit": "https://www.flickr.com/photos/47445767@N05/42025584331/",
+          "beskrivning": "Rhyodacite pumice & volcanic ash in the Holocene of Orgeon, USA. Crater Lake is a large, deep, freshwater lake in the Cascade Range of America's Pacific Northwest. It formed about 7,700 years ago when an ancient volcano called Mt. Mazama had an enormous explosive ash eruption. The event involved an estimated 50 cubic kilometers of magma being erupted. This was followed by collapse of the mountain, leaving a large depression which later filled with water. Large holes or depressions formed when a volcano destroys itself or collapses are called calderas. Crater Lake Caldera in Oregon is a world-class example of this type of volcanic feature. Shown here is an unconsolidated volcanic deposit at the caldera rim. This material is a mix of rhyodacite ash and small pumice fragments deposited during an explosive eruption in the early Holocene. It may be from a pre-caldera forming eruption or the caldera-forming eruption itself (unit cp or unit rhp of Bacon, 2008) Locality: rim of Crater Lake Caldera, just south of Grouse Hill picnic area, Crater Lake National Park, southwestern Oregon, USA Reference cited: Bacon (2008) - Geologic map of Mount Mazama and Crater Lake Caldera, Oregon. United State Geological Survey Scientific Investigations Map 2832 [accompanying pamphlet].",
+          "bredd": 4288,
+          "hojd": 2848,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Rhyodacite_pumice_fall_deposit_%28Holocene%3B_south_of_Grouse_Hill%2C_Crater_Lake_Caldera%2C_Oregon%2C_USA%29_5.jpg/960px-Rhyodacite_pumice_fall_deposit_%28Holocene%3B_south_of_Grouse_Hill%2C_Crater_Lake_Caldera%2C_Oregon%2C_USA%29_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Grouse Hill (Mt. Mazama)",
+            "Holocene volcanism of Oregon",
+            "Pyroclastic rocks in Oregon",
+            "Rhyodacite pumice fall deposit (Holocene; south of Grouse Hill, Crater Lake Caldera, Oregon)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "san-agustins-statyer",
+      "titel": "Stenstatyerna i San Agustín",
+      "start": 5,
+      "plats": "San Agustín i departementet Huila, Colombia",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Parque Arqueológico de San Agustín-Mesita A 06.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Parque_Arqueol%C3%B3gico_de_San_Agust%C3%ADn-Mesita_A_06.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Bernard Gagnon",
+          "datum": "2020-01-18",
+          "datum_original": "2020-01-18",
+          "datum_fil": "2020-12-02 19:27:58",
+          "kredit": "Own work",
+          "beskrivning": "Statues in Mesita A in San Agustín Archaeological Park, Colombia",
+          "bredd": 4383,
+          "hojd": 2922,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Parque_Arqueol%C3%B3gico_de_San_Agust%C3%ADn-Mesita_A_06.jpg/960px-Parque_Arqueol%C3%B3gico_de_San_Agust%C3%ADn-Mesita_A_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Parque Arqueológico de San Agustín - Mesita A",
+            "Stone sculptures in Colombia"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 4.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-sa-4.0,3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 4.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 4.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-4.0,3.0,2.5,2.0,1.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:San Agustín Archaeological Park statue.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:San_Agust%C3%ADn_Archaeological_Park_statue.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Sascha Grabow www.saschagrabow.com",
+          "datum": "2009-12-30",
+          "datum_original": "2009-12-30",
+          "datum_fil": "2023-09-28 16:44:09",
+          "kredit": "Own work",
+          "beskrivning": "San Agustín Archaeological Park Statue",
+          "bredd": 800,
+          "hojd": 1007,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/0b/San_Agust%C3%ADn_Archaeological_Park_statue.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Parque Arqueológico de San Agustín",
+            "Stone sculptures in Colombia"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|cc-by-sa-3.0}}, {{self|GFDL}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0",
+              "self|GFDL"
+            ]
+          }
+        },
+        {
+          "fil": "File:Parque Arqueológico de San Agustín-Mesita A 04.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Parque_Arqueol%C3%B3gico_de_San_Agust%C3%ADn-Mesita_A_04.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Bernard Gagnon",
+          "datum": "2020-01-18",
+          "datum_original": "2020-01-18",
+          "datum_fil": "2020-12-02 19:24:28",
+          "kredit": "Own work",
+          "beskrivning": "Statue in Mesita A in San Agustín Archaeological Park, Colombia",
+          "bredd": 3177,
+          "hojd": 4765,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Parque_Arqueol%C3%B3gico_de_San_Agust%C3%ADn-Mesita_A_04.jpg/960px-Parque_Arqueol%C3%B3gico_de_San_Agust%C3%ADn-Mesita_A_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Parque Arqueológico de San Agustín - Mesita A",
+            "Stone sculptures in Colombia"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 4.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-sa-4.0,3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 4.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 4.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-4.0,3.0,2.5,2.0,1.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "moche-kulturen",
+      "titel": "Mochekulturen och Señor de Sipán",
+      "start": 100,
+      "plats": "Norra Perus kust, här Huaca Rajada vid Sipán (i dag Peru)",
+      "wikidata": "Q208188",
+      "kandidater": [
+        {
+          "fil": "File:Tomb of Lord of Sipán 05.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tomb_of_Lord_of_Sip%C3%A1n_05.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Bernard Gagnon",
+          "datum": "2014-11-24",
+          "datum_original": "2014-11-24",
+          "datum_fil": "2016-02-03 21:36:38",
+          "kredit": "Own work",
+          "beskrivning": "Skeleton of a sentry in the tomb of the Lord of Sipán, Huaca Rajada, Peru",
+          "bredd": 3470,
+          "hojd": 2425,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Tomb_of_Lord_of_Sip%C3%A1n_05.jpg/960px-Tomb_of_Lord_of_Sip%C3%A1n_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Royal tombs of Sipán"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-sa-3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-3.0,2.5,2.0,1.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Tomb of Lord of Sipán 03.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tomb_of_Lord_of_Sip%C3%A1n_03.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Bernard Gagnon",
+          "datum": "2014-11-24",
+          "datum_original": "2014-11-24",
+          "datum_fil": "2025-05-09 14:52:36",
+          "kredit": "Own work",
+          "beskrivning": "Skeleton of a guardian in the tomb of the Lord of Sipán, Huaca Rajada, Peru",
+          "bredd": 5184,
+          "hojd": 3456,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Tomb_of_Lord_of_Sip%C3%A1n_03.jpg/960px-Tomb_of_Lord_of_Sip%C3%A1n_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Royal tombs of Sipán"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-sa-3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-3.0,2.5,2.0,1.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Lord of Sipán tomb reconstruction. American Museum of Natural History.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lord_of_Sip%C3%A1n_tomb_reconstruction._American_Museum_of_Natural_History.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Vicpeters",
+          "datum": "2025-05-14",
+          "datum_original": "2025-05-14",
+          "datum_fil": "2025-05-17 22:03:39",
+          "kredit": "Own work",
+          "beskrivning": "\"Lord of Sipán\" tomb reconstruction. American Museum of Natural History",
+          "bredd": 4032,
+          "hojd": 3024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Lord_of_Sip%C3%A1n_tomb_reconstruction._American_Museum_of_Natural_History.jpg/960px-Lord_of_Sip%C3%A1n_tomb_reconstruction._American_Museum_of_Natural_History.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Hall of South American Peoples at American Museum of Natural History",
+            "May 2025 in Manhattan, New York City"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "befjadrade-ormens-tempel",
+      "titel": "Den befjädrade ormens tempel i Teotihuacan",
+      "start": 150,
+      "plats": "Teotihuacan, delstaten México, Mexiko",
+      "wikidata": "Q7698758",
+      "kandidater": [
+        {
+          "fil": "File:Teotihuacán, México, 2013-10-13, DD 80.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Teotihuac%C3%A1n,_M%C3%A9xico,_2013-10-13,_DD_80.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Diego Delso",
+          "datum": "2013-10-13 12:43:09",
+          "datum_original": "2013-10-13 12:43:09",
+          "datum_fil": "2019-09-28 12:53:15",
+          "kredit": "Own work",
+          "beskrivning": "La Ciudadela, Teotihuacán, Mexico",
+          "bredd": 5419,
+          "hojd": 2899,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Teotihuac%C3%A1n%2C_M%C3%A9xico%2C_2013-10-13%2C_DD_80.JPG/960px-Teotihuac%C3%A1n%2C_M%C3%A9xico%2C_2013-10-13%2C_DD_80.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2013 in Teotihuacán",
+            "Pirámide de la Serpiente Emplumada (Teotihuacán)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "glacier-peak-utbrott-omkring-200",
+      "titel": "Vulkanen Glacier Peak får ett utbrott",
+      "start": 150,
+      "plats": "Glacier Peak i Kaskadbergen, Washington, USA",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Glacier Peak (aerial view).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Glacier_Peak_(aerial_view).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "brewbooks",
+          "datum": "8 November 2006 (according to Exif data)",
+          "datum_original": "8 November 2006 (according to Exif data)",
+          "datum_fil": "2012-12-15 13:25:29",
+          "kredit": "https://www.flickr.com/photos/brewbooks/305426868/",
+          "beskrivning": "Glacier Peak is 3,213 meters (10,541 feet) stratovolcano, the 4th highest mountain in Washington (state); view from the south; Kodak Peak (1865 m, 6121 ft, bottom center); Indian Head Peak (2261 m, 7420 ft, right middle distance); White Mountain (2146 m, 7043 ft, left middle distance) \"Glacier Peak is the most remote of the five active volcanoes in Washington State. It is not prominently visible from any major population center, and so its attractions, as well as its hazards, tend to be over-looked. Yet since the end of the last ice age, Glacier Peak has produced some of the largest and most explosive eruptions in the state. During this time period, Glacier Peak has erupted multiple times during at least six separate episodes, most recently about 300 years ago. \" -- Mastin and Waitt, 2000",
+          "bredd": 2592,
+          "hojd": 1944,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Glacier_Peak_%28aerial_view%29.jpg/960px-Glacier_Peak_%28aerial_view%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aerial photographs of clouds",
+            "Aerial photographs of the Cascade Range in Washington (state)",
+            "Glacier Peak",
+            "Mountains with clouds",
+            "November 2006 in Washington (state)",
+            "Valued images of Washington (state)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Crater Peak vent of Mount Spurr.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Crater_Peak_vent_of_Mount_Spurr.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "R. McGimsey (U.S. Geological Survey)",
+          "datum": "1992-06-11",
+          "datum_original": "1992-06-11",
+          "datum_fil": "2008-02-04 20:25:37",
+          "kredit": "pubs.usgs.gov",
+          "beskrivning": "Alaska Volcano Observatory scientist (upper right) observing hydrothermal activity inside the Crater Peak vent of Mount Spurr volcano stands on a rampart of pyroclastic debris deposited during the 1953 eruption.",
+          "bredd": 1024,
+          "hojd": 698,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Crater_Peak_vent_of_Mount_Spurr.jpg/960px-Crater_Peak_vent_of_Mount_Spurr.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Crater glaciers",
+            "Crater walls (volcanism)",
+            "Mount Spurr 1992 eruptions",
+            "Rims of volcanic craters",
+            "Vents (volcanism)",
+            "Volcanic craters",
+            "Volcano monitoring in Alaska"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-USGS"
+            ]
+          }
+        },
+        {
+          "fil": "File:St Augustine Volcano, steaming peak of lava dome volcano, September 3, 1971 (GLACIERS 6804).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:St_Augustine_Volcano,_steaming_peak_of_lava_dome_volcano,_September_3,_1971_(GLACIERS_6804).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Austin Post",
+          "datum": "Taken on 3 September 1971",
+          "datum_original": "Taken on 3 September 1971",
+          "datum_fil": "2019-06-08 06:19:40",
+          "kredit": "Glaciers and Landforms Photograph Collection",
+          "beskrivning": "St. Augustine Volcano, steaming peak of lava dome volcano, September 3, 1971",
+          "bredd": 768,
+          "hojd": 745,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/0d/St_Augustine_Volcano%2C_steaming_peak_of_lava_dome_volcano%2C_September_3%2C_1971_%28GLACIERS_6804%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1971 eruptions of the Augustine Island Volcano",
+            "Glaciers in Alaska in September 1971",
+            "Photographs by Austin Post"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-USGS"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "torka-pa-yucatan-150-250",
+      "titel": "Svår torka på Yucatánhalvön",
+      "start": 150,
+      "plats": "Yucatánhalvön, Mexiko (punkten: Ría Lagartos, en av provplatserna)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:GOES-East Views Agricultural Fires in Yucatán Peninsula (49782370876).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:GOES-East_Views_Agricultural_Fires_in_Yucat%C3%A1n_Peninsula_(49782370876).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NOAA Satellites",
+          "datum": "2020-03-24 14:57",
+          "datum_original": "2020-03-24 14:57",
+          "datum_fil": "2020-12-05 19:47:55",
+          "kredit": "GOES-East Views Agricultural Fires in Yucatán Peninsula",
+          "beskrivning": "On March 24, 2020, the GOES-East satellite viewed the Yucatán Peninsula as prescribed fires peppered its northwestern coast. Its annual fire season, which lasts from March–May, is used to clear agricultural land and replenish the soil for industrial and subsistence farmers in the region. Occasionally, larger fires are started by trash burning or by accident, especially toward the end of the fire season when it’s drier. For planned agricultural fires, NOAA’s Storm Prediction Center (SPC) elaborates that they “must be finished in time for planting before the summer rainy season. Then, the ITCZ (or Inter-Tropical Convergence Zone) shifts northward from near the equator, and associated tropical waves help to increase thunderstorm occurrence.” However, a report from NOAA’s Climate Prediction Center (CPC) from the past 90 days has been sobering, with scientists measuring a rainfall deficit of two inches, compared to previous years. Moreover, there is evidence that the region has undergone significant climatic changes over the past millennium, with the collapse of the classic Mayan civilization--which originated in the Yucatán Peninsula--possibly tied to changing climate conditions that lead to widespread drought and crop failures, according to some climatologists. The GOES-East geostationary satellite, also known as GOES-16, keeps watch over most of North America, including the continental United States and Mexico, as well as Central and South America, the Caribbean, and the Atlantic Ocean to the west coast of Africa. The satellite's high-resolution imagery provides optimal viewing of severe weather events, including thunderstorms, tropical storms, and hurricanes. <a href=\" https://www.nesdis.noaa.gov/content/goes-east-views-agricultural-fires-yucatan-peninsula \" rel=\"noreferrer nofollow\">www.nesdis.noaa.gov/content/goes-east-views-agricultural-...</a>",
+          "bredd": 1920,
+          "hojd": 1080,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/GOES-East_Views_Agricultural_Fires_in_Yucat%C3%A1n_Peninsula_%2849782370876%29.jpg/960px-GOES-East_Views_Agricultural_Fires_in_Yucat%C3%A1n_Peninsula_%2849782370876%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-NOAA"
+            ]
+          }
+        },
+        {
+          "fil": "File:Fires in Mexico and Central America (14748).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Fires_in_Mexico_and_Central_America_(14748).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA image created by Jesse Allen, Earth Observatory, using data obtained from the MODIS Rapid Response team.",
+          "datum": "Taken on 19 April 2005",
+          "datum_original": "Taken on 19 April 2005",
+          "datum_fil": "2026-05-29 22:08:53",
+          "kredit": "This image or video was catalogued by Goddard Space Flight Center of the United States National Aeronautics and Space Administration (NASA) under Photo ID: 14748 .",
+          "beskrivning": "Fires continued to burn across southern Mexico, the Yucatan Peninsula, and northern Central America on April 19, 2005. The smoke extends out over the water in both directions: north into the Gulf of Mexico (top), and south over the Pacific Ocean (bottom right). Actively burning fires detected by the Moderate Resolution Imaging Spectroradiometer (MODIS) on NASA’s Aqua satellite have been marked in red. An especially intense cluster of fires is burning in northwestern Guatemala, right of image center. The country is suffering from a severe drought that makes normal agricultural burning practices dangerous. In addition, people who are fighting over land in the country set fire to forests as a form of protest or to degrade land in protected forest reserves so that the government will permit salvage logging. This combination of accidental and intentional fire is taking a huge toll on the country's remaining rainforest. NASA image created by Jesse Allen, Earth Observatory, using data obtained from the MODIS Rapid Response team.",
+          "bredd": 5200,
+          "hojd": 5200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Fires_in_Mexico_and_Central_America_%2814748%29.jpg/960px-Fires_in_Mexico_and_Central_America_%2814748%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2005 MODIS images",
+            "2005 in Central America",
+            "Fires in Mexico",
+            "NASA Earth Observatory in 2005",
+            "Photos by the Aqua (satellite) MODIS",
+            "Satellite pictures of 2005 wildfires"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "la-mojarra-stele-1",
+      "titel": "Stelen från La Mojarra med istmisk skrift",
+      "start": 156,
+      "plats": "La Mojarra vid floden Acula, Veracruz, Mexiko",
+      "wikidata": "Q2532833",
+      "kandidater": [
+        {
+          "fil": "File:Harvestermountainlord.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Harvestermountainlord.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "en:User:Maunus",
+          "datum": "0156",
+          "datum_original": "0156",
+          "datum_fil": "2018-04-09 12:16:10",
+          "kredit": "en:Image:Harvestermountainlord.jpg",
+          "beskrivning": "Photograph of left side of La mojarra Stela 1 at the Museum of Anthropology at Xalapa, Vera Cruz, Mexico.",
+          "bredd": 286,
+          "hojd": 473,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/8/80/Harvestermountainlord.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Stela 1 of La Mojarra"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-user-w"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "xitle-begraver-cuicuilco",
+      "titel": "Vulkanen Xitle begraver Cuicuilco",
+      "start": 245,
+      "plats": "Cuicuilco i Tlalpan, Mexico City (i dag Mexiko)",
+      "wikidata": "Q1143307",
+      "kandidater": [
+        {
+          "fil": "File:Pirámide de Cuicuilco al Sur del Distrito Federal.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Pir%C3%A1mide_de_Cuicuilco_al_Sur_del_Distrito_Federal.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Felipe huerta hdez",
+          "datum": "2010-02-14 13:43:51",
+          "datum_original": "2010-02-14 13:43:51",
+          "datum_fil": "2013-10-01 03:56:30",
+          "kredit": "Own work",
+          "beskrivning": "This is a photo of a monument in Mexico, identified by ID",
+          "bredd": 3777,
+          "hojd": 2528,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Pir%C3%A1mide_de_Cuicuilco_al_Sur_del_Distrito_Federal.jpg/960px-Pir%C3%A1mide_de_Cuicuilco_al_Sur_del_Distrito_Federal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cuicuilco"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "ilopango-utbrottet",
+      "titel": "Vulkanutbrottet i Ilopango",
+      "start": 431,
+      "plats": "Sjön Ilopango, El Salvador",
+      "wikidata": "Q105123270",
+      "kandidater": [
+        {
+          "fil": "File:Lake Ilopango Caldera.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lake_Ilopango_Caldera.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "KMTRAGER",
+          "datum": "2021-01-15",
+          "datum_original": "2021-01-15",
+          "datum_fil": "2021-01-15 14:00:32",
+          "kredit": "Own work",
+          "beskrivning": "The TBJ eruption created a 8 x 11 km large caldera filled with water known as Lake Ilopango",
+          "bredd": 1445,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Lake_Ilopango_Caldera.jpg/960px-Lake_Ilopango_Caldera.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aerial photographs of volcanoes in El Salvador",
+            "Ilopango Caldera",
+            "Tierra Blanca Joven eruption",
+            "Volcanoes in El Salvador"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Lake Ilopango, El Salvado (ASTER).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lake_Ilopango,_El_Salvado_(ASTER).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA/METI/AIST/Japan Space Systems, and U.S./Japan ASTER Science Team",
+          "datum": "Taken on 5 March 2006",
+          "datum_original": "Taken on 5 March 2006",
+          "datum_fil": "2023-06-25 11:36:15",
+          "kredit": "This image or video was catalogued by Jet Propulsion Laboratory of the United States National Aeronautics and Space Administration (NASA) under Photo ID: llopango .",
+          "beskrivning": "Lake Ilopango is a crater lake which fills a volcanic caldera in central El Salvador, immediately east of the capital city San Salvador. The caldera collapsed most recently in about 500 AD, producing 20 times as much ash as the Mount St. Helens eruption, and blanketing an area of at least 10,000 square kilometers waist-deep in ash. The only historical eruption occurred in 1879, forming lava domes, now islets in the lake. Quetzaltepec is the stratovolcano just west of the city. Its last eruption in 1917 produced lavas flowing down the northwest flank, and evaporated the crater lake. The image was acquired March 5, 2006, covers an area of 27 by 42 km, and is located at 13.7 degrees north, 89.1 degrees west.",
+          "bredd": 2855,
+          "hojd": 1538,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Lake_Ilopango%2C_El_Salvado_%28ASTER%29.jpg/960px-Lake_Ilopango%2C_El_Salvado_%28ASTER%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ilopango",
+            "Photos of North America by ASTER",
+            "Satellite pictures of El Salvador"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA"
+            ]
+          }
+        },
+        {
+          "fil": "File:Tierra Blanca Joven Ilopango eruption.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tierra_Blanca_Joven_Ilopango_eruption.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Tadam",
+          "datum": "2019-04-18",
+          "datum_original": "2019-04-18",
+          "datum_fil": "2019-04-18 09:37:59",
+          "kredit": "Own work",
+          "beskrivning": "Area of demographic collapse following the Ilopango eruption. based on file: Central american mountains.jpg and Figure 10.7 page 251 from \"Eruptions that Shook the World\" by Clive Oppenheimer, Cambridge University Press, 2011",
+          "bredd": 652,
+          "hojd": 600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Tierra_Blanca_Joven_Ilopango_eruption.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Maps of volcanic eruptions",
+            "Maps of volcanoes in El Salvador",
+            "Tierra Blanca Joven eruption"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "tainofolk-nar-bahamas",
+      "titel": "Kanotfärder till Bahamas",
+      "start": 500,
+      "plats": "Bahamas (punkten: Inagua, en av de föreslagna första anhalterna)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:The merchant vessel - a sailor boy's voyages around the world (1884) (14593118478).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_merchant_vessel_-_a_sailor_boy%27s_voyages_around_the_world_(1884)_(14593118478).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1884",
+          "datum_original": "1884",
+          "datum_fil": "2015-08-01 17:16:46",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14593118478/",
+          "beskrivning": "Identifier : merchantvesselsa1884nord ( find matches ) Title : The merchant vessel : a sailor boy's voyages around the world Year : 1884 ( 1880s ) Authors : Nordhoff, Charles, 1830-1901 LaPlante, Charles. egr Wyllie, W. L. (William Lionel), 1851-1931. ill Dodd, Mead & Company. pbl Subjects : Boys Conduct of life Voyages and travels Voyages around the world Merchant ships Seafaring life Sailing Slavery Publisher : New York : Dodd, Mead & Co. Contributing Library : Boston Public Library Digitizing Sponsor : Boston Public Library View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: the captain, and inquired, with an air of authority, of our ports of departure and destination, and hinted his desire to see the ships papers. You'd rather see some good rum, old fellow, said the skip-per rather irreverently, now, wouldn't you? The exhibition of a shining set of ivory, and an almost indefinite extension of white about the eyes, were sufficient evidences of the favor with which this remark was received. The appearance of the steward, with a junk-bottle of the article in question, caused the Deputy United States Consul to declare himself at our service for anything in his line, which proved to be a very short line, however, as it included only an abundance of fresh water and a few fresh fish. Accordingly, we lowered a boat, and placing in it a cask, pulled ashore, preceded by our friend, who, depositing his coat-tails carefully on a board provided for that purpose, sat in the bottom of his canoe and paddled to the beach. Here we found little but a wilderness ... Text Appearing After Image: Scene in the Bahamas. MOBILE BAY. 29 of tangled brush, in the midst of which was discernible- the residence of the Deputy United States Consul. His lady, possessing, perhaps, a yet scantier wardrobe than her liege lord, declined showing herself, even to the mate, who had expressed a strong desire to make her acquaintance. So we were obliged to fill our water-cask, uncheered, so said he, by the smiles of beauty, and returned on board, with rather a poor opinion of this one of Berry's Keys. Our Consul was monarch of all he surveyed, and told us that he had done duty there for the United States Government for fifteen years, making only a semi-annual trip to New Providence, to relieve the tedium of his rather monotonous life. Besides the fish and water before mentioned, we were fortunate enough to obtain a quantity of turtle eggs, that genuine West Indian luxury, which, however, I did not like, although cooked in the most approved style. I fancied a fishy taste about them, somewhat as though one had been cutting butter wit Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 2944,
+          "hojd": 1792,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/The_merchant_vessel_-_a_sailor_boy%27s_voyages_around_the_world_%281884%29_%2814593118478%29.jpg/960px-The_merchant_vessel_-_a_sailor_boy%27s_voyages_around_the_world_%281884%29_%2814593118478%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bahamas in the 1880s",
+            "The merchant vessel - a sailor boy's voyages around the world (1884)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "megafaunan-forsvinner-i-amerika",
+      "titel": "Megafaunan försvinner i Amerika",
+      "start": -11799,
+      "plats": "Nordamerika (markören vid La Brea i Los Angeles, där många av djuren har hittats)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "pumpan-tams-i-guila-naquitz",
+      "titel": "Pumpan tämjs i Guilá Naquitz",
+      "start": -8799,
+      "plats": "Guilá Naquitz-grottan nordväst om Mitla, Oaxaca, Mexiko",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "potatisen-tams",
+      "titel": "Potatisen tämjs i Anderna",
+      "start": -7999,
+      "plats": "Kring Titicacasjön, södra Peru och nordvästra Bolivia",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "obsidian-fran-oregon-under-huronsjon",
+      "titel": "Obsidian från Oregon under Huronsjön",
+      "start": -7049,
+      "plats": "Alpena–Amberley-ryggen på Huronsjöns botten, mellan Michigan och Ontario",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "majsen-tams-i-balsasdalen",
+      "titel": "Majsen tämjs i Mexiko",
+      "start": -6999,
+      "plats": "Xihuatoxtla nära Iguala, Balsasdalen, Mexiko",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "agassizsjon-toms",
+      "titel": "Agassizsjön töms och klimatet kyls",
+      "start": -6199,
+      "plats": "Agassizsjön i dagens Manitoba, Ontario, Minnesota och North Dakota, Nordamerika",
+      "wikidata": "Q1785837",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "windover-gravarna",
+      "titel": "Gravarna i Windover och omsorgen om en sjuk pojke",
+      "start": -6049,
+      "plats": "Windover nära Titusville, Florida, USA",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "indigo-i-huaca-prieta",
+      "titel": "Indigoblå bomull i Huaca Prieta",
+      "start": -4049,
+      "plats": "Huaca Prieta i Chicamadalen, La Libertad, Peru",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "la-tolita-storhetstid",
+      "titel": "Guld- och platinasmeder på La Tolita",
+      "start": 90,
+      "plats": "Ön La Tolita, provinsen Esmeraldas, Ecuador",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "el-mollekulturen",
+      "titel": "El Mollekulturen i norra Chile",
+      "start": 300,
+      "plats": "Tvärdalarna i Norte Chico, Chile (punkten: Elquiflodens mynning)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "nya-grodor-hos-hohokam",
+      "titel": "Hohokam får nya grödor genom handel",
+      "start": 300,
+      "plats": "Mellersta Gilafloden, Arizona (punkten: Snaketown i Hohokam Pima National Monument)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "havsytan-star-nastan-still-i-franska-polynesien",
+      "titel": "Havsytan står nästan still i Franska Polynesien",
+      "start": 350,
+      "plats": "Franska Polynesien, tolv öar i fyra ögrupper (punkten är Bora Bora, en av öarna i studien)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "copans-kungaatt-grundas",
+      "titel": "K'inich Yax K'uk' Mo' grundar Copáns kungaätt",
+      "start": 426,
+      "plats": "Copán i dagens Honduras",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "nazcas-puquios",
+      "titel": "Nazcas underjordiska vattenledningar (puquios)",
+      "start": 500,
+      "plats": "Akvedukterna i Cantalloc vid Nazca, Peru",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "tikals-nederlag-562",
+      "titel": "Caracol besegrar Tikal",
+      "start": 562,
+      "plats": "Tikal i Petén, norra Guatemala",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "wari-riket",
+      "titel": "Wari-riket i Anderna",
+      "start": 600,
+      "plats": "Huari i Ayacucho-regionen (i dag Peru)",
+      "wikidata": "Q923516",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "tidig-medeltid"
+    }
+  ]
+}

@@ -1,0 +1,1651 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "asien-9",
+  "datum": "2026-11-26",
+  "urval": "ids=32 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "iraks-invasion-av-iran",
+      "titel": "Irak invaderar Iran",
+      "start": 1980,
+      "plats": "Västra Iran, främst provinsen Khuzestan, längs gränsen mot Irak",
+      "wikidata": "Q5941438",
+      "kandidater": [
+        {
+          "fil": "File:Battle of khorramshahr 4.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Battle_of_khorramshahr_4.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kazem Akhavan",
+          "datum": "September or November 1980",
+          "datum_original": "September or November 1980",
+          "datum_fil": "2023-05-25 14:27:14",
+          "kredit": "http://tashohada.ir/fa/paper/00640",
+          "beskrivning": "Iranian soldiers fighting in the Battle of Khorramshahr .",
+          "bredd": 1080,
+          "hojd": 725,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Battle_of_khorramshahr_4.jpg/960px-Battle_of_khorramshahr_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "AKM in Iranian service",
+            "Battle of Khorramshahr",
+            "Casualty movement",
+            "Graffiti in Iran",
+            "Graffiti in the 1980s",
+            "Military men wearing boots",
+            "Military men wearing helmets",
+            "Military people of Iran in 1980",
+            "People with AKM",
+            "Photographs by Kazem Akhavan",
+            "Slogans in Iran",
+            "Soldiers of Iran"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Iran"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "iran-irak-kriget",
+      "titel": "Kriget mellan Iran och Irak",
+      "start": 1980,
+      "plats": "Iran, Irak och Persiska viken (började med Iraks invasion av västra Iran, bland annat Khuzestan)",
+      "wikidata": "Q82664",
+      "kandidater": [
+        {
+          "fil": "File:Iran-Iraq War Montage.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Iran-Iraq_War_Montage.png",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Uploader was gIre_3piCH2005 at fa.wikipedia",
+          "datum": "2009-12-22",
+          "datum_original": "2009-12-22",
+          "datum_fil": "2009-12-22 19:31:12",
+          "kredit": "Self-made, uses the following images (all public domain) Image:Chemical weapon1.jpg Image:Operation Nimble Archer DN-SC-88-01042.jpg Image:Iranian soldier.jpg Image:Saddam rumsfeld.jpg",
+          "beskrivning": "Montage of Iran-Iraq War",
+          "bredd": 380,
+          "hojd": 500,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/24/Iran-Iraq_War_Montage.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Iran-Iraq War",
+            "Montages of Iran",
+            "Montages of Iraq",
+            "Montages of war"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "flera licenser: CC BY-SA 3.0, Public domain",
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{cc-by-sa-3.0}}, {{GFDL}}, {{PD-Iran}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (CC BY-SA 3.0 och Public domain); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under Public domain.",
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-3.0",
+              "GFDL",
+              "PD-Iran"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "operation-ramadan",
+      "titel": "Iran går in i Irak: Operation Ramadan",
+      "start": 1982,
+      "plats": "Nordost om Basra, södra Irak",
+      "wikidata": "Q919834",
+      "kandidater": [
+        {
+          "fil": "File:Basra location.PNG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Basra_location.PNG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2018-01-24 00:41:04",
+          "datum_original": null,
+          "datum_fil": "2018-01-24 00:41:04",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 328,
+          "hojd": 351,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/34/Basra_location.PNG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "CIA World Factbook maps of Iraq",
+            "Maps of Basra"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-CIA-WF"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "svalten-i-etiopien-1983-1985",
+      "titel": "Svälten i Etiopien",
+      "start": 1983,
+      "plats": "Norra Etiopien, främst Tigray, Wollo och Eritrea",
+      "wikidata": "Q1637896",
+      "kandidater": [
+        {
+          "fil": "File:Opbushel.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Opbushel.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Talskiddy at English Wikipedia",
+          "datum": "3 November 2007 (original upload date)",
+          "datum_original": "3 November 2007 (original upload date)",
+          "datum_fil": "2009-10-08 23:56:03",
+          "kredit": "Transferred from en.wikipedia to Commons by Teratornis using CommonsHelper .",
+          "beskrivning": "Photo i took whilst serving with 47 Air Despatch Squadron RCT in Ethiopia in 1985. Talskiddy 19:46, 3 November 2007 (UTC)",
+          "bredd": 500,
+          "hojd": 336,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Opbushel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1983–1985 famine in Ethiopia",
+            "Airdropping from Lockheed C-130 Hercules",
+            "Humanitarian operations",
+            "XV300 (aircraft)"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 3.0",
+            "skal": [
+              "API:et säger \"CC BY 3.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "forsta-slaget-om-al-faw",
+      "titel": "Första slaget om al-Faw",
+      "start": 1986,
+      "plats": "Halvön al-Faw vid Shatt al-Arabs mynning, Irak",
+      "wikidata": "Q83002",
+      "kandidater": [
+        {
+          "fil": "File:Al-faw.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Al-faw.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "UNEP / ChrisO ( talk ) ( Uploads )",
+          "datum": "2013-07-24 00:11:33",
+          "datum_original": null,
+          "datum_fil": "2013-07-24 00:11:33",
+          "kredit": "based on UNEP satellite imagery",
+          "beskrivning": "Al-Faw peninsula , Iraq -",
+          "bredd": 495,
+          "hojd": 381,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Al-faw.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Al-Faw",
+            "Battle of Al Faw (2003)",
+            "Peninsulas of Iraq"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-user"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "halabja-1988",
+      "titel": "Gasattacken mot Halabja",
+      "start": 1988,
+      "plats": "Halabja, irakiska Kurdistan",
+      "wikidata": "Q579179",
+      "kandidater": [
+        {
+          "fil": "File:Family Graves for Victims of 1988 Chemical Attack - Halabja - Kurdistan - Iraq.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Family_Graves_for_Victims_of_1988_Chemical_Attack_-_Halabja_-_Kurdistan_-_Iraq.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Adam Jones, Ph.D.",
+          "datum": "2011-04-20 00:53:22",
+          "datum_original": "2011-04-20 00:53:22",
+          "datum_fil": "2012-10-19 11:57:55",
+          "kredit": "Own work",
+          "beskrivning": "Family Graves for Victims of 1988 Chemical Attack - Halabja - Kurdistan - Iraq",
+          "bredd": 3456,
+          "hojd": 2304,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Family_Graves_for_Victims_of_1988_Chemical_Attack_-_Halabja_-_Kurdistan_-_Iraq.jpg/960px-Family_Graves_for_Victims_of_1988_Chemical_Attack_-_Halabja_-_Kurdistan_-_Iraq.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Family graves of Halabja chemical attack victims",
+            "Graves in Iraq"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "vapenvilan-iran-irak-1988",
+      "titel": "Vapenvila enligt FN:s resolution 598",
+      "start": 1988,
+      "plats": "Gränsen mellan Iran och Irak (resolutionen antogs i FN:s säkerhetsråd i New York)",
+      "wikidata": "Q2359436",
+      "kandidater": [
+        {
+          "fil": "File:Iran-Iraq war-gallery.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Iran-Iraq_war-gallery.png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "2015-08-05",
+          "datum_original": "2015-08-05",
+          "datum_fil": "2017-05-29 08:06:23",
+          "kredit": "File:Children In iraq-iran war4.jpg File:Chemical weapon1.jpg File:USS Stark edit.jpg File:Mujahedin was killed in Operation Mersad by Pasdaran in Kermanshah.jpg File:Khorramshahr POWs crop.jpg File:Zu-23-2 IRAN-IRAQ WAR.JPG",
+          "beskrivning": "Child soldiers on Iranian front (top left); Iranian soldier wearing a gas mask (top right); Port quarter view of USS Stark listing to port after being mistakenly struck by an Iraqi warplane (middle left); PMOI forces killed in Operation Mersad (middle right); Iraqi prisoners of war after the re-capture of Khorramshahr by Iranians (below left); ZU-23-2 being used by the Iranian Army (below right).",
+          "bredd": 572,
+          "hojd": 642,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/24/Iran-Iraq_war-gallery.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Iran-Iraq War",
+            "Montages of war"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 4.0",
+            "skal": [
+              "flera licenser: CC BY-SA 3.0, CC BY-SA 4.0",
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{Self|GFDL}}, {{Self|GFDL|migration=relicense}}, {{self|cc-by-sa-4.0}}. Commons API (LicenseShortName): \"CC BY-SA 4.0\". Flera licenser anges (CC BY-SA 3.0 och CC BY-SA 4.0); bilden används under CC BY-SA 4.0. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under CC BY-SA 4.0.",
+            "risker": [],
+            "mallar": [
+              "Self|GFDL",
+              "Self|GFDL|migration=relicense",
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "himmelska-fridens-torg-1989",
+      "titel": "Protesterna och massakern på Himmelska fridens torg",
+      "start": 1989,
+      "plats": "Himmelska fridens torg, Peking, Kina",
+      "wikidata": "Q99717",
+      "kandidater": [
+        {
+          "fil": "File:蒲志強19890510.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%E8%92%B2%E5%BF%97%E5%BC%B719890510.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "蔡淑芳@sfchoi8964",
+          "datum": "1989-05-10",
+          "datum_original": "1989-05-10",
+          "datum_fil": "2013-08-15 06:16:32",
+          "kredit": "http://img.ly/Zr1",
+          "beskrivning": "​1989年5月10日浦志强在北京游行争取言论自由。（圖中為浦志强1989年5月10日在北京游行时所拍摄。） 來源： http://img.ly/Zr1 攝影師：蔡淑芳@sfchoi8964 版權持有: 蔡淑芳@sfchoi8964/Getty Images （1989年5月10日） 版权声明： https://twitter.com/sfchoi8964/status/18489368276",
+          "bredd": 550,
+          "hojd": 749,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/0d/%E8%92%B2%E5%BF%97%E5%BC%B719890510.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Banners and signs at demonstrations and protests in China",
+            "Chinese-language signage at demonstrations",
+            "Demonstrations and protests by students in 1989",
+            "Demonstrations and protests by students in China",
+            "May 1989 China photographs",
+            "Pu Zhiqiang",
+            "Tiananmen Square protests of 1989"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.5",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-by-2.5"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "irak-invaderar-kuwait",
+      "titel": "Irak invaderar Kuwait",
+      "start": 1990,
+      "plats": "Kuwait City och hela Kuwait",
+      "wikidata": "Q856650",
+      "kandidater": [
+        {
+          "fil": "File:An abandoned Iraqi Type 69 tank on the road into Kuwait City during the Gulf War.JPEG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:An_abandoned_Iraqi_Type_69_tank_on_the_road_into_Kuwait_City_during_the_Gulf_War.JPEG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "J.R. Roark, US Marines",
+          "datum": "1991-02-24",
+          "datum_original": "1991-02-24",
+          "datum_fil": "2010-04-11 15:48:20",
+          "kredit": "DM-ST-91-11600",
+          "beskrivning": "An abandoned Iraqi Type 69 main battle tank sits on the side on the road into Kuwait City during the ground phase of Operation Desert Storm.",
+          "bredd": 2790,
+          "hojd": 1850,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/An_abandoned_Iraqi_Type_69_tank_on_the_road_into_Kuwait_City_during_the_Gulf_War.JPEG/960px-An_abandoned_Iraqi_Type_69_tank_on_the_road_into_Kuwait_City_during_the_Gulf_War.JPEG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Iraqi Type 69 tanks during the Gulf War (1990–1991)"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military-Marines"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "luftkriget-mot-irak-1991",
+      "titel": "Koalitionen inleder luftkriget",
+      "start": 1991,
+      "plats": "Irak och Kuwait, bland annat Bagdad",
+      "wikidata": "Q8256467",
+      "kandidater": [
+        {
+          "fil": "File:USAF F-16A F-15C F-15E Desert Storm edit2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:USAF_F-16A_F-15C_F-15E_Desert_Storm_edit2.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "US Air Force",
+          "datum": "2007-12-05 01:17:43",
+          "datum_original": null,
+          "datum_fil": "2007-12-05 01:17:43",
+          "kredit": "Source",
+          "beskrivning": "USAF aircraft of the 4th Fighter Wing ( F-16 , F-15C and F-15E ) fly over Kuwaiti oil fires, set by the retreating Iraqi army during Operation Desert Storm in 1991. Almost the same as Image:USAF F-16A F-15C F-15E Desert Storm pic.jpg save for the size and tint",
+          "bredd": 2000,
+          "hojd": 1274,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/USAF_F-16A_F-15C_F-15E_Desert_Storm_edit2.jpg/960px-USAF_F-16A_F-15C_F-15E_Desert_Storm_edit2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aircraft formation flight of F-16A/B Fighting Falcon (United States Air Force)",
+            "F-15C/D Eagle in flight",
+            "F-15E Strike Eagle in flight",
+            "Kuwaiti oil fires",
+            "Mixed aircraft formation flight",
+            "United States Air Force in the Gulf War (1990–1991)"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military-Air Force"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "slaget-vid-73-easting",
+      "titel": "Slaget vid 73 Easting",
+      "start": 1991,
+      "plats": "Öknen i sydöstra Irak, väster om Kuwait",
+      "wikidata": "Q1402530",
+      "kandidater": [
+        {
+          "fil": "File:Type 69 Operation Desert Storm.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Type_69_Operation_Desert_Storm.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Uncertain (possibly Tom Johnson Nottingham, UK)",
+          "datum": "1991-02-28",
+          "datum_original": "1991-02-28",
+          "datum_fil": "2014-12-10 15:30:57",
+          "kredit": "Still Asset Details for DNST9207959",
+          "beskrivning": "An Iraqi Type 69 main battle tank burns after an attack by the 1st United Kingdom Armored Division during Operation Desert Storm.",
+          "bredd": 2200,
+          "hojd": 1272,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Type_69_Operation_Desert_Storm.jpg/960px-Type_69_Operation_Desert_Storm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Burning tanks",
+            "Destroyed tanks",
+            "Iraqi Type 69 tanks during the Gulf War (1990–1991)"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military-Navy"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "slaget-vid-khafji",
+      "titel": "Slaget vid Khafji",
+      "start": 1991,
+      "plats": "Khafji, östra Saudiarabien",
+      "wikidata": "Q718770",
+      "kandidater": [
+        {
+          "fil": "File:RemnantsofLAV25.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:RemnantsofLAV25.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Lt. Col. Charles H. Cureton\\",
+          "datum": "1991-01-29",
+          "datum_original": "1991-01-29",
+          "datum_fil": "2016-03-13 02:58:34",
+          "kredit": "U.S. Armed Forces",
+          "beskrivning": "Destroyed LAV-AT by friendly anti-tank missile during the Battle of Khafji . That vehicle was killed by a tow missle fired from another lav-at from its own platoon. They were from 1st lai bn from camp pendleton,CA. They were attached to delta Co. Of 3rd lai bn. From 29 palms, ca. On that night.",
+          "bredd": 1000,
+          "hojd": 442,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/RemnantsofLAV25.jpg/960px-RemnantsofLAV25.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Khafji",
+            "Coalition forces in the Gulf War (1990–1991)",
+            "Destroyed armored fighting vehicles",
+            "Gulf War",
+            "LAV-25",
+            "United States Marine Corps in the Gulf War (1990–1991)"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military-Navy"
+            ]
+          }
+        },
+        {
+          "fil": "File:Cleaning up Khafji.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cleaning_up_Khafji.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Captain Charles G. Grow",
+          "datum": "2010-06-02 11:43:36",
+          "datum_original": null,
+          "datum_fil": "2010-06-02 11:43:36",
+          "kredit": "Marine Corps Art Collection, Referenced in U.S. Marines in Battle: Al-Khafji, 28 January - 1 February 1991",
+          "beskrivning": "Marines of 3rd Battalion , search for Iraqi stragglers and examine damage following the Battle of Khafji .",
+          "bredd": 1029,
+          "hojd": 702,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Cleaning_up_Khafji.jpg/960px-Cleaning_up_Khafji.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "3d Bn 3d Mar 1991-2004",
+            "Battle of Khafji",
+            "United States Marine Corps in art",
+            "United States Marine Corps in the Gulf War (1990–1991)"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military-Marines"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "asienkrisen-1997",
+      "titel": "Asienkrisen börjar i Thailand",
+      "start": 1997,
+      "plats": "Thailand",
+      "wikidata": "Q80880",
+      "kandidater": [
+        {
+          "fil": "File:PIIGS Mk 4 map.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:PIIGS_Mk_4_map.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "The original uploader was Snow storm in Eastern Asia at English Wikipedia .",
+          "datum": "4 June 2010 (original upload date)",
+          "datum_original": "4 June 2010 (original upload date)",
+          "datum_fil": "2015-10-07 23:23:07",
+          "kredit": "Transferred from en.wikipedia to Commons by Oxyman using CommonsHelper .",
+          "beskrivning": "I modified a copy of the map 'File:Commonwealth games 1998 medal winners.PNG' by Commons user Roke . It replaces my map 'File:PIGS Mk 3 map.png' which became defective would not update, when I uploaded the updated image. I added Antarctica to it.-- Snow storm in Eastern Asia ( talk ) 15:03, 4 June 2010 (UTC) The map's time frame is from 1st January 2007 to 1st July 31 2010. Sorry about the length, I have globalized it. The price of Nickel boomed in the late 1990s, then the price of nickel imploded from around $51,000 /£36,700 per metric ton in the May of 2007 to about $11,550/£8,300 per metric ton in the January of 2009. Prices were only just starting to recover as of January 2010, but most of Australia's nickel mines had gone bankrupt by then. As the price for high grade nickel sulphate ore recovered in 2010, so did the Australian mining industry. By late 2010 both Iceland , the UK , the USA and Latvia are recovering after their major 2008 and 2009 banking failures and closures (Northern Rock, Icesave, Lehman Broths, etc). Belarus had a 20% overnight devaluation of the national currency on 2 January 2009. Germany and Egypt were going down with a heavy budget deficit on May 6th and February the 24th, 2010, respectively. The Czech Republic had a heavy budget deficit by 22-09-2009. The banking situation still remains unbalanced, and major banking breakdowns are now limited thanks to the guaranty of public funds in the USA. The Euro-zone is still to recover, but generally hasn't been affected by such profound banking failures, with the exception of Greece , Spain , Belgium and the UK . Slovakia gave money to their folding central bank on the 8th of December, 2009, and Norway ’s oil output fell in both 2009 and 2010. 40% of Bosnians were jobless in mid 2010. Concerning the European ' PIIGS ' countries shown on the map : Consecutively to the severe crisis in Greece , some speculation was made against other Euro-zone states, using the pejorative name of PIIGS (combination of the initials of Portugal, Italy, Ireland, Greece and Spain) to increase the fear and the feelings of messiness these countries may give to many investors who only have an incomplete knowledge of their economy. If Ireland is most definitely in a difficult situation, Italy has strictly no reason to be compared to Greece , with a deficit of less than a half of the Greek one. Although severely affected in terms of unemployment, Spain has already been through such situations in the past (most of the 80's and 90's) without any risk of bankruptcy , and it is important to remember the actual deficit comes after years of positive balance. Thanks to this, the debt refund (interest included) represent, today, less in percentage in the annual budget for 2010, than it did in any of the last fifteen years. Besides, the failing UK deserved more than any other to be associated with the failed state of Greece . But, apart from the questionable nicknames (may \"GUK\" sound less funny than \"PIIGS\"?), all this shows how much words and rumours can play important roles in a somewhat serious and full of severe consequences subject : world economy. In any case, UK is indeed not far from Greece in terms of public debt, and surely more exposed than some of the so called \"PIIGS\". In conclusion, ridiculous rumours (\"France out of the Euro\", \"Spain bankruptcy\") and scurrilous nicknames (PIIGS) obviously helped speculation against the Euro-zone, by increasing the panic induced by the quite real and serious Greek crisis. It is however important to remember that Greece represents for the European Union hardly much more than Oklahoma for the USA , while in America, much weightier states than Oklahoma , like California , are in very difficult situation too. In fact, this speculation against the Euro allowed a side effect : the purchase of huge amounts of US Dollars in a key moment of the crisis, giving at least some value to China's colossal reserves (almost exclusively in US Dollars ) and allowing the USA to benefit from more time ahead, to carry on going through this crisis, in hope of an eventual true recovery (independent of public stimulus), which is the only viable option for the world's biggest economy to overcome its abyssal financial depression. Since 2008, the \"PIIGS\" strategy is just one of different attempts : One of the most representative of the precedent rumours was in late 2008 and early 2009, about probable doom-like chain reactions in Eastern European countries, regarding local private banking failures (which, eventually, did not happen to be that bad)... Chile‘s economy shrank 4.5% in 2009 and Algeria’s gas exports fell b 3.9% in 2009 due to reduced demand in the EU . Drought has hit some parts of the Magreb and Iberia badly in 2009 and 2010. About 37.3 million (37,3000,000) Americans, or about 12.5% of the population, were living in poverty during 2007 according to timesofoman.com. Other sources put higher poverty rates up for Uzbekistan and Tadjikistan . The IMF gave a 3, 500,000,000 loan to Belarus on January the 3rd, 2009, according to www.thefreelibrary.com. Despite of all this some Arabian economies were doing well. The Oxford Business Group and the International Monetary Fund (I.M.F.) report on the 11th of June, 2009, that Bahrain should see an economic increase of 2.6 % in the fiscal year of 2009 to 2010. Oman’s tourist industry grew, but a dip in oil exports caused a brief recession by May 2009. Saudi Arabia , Quatar and Kuwait were also seeing limited positive economic growth during 2009 and 2010. Surprisingly, The Emirate of Dubai went temporarily bankrupt on the 24th of March, 2009. Abu Dhabi has also saw a heavy slip in real estate sales since 2008 and subsequently prices have also slipped slightly downwards in 2010. Inevitably the crisis has affected all countries in region some ways, but certain countries were vastly affected more than others. In Africa, between May 12th and 26th, both Mauritania , the Sénégal River Area and neighbouring parts of both Senegal and Mali faced both a drought and famine in 2010. Their economies were damaged by this to. The Johannesburg Stock Exchange fell by 31% in 2008. Mining authorities announced on the 10th of December, 2009, that the Dikulushi Mine , which is situated in the Democratic Republic of the Congo ’s Katanga Province , would close due to poor copper prices. In Central America Dollarization damages some states like El Salvador , Armenia had an increase of consumer prices by 20-30% on March 3rd, 2009. Azerbijan had budget surplus of 4.9% on May 13th, 2010. Thailand was planning to cut it’s budget deficit to 4% in 2011. They had a Bt400 billion deficit in January 28, 2010 and a Bt150 billion the fiscal year 0f 2008 (2009 was in keeping with the trend, but not specified). Deloitte say Canadian consumers are increasing their debt-to-disposable-income ratios to more than 130% on February 04, 2009 and Canada‘s budget deficits totalled C$85 billion ($69 billion) over five years as the result of a recession and a C$40 billion two-year stimulus package packed with infrastructure spending, tax cuts and targeted loans by January 27, 2009. Poland's general government deficit widened to 7.1 percent of gross domestic product 2009, but slightly narrower than the government's estimate. By 29 July, 2009, Brazil’s first-half nominal budget deficit index, including federal and local governments and state companies, widened to 43.7 billion Reais ($23 billion), the biggest gap since the modern records began in 2001. By the 18th January, 2010, Angola began to diversify it’s economy and on the 15th of May, 2010, Angolan entrepreneurial activity remained low. Haiti’s earthquake of 2010 had ruined the economy. In Singapore , the economy shrank by 2.1% in 2009, but may grow by 4.5% to 6.5% in 2010. By March, 2010, Vietnam had spent 1% of it’s GDP ($1billion) on subsidising the economy, but 5.32% growth seen likely by Vietnam for the whole of 2009. By the 13th of February, 2009, the Dutch economy shrank 0.9%. On the 6th of March, 2009, Indonesia’s government forecast a maximum 4 per cent growth as the recession devastated East Timor during March, 2009. Cuba entered a severe recession by December, 2008, and New Zealand was in recession by August, 2008. The Finnish central bank forecast, annual Finnish GDP to contract by 7.2% in 2009, remain unchanged in 2010 and grow 1.6% in 2011. Republic of Congo's real GDP rose by 8.30% in 2009. Mongolian bulk trading sales were increased 45.2% compared with the same period of last Year May 15, 2010. Kenyan tea and coffee exports fell by just under 50% in 2008, but recovered in 2009. Nigeria’s economy is sadly being corrupted and in need restructuring reforms. Mauritania’s economy is in need of restructuring reforms and fiscal discipline. Today, high oil revenues and a small population give Libya one of the highest GDPs per person in Africa and have allowed the Libyan state to provide an extensive level of social security, particularly in the fields of housing and education. Many problems still beset Libya's economy however; unemployment is the highest in the region at 21% according to the latest census figures. Pakistan would also receive a yearly loan from Japan worth $500 million from 2006 to 2011 to help develop I.T. usage. The name of the Central Bank of Nigeria has been used in a series of so-called 'Nigerian 419 Scams'. The fraudster sends an e-mail that appears to come from a Central Bank employee to millions of people saying the Bank has found an excess of money, or a debt owing to, a person or persons who have since died, and they wish to export it. The victim submits his own bank account so that the money may be placed therein, only to find that within a week his account is empty. The bank is in no way associated with such scams. Malian , Kirgizian and Burkina Faso organic cotton bucked the down turn in 2010, while Zimbabwe 's hyper inflation reached 25,000% in 2009. Taiwan was in recession as its economy contracted by a record 8.36%. by February 18, 2009. Most pacific islands were in a recession from 2008 to 2010. Economic Growth was expected to rise slightly in resource-rich Papua New Guinea, lifting the overall growth rate in the Pacific to 3.7 per cent from 2.4%. South Korea’s exports Slid 21.2% and the economy only grew by 0.1% between January and March 2009, when compared with the last quarter of 2008. Vietnam 's economy looked very shaky between 2009 and 2010 as a recession bit. The Ivory Coast ’s chocolate /cocoa bean exports were booming in 2010. The Asian Development Bank reports Vanuatu‘s would expand by 0.5 per cent this year after contracting an estimated 1.4 per cent last year.By measuring currency devaluation , equity market decline, and the rise in sovereign bond spreads, a picture of financial devastation emerges. Since these three indicators show financial weakness, taken together, they capture the impact of the crisis. The Carnegie Endowment for International Peace reports in its International Economics Bulletin that Ukraine and Hungary , as well as Argentina and Jamaica , are the countries most deeply affected by the crisis. Other severely affected countries are Ireland , Russia , Mexico , the Baltic states , United States and United Kingdom . By contrast, China , Japan , India , Iran , Peru and Australia are \"among the least affected\". Commodity, food, fuel and metal prices fluctuated heavily at this time with both the lead and Zinc prices rose sharply in early 2007, then collapsed to nearly their original starting price by the end of the next year. [ 1 ] Lead and Zink prices began to rise in early 2007 due to increased word wide demand. Prices were about $1,200 per tonne of lead in the October and then hurtled up to $2,220 per tonne of lead by September. Despite the Bullish market condition, the price had collapsed by the July of 2009 and was only worth about $1,400 per tonne of lead. The lead and Zinc markets became rather Bearish for several months afterwards. Prices were hovering at between $1,770 and $2,175 per tonne of lead [ 2 ] as the markets became more bullish after China 's car scrapage scheme had caused a general upturn in lead, zinc, cadmium and Aluminium prices. [ 3 ] By the June of 2010 prices stood at only $870 per tonne of lead bad back to about $2,200 in the July of 2010 [ 4 ] A Chinese mining company opened a new Tantalum mine in the DRC in early 2010. The blizzards of the winter of 2009-2010 caused heavy damage in Russia , China and Mongolia , which appeared to have posible long term consiquences. [ 5 ] [ 6 ] The Northern Hemisphere Summer heatwave 2010 affected the region's trade stats. New York City saw temperature as high as 35 °C in some areas and it was predicted to reach 38C the next day. A report released by the Wall Street Journal on July 7, saying that June saw retail sails rise over the American Independence Day holiday Father's Day , especially along the East Coast of America. [ 7 ] By July 3, retail sales had risen by 3.9% from the year-ago period and 1% over the previous week, according to the International Council of Shopping Centers , and Goldman Sachs and Johnson Redbook Research also showed a sales gain in the final week of June, citing the hot weather. Consumers hid from the heat in air-conditioned shopping malls and bought more goods than usual summer merchandise like ice cream , air conditioners , fans , swimwear , hats , sun screen , vest tops and pool and beach equipment were all selling like the proverbial hotcakes, whilst unusualy heavy monsoons hit other parts of the nation. The Chinese heat wave made commodities including sugar cane , flowers , tea , fruit , potatoes , rapeseed , medicinal ingredients , tobacco , wheat , rubber and coffee have been severely affected with output reduced by as much as 50%. Authorities began to fear unrest due to soaring food prices and sent more than 10,000 armed police to the affected regions to ensure stability and help with water supplies. One of the European heat waves left and overheating Morocco in early July, for the Iberian Peninsula was attributed to the regional hot air currents that depart from the Sahara desert in Northern Africa at about 1,000 meters in altitude , which facilitated a movement in the hot air towards the Balkans and the Ukraine via the Straits of Gibraltar , Spain and Italy . For the rest of the information and the key, then enlarge the image. -- Snow storm in Eastern Asia ( talk ) 02:38, 15 May 2010 (UTC)",
+          "bredd": 3180,
+          "hojd": 1485,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/PIIGS_Mk_4_map.png/960px-PIIGS_Mk_4_map.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2015 maps of the world",
+            "Disasters",
+            "Economic crises",
+            "Economic maps of the world",
+            "Economy in the 2000s",
+            "Epidemiology of hunger",
+            "Financial speculations",
+            "Macroeconomics",
+            "Next-best-action marketing",
+            "Price maps of the world",
+            "Response-rate ratio"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-by-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "bamiyan-buddhorna-forstors",
+      "titel": "Buddhastatyerna i Bamiyan förstörs",
+      "start": 2001,
+      "plats": "Bamiyandalen, Afghanistan",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:17- Buddha Salsal.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:17-_Buddha_Salsal.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "EFarid",
+          "datum": "2020-03-04 19:23:27",
+          "datum_original": "2020-03-04 19:23:27",
+          "datum_fil": "2021-10-08 04:02:42",
+          "kredit": "Own work",
+          "beskrivning": "At the beginning of the 7th century, Yaqut gave a detailed account of Bamyan and the great idols of Bamyan. One is called Bad Red and the other is called Bad Bad (Red Buddha and Gray Buddha) and is said to have no counterpart in the whole world. Qazvini also mentions the Golden House of Bamyan and two large Buddha statues. There is a lot of talk about making Buddha statues in Bamyan. Archaeologists say the building was probably built between 300 and 400 AD. Some say more accurately that the large statue of Buddha (53 meters) was built in the fifth century AD and the small statue in the second half of the third century AD, and the surrounding decorations, including the nests, were carved in the next century. But some archaeologists believe the Buddha statues were built around 800 BC. In the 18th and 19th centuries, most of Afghanistan's historical records of Buddhism in Bamiyan were destroyed by the sultans of the time.",
+          "bredd": 5184,
+          "hojd": 3456,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/17-_Buddha_Salsal.jpg/960px-17-_Buddha_Salsal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bamiyan Valley",
+            "Buddhas of Bamiyan",
+            "Uploaded via Campaign:WHindanger 2021 in Afghanistan"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Sunrise of Bamyan Valley.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sunrise_of_Bamyan_Valley.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Afghanistan Matters from Brunssum, Netherlands",
+          "datum": "2010-03-23 06:53",
+          "datum_original": "2010-03-23 06:53",
+          "datum_fil": "2011-01-08 22:28:39",
+          "kredit": "Sunrise of Bamyan Valley",
+          "beskrivning": "Bamyan Valley is home to the giant ancient Buddha statues, at least what is left of them after the Taliban destroyed them in 2001. They valley is stunning with a rich history, some of it very prosperous and powerful, other times tragic and violent (Ghengis Khan destroyed it in the 13th century).",
+          "bredd": 1600,
+          "hojd": 1063,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Sunrise_of_Bamyan_Valley.jpg/960px-Sunrise_of_Bamyan_Valley.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bamiyan Valley caves",
+            "Buddhas of Bamiyan"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:10- Buddha Salsal.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:10-_Buddha_Salsal.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "EFarid",
+          "datum": "2020-03-04 19:12:54",
+          "datum_original": "2020-03-04 19:12:54",
+          "datum_fil": "2021-10-08 04:02:25",
+          "kredit": "Own work",
+          "beskrivning": "In 1999, Mullah Omar ordered the protection of Buddhist statues in Bamyan, which were carved into a rock in the Hazarajat valley in the Bamyan Valley in the 6th century AD. But in March 2001, the statues were destroyed by the Taliban at the behest of Mullah Omar.",
+          "bredd": 5184,
+          "hojd": 3456,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/10-_Buddha_Salsal.jpg/960px-10-_Buddha_Salsal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Buddhas of Bamiyan",
+            "Uploaded via Campaign:WHindanger 2021 in Afghanistan"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "kriget-i-afghanistan-2001",
+      "titel": "Kriget i Afghanistan (2001–2021)",
+      "start": 2001,
+      "plats": "Afghanistan (började med flyganfall mot mål över hela landet)",
+      "wikidata": "Q182865",
+      "kandidater": [
+        {
+          "fil": "File:Collage of the War in Afghanistan (2001-2021).png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Collage_of_the_War_in_Afghanistan_(2001-2021).png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Original photographers: see sources Montage work: Weaveravel and OspreyPL",
+          "datum": "2021-08-24",
+          "datum_original": "2021-08-24",
+          "datum_fil": "2021-08-24 12:21:03",
+          "kredit": "This file was derived from: F-15E drops 2,000-pound munitions Afghanistan 2009.jpg : U.S. Army firefight in Kunar.jpg : Afghan soldiers train with airpower DVIDS247921.jpg : Defense.gov News Photo 110212-A-1782C-002 - U.S. and Afghan soldiers move through Kherwar district to prevent Taliban freedom of movement in Logar province Afghanistan on Feb.12 2011. The.jpg : Taliban Humvee in Kabul, August 2021.png : An Afghan National Army soldier surveys a valley for suspicious activity during an operation in Ghorband district, Parwan province, Afghanistan, Jan. 15, 2014 140115-A-CL980-187.jpg : Soldiers of Somme Company, 1st Lancs Board a Chinook in Afghanistan During Op Tor Shezada MOD 45151695.jpg : NOTE: In older revisions (see file history), the following images were used: File:M777 Howitzer Helmand April2007.JPEG , File:Operation Sond Chara 02.jpg , File:US special forces sangin.jpg",
+          "beskrivning": "Collage of the War in Afghanistan (2001–2021) , using 7 photographs, clockwise from top-left, plus central image: A U.S. Air Force F-15E Strike Eagle, from the 336th Expeditionary Fighter Squadron, drops 2,000-pound munitions on a cave in eastern Afghanistan. (November 26, 2009). U.S. Soldiers with 2nd Battalion, 327th Infantry Regiment, 101st Airborne Division return fire during a firefight with Taliban forces in Barawala Kalay Valley in Kunar province, Afghanistan. (March 31, 2011). An Afghan National Army soldier stands atop his Humvee providing security for fellow soldiers during training on a live fire range. (20 January, 2010). U.S. and Afghan soldiers move through Kherwar district to prevent Taliban freedom of movement in Logar province, Afghanistan. (12 February, 2011). Taliban fighters patrol Kabul streets in a Humvee. (17 August, 2021). An Afghan National Army soldier surveys a valley for suspicious activity during an operation in Ghorband district, Parwan province, Afghanistan. (15 January, 2014). Troops from Somme Company, the 1st Battalion the Duke of Lancaster's Regiment preparing to board an RAF Chinook during Operation Tor Shezada. (6 August, 2010).",
+          "bredd": 926,
+          "hojd": 920,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Collage_of_the_War_in_Afghanistan_%282001-2021%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Montages of the War in Afghanistan (2001–2021)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "slaget-vid-tora-bora",
+      "titel": "Slaget vid Tora Bora",
+      "start": 2001,
+      "plats": "Grottkomplexet Tora Bora i bergskedjan Safed Koh, Nangarhar, nära gränsen mot Pakistan",
+      "wikidata": "Q2237280",
+      "kandidater": [
+        {
+          "fil": "File:Tora Bora.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tora_Bora.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "FATA_(8).jpg : Hbtila at en.wikipedia derivative work: Victor falk at en.wikipedia",
+          "datum": "15 June 2007 (original upload date)",
+          "datum_original": "15 June 2007 (original upload date)",
+          "datum_fil": "2017-09-16 22:37:37",
+          "kredit": "FATA_(8).jpg Transferred from en.wikipedia to Commons. Based upon File:FATA (8).jpg .",
+          "beskrivning": "Tora Bora",
+          "bredd": 450,
+          "hojd": 605,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Tora_Bora.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Maps of the War in Afghanistan (2001–2021)",
+            "Tora Bora"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "smal",
+            "staende",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 3.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "operation-anaconda",
+      "titel": "Operation Anaconda",
+      "start": 2002,
+      "plats": "Shah-i-Kotdalen, provinsen Paktia",
+      "wikidata": "Q1476042",
+      "kandidater": [
+        {
+          "fil": "File:AnacondaAreaOfOperations.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:AnacondaAreaOfOperations.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S. Army",
+          "datum": "2006-03-17",
+          "datum_original": "2006-03-17",
+          "datum_fil": "2008-04-28 14:52:41",
+          "kredit": "U.S. Army brochure the United States Army in Afghanistan",
+          "beskrivning": "Strategic map for U.S. Army operation Anaconda. The area outlined in blue is the Shahi Kowt Valley, about one hundred miles south of Kabul, Afghanistan, near the Pakistani border.",
+          "bredd": 1354,
+          "hojd": 883,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/AnacondaAreaOfOperations.jpg/960px-AnacondaAreaOfOperations.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of the War in Afghanistan (2001–2021)",
+            "Operation Anaconda"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military-Army"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "bagdad-faller-2003",
+      "titel": "Bagdad faller",
+      "start": 2003,
+      "plats": "Bagdad",
+      "wikidata": "Q1804983",
+      "kandidater": [
+        {
+          "fil": "File:Marines in Saddams palace DM-SD-04-12222.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Marines_in_Saddams_palace_DM-SD-04-12222.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Lance Corporal Kevin C. Quihuis Jr. (USMC)Sgt.Luciano Carlucci (USMC)",
+          "datum": "2003-04-09",
+          "datum_original": "2003-04-09",
+          "datum_fil": "2006-07-23 22:54:15",
+          "kredit": "Defense Visual Information Center",
+          "beskrivning": "US Marines Corps (USMC) Marines from the 1st Battalion, 7th Marines (1/7), Charlie Company, Twentynine Palms, California (CA), cover each other with 5.56 mm M16A2 assault rifles as they prepare to enter one of Saddam Husseins palaces in Baghdad as they takeover the complex during Operation Iraqi Freedom .",
+          "bredd": 1720,
+          "hojd": 1160,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Marines_in_Saddams_palace_DM-SD-04-12222.jpg/960px-Marines_in_Saddams_palace_DM-SD-04-12222.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1st Battalion 7th Marines in the Iraq War",
+            "Al-Baqara 255",
+            "Baghdad in the Iraq War",
+            "Desert Camouflage Uniform in 2003",
+            "Desert MARPAT in 2003",
+            "M16 rifle with M203",
+            "Male people with M16 rifle",
+            "Male people with M203",
+            "Male soldiers",
+            "Men standing",
+            "Military people of the United States in 2003",
+            "PASGT in 2003"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military-Marines"
+            ]
+          }
+        },
+        {
+          "fil": "File:SaddamStatue.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:SaddamStatue.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown U.S. military or Department of Defense employee",
+          "datum": "2003-04-09",
+          "datum_original": "2003-04-09",
+          "datum_fil": "2024-02-14 19:03:28",
+          "kredit": "https://www.defense.gov/Multimedia/Photos/igphoto/2001082028/",
+          "beskrivning": "Statue of Saddam Hussein being toppled in Firdos Square after the US invasion of Iraq. Found on the US military website. CAPTION: The statue of Saddam Hussein topples in Baghdad's Firdos Square on April 9, 2003. Three years later, Iraqi forces increasingly are taking the lead in securing their country.",
+          "bredd": 1700,
+          "hojd": 1072,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/SaddamStatue.jpg/960px-SaddamStatue.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "17th of Ramadan Mosque",
+            "Cult of personality",
+            "Firdos Square statue destruction",
+            "Iconic photographs",
+            "Toppled statues"
+          ],
+          "smal": false,
+          "flaggor": [
+            "konstverk"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "saddam-hussein-tillfangatas",
+      "titel": "Saddam Hussein tillfångatas",
+      "start": 2003,
+      "plats": "En gård utanför ad-Dawr, söder om Tikrit",
+      "wikidata": "Q3780506",
+      "kandidater": [
+        {
+          "fil": "File:SaddamSpiderHole.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:SaddamSpiderHole.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "2003-12",
+          "datum_original": "2003-12",
+          "datum_fil": "2007-11-21 09:01:19",
+          "kredit": "US Army photo",
+          "beskrivning": "Iraqi-American, Samir, 34, pinning deposed Iraqi leader Saddam Hussein to the ground during his capture in Tikrit, on Saturday, December 13, 2003. Samir was the translator for the U.S. Special Forces that helped find Hussein and pull him from his hiding place on December 13, 2003. Samir later met with U.S. President Bush and thanked him for liberating Iraq.",
+          "bredd": 640,
+          "hojd": 480,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/c6/SaddamSpiderHole.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1st Special Forces Operational Detachment-Delta (Airborne)",
+            "Capture of Saddam Hussein",
+            "December 2003 in Iraq",
+            "December 2003 photographs",
+            "Desert Camouflage Uniform in 2003",
+            "Heads of state with military people",
+            "Iconic photographs",
+            "Saddam Hussein in 2003",
+            "Spider hole"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military-Army"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "andra-slaget-om-falluja",
+      "titel": "Andra slaget om Falluja",
+      "start": 2004,
+      "plats": "Falluja, provinsen Anbar",
+      "wikidata": "Q1330136",
+      "kandidater": [
+        {
+          "fil": "File:Fallujah 2004.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Fallujah_2004.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "CPL Joel A. Chaverri, United States Marine Corps",
+          "datum": "2004-11-10",
+          "datum_original": "2004-11-10",
+          "datum_fil": "2012-03-20 22:39:52",
+          "kredit": "Chaverri, LCPL Joel A.. 041110-M-BR739-011 . DefenseImagery.mil. Archived from the original on 2010-12-15 . Retrieved on 20 March 2012 .",
+          "beskrivning": "A confirmed insurgent stronghold goes up in smoke after a strategic aerial strike during combat operations while US Marine Corps (USMC) Marines, 1st Battalion (BN), 8th Marine Regiment (1/8), search for insurgents and weapon caches during a Security and Stabilization Operation (SASO) conducted as part of Operation AL FAJR , which is an offensive operation to eradicate enemy insurgents in Fallujah , Al Anbar Province, Iraq, during Operation IRAQI FREEDOM . (Released to Public)",
+          "bredd": 3000,
+          "hojd": 1996,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Fallujah_2004.JPG/960px-Fallujah_2004.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2004 airstrikes",
+            "Al Anbar campaign",
+            "Battle of Fallujah",
+            "Military operations in the Iraq War"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military-Marines"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "attentatet-mot-al-askarimosken",
+      "titel": "Attentatet mot al-Askarimoskén",
+      "start": 2006,
+      "plats": "Al-Askarimoskén i Samarra",
+      "wikidata": "Q2918175",
+      "kandidater": [
+        {
+          "fil": "File:Al Askari Mosque.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Al_Askari_Mosque.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Toushiro",
+          "datum": "before 2006 date QS:P,+2006-00-00T00:00:00Z/7,P1326,+2006-00-00T00:00:00Z/9",
+          "datum_original": "before 2006 date QS:P,+2006-00-00T00:00:00Z/7,P1326,+2006-00-00T00:00:00Z/9",
+          "datum_fil": "2008-10-13 20:05:49",
+          "kredit": "Own work",
+          "beskrivning": "Al Askari Mosque - Shrine of the 10th and 11th Shia Imams: Ali an-Naqi & Hasan al-Askari - Before the bombing in 2006, Samarra, Iraq.",
+          "bredd": 1401,
+          "hojd": 989,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Al_Askari_Mosque.jpg/960px-Al_Askari_Mosque.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Al-Askari Shrine in 2004",
+            "Golden dome of Al-Askari Shrine",
+            "Narjis"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "baijin-forklaras-funktionellt-utdod",
+      "titel": "Jangtsedelfinen baiji förklaras funktionellt utdöd",
+      "start": 2006,
+      "plats": "Jangtsefloden, Kina",
+      "wikidata": "Q188130",
+      "kandidater": [
+        {
+          "fil": "File:Baiji Dolphin killed by Charles Hoy 1914.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Baiji_Dolphin_killed_by_Charles_Hoy_1914.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Charles Hoy",
+          "datum": "1914-01-01",
+          "datum_original": "1914-01-01",
+          "datum_fil": "2020-02-22 22:20:15",
+          "kredit": "https://books.google.fr/books?id=tMUTAgAAQBAJ&pg=PA188&lpg=PA188&dq=baiji+shot+1914&source=bl&ots=vuYRzI7Slo&sig=ACfU3U2Cxfps6f3mt0L-bWsrHX1cNLFyqg&hl=fr&sa=X&ved=2ahUKEwjxuILZl-bnAhVIzoUKHXfRAAcQ6AEwC3oECAcQAQ#v=onepage&q=baiji%20shot%201914&f=false https://www.pinterest.fr/pin/313915036513329024/",
+          "beskrivning": "A Baiji Dolphin ( Lipotes vexillifer ) killed in 1914 by Charles Hoy, a American.",
+          "bredd": 1024,
+          "hojd": 614,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Baiji_Dolphin_killed_by_Charles_Hoy_1914.jpg/960px-Baiji_Dolphin_killed_by_Charles_Hoy_1914.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Lipotes vexillifer"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-1923"
+            ]
+          }
+        },
+        {
+          "fil": "File:Chinese Baiji dolphin specimen Qi Qi.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chinese_Baiji_dolphin_specimen_Qi_Qi.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Huangdan2060",
+          "datum": "2011-07-27 10:51:06",
+          "datum_original": "2011-07-27 10:51:06",
+          "datum_fil": "2020-02-23 03:51:46",
+          "kredit": "Own work",
+          "beskrivning": "Chinese Baiji dolphin specimen Qi Qi in the Institute of Hydrobiology, Chinese Academy of Sciences, on 27 July 2011.",
+          "bredd": 3000,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Chinese_Baiji_dolphin_specimen_Qi_Qi.jpg/960px-Chinese_Baiji_dolphin_specimen_Qi_Qi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Institute of Hydrobiology, Chinese Academy of Sciences",
+            "Lipotes vexillifer",
+            "Taxidermied Cetacea"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "operation-moshtarak",
+      "titel": "Operation Moshtarak i Marjah",
+      "start": 2010,
+      "plats": "Marjah, provinsen Helmand",
+      "wikidata": "Q843588",
+      "kandidater": [
+        {
+          "fil": "File:1st Battalion 3rd Marines near Marja.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1st_Battalion_3rd_Marines_near_Marja.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Sgt. Brian A. Tuthill",
+          "datum": "Taken on 9 February 2010",
+          "datum_original": "Taken on 9 February 2010",
+          "datum_fil": "2010-02-13 07:12:46",
+          "kredit": "http://www.marines.mil/unit/iimef/2ndmeb/_layouts/imagemeta.aspx?image=http://www.marines.mil/unit/iimef/2ndmeb/PublishingImages/NewsStoryImages/2010/100209-M-2934T-0224.jpg",
+          "beskrivning": "HELMAND PROVINCE, Islamic Republic of Afghanistan – A Marine with Weapons Platoon, Charlie Company, 1st Battalion, 3rd Marine Regiment, sprints down the line of heavy machine guns to deliver a map after a firefight with Taliban insurgents Feb. 9 at the “Five Points” intersection, a key junction of roads linking the northern area of the insurgent stronghold of Marjeh with the rest of Helmand province. Marines of Charlie Co. conducted a helicopter-borne assault earlier that morning to seize the area. (Official Marine Corps photo by Sgt. Brian A. Tuthill)",
+          "bredd": 3786,
+          "hojd": 2536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/1st_Battalion_3rd_Marines_near_Marja.jpg/960px-1st_Battalion_3rd_Marines_near_Marja.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1st Battalion, 3rd Marines in the War in Afghanistan (2001–14)",
+            "Browning M2 in USMC service",
+            "Marjah, Afghanistan",
+            "Operation Moshtarak",
+            "People with Browning M2"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military-Marines"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "sista-amerikanska-trupperna-lamnar-irak",
+      "titel": "De sista amerikanska trupperna lämnar Irak",
+      "start": 2011,
+      "plats": "Bagdad och gränsen mellan Irak och Kuwait",
+      "wikidata": "Q4118977",
+      "kandidater": [
+        {
+          "fil": "File:Last US convoy crosses into Kuwait.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Last_US_convoy_crosses_into_Kuwait.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S. Army",
+          "datum": "2011-12-18",
+          "datum_original": "2011-12-18",
+          "datum_fil": "2011-12-20 04:11:25",
+          "kredit": "http://www.defense.gov/PhotoEssays/PhotoEssaySS.aspx?ID=2585",
+          "beskrivning": "Kuwaiti soldiers look on as the last U.S. convoy crosses the border into Kuwait from Iraq, Dec. 18, 2011. U.S. Army photo by Cpl. Jordan Johnson.",
+          "bredd": 4037,
+          "hojd": 2691,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Last_US_convoy_crosses_into_Kuwait.jpg/960px-Last_US_convoy_crosses_into_Kuwait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Iraq War",
+            "Operation New Dawn"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "sista-amerikanska-trupperna-lamnar-afghanistan",
+      "titel": "De sista amerikanska soldaterna lämnar Afghanistan",
+      "start": 2021,
+      "plats": "Flygplatsen i Kabul (Hamid Karzai International Airport)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:First Sting.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:First_Sting.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Stuart Brown",
+          "datum": "2008",
+          "datum_original": "2008",
+          "datum_fil": "2018-04-30 16:10:33",
+          "kredit": "Central Intelligence Agency Official Web-site, CIA Museum Art Collection",
+          "beskrivning": "First Sting, Oil on Canvas. In 1979, the Soviets invaded Afghanistan to protect its new socialist puppet government. The US along with the vast majority of nations condemned this Soviet attempt to extend its colonial domination. The Mujahedin, Afghan rebels fighting Soviet occupation, were ill-equipped to defeat the far superior Soviet forces. Initially hoping to tie Moscow down in a prolonged war of attrition, the US provided the Mujahedin with only limited support. President Reagan championed the idea that if the Mujahedin forces actually defeated the Soviets in Afghanistan, the broader impact would be to stem future global communist aggression. By 1985, America’s attrition strategy gave way to a more aggressive approach intended to inflict a humiliating defeat on the Soviet Union. The most audacious move was a 1986 decision to supply the Mujahedin with heat-seeking, shoulder-launched Stinger antiaircraft missiles. These missiles turned the tide of the war by giving Afghan guerrillas the capability to destroy their most dreaded enemy weapon in the rugged Afghan battlefield—the Soviet Mi-24D helicopter gunship. The first three Stingers fired took down three gunships. Rebel morale soared overnight. Devastating Soviet losses mounted. A Soviet retreat was within sight. In 1988, President Gorbachev announced his intention to withdraw Soviet forces from Afghanistan. The last Soviet soldier left in February 1989. Foreign Minister Shevardnadze later lamented, “The decision to leave Afghanistan was the first and most difficult step. Everything else flowed from that.” This view implied that the Soviet defeat in Afghanistan led to the eventual fall of the Berlin Wall and collapse of the Soviet Union. First Sting depicts the turning point in the Afghan war with the first of many shoot-downs of Soviet helicopter gunships by Mujahedin fighters armed with Stinger missiles.",
+          "bredd": 1582,
+          "hojd": 1056,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/First_Sting.jpg/960px-First_Sting.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Afghan mujahideen",
+            "FIM-92 Stinger",
+            "Launches of MANPADS",
+            "Mil Mi-24 in Soviet service"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-CIA"
+            ]
+          }
+        },
+        {
+          "fil": "File:Last American Soldier leaves Afghanistan.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Last_American_Soldier_leaves_Afghanistan.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Master Sgt. Alexander Burnett, U.S. Central Command Public Affairs",
+          "datum": "2021-08-30 19:48",
+          "datum_original": "2021-08-30 19:48",
+          "datum_fil": "2021-08-31 00:42:14",
+          "kredit": "https://www.dvidshub.net/image/6810419/last-american-soldier-leaves-afghanistan",
+          "beskrivning": "Major General Chris Donahue, commander of the U.S. Army 82nd Airborne Division, XVIII Airborne Corps, boards a C-17 cargo plane at the Hamid Karzai International Airport in Kabul, Afghanistan. Maj. Gen. Donahue is the final American service member to depart Afghanistan; his departure closes the U.S. mission to evacuate American citizens, Afghan Special Immigrant Visa applicants, and vulnerable Afghans.",
+          "bredd": 1536,
+          "hojd": 1536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Last_American_Soldier_leaves_Afghanistan.jpg/960px-Last_American_Soldier_leaves_Afghanistan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Christopher T. Donahue",
+            "Iconic photographs",
+            "Jumpable Plate Carrier",
+            "Male humans walking",
+            "Male people with M4 carbine",
+            "Male people with helmets",
+            "Military people of the United States in 2021",
+            "Night vision photographs of people",
+            "Operation Allies Refuge in Afghanistan",
+            "XVIII Airborne Corps (United States)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-Military"
+            ]
+          }
+        },
+        {
+          "fil": "File:The last American Soldier to leave Afghanistan.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_last_American_Soldier_to_leave_Afghanistan.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Photo by Master Sgt. Alexander Burnett",
+          "datum": "2021-08-29 20:00:00",
+          "datum_original": "2021-08-29 20:00:00",
+          "datum_fil": "2021-09-02 05:43:05",
+          "kredit": "https://www.dvidshub.net/image/6811809/last-american-soldier-leave-afghanistan",
+          "beskrivning": "Paratroopers assigned to the 82nd Airborne Division prepare to board a U.S. Air Force C-17 on August 30th, 2021 at the Hamid Karzai International Airport. Maj. Gen. Donahue was the last American Soldier to leave Afghanistan ending the U.S. mission in Kabul. (U.S. Army photo by Master Sgt. Alexander Burnett, 82nd Airborne Public Affairs).",
+          "bredd": 1600,
+          "hojd": 1600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/The_last_American_Soldier_to_leave_Afghanistan.jpg/960px-The_last_American_Soldier_to_leave_Afghanistan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Operation Allies Refuge in Afghanistan"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "talibanerna-intar-kabul-2021",
+      "titel": "Talibanerna intar Kabul",
+      "start": 2021,
+      "plats": "Kabul",
+      "wikidata": "Q108102583",
+      "kandidater": [
+        {
+          "fil": "File:Crowds in front of Kabul International Airport.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Crowds_in_front_of_Kabul_International_Airport.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "VOA",
+          "datum": "Taken on 17 August 2021",
+          "datum_original": "Taken on 17 August 2021",
+          "datum_fil": "2021-09-01 09:12:30",
+          "kredit": "https://www.pashtovoa.com/a/kabul-on-second-day-of-taliban-takeover/6005567.html",
+          "beskrivning": "On the second day of the Taliban's rule in Kabul, the front of Hamid Karzai International Airport was crowded with people trying to travel abroad, but were stopped by Taliban militants.",
+          "bredd": 1024,
+          "hojd": 768,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Crowds_in_front_of_Kabul_International_Airport.jpg/960px-Crowds_in_front_of_Kabul_International_Airport.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Fall of Kabul",
+            "Kabul International Airport",
+            "Operation Allies Refuge in Afghanistan",
+            "Taliban militants"
+          ],
+          "smal": false,
+          "flaggor": [
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "Public domain",
+            "skal": [
+              "API:et säger \"Public domain\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "iranska-revolutionen",
+      "titel": "Iranska revolutionen",
+      "start": 1978,
+      "plats": "Iran (markören i Teheran)",
+      "wikidata": "Q126065",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "upproret-vid-panguna",
+      "titel": "Upproret vid Panguna börjar",
+      "start": 1988,
+      "plats": "Panguna-gruvan, Bougainville",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "panguna-gruvan-stangs",
+      "titel": "Panguna-gruvan stängs",
+      "start": 1989,
+      "plats": "Panguna-gruvan, Bougainville",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "vapenvila-i-gulfkriget",
+      "titel": "Vapenvila efter hundra timmar",
+      "start": 1991,
+      "plats": "Kuwait och södra Irak (vapenvilan gällde hela fronten)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "arawa-aterintas",
+      "titel": "Armén återtar Arawa",
+      "start": 1993,
+      "plats": "Arawa, Bougainville",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "folkomrostning-om-bougainvilles-sjalvstandighet",
+      "titel": "Bougainville röstar för självständighet",
+      "start": 2019,
+      "plats": "Bougainville, autonom region (Papua Nya Guinea)",
+      "wikidata": "Q42417787",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    }
+  ]
+}
