@@ -1,5 +1,5 @@
 {
-  "about": "Människans spridning (#1094, del 3 av #11): antagna områden (kind area) och vågor (kind wave) i förhistorien, som tolkningar av källorna och aldrig som gränser eller vägar (beslutet på #1095, 2026-11-13). Ett område ritas som ett mjukt hölje med radien radiusKm runt sina platser (places); en våg ritas längs sina grenar (paths). En plats är en händelse ({ event }, samma koordinat som händelsens markör) eller en punkt ur Wikidata ({ coord: [lon, lat], wikidata, name }). År med astronomisk årsräkning, X tusen år sedan = 2001 − 1000 · X, som för händelserna i data/handelser/fkr.json. certainty: tolkning (antaget område), hypotes, huvudvag, mojlig eller omstridd. js/layers/spread.js ritar lagret.",
+  "about": "Människans spridning (#1094, del 3 av #11): antagna områden (kind area) och vågor (kind wave) i förhistorien, som tolkningar av källorna och aldrig som gränser eller vägar (beslutet på #1095, 2026-11-13). Ett område ritas som ett mjukt hölje med radien radiusKm runt sina platser (places, eller delar i parts, där en del kan vara { radiusKm, places } med egen radie, #1593); en våg ritas längs sina grenar (paths). En plats är en händelse ({ event }, samma koordinat som händelsens markör) eller en punkt ur Wikidata ({ coord: [lon, lat], wikidata, name }). År med astronomisk årsräkning, X tusen år sedan = 2001 − 1000 · X, som för händelserna i data/handelser/fkr.json. certainty: tolkning (antaget område), hypotes, huvudvag, mojlig eller omstridd. js/layers/spread.js ritar lagret.",
   "colors": {
     "sapiens": "#e9c46a",
     "neandertalare": "#8fc1a9",
@@ -726,14 +726,64 @@
             "event": "xianrendong-keramik"
           },
           {
-            "coord": [
-              114,
-              -1
-            ],
-            "wikidata": "Q36117",
-            "name": "Borneo"
+            "event": "tam-pa-ling"
           }
-        ]
+        ],
+        {
+          "radiusKm": 440,
+          "places": [
+            {
+              "coord": [
+                115.8714,
+                39.6578
+              ],
+              "wikidata": "Q2431206",
+              "name": "Tianyuan Cave"
+            },
+            {
+              "coord": [
+                114,
+                -1
+              ],
+              "wikidata": "Q36117",
+              "name": "Borneo"
+            }
+          ]
+        },
+        {
+          "radiusKm": 330,
+          "places": [
+            {
+              "coord": [
+                114,
+                -1
+              ],
+              "wikidata": "Q36117",
+              "name": "Borneo"
+            },
+            {
+              "coord": [
+                117.981,
+                9.27988
+              ],
+              "wikidata": "Q477329",
+              "name": "Tabon Caves"
+            }
+          ]
+        },
+        {
+          "radiusKm": 435,
+          "places": [
+            {
+              "coord": [
+                117.981,
+                9.27988
+              ],
+              "wikidata": "Q477329",
+              "name": "Tabon Caves"
+            }
+          ]
+        }
       ],
       "title": {
         "sv": "Homo sapiens i Asien",
@@ -743,11 +793,18 @@
         "fr": "Homo sapiens en Asie"
       },
       "summary": {
-        "sv": "Från cirka 45 000 år sedan fanns Homo sapiens på många håll i Asien. Spår finns bland annat i Denisovagrottan i Altaj (från minst 45 000 år sedan och igen för cirka 25 000–20 000 år sedan), i Tianyuangrottan i Kina (en människa som levde för cirka 40 000 år sedan), i Dhaba i Indien (små stenredskap från cirka 48 000 år sedan, och allt färre efter cirka 37 000 år sedan), i grottan Fa-Hien Lena på Sri Lanka (redskap från cirka 48 000–45 000 till 4 000 år sedan), på Timor (från cirka 44 000 år sedan) och i Xianrendong i södra Kina (keramik från 20 000–19 000 år sedan). Havet stod lägre än i dag, och mycket av det som nu är hav mellan Sydostasiens öar var land, kontinenten Sunda. Ytan följer kusten och inlandsisen i modellen bakom lagret Istidens kust, för närmaste modellsteg; grundkartans kust är dagens. Ytan är ritad runt fyndplatser och regioner, visar inte var människor saknades och är ingen gräns.",
-        "en": "From about 45,000 years ago, Homo sapiens lived in many parts of Asia. Traces have been found at Denisova Cave in the Altai (from at least 45,000 years ago and again about 25,000–20,000 years ago), at Tianyuan Cave in China (a person who lived about 40,000 years ago), at Dhaba in India (small stone tools from about 48,000 years ago, becoming much rarer after about 37,000 years ago), at Fa-Hien Lena Cave in Sri Lanka (tools from about 48,000–45,000 to 4,000 years ago), on Timor (from about 44,000 years ago) and at Xianrendong in southern China (pottery from 20,000–19,000 years ago), among other places. The sea was lower than today, and much of what is now sea between the islands of Southeast Asia was land, the continent of Sunda. The area follows the coastline and ice sheets of the model behind the Ice-age coastline layer, for the nearest model step; the base map’s coast is today’s. The area is drawn around find sites and regions, does not show where people were absent and is not a border.",
-        "de": "Ab etwa vor 45.000 Jahren lebte Homo sapiens in vielen Teilen Asiens. Spuren gibt es unter anderem in der Denisova-Höhle im Altai (ab mindestens vor 45.000 Jahren und erneut vor etwa 25.000–20.000 Jahren), in der Tianyuan-Höhle in China (ein Mensch, der vor etwa 40.000 Jahren lebte), in Dhaba in Indien (kleine Steinwerkzeuge ab etwa vor 48.000 Jahren, nach etwa vor 37.000 Jahren viel seltener), in der Höhle Fa-Hien Lena auf Sri Lanka (Werkzeuge von vor etwa 48.000–45.000 bis 4.000 Jahren), auf Timor (ab etwa vor 44.000 Jahren) und in Xianrendong in Südchina (Keramik von vor 20.000–19.000 Jahren). Der Meeresspiegel lag tiefer als heute, und vieles, was heute Meer zwischen den Inseln Südostasiens ist, war Land, der Kontinent Sunda. Die Fläche folgt der Küste und den Eisschilden des Modells hinter der Ebene Eiszeitliche Küste, für den nächsten Modellschritt; die Küste der Grundkarte ist die heutige. Die Fläche ist um Fundorte und Regionen gezeichnet, zeigt nicht, wo keine Menschen lebten, und ist keine Grenze.",
-        "es": "Desde hace unos 45 000 años, Homo sapiens vivía en muchas partes de Asia. Hay rastros, entre otros lugares, en la cueva de Denisova, en el Altái (desde hace al menos 45 000 años y de nuevo hace entre 25 000 y 20 000 años), en la cueva de Tianyuan, en China (una persona que vivió hace unos 40 000 años), en Dhaba, en la India (pequeñas herramientas de piedra desde hace unos 48 000 años, mucho más escasas a partir de hace unos 37 000 años), en la cueva de Fa-Hien Lena, en Sri Lanka (herramientas desde hace unos 48 000–45 000 años hasta hace unos 4000 años), en Timor (desde hace unos 44 000 años) y en Xianrendong, en el sur de China (cerámica de hace entre 20 000 y 19 000 años). El nivel del mar era más bajo que hoy, y gran parte de lo que ahora es mar entre las islas del Sudeste Asiático era tierra, el continente de Sunda. El área sigue la costa y los mantos de hielo del modelo de la capa Costa de la era glacial, para el paso del modelo más cercano; la costa del mapa base es la actual. El área está dibujada alrededor de yacimientos y regiones, no indica dónde no había personas y no es una frontera.",
-        "fr": "À partir d’il y a environ 45 000 ans, Homo sapiens vivait dans de nombreuses régions d’Asie. On en a trouvé des traces notamment dans la grotte de Denisova, dans l’Altaï (depuis au moins 45 000 ans et de nouveau il y a environ 25 000 à 20 000 ans), dans la grotte de Tianyuan, en Chine (une personne qui a vécu il y a environ 40 000 ans), à Dhaba, en Inde (petits outils en pierre depuis environ 48 000 ans, beaucoup plus rares après environ 37 000 ans), dans la grotte de Fa-Hien Lena, au Sri Lanka (outils datant d’il y a environ 48 000–45 000 ans à 4 000 ans), à Timor (depuis environ 44 000 ans) et à Xianrendong, dans le sud de la Chine (céramique datant d’il y a 20 000 à 19 000 ans). Le niveau de la mer était plus bas qu’aujourd’hui, et une grande partie de ce qui est aujourd’hui la mer entre les îles d’Asie du Sud-Est était émergée : le continent de Sunda. La zone suit la côte et les inlandsis du modèle de la couche Côte de l’ère glaciaire, pour l’étape du modèle la plus proche ; la côte du fond de carte est celle d’aujourd’hui. La zone est tracée autour de sites de découverte et de régions, n’indique pas où il n’y avait personne et n’est pas une frontière."
+        "sv": "Från cirka 45 000 år sedan fanns Homo sapiens på många håll i Asien. Spår finns bland annat i Denisovagrottan i Altaj (från minst 45 000 år sedan och igen för cirka 25 000–20 000 år sedan), i Tianyuangrottan i Kina (en människa som levde för cirka 40 000 år sedan), i Dhaba i Indien (små stenredskap från cirka 48 000 år sedan, och allt färre efter cirka 37 000 år sedan), i grottan Fa-Hien Lena på Sri Lanka (redskap från cirka 48 000–45 000 till 4 000 år sedan), på Timor (från cirka 44 000 år sedan), i Tabongrottan på Palawan i Filippinerna (stenredskap daterade till cirka 39 000–33 000 år före nutid) och i Xianrendong i södra Kina (keramik från 20 000–19 000 år sedan). Havet stod lägre än i dag, och mycket av det som nu är hav mellan Sydostasiens öar var land, kontinenten Sunda. Ytan följer kusten och inlandsisen i modellen bakom lagret Istidens kust, för närmaste modellsteg; grundkartans kust är dagens. Ytan är ritad runt fyndplatser och regioner, visar inte var människor saknades och är ingen gräns.",
+        "en": "From about 45,000 years ago, Homo sapiens lived in many parts of Asia. Traces have been found at Denisova Cave in the Altai (from at least 45,000 years ago and again about 25,000–20,000 years ago), at Tianyuan Cave in China (a person who lived about 40,000 years ago), at Dhaba in India (small stone tools from about 48,000 years ago, becoming much rarer after about 37,000 years ago), at Fa-Hien Lena Cave in Sri Lanka (tools from about 48,000–45,000 to 4,000 years ago), on Timor (from about 44,000 years ago), at Tabon Cave on Palawan in the Philippines (stone tools dated to about 39,000–33,000 years before present) and at Xianrendong in southern China (pottery from 20,000–19,000 years ago), among other places. The sea was lower than today, and much of what is now sea between the islands of Southeast Asia was land, the continent of Sunda. The area follows the coastline and ice sheets of the model behind the Ice-age coastline layer, for the nearest model step; the base map’s coast is today’s. The area is drawn around find sites and regions, does not show where people were absent and is not a border.",
+        "de": "Ab etwa vor 45.000 Jahren lebte Homo sapiens in vielen Teilen Asiens. Spuren gibt es unter anderem in der Denisova-Höhle im Altai (ab mindestens vor 45.000 Jahren und erneut vor etwa 25.000–20.000 Jahren), in der Tianyuan-Höhle in China (ein Mensch, der vor etwa 40.000 Jahren lebte), in Dhaba in Indien (kleine Steinwerkzeuge ab etwa vor 48.000 Jahren, nach etwa vor 37.000 Jahren viel seltener), in der Höhle Fa-Hien Lena auf Sri Lanka (Werkzeuge von vor etwa 48.000–45.000 bis 4.000 Jahren), auf Timor (ab etwa vor 44.000 Jahren), in der Tabon-Höhle auf Palawan auf den Philippinen (Steinwerkzeuge, datiert auf etwa 39.000–33.000 Jahre vor heute) und in Xianrendong in Südchina (Keramik von vor 20.000–19.000 Jahren). Der Meeresspiegel lag tiefer als heute, und vieles, was heute Meer zwischen den Inseln Südostasiens ist, war Land, der Kontinent Sunda. Die Fläche folgt der Küste und den Eisschilden des Modells hinter der Ebene Eiszeitliche Küste, für den nächsten Modellschritt; die Küste der Grundkarte ist die heutige. Die Fläche ist um Fundorte und Regionen gezeichnet, zeigt nicht, wo keine Menschen lebten, und ist keine Grenze.",
+        "es": "Desde hace unos 45 000 años, Homo sapiens vivía en muchas partes de Asia. Hay rastros, entre otros lugares, en la cueva de Denisova, en el Altái (desde hace al menos 45 000 años y de nuevo hace entre 25 000 y 20 000 años), en la cueva de Tianyuan, en China (una persona que vivió hace unos 40 000 años), en Dhaba, en la India (pequeñas herramientas de piedra desde hace unos 48 000 años, mucho más escasas a partir de hace unos 37 000 años), en la cueva de Fa-Hien Lena, en Sri Lanka (herramientas desde hace unos 48 000–45 000 años hasta hace unos 4000 años), en Timor (desde hace unos 44 000 años), en la cueva de Tabon, en Palawan, Filipinas (herramientas de piedra datadas entre unos 39 000 y 33 000 años antes del presente) y en Xianrendong, en el sur de China (cerámica de hace entre 20 000 y 19 000 años). El nivel del mar era más bajo que hoy, y gran parte de lo que ahora es mar entre las islas del Sudeste Asiático era tierra, el continente de Sunda. El área sigue la costa y los mantos de hielo del modelo de la capa Costa de la era glacial, para el paso del modelo más cercano; la costa del mapa base es la actual. El área está dibujada alrededor de yacimientos y regiones, no indica dónde no había personas y no es una frontera.",
+        "fr": "À partir d’il y a environ 45 000 ans, Homo sapiens vivait dans de nombreuses régions d’Asie. On en a trouvé des traces notamment dans la grotte de Denisova, dans l’Altaï (depuis au moins 45 000 ans et de nouveau il y a environ 25 000 à 20 000 ans), dans la grotte de Tianyuan, en Chine (une personne qui a vécu il y a environ 40 000 ans), à Dhaba, en Inde (petits outils en pierre depuis environ 48 000 ans, beaucoup plus rares après environ 37 000 ans), dans la grotte de Fa-Hien Lena, au Sri Lanka (outils datant d’il y a environ 48 000–45 000 ans à 4 000 ans), à Timor (depuis environ 44 000 ans), dans la grotte de Tabon, sur l’île de Palawan aux Philippines (outils de pierre datés d’environ 39 000 à 33 000 ans avant le présent) et à Xianrendong, dans le sud de la Chine (céramique datant d’il y a 20 000 à 19 000 ans). Le niveau de la mer était plus bas qu’aujourd’hui, et une grande partie de ce qui est aujourd’hui la mer entre les îles d’Asie du Sud-Est était émergée : le continent de Sunda. La zone suit la côte et les inlandsis du modèle de la couche Côte de l’ère glaciaire, pour l’étape du modèle la plus proche ; la côte du fond de carte est celle d’aujourd’hui. La zone est tracée autour de sites de découverte et de régions, n’indique pas où il n’y avait personne et n’est pas une frontière."
+      },
+      "note": {
+        "sv": "Tabongrottan på Palawan: studien från 2023 visar bruksspår på tre stenredskap och anger att redskapen är daterade med kol-14 till 39 000–33 000 år före nutid (BP), utan att säga om åren är kalibrerade. Att grottan har några av de tidigaste fynden av Homo sapiens i regionen stöder studien på hänvisningar till äldre arbeten. Källorna skiljer sig: Wikipedia nämner människofossil från 47 000 år sedan, Tabonmannen från 22 000–24 000 år sedan och att grottan var bebodd nästan utan avbrott för 30 000–9 000 år sedan. Studien nämner också, med hänvisning till andra arbeten, ett benredskap för fiske från före 30 000 år före nutid i Bubog I på Mindoro, men utan att ange art. Ytan når inte Mindoro, Luzon, Visayas eller Taiwan, eftersom vi inte har öppnat de källorna eller någon annan om Homo sapiens där under den här tiden, och området mellan Tianyuan, Xianrendong och Tam Pà Ling är en tolkning utan egen källa. Det betyder inte att människor saknades där.",
+        "en": "Tabon Cave on Palawan: the 2023 study shows use-wear on three stone tools and states that the tools are radiocarbon-dated to 39,000–33,000 years before present (BP), without saying whether the years are calibrated. For the cave having some of the earliest Homo sapiens finds in the region, the study refers to earlier work. The sources differ: Wikipedia mentions human fossils from 47,000 years ago, the Tabon Man from 22,000–24,000 years ago and almost continuous habitation 30,000–9,000 years ago. Citing other work, the study also mentions a bone fishing gorge from before 30,000 years before present at Bubog I on Mindoro, but without naming the species. The area does not reach Mindoro, Luzon, the Visayas or Taiwan, because we have not opened those sources or any other on Homo sapiens there in this period, and the area between Tianyuan, Xianrendong and Tam Pà Ling is an interpretation without a source of its own. That does not mean people were absent.",
+        "de": "Tabon-Höhle auf Palawan: Die Studie von 2023 zeigt Gebrauchsspuren an drei Steinwerkzeugen und gibt an, dass die Werkzeuge mit der Radiokarbonmethode auf 39.000–33.000 Jahre vor heute (BP) datiert sind, ohne zu sagen, ob die Jahre kalibriert sind. Dass die Höhle einige der frühesten Funde von Homo sapiens in der Region enthält, belegt die Studie mit Verweisen auf ältere Arbeiten. Die Quellen weichen voneinander ab: Wikipedia nennt Menschenfossilien von vor 47.000 Jahren, den Tabon-Menschen von vor 22.000–24.000 Jahren und eine fast ununterbrochene Besiedlung vor 30.000–9.000 Jahren. Die Studie nennt außerdem, mit Verweis auf andere Arbeiten, ein Angelgerät aus Knochen, älter als 30.000 Jahre vor heute, in Bubog I auf Mindoro, ohne die Art anzugeben. Die Fläche reicht nicht bis Mindoro, Luzon, zu den Visayas oder nach Taiwan, weil wir weder diese Quellen noch eine andere über Homo sapiens dort in dieser Zeit geöffnet haben, und das Gebiet zwischen Tianyuan, Xianrendong und Tam Pà Ling ist eine Deutung ohne eigene Quelle. Das bedeutet nicht, dass dort keine Menschen lebten.",
+        "es": "Cueva de Tabon, en Palawan: el estudio de 2023 muestra huellas de uso en tres herramientas de piedra e indica que las herramientas están datadas por radiocarbono entre 39 000 y 33 000 años antes del presente (BP), sin decir si los años están calibrados. Para afirmar que la cueva tiene algunos de los hallazgos más antiguos de Homo sapiens de la región, el estudio remite a trabajos anteriores. Las fuentes no coinciden: Wikipedia menciona fósiles humanos de hace 47 000 años, el Hombre de Tabon, de hace entre 22 000 y 24 000 años, y una ocupación casi continua hace entre 30 000 y 9000 años. Citando otros trabajos, el estudio menciona también un anzuelo de hueso de antes de 30 000 años antes del presente en Bubog I, en Mindoro, pero sin indicar la especie. El área no llega a Mindoro, Luzón, las Bisayas ni Taiwán, porque no hemos consultado esas fuentes ni ninguna otra sobre Homo sapiens allí en este periodo, y la zona entre Tianyuan, Xianrendong y Tam Pà Ling es una interpretación sin fuente propia. Eso no significa que no hubiera personas.",
+        "fr": "Grotte de Tabon, sur l’île de Palawan : l’étude de 2023 montre des traces d’usure sur trois outils de pierre et indique que ces outils sont datés au carbone 14 de 39 000 à 33 000 ans avant le présent (BP), sans préciser si les années sont calibrées. Pour affirmer que la grotte a livré certains des plus anciens restes d’Homo sapiens de la région, l’étude renvoie à des travaux antérieurs. Les sources divergent : Wikipédia mentionne des fossiles humains d’il y a 47 000 ans, l’homme de Tabon, d’il y a 22 000 à 24 000 ans, et une occupation presque continue il y a 30 000 à 9000 ans. En citant d’autres travaux, l’étude mentionne aussi un hameçon en os antérieur à 30 000 ans avant le présent à Bubog I, sur l’île de Mindoro, sans préciser l’espèce. La zone n’atteint ni Mindoro, ni Luçon, ni les Visayas, ni Taïwan, car nous n’avons consulté ni ces sources ni aucune autre sur Homo sapiens dans ces régions à cette époque, et la zone entre Tianyuan, Xianrendong et Tam Pà Ling est une interprétation sans source propre. Cela ne signifie pas qu’il n’y avait personne."
       },
       "sources": [
         "jacobs-2025-denisova-chronology",
@@ -757,7 +814,10 @@
         "shipton-2024-timor",
         "wu-2012-xianrendong",
         "freidline-2023-tam-pa-ling",
-        "gandini-2025-sahul"
+        "gandini-2025-sahul",
+        "xhauflair-2023-tabon",
+        "wd-tabon-caves",
+        "wp-tabon-caves"
       ],
       "review": "source-checked"
     },
