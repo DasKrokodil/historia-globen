@@ -1,0 +1,20 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:Ice Age Human Footprints (a45c5031-d519-43f0-8d64-7b81d653c3ff).JPG	white-sands-fotspar
+# File:Monte Verde 3.JPG	monte-verde
+# File:Clovis spear point, British Museum.jpg	clovis-kulturen
+# File:1772 Vaugondy and Diderot Map of the Pacific Northwest and the Northwest Passage - Geographicus - DeFonteAutres-vaugondy-1772.jpg	havet-bryter-igenom-vid-berings-sund
+# File:Lapa do Santo - Overview mais esqueleto para apresentar.jpg	lapa-do-santo-begravningar
+# File:COLLEGE STUDENTS WORK WITH ARCHAEOLOGISTS AT "KOSTER DIG" AN ANCIENT INDIAN BURIAL SITE - NARA - 552495.jpg	koster-hundgravar
+# File:SantaCruz-CuevaManos-P2210651b.jpg	cueva-de-las-manos
+# File:Atlas Van der Hagen-KW1049B11 075 14-Aangezicht op het pavilioen van Samson en het meer van- sijn Hoogheyt.jpeg	kopparkulturen-vid-stora-sjoarna
+# File:Wizard Island, Crater Lake National Park, Oregon (219304137).jpg	mount-mazama-crater-lake
+# File:Parque Arqueológico de San Agustín-Mesita A 06.jpg	san-agustins-statyer
+# File:Tomb of Lord of Sipán 05.jpg	moche-kulturen
+# File:Teotihuacán, México, 2013-10-13, DD 80.JPG	befjadrade-ormens-tempel
+# File:Glacier Peak (aerial view).jpg	glacier-peak-utbrott-omkring-200
+# File:GOES-East Views Agricultural Fires in Yucatán Peninsula (49782370876).jpg	torka-pa-yucatan-150-250
+# File:Harvestermountainlord.jpg	la-mojarra-stele-1
+# File:Pirámide de Cuicuilco al Sur del Distrito Federal.jpg	xitle-begraver-cuicuilco
+# File:Lake Ilopango Caldera.jpg	ilopango-utbrottet
+# File:The merchant vessel - a sailor boy's voyages around the world (1884) (14593118478).jpg	tainofolk-nar-bahamas

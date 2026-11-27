@@ -1,0 +1,1609 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "europa-2",
+  "datum": "2026-11-26",
+  "urval": "ids=35 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "ganggriften-i-rossberga",
+      "titel": "Gånggriften i Rössberga",
+      "start": -3499,
+      "plats": "Rössberga, cirka 10 km söder om Falköping, Västergötland, Sverige",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Rössberga 1, den 9 april 2006.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:R%C3%B6ssberga_1,_den_9_april_2006.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Harri Blomberg",
+          "datum": "Taken on 9 April 2006",
+          "datum_original": "Taken on 9 April 2006",
+          "datum_fil": "2006-04-12 22:17:35",
+          "kredit": "Own work",
+          "beskrivning": "En gånggrift i Rössberga i Falköpings kommun. Denna stenåldersgrav undersöktes 1962. Minst 128 individer begravdes där utifrån skelettfynden, men det var troligen fler. Det var ingen större skillnad i antal mellan män och kvinnor och alla åldrar hittades representerade. Den stora runda stenen på bilden kallas för nyckelsten och höll upp själva gravkammarens takhäll(ar), tidigare trodde man att den var själva nyckeln till själva konstruktionen, att stenen var i centrum och höll upp hela byggnaden.",
+          "bredd": 2048,
+          "hojd": 1536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/R%C3%B6ssberga_1%2C_den_9_april_2006.JPG/960px-R%C3%B6ssberga_1%2C_den_9_april_2006.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "April 2006 in Västra Götaland County",
+            "Kambrosilurområdet",
+            "Passage graves in Falköping Municipality",
+            "Valtorps socken"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{GFDL}}, {{GFDL|migration=relicense}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "GFDL",
+              "GFDL|migration=relicense"
+            ]
+          }
+        },
+        {
+          "fil": "File:Rössberga - KMB - 16000300034169.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:R%C3%B6ssberga_-_KMB_-_16000300034169.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "Bengt A. Lundberg",
+          "datum": "26 April 2002",
+          "datum_original": "26 April 2002",
+          "datum_fil": "2017-06-09 14:17:10",
+          "kredit": "Bengt A Lundberg / Kulturmiljöbild, Riksantikvarieämbetet This file was provided to Wikimedia Commons by the Swedish National Heritage Board as part of the cooperation project Connected Open Heritage with Wikimedia Sverige . This file was made available by Riksantikvarieämbetet as part of the Connected Open Heritage project. The project is led by Wikimedia Sverige in cooperation with UNESCO, Wikimedia Italia and Cultural Heritage without Borders and is financed by a project grant from the Culture Foundation of the Swedish Postcode Lottery .",
+          "beskrivning": "Notera Av dokumentationsskäl har originalbeskrivningen från Riksantikvarieämbetet behållits. Tillrättalägganden och alternativa beskrivningar bör införas separat från nedanstående information. Felaktigheter kan även anmälas till denna sida . Gånggrift. Rössberga Valtorp 2:1 Motiv: Rössberga Nyckelord: Riksintressen Kategori: Stenkammargrav",
+          "bredd": 768,
+          "hojd": 512,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/7f/R%C3%B6ssberga_-_KMB_-_16000300034169.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Kambrosilurområdet",
+            "Passage graves in Falköping Municipality",
+            "Photographs by Bengt A. Lundberg"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.5",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "CC-BY-2.5"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "kon-som-opererades-i-champ-durand",
+      "titel": "En ko med ett hål i skallen i Champ-Durand",
+      "start": -3399,
+      "plats": "Den befästa boplatsen Champ-Durand i Vendée, Frankrike",
+      "wikidata": "Q22963151",
+      "kandidater": [
+        {
+          "fil": "File:Nieul-autise champ-durand 07.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Nieul-autise_champ-durand_07.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Liberliger",
+          "datum": "2018-10-19 15:47:28",
+          "datum_original": "2018-10-19 15:47:28",
+          "datum_fil": "2018-10-20 18:57:07",
+          "kredit": "Own work",
+          "beskrivning": "Enceinte préhistorique de Champ Durand à Nieul-sur-l'Autise (85).",
+          "bredd": 6093,
+          "hojd": 2877,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Nieul-autise_champ-durand_07.jpg/960px-Nieul-autise_champ-durand_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Enceinte préhistorique de Champ Durand"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "skara-brae",
+      "titel": "Stenbyn Skara Brae",
+      "start": -3179,
+      "plats": "Skara Brae vid Bay of Skaill, Orkney, Skottland",
+      "wikidata": "Q816437",
+      "kandidater": [
+        {
+          "fil": "File:Orkney Skara Brae.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Orkney_Skara_Brae.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Dr. John F. Burka",
+          "datum": "2002-08-24",
+          "datum_original": "2002-08-24",
+          "datum_fil": "2006-01-14 21:19:44",
+          "kredit": "http://john.gallery.whitelands.com/photos/Scotland/large3165 Transfered from http://en.wikipedia.org/wiki/Image:Jfb_skara_brae.jpg",
+          "beskrivning": "Neolithic excavations at Skara Brae on Orkney in Scotland .",
+          "bredd": 800,
+          "hojd": 533,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/31/Orkney_Skara_Brae.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Skara Brae"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{GFDL-user}}, {{GFDL-user|migration=relicense}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "GFDL-user",
+              "GFDL-user|migration=relicense"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "meteoritkratrarna-i-morasko",
+      "titel": "Meteoritkratrarna i Morasko",
+      "start": -3050,
+      "plats": "Morasko i norra Poznań, Polen",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Morasko krater zima.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Morasko_krater_zima.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": null,
+          "datum": "2005-05-26 18:23:40",
+          "datum_original": null,
+          "datum_fil": "2005-05-26 18:23:40",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 1280,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Morasko_krater_zima.jpg/960px-Morasko_krater_zima.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Morasko meteorite",
+            "Nature reserve Meteoryt Morasko"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{GFDL}}, {{GFDL|migration=relicense}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "GFDL",
+              "GFDL|migration=relicense"
+            ]
+          }
+        },
+        {
+          "fil": "File:Morasko krater C.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Morasko_krater_C.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Szczureq",
+          "datum": "2014-06-06 14:45",
+          "datum_original": "2014-06-06 14:45",
+          "datum_fil": "2014-07-28 12:28:22",
+          "kredit": "Own work",
+          "beskrivning": "Impact crater in Morasko filled with water. It is the third crater in diameter in group.",
+          "bredd": 3972,
+          "hojd": 1495,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Morasko_krater_C.jpg/960px-Morasko_krater_C.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Nature reserve Meteoryt Morasko"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Morasko Natural Reserve, COVID19 maseczka.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Morasko_Natural_Reserve,_COVID19_maseczka.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "MOs810",
+          "datum": "2020-04-25 16:44:50",
+          "datum_original": "2020-04-25 16:44:50",
+          "datum_fil": "2020-04-28 19:55:03",
+          "kredit": "Own work",
+          "beskrivning": "Porzucona maseczka COVID-19 w Wielkopolskim Parku Narodowym.",
+          "bredd": 3088,
+          "hojd": 2414,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Morasko_Natural_Reserve%2C_COVID19_maseczka.jpg/960px-Morasko_Natural_Reserve%2C_COVID19_maseczka.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "April 2020 in Poznań",
+            "COVID-19 pandemic in Poznań",
+            "Littering of personal protective equipment during the COVID-19 pandemic",
+            "Nature reserve Meteoryt Morasko",
+            "Used disposable surgical masks during the COVID-19 pandemic",
+            "Waste",
+            "Waste in Poland"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "elfenbensdamen-i-valencina",
+      "titel": "Elfenbensdamen i Valencina",
+      "start": -2899,
+      "plats": "Valencina de la Concepción nära Sevilla, Spanien (punkten är orten)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Gold foil with four ‘oculi’.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Gold_foil_with_four_%E2%80%98oculi%E2%80%99.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Leonardo García Sanjuán, Timothy Earle. Photograph: Miguel Ángel Blanco de la Rubia.",
+          "datum": "2025-06-01",
+          "datum_original": "2025-06-01",
+          "datum_fil": "2026-04-21 21:50:08",
+          "kredit": "https://www.sciencedirect.com/science/article/pii/S0278416525000339",
+          "beskrivning": "A) Gold foil with four ‘oculi’ found in Structure 10.029, a small non-funerary pit located near the grave of 'The Ivory Lady', in the PP4-Montelirio sector; B) Comparison of all three ‘oculus’ motifs on gold foil known in Iberia (1: from Structure 10.029 at Valencina; 2: from the Las Canteras tholos at El Gandul; 3: from the Montelirio tholos at Valencina).",
+          "bredd": 2215,
+          "hojd": 2314,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Gold_foil_with_four_%E2%80%98oculi%E2%80%99.jpg/960px-Gold_foil_with_four_%E2%80%98oculi%E2%80%99.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Prehistoric Iberia"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "kyla-i-alperna-4-2",
+      "titel": "Kallt och torrt i Alperna",
+      "start": -2249,
+      "plats": "Spannagelgrottan i Tyrolen, Österrike (punkten är grottan; folkminskningen gäller norra alpförlandet)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Late roman period temparature and moisture 1 1 1 1.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Late_roman_period_temparature_and_moisture_1_1_1_1.png",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Merikanto",
+          "datum": "2025-07-22",
+          "datum_original": "2025-07-22",
+          "datum_fil": "2025-07-22 09:18:46",
+          "kredit": "Own work",
+          "beskrivning": "Late roman period temparature and moisture. Based on proxien srom Gulf of Tarantino and from Alps.",
+          "bredd": 1200,
+          "hojd": 600,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Late_roman_period_temparature_and_moisture_1_1_1_1.png/960px-Late_roman_period_temparature_and_moisture_1_1_1_1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "English-language charts",
+            "Late Holocene climate"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-zero"
+            ]
+          }
+        },
+        {
+          "fil": "File:Psathyrella, Posočje 2 crop.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Psathyrella,_Poso%C4%8Dje_2_crop.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "This image was created by user Amadej Trnkoczy (amadej) at Mushroom Observer , a source for mycological images. You can contact this user here .",
+          "datum": "2011-09-11 03:17",
+          "datum_original": "2011-09-11 03:17",
+          "datum_fil": "2011-09-11 03:17:42",
+          "kredit": "Psathyrella_candolleana,_Posočje_2.jpg",
+          "beskrivning": "Psathyrella from Učja Valley, East Julian Alps, Posočje, Slovenia all wet with one dry spot showing the hygrophanous property of this fungus Motic B2-211A, magnification 1.000 x, oil, in water Habitat: Cold northeast inclined and steep mountain slope, mixed forest, predominantly Fagus sylvatica , calcareous ground, in shade, protected from direct rain by three canopies, average precipitations ~ 3,000 mm/year, average temperature 7-9 deg C, elevations 820 m (2,700 feet), alpine phytogeographical region. Substratum: a thick layer of rotten leaves with somewhat wood debris. Place: Učja valley. Northeast slope of Mt. Kobariški Stol ridge, lower Drnohla place, lower abandoned forest road, East Julian Alps, Posočje, Slovenia Growing in a small group. Spore print dark brown. Hygrophanous and with hollow stem.",
+          "bredd": 488,
+          "hojd": 376,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Psathyrella%2C_Poso%C4%8Dje_2_crop.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Psathyrella in Slovenia",
+            "Unidentified Psathyrella"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|Cc-by-sa-3.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:India and South Asia Köppen climate map with legend.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:India_and_South_Asia_K%C3%B6ppen_climate_map_with_legend.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "File:World Köppen Map.png : Original file by Peel, M. C., Finlayson, B. L., and McMahon, T. A. (University of Melbourne). Derivative work: Modifications by user Br-Sc-94 , ( User talk ). Cropping & addition of map legend-color box-to summary info by 2know4power , ( User talk ).",
+          "datum": "2010-07-18",
+          "datum_original": "2010-07-18",
+          "datum_fil": "2015-11-20 03:28:29",
+          "kredit": "File:World Köppen Map.png : Original file by Authors-Peel, M. C., Finlayson, B. L., and McMahon, T. A. (University of Melbourne) Hydrology and Earth System Sciences- Updated world map of the Köppen-Geiger climate classification (Supplement)",
+          "beskrivning": "South Asia- Köppen-Geiger climate classification map is based on native vegetation, temperature, precipitation and their seasonality. (Af) Tropical rainforest (Am) Tropical monsoon (Aw) Tropical savanna, wet & dry (BWh) Hot desert (BWk) Cold desert (BSh) Hot semi arid (BSk) Cold semi arid (Csa) Mediterr. dry, hot summ. (Cwa) Subtropical humid summ, dry winter (Cwb) Subtropical highland , dry wint (Cfa) Subtropical humid summ (no dry)",
+          "bredd": 545,
+          "hojd": 537,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/fd/India_and_South_Asia_K%C3%B6ppen_climate_map_with_legend.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Biogeographical maps of India",
+            "Climate of India",
+            "Köppen-Geiger Climate Classification Maps for India",
+            "Köppen-Geiger source Peel 2007",
+            "Köppen climate classification maps by region",
+            "Maps of the Global Southeast"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "smal",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "torka-i-mesopotamien-4-2",
+      "titel": "Torka i norra Mesopotamien",
+      "start": -2199,
+      "plats": "Norra Mesopotamien; Tell Leilan i Khaburdalen, nordöstra Syrien",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Gol e zard mg ca data 4400 3800 BP 1 1 1 1.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Gol_e_zard_mg_ca_data_4400_3800_BP_1_1_1_1.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Merikanto",
+          "datum": "2025-04-03",
+          "datum_original": "2025-04-03",
+          "datum_fil": "2025-04-03 12:06:30",
+          "kredit": "Own work",
+          "beskrivning": "Gol-e-Zard Cave mg-Ca data 4400 - 3800 BP",
+          "bredd": 1241,
+          "hojd": 696,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Gol_e_zard_mg_ca_data_4400_3800_BP_1_1_1_1.png/960px-Gol_e_zard_mg_ca_data_4400_3800_BP_1_1_1_1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Climate of Indus Valley Civilization"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "pest-i-bronsalderns-britannien",
+      "titel": "Pest i bronsålderns Britannien",
+      "start": -2195,
+      "plats": "Charterhouse Warren i Mendip Hills, Somerset, England (punkten är byn Charterhouse)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:The political champion turned resurrection man! (BM 1868,0808.8476).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_political_champion_turned_resurrection_man!_(BM_1868,0808.8476).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Print made by: Isaac Robert Cruikshank Published by: E King",
+          "datum": "1819 date QS:P571,+1819-00-00T00:00:00Z/9",
+          "datum_original": "1819 date QS:P571,+1819-00-00T00:00:00Z/9",
+          "datum_fil": "2020-05-12 03:30:09",
+          "kredit": "https://www.britishmuseum.org/collection/object/P_1868-0808-8476",
+          "beskrivning": "Cobbett, astride the neck of a diabolical monster, and followed by demons, is about to land on the English coast, where a crowd hails his return. Below is the sea, and on the right the American shore. Cobbett (a good portrait) holds out a pen in his right hand; the left hand grasps vertebrae supporting a skull and projecting from a box which rests on the monster's back and is inscribed: 'Cobbett's long hidden Treasures or the Relicts of Paine'. The skull wears a bonnet rouge, Cobbett a top-hat with tricolour cockade; he says: \"How to delude the Populace.—An advantageous distribution of the Words Liberty, Tyranny, Slavery &c does wonders with the populace Cobb Vol 2. p. 114—I now say Water Water-Water!!!\" The monster breathes fiery smoke, and grips Cobbett's gaitered legs with its talons; it has webbed and barbed wings and a long scaly barbed tail. The two demons immediately behind Cobbett carry large papers inscribed respectively: 'Paines [Age of] Reason' [see No. 13274] and 'Cobbetts Pol. Reg'. The third carries a sheaf of spears and excretes fire inscribed 'Revolution', and smoke inscribed 'Corruption'. The last, a bird-like creature, has a body inscribed 'Plague'; other monsters are advancing from a distance. The ragged and disreputable crowd wave bonnets rouges to the approaching Champion, shouting \"Welcome Welcome.\" They have banners, each topped by a cap of Liberty: a large red flag inscribed 'Hunt and Cobbett' is held by a knock-kneed fellow. A butcher holds on his shoulders a little black boy representing Wooler (see No. 12928, &c.) who holds up a board inscribed 'Black Dwarfe'. He shouts: \"Welcome, Welcome, Brother Scribe all our differrences are ended.\" On another flag, in large letters, 'Riot Deb . . .', another is inscribed '[Liber]ty'. Behind are pikes. On the opposite (American) shore three quakers and a quakeress dance in a ring round a stars and stripes flag. One chants: \"Yea, Verily, Friends we rejoice, that the Evil spirit hath departed from us!—\" The others answer: \"Yea Yea Yea.\" On the shore dismantled cannon lie pointing seawards; there are also pyramids of cannon-balls. On the horizon, midway between the two countries, Napoleon stands with folded arms on the rocky mountains of St. Helena, watching the scene in England; he says: \"Ah! Ça ira.\" British ships surround the island. After the title: 'Out of thy own Mouth will condemn thee—I am well assured that Paine was guided by Villany and not misguided by ignorance or error Cobbett Vol. 4. p. 320—' December 1819 Hand-coloured etching",
+          "bredd": 1600,
+          "hojd": 1204,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/The_political_champion_turned_resurrection_man%21_%28BM_1868%2C0808.8476%29.jpg/960px-The_political_champion_turned_resurrection_man%21_%28BM_1868%2C0808.8476%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1819 caricatures of the United Kingdom",
+            "British caricatures of Napoleon on Saint Helena",
+            "Caricatures of Thomas Paine",
+            "Curzon Collection",
+            "Demons",
+            "National flag of the United States in art",
+            "Peterloo Massacre",
+            "Phrygian caps in caricature",
+            "Prints about plague in the British Museum",
+            "William Cobbett"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-scan"
+            ]
+          }
+        },
+        {
+          "fil": "File:ProgenyOf KingEdwardIII DetailFromTomb WestminsterAbbey.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:ProgenyOf_KingEdwardIII_DetailFromTomb_WestminsterAbbey.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Thomas Hollis and George Hollis",
+          "datum": "1840",
+          "datum_original": "1840",
+          "datum_fil": "2015-08-14 15:12:48",
+          "kredit": "Compilation by ( Lobsterthermidor ( talk ) 15:32, 14 August 2015 (UTC)) from separate images in Hollis, Thomas & Hollis, George, The monumental effigies of Great Britain drawn and etched by Thomas Hollis and George Hollis",
+          "beskrivning": "Progeny of King Edward III (1327-1377), 1840 drawing of the six surviving brass statuettes (from the original twelve) on south side of his tomb in Westminster Abbey, in order as on monument ( http://www.westminster-abbey.org/our-history/royals/edward-iii ). Originally there were bronze weepers (or statuettes) of his twelve children around the tomb but only six of these now remain on the south side, some with enamelled coats of arms below. Left to right: 1: Edward the \"Black Prince\", eldest son and heir apparent who predeceased his father. Father of King Richard II. 2: Joan (1334/5-1348) died of the plague in Bordeaux, aged 14, en route to Spain to marry Pedro I, King of Castile and Leon (1334-1369), the father of her two sisters-in-law, Constance of Castile (wife of her brother John of Gaunt) and Isaballa of Castile (wife of her brother Edmund of Langley). Buried in Bayonne Cathedral, Bayonne, an English possession. 3: Lionel of Antwerp, Duke of Clarence, 2nd son of King Edward III. His great-grand-daughter and heiress was Anne de Mortimer, mother of Richard of York, 3rd Duke of York, father of Kings Edward IV (Duke of York) and his brother and successor King Richard III. King Edward IV claimed the throne due to his descent from Lionel of Antwerp, 2nd son of King Edward III, not from his direct paternal ancestor Edmund of Langley, 1st Duke of York, 4th son of King Edward III. 4: Edmund of Langley, 1st Duke of York (1341-1420) born and buried at King's Langley in Hertfordshire. His first wife was Isabella of Castile (1355–1392), a daughter of Pedro I, King of Castile and Leon (1334-1369). Isabella's sister Constance of Castile (1354–1394) married Edmund's elder brother John of Gaunt, 1st Duke of Lancaster. Edmund of Langley was the direct male ancestor of Kings Edward IV (Duke of York) and his brother and successor King Richard III. 5: Mary, Duchess of Brittany (1344-1361/2), 4th daughter, born at Waltham near Winchester. In 1361 at Woodstock Palace she married Jean V, Duke of Brittany, without issue. Died aged 17/18, buried in Abingdon Abbey in Oxfordshire, with sister Margaret; 6: William of Hatfield (1336-1337), second son, died in infancy; born at Hatfield, West Riding of Yorkshire, buried in York Minster, where survives his effigy and monument;",
+          "bredd": 1081,
+          "hojd": 414,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/ProgenyOf_KingEdwardIII_DetailFromTomb_WestminsterAbbey.png/960px-ProgenyOf_KingEdwardIII_DetailFromTomb_WestminsterAbbey.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Edmund of Langley, Duke of York",
+            "Joan of England (1335–1348)",
+            "Lionel of England, 1st Duke of Clarence",
+            "Mary of England, Duchess of Brittany",
+            "Monument to Edward III of England in Westminster Abbey",
+            "Relief of Edward, the Black Prince on Edward III tomb",
+            "The monumental effigies of Great Britain (1840)",
+            "William of England (1337)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-100"
+            ]
+          }
+        },
+        {
+          "fil": "File:Alliances in Europe 1740.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Alliances_in_Europe_1740.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Gundan",
+          "datum": "2013-05",
+          "datum_original": "2013-05",
+          "datum_fil": "2020-09-26 09:57:55",
+          "kredit": "This file was derived from: Europe 1748-1766.png",
+          "beskrivning": "Coalitions in Europe in 1740. Warning: the internal borders of the Holy Roman-German Empire are shown, but not those of the Ottoman Empire, with the exception of Montenegro and Tunisia: consequently, the tributary Christian principalities and the Crimean Chanate are not visible.",
+          "bredd": 3872,
+          "hojd": 2761,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Alliances_in_Europe_1740.png/960px-Alliances_in_Europe_1740.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "European balance of power",
+            "Maps of Europe in the 18th century",
+            "Maps of territorial evolution of Europe",
+            "Treaties with Austria as a party",
+            "Treaties with France as a party",
+            "Treaties with Prussia as a party",
+            "Treaties with Spain as a party",
+            "Treaties with the Kingdom of Great Britain as a party"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "kopparbrytning-pa-great-orme",
+      "titel": "Kopparbrytning på Great Orme",
+      "start": -1999,
+      "plats": "Great Orme vid Llandudno, Wales",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Great Orme Copper Mines - geograph.org.uk - 2427618.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Great_Orme_Copper_Mines_-_geograph.org.uk_-_2427618.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "David Dixon",
+          "datum": "2011-05-21",
+          "datum_original": "2011-05-21",
+          "datum_fil": "2021-08-02 08:14:55",
+          "kredit": "Geograph Britain and Ireland",
+          "beskrivning": "Great Orme Copper Mines",
+          "bredd": 1280,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Great_Orme_Copper_Mines_-_geograph.org.uk_-_2427618.jpg/960px-Great_Orme_Copper_Mines_-_geograph.org.uk_-_2427618.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Great Orme Mine"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 2.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 2.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Great Orme Copper Mines - geograph.org.uk - 2427624.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Great_Orme_Copper_Mines_-_geograph.org.uk_-_2427624.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "David Dixon",
+          "datum": "2011-05-21",
+          "datum_original": "2011-05-21",
+          "datum_fil": "2021-08-02 08:16:44",
+          "kredit": "Geograph Britain and Ireland",
+          "beskrivning": "Great Orme Copper Mines",
+          "bredd": 1280,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Great_Orme_Copper_Mines_-_geograph.org.uk_-_2427624.jpg/960px-Great_Orme_Copper_Mines_-_geograph.org.uk_-_2427624.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Great Orme Mine",
+            "May 2011 in Llandudno"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 2.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 2.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Great Orme Copper Mines - geograph.org.uk - 2427628.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Great_Orme_Copper_Mines_-_geograph.org.uk_-_2427628.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "David Dixon",
+          "datum": "2011-05-21",
+          "datum_original": "2011-05-21",
+          "datum_fil": "2021-08-02 08:17:45",
+          "kredit": "Geograph Britain and Ireland",
+          "beskrivning": "Great Orme Copper Mines",
+          "bredd": 1280,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Great_Orme_Copper_Mines_-_geograph.org.uk_-_2427628.jpg/960px-Great_Orme_Copper_Mines_-_geograph.org.uk_-_2427628.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Great Orme Mine",
+            "May 2011 in Llandudno"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 2.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 2.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "offerberget-vid-kokino",
+      "titel": "Offergåvor på berget vid Kokino",
+      "start": -1899,
+      "plats": "Tatićev Kamen vid Kokino, kommunen Staro Nagoričane, Nordmakedonien",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Ancient observatory Kokino, Macedonia.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ancient_observatory_Kokino,_Macedonia.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "BrankaVV",
+          "datum": "2012-08-14 12:54:26",
+          "datum_original": "2012-08-14 12:54:26",
+          "datum_fil": "2015-10-13 15:18:21",
+          "kredit": "Own work",
+          "beskrivning": "Kokino is a Bronze Age archaeological site in the Republic of Macedonia, approximately 30 km from the town of Kumanovo, and about 6 km from the Serbian border, in the Staro Nagoricane municipality. It is situated between about 1010 and 1030 m above sea level on the Tatićev Kamen (Татиќев камен) summit and covers an area of about 90 by 50 meters, overlooking the eponymous hamlet of Kokino. It was discovered by archeologist Jovica Stankovski, director of the national museum in Kumanovo, in 2001. In 2002, Stankovski together with Gorje Cenev (who is the head of a planetarium at a Youth Cultural Center in Skopje) published the claim that the site contains a \"megalithic observatory and sacred site\". The oldest archaeological finds date from about the 19th century BC, corresponding to the early European Bronze Age. It shows signs of occupation for the period from the 19th to the 7th centuries BC. Finds from the Middle Bronze Age (c. 16th to 14th centuries BC) are the most numerous (mainly ceramic vessels, stone-mills and a few molds). An agglomeration from the Iron Age was discovered in 2009. The Kokino \"megalithic observatory\" should be distinguished from the wider Kokino archaeological site. While the observatory consists of two platforms of a combined area of about 5000 square meters, the site covers about 30 hectares. From this area, an abundant amount of fragments of ceramic vessels, dated to between the 19th and the 11th centuries BC. Also found was a mould for casting bronze axes, and a pendant. The remains of vessels filled with offerings were found deposited in cracks in the rocks, which gave rise to the interpretation of the site as a \"holy mountain\". The claimed archaeo-astronomical site itself consists of two platforms with an elevation difference of 19 m. The claim of the site representing an astronomical observatory was made by Stankovski and by Gjore Cenev in 2002. According to this interpretation, the site includes special stone markers used to track the movement of the Sun and Moon on the eastern horizon. The observatory used the method of stationary observation, marking positions of the Sun at the winter and summer solstice, as well as the equinox. Four stone seats or \"thrones\" are placed in a row on the lower platform. According to Cenev, A stone block with a marking on the upper platform marks the direction of sunrise on summer solstice when viewed from one of the seats. Kokino was mentioned in a poster made by NASA's \"Sun-Earth Connection Education Forum\" in 2005. The Cultural Heritage Protection Office of Macedonia's Ministry of Culture declared the site a \"property under temporary protection\" on 13 November 2008.",
+          "bredd": 5315,
+          "hojd": 3551,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Ancient_observatory_Kokino%2C_Macedonia.jpg/960px-Ancient_observatory_Kokino%2C_Macedonia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Kokino megalithic observatory"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Stone blocks, Kokino, Macedonia.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Stone_blocks,_Kokino,_Macedonia.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "BrankaVV",
+          "datum": "2012-08-14 11:55:33",
+          "datum_original": "2012-08-14 11:55:33",
+          "datum_fil": "2015-10-13 15:18:19",
+          "kredit": "Own work",
+          "beskrivning": "Kokino is a Bronze Age archaeological site in the Republic of Macedonia, approximately 30 km from the town of Kumanovo, and about 6 km from the Serbian border, in the Staro Nagoricane municipality. It is situated between about 1010 and 1030 m above sea level on the Tatićev Kamen (Татиќев камен) summit and covers an area of about 90 by 50 meters, overlooking the eponymous hamlet of Kokino. It was discovered by archeologist Jovica Stankovski, director of the national museum in Kumanovo, in 2001. In 2002, Stankovski together with Gorje Cenev (who is the head of a planetarium at a Youth Cultural Center in Skopje) published the claim that the site contains a \"megalithic observatory and sacred site\". The oldest archaeological finds date from about the 19th century BC, corresponding to the early European Bronze Age. It shows signs of occupation for the period from the 19th to the 7th centuries BC. Finds from the Middle Bronze Age (c. 16th to 14th centuries BC) are the most numerous (mainly ceramic vessels, stone-mills and a few molds). An agglomeration from the Iron Age was discovered in 2009. The Kokino \"megalithic observatory\" should be distinguished from the wider Kokino archaeological site. While the observatory consists of two platforms of a combined area of about 5000 square meters, the site covers about 30 hectares. From this area, an abundant amount of fragments of ceramic vessels, dated to between the 19th and the 11th centuries BC. Also found was a mould for casting bronze axes, and a pendant. The remains of vessels filled with offerings were found deposited in cracks in the rocks, which gave rise to the interpretation of the site as a \"holy mountain\". The claimed archaeo-astronomical site itself consists of two platforms with an elevation difference of 19 m. The claim of the site representing an astronomical observatory was made by Stankovski and by Gjore Cenev in 2002. According to this interpretation, the site includes special stone markers used to track the movement of the Sun and Moon on the eastern horizon. The observatory used the method of stationary observation, marking positions of the Sun at the winter and summer solstice, as well as the equinox. Four stone seats or \"thrones\" are placed in a row on the lower platform. According to Cenev, A stone block with a marking on the upper platform marks the direction of sunrise on summer solstice when viewed from one of the seats. Kokino was mentioned in a poster made by NASA's \"Sun-Earth Connection Education Forum\" in 2005. The Cultural Heritage Protection Office of Macedonia's Ministry of Culture declared the site a \"property under temporary protection\" on 13 November 2008.",
+          "bredd": 5315,
+          "hojd": 3543,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Stone_blocks%2C_Kokino%2C_Macedonia.jpg/960px-Stone_blocks%2C_Kokino%2C_Macedonia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Kokino megalithic observatory"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Stone throne, Kokino, Macedonia.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Stone_throne,_Kokino,_Macedonia.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "BrankaVV",
+          "datum": "2012-08-14 12:36:38",
+          "datum_original": "2012-08-14 12:36:38",
+          "datum_fil": "2015-10-13 15:18:18",
+          "kredit": "Own work",
+          "beskrivning": "Kokino is a Bronze Age archaeological site in the Republic of Macedonia, approximately 30 km from the town of Kumanovo, and about 6 km from the Serbian border, in the Staro Nagoricane municipality. It is situated between about 1010 and 1030 m above sea level on the Tatićev Kamen (Татиќев камен) summit and covers an area of about 90 by 50 meters, overlooking the eponymous hamlet of Kokino. It was discovered by archeologist Jovica Stankovski, director of the national museum in Kumanovo, in 2001. In 2002, Stankovski together with Gorje Cenev (who is the head of a planetarium at a Youth Cultural Center in Skopje) published the claim that the site contains a \"megalithic observatory and sacred site\". The oldest archaeological finds date from about the 19th century BC, corresponding to the early European Bronze Age. It shows signs of occupation for the period from the 19th to the 7th centuries BC. Finds from the Middle Bronze Age (c. 16th to 14th centuries BC) are the most numerous (mainly ceramic vessels, stone-mills and a few molds). An agglomeration from the Iron Age was discovered in 2009. The Kokino \"megalithic observatory\" should be distinguished from the wider Kokino archaeological site. While the observatory consists of two platforms of a combined area of about 5000 square meters, the site covers about 30 hectares. From this area, an abundant amount of fragments of ceramic vessels, dated to between the 19th and the 11th centuries BC. Also found was a mould for casting bronze axes, and a pendant. The remains of vessels filled with offerings were found deposited in cracks in the rocks, which gave rise to the interpretation of the site as a \"holy mountain\". The claimed archaeo-astronomical site itself consists of two platforms with an elevation difference of 19 m. The claim of the site representing an astronomical observatory was made by Stankovski and by Gjore Cenev in 2002. According to this interpretation, the site includes special stone markers used to track the movement of the Sun and Moon on the eastern horizon. The observatory used the method of stationary observation, marking positions of the Sun at the winter and summer solstice, as well as the equinox. Four stone seats or \"thrones\" are placed in a row on the lower platform. According to Cenev, A stone block with a marking on the upper platform marks the direction of sunrise on summer solstice when viewed from one of the seats. Kokino was mentioned in a poster made by NASA's \"Sun-Earth Connection Education Forum\" in 2005. The Cultural Heritage Protection Office of Macedonia's Ministry of Culture declared the site a \"property under temporary protection\" on 13 November 2008.",
+          "bredd": 5315,
+          "hojd": 3543,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/Stone_throne%2C_Kokino%2C_Macedonia.jpg/960px-Stone_throne%2C_Kokino%2C_Macedonia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Kokino megalithic observatory"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "nebra-himmelsskivan",
+      "titel": "Himmelsskivan från Nebra",
+      "start": -1799,
+      "plats": "Mittelberg vid Nebra, Sachsen-Anhalt, Tyskland",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:1600 Himmelsscheibe von Nebra sky disk anagoria.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1600_Himmelsscheibe_von_Nebra_sky_disk_anagoria.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "um 1600 v. Chr.",
+          "datum_original": "um 1600 v. Chr.",
+          "datum_fil": "2012-12-11 18:06:21",
+          "kredit": "Self-photographed Anagoria Taken on 17 August 2012",
+          "beskrivning": "The Nebra Sky disk; Mittelberg near Nebra (Germany); Special exhibition \"Beyond the Horizon - Space and Knowledge in the Old World cultures\" at the Pergamon Museum (22.06 -. 30.09.2012)",
+          "bredd": 2724,
+          "hojd": 2724,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/1600_Himmelsscheibe_von_Nebra_sky_disk_anagoria.jpg/960px-1600_Himmelsscheibe_von_Nebra_sky_disk_anagoria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Artifacts with black background",
+            "Nebra sky disk"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "Public domain",
+            "skal": [
+              "motsägelse: filsidans mallar ({{GFDL}}, {{cc-by-3.0}}) och API:et (\"Public domain\") anger olika licens"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{GFDL}}, {{cc-by-3.0}}. Commons API (LicenseShortName): \"Public domain\". De anger olika licens; kontrollera filsidan för hand.",
+            "risker": [],
+            "mallar": [
+              "GFDL",
+              "cc-by-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "hallristningarna-i-tanum",
+      "titel": "Hällristningarna i Tanum",
+      "start": -1699,
+      "plats": "Tanum, Bohuslän, Sverige",
+      "wikidata": "Q1761052",
+      "kandidater": [
+        {
+          "fil": "File:Tanumshede 2005 rock carvings 7.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tanumshede_2005_rock_carvings_7.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2005-07-18 15:48:45",
+          "datum_original": null,
+          "datum_fil": "2005-07-18 15:48:45",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 1632,
+          "hojd": 1232,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Tanumshede_2005_rock_carvings_7.jpg/960px-Tanumshede_2005_rock_carvings_7.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aspeberget, Tanum",
+            "Petroglyphs of ships"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "tjurhoppning-pa-knossos",
+      "titel": "Tjurhopp på väggarna i Knossos",
+      "start": -1449,
+      "plats": "Palatset i Knossos, Kreta, Grekland",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Bull leaping, fresco from the Great Palace at Knossos, Crete, Heraklion Archaeological Museum.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bull_leaping,_fresco_from_the_Great_Palace_at_Knossos,_Crete,_Heraklion_Archaeological_Museum.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "George Groutas",
+          "datum": "2008-07-17 10:44:00",
+          "datum_original": "2008-07-17 10:44:00",
+          "datum_fil": "2008-10-27 18:30:36",
+          "kredit": "originally posted to Flickr as Bull-leaping, fresco from the Great Palace at Knossos, Crete, Heraklion Archaeological Museum",
+          "beskrivning": "Bull leaping&quot fresco (painted plaster) from a wall of the Palace at Knossos. The red figure is probably male (its hands probably not on the back of the bull as it should, maybe so to reduce the height of the image), the white figures female (a color convention in Minoan painting). 17th-15th centuries BC. Origin: Palace of Knossos. Height of restored fresco 78.2 cm. MM III-LM IB period. Heraklion Museum Inv. no. T 15. Cf. A. Evans, The Palace of Minos at Knossos, vol. III, pp. 209-214.",
+          "bredd": 3503,
+          "hojd": 2054,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Bull_leaping%2C_fresco_from_the_Great_Palace_at_Knossos%2C_Crete%2C_Heraklion_Archaeological_Museum.jpg/960px-Bull_leaping%2C_fresco_from_the_Great_Palace_at_Knossos%2C_Crete%2C_Heraklion_Archaeological_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological Museum of Heraklion - Bull leaping fresco"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Wall painting of male and female taureadors from Knossos (Court of the Stone Spout) - Heraklion AM - 07.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wall_painting_of_male_and_female_taureadors_from_Knossos_(Court_of_the_Stone_Spout)_-_Heraklion_AM_-_07.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "ArchaiOptix",
+          "datum": "2017-04-17 17:27:15",
+          "datum_original": "2017-04-17 17:27:15",
+          "datum_fil": "2020-05-29 15:48:04",
+          "kredit": "Own work",
+          "beskrivning": "- object type: wall painting (fresco) - description: male and female taureadors (bull-leaping as a cultic sport) (one of several similar panels) - height: ca. 78 cm - period / date: (Immerwahr 1990) late minoan II - IIIA (Hood 2005) late minoan IB or II - findspot: Knossos, Palace, east wing, Court of the Stone Spout - museum / inventory number: Heraklion, Archaeological Museum - bibliography: - Sara Anderson Immerwahr, Aegean Painting in the Bronze Age, London 1990, cat. Kn No. 23 - Sinclair Hood, Dating the Knossos frescoes, in: Lyvia Morgan (ed.), Aegean Wall Painting. A tribute to Mark Cameron, London 2005, cat. 33",
+          "bredd": 5472,
+          "hojd": 3648,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Wall_painting_of_male_and_female_taureadors_from_Knossos_%28Court_of_the_Stone_Spout%29_-_Heraklion_AM_-_07.jpg/960px-Wall_painting_of_male_and_female_taureadors_from_Knossos_%28Court_of_the_Stone_Spout%29_-_Heraklion_AM_-_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological Museum of Heraklion - Bull leaping fresco"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Wall painting of male and female taureadors from Knossos (Court of the Stone Spout) - Heraklion AM - 03.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wall_painting_of_male_and_female_taureadors_from_Knossos_(Court_of_the_Stone_Spout)_-_Heraklion_AM_-_03.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "ArchaiOptix",
+          "datum": "2017-04-17 17:26:50",
+          "datum_original": "2017-04-17 17:26:50",
+          "datum_fil": "2020-05-29 15:47:57",
+          "kredit": "Own work",
+          "beskrivning": "- object type: wall painting (fresco) - description: male and female taureadors (bull-leaping as a cultic sport) (one of several similar panels) - height: ca. 78 cm - period / date: (Immerwahr 1990) late minoan II - IIIA (Hood 2005) late minoan IB or II - findspot: Knossos, Palace, east wing, Court of the Stone Spout - museum / inventory number: Heraklion, Archaeological Museum - bibliography: - Sara Anderson Immerwahr, Aegean Painting in the Bronze Age, London 1990, cat. Kn No. 23 - Sinclair Hood, Dating the Knossos frescoes, in: Lyvia Morgan (ed.), Aegean Wall Painting. A tribute to Mark Cameron, London 2005, cat. 33",
+          "bredd": 3648,
+          "hojd": 5472,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Wall_painting_of_male_and_female_taureadors_from_Knossos_%28Court_of_the_Stone_Spout%29_-_Heraklion_AM_-_03.jpg/960px-Wall_painting_of_male_and_female_taureadors_from_Knossos_%28Court_of_the_Stone_Spout%29_-_Heraklion_AM_-_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological Museum of Heraklion - Bull leaping fresco"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "solvagnen-fran-trundholm",
+      "titel": "Solvagnen från Trundholm",
+      "start": -1399,
+      "plats": "Trundholms mosse, Odsherred, Själland, Danmark",
+      "wikidata": "Q1137682",
+      "kandidater": [
+        {
+          "fil": "File:Solvognen DO-6865 2000.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Solvognen_DO-6865_2000.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Nationalmuseet, John Lee",
+          "datum": "2006-01-01",
+          "datum_original": "2006-01-01",
+          "datum_fil": "2016-03-01 13:57:07",
+          "kredit": "http://samlinger.natmus.dk/DO/6865",
+          "beskrivning": "Solvognen, natsiden synlig. Bronzealder, votiv/depot.",
+          "bredd": 2000,
+          "hojd": 1438,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Solvognen_DO-6865_2000.jpg/960px-Solvognen_DO-6865_2000.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Solvognen"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "motsägelse: filsidans mallar ({{cc-by-sa-2.5}}) och API:et (\"CC BY-SA 3.0\") anger olika licens"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{cc-by-sa-2.5}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". De anger olika licens; kontrollera filsidan för hand.",
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.5"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "bronsalderns-kollaps",
+      "titel": "Bronsålderns kollaps",
+      "start": -1199,
+      "plats": "Östra Medelhavet och Främre Orienten (markören vid Ugarit i Syrien)",
+      "wikidata": "Q1059758",
+      "kandidater": [
+        {
+          "fil": "File:2006 T372 Bronze Age hoard (FindID 192417).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2006_T372_Bronze_Age_hoard_(FindID_192417).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Colchester Museums, Laura McLean, 2008-08-12 14:28:42",
+          "datum": "between 1000 BC and 800 BC",
+          "datum_original": "between 1000 BC and 800 BC",
+          "datum_fil": "2017-02-02 15:28:44",
+          "kredit": "https://finds.org.uk/database/ajax/download/id/184441 Catalog: https://finds.org.uk/database/images/image/id/184441/recordtype/artefacts archive copy at the Wayback Machine Artefact: https://finds.org.uk/database/artefacts/record/id/192417",
+          "beskrivning": "Bronze Age Hoard 44 fragments of copper alloy ingot fragments were discovered in 2000 (prior to the inclusion of such hoards in the Treasure Act). These fragments weigh 4.882 kilogrammes; the average fragment weight is 110.95 grammes. The weights of the copper ingot fragments from the hoard is given below. The numbers in brackets preceding the weight are the provisional catalogue numbers assigned each item. All weights are grammes, to the nearest gramme. Catalogue number (1) 577g, (2) 342g, (3) 306g, (4) 270g, (5) 228g, (6) 191g, (7) 177g, (8) 190g, (9) 173g, (10) 130g, (11) 117g, (12) 136g, (13) 98g, (14) 97g, (15) 141g, (16) 124g, (17) 89g, (18) 129g, (19) 113g, (20) 83g, (21) 80g, (22) 82g, (23) 76g, (24) 61g, (25) 56g, (26) 61g, (27) 59g, (28) 70g, (29) 63g, (30) 87g, (31) 64g, (32) 66g, (33) 46g, (34) 52g, (35) 20g, (36) 39g, (37) 40g, (38) 28g, (39) 27g, (40) 31g, (41) 19g, (42) 24g, (43) 24g, and (44) 15g. Thirteen of the fragments were selected for illustration, however their numbers are not the same as the numbers above. Treasure case: 2006 T372 In addition to the above finds, the additional artefacts were discovered in July and September 2006, and reported as Treasure. 1. Sherd of prehistoric pottery from the base of a flat-bottomed vessel. It is tempered with abundant (> 10 per cm²) poorly-sorted burnt flint inclusions ranging up to 5mm across, but typically < 2mm. These flint inclusions are set in a fine, sand-free matrix. The outer surface is oxidised to a light red; the inner surface and core of the sherd are black. On the exterior of the base there is conspicuous flint rough-casting where the pot had apparently been rested on crushed burnt flint before it was fired; such rough-casting is typical of late Bronze Age pottery (O'Connell 1986,62). Weight: 19g. 2. Complete socketed axe in fine condition. The mouth is rectangular with a prominent collar; there is a pronounced horizontal moulding below from which the loop handle springs. The sides of the axe have gently curved sides that terminate in an unexpanded blade edge. Weight 185g; length 104mm; the socket mouth measures 39 x 40mm. Axes of this kind are the so-called South-eastern Type which is ubiquitous in the Home Counties and East Anglia. This conforms to a variant called the Bilton or Worthing Type (Schmidt & Burgess 1981, 214, l.85 nos. 1275-80) July Ingot Fragments 3. The fragment has part of the flat upper surface and the curved edge, below which the ingot fragment falls away in a curve towards the (missing) lowest point of the bun-shaped ingot. Weight 228g. 4. The fragment is part of the flat upper surface of the bun-shaped ingot; the lower surface is also present. There is nothing of the curved edge and the fragment is deep enough for part of the lower surface to be present; to judge by its thickness, it must have come from towards the middle of the ingot rather than the outer curved edge. Weight 219g. 5. Description as for Number 4. weight 191g. 6. Description as for Number 3. weight 79g. 7. Part of the flat upper surface of an ingot; but the curved edge and basal surface are not present. Weight 44g. 8. Description as for Number 3. Weight 22g. September Ingot Fragments 9. Description as for Number 3. Weight 217g. 10. The upper and lower surfaces of the original ingot are present, but not the curved outer edge; to judge by the shape of the piece, the parent ingot was a shallow one. Weight 131g. 11. Description as for Number 3. Weight 127g. 12. Description as for Number 3. Weight 101g. 13. The upper and lower surfaces of the original ingot are present; to judge by the onfiguration of the piece, it came from just inside the missing edge. Weight 101g. 14. Description as for Number 3. Weight 100g. 15. Description as for Number 3. Weight 83g. 16. Description as for Number 3. Weight 67g. 17. Description as for Number 3. Weight 45g. 18. Description as for Number 10. Weight 44g. 19. An amorphous fragment with no original surfaces. Weight 41g. 20. Description as for Number 13. Weight 19g. 21. Description as for Number 3. Weight 15g 22. The fragment has two flat and smooth surfaces but no original edges; both the upper and lower faces are parallel. The typology does not correspond with that of a standard Bronze Age ingot, nor is it a Bronze Age artefact. Despite its anomalous shape, it was found with the rest of the material and should therefore be considered prehistoric. Weight 241g. Discussion The finds retrieved represent a dispersed hoard of late Bronze Age copper ingot fragments and a complete socketed bronze axe. A sherd of pottery contemporary with the metalwork was also recovered. The socketed axe is in superlative condition. There are no significant signs of abrasion to the ingot fragments or pottery sherd, and there is no indication that they had been dislodged far from their original position. The socketed axe is of south-eastern type which anchors the hoard securely in the Ewart Park phase of the late Bronze Age, now dated c.1020-800 BC on the basis of radiocarbon dates for wood in direct association with metalwork of the phase (Needham et al. 1998, 93, 98). The copper ingot fragments are also typical of the period as is the pottery sherd. Twenty-two items (including the pot sherd) were recovered, with a total weight of 2.319kg. The metalwork of the hoard amounts to 2.3kg, with an average item weight of 109.5g. The 20 ingot fragments weigh 2.115kg, with an average weight of 105.75g. Weights were taken before conservation of the hoard; in some cases, particles of soil still adhere to parts of the surfaces, and this will have distorted the weights. Measurements are correct to the nearest gram and calculations correct to one decimal place. Furthermore, in February and March 2000, 44 copper ingot fragments were found weighing 4.882kg in the same place as the metalwork described here. Although these finds were made before the Treasure Act was on the statute books and so fall outside the remit of this report, they should be taken into account when evaluating the archaeological significance of the Langford discoveries. Many similar hoards of this period have been retrieved in what represents the peak period of bronze deposition (Needham 1990, 130-40; Needham et al. 1998, 93). These centuries coincide with the appearance of the earliest iron in Britain (Collard et al. 2006) though the relationship to the increased bronze deposition is not necessarily a straightforward replacement as has been argued (Burgess 1979, 275-6). The evidence for iron is relatively sparse for the early 1st millennium BC indicating a very slow adoption process. Needham (2007) has recently argued that there was a collapse in the value systems surrounding the acquisition and deposition of bronze which might provide an explanation. Conclusion Though contextual details are sparse, it is probable that these objects formed a single original deposit or hoard dispersed through the actions of the plough seems very likely. The single sherd of prehistoric pottery could be contemporary with the metalwork and might be part of the container in which the hoard had been buried. The Langford hoard is a collection of prehistoric metalwork and a sherd of prehistoric pottery more than 300 years old and so there is a prima facie case for considering the find to be treasure, under the new Treasure Order (2002) being a base-metal prehistoric find containing two or more metal objects. Dr Paul R. Sealey March 2007 Assistant Curator of Archaeology Colchester Museums Ben Roberts 11th June 2007 Curator of European Bronze Age British Museum Great Russell Street London WC1B 3DG Bibliography Burgess, C.B., 1979. 'A find from Boyton, Suffolk, and the end of the Bronze Age in Britain and Ireland', in C.B. Burgess and D.G. Coombs (eds), Bronze Age Hoards: Some Finds Old and New (British Archaeological Reports, British Series 67) (Oxford), 269-82 Collard, M., Darvill, T. & Watts, M. 2007. Ironworking in the Bronze Age? Evidence from a 10th century BC Settlement at Hartshill Copse, Upper Bucklebury, West Berkshire. Proceedings of the Prehistoric Society 72, 367-422. Needham, S.P., 1990. The Petters Late Bronze Age Metalwork: An Analytical Study of Thames Valley Metalworking in its Settlement Context (British Museum Occasional Paper 70) (London) Needham, S.P., Bronk Ramsay, C., Coombs, D.G., Cartwright, C. and Pettitt, P., 1998. 'An independent chronology for British Bronze Age metalwork: the results of the Oxford radiocarbon accelerator programme', Archaeol. J. 154 for 1997, 55-107 Needham, S.P. 2007. 800 BC. The Great Divide. In Haselgrove C.C. and Pope R.E. (eds.) The Earlier Iron Age in Britain and the Near Continent. Oxford: Oxbow Books O'Connell, M., 1986. Petters Sports Field, Egham: Excavation of a Late Bronze Age/Early Iron Age Site (Research Volume of the Surrey Archaeological Society 10) (Guildford) Schmidt, P.K. and Burgess, C.B., 1981. The Axes of Scotland and Northern England (Prähistorische Bronzefunde 9.7) (Munich)",
+          "bredd": 1904,
+          "hojd": 1570,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/2006_T372_Bronze_Age_hoard_%28FindID_192417%29.jpg/960px-2006_T372_Bronze_Age_hoard_%28FindID_192417%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bronze Age axes in the Portable Antiquities Scheme",
+            "Hoards in the Portable Antiquities Scheme",
+            "Images by Laura McLean",
+            "Portable Antiquities Scheme",
+            "Portable Antiquities Scheme, ESS"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:2006 T372 Bronze Age hoard, pottery fragment (FindID 192417).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2006_T372_Bronze_Age_hoard,_pottery_fragment_(FindID_192417).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Colchester Museums, Laura McLean, 2008-08-12 14:28:42",
+          "datum": "between 1000 BC and 800 BC",
+          "datum_original": "between 1000 BC and 800 BC",
+          "datum_fil": "2017-02-02 15:28:21",
+          "kredit": "https://finds.org.uk/database/ajax/download/id/184440 Catalog: https://finds.org.uk/database/images/image/id/184440/recordtype/artefacts archive copy at the Wayback Machine Artefact: https://finds.org.uk/database/artefacts/record/id/192417",
+          "beskrivning": "Bronze Age Hoard 44 fragments of copper alloy ingot fragments were discovered in 2000 (prior to the inclusion of such hoards in the Treasure Act). These fragments weigh 4.882 kilogrammes; the average fragment weight is 110.95 grammes. The weights of the copper ingot fragments from the hoard is given below. The numbers in brackets preceding the weight are the provisional catalogue numbers assigned each item. All weights are grammes, to the nearest gramme. Catalogue number (1) 577g, (2) 342g, (3) 306g, (4) 270g, (5) 228g, (6) 191g, (7) 177g, (8) 190g, (9) 173g, (10) 130g, (11) 117g, (12) 136g, (13) 98g, (14) 97g, (15) 141g, (16) 124g, (17) 89g, (18) 129g, (19) 113g, (20) 83g, (21) 80g, (22) 82g, (23) 76g, (24) 61g, (25) 56g, (26) 61g, (27) 59g, (28) 70g, (29) 63g, (30) 87g, (31) 64g, (32) 66g, (33) 46g, (34) 52g, (35) 20g, (36) 39g, (37) 40g, (38) 28g, (39) 27g, (40) 31g, (41) 19g, (42) 24g, (43) 24g, and (44) 15g. Thirteen of the fragments were selected for illustration, however their numbers are not the same as the numbers above. Treasure case: 2006 T372 In addition to the above finds, the additional artefacts were discovered in July and September 2006, and reported as Treasure. 1. Sherd of prehistoric pottery from the base of a flat-bottomed vessel. It is tempered with abundant (> 10 per cm²) poorly-sorted burnt flint inclusions ranging up to 5mm across, but typically < 2mm. These flint inclusions are set in a fine, sand-free matrix. The outer surface is oxidised to a light red; the inner surface and core of the sherd are black. On the exterior of the base there is conspicuous flint rough-casting where the pot had apparently been rested on crushed burnt flint before it was fired; such rough-casting is typical of late Bronze Age pottery (O'Connell 1986,62). Weight: 19g. 2. Complete socketed axe in fine condition. The mouth is rectangular with a prominent collar; there is a pronounced horizontal moulding below from which the loop handle springs. The sides of the axe have gently curved sides that terminate in an unexpanded blade edge. Weight 185g; length 104mm; the socket mouth measures 39 x 40mm. Axes of this kind are the so-called South-eastern Type which is ubiquitous in the Home Counties and East Anglia. This conforms to a variant called the Bilton or Worthing Type (Schmidt & Burgess 1981, 214, l.85 nos. 1275-80) July Ingot Fragments 3. The fragment has part of the flat upper surface and the curved edge, below which the ingot fragment falls away in a curve towards the (missing) lowest point of the bun-shaped ingot. Weight 228g. 4. The fragment is part of the flat upper surface of the bun-shaped ingot; the lower surface is also present. There is nothing of the curved edge and the fragment is deep enough for part of the lower surface to be present; to judge by its thickness, it must have come from towards the middle of the ingot rather than the outer curved edge. Weight 219g. 5. Description as for Number 4. weight 191g. 6. Description as for Number 3. weight 79g. 7. Part of the flat upper surface of an ingot; but the curved edge and basal surface are not present. Weight 44g. 8. Description as for Number 3. Weight 22g. September Ingot Fragments 9. Description as for Number 3. Weight 217g. 10. The upper and lower surfaces of the original ingot are present, but not the curved outer edge; to judge by the shape of the piece, the parent ingot was a shallow one. Weight 131g. 11. Description as for Number 3. Weight 127g. 12. Description as for Number 3. Weight 101g. 13. The upper and lower surfaces of the original ingot are present; to judge by the onfiguration of the piece, it came from just inside the missing edge. Weight 101g. 14. Description as for Number 3. Weight 100g. 15. Description as for Number 3. Weight 83g. 16. Description as for Number 3. Weight 67g. 17. Description as for Number 3. Weight 45g. 18. Description as for Number 10. Weight 44g. 19. An amorphous fragment with no original surfaces. Weight 41g. 20. Description as for Number 13. Weight 19g. 21. Description as for Number 3. Weight 15g 22. The fragment has two flat and smooth surfaces but no original edges; both the upper and lower faces are parallel. The typology does not correspond with that of a standard Bronze Age ingot, nor is it a Bronze Age artefact. Despite its anomalous shape, it was found with the rest of the material and should therefore be considered prehistoric. Weight 241g. Discussion The finds retrieved represent a dispersed hoard of late Bronze Age copper ingot fragments and a complete socketed bronze axe. A sherd of pottery contemporary with the metalwork was also recovered. The socketed axe is in superlative condition. There are no significant signs of abrasion to the ingot fragments or pottery sherd, and there is no indication that they had been dislodged far from their original position. The socketed axe is of south-eastern type which anchors the hoard securely in the Ewart Park phase of the late Bronze Age, now dated c.1020-800 BC on the basis of radiocarbon dates for wood in direct association with metalwork of the phase (Needham et al. 1998, 93, 98). The copper ingot fragments are also typical of the period as is the pottery sherd. Twenty-two items (including the pot sherd) were recovered, with a total weight of 2.319kg. The metalwork of the hoard amounts to 2.3kg, with an average item weight of 109.5g. The 20 ingot fragments weigh 2.115kg, with an average weight of 105.75g. Weights were taken before conservation of the hoard; in some cases, particles of soil still adhere to parts of the surfaces, and this will have distorted the weights. Measurements are correct to the nearest gram and calculations correct to one decimal place. Furthermore, in February and March 2000, 44 copper ingot fragments were found weighing 4.882kg in the same place as the metalwork described here. Although these finds were made before the Treasure Act was on the statute books and so fall outside the remit of this report, they should be taken into account when evaluating the archaeological significance of the Langford discoveries. Many similar hoards of this period have been retrieved in what represents the peak period of bronze deposition (Needham 1990, 130-40; Needham et al. 1998, 93). These centuries coincide with the appearance of the earliest iron in Britain (Collard et al. 2006) though the relationship to the increased bronze deposition is not necessarily a straightforward replacement as has been argued (Burgess 1979, 275-6). The evidence for iron is relatively sparse for the early 1st millennium BC indicating a very slow adoption process. Needham (2007) has recently argued that there was a collapse in the value systems surrounding the acquisition and deposition of bronze which might provide an explanation. Conclusion Though contextual details are sparse, it is probable that these objects formed a single original deposit or hoard dispersed through the actions of the plough seems very likely. The single sherd of prehistoric pottery could be contemporary with the metalwork and might be part of the container in which the hoard had been buried. The Langford hoard is a collection of prehistoric metalwork and a sherd of prehistoric pottery more than 300 years old and so there is a prima facie case for considering the find to be treasure, under the new Treasure Order (2002) being a base-metal prehistoric find containing two or more metal objects. Dr Paul R. Sealey March 2007 Assistant Curator of Archaeology Colchester Museums Ben Roberts 11th June 2007 Curator of European Bronze Age British Museum Great Russell Street London WC1B 3DG Bibliography Burgess, C.B., 1979. 'A find from Boyton, Suffolk, and the end of the Bronze Age in Britain and Ireland', in C.B. Burgess and D.G. Coombs (eds), Bronze Age Hoards: Some Finds Old and New (British Archaeological Reports, British Series 67) (Oxford), 269-82 Collard, M., Darvill, T. & Watts, M. 2007. Ironworking in the Bronze Age? Evidence from a 10th century BC Settlement at Hartshill Copse, Upper Bucklebury, West Berkshire. Proceedings of the Prehistoric Society 72, 367-422. Needham, S.P., 1990. The Petters Late Bronze Age Metalwork: An Analytical Study of Thames Valley Metalworking in its Settlement Context (British Museum Occasional Paper 70) (London) Needham, S.P., Bronk Ramsay, C., Coombs, D.G., Cartwright, C. and Pettitt, P., 1998. 'An independent chronology for British Bronze Age metalwork: the results of the Oxford radiocarbon accelerator programme', Archaeol. J. 154 for 1997, 55-107 Needham, S.P. 2007. 800 BC. The Great Divide. In Haselgrove C.C. and Pope R.E. (eds.) The Earlier Iron Age in Britain and the Near Continent. Oxford: Oxbow Books O'Connell, M., 1986. Petters Sports Field, Egham: Excavation of a Late Bronze Age/Early Iron Age Site (Research Volume of the Surrey Archaeological Society 10) (Guildford) Schmidt, P.K. and Burgess, C.B., 1981. The Axes of Scotland and Northern England (Prähistorische Bronzefunde 9.7) (Munich)",
+          "bredd": 1614,
+          "hojd": 738,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/2006_T372_Bronze_Age_hoard%2C_pottery_fragment_%28FindID_192417%29.jpg/960px-2006_T372_Bronze_Age_hoard%2C_pottery_fragment_%28FindID_192417%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bronze Age axes in the Portable Antiquities Scheme",
+            "Hoards in the Portable Antiquities Scheme",
+            "Images by Laura McLean",
+            "Portable Antiquities Scheme",
+            "Portable Antiquities Scheme, ESS"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:ESS-009610 Bronze Age Hoard, Ingot (10) Drawing by Sue Holden (FindID 192417).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:ESS-009610_Bronze_Age_Hoard,_Ingot_(10)_Drawing_by_Sue_Holden_(FindID_192417).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Colchester Museums, Laura McLean, 2008-08-14 17:11:05",
+          "datum": "between 1000 BC and 800 BC",
+          "datum_original": "between 1000 BC and 800 BC",
+          "datum_fil": "2017-02-02 15:02:32",
+          "kredit": "https://finds.org.uk/database/ajax/download/id/184679 Catalog: https://finds.org.uk/database/images/image/id/184679/recordtype/artefacts archive copy at the Wayback Machine Artefact: https://finds.org.uk/database/artefacts/record/id/192417",
+          "beskrivning": "Bronze Age Hoard 44 fragments of copper alloy ingot fragments were discovered in 2000 (prior to the inclusion of such hoards in the Treasure Act). These fragments weigh 4.882 kilogrammes; the average fragment weight is 110.95 grammes. The weights of the copper ingot fragments from the hoard is given below. The numbers in brackets preceding the weight are the provisional catalogue numbers assigned each item. All weights are grammes, to the nearest gramme. Catalogue number (1) 577g, (2) 342g, (3) 306g, (4) 270g, (5) 228g, (6) 191g, (7) 177g, (8) 190g, (9) 173g, (10) 130g, (11) 117g, (12) 136g, (13) 98g, (14) 97g, (15) 141g, (16) 124g, (17) 89g, (18) 129g, (19) 113g, (20) 83g, (21) 80g, (22) 82g, (23) 76g, (24) 61g, (25) 56g, (26) 61g, (27) 59g, (28) 70g, (29) 63g, (30) 87g, (31) 64g, (32) 66g, (33) 46g, (34) 52g, (35) 20g, (36) 39g, (37) 40g, (38) 28g, (39) 27g, (40) 31g, (41) 19g, (42) 24g, (43) 24g, and (44) 15g. Thirteen of the fragments were selected for illustration, however their numbers are not the same as the numbers above. Treasure case: 2006 T372 In addition to the above finds, the additional artefacts were discovered in July and September 2006, and reported as Treasure. 1. Sherd of prehistoric pottery from the base of a flat-bottomed vessel. It is tempered with abundant (> 10 per cm²) poorly-sorted burnt flint inclusions ranging up to 5mm across, but typically < 2mm. These flint inclusions are set in a fine, sand-free matrix. The outer surface is oxidised to a light red; the inner surface and core of the sherd are black. On the exterior of the base there is conspicuous flint rough-casting where the pot had apparently been rested on crushed burnt flint before it was fired; such rough-casting is typical of late Bronze Age pottery (O'Connell 1986,62). Weight: 19g. 2. Complete socketed axe in fine condition. The mouth is rectangular with a prominent collar; there is a pronounced horizontal moulding below from which the loop handle springs. The sides of the axe have gently curved sides that terminate in an unexpanded blade edge. Weight 185g; length 104mm; the socket mouth measures 39 x 40mm. Axes of this kind are the so-called South-eastern Type which is ubiquitous in the Home Counties and East Anglia. This conforms to a variant called the Bilton or Worthing Type (Schmidt & Burgess 1981, 214, l.85 nos. 1275-80) July Ingot Fragments 3. The fragment has part of the flat upper surface and the curved edge, below which the ingot fragment falls away in a curve towards the (missing) lowest point of the bun-shaped ingot. Weight 228g. 4. The fragment is part of the flat upper surface of the bun-shaped ingot; the lower surface is also present. There is nothing of the curved edge and the fragment is deep enough for part of the lower surface to be present; to judge by its thickness, it must have come from towards the middle of the ingot rather than the outer curved edge. Weight 219g. 5. Description as for Number 4. weight 191g. 6. Description as for Number 3. weight 79g. 7. Part of the flat upper surface of an ingot; but the curved edge and basal surface are not present. Weight 44g. 8. Description as for Number 3. Weight 22g. September Ingot Fragments 9. Description as for Number 3. Weight 217g. 10. The upper and lower surfaces of the original ingot are present, but not the curved outer edge; to judge by the shape of the piece, the parent ingot was a shallow one. Weight 131g. 11. Description as for Number 3. Weight 127g. 12. Description as for Number 3. Weight 101g. 13. The upper and lower surfaces of the original ingot are present; to judge by the onfiguration of the piece, it came from just inside the missing edge. Weight 101g. 14. Description as for Number 3. Weight 100g. 15. Description as for Number 3. Weight 83g. 16. Description as for Number 3. Weight 67g. 17. Description as for Number 3. Weight 45g. 18. Description as for Number 10. Weight 44g. 19. An amorphous fragment with no original surfaces. Weight 41g. 20. Description as for Number 13. Weight 19g. 21. Description as for Number 3. Weight 15g 22. The fragment has two flat and smooth surfaces but no original edges; both the upper and lower faces are parallel. The typology does not correspond with that of a standard Bronze Age ingot, nor is it a Bronze Age artefact. Despite its anomalous shape, it was found with the rest of the material and should therefore be considered prehistoric. Weight 241g. Discussion The finds retrieved represent a dispersed hoard of late Bronze Age copper ingot fragments and a complete socketed bronze axe. A sherd of pottery contemporary with the metalwork was also recovered. The socketed axe is in superlative condition. There are no significant signs of abrasion to the ingot fragments or pottery sherd, and there is no indication that they had been dislodged far from their original position. The socketed axe is of south-eastern type which anchors the hoard securely in the Ewart Park phase of the late Bronze Age, now dated c.1020-800 BC on the basis of radiocarbon dates for wood in direct association with metalwork of the phase (Needham et al. 1998, 93, 98). The copper ingot fragments are also typical of the period as is the pottery sherd. Twenty-two items (including the pot sherd) were recovered, with a total weight of 2.319kg. The metalwork of the hoard amounts to 2.3kg, with an average item weight of 109.5g. The 20 ingot fragments weigh 2.115kg, with an average weight of 105.75g. Weights were taken before conservation of the hoard; in some cases, particles of soil still adhere to parts of the surfaces, and this will have distorted the weights. Measurements are correct to the nearest gram and calculations correct to one decimal place. Furthermore, in February and March 2000, 44 copper ingot fragments were found weighing 4.882kg in the same place as the metalwork described here. Although these finds were made before the Treasure Act was on the statute books and so fall outside the remit of this report, they should be taken into account when evaluating the archaeological significance of the Langford discoveries. Many similar hoards of this period have been retrieved in what represents the peak period of bronze deposition (Needham 1990, 130-40; Needham et al. 1998, 93). These centuries coincide with the appearance of the earliest iron in Britain (Collard et al. 2006) though the relationship to the increased bronze deposition is not necessarily a straightforward replacement as has been argued (Burgess 1979, 275-6). The evidence for iron is relatively sparse for the early 1st millennium BC indicating a very slow adoption process. Needham (2007) has recently argued that there was a collapse in the value systems surrounding the acquisition and deposition of bronze which might provide an explanation. Conclusion Though contextual details are sparse, it is probable that these objects formed a single original deposit or hoard dispersed through the actions of the plough seems very likely. The single sherd of prehistoric pottery could be contemporary with the metalwork and might be part of the container in which the hoard had been buried. The Langford hoard is a collection of prehistoric metalwork and a sherd of prehistoric pottery more than 300 years old and so there is a prima facie case for considering the find to be treasure, under the new Treasure Order (2002) being a base-metal prehistoric find containing two or more metal objects. Dr Paul R. Sealey March 2007 Assistant Curator of Archaeology Colchester Museums Ben Roberts 11th June 2007 Curator of European Bronze Age British Museum Great Russell Street London WC1B 3DG Bibliography Burgess, C.B., 1979. 'A find from Boyton, Suffolk, and the end of the Bronze Age in Britain and Ireland', in C.B. Burgess and D.G. Coombs (eds), Bronze Age Hoards: Some Finds Old and New (British Archaeological Reports, British Series 67) (Oxford), 269-82 Collard, M., Darvill, T. & Watts, M. 2007. Ironworking in the Bronze Age? Evidence from a 10th century BC Settlement at Hartshill Copse, Upper Bucklebury, West Berkshire. Proceedings of the Prehistoric Society 72, 367-422. Needham, S.P., 1990. The Petters Late Bronze Age Metalwork: An Analytical Study of Thames Valley Metalworking in its Settlement Context (British Museum Occasional Paper 70) (London) Needham, S.P., Bronk Ramsay, C., Coombs, D.G., Cartwright, C. and Pettitt, P., 1998. 'An independent chronology for British Bronze Age metalwork: the results of the Oxford radiocarbon accelerator programme', Archaeol. J. 154 for 1997, 55-107 Needham, S.P. 2007. 800 BC. The Great Divide. In Haselgrove C.C. and Pope R.E. (eds.) The Earlier Iron Age in Britain and the Near Continent. Oxford: Oxbow Books O'Connell, M., 1986. Petters Sports Field, Egham: Excavation of a Late Bronze Age/Early Iron Age Site (Research Volume of the Surrey Archaeological Society 10) (Guildford) Schmidt, P.K. and Burgess, C.B., 1981. The Axes of Scotland and Northern England (Prähistorische Bronzefunde 9.7) (Munich)",
+          "bredd": 1408,
+          "hojd": 1807,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/ESS-009610_Bronze_Age_Hoard%2C_Ingot_%2810%29_Drawing_by_Sue_Holden_%28FindID_192417%29.jpg/960px-ESS-009610_Bronze_Age_Hoard%2C_Ingot_%2810%29_Drawing_by_Sue_Holden_%28FindID_192417%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bronze Age axes in the Portable Antiquities Scheme",
+            "Drawings in the Portable Antiquities Scheme",
+            "Hoards in the Portable Antiquities Scheme",
+            "Images by Laura McLean",
+            "Portable Antiquities Scheme",
+            "Portable Antiquities Scheme, ESS"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "karthago-grundas",
+      "titel": "Kartago grundas",
+      "start": -813,
+      "plats": "Kartago vid Tunissjön (i dag Tunisien)",
+      "wikidata": "Q6343",
+      "kandidater": [
+        {
+          "fil": "File:Tunisie Carthage Ruines 08.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tunisie_Carthage_Ruines_08.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "Calips",
+          "datum": "5 September 2006 (according to Exif data)",
+          "datum_original": "5 September 2006 (according to Exif data)",
+          "datum_fil": "2010-06-24 04:33:48",
+          "kredit": "Own work",
+          "beskrivning": "Tunisie Carthage Photographie prise par Patrick GIRAUD",
+          "bredd": 3008,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Tunisie_Carthage_Ruines_08.JPG/960px-Tunisie_Carthage_Ruines_08.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Gulf of Tunis",
+            "House of the Cryptoporticus (Carthage)",
+            "Views of Bou Kornine"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY 2.5",
+            "skal": [
+              "flera licenser: CC BY-SA 3.0, CC BY 2.5",
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{Self|GFDL}}, {{Self|Cc-by-sa-3.0-migrated}}, {{Self|Cc-by-2.5}}. Commons API (LicenseShortName): \"CC BY 2.5\". Flera licenser anges (CC BY-SA 3.0 och CC BY 2.5); bilden används under CC BY 2.5. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under CC BY 2.5.",
+            "risker": [],
+            "mallar": [
+              "Self|GFDL",
+              "Self|Cc-by-sa-3.0-migrated",
+              "Self|Cc-by-2.5"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "vagnshjulen-i-novokorsunskaja",
+      "titel": "Vagnshjulen i Novokorsunskaja",
+      "start": -3499,
+      "plats": "Novokorsunskaja i Kubanområdet, Krasnodar kraj, Ryssland; punkten är byn, inte kurganen",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "los-millares",
+      "titel": "Den befästa boplatsen Los Millares",
+      "start": -3024,
+      "plats": "Los Millares, Santa Fe de Mondújar, Almería, Andalusien, Spanien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "grotta"
+    },
+    {
+      "id": "tumlarna-blir-farre-i-ostra-ostersjon",
+      "titel": "Tumlarna blir färre i östra Östersjön",
+      "start": -2999,
+      "plats": "Östra Östersjön; punkten är Sārnate i västra Lettland, där tumlartänder först kändes igen i mönstren på lerkärl",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "meningokocker-pa-ajvide",
+      "titel": "Spår av meningokocker på Ajvide",
+      "start": -2799,
+      "plats": "Ajvide, Eksta socken, sydvästra Gotland, Sverige",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "kalenderkarlet-fran-vinkovci",
+      "titel": "Lerkärlet från Vinkovci tolkas som en kalender",
+      "start": -2599,
+      "plats": "Vinkovci, Kroatien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "mjolk-i-lerkarlen-i-kyrkslatt",
+      "titel": "Mjölk i lerkärlen i Kyrkslätt",
+      "start": -2499,
+      "plats": "Kyrkslätt (Kirkkonummi), Nyland, Finland; fynden kommer från tre boplatser i kommunen, och punkten är kommunens centrum",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "metallen-till-sydskandinavien-byter-vag",
+      "titel": "Metallen till Sydskandinavien byter väg",
+      "start": -2099,
+      "plats": "Sydskandinavien, främst Danmark; punkten är ungefär Danmarks mitt",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "kastelli-jattekyrka",
+      "titel": "Kastelli jättekyrka byggs",
+      "start": -1999,
+      "plats": "Nära Pattijoki, Norra Österbotten, Finland",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "megalitgravarna-vid-trafalgar",
+      "titel": "Megalitgravarna vid Kap Trafalgar",
+      "start": -1874,
+      "plats": "Tombolon vid Kap Trafalgar, Barbate, Cádiz, Spanien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "bete-vid-mortensnes",
+      "titel": "Betet sätter spår vid Mortensnes",
+      "start": -1649,
+      "plats": "Mortensnes vid Varangerfjorden, Nesseby kommun, Norge",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "hirs-i-pielgrzymowice",
+      "titel": "Hirs på bordet i Polen",
+      "start": -1635,
+      "plats": "Trakten av Pielgrzymowice nordost om Kraków, Polen (punkten är byn med det namnet; att det är fyndplatsen är en tolkning)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "kaali-kratern",
+      "titel": "En meteorit slår ner vid Kaali",
+      "start": -1529,
+      "plats": "Kaali på ön Saaremaa, Estland",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "hekla-3-utbrottet",
+      "titel": "Hekla får ett av sina största utbrott",
+      "start": -1202,
+      "plats": "Hekla, Island",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "terramarebyarna-overges",
+      "titel": "Terramarebyarna överges",
+      "start": -1199,
+      "plats": "Poslätten i Emilia, norra Italien; punkten är Montale nära Modena, en av kulturens stora platser",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "befasta-kullar-i-ostra-litauen",
+      "titel": "Befästa boplatser på kullar i östra Litauen",
+      "start": -999,
+      "plats": "Östra Litauen; punkten är borgkullen i Narkūnai, en av de mest undersökta",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "hastutrustningen-fran-eskelhem",
+      "titel": "Hästutrustningen från Eskelhem",
+      "start": -899,
+      "plats": "Eskelhems prästgård, Gotland, Sverige",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "faltnabbmus-i-aalborg",
+      "titel": "En fältnäbbmus i bronsålderns Danmark",
+      "start": -896,
+      "plats": "Aalborg, Danmark (punkten är staden; fynden gjordes i stadens sydöstra utkant)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "barnsten-och-brons-i-kukuliskiai",
+      "titel": "Bärnsten och bronsgjutning i Kukuliškiai",
+      "start": -799,
+      "plats": "Kukuliškiai, Klaipėda distrikt, Litauens kust",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    },
+    {
+      "id": "saltbrytning-i-hallstatt",
+      "titel": "Saltgruvorna i Hallstatt blomstrar",
+      "start": -799,
+      "plats": "Hallstatt, Övre Österrike, Österrike",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "egypten"
+    }
+  ]
+}
