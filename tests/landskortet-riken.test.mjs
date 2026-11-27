@@ -60,7 +60,7 @@ test('rikets egen rad Om kartan står vid raden bara när gruppen har en enda de
 });
 
 test('Skåne (landskap) och platser utan beslut har inga perioder', () => {
-  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
+  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
 });
 
 test('raderna får rikets eget namn ur indexet och en lucka för år som ingen period täcker', () => {
@@ -77,8 +77,8 @@ test('raderna får rikets eget namn ur indexet och en lucka för år som ingen p
     .filter(r => r.kind === 'gap'), []);
 });
 
-test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland och Frankrike räknas ur datan: inga av de listade delarna täcker luckans år', () => {
-  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike']) {
+test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien och Nederländerna räknas ur datan: inga av de listade delarna täcker luckans år', () => {
+  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna']) {
     const pl = places.find(p => p.id === id);
     const rows = placeEmpireRows(pl, groups);
     assert.equal(rows.filter(r => r.kind === 'empire').length, pl.periods.length, `${id}: alla perioder blir rader`);
@@ -89,6 +89,34 @@ test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, 
     const first = Math.min(...rows.map(r => r.from)), last = Math.max(...rows.map(r => r.to));
     for (let y = first; y <= last; y++) assert.ok(rows.some(r => r.from <= y && y <= r.to), `${id}: år ${y} saknas i listan`);
   }
+});
+
+test('Belgiens luckor är de som kortets inledning nämner (#1817): Bryssel i inget rike på kartan', () => {
+  const rows = placeEmpireRows(places.find(p => p.id === 'belgien'), groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]),
+    [[261, 282], [439, 489], [661, 673], [860, 869], [1431, 1481], [1579, 1581], [1588, 1594], [1794, 1814]]);
+  const intro = places.find(p => p.id === 'belgien').intro;
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    for (const years of ['261–282', '439–489', '661–673', '860–869', '1431–1481', '1579–1581', '1588–1594', '1794–1814', '1915–1918', '1940–1944']) {
+      assert.ok(intro[lang].includes(years), `belgien: inledningen (${lang}) nämner inte ${years}`);
+    }
+  }
+});
+
+test('Nederländernas luckor är de som kortets inledning nämner (#1818): Amsterdam i inget rike på kartan', () => {
+  const pl = places.find(p => p.id === 'nederlanderna');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]),
+    [[9, 509], [661, 665], [860, 869], [1450, 1481], [1579, 1581], [1673, 1676], [1811, 1814]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    for (const years of ['1–8', '9–509', '661–665', '860–869', '1450–1481', '1579–1581', '1673–1676', '1811–1814', '1940–1944']) {
+      assert.ok(pl.intro[lang].includes(years), `nederlanderna: inledningen (${lang}) nämner inte ${years}`);
+    }
+    for (const island of ['Bonaire', 'Saba', 'Aruba']) {
+      assert.ok(pl.intro[lang].includes(island) && pl.boundary.note[lang].includes(island), `nederlanderna: inledningen eller konturens not (${lang}) nämner inte ${island}`);
+    }
+  }
+  assert.ok(pl.boundary.geometry.coordinates.every(poly => poly[0].every(([lon]) => lon > 0)), 'nederlanderna: en del av konturen ligger i Karibien');
 });
 
 test('kortet visar rikena som knappar med hela namnet, luckan som en rad och i en tur bara text', () => {
