@@ -14,7 +14,7 @@
 //
 // Medan månvyn är öppen döljs faktarutan och Samtidigt-kortet (klassen moon-open på #app), så att ett kort visas i taget; de kommer
 // tillbaka oförändrade när man går tillbaka till jorden.
-import { t, formatYear, formatEventTime, reviewLabel } from '../model.js';
+import { t, formatYear, formatEventTime, pluralUi, reviewLabel } from '../model.js';
 import { ui, LANG, langAttr, textLang } from '../i18n.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -50,7 +50,7 @@ export class MoonView {
     // Tab stannar i dialogen (aria-modal): från sista till första och tvärtom
     root.addEventListener('keydown', ev => {
       if (ev.key !== 'Tab') return;
-      const items = [...root.querySelectorAll('a[href], button:not([disabled]), [tabindex="0"]')].filter(el => el.offsetParent !== null);
+      const items = [...root.querySelectorAll('a[href], button:not([disabled]), summary, [tabindex="0"]')].filter(el => el.offsetParent !== null);
       if (!items.length) return;
       const first = items[0], last = items[items.length - 1], at = document.activeElement;
       if (ev.shiftKey && (at === first || at === this.title)) { ev.preventDefault(); last.focus(); }
@@ -75,6 +75,8 @@ export class MoonView {
     const name = t(item.name);
     const srcs = (item.sources ?? []).map(id => this.srcById[id] && { ...this.srcById[id], id }).filter(Boolean);
     const credit = ui('space.mapCredit', { credit: map.credit, license: map.license });
+    const sourcesHeading = pluralUi('space.aboutData', srcs.length);
+    const review = reviewLabel(item.review, 'Platsen på månen');
     this.title.textContent = t(e.title);
     const titleLang = textLang(e.title); // rubriken på ett reservspråk får lang (#1308)
     if (titleLang && titleLang !== LANG) this.title.setAttribute('lang', titleLang); else this.title.removeAttribute('lang');
@@ -87,7 +89,7 @@ export class MoonView {
         </div>
         <p class="moon-loading" data-moon-loading>${esc(ui('space.loading'))}</p>
         <p class="moon-missing" data-moon-missing hidden>${esc(ui('space.missing'))}</p>
-        <figcaption data-moon-caption><span${langAttr(map.caption)}>${esc(t(map.caption))}</span> <span class="moon-credit">${esc(credit)}</span></figcaption>
+        <figcaption data-moon-caption${langAttr(map.caption)}>${esc(t(map.caption))}</figcaption>
       </figure>
       <h3 class="moon-places-title">${esc(ui('space.places'))}</h3>
       <ul class="moon-places">
@@ -98,8 +100,11 @@ export class MoonView {
       </ul>
       <p class="moon-summary"${langAttr(item.summary)}>${esc(t(item.summary))}</p>
       <p class="moon-note">${esc(ui('space.noTime'))}</p>
-      <div class="src">${esc(ui('detail.source'))} ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || esc(ui('detail.sourceMissing'))}</div>
-      <p class="moon-review">${esc(reviewLabel(item.review, 'Platsen på månen'))}</p>`;
+      <details class="detail-about">
+        <summary>${esc(sourcesHeading)} · ${esc(review)}</summary>
+        <p class="moon-credit">${esc(credit)}</p>
+        <div class="src">${esc(ui('detail.source'))} ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || esc(ui('detail.sourceMissing'))}</div>
+      </details>`;
     // Kartan laddas först nu (lazy). Fel eller offline: en lugn text, och listan och Tillbaka till jorden fungerar ändå
     const img = this.body.querySelector('.moon-img'), loading = this.body.querySelector('[data-moon-loading]');
     const frame = this.body.querySelector('.moon-frame');

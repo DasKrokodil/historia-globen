@@ -1151,6 +1151,7 @@
   "space.back": "Retour à la Terre",
   "space.mapAlt": "Carte de toute la surface de la Lune, mise à plat et pas à l’échelle ; les régions proches des pôles sont étirées d’est en ouest. Site marqué : {places}.",
   "space.mapCredit": "Carte : {credit} · {license}",
+  "space.aboutData": ["Sources et carte · {n} source", "Sources et carte · {n} sources"],
   "space.places": "Sites sur la carte",
   "space.loading": "Chargement de la carte de la Lune…",
   "space.missing": "L’image de la carte n’a pas pu être chargée. Le site figure dans la liste ci-dessous.",
