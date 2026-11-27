@@ -67,6 +67,8 @@ const young = tour => YOUNG_GRADES.includes(tour.lesson?.grades);
 /** Rubriken för exit ticket på elevbladet: "Sista frågan" för de yngre, annars "Exit ticket". */
 const exitLabel = tour => ui(young(tour) ? 'print.exitYoung' : 'print.exit');
 /** Har turen något förväntat svar (#1316)? Då skrivs svarsbladet ut. */
+/** Exit ticket på lärarbladen: "Sista frågan (exit ticket)" för de yngre, så att läraren känner igen rubriken på elevbladet. */
+const exitName = tour => (young(tour) ? `${ui('print.exitYoung')} (${ui('print.exit')})` : ui('print.exit'));
 const hasAnswers = tour => !!tour.lesson?.exitAnswer || tour.steps.some(s => s.question && s.answer);
 
 /** Stegets rubrik som rad: "Steg 9: Stalingrad, 2 februari 1943". */
@@ -188,8 +190,7 @@ function teacherSheet(tour, srcById) {
   qs.append(el('h2', null, ui('print.questions')));
   const ol = el('ol', 'print-questions-short');
   for (const { step, n } of questions(tour)) ol.append(el('li', null, `${ui('print.stepShort', { n })}: ${t(step.question)}`));
-  const exitName = young(tour) ? `${ui('print.exitYoung')} (${ui('print.exit')})` : ui('print.exit');
-  ol.append(el('li', null, `${exitName}: ${t(lesson.exitTicket)}`));
+  ol.append(el('li', null, `${exitName(tour)}: ${t(lesson.exitTicket)}`));
   if (hasAnswers(tour)) ol.append(el('li', 'print-answers-note', ui('print.answersNote')));
   qs.append(ol);
   page.append(qs);
@@ -222,7 +223,7 @@ function answersSheet(tour, srcById) {
     return box;
   };
   for (const { step, n } of questions(tour)) page.append(item(stepLabel(step, n), t(step.question), step.answer));
-  page.append(item(ui('print.exit'), t(tour.lesson.exitTicket), tour.lesson.exitAnswer));
+  page.append(item(exitName(tour), t(tour.lesson.exitTicket), tour.lesson.exitAnswer));
   return page;
 }
 
