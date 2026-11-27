@@ -11,7 +11,7 @@ const json = path => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.u
 const places = json('data/platser.json').places;
 const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
 
-test('länderna kommer ur platsernas periods: Sverige, Norge (Sverige-Norge), Finland, Estland och Lettland för Sverige-gruppen, Danmark, Norge (Danmark-Norge), Estland och Island för Konungariket Danmark, alla fem nordiska för Kalmarunionen, Finland, Estland, Lettland och Litauen för Ryska imperiet, Norge och Island för Norgesväldet, Storbritannien för Romarriket och Brittiska imperiet', () => {
+test('länderna kommer ur platsernas periods: Sverige, Norge (Sverige-Norge), Finland, Estland och Lettland för Sverige-gruppen, Danmark, Norge (Danmark-Norge), Estland och Island för Konungariket Danmark, alla fem nordiska för Kalmarunionen, Finland, Estland, Lettland och Litauen för Ryska imperiet, Norge och Island för Norgesväldet, Storbritannien för Romarriket, Storbritannien och Irland för Brittiska imperiet och Kungariket England, Irland för Kungariket Man och Irland', () => {
   const ids = empire => empirePlaces(places, empire).map(p => p.id);
   assert.deepEqual(ids('svenska-stormaktsvaldet'), ['sverige', 'norge', 'finland', 'estland', 'lettland']);
   assert.deepEqual(ids('konungariket-danmark'), ['danmark', 'norge', 'estland', 'island']);
@@ -19,7 +19,10 @@ test('länderna kommer ur platsernas periods: Sverige, Norge (Sverige-Norge), Fi
   assert.deepEqual(ids('ryska-imperiet'), ['finland', 'estland', 'lettland', 'litauen']);
   assert.deepEqual(ids('norgesvaldet'), ['norge', 'island']);
   assert.deepEqual(ids('romarriket'), ['storbritannien']);
-  assert.deepEqual(ids('brittiska-imperiet'), ['storbritannien']);
+  assert.deepEqual(ids('brittiska-imperiet'), ['storbritannien', 'irland']);
+  assert.deepEqual(ids('kungariket-england'), ['storbritannien', 'irland']);
+  assert.deepEqual(ids('kungariket-man'), ['irland']);
+  assert.deepEqual(ids('irland'), ['irland']);
   assert.deepEqual(ids('osmanska-riket'), [], 'ett rike som inget landskort nämner får ingen lista');
 });
 
