@@ -3209,6 +3209,7 @@
         "wp-sv-stockholms-historia",
         "wp-sv-uppland",
         "wp-sv-uppsala-universitet",
+        "wp-sv-vastergotland",
         "wp-sv-verginasolen",
         "wp-svalbard-global-seed-vault",
         "wp-svante-arrhenius",
@@ -3826,6 +3827,7 @@
         "wd-uppland",
         "wd-uppsala-universitet",
         "wd-vasa",
+        "wd-vastergotland",
         "wd-vietnam",
         "wd-vijayanagara-empire",
         "wd-vordingborg",
@@ -5392,7 +5394,8 @@
         "lex-skanske-krig",
         "lex-tabet-af-skane",
         "lex-uppakra",
-        "lex-uppland"
+        "lex-uppland",
+        "lex-vastergotland"
       ]
     },
     {
@@ -5450,7 +5453,8 @@
       "license": "© Store norske leksikon, begrenset gjenbruk (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "snl-skane",
-        "snl-uppland"
+        "snl-uppland",
+        "snl-vastergotland"
       ]
     },
     {
