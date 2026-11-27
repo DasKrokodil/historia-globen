@@ -17,14 +17,9 @@ Omgång 1 gav historiska bilder från Wikimedia Commons till krigens viktigaste 
 
 **AI-omgången (2026-10-30):** `slaget-vid-gaixia`, `qi-ger-upp-221-fkr`, `sjoslaget-vid-noryang`, `kalinga-erovras`, `eviansavtalen`, `slaget-vid-nuuanu`, `sista-giljotinen`, `nanjing-blir-tianjing-1853`, `bougainville-utropar-sjalvstandighet` och `upproret-i-goma-1998` har fått illustrationer gjorda med promptarna i [bildpromptar-299.md](bildpromptar-299.md). Bougainville och Goma gjordes om utan flaggor, eftersom de första versionerna hade flaggor som inte stämde (en påhittad flagga för Bougainville och Rwandas flagga från 2001 i Goma 1998).
 
-## Turerna och lektionerna (#1875, 2026-11-20)
+## Turerna och lektionerna (#1875): klart
 
-Sökt på Wikimedia Commons 2026-11-20. Väntar på en AI-illustration som en människa gör i ChatGPT ([bilder-ai-illustrationer.md](bilder-ai-illustrationer.md)), med promptarna i [bildpromptar-1875.md](bildpromptar-1875.md).
-
-| Händelse (id) | Varför ingen bild |
-|---|---|
-| `al-bakri-beskriver-ghana` | Ingen bild av al-Bakris bok eller av huvudstaden. Under Koumbi Saleh finns bara en plan av fyndplatsen (karta, CC BY-SA 4.0), en satellitbild av gravfältet och ett museifoto av en skifferplatta med inskrift (CC BY-SA 4.0). Det är omstritt om Koumbi Saleh är den stad al-Bakri beskrev, så ett fynd därifrån visar inte säkert händelsen. |
-| `slaget-vid-tondibi` | Bara kartor (Saadiernas erövringar, Songhairiket). Ingen avbildning av slaget eller av arméerna hittades. |
+Alla åtta tursteg har bild. De två som väntade på en AI-illustration, `al-bakri-beskriver-ghana` och `slaget-vid-tondibi`, har fått den (gjord av en människa i ChatGPT enligt [bilder-ai-illustrationer.md](bilder-ai-illustrationer.md), kontrollerat på `main` 2026-11-27). Promptarna ligger kvar i [bildpromptar-1875.md](bildpromptar-1875.md). Skälen till att ingen fri bild hittades står i den här filens historik (före 2026-11-27).
 
 ## Bilder att se över
 
