@@ -1142,7 +1142,7 @@
   "feedback.thanks": "Thank you for your suggestion! It has been received for review. Historical information is checked against reliable sources before it is published.",
   "feedback.again": "Send another suggestion",
   "focus.places.sample": ["A selection: {count} country. More to come.", "A selection: {count} countries. More to come."],
-  "focus.places.missing": "The country “{query}” is not among the cards yet. You can still search for events near a place.",
+  "focus.places.missing": "No card matches “{query}”. You can still search for events near a place.",
   "focus.places.toNear": "Go to Near a place",
   "space.show": "Show on the Moon",
   "space.showLabel": "Show on the Moon: {title}",

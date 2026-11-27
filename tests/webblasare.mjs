@@ -4565,17 +4565,22 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
-  // #1261, #1947: ett land som saknas ger "Landet finns inte bland korten ännu" och en knapp till Nära en plats, så att sökningen inte är en
-  // återvändsgränd. Texten sägs en gång i live-regionen (som övriga tomma sökningar), knappen nås med pil ner och Enter i sökrutan gör samma sak.
-  await check('Länder och landskap: sökning på ett land som saknas ger besked och väg till Nära en plats med tangentbord (#1261, #1947)', async () => {
+  // #1261, #1947, #2355: en sökning utan träff ger ett neutralt besked och en knapp till Nära en plats.
+  // Live-regionen säger beskedet en gång, och knappen nås med pil ner eller Enter i sökrutan.
+  await check('Länder och landskap: neutral text utan träff och väg till Nära en plats med tangentbord (#1261, #1947, #2355)', async () => {
     const { tp, tctx, errs } = await touchPage();
     try {
       const doc = await (await tctx.request.get(`${BASE}data/platser.json`)).json();
       const absent = ['Peru', 'Bolivia', 'Paraguay'].find(n => !doc.places.some(p => Object.values(p.name).some(v => v.toLowerCase().includes(n.toLowerCase()))));
       if (!absent) throw new Error('alla provländerna har fått kort; välj ett nytt land som saknas');
       await openLander(tp, '#y=1600', 'saknas1261');
-      await tp.fill('#focus-menu .focus-search', absent);
-      await tp.locator('#focus-menu .focus-missing').waitFor({ state: 'visible', timeout: T.step });
+      const message = tp.locator('#focus-menu .focus-missing p');
+      for (const query of ['stockholm', 'zzz', absent]) {
+        await tp.fill('#focus-menu .focus-search', query);
+        await message.waitFor({ state: 'visible', timeout: T.step });
+        const actual = await message.textContent();
+        if (actual !== `Inget kort matchar ”${query}”. Händelser nära en plats kan du ändå söka efter.`) throw new Error(`beskedet för "${query}" säger "${actual}"`);
+      }
       const m = await tp.evaluate(() => {
         const box = document.querySelector('#focus-menu .focus-missing'), p = box.querySelector('p'), btn = box.querySelector('[data-to-near]');
         const r = btn.getBoundingClientRect();
@@ -4583,7 +4588,6 @@ async function run(browser, vp) {
           coarse: matchMedia('(pointer: coarse)').matches, live: document.querySelector('#focus-menu .focus-live').textContent, rows: document.querySelectorAll('#focus-menu .focus-body [data-key]').length,
           sample: !!document.querySelector('#focus-menu .focus-sample') };
       });
-      if (m.text !== `Landet ”${absent}” finns inte bland korten ännu. Händelser nära en plats kan du ändå söka efter.`) throw new Error(`beskedet säger "${m.text}"`);
       if (m.btn !== 'Gå till Nära en plats') throw new Error(`knappen säger "${m.btn}"`);
       if (m.rows) throw new Error(`${m.rows} rader syns fast landet saknas`);
       if (m.pHidden !== 'true' || m.btnHidden) throw new Error('texten ska vara dold för skärmläsare (live-regionen säger den) och knappen inte');
@@ -4592,9 +4596,9 @@ async function run(browser, vp) {
       if (m.coarse && m.h < 44) throw new Error(`knappen är ${Math.round(m.h)} px hög, under 44 px`);
       // Skrivs fler tecken ändras live-regionen, men det finns bara en (ingen ny region per tangent)
       if (await tp.locator('#focus-menu [aria-live]').count() !== 1) throw new Error('Fokusmenyn ska ha exakt en live-region');
-      // I fliken Alla är beskedet om ett land fel (sökordet kan vara en händelse); där står det vanliga beskedet
+      // Fliken Alla har sitt eget besked för en tom sökning.
       await tp.click('#focus-menu [data-tab="Alla"]');
-      if (await tp.locator('#focus-menu .focus-missing').count()) throw new Error(`fliken Alla visar beskedet om ett land som saknas`);
+      if (await tp.locator('#focus-menu .focus-missing').count()) throw new Error(`fliken Alla visar beskedet för Länder och landskap`);
       await tp.click('#focus-menu [data-tab="Platser"]');
       await tp.locator('#focus-menu .focus-missing').waitFor({ state: 'visible', timeout: T.step });
       // Tangentbord: pil ner från sökrutan når knappen, Enter går till Nära en plats med sökordet med sig och fokus stannar i menyn
@@ -4623,7 +4627,7 @@ async function run(browser, vp) {
       await tp.locator('#focus-menu [data-key="place:aotearoa"]').waitFor({ state: 'visible', timeout: T.step });
       if (await tp.locator('#focus-menu .focus-missing').count()) throw new Error('beskedet visas trots att landet finns');
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
-      return `"${absent}": besked, knapp ${Math.round(m.h)} px, pil ner + Enter, Enter i sökrutan och klick går till Nära en plats med sökordet`;
+      return `stockholm, zzz och "${absent}": neutralt besked, knapp ${Math.round(m.h)} px, pil ner + Enter, Enter i sökrutan och klick går till Nära en plats med sökordet`;
     } finally { await tctx.close(); }
   });
 

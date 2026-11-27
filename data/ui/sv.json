@@ -987,7 +987,7 @@
   "feedback.thanks": "Tack för ditt förslag! Det har tagits emot för granskning. Historiska uppgifter kontrolleras mot tillförlitliga källor innan de publiceras.",
   "feedback.again": "Skicka ett förslag till",
   "focus.places.sample": ["Ett urval: {count} land. Fler kommer.", "Ett urval: {count} länder. Fler kommer."],
-  "focus.places.missing": "Landet ”{query}” finns inte bland korten ännu. Händelser nära en plats kan du ändå söka efter.",
+  "focus.places.missing": "Inget kort matchar ”{query}”. Händelser nära en plats kan du ändå söka efter.",
   "focus.places.toNear": "Gå till Nära en plats",
   "space.show": "Visa på månen",
   "space.showLabel": "Visa på månen: {title}",
