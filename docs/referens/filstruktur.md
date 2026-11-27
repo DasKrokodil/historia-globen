@@ -29,6 +29,7 @@ js/surfaces.js        stängregistret för ytor: menyerna och sidopanelen anmäl
 js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, bågar
 js/start-view.js      startbilden: kameran och startzoomen utan delad adress (#1317), delas med testerna
 js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning: samma ritning i högre upplösning för det som syns
+js/year-clamp.js      gemensam klampning av år mot anroparens gränser (#1512)
 js/period-range.js    epok som intervall: periodToRange klipper vid tidslinjens början och går till i dag för öppna perioder (#965)
 js/timeline.js        tidsreglage, segmenterad skala, uppspelning
 js/time-scale.js      människans två skalposter, Före 3000 f.Kr. och 3000 f.Kr.–i dag: segment, skalstreck, skarvar, minsta fönster, upplösning, steg, fart och gränser, och `scaleForYear` som väljer post ur året (#1511, #1958)

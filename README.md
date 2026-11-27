@@ -71,6 +71,7 @@ js/i18n.js            språkval och gränssnittets texter på valt språk (#63)
 js/globe.js           3D-globen (three.js), ekvirektangulär rendering
 js/start-view.js      startbilden: kameran och startzoomen när sidan öppnas utan delad adress, delas med testerna (#1317)
 js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning
+js/year-clamp.js      gemensam klampning av år mot anroparens gränser (#1512)
 js/period-range.js    epok som intervall: periodToRange klipper vid tidslinjens början och går till i dag för öppna perioder (#965)
 js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
 js/time-scale.js      människans två skalposter (Före 3000 f.Kr., 3000 f.Kr.–i dag): segment, upplösning, steg, fart och gränser, och valet av post ur året (#1511, #1958)

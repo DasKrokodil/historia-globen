@@ -6,7 +6,8 @@
 // och samma köer återupptas av Fortsätt (beforeplay). Därför flyttas omritningen och uppspelningen tillsammans:
 // de delar köerna men inte tillståndet i state (beslutet i #402).
 import { t, isVisibleReview, stopDate } from '../model.js';
-import { MAX_YEAR } from '../timeline.js';
+import { MAX_YEAR } from '../state.js';
+import { clampYear } from '../year-clamp.js';
 import { routeStops as stopsForRoute } from '../layers/lines.js';
 import { hasTag } from '../layers/events.js';
 import { stopIndexAt, stepTarget, stepState, followersAtSameTime, keysThrough } from '../route-steps.js';
@@ -151,7 +152,7 @@ export function createPlayback(app) {
   }
 
   /** Krigets slut i fokusläget: sista dagen eller året, och "i dag" för ett pågående krig (#223). */
-  const warEndOf = () => Math.min(timeline.spanOf(state.focusWar)[1], MAX_YEAR);
+  const warEndOf = () => clampYear(timeline.spanOf(state.focusWar)[1], { to: MAX_YEAR });
   /** Nästa stopp som Fortsätt ska visa: kön, eller slutkortet om tiden står i krigets slut och
    *  kortet inte har visats än. Då börjar uppspelningen aldrig om före slutkortet (#232). */
   function queuedStop() {
@@ -251,7 +252,7 @@ export function createPlayback(app) {
     // I slutet: hur kriget slutade och hur många som dog (#122)
     // Alla stora händelser som passerades stoppar i tur och ordning, och slutkortet kommer sist (#217).
     // Det som inte hinns med nu ligger i warStops och visas när man trycker Fortsätt.
-    const warEnd = focusWar && Math.min(span(focusWar)[1], MAX_YEAR); // ett pågående krig når "i dag" (#223)
+    const warEnd = focusWar && clampYear(span(focusWar)[1], { to: MAX_YEAR }); // ett pågående krig når "i dag" (#223)
     // Kön töms bara när tiden flyttas för hand (i lyssnaren på change), inte vid varje omritning, till exempel
     // när man klickar i faktarutan eller på globen under en paus (#232)
     if (focusWar && playing) {

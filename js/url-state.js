@@ -38,6 +38,7 @@
 // Filen har inga importer från webbläsaren och testas i node (tests/url-state.test.mjs).
 
 import { STATE_VERSION, fromJSON, parseFocusKey, MIN_YEAR, MAX_YEAR } from './state.js';
+import { clampYear } from './year-clamp.js';
 
 const ID = /^[a-z0-9-]+$/;
 /** Adressfält som är reserverade för en senare version (#397): fältets namn och tillståndets fält det ska bära. */
@@ -46,7 +47,7 @@ export const LESSON_MODE = 'lektion';
 /** Lärarens väg i lektionsläget (#885): `r=lararen` i en lektionslänk ger knappen för elev- och lärarblad. Skrivs aldrig tillbaka till adressen. */
 export const TEACHER_ROLE = 'lararen';
 const num = x => String(Math.round(x * 10000) / 10000);
-const clampYear = year => Math.max(MIN_YEAR, Math.min(MAX_YEAR, year));
+const humanBounds = { from: MIN_YEAR, to: MAX_YEAR };
 
 /**
  * Hashen för ett tillstånd från toJSON(). allCategories är alla kategorier som finns i datan: syns alla,
@@ -141,8 +142,8 @@ export function decodeHash(hash) {
   const layers = list('l'), filters = list('k');
   const y2 = params.get('y2') != null && params.get('y2').trim() !== '' ? Number(params.get('y2')) : null;
   const tag = params.get('g');
-  const doc = { v: STATE_VERSION, year: clampYear(year), camera, focus: params.get('f') || null, layers: layers ?? [], filters: filters ?? [], tag, calm: false };
-  if (Number.isFinite(y2)) { doc.yearEnd = clampYear(Math.round(y2)); if (params.get('p')) doc.period = params.get('p'); } // fromJSON jämför efter klippningen: ett tomt intervall blir ett år
+  const doc = { v: STATE_VERSION, year: clampYear(year, humanBounds), camera, focus: params.get('f') || null, layers: layers ?? [], filters: filters ?? [], tag, calm: false };
+  if (Number.isFinite(y2)) { doc.yearEnd = clampYear(Math.round(y2), humanBounds); if (params.get('p')) doc.period = params.get('p'); } // fromJSON jämför efter klippningen: ett tomt intervall blir ett år
   let state;
   try { state = fromJSON(doc); } catch {
     // Ett trasigt fält (till exempel ett okänt fokus) tas bort; året och resten gäller ändå. Felet står i problems (#1324)
