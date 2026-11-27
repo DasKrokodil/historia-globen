@@ -762,7 +762,7 @@ export class Panel {
    * Kortet för ett urval (tema eller plats). empires (#1448, bara platser med periods): { title, note, follow, rows }, där en rad är
    * { years, name, label, run } (run saknas i en tur: raden är då bara text) eller { gap } (en lucka, en läsbar rad).
    */
-  showSelection({ label, name, lead = '', today = '', state = '', mapNote = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel, aboutLabel = null }) {
+  showSelection({ label, name, lead = '', today = '', state = '', mapNote = '', emblems = [], intro, introNotes = null, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel, aboutLabel = null }) {
     this.selectedId = null;
     // Ingen tidsålderns ram (#1713, punkt 4): plats- och temakortet är en ruta för läsning, i samma neutrala mörka kort som rikes-, religions-
     // och krigskorten. Ramen efter första händelsens epok gav olika kort för Skåne (grotta, 3,46:1) och Grönland (papyrus) och ockra text under AA.
@@ -806,9 +806,11 @@ export class Panel {
       </details>`;
     // Om kartan och källor (#1790): flaggans källa, kartanteckningarna och källorna, hopfällt längst ned i platsens kort
     const credits = shown.filter(em => !needsCredit(em)).map(em => `<p class="place-credit">${esc(t(em.caption))}: ${esc(em.credit)} · ${esc(em.license)}</p>`).join('');
+    // Kartanteckningarna om landets rikesperioder och kontur (#2353) står först i Om kartan och källor, inte i inledningen: knappen Visa på kartan ska synas i kortets första skärm
+    const introNotesHtml = placeCard && introNotes ? `<p class="theme-filter-note place-intro-notes"${langAttr(introNotes)}>${esc(t(introNotes))}</p>` : '';
     const aboutHtml = placeCard ? `<details class="theme-event-list place-about">
         <summary>${esc(aboutLabel)}</summary>
-        ${credits}${notesHtml}${srcs.length ? srcLine(srcs, false) : ''}
+        ${introNotesHtml}${credits}${notesHtml}${srcs.length ? srcLine(srcs, false) : ''}
       </details>` : '';
     const body = placeCard ? [actionHtml, eventsHtml, empireHtml, aboutHtml, exitHtml] : [actionHtml, notesHtml, exitHtml, empireHtml, eventsHtml];
     this.detail.innerHTML = `
