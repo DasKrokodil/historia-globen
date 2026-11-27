@@ -593,3 +593,37 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `malacka-grundas` | 2026-11-26: Kandidaterna är portugisiska tennmynt från Malacka (1500-talet) och har ingen koppling till sultanatets grundande; används inte. |
 | `safaviderna-tar-makten-1501` | 2026-11-26: Träffarna är porträtt av Ismail I (Behzad, Altissimo m.fl.) men alla är mindre än 800 px och skulle bli suddiga i kortet; en större bild återstår att söka. |
 | `funjsultanatet-grundas` | 2026-11-26: Sökningen gav inga träffar; ingen egen vidare sökning hann göras. |
+
+
+## Asien 1526–1853 (#2066 och #2067, 2026-11-26)
+
+14 av 40 händelser fick bild i den här omgången. Följande 26 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-6.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `saavedra-over-stilla-havet` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `portugiserna-landstiger-i-massawa` | 2026-11-26: Egen sökning gav en gravyr av Cristóvão da Gama (Cristovao da Gama in Abyssinia.jpg) vars filsida anger "source: unknown" och okänd upphovsperson; licensen (PD-old-70) vilar på ett antagande och används inte. |
+| `slaget-vid-wofla` | 2026-11-26: Kandidaten (Burning of churches by the Adalites..., konstnär verksam cirka 1900) har licensmallen CC0 satt av uppladdaren för ett verk av en konstnär verksam 1900, vilket är osäkert; används inte. Övriga träffar är små eller en karta. |
+| `jordbavningen-i-shaanxi-1556` | 2026-11-26: Kandidaterna är nutida foton av Daci'en-templet i Xi'an och en liten karta; filsidorna kopplar inte templet till jordbävningen, så de används inte. |
+| `mendana-nar-salomonoarna` | 2026-11-26: Enda kandidaten är en liten karta (495 px); används inte. Sökning efter samtida bilder gav bara bokskanningar (PDF). |
+| `slaget-vid-komaki-nagakute` | 2026-11-26: Enda kandidaten (nutida foto av slagfältet, CC BY-SA 3.0) flaggades för licensen; används inte utan närmare kontroll. |
+| `slaget-vid-chungju-1592` | 2026-11-26: Enda kandidaten är en japansk bild (588 px bred) som blir suddig i kortet; en större bild återstår att söka. |
+| `sjoslaget-vid-hansan` | 2026-11-26: Kandidaten (Documentary painting of the Battle of Hansan Island) har licensen KOGL Type 1, som inte ingår i de tillåtna licenserna; används inte. En annan träff (Битва при Хансандо) saknar tydlig källa. |
+| `farden-till-vastern-1592` | 2026-11-26: Kandidaterna är foton av ett tåg (fel motiv); ingen bild som visar boken eller händelsen hann sökas. |
+| `belagringen-av-pyongyang-1593` | 2026-11-26: Enda träffarna (Chinapyongyangimjin.jpg, Battle of Pyongyang 1593.JPG) är mindre än 800 px; en större bild återstår att söka. |
+| `slaget-vid-haengju` | 2026-11-26: Enda kandidaten är ett nutida foto av ett monument (Haengjudaecheopbi); modernt konstverk och stående bild, används inte. |
+| `sjoslaget-vid-myeongnyang` | 2026-11-26: Enda kandidaten (Navalzhugenu2.jpg) visar ett kinesiskt fartyg och är bara 464 px bred; används inte. |
+| `adi-granth-i-gyllene-templet` | 2026-11-26: Kandidaterna är nutida foton av Gyllene templet i Amritsar, en aktiv helig plats där pilgrimer ofta syns; avstås tills en människa bedömt det. Ingen egen vidare sökning hann göras. |
+| `torres-seglar-genom-torressundet` | 2026-11-26: Enda kandidaten (Torres Strait.jpg) är en liten stående bild (444 px); används inte. |
+| `spansk-chamorriska-krigen` | 2026-11-26: Enda kandidaten (kvinnor som sköter trädgårdar vid regeringscentret på Guam, 1800-tal) är liten (604 px) och visar inte krigen; urfolkets kulturarv, används inte. |
+| `khalsa-grundas` | 2026-11-26: Egen sökning gav en 1800-talsmålning av Khalsas grundande (PD-art, upphovsperson okänd, källa Instagram) och en fresk; religiösa bilder av Guru Gobind Singh och svag proveniens, så de avstås tills en människa bedömt dem. |
+| `sirhind-1758` | 2026-11-26: Kandidaterna är små brev (Marathi letter references…, cirka 525 px); används inte. |
+| `slaget-vid-barari-ghat` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `marathas-tar-delhi-1760` | 2026-11-26: Kandidaterna är en karta från 1768 och små brevbilder; används inte. |
+| `slaget-vid-kunjpura` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `svalten-i-bengalen-1770` | 2026-11-26: Enda kandidaten (Distressed Natives Going to the Relief Works, The Graphic 1874) hör enligt titeln till en senare hungersnöd (1874), inte till 1770; används inte. |
+| `tenmei-svalten` | 2026-11-26: Kandidaten (Great Tenmei famine.jpg) visar enligt filsidan människor som äter hästar och människokött och har licensen CC BY-SA 4.0 för ett verk från 1790-talet utan känd upphovsperson; osäker licens och mycket obehaglig bild, används inte. |
+| `skarmytslingen-vid-kowloon-1839` | 2026-11-26: Kandidaten (Hong-kong, from Kow-loon, 1841–1842) visar en senare vy och inte skärmytslingen 1839; används inte. |
+| `andra-slaget-vid-chuanbi` | 2026-11-26: Kandidaterna (Attack and Capture of Chuenpee, Nemesis in Anson's Bay) hör enligt bildtexterna till striderna i januari 1841 och är inte uttryckligen kopplade till det andra slaget; används inte utan säker koppling. |
+| `bab-framtrader-1844` | 2026-11-26: Ingen kandidat i listan; Báb avbildas inte (bilder av Báb behandlas med vördnad inom bahá'í) och ingen sökning gjordes. |
+| `norra-expeditionen-taiping` | 2026-11-26: Enda träffen är ett foto av Chiang Kai-shek vid en grav (fel motiv); används inte. |

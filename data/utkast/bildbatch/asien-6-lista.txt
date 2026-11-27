@@ -1,0 +1,31 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:Battle of Panipat (20 April 1526). Baburnama of 1598.jpg	forsta-slaget-vid-panipat
+# File:Burning of churches by the Adalites and the execution of Cristóvão da Gama.png	slaget-vid-wofla
+# File:The defeat of Hemu, Akbarnama.jpg	andra-slaget-vid-panipat
+# File:The Daci'en Temple, Xi'an (50613091213).jpg	jordbavningen-i-shaanxi-1556
+# File:SantaIsabelmap.png	mendana-nar-salomonoarna
+# File:Nagakute Historic Battlefield.jpg	slaget-vid-komaki-nagakute
+# File:Siege-of-Busanjin-1592.jpg	belagringen-av-busan-1592
+# File:HXD1D 0681 with Y406@NJH (20260519135010).jpg	farden-till-vastern-1592
+# File:Documentary painting of the Battle of Hansan Island.jpg	sjoslaget-vid-hansan
+# File:회본태합기신립.jpg	slaget-vid-chungju-1592
+# File:Chinapyongyangimjin.jpg	belagringen-av-pyongyang-1593
+# File:Haengjudaecheopbi.jpg	slaget-vid-haengju
+# File:Navalzhugenu2.jpg	sjoslaget-vid-myeongnyang
+# File:Golden Temple - Amritsar - Punjab - 0002.jpg	adi-granth-i-gyllene-templet
+# File:Torres Strait.jpg	torres-seglar-genom-torressundet
+# File:志筑忠雄訳「鎖国論」.jpg	sakoku-japan-stanger
+# File:Women tending the gardens outside the government center on Guam.png	spansk-chamorriska-krigen
+# File:Fresco depicting Guru Gobind Singh formalizing the Khalsa Panth with the Panj Piare at Anandpur Sahib, from Gurdwara Babe-di-Ber, Sialkot, circa 19th century.jpg	khalsa-grundas
+# File:The Third battle of Panipat 13 January 1761.jpg	afghansk-marathiska-kriget
+# File:Marathi letter references on Ala Singh of Patiala State (1).jpg	sirhind-1758
+# File:1768 Jeffreys Wall Map of India and Ceylon - Geographicus - India-jeffreys-1768.jpg	marathas-tar-delhi-1760
+# File:Distressed Natives Going to the Relief Works - The Graphic 1874.jpg	svalten-i-bengalen-1770
+# File:Great Tenmei famine.jpg	tenmei-svalten
+# File:Destroying Chinese war junks, by E. Duncan (1843).jpg	forsta-opiumkriget
+# File:Hong-kong, from Kow-loon.jpg	skarmytslingen-vid-kowloon-1839
+# File:Chusan conference 1840.jpg	britterna-intar-zhoushan-1840
+# File:Attack and Capture of Chuenpee, near Canton.jpg	andra-slaget-vid-chuanbi
+# File:West Gate of Ching-Keang-Foo 1842.jpg	slaget-vid-zhenjiang-1842
+# File:Chiang Kai-Shek paying reverence at the tomb of the late Dr. Sun Yat-Sen, August 04, 1928.jpg	norra-expeditionen-taiping
