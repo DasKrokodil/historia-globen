@@ -4616,7 +4616,7 @@ async function run(browser, vp) {
               tabScroll: tabs.scrollWidth > tabs.clientWidth, wide: document.documentElement.scrollWidth > innerWidth, sort: getComputedStyle(menu.querySelector('.focus-sort')).display };
           });
           const where = `${size.width} × ${size.height}`;
-          if (m.key !== 'place:danmark') throw new Error(`${where}: första landet är ${m.key}, inte Danmark`);
+          if (m.key !== 'place:belgien') throw new Error(`${where}: första landet är ${m.key}, inte Belgien`);
           if (m.scrollTop !== 0) throw new Error(`${where}: listan var rullad (${m.scrollTop} px)`);
           if (m.bottom > Math.min(m.bodyBottom, m.menuBottom, size.height) + 1 || m.top < m.bodyTop - 1) throw new Error(`${where}: första landet ligger ${Math.round(m.top)}–${Math.round(m.bottom)} px, utanför listan (${Math.round(m.bodyTop)}–${Math.round(Math.min(m.bodyBottom, size.height))})`);
           if (m.tabRows !== 1) throw new Error(`${where}: flikarna ligger på ${m.tabRows} rader, inte en rullrad`);
@@ -4630,7 +4630,7 @@ async function run(browser, vp) {
           await tp.locator('#focus-menu .menu-x').click({ timeout: T.step });
           await tp.waitForSelector('#focus-menu', { state: 'hidden', timeout: T.step });
           if (errs.length) throw new Error(`${where}: fel i konsolen: ${errs.join(' | ')}`);
-          out.push(`${where}: Danmark ${Math.round(m.top)}–${Math.round(m.bottom)} px`);
+          out.push(`${where}: Belgien ${Math.round(m.top)}–${Math.round(m.bottom)} px`);
         } finally { await tctx.close(); }
       }
       return out.join('; ');
