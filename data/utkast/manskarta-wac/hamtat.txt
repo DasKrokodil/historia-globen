@@ -1,0 +1,7 @@
+HTTP 200 5959263751 byte, 129.133176 s
+-rw-r--r-- 1 runner runner 5959263751 Nov 27 08:39 /home/runner/work/_temp/wac/wac.tif
+87159ead1888ae31bb647e957ec60943022b707ec804cb5353a304575936fd55  /home/runner/work/_temp/wac/wac.tif
+total 5821028
+-rw-r--r-- 1 runner runner    1456836 Nov 27 08:39 wac-2048.png
+-rw-r--r-- 1 runner runner        865 Nov 27 08:39 wac-2048.png.aux.xml
+-rw-r--r-- 1 runner runner 5959263751 Nov 27 08:39 wac.tif

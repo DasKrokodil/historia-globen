@@ -27,72 +27,72 @@
    "place": {
     "sv": "Korea och haven runt Koreahalvön (började vid Busan)",
     "en": "Korea and the seas around the Korean Peninsula (began at Busan)",
-    "de": "Korea und die Meere um die Koreanische Halbinsel (begann bei Busan)"
+    "de": "Korea und die Meere um die Koreanische Halbinsel (begann bei Busan)", "es": "Corea y los mares que rodean la península de Corea (comenzó en Busan)"
    },
    "title": {
     "sv": "Imjinkriget",
     "en": "The Imjin War",
-    "de": "Der Imjin-Krieg"
+    "de": "Der Imjin-Krieg", "es": "La guerra de Imjin"
    },
    "summary": {
     "sv": "Japans härskare Toyotomi Hideyoshi invaderade Korea två gånger, 1592 och 1597, med målet att erövra Kina. Korea och Mingkina drev till slut ut japanerna, men Korea ödelades. Den koreanska flottan under amiral Yi Sun-sin störde japanernas förbindelser över havet och fick stor betydelse.",
     "en": "Japan's ruler Toyotomi Hideyoshi invaded Korea twice, in 1592 and 1597, with the aim of conquering China. Korea and Ming China eventually drove the Japanese out, but Korea was devastated. The Korean navy under Admiral Yi Sun-sin disrupted Japanese communications across the sea and proved of great importance.",
-    "de": "Japans Herrscher Toyotomi Hideyoshi fiel zweimal in Korea ein, 1592 und 1597, mit dem Ziel, China zu erobern. Korea und das Ming-China vertrieben die Japaner schließlich, doch Korea wurde verwüstet. Die koreanische Flotte unter Admiral Yi Sun-sin störte die Verbindungen der Japaner über das Meer und war von großer Bedeutung."
+    "de": "Japans Herrscher Toyotomi Hideyoshi fiel zweimal in Korea ein, 1592 und 1597, mit dem Ziel, China zu erobern. Korea und das Ming-China vertrieben die Japaner schließlich, doch Korea wurde verwüstet. Die koreanische Flotte unter Admiral Yi Sun-sin störte die Verbindungen der Japaner über das Meer und war von großer Bedeutung.", "es": "El gobernante japonés Toyotomi Hideyoshi invadió Corea dos veces, en 1592 y 1597, con el objetivo de conquistar China. Corea y la China Ming acabaron expulsando a los japoneses, pero Corea quedó devastada. La armada coreana del almirante Yi Sun-sin interrumpió las comunicaciones marítimas japonesas y tuvo una gran importancia."
    },
    "note": {
     "kind": "calendar",
     "title": {
      "sv": "Om kalendern",
      "en": "About the calendar",
-     "de": "Zum Kalender"
+     "de": "Zum Kalender", "es": "Sobre el calendario"
     },
     "text": {
      "sv": "Datumen anges i den gregorianska kalendern. Koreanska, kinesiska och japanska källor från tiden räknar med månkalendern. Där började kriget den 13:e dagen i fjärde månaden 1592 och slutade den 19:e dagen i elfte månaden 1598.",
      "en": "The dates are given in the Gregorian calendar. Korean, Chinese and Japanese sources of the time use the lunar calendar. By that reckoning the war began on the 13th day of the fourth month of 1592 and ended on the 19th day of the eleventh month of 1598.",
-     "de": "Die Daten sind im gregorianischen Kalender angegeben. Koreanische, chinesische und japanische Quellen der Zeit rechnen mit dem Mondkalender. Danach begann der Krieg am 13. Tag des vierten Monats 1592 und endete am 19. Tag des elften Monats 1598."
+     "de": "Die Daten sind im gregorianischen Kalender angegeben. Koreanische, chinesische und japanische Quellen der Zeit rechnen mit dem Mondkalender. Danach begann der Krieg am 13. Tag des vierten Monats 1592 und endete am 19. Tag des elften Monats 1598.", "es": "Las fechas se indican en el calendario gregoriano. Las fuentes coreanas, chinas y japonesas de la época usan el calendario lunar. Según este, la guerra comenzó el día 13 del cuarto mes de 1592 y terminó el día 19 del undécimo mes de 1598."
     }
    },
    "story": {
     "intro": {
      "sv": "Toyotomi Hideyoshi hade enat Japan i slutet av 1500-talet. Han ville erövra Kina, enligt källorna både för att stärka sin makt och för att sysselsätta de många krigare som inte längre behövdes i Japan. Korea var lydrike under Mingkina och vägrade släppa igenom japanska trupper. I maj 1592 landsteg den första japanska divisionen vid Busan.",
      "en": "Toyotomi Hideyoshi had unified Japan at the end of the 16th century. He wanted to conquer China, according to the sources both to strengthen his power and to occupy the many warriors who were no longer needed in Japan. Korea was a tributary state of Ming China and refused to let Japanese troops pass through. In May 1592 the first Japanese division landed at Busan.",
-     "de": "Toyotomi Hideyoshi hatte Japan Ende des 16. Jahrhunderts geeint. Er wollte China erobern, nach den Quellen sowohl, um seine Macht zu stärken, als auch, um die vielen Krieger zu beschäftigen, die in Japan nicht mehr gebraucht wurden. Korea war ein Vasallenstaat des Ming-China und weigerte sich, japanische Truppen durchzulassen. Im Mai 1592 landete die erste japanische Division bei Busan."
+     "de": "Toyotomi Hideyoshi hatte Japan Ende des 16. Jahrhunderts geeint. Er wollte China erobern, nach den Quellen sowohl, um seine Macht zu stärken, als auch, um die vielen Krieger zu beschäftigen, die in Japan nicht mehr gebraucht wurden. Korea war ein Vasallenstaat des Ming-China und weigerte sich, japanische Truppen durchzulassen. Im Mai 1592 landete die erste japanische Division bei Busan.", "es": "Toyotomi Hideyoshi había unificado Japón a finales del siglo XVI. Quería conquistar China, según las fuentes tanto para reforzar su poder como para dar ocupación a los numerosos guerreros que ya no eran necesarios en Japón. Corea era un Estado tributario de la China Ming y se negó a dejar pasar a las tropas japonesas. En mayo de 1592 la primera división japonesa desembarcó en Busan."
     },
     "parties": [
      {
       "name": {
        "sv": "Korea och Kina",
        "en": "Korea and China",
-       "de": "Korea und China"
+       "de": "Korea und China", "es": "Corea y China"
       },
       "members": {
        "sv": "Joseonriket i Korea under kung Seonjo, med flottan under Yi Sun-sin, frivilliga ”rättfärdiga arméer” och krigarmunkar, och Mingkina under Wanli-kejsaren, som skickade arméer 1593 och 1597–1598.",
        "en": "The Joseon kingdom of Korea under King Seonjo, with the navy under Yi Sun-sin, volunteer “righteous armies” and warrior monks, and Ming China under the Wanli Emperor, who sent armies in 1593 and 1597–1598.",
-       "de": "Das Joseon-Reich in Korea unter König Seonjo, mit der Flotte unter Yi Sun-sin, freiwilligen „gerechten Armeen“ und Kriegermönchen, und das Ming-China unter dem Wanli-Kaiser, der 1593 und 1597–1598 Heere schickte."
+       "de": "Das Joseon-Reich in Korea unter König Seonjo, mit der Flotte unter Yi Sun-sin, freiwilligen „gerechten Armeen“ und Kriegermönchen, und das Ming-China unter dem Wanli-Kaiser, der 1593 und 1597–1598 Heere schickte.", "es": "El reino de Joseon en Corea bajo el rey Seonjo, con la armada de Yi Sun-sin, «ejércitos justos» de voluntarios y monjes guerreros, y la China Ming bajo el emperador Wanli, que envió ejércitos en 1593 y 1597–1598."
       }
      },
      {
       "name": {
        "sv": "Japan",
        "en": "Japan",
-       "de": "Japan"
+       "de": "Japan", "es": "Japón"
       },
       "members": {
        "sv": "Toyotomi Hideyoshis regering, med fältherrar som Konishi Yukinaga, Katō Kiyomasa, Ukita Hideie och Shimazu Yoshihiro.",
        "en": "The government of Toyotomi Hideyoshi, with commanders such as Konishi Yukinaga, Katō Kiyomasa, Ukita Hideie and Shimazu Yoshihiro.",
-       "de": "Die Regierung Toyotomi Hideyoshis, mit Feldherren wie Konishi Yukinaga, Katō Kiyomasa, Ukita Hideie und Shimazu Yoshihiro."
+       "de": "Die Regierung Toyotomi Hideyoshis, mit Feldherren wie Konishi Yukinaga, Katō Kiyomasa, Ukita Hideie und Shimazu Yoshihiro.", "es": "El Gobierno de Toyotomi Hideyoshi, con generales como Konishi Yukinaga, Katō Kiyomasa, Ukita Hideie y Shimazu Yoshihiro."
       }
      }
     ],
     "outcome": {
      "sv": "Efter Hideyoshis död i september 1598 beordrade de fem äldstes råd att trupperna skulle dras hem, och de sista japanska skeppen lämnade Korea i december. Gränserna blev desamma som före kriget. Korea drabbades värst: den odlade jorden minskade till två tredjedelar, och svält, sjukdom och uppror följde. Kriget försvagade både Toyotomi-klanen, vilket banade väg för Tokugawa Ieyasu, och Mingdynastins ekonomi.",
      "en": "After Hideyoshi's death in September 1598, the Council of Five Elders ordered the troops to be withdrawn, and the last Japanese ships left Korea in December. The borders were the same as before the war. Korea suffered the worst: cultivated land shrank to two thirds, and famine, disease and rebellion followed. The war weakened both the Toyotomi clan, which paved the way for Tokugawa Ieyasu, and the economy of the Ming dynasty.",
-     "de": "Nach Hideyoshis Tod im September 1598 ordnete der Rat der fünf Ältesten an, die Truppen zurückzuholen, und die letzten japanischen Schiffe verließen Korea im Dezember. Die Grenzen blieben dieselben wie vor dem Krieg. Korea traf es am schlimmsten: Das bebaute Land schrumpfte auf zwei Drittel, und Hunger, Krankheit und Aufstände folgten. Der Krieg schwächte sowohl den Toyotomi-Klan, was Tokugawa Ieyasu den Weg ebnete, als auch die Wirtschaft der Ming-Dynastie."
+     "de": "Nach Hideyoshis Tod im September 1598 ordnete der Rat der fünf Ältesten an, die Truppen zurückzuholen, und die letzten japanischen Schiffe verließen Korea im Dezember. Die Grenzen blieben dieselben wie vor dem Krieg. Korea traf es am schlimmsten: Das bebaute Land schrumpfte auf zwei Drittel, und Hunger, Krankheit und Aufstände folgten. Der Krieg schwächte sowohl den Toyotomi-Klan, was Tokugawa Ieyasu den Weg ebnete, als auch die Wirtschaft der Ming-Dynastie.", "es": "Tras la muerte de Hideyoshi en septiembre de 1598, el Consejo de los Cinco Ancianos ordenó retirar las tropas, y los últimos barcos japoneses abandonaron Corea en diciembre. Las fronteras quedaron como antes de la guerra. Corea fue la más perjudicada: la tierra cultivada se redujo a dos tercios, y siguieron hambrunas, enfermedades y rebeliones. La guerra debilitó tanto al clan Toyotomi, lo que abrió el camino a Tokugawa Ieyasu, como a la economía de la dinastía Ming."
     },
     "casualties": {
      "sv": "Uppskattningarna skiljer sig. George H. Jones uppskattade 1899 de samlade förlusterna, soldater och civila, till en miljon, och Kallie Szczepanski anger över en miljon döda i Korea. Bland soldaterna dödades enligt källorna över 100 000 japaner, omkring 185 000 koreaner och över 29 000 kineser. Japanerna förde bort 50 000–60 000 koreaner som fångar (Stephen Turnbull).",
      "en": "Estimates differ. George H. Jones estimated in 1899 the total losses, soldiers and civilians, at one million, and Kallie Szczepanski gives over one million dead in Korea. Among the soldiers, according to the sources, over 100,000 Japanese, about 185,000 Koreans and over 29,000 Chinese were killed. The Japanese carried off 50,000–60,000 Koreans as prisoners (Stephen Turnbull).",
-     "de": "Die Schätzungen weichen voneinander ab. George H. Jones schätzte 1899 die Gesamtverluste, Soldaten und Zivilisten, auf eine Million, und Kallie Szczepanski nennt über eine Million Tote in Korea. Unter den Soldaten wurden nach den Quellen über 100.000 Japaner, etwa 185.000 Koreaner und über 29.000 Chinesen getötet. Die Japaner verschleppten 50.000–60.000 Koreaner als Gefangene (Stephen Turnbull)."
+     "de": "Die Schätzungen weichen voneinander ab. George H. Jones schätzte 1899 die Gesamtverluste, Soldaten und Zivilisten, auf eine Million, und Kallie Szczepanski nennt über eine Million Tote in Korea. Unter den Soldaten wurden nach den Quellen über 100.000 Japaner, etwa 185.000 Koreaner und über 29.000 Chinesen getötet. Die Japaner verschleppten 50.000–60.000 Koreaner als Gefangene (Stephen Turnbull).", "es": "Las estimaciones difieren. George H. Jones estimó en 1899 las pérdidas totales, entre soldados y civiles, en un millón, y Kallie Szczepanski indica más de un millón de muertos en Corea. Entre los soldados murieron, según las fuentes, más de 100 000 japoneses, unos 185 000 coreanos y más de 29 000 chinos. Los japoneses se llevaron como prisioneros a 50 000–60 000 coreanos (Stephen Turnbull)."
     },
     "sources": [
      "wp-imjin-war"
@@ -140,17 +140,17 @@
    "place": {
     "sv": "Busan, Korea",
     "en": "Busan, Korea",
-    "de": "Busan, Korea"
+    "de": "Busan, Korea", "es": "Busan, Corea"
    },
    "title": {
     "sv": "Japanerna stormar Busan",
     "en": "The Japanese storm Busan",
-    "de": "Die Japaner stürmen Busan"
+    "de": "Die Japaner stürmen Busan", "es": "Los japoneses toman Busan al asalto"
    },
    "summary": {
     "sv": "Den 23 maj 1592 seglar japanska trupper under Konishi Yukinaga från Tsushima till Busan. Befälhavaren i Busan, Chŏng Pal, vägrar släppa fram dem, och dagen därpå, den 24 maj, stormar de staden. Det är krigets första strider.",
     "en": "On 23 May 1592 Japanese troops under Konishi Yukinaga sail from Tsushima to Busan. The commander at Busan, Chŏng Pal, refuses to let them through, and the next day, 24 May, they storm the city. These are the first battles of the war.",
-    "de": "Am 23. Mai 1592 segeln japanische Truppen unter Konishi Yukinaga von Tsushima nach Busan. Der Befehlshaber in Busan, Chŏng Pal, verweigert ihnen den Durchzug, und am nächsten Tag, dem 24. Mai, stürmen sie die Stadt. Es sind die ersten Kämpfe des Krieges."
+    "de": "Am 23. Mai 1592 segeln japanische Truppen unter Konishi Yukinaga von Tsushima nach Busan. Der Befehlshaber in Busan, Chŏng Pal, verweigert ihnen den Durchzug, und am nächsten Tag, dem 24. Mai, stürmen sie die Stadt. Es sind die ersten Kämpfe des Krieges.", "es": "El 23 de mayo de 1592 tropas japonesas de Konishi Yukinaga zarpan de Tsushima hacia Busan. El comandante de Busan, Chŏng Pal, se niega a dejarles pasar, y al día siguiente, el 24 de mayo, toman la ciudad al asalto. Son los primeros combates de la guerra."
    },
    "image": {
     "file": "images/events/belagringen-av-busan-1592.webp",
@@ -194,29 +194,29 @@
    "place": {
     "sv": "Tangeumdae vid Chungju, Korea",
     "en": "Tangeumdae at Chungju, Korea",
-    "de": "Tangeumdae bei Chungju, Korea"
+    "de": "Tangeumdae bei Chungju, Korea", "es": "Tangeumdae, junto a Chungju, Corea"
    },
    "title": {
     "sv": "Slaget vid Chungju",
     "en": "The Battle of Chungju",
-    "de": "Die Schlacht bei Chungju"
+    "de": "Die Schlacht bei Chungju", "es": "La batalla de Chungju"
    },
    "summary": {
     "sv": "I början av juni 1592 möter general Sin Rip japanerna på slätten vid Tangeumdae i stället för att försvara bergspasset. De koreanska ryttarna faller för japanernas arkebuser, och Sin Rip tar sitt liv. Vägen till huvudstaden Hanseong (dagens Seoul) ligger öppen, kungen flyr och japanerna går in i staden den 10 juni.",
     "en": "In early June 1592 General Sin Rip meets the Japanese on the plain at Tangeumdae instead of defending the mountain pass. The Korean horsemen fall to the Japanese arquebuses, and Sin Rip takes his own life. The road to the capital Hanseong (today's Seoul) lies open, the king flees and the Japanese enter the city on 10 June.",
-    "de": "Anfang Juni 1592 stellt sich General Sin Rip den Japanern in der Ebene bei Tangeumdae, statt den Bergpass zu verteidigen. Die koreanischen Reiter fallen den japanischen Arkebusen zum Opfer, und Sin Rip nimmt sich das Leben. Der Weg zur Hauptstadt Hanseong (dem heutigen Seoul) liegt offen, der König flieht, und die Japaner ziehen am 10. Juni in die Stadt ein."
+    "de": "Anfang Juni 1592 stellt sich General Sin Rip den Japanern in der Ebene bei Tangeumdae, statt den Bergpass zu verteidigen. Die koreanischen Reiter fallen den japanischen Arkebusen zum Opfer, und Sin Rip nimmt sich das Leben. Der Weg zur Hauptstadt Hanseong (dem heutigen Seoul) liegt offen, der König flieht, und die Japaner ziehen am 10. Juni in die Stadt ein.", "es": "A principios de junio de 1592 el general Sin Rip se enfrenta a los japoneses en la llanura de Tangeumdae en lugar de defender el paso de montaña. Los jinetes coreanos caen ante los arcabuces japoneses, y Sin Rip se quita la vida. El camino a la capital Hanseong (la actual Seúl) queda abierto, el rey huye y los japoneses entran en la ciudad el 10 de junio."
    },
    "note": {
     "kind": "disagreement",
     "title": {
      "sv": "Källorna skiljer sig",
      "en": "The sources differ",
-     "de": "Die Quellen unterscheiden sich"
+     "de": "Die Quellen unterscheiden sich", "es": "Las fuentes difieren"
     },
     "text": {
      "sv": "Wikipedias artikel om slaget anger 7 juni 1592, medan huvudartikeln om kriget ger 6 juni. Wikidata anger 28 april 1592, som är datumet i månkalendern. Året och platsen stämmer.",
      "en": "Wikipedia's article on the battle gives 7 June 1592, while the main article on the war gives 6 June. Wikidata gives 28 April 1592, which is the date in the lunar calendar. The year and the place agree.",
-     "de": "Der Wikipedia-Artikel über die Schlacht nennt den 7. Juni 1592, während der Hauptartikel über den Krieg den 6. Juni angibt. Wikidata nennt den 28. April 1592, das Datum im Mondkalender. Jahr und Ort stimmen überein."
+     "de": "Der Wikipedia-Artikel über die Schlacht nennt den 7. Juni 1592, während der Hauptartikel über den Krieg den 6. Juni angibt. Wikidata nennt den 28. April 1592, das Datum im Mondkalender. Jahr und Ort stimmen überein.", "es": "El artículo de Wikipedia sobre la batalla indica el 7 de junio de 1592, mientras que el artículo principal sobre la guerra da el 6 de junio. Wikidata indica el 28 de abril de 1592, que es la fecha en el calendario lunar. El año y el lugar coinciden."
     }
    },
    "wikidata": "Q486979",
@@ -247,17 +247,17 @@
    "place": {
     "sv": "Vid ön Hansan utanför Koreas sydkust",
     "en": "Off Hansan Island, off the south coast of Korea",
-    "de": "Vor der Insel Hansan an der Südküste Koreas"
+    "de": "Vor der Insel Hansan an der Südküste Koreas", "es": "Junto a la isla de Hansan, frente a la costa sur de Corea"
    },
    "title": {
     "sv": "Sjöslaget vid Hansan",
     "en": "The Naval Battle of Hansan",
-    "de": "Die Seeschlacht bei Hansan"
+    "de": "Die Seeschlacht bei Hansan", "es": "La batalla naval de Hansan"
    },
    "summary": {
     "sv": "Den 15 augusti 1592 lockar amiral Yi Sun-sin ut en japansk flotta i öppet vatten vid ön Hansan och ställer upp sina skepp i en U-formad formation, med bland annat två sköldpaddsskepp i mitten. Omkring 100 japanska skepp förstörs i slaget och striden vid Angolpo, och japanernas sjöoperationer längs sydkusten stoppas.",
     "en": "On 15 August 1592 Admiral Yi Sun-sin lures a Japanese fleet out into open water off Hansan Island and draws up his ships in a U-shaped formation, with two turtle ships, among others, in the centre. About 100 Japanese ships are destroyed in the battle and in the fighting at Angolpo, and Japanese naval operations along the south coast are halted.",
-    "de": "Am 15. August 1592 lockt Admiral Yi Sun-sin eine japanische Flotte bei der Insel Hansan ins offene Wasser und stellt seine Schiffe in einer U-förmigen Formation auf, mit unter anderem zwei Schildkrötenschiffen in der Mitte. Etwa 100 japanische Schiffe werden in der Schlacht und im Gefecht bei Angolpo zerstört, und die japanischen Seeoperationen entlang der Südküste werden gestoppt."
+    "de": "Am 15. August 1592 lockt Admiral Yi Sun-sin eine japanische Flotte bei der Insel Hansan ins offene Wasser und stellt seine Schiffe in einer U-förmigen Formation auf, mit unter anderem zwei Schildkrötenschiffen in der Mitte. Etwa 100 japanische Schiffe werden in der Schlacht und im Gefecht bei Angolpo zerstört, und die japanischen Seeoperationen entlang der Südküste werden gestoppt.", "es": "El 15 de agosto de 1592 el almirante Yi Sun-sin atrae a una flota japonesa a aguas abiertas junto a la isla de Hansan y dispone sus barcos en una formación en U, con, entre otros, dos barcos tortuga en el centro. Unos 100 barcos japoneses son destruidos en la batalla y en el combate de Angolpo, y se detienen las operaciones navales japonesas a lo largo de la costa sur."
    },
    "wikidata": "Q487332",
    "sources": [
@@ -286,17 +286,17 @@
    "place": {
     "sv": "Pyongyang, Korea",
     "en": "Pyongyang, Korea",
-    "de": "Pjöngjang, Korea"
+    "de": "Pjöngjang, Korea", "es": "Pyongyang, Corea"
    },
    "title": {
     "sv": "Belägringen av Pyongyang",
     "en": "The Siege of Pyongyang",
-    "de": "Die Belagerung von Pjöngjang"
+    "de": "Die Belagerung von Pjöngjang", "es": "El asedio de Pyongyang"
    },
    "summary": {
     "sv": "Den 6–8 februari 1593 anfaller en kinesisk och koreansk armé under Mingfältherren Li Rusong japanerna i Pyongyang, med kanoner, brandpilar och koreanska krigarmunkar. Under natten den 8 februari tar sig det som är kvar av Konishi Yukinagas styrkor ut ur staden.",
     "en": "On 6–8 February 1593 a Chinese and Korean army under the Ming commander Li Rusong attacks the Japanese in Pyongyang, with cannon, fire arrows and Korean warrior monks. During the night of 8 February what remains of Konishi Yukinaga's forces makes its way out of the city.",
-    "de": "Vom 6. bis 8. Februar 1593 greift ein chinesisches und koreanisches Heer unter dem Ming-Feldherrn Li Rusong die Japaner in Pjöngjang an, mit Kanonen, Brandpfeilen und koreanischen Kriegermönchen. In der Nacht des 8. Februar gelangt der Rest der Truppen Konishi Yukinagas aus der Stadt."
+    "de": "Vom 6. bis 8. Februar 1593 greift ein chinesisches und koreanisches Heer unter dem Ming-Feldherrn Li Rusong die Japaner in Pjöngjang an, mit Kanonen, Brandpfeilen und koreanischen Kriegermönchen. In der Nacht des 8. Februar gelangt der Rest der Truppen Konishi Yukinagas aus der Stadt.", "es": "Entre el 6–8 de febrero de 1593 un ejército chino y coreano al mando del general Ming Li Rusong ataca a los japoneses en Pyongyang, con cañones, flechas incendiarias y monjes guerreros coreanos. Durante la noche del 8 de febrero lo que queda de las fuerzas de Konishi Yukinaga sale de la ciudad."
    },
    "wikidata": "Q14475856",
    "sources": [
@@ -325,17 +325,17 @@
    "place": {
     "sv": "Fästningen Haengju vid Hanfloden, väster om Hanseong (Seoul)",
     "en": "Haengju Fortress on the Han River, west of Hanseong (Seoul)",
-    "de": "Die Festung Haengju am Fluss Han, westlich von Hanseong (Seoul)"
+    "de": "Die Festung Haengju am Fluss Han, westlich von Hanseong (Seoul)", "es": "La fortaleza de Haengju junto al río Han, al oeste de Hanseong (Seúl)"
    },
    "title": {
     "sv": "Slaget vid Haengju",
     "en": "The Battle of Haengju",
-    "de": "Die Schlacht bei Haengju"
+    "de": "Die Schlacht bei Haengju", "es": "La batalla de Haengju"
    },
    "summary": {
     "sv": "Den 14 mars 1593 försvarar general Kwŏn Yul fästningen Haengju, en träpalissad på en klippa över Hanfloden, mot en mycket större japansk armé. De omkring 2 300 försvararna, soldater, krigarmunkar och frivilliga, slår tillbaka anfallen med pilar, kanoner och raketvagnar (hwacha).",
     "en": "On 14 March 1593 General Kwŏn Yul defends Haengju Fortress, a wooden palisade on a cliff above the Han River, against a much larger Japanese army. The roughly 2,300 defenders, soldiers, warrior monks and volunteers, repel the attacks with arrows, cannon and rocket carts (hwacha).",
-    "de": "Am 14. März 1593 verteidigt General Kwŏn Yul die Festung Haengju, eine Holzpalisade auf einem Felsen über dem Fluss Han, gegen ein viel größeres japanisches Heer. Die etwa 2.300 Verteidiger, Soldaten, Kriegermönche und Freiwillige, schlagen die Angriffe mit Pfeilen, Kanonen und Raketenwagen (Hwacha) zurück."
+    "de": "Am 14. März 1593 verteidigt General Kwŏn Yul die Festung Haengju, eine Holzpalisade auf einem Felsen über dem Fluss Han, gegen ein viel größeres japanisches Heer. Die etwa 2.300 Verteidiger, Soldaten, Kriegermönche und Freiwillige, schlagen die Angriffe mit Pfeilen, Kanonen und Raketenwagen (Hwacha) zurück.", "es": "El 14 de marzo de 1593 el general Kwŏn Yul defiende la fortaleza de Haengju, una empalizada de madera en un peñasco sobre el río Han, contra un ejército japonés mucho mayor. Los aproximadamente 2300 defensores, soldados, monjes guerreros y voluntarios, repelen los ataques con flechas, cañones y carros lanzacohetes (hwacha)."
    },
    "wikidata": "Q279611",
    "sources": [
@@ -364,17 +364,17 @@
    "place": {
     "sv": "Myeongnyangsundet vid ön Jindo, Korea",
     "en": "Myeongnyang Strait by Jindo Island, Korea",
-    "de": "Die Meerenge von Myeongnyang bei der Insel Jindo, Korea"
+    "de": "Die Meerenge von Myeongnyang bei der Insel Jindo, Korea", "es": "El estrecho de Myeongnyang junto a la isla de Jindo, Corea"
    },
    "title": {
     "sv": "Sjöslaget vid Myeongnyang",
     "en": "The Naval Battle of Myeongnyang",
-    "de": "Die Seeschlacht bei Myeongnyang"
+    "de": "Die Seeschlacht bei Myeongnyang", "es": "La batalla naval de Myeongnyang"
    },
    "summary": {
     "sv": "Under den andra invasionen, den 26 oktober 1597, försvarar Yi Sun-sin det smala Myeongnyangsundet med bara 13 skepp mot över hundra japanska krigsskepp. I det trånga sundet kan japanerna inte utnyttja sin övermakt, och 31 japanska skepp sänks eller sätts ur stridbart skick.",
     "en": "During the second invasion, on 26 October 1597, Yi Sun-sin defends the narrow Myeongnyang Strait with only 13 ships against over a hundred Japanese warships. In the cramped strait the Japanese cannot make use of their superior numbers, and 31 Japanese ships are sunk or put out of action.",
-    "de": "Während der zweiten Invasion, am 26. Oktober 1597, verteidigt Yi Sun-sin die schmale Meerenge von Myeongnyang mit nur 13 Schiffen gegen über hundert japanische Kriegsschiffe. In der engen Meerenge können die Japaner ihre Überzahl nicht nutzen, und 31 japanische Schiffe werden versenkt oder kampfunfähig gemacht."
+    "de": "Während der zweiten Invasion, am 26. Oktober 1597, verteidigt Yi Sun-sin die schmale Meerenge von Myeongnyang mit nur 13 Schiffen gegen über hundert japanische Kriegsschiffe. In der engen Meerenge können die Japaner ihre Überzahl nicht nutzen, und 31 japanische Schiffe werden versenkt oder kampfunfähig gemacht.", "es": "Durante la segunda invasión, el 26 de octubre de 1597, Yi Sun-sin defiende el angosto estrecho de Myeongnyang con solo 13 barcos frente a más de cien buques de guerra japoneses. En el estrecho los japoneses no pueden aprovechar su superioridad numérica, y 31 barcos japoneses son hundidos o quedan fuera de combate."
    },
    "wikidata": "Q385677",
    "sources": [
@@ -405,17 +405,17 @@
    "place": {
     "sv": "Noryangsundet vid ön Namhae, Korea",
     "en": "Noryang Strait by Namhae Island, Korea",
-    "de": "Die Meerenge von Noryang bei der Insel Namhae, Korea"
+    "de": "Die Meerenge von Noryang bei der Insel Namhae, Korea", "es": "El estrecho de Noryang junto a la isla de Namhae, Corea"
    },
    "title": {
     "sv": "Sjöslaget vid Noryang",
     "en": "The Naval Battle of Noryang",
-    "de": "Die Seeschlacht bei Noryang"
+    "de": "Die Seeschlacht bei Noryang", "es": "La batalla naval de Noryang"
    },
    "summary": {
     "sv": "Tidigt på morgonen den 16 december 1598 anfaller koreanska och kinesiska skepp under Yi Sun-sin och Chen Lin den japanska flottan i Noryangsundet, när japanerna försöker ta sig hem. Mer än hälften av de japanska skeppen förstörs eller erövras. Yi Sun-sin träffas av en kula och dör. Det är krigets sista stora slag.",
     "en": "Early in the morning of 16 December 1598 Korean and Chinese ships under Yi Sun-sin and Chen Lin attack the Japanese fleet in the Noryang Strait as the Japanese try to make their way home. More than half of the Japanese ships are destroyed or captured. Yi Sun-sin is struck by a bullet and dies. It is the last major battle of the war.",
-    "de": "Am frühen Morgen des 16. Dezember 1598 greifen koreanische und chinesische Schiffe unter Yi Sun-sin und Chen Lin die japanische Flotte in der Meerenge von Noryang an, als die Japaner versuchen, nach Hause zu gelangen. Mehr als die Hälfte der japanischen Schiffe wird zerstört oder erobert. Yi Sun-sin wird von einer Kugel getroffen und stirbt. Es ist die letzte große Schlacht des Krieges."
+    "de": "Am frühen Morgen des 16. Dezember 1598 greifen koreanische und chinesische Schiffe unter Yi Sun-sin und Chen Lin die japanische Flotte in der Meerenge von Noryang an, als die Japaner versuchen, nach Hause zu gelangen. Mehr als die Hälfte der japanischen Schiffe wird zerstört oder erobert. Yi Sun-sin wird von einer Kugel getroffen und stirbt. Es ist die letzte große Schlacht des Krieges.", "es": "A primera hora de la mañana del 16 de diciembre de 1598 barcos coreanos y chinos de Yi Sun-sin y Chen Lin atacan a la flota japonesa en el estrecho de Noryang, cuando los japoneses intentan regresar a casa. Más de la mitad de los barcos japoneses son destruidos o capturados. Yi Sun-sin recibe un disparo y muere. Es la última gran batalla de la guerra."
    },
    "image": {
     "file": "images/events/sjoslaget-vid-noryang.webp",
@@ -424,7 +424,7 @@
     "caption": {
      "sv": "Illustration i stil med koreansk tusch- och färgmålning från Joseontiden, inte en historisk bild.",
      "en": "Illustration in the style of Korean ink and colour painting from the Joseon period, not a historical image.",
-     "de": "Illustration im Stil koreanischer Tusche- und Farbmalerei der Joseon-Zeit, kein historisches Bild."
+     "de": "Illustration im Stil koreanischer Tusche- und Farbmalerei der Joseon-Zeit, kein historisches Bild.", "es": "Ilustración al estilo de la pintura coreana a tinta y color del período Joseon, no es una imagen histórica."
     },
     "credit": "AI-genererad med ChatGPT, 2026-10-30",
     "license": "CC BY 4.0",
@@ -457,29 +457,29 @@
    "place": {
     "sv": "Panipat, norr om Delhi (i dag Haryana, Indien)",
     "en": "Panipat, north of Delhi (today Haryana, India)",
-    "de": "Panipat, nördlich von Delhi (heute Haryana, Indien)"
+    "de": "Panipat, nördlich von Delhi (heute Haryana, Indien)", "es": "Panipat, al norte de Delhi (actualmente Haryana, India)"
    },
    "title": {
     "sv": "Första slaget vid Panipat",
     "en": "The First Battle of Panipat",
-    "de": "Die Erste Schlacht bei Panipat"
+    "de": "Die Erste Schlacht bei Panipat", "es": "La primera batalla de Panipat"
    },
    "summary": {
     "sv": "Den 21 april 1526 besegrar Babur, härskare i Kabul, sultanen av Delhi Ibrahim Lodi. Baburs 12 000 man med musköter och 15–20 kanoner slår en armé på 50 000–70 000 man med krigselefanter. Ibrahim stupar, och segern blir början på mogulernas styre i Indien. Det var ett av de första slagen med krutvapen i Sydasien.",
     "en": "On 21 April 1526 Babur, ruler of Kabul, defeats the Sultan of Delhi, Ibrahim Lodi. Babur's 12,000 men with muskets and 15–20 cannon defeat an army of 50,000–70,000 men with war elephants. Ibrahim is killed, and the victory marks the beginning of Mughal rule in India. It was one of the first battles involving gunpowder weapons in South Asia.",
-    "de": "Am 21. April 1526 besiegt Babur, Herrscher von Kabul, den Sultan von Delhi, Ibrahim Lodi. Baburs 12.000 Mann mit Musketen und 15–20 Kanonen schlagen ein Heer von 50.000–70.000 Mann mit Kriegselefanten. Ibrahim fällt, und der Sieg wird zum Beginn der Herrschaft der Moguln in Indien. Es war eine der ersten Schlachten mit Feuerwaffen in Südasien."
+    "de": "Am 21. April 1526 besiegt Babur, Herrscher von Kabul, den Sultan von Delhi, Ibrahim Lodi. Baburs 12.000 Mann mit Musketen und 15–20 Kanonen schlagen ein Heer von 50.000–70.000 Mann mit Kriegselefanten. Ibrahim fällt, und der Sieg wird zum Beginn der Herrschaft der Moguln in Indien. Es war eine der ersten Schlachten mit Feuerwaffen in Südasien.", "es": "El 21 de abril de 1526 Babur, gobernante de Kabul, derrota al sultán de Delhi Ibrahim Lodi. Los 12 000 hombres de Babur, con mosquetes y 15–20 cañones, vencen a un ejército de 50 000–70 000 hombres con elefantes de guerra. Ibrahim muere en combate, y la victoria marca el comienzo del dominio mogol en la India. Fue una de las primeras batallas con armas de fuego en el sur de Asia."
    },
    "note": {
     "kind": "calendar",
     "title": {
      "sv": "Om kalendern",
      "en": "About the calendar",
-     "de": "Zum Kalender"
+     "de": "Zum Kalender", "es": "Sobre el calendario"
     },
     "text": {
      "sv": "Wikipedia anger 21 april 1526. Wikidata anger 1 maj 1526 men märker datumet som juliansk kalender. 21 april i den julianska kalendern motsvarar 1 maj i den gregorianska, så skillnaden beror troligen på kalendern. År och plats stämmer, men inte dagen.",
      "en": "Wikipedia gives 21 April 1526. Wikidata gives 1 May 1526 but marks the date as Julian calendar. 21 April in the Julian calendar corresponds to 1 May in the Gregorian, so the difference is probably due to the calendar. The year and place agree, but not the day.",
-     "de": "Wikipedia nennt den 21. April 1526. Wikidata nennt den 1. Mai 1526, kennzeichnet das Datum aber als julianischen Kalender. Der 21. April im julianischen Kalender entspricht dem 1. Mai im gregorianischen, sodass der Unterschied wahrscheinlich am Kalender liegt. Jahr und Ort stimmen überein, der Tag aber nicht."
+     "de": "Wikipedia nennt den 21. April 1526. Wikidata nennt den 1. Mai 1526, kennzeichnet das Datum aber als julianischen Kalender. Der 21. April im julianischen Kalender entspricht dem 1. Mai im gregorianischen, sodass der Unterschied wahrscheinlich am Kalender liegt. Jahr und Ort stimmen überein, der Tag aber nicht.", "es": "Wikipedia indica el 21 de abril de 1526. Wikidata indica el 1 de mayo de 1526, pero marca la fecha como calendario juliano. El 21 de abril en el calendario juliano corresponde al 1 de mayo en el gregoriano, por lo que la diferencia probablemente se debe al calendario. El año y el lugar coinciden, pero el día no."
     }
    },
    "image": {
@@ -522,17 +522,17 @@
    "place": {
     "sv": "Panipat, norr om Delhi (i dag Haryana, Indien)",
     "en": "Panipat, north of Delhi (today Haryana, India)",
-    "de": "Panipat, nördlich von Delhi (heute Haryana, Indien)"
+    "de": "Panipat, nördlich von Delhi (heute Haryana, Indien)", "es": "Panipat, al norte de Delhi (actualmente Haryana, India)"
    },
    "title": {
     "sv": "Andra slaget vid Panipat",
     "en": "The Second Battle of Panipat",
-    "de": "Die Zweite Schlacht bei Panipat"
+    "de": "Die Zweite Schlacht bei Panipat", "es": "La segunda batalla de Panipat"
    },
    "summary": {
     "sv": "Den 5 november 1556 besegrar mogulerna under Akbar och hans förmyndare Bairam Khan kung Hemu (Hemchandra Vikramaditya). Hemu hade några veckor tidigare tagit Delhi och Agra från mogulerna och krönt sig själv. Han träffas av en pil, tas till fånga och avrättas, och mogulerna tar tillbaka Delhi och Agra.",
     "en": "On 5 November 1556 the Mughals under Akbar and his regent Bairam Khan defeat King Hemu (Hemchandra Vikramaditya). Hemu had a few weeks earlier taken Delhi and Agra from the Mughals and crowned himself. He is struck by an arrow, taken prisoner and executed, and the Mughals retake Delhi and Agra.",
-    "de": "Am 5. November 1556 besiegen die Moguln unter Akbar und seinem Vormund Bairam Khan König Hemu (Hemchandra Vikramaditya). Hemu hatte einige Wochen zuvor Delhi und Agra von den Moguln erobert und sich selbst gekrönt. Er wird von einem Pfeil getroffen, gefangen genommen und hingerichtet, und die Moguln erobern Delhi und Agra zurück."
+    "de": "Am 5. November 1556 besiegen die Moguln unter Akbar und seinem Vormund Bairam Khan König Hemu (Hemchandra Vikramaditya). Hemu hatte einige Wochen zuvor Delhi und Agra von den Moguln erobert und sich selbst gekrönt. Er wird von einem Pfeil getroffen, gefangen genommen und hingerichtet, und die Moguln erobern Delhi und Agra zurück.", "es": "El 5 de noviembre de 1556 los mogoles de Akbar y su tutor Bairam Khan derrotan al rey Hemu (Hemchandra Vikramaditya). Unas semanas antes Hemu había tomado Delhi y Agra a los mogoles y se había coronado. Recibe un flechazo, es capturado y ejecutado, y los mogoles recuperan Delhi y Agra."
    },
    "image": {
     "file": "images/events/andra-slaget-vid-panipat.webp",
@@ -574,17 +574,17 @@
    "place": {
     "sv": "Palashi (Plassey) vid floden Hooghly, Bengalen",
     "en": "Palashi (Plassey) on the Hooghly River, Bengal",
-    "de": "Palashi (Plassey) am Fluss Hugli, Bengalen"
+    "de": "Palashi (Plassey) am Fluss Hugli, Bengalen", "es": "Palashi (Plassey), junto al río Hooghly, Bengala"
    },
    "title": {
     "sv": "Slaget vid Plassey",
     "en": "The Battle of Plassey",
-    "de": "Die Schlacht bei Plassey"
+    "de": "Die Schlacht bei Plassey", "es": "La batalla de Plassey"
    },
    "summary": {
     "sv": "Den 23 juni 1757 besegrar Brittiska Ostindiska kompaniet under Robert Clive Bengalens nawab Siraj-ud-Daulah och hans franska allierade. Clive hade mutat nawabens överbefälhavare Mir Jafar, vars trupper aldrig gick in i striden, och Mir Jafar blev ny nawab. Slaget räknas som början på kompaniets välde i Indien.",
     "en": "On 23 June 1757 the British East India Company under Robert Clive defeats the Nawab of Bengal, Siraj-ud-Daulah, and his French allies. Clive had bribed the nawab's commander-in-chief Mir Jafar, whose troops never entered the battle, and Mir Jafar became the new nawab. The battle is regarded as the beginning of Company rule in India.",
-    "de": "Am 23. Juni 1757 besiegt die Britische Ostindien-Kompanie unter Robert Clive den Nawab von Bengalen, Siraj-ud-Daula, und seine französischen Verbündeten. Clive hatte den Oberbefehlshaber des Nawabs, Mir Jafar, bestochen, dessen Truppen nie in den Kampf eingriffen, und Mir Jafar wurde neuer Nawab. Die Schlacht gilt als Beginn der Herrschaft der Kompanie in Indien."
+    "de": "Am 23. Juni 1757 besiegt die Britische Ostindien-Kompanie unter Robert Clive den Nawab von Bengalen, Siraj-ud-Daula, und seine französischen Verbündeten. Clive hatte den Oberbefehlshaber des Nawabs, Mir Jafar, bestochen, dessen Truppen nie in den Kampf eingriffen, und Mir Jafar wurde neuer Nawab. Die Schlacht gilt als Beginn der Herrschaft der Kompanie in Indien.", "es": "El 23 de junio de 1757 la Compañía Británica de las Indias Orientales, al mando de Robert Clive, derrota al nabab de Bengala Siraj-ud-Daulah y a sus aliados franceses. Clive había sobornado al comandante en jefe del nabab, Mir Jafar, cuyas tropas nunca entraron en combate, y Mir Jafar se convirtió en el nuevo nabab. La batalla se considera el comienzo del dominio de la Compañía en la India."
    },
    "image": {
     "file": "images/events/slaget-vid-plassey.webp",
@@ -632,59 +632,59 @@
    "place": {
     "sv": "Punjab och trakten kring Delhi (började vid Sirhind)",
     "en": "Punjab and the area around Delhi (began at Sirhind)",
-    "de": "Punjab und die Gegend um Delhi (begann bei Sirhind)"
+    "de": "Punjab und die Gegend um Delhi (begann bei Sirhind)", "es": "Punjab y los alrededores de Delhi (comenzó en Sirhind)"
    },
    "title": {
     "sv": "Afghansk-marathiska kriget",
     "en": "The Afghan–Maratha War",
-    "de": "Der Afghanisch-Marathische Krieg"
+    "de": "Der Afghanisch-Marathische Krieg", "es": "La guerra afgano-maratha"
    },
    "summary": {
     "sv": "Ett krig om Punjab och Delhi mellan Durraniriket (Afghanistan) under Ahmad Shah Durrani och Marathariket, som en tid hade stöd av sikherna. Det slutade med Marathas förödande nederlag i tredje slaget vid Panipat 1761.",
     "en": "A war over Punjab and Delhi between the Durrani Empire (Afghanistan) under Ahmad Shah Durrani and the Maratha Empire, which for a time had the support of the Sikhs. It ended with the Marathas' devastating defeat in the Third Battle of Panipat in 1761.",
-    "de": "Ein Krieg um Punjab und Delhi zwischen dem Durrani-Reich (Afghanistan) unter Ahmad Schah Durrani und dem Marathenreich, das zeitweise von den Sikhs unterstützt wurde. Er endete mit der verheerenden Niederlage der Marathen in der Dritten Schlacht bei Panipat 1761."
+    "de": "Ein Krieg um Punjab und Delhi zwischen dem Durrani-Reich (Afghanistan) unter Ahmad Schah Durrani und dem Marathenreich, das zeitweise von den Sikhs unterstützt wurde. Er endete mit der verheerenden Niederlage der Marathen in der Dritten Schlacht bei Panipat 1761.", "es": "Una guerra por Punjab y Delhi entre el Imperio durrani (Afganistán) de Ahmad Shah Durrani y el Imperio maratha, que durante un tiempo tuvo el apoyo de los sijs. Terminó con la devastadora derrota de los marathas en la tercera batalla de Panipat en 1761."
    },
    "story": {
     "intro": {
      "sv": "År 1757 invaderade afghanerna under Ahmad Shah Durrani norra Indien, intog mogulernas huvudstad Delhi och tvingade mogulkejsaren att avstå land ända till floden Sutlej. Delhi ställdes under en afghansk vasall, rohillornas kungarike Rohilkhand. Kejsaren och hans storvesir bad i hemlighet Marathas om hjälp, och en marathisk armé intog Delhi i augusti 1757. I Punjab gjorde Adina Beg Khan och sikherna uppror mot afghanerna och bad också Marathas om stöd. Den 8 mars 1758 anföll Marathas och sikherna tillsammans den afghanska fästningen i Sirhind.",
      "en": "In 1757 the Afghans under Ahmad Shah Durrani invaded northern India, took the Mughal capital Delhi and forced the Mughal emperor to cede land as far as the Sutlej River. Delhi was placed under an Afghan vassal, the Rohilla kingdom of Rohilkhand. The emperor and his grand vizier secretly asked the Marathas for help, and a Maratha army took Delhi in August 1757. In Punjab, Adina Beg Khan and the Sikhs rose against the Afghans and also asked the Marathas for support. On 8 March 1758 the Marathas and the Sikhs together attacked the Afghan fortress at Sirhind.",
-     "de": "1757 fielen die Afghanen unter Ahmad Schah Durrani in Nordindien ein, nahmen die Mogulhauptstadt Delhi ein und zwangen den Mogulkaiser, Land bis zum Fluss Sutlej abzutreten. Delhi wurde einem afghanischen Vasallen unterstellt, dem Königreich Rohilkhand der Rohillas. Der Kaiser und sein Großwesir baten heimlich die Marathen um Hilfe, und ein marathisches Heer nahm Delhi im August 1757 ein. Im Punjab erhoben sich Adina Beg Khan und die Sikhs gegen die Afghanen und baten ebenfalls die Marathen um Unterstützung. Am 8. März 1758 griffen die Marathen und die Sikhs gemeinsam die afghanische Festung in Sirhind an."
+     "de": "1757 fielen die Afghanen unter Ahmad Schah Durrani in Nordindien ein, nahmen die Mogulhauptstadt Delhi ein und zwangen den Mogulkaiser, Land bis zum Fluss Sutlej abzutreten. Delhi wurde einem afghanischen Vasallen unterstellt, dem Königreich Rohilkhand der Rohillas. Der Kaiser und sein Großwesir baten heimlich die Marathen um Hilfe, und ein marathisches Heer nahm Delhi im August 1757 ein. Im Punjab erhoben sich Adina Beg Khan und die Sikhs gegen die Afghanen und baten ebenfalls die Marathen um Unterstützung. Am 8. März 1758 griffen die Marathen und die Sikhs gemeinsam die afghanische Festung in Sirhind an.", "es": "En 1757 los afganos de Ahmad Shah Durrani invadieron el norte de la India, tomaron la capital mogola Delhi y obligaron al emperador mogol a ceder territorios hasta el río Sutlej. Delhi quedó bajo un vasallo afgano, el reino rohilla de Rohilkhand. El emperador y su gran visir pidieron ayuda en secreto a los marathas, y un ejército maratha tomó Delhi en agosto de 1757. En Punjab, Adina Beg Khan y los sijs se rebelaron contra los afganos y también pidieron apoyo a los marathas. El 8 de marzo de 1758 los marathas y los sijs atacaron juntos la fortaleza afgana de Sirhind."
     },
     "parties": [
      {
       "name": {
        "sv": "Afghanska sidan",
        "en": "The Afghan side",
-       "de": "Die afghanische Seite"
+       "de": "Die afghanische Seite", "es": "El bando afgano"
       },
       "members": {
        "sv": "Durraniriket under Ahmad Shah Durrani och hans son Timur Shah, och Rohilkhand under Najib-ud-Daula. Vid Panipat 1761 stred även Awadh under Shuja-ud-Daula och delar av mogulernas adel på afghanernas sida.",
        "en": "The Durrani Empire under Ahmad Shah Durrani and his son Timur Shah, and Rohilkhand under Najib-ud-Daula. At Panipat in 1761, Awadh under Shuja-ud-Daula and parts of the Mughal nobility also fought on the Afghan side.",
-       "de": "Das Durrani-Reich unter Ahmad Schah Durrani und seinem Sohn Timur Schah, und Rohilkhand unter Najib-ud-Daula. Bei Panipat 1761 kämpften auch Awadh unter Shuja-ud-Daula und Teile des Mogul-Adels auf der Seite der Afghanen."
+       "de": "Das Durrani-Reich unter Ahmad Schah Durrani und seinem Sohn Timur Schah, und Rohilkhand unter Najib-ud-Daula. Bei Panipat 1761 kämpften auch Awadh unter Shuja-ud-Daula und Teile des Mogul-Adels auf der Seite der Afghanen.", "es": "El Imperio durrani de Ahmad Shah Durrani y su hijo Timur Shah, y Rohilkhand bajo Najib-ud-Daula. En Panipat, en 1761, también combatieron del lado afgano Awadh bajo Shuja-ud-Daula y parte de la nobleza mogola."
       }
      },
      {
       "name": {
        "sv": "Marathiska sidan",
        "en": "The Maratha side",
-       "de": "Die marathische Seite"
+       "de": "Die marathische Seite", "es": "El bando maratha"
       },
       "members": {
        "sv": "Marathariket, formellt för mogulkejsaren, med befälhavare som Raghunathrao, Dattaji Scindia och Sadashivrao Bhau. I Punjab stred sikherna under bland andra Jassa Singh Ahluwalia och Ala Singh tillsammans med Marathas, och vid Delhi 1760 jatfursten Suraj Mal av Bharatpur.",
        "en": "The Maratha Empire, nominally for the Mughal emperor, with commanders such as Raghunathrao, Dattaji Scindia and Sadashivrao Bhau. In Punjab the Sikhs under, among others, Jassa Singh Ahluwalia and Ala Singh fought alongside the Marathas, and at Delhi in 1760 the Jat ruler Suraj Mal of Bharatpur.",
-       "de": "Das Marathenreich, formell für den Mogulkaiser, mit Befehlshabern wie Raghunathrao, Dattaji Scindia und Sadashivrao Bhau. Im Punjab kämpften die Sikhs unter anderem unter Jassa Singh Ahluwalia und Ala Singh an der Seite der Marathen, und bei Delhi 1760 der Jat-Fürst Suraj Mal von Bharatpur."
+       "de": "Das Marathenreich, formell für den Mogulkaiser, mit Befehlshabern wie Raghunathrao, Dattaji Scindia und Sadashivrao Bhau. Im Punjab kämpften die Sikhs unter anderem unter Jassa Singh Ahluwalia und Ala Singh an der Seite der Marathen, und bei Delhi 1760 der Jat-Fürst Suraj Mal von Bharatpur.", "es": "El Imperio maratha, nominalmente a favor del emperador mogol, con comandantes como Raghunathrao, Dattaji Scindia y Sadashivrao Bhau. En Punjab, los sijs de, entre otros, Jassa Singh Ahluwalia y Ala Singh combatieron junto a los marathas, y junto a Delhi, en 1760, lo hizo el príncipe jat Suraj Mal de Bharatpur."
       }
      }
     ],
     "outcome": {
      "sv": "Afghanerna vann vid Panipat den 14 januari 1761. De behöll Punjab ända till Sutlej, Delhi kom under Rohilkhand och mogulkejsaren fick leva i exil i Awadh till 1772. Ahmad Shah Durrani återvände till Afghanistan i mars 1761, och sikherna fortsatte att strida mot afghanerna. Marathas återhämtade sig aldrig helt, men de var fortfarande den största makten på subkontinenten och tog tillbaka Delhi tio år senare.",
      "en": "The Afghans won at Panipat on 14 January 1761. They kept Punjab as far as the Sutlej, Delhi came under Rohilkhand and the Mughal emperor lived in exile in Awadh until 1772. Ahmad Shah Durrani returned to Afghanistan in March 1761, and the Sikhs continued to fight the Afghans. The Marathas never fully recovered, but they were still the greatest power on the subcontinent and retook Delhi ten years later.",
-     "de": "Die Afghanen siegten am 14. Januar 1761 bei Panipat. Sie behielten den Punjab bis zum Sutlej, Delhi kam unter Rohilkhand, und der Mogulkaiser lebte bis 1772 im Exil in Awadh. Ahmad Schah Durrani kehrte im März 1761 nach Afghanistan zurück, und die Sikhs kämpften weiter gegen die Afghanen. Die Marathen erholten sich nie ganz, waren aber noch immer die größte Macht auf dem Subkontinent und eroberten Delhi zehn Jahre später zurück."
+     "de": "Die Afghanen siegten am 14. Januar 1761 bei Panipat. Sie behielten den Punjab bis zum Sutlej, Delhi kam unter Rohilkhand, und der Mogulkaiser lebte bis 1772 im Exil in Awadh. Ahmad Schah Durrani kehrte im März 1761 nach Afghanistan zurück, und die Sikhs kämpften weiter gegen die Afghanen. Die Marathen erholten sich nie ganz, waren aber noch immer die größte Macht auf dem Subkontinent und eroberten Delhi zehn Jahre später zurück.", "es": "Los afganos vencieron en Panipat el 14 de enero de 1761. Conservaron Punjab hasta el Sutlej, Delhi quedó bajo Rohilkhand y el emperador mogol tuvo que vivir exiliado en Awadh hasta 1772. Ahmad Shah Durrani regresó a Afganistán en marzo de 1761, y los sijs siguieron combatiendo contra los afganos. Los marathas nunca se recuperaron del todo, pero seguían siendo la mayor potencia del subcontinente y recuperaron Delhi diez años después."
     },
     "casualties": {
      "sv": "Förlusterna vid Panipat är omstridda. Uppskattningsvis dödades 60 000–70 000 soldater i striderna. Enligt den främsta ögonvittneskrönikan, av Kashi Raja som var minister hos Shuja-ud-Daula, dödades omkring 40 000 marathiska fångar dagen efter slaget. Historikern Shejwalkar skriver att minst 100 000 marathas, soldater och civila följeslagare, dog under och efter slaget. Alla siffror är uppskattningar.",
      "en": "The losses at Panipat are disputed. It is estimated that 60,000–70,000 soldiers were killed in the fighting. According to the principal eyewitness chronicle, by Kashi Raja, who was a minister to Shuja-ud-Daula, about 40,000 Maratha prisoners were killed the day after the battle. The historian Shejwalkar writes that at least 100,000 Marathas, soldiers and civilian camp followers, died during and after the battle. All figures are estimates.",
-     "de": "Die Verluste bei Panipat sind umstritten. Schätzungsweise wurden 60.000–70.000 Soldaten in den Kämpfen getötet. Nach der wichtigsten Augenzeugenchronik, von Kashi Raja, der Minister bei Shuja-ud-Daula war, wurden am Tag nach der Schlacht etwa 40.000 marathische Gefangene getötet. Der Historiker Shejwalkar schreibt, dass mindestens 100.000 Marathen, Soldaten und zivile Begleiter, während und nach der Schlacht starben. Alle Zahlen sind Schätzungen."
+     "de": "Die Verluste bei Panipat sind umstritten. Schätzungsweise wurden 60.000–70.000 Soldaten in den Kämpfen getötet. Nach der wichtigsten Augenzeugenchronik, von Kashi Raja, der Minister bei Shuja-ud-Daula war, wurden am Tag nach der Schlacht etwa 40.000 marathische Gefangene getötet. Der Historiker Shejwalkar schreibt, dass mindestens 100.000 Marathen, Soldaten und zivile Begleiter, während und nach der Schlacht starben. Alle Zahlen sind Schätzungen.", "es": "Las pérdidas en Panipat son objeto de controversia. Se estima que entre 60 000–70 000 soldados murieron en los combates. Según la principal crónica de un testigo presencial, Kashi Raja, que era ministro de Shuja-ud-Daula, unos 40 000 prisioneros marathas fueron muertos al día siguiente de la batalla. El historiador Shejwalkar escribe que al menos 100 000 marathas, soldados y civiles que acompañaban al ejército, murieron durante y después de la batalla. Todas las cifras son estimaciones."
     },
     "sources": [
      "wp-afghan-maratha-war",
@@ -696,12 +696,12 @@
     "title": {
      "sv": "Om avgränsningen",
      "en": "About the delimitation",
-     "de": "Zur Abgrenzung"
+     "de": "Zur Abgrenzung", "es": "Sobre la delimitación"
     },
     "text": {
      "sv": "Kriget var en del av Ahmad Shah Durranis fälttåg i Indien, som Wikipedia räknar från 1748 till 1770. Här visas kriget mot Marathas, som Wikipedia daterar 8 mars 1758–14 januari 1761 och Wikidata 1758–1761.",
      "en": "The war was part of Ahmad Shah Durrani's campaigns in India, which Wikipedia dates from 1748 to 1770. What is shown here is the war against the Marathas, which Wikipedia dates 8 March 1758–14 January 1761 and Wikidata 1758–1761.",
-     "de": "Der Krieg war Teil der Feldzüge Ahmad Schah Durranis in Indien, die Wikipedia von 1748 bis 1770 rechnet. Hier wird der Krieg gegen die Marathen gezeigt, den Wikipedia auf den 8. März 1758 bis 14. Januar 1761 und Wikidata auf 1758–1761 datiert."
+     "de": "Der Krieg war Teil der Feldzüge Ahmad Schah Durranis in Indien, die Wikipedia von 1748 bis 1770 rechnet. Hier wird der Krieg gegen die Marathen gezeigt, den Wikipedia auf den 8. März 1758 bis 14. Januar 1761 und Wikidata auf 1758–1761 datiert.", "es": "La guerra formó parte de las campañas de Ahmad Shah Durrani en la India, que Wikipedia sitúa entre 1748 y 1770. Aquí se muestra la guerra contra los marathas, que Wikipedia fecha del 8 de marzo de 1758 al 14 de enero de 1761 y Wikidata en 1758–1761."
     }
    },
    "image": {
@@ -748,29 +748,29 @@
    "place": {
     "sv": "Sirhind, Punjab",
     "en": "Sirhind, Punjab",
-    "de": "Sirhind, Punjab"
+    "de": "Sirhind, Punjab", "es": "Sirhind, Punjab"
    },
    "title": {
     "sv": "Marathas och sikher intar Sirhind",
     "en": "The Marathas and Sikhs take Sirhind",
-    "de": "Marathen und Sikhs nehmen Sirhind ein"
+    "de": "Marathen und Sikhs nehmen Sirhind ein", "es": "Los marathas y los sijs toman Sirhind"
    },
    "summary": {
     "sv": "Den 8 mars 1758 anfaller Marathas och sikherna tillsammans den afghanska fästningen i Sirhind. Garnisonen håller ut i omkring två veckor och ger upp den 21 mars. De allierade tar sedan Lahore och driver afghanerna mot Khyberpasset.",
     "en": "On 8 March 1758 the Marathas and the Sikhs together attack the Afghan fortress at Sirhind. The garrison holds out for about two weeks and surrenders on 21 March. The allies then take Lahore and drive the Afghans towards the Khyber Pass.",
-    "de": "Am 8. März 1758 greifen die Marathen und die Sikhs gemeinsam die afghanische Festung in Sirhind an. Die Besatzung hält etwa zwei Wochen durch und ergibt sich am 21. März. Die Verbündeten nehmen danach Lahore ein und treiben die Afghanen in Richtung Khyberpass."
+    "de": "Am 8. März 1758 greifen die Marathen und die Sikhs gemeinsam die afghanische Festung in Sirhind an. Die Besatzung hält etwa zwei Wochen durch und ergibt sich am 21. März. Die Verbündeten nehmen danach Lahore ein und treiben die Afghanen in Richtung Khyberpass.", "es": "El 8 de marzo de 1758 los marathas y los sijs atacan juntos la fortaleza afgana de Sirhind. La guarnición resiste unas dos semanas y se rinde el 21 de marzo. Los aliados toman después Lahore y empujan a los afganos hacia el paso de Khyber."
    },
    "note": {
     "kind": "single-source",
     "title": {
      "sv": "Bara en källa",
      "en": "Only one source",
-     "de": "Nur eine Quelle"
+     "de": "Nur eine Quelle", "es": "Una sola fuente"
     },
     "text": {
      "sv": "Händelsen har inte kunnat jämföras med en andra, oberoende källa. Uppgifterna kommer från Wikipedias artikel om kriget.",
      "en": "The event could not be compared with a second, independent source. The information comes from Wikipedia's article on the war.",
-     "de": "Das Ereignis konnte nicht mit einer zweiten, unabhängigen Quelle verglichen werden. Die Angaben stammen aus dem Wikipedia-Artikel über den Krieg."
+     "de": "Das Ereignis konnte nicht mit einer zweiten, unabhängigen Quelle verglichen werden. Die Angaben stammen aus dem Wikipedia-Artikel über den Krieg.", "es": "El acontecimiento no se ha podido comparar con una segunda fuente independiente. Los datos proceden del artículo de Wikipedia sobre la guerra."
     }
    },
    "sources": [
@@ -799,29 +799,29 @@
    "place": {
     "sv": "Barari Ghat vid floden Yamuna i Delhi (i dag Burari)",
     "en": "Barari Ghat on the Yamuna River in Delhi (today Burari)",
-    "de": "Barari Ghat am Fluss Yamuna in Delhi (heute Burari)"
+    "de": "Barari Ghat am Fluss Yamuna in Delhi (heute Burari)", "es": "Barari Ghat, junto al río Yamuna en Delhi (actualmente Burari)"
    },
    "title": {
     "sv": "Slaget vid Barari Ghat",
     "en": "The Battle of Barari Ghat",
-    "de": "Die Schlacht bei Barari Ghat"
+    "de": "Die Schlacht bei Barari Ghat", "es": "La batalla de Barari Ghat"
    },
    "summary": {
     "sv": "Natten till den 9 januari 1760 korsar afghaner och rohillor floden Yamuna vid Barari Ghat och överraskar en marathisk armé. Befälhavaren Dattaji Scindia stupar, och Marathas förlorar över 1 000 man.",
     "en": "During the night of 9 January 1760 Afghans and Rohillas cross the Yamuna River at Barari Ghat and surprise a Maratha army. The commander Dattaji Scindia is killed, and the Marathas lose over 1,000 men.",
-    "de": "In der Nacht zum 9. Januar 1760 überqueren Afghanen und Rohillas bei Barari Ghat den Fluss Yamuna und überraschen ein marathisches Heer. Der Befehlshaber Dattaji Scindia fällt, und die Marathen verlieren über 1.000 Mann."
+    "de": "In der Nacht zum 9. Januar 1760 überqueren Afghanen und Rohillas bei Barari Ghat den Fluss Yamuna und überraschen ein marathisches Heer. Der Befehlshaber Dattaji Scindia fällt, und die Marathen verlieren über 1.000 Mann.", "es": "La noche del 9 de enero de 1760 afganos y rohillas cruzan el río Yamuna en Barari Ghat y sorprenden a un ejército maratha. El comandante Dattaji Scindia muere en combate, y los marathas pierden más de 1000 hombres."
    },
    "note": {
     "kind": "single-source",
     "title": {
      "sv": "Bara en källa för platsen",
      "en": "Only one source for the place",
-     "de": "Nur eine Quelle für den Ort"
+     "de": "Nur eine Quelle für den Ort", "es": "Una sola fuente para el lugar"
     },
     "text": {
      "sv": "Wikidata anger samma datum, 9 januari 1760, men ingen plats, så platsen har inte kunnat jämföras med en andra källa.",
      "en": "Wikidata gives the same date, 9 January 1760, but no place, so the place could not be compared with a second source.",
-     "de": "Wikidata nennt dasselbe Datum, den 9. Januar 1760, aber keinen Ort, sodass der Ort nicht mit einer zweiten Quelle verglichen werden konnte."
+     "de": "Wikidata nennt dasselbe Datum, den 9. Januar 1760, aber keinen Ort, sodass der Ort nicht mit einer zweiten Quelle verglichen werden konnte.", "es": "Wikidata indica la misma fecha, el 9 de enero de 1760, pero ningún lugar, por lo que el lugar no se ha podido comparar con una segunda fuente."
     }
    },
    "wikidata": "Q9385673",
@@ -851,29 +851,29 @@
    "place": {
     "sv": "Delhi",
     "en": "Delhi",
-    "de": "Delhi"
+    "de": "Delhi", "es": "Delhi"
    },
    "title": {
     "sv": "Marathas tar Delhi",
     "en": "The Marathas take Delhi",
-    "de": "Die Marathen nehmen Delhi ein"
+    "de": "Die Marathen nehmen Delhi ein", "es": "Los marathas toman Delhi"
    },
    "summary": {
     "sv": "I slutet av juli 1760 intar Marathas under Sadashivrao Bhau, tillsammans med jatfursten Suraj Mal av Bharatpur, staden Delhi. Den afghanska garnisonen i fästningen får efter förhandlingar lämna den med familjer och trupper.",
     "en": "At the end of July 1760 the Marathas under Sadashivrao Bhau, together with the Jat ruler Suraj Mal of Bharatpur, take the city of Delhi. After negotiations the Afghan garrison in the fort is allowed to leave it with families and troops.",
-    "de": "Ende Juli 1760 nehmen die Marathen unter Sadashivrao Bhau zusammen mit dem Jat-Fürsten Suraj Mal von Bharatpur die Stadt Delhi ein. Die afghanische Besatzung der Festung darf sie nach Verhandlungen mit Familien und Truppen verlassen."
+    "de": "Ende Juli 1760 nehmen die Marathen unter Sadashivrao Bhau zusammen mit dem Jat-Fürsten Suraj Mal von Bharatpur die Stadt Delhi ein. Die afghanische Besatzung der Festung darf sie nach Verhandlungen mit Familien und Truppen verlassen.", "es": "A finales de julio de 1760 los marathas de Sadashivrao Bhau, junto con el príncipe jat Suraj Mal de Bharatpur, toman la ciudad de Delhi. Tras negociaciones, la guarnición afgana de la fortaleza recibe permiso para abandonarla con sus familias y tropas."
    },
    "note": {
     "kind": "disagreement",
     "title": {
      "sv": "Källorna skiljer sig",
      "en": "The sources differ",
-     "de": "Die Quellen unterscheiden sich"
+     "de": "Die Quellen unterscheiden sich", "es": "Las fuentes difieren"
     },
     "text": {
      "sv": "Wikipedias artikel anger 23 juli 1760 i faktarutan. Texten säger att staden anfölls den 22 juli och att Sadashivrao Bhau kom den 29 juli och förhandlade fram fästningens överlämnande. Wikidata har varken datum eller plats, så händelsen har inte kunnat jämföras med en andra källa.",
      "en": "Wikipedia's article gives 23 July 1760 in the infobox. The text says that the city was attacked on 22 July and that Sadashivrao Bhau arrived on 29 July and negotiated the surrender of the fort. Wikidata has neither a date nor a place, so the event could not be compared with a second source.",
-     "de": "Der Wikipedia-Artikel nennt in der Infobox den 23. Juli 1760. Im Text heißt es, die Stadt sei am 22. Juli angegriffen worden und Sadashivrao Bhau sei am 29. Juli eingetroffen und habe die Übergabe der Festung ausgehandelt. Wikidata hat weder Datum noch Ort, sodass das Ereignis nicht mit einer zweiten Quelle verglichen werden konnte."
+     "de": "Der Wikipedia-Artikel nennt in der Infobox den 23. Juli 1760. Im Text heißt es, die Stadt sei am 22. Juli angegriffen worden und Sadashivrao Bhau sei am 29. Juli eingetroffen und habe die Übergabe der Festung ausgehandelt. Wikidata hat weder Datum noch Ort, sodass das Ereignis nicht mit einer zweiten Quelle verglichen werden konnte.", "es": "El artículo de Wikipedia indica el 23 de julio de 1760 en la ficha. El texto dice que la ciudad fue atacada el 22 de julio y que Sadashivrao Bhau llegó el 29 de julio y negoció la entrega de la fortaleza. Wikidata no tiene ni fecha ni lugar, por lo que el acontecimiento no se ha podido comparar con una segunda fuente."
     }
    },
    "wikidata": "Q125745882",
@@ -902,29 +902,29 @@
    "place": {
     "sv": "Kunjpura vid floden Yamuna, cirka 150 km norr om Delhi (i dag Haryana)",
     "en": "Kunjpura on the Yamuna River, about 150 km north of Delhi (today Haryana)",
-    "de": "Kunjpura am Fluss Yamuna, etwa 150 km nördlich von Delhi (heute Haryana)"
+    "de": "Kunjpura am Fluss Yamuna, etwa 150 km nördlich von Delhi (heute Haryana)", "es": "Kunjpura, junto al río Yamuna, a unos 150 km al norte de Delhi (actualmente Haryana)"
    },
    "title": {
     "sv": "Slaget vid Kunjpura",
     "en": "The Battle of Kunjpura",
-    "de": "Die Schlacht bei Kunjpura"
+    "de": "Die Schlacht bei Kunjpura", "es": "La batalla de Kunjpura"
    },
    "summary": {
     "sv": "Den 17 oktober 1760 stormar Marathas den afghanska fästningen Kunjpura, där förråd till Ahmad Shah Durranis armé fanns. Afghanerna kan inte komma till hjälp över den översvämmade Yamuna. Marathas tar stora förråd och pengar, och garnisonen dödas eller förslavas.",
     "en": "On 17 October 1760 the Marathas storm the Afghan fortress of Kunjpura, where supplies for Ahmad Shah Durrani's army were kept. The Afghans cannot come to its aid across the flooded Yamuna. The Marathas take large stores and money, and the garrison is killed or enslaved.",
-    "de": "Am 17. Oktober 1760 stürmen die Marathen die afghanische Festung Kunjpura, in der Vorräte für das Heer Ahmad Schah Durranis lagerten. Die Afghanen können über die überflutete Yamuna nicht zu Hilfe kommen. Die Marathen erbeuten große Vorräte und Geld, und die Besatzung wird getötet oder versklavt."
+    "de": "Am 17. Oktober 1760 stürmen die Marathen die afghanische Festung Kunjpura, in der Vorräte für das Heer Ahmad Schah Durranis lagerten. Die Afghanen können über die überflutete Yamuna nicht zu Hilfe kommen. Die Marathen erbeuten große Vorräte und Geld, und die Besatzung wird getötet oder versklavt.", "es": "El 17 de octubre de 1760 los marathas toman al asalto la fortaleza afgana de Kunjpura, donde se guardaban suministros para el ejército de Ahmad Shah Durrani. Los afganos no pueden acudir en su ayuda al otro lado del Yamuna desbordado. Los marathas se apoderan de grandes reservas y dinero, y los miembros de la guarnición son muertos o esclavizados."
    },
    "note": {
     "kind": "single-source",
     "title": {
      "sv": "Bara en källa",
      "en": "Only one source",
-     "de": "Nur eine Quelle"
+     "de": "Nur eine Quelle", "es": "Una sola fuente"
     },
     "text": {
      "sv": "Wikidatas post om slaget har varken datum eller plats, så händelsen har inte kunnat jämföras med en andra källa. Uppgifterna kommer från Wikipedia.",
      "en": "Wikidata's entry on the battle has neither a date nor a place, so the event could not be compared with a second source. The information comes from Wikipedia.",
-     "de": "Der Wikidata-Eintrag zur Schlacht hat weder Datum noch Ort, sodass das Ereignis nicht mit einer zweiten Quelle verglichen werden konnte. Die Angaben stammen aus Wikipedia."
+     "de": "Der Wikidata-Eintrag zur Schlacht hat weder Datum noch Ort, sodass das Ereignis nicht mit einer zweiten Quelle verglichen werden konnte. Die Angaben stammen aus Wikipedia.", "es": "La entrada de Wikidata sobre la batalla no tiene ni fecha ni lugar, por lo que el acontecimiento no se ha podido comparar con una segunda fuente. Los datos proceden de Wikipedia."
     }
    },
    "wikidata": "Q125758658",
@@ -956,17 +956,17 @@
    "place": {
     "sv": "Panipat, cirka 97 km norr om Delhi (i dag Haryana, Indien)",
     "en": "Panipat, about 97 km north of Delhi (today Haryana, India)",
-    "de": "Panipat, etwa 97 km nördlich von Delhi (heute Haryana, Indien)"
+    "de": "Panipat, etwa 97 km nördlich von Delhi (heute Haryana, Indien)", "es": "Panipat, a unos 97 km al norte de Delhi (actualmente Haryana, India)"
    },
    "title": {
     "sv": "Tredje slaget vid Panipat",
     "en": "The Third Battle of Panipat",
-    "de": "Die Dritte Schlacht bei Panipat"
+    "de": "Die Dritte Schlacht bei Panipat", "es": "La tercera batalla de Panipat"
    },
    "summary": {
     "sv": "Den 14 januari 1761 möts Marathas armé under Sadashivrao Bhau och Ahmad Shah Durranis afghanska armé med allierade från Rohilkhand och Awadh. Över 125 000 soldater deltar. Afghanerna vinner, och slaget räknas som ett av 1700-talets största och blodigaste.",
     "en": "On 14 January 1761 the Maratha army under Sadashivrao Bhau meets Ahmad Shah Durrani's Afghan army with allies from Rohilkhand and Awadh. Over 125,000 soldiers take part. The Afghans win, and the battle is regarded as one of the largest and bloodiest of the 18th century.",
-    "de": "Am 14. Januar 1761 treffen das marathische Heer unter Sadashivrao Bhau und das afghanische Heer Ahmad Schah Durranis mit Verbündeten aus Rohilkhand und Awadh aufeinander. Über 125.000 Soldaten nehmen teil. Die Afghanen siegen, und die Schlacht gilt als eine der größten und blutigsten des 18. Jahrhunderts."
+    "de": "Am 14. Januar 1761 treffen das marathische Heer unter Sadashivrao Bhau und das afghanische Heer Ahmad Schah Durranis mit Verbündeten aus Rohilkhand und Awadh aufeinander. Über 125.000 Soldaten nehmen teil. Die Afghanen siegen, und die Schlacht gilt als eine der größten und blutigsten des 18. Jahrhunderts.", "es": "El 14 de enero de 1761 se enfrentan el ejército maratha de Sadashivrao Bhau y el ejército afgano de Ahmad Shah Durrani, con aliados de Rohilkhand y Awadh. Participan más de 125 000 soldados. Los afganos vencen, y la batalla se considera una de las mayores y más sangrientas del siglo XVIII."
    },
    "image": {
     "file": "images/events/tredje-slaget-vid-panipat.webp",
@@ -975,7 +975,7 @@
     "caption": {
      "sv": "Tredje slaget vid Panipat: kanonlinjerna som skjuter mot varandra syns i mitten. Teckning i Faizabadstil, cirka 1770, i British Library. Licens: Public domain.",
      "en": "The Third Battle of Panipat: the lines of cannon firing at each other can be seen in the centre. Drawing in the Faizabad style, about 1770, in the British Library. Licence: Public domain.",
-     "de": "Die Dritte Schlacht bei Panipat: In der Mitte sind die Kanonenlinien zu sehen, die aufeinander feuern. Zeichnung im Faizabad-Stil, um 1770, in der British Library. Lizenz: Public domain."
+     "de": "Die Dritte Schlacht bei Panipat: In der Mitte sind die Kanonenlinien zu sehen, die aufeinander feuern. Zeichnung im Faizabad-Stil, um 1770, in der British Library. Lizenz: Public domain.", "es": "La tercera batalla de Panipat: en el centro se ven las líneas de cañones que disparan unas contra otras. Dibujo de estilo Faizabad, hacia 1770, en la British Library. Licencia: dominio público."
     },
     "credit": "Okänd konstnär / British Library via Wikimedia Commons",
     "license": "Public domain",
@@ -1013,59 +1013,59 @@
    "place": {
     "sv": "Etiopiska kejsardömet, i dag Etiopien och Eritrea (började i Dawaro)",
     "en": "The Ethiopian Empire, today Ethiopia and Eritrea (began in Dawaro)",
-    "de": "Das Äthiopische Kaiserreich, heute Äthiopien und Eritrea (begann in Dawaro)"
+    "de": "Das Äthiopische Kaiserreich, heute Äthiopien und Eritrea (begann in Dawaro)", "es": "El Imperio etíope, actualmente Etiopía y Eritrea (comenzó en Dawaro)"
    },
    "title": {
     "sv": "Etiopisk-adalska kriget",
     "en": "The Ethiopian–Adal War",
-    "de": "Der Äthiopisch-Adalitische Krieg"
+    "de": "Der Äthiopisch-Adalitische Krieg", "es": "La guerra entre Etiopía y Adal"
    },
    "summary": {
     "sv": "Ett krig mellan det kristna Etiopiska kejsardömet och det muslimska Adalsultanatet på Afrikas horn, 1529–1543. Adals imam Ahmad ibn Ibrahim al-Ghazi erövrade större delen av kejsardömet, men med hjälp av portugisiska musketörer vann Etiopien till slut, och Ahmad stupade vid Wayna Daga.",
     "en": "A war between the Christian Ethiopian Empire and the Muslim Adal Sultanate in the Horn of Africa, 1529–1543. Adal's imam Ahmad ibn Ibrahim al-Ghazi conquered most of the empire, but with the help of Portuguese musketeers Ethiopia finally won, and Ahmad was killed at Wayna Daga.",
-    "de": "Ein Krieg zwischen dem christlichen Äthiopischen Kaiserreich und dem muslimischen Sultanat Adal am Horn von Afrika, 1529–1543. Adals Imam Ahmad ibn Ibrahim al-Ghazi eroberte den größten Teil des Kaiserreichs, doch mit Hilfe portugiesischer Musketiere siegte Äthiopien schließlich, und Ahmad fiel bei Wayna Daga."
+    "de": "Ein Krieg zwischen dem christlichen Äthiopischen Kaiserreich und dem muslimischen Sultanat Adal am Horn von Afrika, 1529–1543. Adals Imam Ahmad ibn Ibrahim al-Ghazi eroberte den größten Teil des Kaiserreichs, doch mit Hilfe portugiesischer Musketiere siegte Äthiopien schließlich, und Ahmad fiel bei Wayna Daga.", "es": "Una guerra entre el Imperio etíope cristiano y el sultanato musulmán de Adal en el Cuerno de África, 1529–1543. El imán de Adal Ahmad ibn Ibrahim al-Ghazi conquistó la mayor parte del imperio, pero con la ayuda de mosqueteros portugueses Etiopía acabó venciendo, y Ahmad murió en combate en Wayna Daga."
    },
    "story": {
     "intro": {
      "sv": "I början av 1500-talet hotade Adalsultanatet, med huvudstad i Harar-området, det kristna Etiopien. Sedan Adals ledare imam Mahfuz hade dödats av etiopierna under kejsar Lebna Dengel (Dawit II) följde ett inbördeskrig i Adal, som Ahmad ibn Ibrahim al-Ghazi vann. Efter det var de som ville ha fred med Etiopien i minoritet. Den samtida arabiska krönikan Futuh al-Habasha (”Erövringen av Abessinien”) förklarar inte varför Ahmad anföll. Historiker har föreslagit flera skäl: att Adal ville sluta betala tribut till den kristna staten och bryta Etiopiens överhöghet över de muslimska sultanaten, att högländernas rikedomar lockade (något som är svårt att belägga), eller att kriget hörde till 1500-talets messianska rörelser, där krönikan kallar Ahmad ”tidens sluts imam”. I etiopisk tradition beskrivs i stället kriget som Guds straff för kejsarens högmod. Etiopien hade då nästan inga eldvapen: på 1520-talet hade Lebna Dengel två svängbara kanoner och fjorton musköter.",
      "en": "At the beginning of the 16th century the Adal Sultanate, with its capital in the Harar area, threatened Christian Ethiopia. After Adal's leader Imam Mahfuz had been killed by the Ethiopians under Emperor Lebna Dengel (Dawit II), a civil war followed in Adal, which Ahmad ibn Ibrahim al-Ghazi won. After that, those who wanted peace with Ethiopia were in a minority. The contemporary Arabic chronicle Futuh al-Habasha (“The Conquest of Abyssinia”) does not explain why Ahmad attacked. Historians have proposed several reasons: that Adal wanted to stop paying tribute to the Christian state and break Ethiopia's suzerainty over the Muslim sultanates, that the riches of the highlands were tempting (something that is hard to prove), or that the war belonged to the messianic movements of the 16th century, in which the chronicle calls Ahmad “the imam of the end of time”. In Ethiopian tradition, the war is instead described as God's punishment for the emperor's pride. Ethiopia then had almost no firearms: in the 1520s Lebna Dengel had two swivel guns and fourteen muskets.",
-     "de": "Zu Beginn des 16. Jahrhunderts bedrohte das Sultanat Adal mit seiner Hauptstadt im Gebiet von Harar das christliche Äthiopien. Nachdem Adals Anführer Imam Mahfuz von den Äthiopiern unter Kaiser Lebna Dengel (Dawit II.) getötet worden war, folgte in Adal ein Bürgerkrieg, den Ahmad ibn Ibrahim al-Ghazi gewann. Danach waren diejenigen, die Frieden mit Äthiopien wollten, in der Minderheit. Die zeitgenössische arabische Chronik Futuh al-Habasha („Die Eroberung Abessiniens“) erklärt nicht, warum Ahmad angriff. Historiker haben mehrere Gründe vorgeschlagen: dass Adal keinen Tribut mehr an den christlichen Staat zahlen und Äthiopiens Oberhoheit über die muslimischen Sultanate brechen wollte, dass die Reichtümer des Hochlands lockten (was schwer zu belegen ist), oder dass der Krieg zu den messianischen Bewegungen des 16. Jahrhunderts gehörte, wobei die Chronik Ahmad den „Imam vom Ende der Zeit“ nennt. In der äthiopischen Überlieferung wird der Krieg dagegen als Gottes Strafe für den Hochmut des Kaisers beschrieben. Äthiopien hatte damals fast keine Feuerwaffen: In den 1520er Jahren besaß Lebna Dengel zwei schwenkbare Kanonen und vierzehn Musketen."
+     "de": "Zu Beginn des 16. Jahrhunderts bedrohte das Sultanat Adal mit seiner Hauptstadt im Gebiet von Harar das christliche Äthiopien. Nachdem Adals Anführer Imam Mahfuz von den Äthiopiern unter Kaiser Lebna Dengel (Dawit II.) getötet worden war, folgte in Adal ein Bürgerkrieg, den Ahmad ibn Ibrahim al-Ghazi gewann. Danach waren diejenigen, die Frieden mit Äthiopien wollten, in der Minderheit. Die zeitgenössische arabische Chronik Futuh al-Habasha („Die Eroberung Abessiniens“) erklärt nicht, warum Ahmad angriff. Historiker haben mehrere Gründe vorgeschlagen: dass Adal keinen Tribut mehr an den christlichen Staat zahlen und Äthiopiens Oberhoheit über die muslimischen Sultanate brechen wollte, dass die Reichtümer des Hochlands lockten (was schwer zu belegen ist), oder dass der Krieg zu den messianischen Bewegungen des 16. Jahrhunderts gehörte, wobei die Chronik Ahmad den „Imam vom Ende der Zeit“ nennt. In der äthiopischen Überlieferung wird der Krieg dagegen als Gottes Strafe für den Hochmut des Kaisers beschrieben. Äthiopien hatte damals fast keine Feuerwaffen: In den 1520er Jahren besaß Lebna Dengel zwei schwenkbare Kanonen und vierzehn Musketen.", "es": "A principios del siglo XVI el sultanato de Adal, con capital en la zona de Harar, amenazaba a la Etiopía cristiana. Después de que los etíopes del emperador Lebna Dengel (Dawit II) mataran al dirigente de Adal, el imán Mahfuz, se produjo una guerra civil en Adal que ganó Ahmad ibn Ibrahim al-Ghazi. Después, quienes querían la paz con Etiopía quedaron en minoría. La crónica árabe contemporánea Futuh al-Habasha («La conquista de Abisinia») no explica por qué atacó Ahmad. Los historiadores han propuesto varios motivos: que Adal quería dejar de pagar tributo al Estado cristiano y acabar con la supremacía etíope sobre los sultanatos musulmanes, que atraían las riquezas de las tierras altas (algo difícil de demostrar), o que la guerra formaba parte de los movimientos mesiánicos del siglo XVI, en los que la crónica llama a Ahmad «el imán del fin de los tiempos». En la tradición etíope, en cambio, la guerra se describe como un castigo de Dios por la soberbia del emperador. Etiopía apenas tenía armas de fuego entonces: en la década de 1520 Lebna Dengel tenía dos cañones giratorios y catorce mosquetes."
     },
     "parties": [
      {
       "name": {
        "sv": "Etiopiska kejsardömet och Portugal",
        "en": "The Ethiopian Empire and Portugal",
-       "de": "Das Äthiopische Kaiserreich und Portugal"
+       "de": "Das Äthiopische Kaiserreich und Portugal", "es": "El Imperio etíope y Portugal"
       },
       "members": {
        "sv": "Kejsar Lebna Dengel (Dawit II), som dog 1540, hans son kejsar Gelawdewos och kejsarinnan Sabla Wangel, med trupper från bland annat Tigray, Amhara, Gojjam, Begemder, Angot, Medri Bahri och Gafat. Från 1541 stred omkring 400 portugisiska musketörer under Cristóvão da Gama på Etiopiens sida. Bahr Negash Yeshaq, härskaren i norr, tog emot portugiserna och försåg dem med soldater och förnödenheter.",
        "en": "Emperor Lebna Dengel (Dawit II), who died in 1540, his son Emperor Gelawdewos and Empress Sabla Wangel, with troops from, among others, Tigray, Amhara, Gojjam, Begemder, Angot, Medri Bahri and Gafat. From 1541 about 400 Portuguese musketeers under Cristóvão da Gama fought on Ethiopia's side. Bahr Negash Yeshaq, the ruler in the north, received the Portuguese and supplied them with soldiers and provisions.",
-       "de": "Kaiser Lebna Dengel (Dawit II.), der 1540 starb, sein Sohn Kaiser Gelawdewos und Kaiserin Sabla Wangel, mit Truppen unter anderem aus Tigray, Amhara, Gojjam, Begemder, Angot, Medri Bahri und Gafat. Ab 1541 kämpften etwa 400 portugiesische Musketiere unter Cristóvão da Gama auf der Seite Äthiopiens. Bahr Negash Yeshaq, der Herrscher im Norden, nahm die Portugiesen auf und versorgte sie mit Soldaten und Vorräten."
+       "de": "Kaiser Lebna Dengel (Dawit II.), der 1540 starb, sein Sohn Kaiser Gelawdewos und Kaiserin Sabla Wangel, mit Truppen unter anderem aus Tigray, Amhara, Gojjam, Begemder, Angot, Medri Bahri und Gafat. Ab 1541 kämpften etwa 400 portugiesische Musketiere unter Cristóvão da Gama auf der Seite Äthiopiens. Bahr Negash Yeshaq, der Herrscher im Norden, nahm die Portugiesen auf und versorgte sie mit Soldaten und Vorräten.", "es": "El emperador Lebna Dengel (Dawit II), que murió en 1540, su hijo el emperador Gelawdewos y la emperatriz Sabla Wangel, con tropas de, entre otros lugares, Tigray, Amhara, Gojjam, Begemder, Angot, Medri Bahri y Gafat. Desde 1541 unos 400 mosqueteros portugueses de Cristóvão da Gama combatieron del lado etíope. Bahr Negash Yeshaq, el gobernante del norte, recibió a los portugueses y les proporcionó soldados y provisiones."
       }
      },
      {
       "name": {
        "sv": "Adalsultanatet och Osmanska riket",
        "en": "The Adal Sultanate and the Ottoman Empire",
-       "de": "Das Sultanat Adal und das Osmanische Reich"
+       "de": "Das Sultanat Adal und das Osmanische Reich", "es": "El sultanato de Adal y el Imperio otomano"
       },
       "members": {
        "sv": "Imam Ahmad ibn Ibrahim al-Ghazi med en armé av harla (harari), somalier och afar samt arabiska och turkiska skyttar. Bland befälhavarna fanns Garad Matan och Ahmads brorson vesiren Abbas. Från 1542 skickade osmanerna i Zabid i Jemen 700 soldater och tio fältkanoner.",
        "en": "Imam Ahmad ibn Ibrahim al-Ghazi with an army of Harla (Harari), Somalis and Afar as well as Arab and Turkish gunmen. The commanders included Garad Matan and Ahmad's nephew the vizier Abbas. From 1542 the Ottomans in Zabid in Yemen sent 700 soldiers and ten field guns.",
-       "de": "Imam Ahmad ibn Ibrahim al-Ghazi mit einem Heer aus Harla (Harari), Somali und Afar sowie arabischen und türkischen Schützen. Zu den Befehlshabern gehörten Garad Matan und Ahmads Neffe, der Wesir Abbas. Ab 1542 schickten die Osmanen in Zabid im Jemen 700 Soldaten und zehn Feldgeschütze."
+       "de": "Imam Ahmad ibn Ibrahim al-Ghazi mit einem Heer aus Harla (Harari), Somali und Afar sowie arabischen und türkischen Schützen. Zu den Befehlshabern gehörten Garad Matan und Ahmads Neffe, der Wesir Abbas. Ab 1542 schickten die Osmanen in Zabid im Jemen 700 Soldaten und zehn Feldgeschütze.", "es": "El imán Ahmad ibn Ibrahim al-Ghazi, con un ejército de harla (harari), somalíes y afar, así como tiradores árabes y turcos. Entre los comandantes estaban Garad Matan y el sobrino de Ahmad, el visir Abbas. Desde 1542 los otomanos de Zabid, en Yemen, enviaron 700 soldados y diez cañones de campaña."
       }
      }
     ],
     "outcome": {
      "sv": "Etiopien och Portugal vann. Ahmad sårades av ett muskötskott vid Wayna Daga den 21 februari 1543 och halshöggs av en etiopisk ryttaranförare; källorna är oense om vem som sköt. Hans armé föll samman och drog sig ur högländerna. I oktober 1544 besegrade och dödade Gelawdewos vesiren Abbas och tog tillbaka gränsprovinserna, så att gränserna i stort sett blev som före kriget. Under kriget hade adalerna plundrat och bränt många kyrkor och förstört Mariakyrkan (Maria av Sion) i Aksum. Båda staterna var utmattade, och enligt historikern Mohammed Hassen gav det oromofolket möjlighet att flytta in i områden som tidigare hörde till dem båda. För harari blev kriget en orsak till att folket snabbt minskade. Kejsaren behöll omkring 170 portugisiska soldater och gav dem jord, men vägrade gå över till katolicismen och skrev en egen trosbekännelse till försvar för den etiopiska kyrkan. Många historiker ser kriget som ursprunget till fientligheten mellan Etiopien och Somalia.",
      "en": "Ethiopia and Portugal won. Ahmad was wounded by a musket shot at Wayna Daga on 21 February 1543 and beheaded by an Ethiopian cavalry leader; the sources disagree about who fired the shot. His army collapsed and withdrew from the highlands. In October 1544 Gelawdewos defeated and killed the vizier Abbas and recovered the border provinces, so that the borders were largely as before the war. During the war the Adalites had plundered and burned many churches and destroyed the Church of Mary (Mary of Zion) in Axum. Both states were exhausted, and according to the historian Mohammed Hassen this gave the Oromo people an opportunity to move into areas that had belonged to them both. For the Harari the war became a cause of rapid decline in the population. The emperor kept about 170 Portuguese soldiers and gave them land, but refused to convert to Catholicism and wrote his own confession of faith in defence of the Ethiopian church. Many historians see the war as the origin of the hostility between Ethiopia and Somalia.",
-     "de": "Äthiopien und Portugal siegten. Ahmad wurde am 21. Februar 1543 bei Wayna Daga von einem Musketenschuss verwundet und von einem äthiopischen Reiterführer enthauptet; die Quellen sind sich uneinig, wer den Schuss abgab. Sein Heer brach zusammen und zog sich aus dem Hochland zurück. Im Oktober 1544 besiegte und tötete Gelawdewos den Wesir Abbas und gewann die Grenzprovinzen zurück, sodass die Grenzen im Großen und Ganzen wieder wie vor dem Krieg waren. Während des Krieges hatten die Adaliten viele Kirchen geplündert und niedergebrannt und die Marienkirche (Maria von Zion) in Aksum zerstört. Beide Staaten waren erschöpft, und nach dem Historiker Mohammed Hassen gab das dem Volk der Oromo die Möglichkeit, in Gebiete zu ziehen, die zuvor zu beiden gehört hatten. Für die Harari wurde der Krieg zu einer Ursache für den raschen Rückgang ihrer Bevölkerung. Der Kaiser behielt etwa 170 portugiesische Soldaten und gab ihnen Land, weigerte sich aber, zum Katholizismus überzutreten, und schrieb ein eigenes Glaubensbekenntnis zur Verteidigung der äthiopischen Kirche. Viele Historiker sehen im Krieg den Ursprung der Feindschaft zwischen Äthiopien und Somalia."
+     "de": "Äthiopien und Portugal siegten. Ahmad wurde am 21. Februar 1543 bei Wayna Daga von einem Musketenschuss verwundet und von einem äthiopischen Reiterführer enthauptet; die Quellen sind sich uneinig, wer den Schuss abgab. Sein Heer brach zusammen und zog sich aus dem Hochland zurück. Im Oktober 1544 besiegte und tötete Gelawdewos den Wesir Abbas und gewann die Grenzprovinzen zurück, sodass die Grenzen im Großen und Ganzen wieder wie vor dem Krieg waren. Während des Krieges hatten die Adaliten viele Kirchen geplündert und niedergebrannt und die Marienkirche (Maria von Zion) in Aksum zerstört. Beide Staaten waren erschöpft, und nach dem Historiker Mohammed Hassen gab das dem Volk der Oromo die Möglichkeit, in Gebiete zu ziehen, die zuvor zu beiden gehört hatten. Für die Harari wurde der Krieg zu einer Ursache für den raschen Rückgang ihrer Bevölkerung. Der Kaiser behielt etwa 170 portugiesische Soldaten und gab ihnen Land, weigerte sich aber, zum Katholizismus überzutreten, und schrieb ein eigenes Glaubensbekenntnis zur Verteidigung der äthiopischen Kirche. Viele Historiker sehen im Krieg den Ursprung der Feindschaft zwischen Äthiopien und Somalia.", "es": "Etiopía y Portugal vencieron. Ahmad fue herido por un disparo de mosquete en Wayna Daga el 21 de febrero de 1543 y decapitado por un jefe de la caballería etíope; las fuentes discrepan sobre quién disparó. Su ejército se desintegró y se retiró de las tierras altas. En octubre de 1544 Gelawdewos derrotó y mató al visir Abbas y recuperó las provincias fronterizas, por lo que las fronteras quedaron en gran medida como antes de la guerra. Durante la guerra las fuerzas de Adal habían saqueado y quemado muchas iglesias y destruido la iglesia de María (María de Sion) en Aksum. Ambos Estados estaban agotados, y según el historiador Mohammed Hassen esto permitió al pueblo oromo trasladarse a zonas que antes pertenecían a ambos. Para los harari la guerra fue una causa del rápido descenso de su población. El emperador conservó a unos 170 soldados portugueses y les dio tierras, pero se negó a convertirse al catolicismo y escribió su propia confesión de fe en defensa de la Iglesia etíope. Muchos historiadores ven la guerra como el origen de la hostilidad entre Etiopía y Somalia."
     },
     "casualties": {
      "sv": "Källan anger ingen samlad siffra för kriget. Siffrorna som finns kommer främst från den adalska krönikan och är osäkra, till exempel omkring 1 500 döda etiopier och 800 döda adaler vid Antukyah 1531 och över 10 000 dödade kristna i Tigray vid tåget mot Aksum, enligt krönikans egen uppskattning. Vid Wofla 1542 dog omkring hälften av den portugisiska styrkan, som från början var 400 man.",
      "en": "The source gives no overall figure for the war. The figures that exist come mainly from the Adalite chronicle and are uncertain, for example about 1,500 Ethiopians and 800 Adalites killed at Antukyah in 1531 and over 10,000 Christians killed in Tigray during the march towards Axum, according to the chronicle's own estimate. At Wofla in 1542 about half of the Portuguese force died, which originally numbered 400 men.",
-     "de": "Die Quelle nennt keine Gesamtzahl für den Krieg. Die vorhandenen Zahlen stammen vor allem aus der adalitischen Chronik und sind unsicher, zum Beispiel etwa 1.500 getötete Äthiopier und 800 getötete Adaliten bei Antukyah 1531 und über 10.000 getötete Christen in Tigray beim Zug nach Aksum, nach der eigenen Schätzung der Chronik. Bei Wofla 1542 starb etwa die Hälfte der portugiesischen Truppe, die anfangs 400 Mann zählte."
+     "de": "Die Quelle nennt keine Gesamtzahl für den Krieg. Die vorhandenen Zahlen stammen vor allem aus der adalitischen Chronik und sind unsicher, zum Beispiel etwa 1.500 getötete Äthiopier und 800 getötete Adaliten bei Antukyah 1531 und über 10.000 getötete Christen in Tigray beim Zug nach Aksum, nach der eigenen Schätzung der Chronik. Bei Wofla 1542 starb etwa die Hälfte der portugiesischen Truppe, die anfangs 400 Mann zählte.", "es": "La fuente no da una cifra total para la guerra. Las cifras disponibles proceden principalmente de la crónica de Adal y son inciertas, por ejemplo unos 1500 etíopes y 800 miembros del bando de Adal muertos en Antukyah en 1531 y más de 10 000 cristianos muertos en Tigray durante la marcha hacia Aksum, según la estimación de la propia crónica. En Wofla, en 1542, murió aproximadamente la mitad de la fuerza portuguesa, que inicialmente tenía 400 hombres."
     },
     "sources": [
      "wp-ethiopian-adal-war",
@@ -1078,12 +1078,12 @@
     "title": {
      "sv": "Om kalendern",
      "en": "About the calendar",
-     "de": "Zum Kalender"
+     "de": "Zum Kalender", "es": "Sobre el calendario"
     },
     "text": {
      "sv": "Datumen i kriget följer den julianska kalendern, som användes då (Wikidata anger juliansk kalender). Wikipedia anger 9 mars 1529–21 februari 1543, och Wikidata 1529–1543 utan dag.",
      "en": "The dates in the war follow the Julian calendar, which was in use at the time (Wikidata gives Julian calendar). Wikipedia gives 9 March 1529–21 February 1543, and Wikidata 1529–1543 without a day.",
-     "de": "Die Daten des Krieges folgen dem julianischen Kalender, der damals verwendet wurde (Wikidata nennt den julianischen Kalender). Wikipedia nennt den 9. März 1529 bis 21. Februar 1543 und Wikidata 1529–1543 ohne Tag."
+     "de": "Die Daten des Krieges folgen dem julianischen Kalender, der damals verwendet wurde (Wikidata nennt den julianischen Kalender). Wikipedia nennt den 9. März 1529 bis 21. Februar 1543 und Wikidata 1529–1543 ohne Tag.", "es": "Las fechas de la guerra siguen el calendario juliano, que se usaba entonces (Wikidata indica calendario juliano). Wikipedia indica del 9 de marzo de 1529 al 21 de febrero de 1543, y Wikidata 1529–1543 sin día."
     }
    },
    "image": {
@@ -1129,17 +1129,17 @@
    "place": {
     "sv": "Shimbra Kure i Dawaro, Etiopiska kejsardömet (exakt plats okänd)",
     "en": "Shimbra Kure in Dawaro, Ethiopian Empire (exact location unknown)",
-    "de": "Shimbra Kure in Dawaro, Äthiopisches Kaiserreich (genauer Ort unbekannt)"
+    "de": "Shimbra Kure in Dawaro, Äthiopisches Kaiserreich (genauer Ort unbekannt)", "es": "Shimbra Kure en Dawaro, Imperio etíope (lugar exacto desconocido)"
    },
    "title": {
     "sv": "Slaget vid Shimbra Kure",
     "en": "The Battle of Shimbra Kure",
-    "de": "Die Schlacht bei Shimbra Kure"
+    "de": "Die Schlacht bei Shimbra Kure", "es": "La batalla de Shimbra Kure"
    },
    "summary": {
     "sv": "Den 9 mars 1529 möter imam Ahmads adalska armé för första gången kejsar Lebna Dengels här och segrar, trots att den är mindre. Harari-ryttarna avgör slaget. Ahmad drar sig sedan tillbaka från högländerna och anfaller inte kejsarens armé igen förrän två år senare. Etiopiska krönikor räknar året som början på det de kallar förföljelsen.",
     "en": "On 9 March 1529 Imam Ahmad's Adalite army meets Emperor Lebna Dengel's army for the first time and wins, although it is smaller. The Harari horsemen decide the battle. Ahmad then withdraws from the highlands and does not attack the emperor's army again until two years later. Ethiopian chronicles count the year as the beginning of what they call the persecution.",
-    "de": "Am 9. März 1529 trifft Imam Ahmads adalitisches Heer zum ersten Mal auf das Heer Kaiser Lebna Dengels und siegt, obwohl es kleiner ist. Die Harari-Reiter entscheiden die Schlacht. Ahmad zieht sich danach aus dem Hochland zurück und greift das Heer des Kaisers erst zwei Jahre später wieder an. Äthiopische Chroniken rechnen das Jahr als Beginn dessen, was sie die Verfolgung nennen."
+    "de": "Am 9. März 1529 trifft Imam Ahmads adalitisches Heer zum ersten Mal auf das Heer Kaiser Lebna Dengels und siegt, obwohl es kleiner ist. Die Harari-Reiter entscheiden die Schlacht. Ahmad zieht sich danach aus dem Hochland zurück und greift das Heer des Kaisers erst zwei Jahre später wieder an. Äthiopische Chroniken rechnen das Jahr als Beginn dessen, was sie die Verfolgung nennen.", "es": "El 9 de marzo de 1529 el ejército de Adal del imán Ahmad se enfrenta por primera vez al ejército del emperador Lebna Dengel y vence, pese a ser menor. Los jinetes harari deciden la batalla. Ahmad se retira después de las tierras altas y no vuelve a atacar al ejército del emperador hasta dos años después. Las crónicas etíopes cuentan ese año como el comienzo de lo que llaman la persecución."
    },
    "wikidata": "Q2889965",
    "sources": [
@@ -1168,29 +1168,29 @@
    "place": {
     "sv": "Antukyah vid kanten av de etiopiska högländerna, i dag distriktet Antsokiya och Gemza",
     "en": "Antukyah at the edge of the Ethiopian highlands, today the district of Antsokiya and Gemza",
-    "de": "Antukyah am Rand des äthiopischen Hochlands, heute der Bezirk Antsokiya und Gemza"
+    "de": "Antukyah am Rand des äthiopischen Hochlands, heute der Bezirk Antsokiya und Gemza", "es": "Antukyah, al borde de las tierras altas etíopes, actualmente el distrito de Antsokiya y Gemza"
    },
    "title": {
     "sv": "Slaget vid Antukyah",
     "en": "The Battle of Antukyah",
-    "de": "Die Schlacht bei Antukyah"
+    "de": "Die Schlacht bei Antukyah", "es": "La batalla de Antukyah"
    },
    "summary": {
     "sv": "Den 23 februari 1531 krossar Ahmads armé kejsarens här under Eslamu. Adalernas kanoner skrämmer de etiopiska soldaterna på flykt redan i början. Efter en andra seger vid Ayfars i mars når adalerna kejsarens huvudstad Barara samma vår.",
     "en": "On 23 February 1531 Ahmad's army crushes the emperor's host under Eslamu. The Adalites' cannon send the Ethiopian soldiers fleeing right at the start. After a second victory at Ayfars in March, the Adalites reach the emperor's capital Barara the same spring.",
-    "de": "Am 23. Februar 1531 zerschlägt Ahmads Heer das Heer des Kaisers unter Eslamu. Die Kanonen der Adaliten jagen die äthiopischen Soldaten gleich zu Beginn in die Flucht. Nach einem zweiten Sieg bei Ayfars im März erreichen die Adaliten im selben Frühjahr die Hauptstadt des Kaisers, Barara."
+    "de": "Am 23. Februar 1531 zerschlägt Ahmads Heer das Heer des Kaisers unter Eslamu. Die Kanonen der Adaliten jagen die äthiopischen Soldaten gleich zu Beginn in die Flucht. Nach einem zweiten Sieg bei Ayfars im März erreichen die Adaliten im selben Frühjahr die Hauptstadt des Kaisers, Barara.", "es": "El 23 de febrero de 1531 el ejército de Ahmad aplasta al ejército del emperador al mando de Eslamu. Los cañones de Adal hacen huir a los soldados etíopes ya al principio. Tras una segunda victoria en Ayfars en marzo, las fuerzas de Adal llegan a la capital del emperador, Barara, esa misma primavera."
    },
    "note": {
     "kind": "date",
     "title": {
      "sv": "Om datumet",
      "en": "About the date",
-     "de": "Zum Datum"
+     "de": "Zum Datum", "es": "Sobre la fecha"
     },
     "text": {
      "sv": "Wikipedias artikel om kriget anger 23 februari 1531. Artikeln om slaget och Wikidata anger bara året 1531.",
      "en": "Wikipedia's article on the war gives 23 February 1531. The article on the battle and Wikidata give only the year 1531.",
-     "de": "Der Wikipedia-Artikel über den Krieg nennt den 23. Februar 1531. Der Artikel über die Schlacht und Wikidata nennen nur das Jahr 1531."
+     "de": "Der Wikipedia-Artikel über den Krieg nennt den 23. Februar 1531. Der Artikel über die Schlacht und Wikidata nennen nur das Jahr 1531.", "es": "El artículo de Wikipedia sobre la guerra indica el 23 de febrero de 1531. El artículo sobre la batalla y Wikidata solo indican el año 1531."
     }
    },
    "wikidata": "Q2887867",
@@ -1220,29 +1220,29 @@
    "place": {
     "sv": "Ambassel i Amhara, Etiopien",
     "en": "Ambassel in Amhara, Ethiopia",
-    "de": "Ambassel in Amhara, Äthiopien"
+    "de": "Ambassel in Amhara, Äthiopien", "es": "Ambassel, en Amhara, Etiopía"
    },
    "title": {
     "sv": "Slaget vid Amba Sel",
     "en": "The Battle of Amba Sel",
-    "de": "Schlacht von Amba Sel"
+    "de": "Schlacht von Amba Sel", "es": "La batalla de Amba Sel"
    },
    "summary": {
     "sv": "Kejsar Lebna Dengel undkommer med nöd och näppe när Ahmads armé segrar vid Amba Sel i oktober 1531. Kejsaren tvingas sedan flytta från plats till plats i sitt eget rike, och adalerna tränger in i högländerna, där de plundrar och bränner kyrkor.",
     "en": "Emperor Lebna Dengel narrowly escapes when Ahmad's army wins at Amba Sel in October 1531. The emperor is then forced to move from place to place in his own kingdom, and the Adalites press into the highlands, where they plunder and burn churches.",
-    "de": "Kaiser Lebna Dengel entkommt nur knapp, als Ahmads Armee im Oktober 1531 bei Amba Sel siegt. Der Kaiser ist dann gezwungen, in seinem eigenen Reich von Ort zu Ort zu ziehen, und die Adalen dringen in das Hochland ein, wo sie Kirchen plündern und niederbrennen."
+    "de": "Kaiser Lebna Dengel entkommt nur knapp, als Ahmads Armee im Oktober 1531 bei Amba Sel siegt. Der Kaiser ist dann gezwungen, in seinem eigenen Reich von Ort zu Ort zu ziehen, und die Adalen dringen in das Hochland ein, wo sie Kirchen plündern und niederbrennen.", "es": "El emperador Lebna Dengel escapa por poco cuando el ejército de Ahmad vence en Amba Sel en octubre de 1531. El emperador se ve después obligado a trasladarse de un lugar a otro de su propio reino, y las fuerzas de Adal penetran en las tierras altas, donde saquean y queman iglesias."
    },
    "note": {
     "kind": "disagreement",
     "title": {
      "sv": "Källorna skiljer sig",
      "en": "The sources differ",
-     "de": "Die Quellen unterscheiden sich"
+     "de": "Die Quellen unterscheiden sich", "es": "Las fuentes difieren"
     },
     "text": {
      "sv": "Wikipedias artikel om slaget och Wikidata anger 28 oktober 1531, men artikeln om kriget anger 27 oktober. Wikidata placerar slaget i provinsen Bale, medan Wikipedia anger Ambassel i Amhara, som används här.",
      "en": "Wikipedia's article on the battle and Wikidata give 28 October 1531, but the article on the war gives 27 October. Wikidata places the battle in the province of Bale, while Wikipedia gives Ambassel in Amhara, which is used here.",
-     "de": "Der Wikipedia-Artikel über die Schlacht und Wikidata geben den 28. Oktober 1531 an, aber der Artikel über den Krieg gibt den 27. Oktober an. Wikidata verortet die Schlacht in der Provinz Bale, während Wikipedia Ambassel in Amhara angibt, was hier verwendet wird."
+     "de": "Der Wikipedia-Artikel über die Schlacht und Wikidata geben den 28. Oktober 1531 an, aber der Artikel über den Krieg gibt den 27. Oktober an. Wikidata verortet die Schlacht in der Provinz Bale, während Wikipedia Ambassel in Amhara angibt, was hier verwendet wird.", "es": "El artículo de Wikipedia sobre la batalla y Wikidata indican el 28 de octubre de 1531, pero el artículo sobre la guerra indica el 27 de octubre. Wikidata sitúa la batalla en la provincia de Bale, mientras que Wikipedia indica Ambassel, en Amhara, que es el lugar usado aquí."
     }
    },
    "wikidata": "Q2887837",
@@ -1272,29 +1272,29 @@
    "place": {
     "sv": "Massawa vid Röda havet, i dag Eritrea",
     "en": "Massawa on the Red Sea, today Eritrea",
-    "de": "Massawa am Roten Meer, heute Eritrea"
+    "de": "Massawa am Roten Meer, heute Eritrea", "es": "Massawa, junto al mar Rojo, actualmente Eritrea"
    },
    "title": {
     "sv": "Portugisisk hjälp når Etiopien",
     "en": "Portuguese help reaches Ethiopia",
-    "de": "Portugiesische Hilfe erreicht Äthiopien"
+    "de": "Portugiesische Hilfe erreicht Äthiopien", "es": "La ayuda portuguesa llega a Etiopía"
    },
    "summary": {
     "sv": "I februari 1541 landstiger 400 portugisiska musketörer under Cristóvão da Gama i Massawa. Bahr Negash Yeshaq, som hade övertalat portugiserna att komma, låter dem övervintra vid Debarwa och ger dem soldater och vägvisare. Med eldvapnen börjar kriget vända.",
     "en": "In February 1541 a force of 400 Portuguese musketeers under Cristóvão da Gama land at Massawa. Bahr Negash Yeshaq, who had persuaded the Portuguese to come, lets them spend the winter at Debarwa and gives them soldiers and guides. With the firearms, the war begins to turn.",
-    "de": "Im Februar 1541 landen 400 portugiesische Musketiere unter Cristóvão da Gama in Massawa. Bahr Negash Yeshaq, der die Portugiesen überredet hatte zu kommen, lässt sie in Debarwa überwintern und stellt ihnen Soldaten und Wegweiser zur Verfügung. Mit den Schusswaffen beginnt sich das Kriegsglück zu wenden."
+    "de": "Im Februar 1541 landen 400 portugiesische Musketiere unter Cristóvão da Gama in Massawa. Bahr Negash Yeshaq, der die Portugiesen überredet hatte zu kommen, lässt sie in Debarwa überwintern und stellt ihnen Soldaten und Wegweiser zur Verfügung. Mit den Schusswaffen beginnt sich das Kriegsglück zu wenden.", "es": "En febrero de 1541 desembarcan en Massawa 400 mosqueteros portugueses de Cristóvão da Gama. Bahr Negash Yeshaq, que había convencido a los portugueses para que vinieran, les permite pasar el invierno en Debarwa y les da soldados y guías. Con las armas de fuego la guerra empieza a cambiar de rumbo."
    },
    "note": {
     "kind": "single-source",
     "title": {
      "sv": "Bara en källa",
      "en": "Only one source",
-     "de": "Nur eine Quelle"
+     "de": "Nur eine Quelle", "es": "Una sola fuente"
     },
     "text": {
      "sv": "Händelsen har ingen egen post i Wikidata, så årtal och plats har inte kunnat jämföras med en andra, oberoende källa. Uppgifterna kommer från Wikipedia.",
      "en": "The event has no entry of its own in Wikidata, so the year and place could not be compared with a second, independent source. The information comes from Wikipedia.",
-     "de": "Das Ereignis hat keinen eigenen Eintrag in Wikidata, sodass das Jahr und der Ort nicht mit einer zweiten, unabhängigen Quelle verglichen werden konnten. Die Informationen stammen aus Wikipedia."
+     "de": "Das Ereignis hat keinen eigenen Eintrag in Wikidata, sodass das Jahr und der Ort nicht mit einer zweiten, unabhängigen Quelle verglichen werden konnten. Die Informationen stammen aus Wikipedia.", "es": "El acontecimiento no tiene entrada propia en Wikidata, por lo que el año y el lugar no se han podido comparar con una segunda fuente independiente. Los datos proceden de Wikipedia."
     }
    },
    "sources": [
@@ -1321,29 +1321,29 @@
    "place": {
     "sv": "Wofla (Ofla) nära sjön Ashenge, Tigray",
     "en": "Wofla (Ofla) near Lake Ashenge, Tigray",
-    "de": "Wofla (Ofla) in der Nähe des Ashenge-Sees, Tigray"
+    "de": "Wofla (Ofla) in der Nähe des Ashenge-Sees, Tigray", "es": "Wofla (Ofla), cerca del lago Ashenge, Tigray"
    },
    "title": {
     "sv": "Slaget vid Wofla",
     "en": "The Battle of Wofla",
-    "de": "Schlacht von Wofla"
+    "de": "Schlacht von Wofla", "es": "La batalla de Wofla"
    },
    "summary": {
     "sv": "Med osmanska förstärkningar och fler eldvapen besegrar Ahmad portugiserna vid Wofla den 28 augusti 1542. Cristóvão da Gama tillfångatas och avrättas på imamens order. Omkring hälften av den portugisiska styrkan dör, men de överlevande tar sig till kejsar Gelawdewos.",
     "en": "With Ottoman reinforcements and more firearms, Ahmad defeats the Portuguese at Wofla on 28 August 1542. Cristóvão da Gama is captured and executed on the imam's orders. About half of the Portuguese force dies, but the survivors make their way to Emperor Gelawdewos.",
-    "de": "Mit osmanischen Verstärkungen und mehr Schusswaffen besiegt Ahmad die Portugiesen am 28. August 1542 bei Wofla. Cristóvão da Gama wird auf Befehl des Imams gefangen genommen und hingerichtet. Etwa die Hälfte der portugiesischen Truppen stirbt, aber die Überlebenden gelangen zu Kaiser Gelawdewos."
+    "de": "Mit osmanischen Verstärkungen und mehr Schusswaffen besiegt Ahmad die Portugiesen am 28. August 1542 bei Wofla. Cristóvão da Gama wird auf Befehl des Imams gefangen genommen und hingerichtet. Etwa die Hälfte der portugiesischen Truppen stirbt, aber die Überlebenden gelangen zu Kaiser Gelawdewos.", "es": "Con refuerzos otomanos y más armas de fuego, Ahmad derrota a los portugueses en Wofla el 28 de agosto de 1542. Cristóvão da Gama es capturado y ejecutado por orden del imán. Muere aproximadamente la mitad de la fuerza portuguesa, pero los supervivientes logran llegar hasta el emperador Gelawdewos."
    },
    "note": {
     "kind": "place",
     "title": {
      "sv": "Om platsen",
      "en": "About the place",
-     "de": "Über den Ort"
+     "de": "Über den Ort", "es": "Sobre el lugar"
     },
     "text": {
      "sv": "Wikidata anger samma datum som Wikipedia men ingen plats, så platsen har bara en källa. Enligt Wikipedias artikel om kriget dödades da Gama ”möjligen vid Wofla”.",
      "en": "Wikidata gives the same date as Wikipedia but no place, so the place has only one source. According to Wikipedia's article on the war, da Gama was killed “possibly at Wofla”.",
-     "de": "Wikidata gibt das gleiche Datum wie Wikipedia an, aber keinen Ort, sodass der Ort nur eine Quelle hat. Laut dem Wikipedia-Artikel über den Krieg wurde da Gama „möglicherweise bei Wofla“ getötet."
+     "de": "Wikidata gibt das gleiche Datum wie Wikipedia an, aber keinen Ort, sodass der Ort nur eine Quelle hat. Laut dem Wikipedia-Artikel über den Krieg wurde da Gama „möglicherweise bei Wofla“ getötet.", "es": "Wikidata indica la misma fecha que Wikipedia, pero ningún lugar, por lo que el lugar tiene una sola fuente. Según el artículo de Wikipedia sobre la guerra, da Gama murió «posiblemente en Wofla»."
     }
    },
    "wikidata": "Q835180",
