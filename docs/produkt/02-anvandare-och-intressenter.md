@@ -48,8 +48,8 @@ Varje persona beskrivs med samma frågor, så att de går att jämföra och gran
 
 #### C. Elev 10–13 år (åk 4–6)
 
-- **Mål:** klara uppgiften ("hitta tre händelser på olika kontinenter år X"), ha roligt, få veta något häftigt.
-- **Förkunskap:** begränsad tidsuppfattning; lär sig årtal och kontinenter; läsförmåga varierar.
+- **Mål:** klara uppgiften ("hitta tre händelser i olika världsdelar år X"), ha roligt, få veta något häftigt.
+- **Förkunskap:** begränsad tidsuppfattning; lär sig årtal och världsdelar; läsförmåga varierar.
 - **Enhet:** surfplatta eller skoldator, ibland mobil hemma.
 - **Frågar sidan:** "Vad ska jag göra?", "Var är det här?"
 - **Frustreras av:** långa texter, svåra ord, "döda ändar", små träffytor.

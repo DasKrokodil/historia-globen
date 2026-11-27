@@ -1,0 +1,16 @@
+# Ej hämtade (HTTP 429), slut-1. En rad per bild: referens, tabb, händelse-id, tabb, passa-in.
+File:Sonthonax.jpg	slaveriet-avskaffas-1793	passa-in
+File:POMA0402v.jpg	belagringen-av-cusco-1536	passa-in
+File:Zhokhov - Landsat.jpg	hundarna-pa-zjochovon	passa-in
+File:Из жизни байкальской нерпы близ Ушканьих островов 02.jpg	salfangst-vid-bajkalsjon
+File:PersianGulf vue satellite du golfe persique.jpg	persiska-viken-fylls	passa-in
+File:Ulleung Island ISS064.jpg	ulleungdos-kaldera-bildas	passa-in
+File:Katun AltaiRepublicBoundary 013 1368.jpg	altaifloden
+File:The death of Colonel Finnis on the parade ground at Meerut.jpg	myteriet-i-meerut
+File:Beach activity at Da Nang, Vietnam during landing of United States Marines of the 9th Marine Expeditionary Brigade in March of 1965.jpg	vietnamkriget
+File:Urfacastle.jpg	belagringen-av-edessa-1144
+File:Liber abbaci magliab f124r.jpg	fibonaccis-liber-abaci	passa-in
+File:Saltsjobadsavtalet.jpg	saltsjobadsavtalet
+File:Gulag drivers licence.jpg	gulag
+File:President Vladimir Putin talks with the governor of Kursk in August 2024.jpg	kurskoffensiven
+File:Ambrym ali 2012348 lrg.jpg	ambryms-kaldera

@@ -68,6 +68,23 @@
       "es": "Nombre dos cosas del recorrido que ocurrieron el mismo año en distintas partes del mundo. ¿Por qué se llama mundial esta guerra?",
       "fr": "Citez deux choses de la visite qui se sont produites la même année dans différentes parties du monde. Pourquoi appelle-t-on cette guerre une guerre mondiale ?"
     },
+    "exitAnswer": {
+      "text": {
+        "sv": "Till exempel 1941: Operation Barbarossa i Europa och Pearl Harbor i Stilla havet. Eller 1942: Midway och Guadalcanal i Stilla havet och El Alamein i Nordafrika. Kriget var en global konflikt mellan två koalitioner, de allierade och axelmakterna, och nästan alla världens länder var inblandade.",
+        "en": "For example 1941: Operation Barbarossa in Europe and Pearl Harbor in the Pacific. Or 1942: Midway and Guadalcanal in the Pacific and El Alamein in North Africa. The war was a global conflict between two coalitions, the Allies and the Axis powers, and nearly all the countries of the world were involved.",
+        "de": "Zum Beispiel 1941: das Unternehmen Barbarossa in Europa und Pearl Harbor im Pazifik. Oder 1942: Midway und Guadalcanal im Pazifik und El Alamein in Nordafrika. Der Krieg war ein weltweiter Konflikt zwischen zwei Bündnissen, den Alliierten und den Achsenmächten, und fast alle Länder der Welt waren beteiligt.",
+        "es": "Por ejemplo, 1941: la Operación Barbarroja en Europa y Pearl Harbor en el Pacífico. O 1942: Midway y Guadalcanal en el Pacífico y El Alamein en el norte de África. La guerra fue un conflicto mundial entre dos coaliciones, los Aliados y las potencias del Eje, y casi todos los países del mundo participaron.",
+        "fr": "Par exemple en 1941 : l’opération Barbarossa en Europe et Pearl Harbor dans le Pacifique. Ou en 1942 : Midway et Guadalcanal dans le Pacifique et El Alamein en Afrique du Nord. La guerre a été un conflit mondial entre deux coalitions, les Alliés et les puissances de l’Axe, et presque tous les pays du monde y ont pris part."
+      },
+      "sources": [
+        "wp-barbarossa",
+        "wp-pearl-harbor",
+        "wp-midway",
+        "wp-guadalcanal",
+        "wp-el-alamein-2",
+        "wp-world-war-ii"
+      ]
+    },
     "sourceDetective": [
       {
         "event": "slaget-om-storbritannien",
@@ -232,6 +249,18 @@
         "fr": "L’Allemagne a pris la France en quelques semaines, mais a échoué dans le ciel britannique. Qu’est-ce qui rendait l’attaque d’une île plus difficile ?",
         "es": "Alemania conquistó Francia en pocas semanas, pero fracasó en el aire sobre Gran Bretaña. ¿Qué dificultaba atacar una isla?"
       },
+      "answer": {
+        "text": {
+          "sv": "Tyskland ville först ha herraväldet i luften över Engelska kanalen innan trupper kunde föras över havet. Den brittiska flottan kontrollerade kanalen och Nordsjön, och den tyska marinen menade att en invasion också krävde herravälde till sjöss. När det tyska flygvapnet inte kunde slå ut det brittiska sköt Hitler upp invasionen och ställde till slut in den.",
+          "en": "Germany first wanted air superiority over the English Channel before troops could be taken across the sea. The British navy controlled the Channel and the North Sea, and the German navy held that an invasion also required naval superiority. When the German air force could not overwhelm the British one, Hitler postponed the invasion and finally cancelled it.",
+          "de": "Deutschland wollte zuerst die Luftherrschaft über dem Ärmelkanal, bevor Truppen über das Meer gebracht werden konnten. Die britische Marine beherrschte den Kanal und die Nordsee, und die deutsche Marine meinte, eine Invasion erfordere auch die Seeherrschaft. Als die deutsche Luftwaffe die britische nicht niederringen konnte, verschob Hitler die Invasion und sagte sie schließlich ab.",
+          "es": "Alemania quería primero la superioridad aérea sobre el canal de la Mancha antes de poder llevar tropas por mar. La marina británica controlaba el canal y el mar del Norte, y la marina alemana sostenía que una invasión también exigía la superioridad naval. Cuando la aviación alemana no logró vencer a la británica, Hitler aplazó la invasión y finalmente la canceló.",
+          "fr": "L’Allemagne voulait d’abord la supériorité aérienne au-dessus de la Manche avant de pouvoir faire traverser la mer à ses troupes. La marine britannique contrôlait la Manche et la mer du Nord, et la marine allemande estimait qu’une invasion exigeait aussi la supériorité navale. Comme l’aviation allemande n’a pas pu venir à bout de l’aviation britannique, Hitler a reporté l’invasion, puis l’a annulée."
+        },
+        "sources": [
+          "wp-battle-of-britain"
+        ]
+      },
       "layers": [
         "events",
         "wars",
@@ -314,6 +343,19 @@
         "de": "Barbarossa und Pearl Harbor geschahen im selben Jahr, weit voneinander entfernt. Was könnte es bedeutet haben, dass nun die Sowjetunion und die USA mitkämpften?",
         "fr": "Barbarossa et Pearl Harbor ont eu lieu la même année, loin l’une de l’autre. Que pouvait signifier que l’Union soviétique et les États-Unis soient désormais en guerre ?",
         "es": "Barbarroja y Pearl Harbor ocurrieron el mismo año, lejos uno de otro. ¿Qué pudo significar que tanto la Unión Soviética como Estados Unidos estuvieran ya en la guerra?"
+      },
+      "answer": {
+        "text": {
+          "sv": "Kriget pågick nu både i Europa och i Stilla havet. Tyskland hade anfallit Sovjetunionen i juni 1941. Efter Pearl Harbor förklarade USA och Storbritannien krig mot Japan den 8 december, och den 11 december förklarade Tyskland och Italien krig mot USA. Därmed var både Sovjetunionen och USA i krig med Tyskland. Efter kriget blev de två rivaliserande supermakter.",
+          "en": "The war was now being fought both in Europe and in the Pacific. Germany had attacked the Soviet Union in June 1941. After Pearl Harbor, the United States and the United Kingdom declared war on Japan on 8 December, and on 11 December Germany and Italy declared war on the United States. So both the Soviet Union and the United States were now at war with Germany. After the war they became rival superpowers.",
+          "de": "Der Krieg wurde nun sowohl in Europa als auch im Pazifik geführt. Deutschland hatte die Sowjetunion im Juni 1941 angegriffen. Nach Pearl Harbor erklärten die USA und Großbritannien Japan am 8. Dezember den Krieg, und am 11. Dezember erklärten Deutschland und Italien den USA den Krieg. Damit befanden sich sowohl die Sowjetunion als auch die USA im Krieg mit Deutschland. Nach dem Krieg wurden die beiden zu rivalisierenden Supermächten.",
+          "es": "La guerra se libraba ahora tanto en Europa como en el Pacífico. Alemania había atacado a la Unión Soviética en junio de 1941. Después de Pearl Harbor, Estados Unidos y el Reino Unido declararon la guerra a Japón el 8 de diciembre, y el 11 de diciembre Alemania e Italia declararon la guerra a Estados Unidos. Así, tanto la Unión Soviética como Estados Unidos estaban en guerra con Alemania. Tras la guerra se convirtieron en superpotencias rivales.",
+          "fr": "La guerre se déroulait désormais à la fois en Europe et dans le Pacifique. L’Allemagne avait attaqué l’Union soviétique en juin 1941. Après Pearl Harbor, les États-Unis et le Royaume-Uni ont déclaré la guerre au Japon le 8 décembre, et le 11 décembre l’Allemagne et l’Italie ont déclaré la guerre aux États-Unis. L’Union soviétique comme les États-Unis étaient donc en guerre contre l’Allemagne. Après la guerre, ils sont devenus des superpuissances rivales."
+        },
+        "sources": [
+          "wp-pearl-harbor",
+          "wp-world-war-ii"
+        ]
       },
       "layers": [
         "events",
@@ -464,6 +506,18 @@
         "fr": "Selon vous, pourquoi une bataille pour une seule ville peut-elle être un tournant ?",
         "es": "¿Por qué una batalla por una sola ciudad puede considerarse un punto de inflexión?"
       },
+      "answer": {
+        "text": {
+          "sv": "Hela den tyska sjätte armén förstördes, och Tysklands sommaroffensiv 1942 tog slut. Efter slaget hade Sovjetunionen initiativet på östfronten. Staden var också viktig i sig: ett stort industricentrum och en knutpunkt för transporterna på Volga, på vägen mot oljan i Kaukasus, och den bar Stalins namn.",
+          "en": "The entire German Sixth Army was destroyed, and Germany's 1942 summer offensive came to an end. After the battle the Soviet Union held the initiative on the Eastern Front. The city also mattered in itself: a major industrial centre and a transport hub on the Volga, on the way to the oil of the Caucasus, and it bore Stalin's name.",
+          "de": "Die gesamte deutsche 6. Armee wurde vernichtet, und die deutsche Sommeroffensive von 1942 war zu Ende. Nach der Schlacht lag die Initiative an der Ostfront bei der Sowjetunion. Auch die Stadt selbst war wichtig: ein großes Industriezentrum und ein Verkehrsknoten an der Wolga, auf dem Weg zum Öl des Kaukasus, und sie trug Stalins Namen.",
+          "es": "Todo el 6.º Ejército alemán fue destruido y la ofensiva alemana del verano de 1942 terminó. Después de la batalla, la Unión Soviética tenía la iniciativa en el frente oriental. La ciudad también importaba por sí misma: un gran centro industrial y un nudo de transporte en el Volga, camino del petróleo del Cáucaso, y llevaba el nombre de Stalin.",
+          "fr": "Toute la 6e armée allemande a été détruite et l’offensive allemande de l’été 1942 a pris fin. Après la bataille, l’Union soviétique avait l’initiative sur le front de l’Est. La ville comptait aussi en elle-même : un grand centre industriel et un nœud de transport sur la Volga, sur la route du pétrole du Caucase, et elle portait le nom de Staline."
+        },
+        "sources": [
+          "wp-stalingrad"
+        ]
+      },
       "layers": [
         "events",
         "wars",
@@ -544,6 +598,18 @@
         "de": "Der 27. Januar ist heute ein Gedenktag für die Opfer des Holocaust. Warum, glauben Sie, wurde gerade dieser Tag gewählt?",
         "fr": "Le 27 janvier est aujourd’hui une journée de commémoration des victimes de la Shoah. Pourquoi, selon vous, a-t-on choisi précisément ce jour ?",
         "es": "El 27 de enero es hoy un día de conmemoración de las víctimas del Holocausto. ¿Por qué cree usted que se eligió justo ese día?"
+      },
+      "answer": {
+        "text": {
+          "sv": "Sovjetiska trupper befriade lägret den 27 januari 1945. Sedan 2005 är dagen den internationella minnesdagen för Förintelsen, alltså på årsdagen av befrielsen.",
+          "en": "Soviet troops liberated the camp on 27 January 1945. Since 2005 the day has been International Holocaust Remembrance Day, that is, on the anniversary of the liberation.",
+          "de": "Sowjetische Truppen befreiten das Lager am 27. Januar 1945. Seit 2005 ist dieser Tag der Internationale Holocaust-Gedenktag, also am Jahrestag der Befreiung.",
+          "es": "Las tropas soviéticas liberaron el campo el 27 de enero de 1945. Desde 2005 ese día es el Día Internacional de Conmemoración del Holocausto, es decir, en el aniversario de la liberación.",
+          "fr": "Les troupes soviétiques ont libéré le camp le 27 janvier 1945. Depuis 2005, ce jour est la Journée internationale de commémoration de l’Holocauste, c’est-à-dire à la date anniversaire de la libération."
+        },
+        "sources": [
+          "wp-auschwitz"
+        ]
       },
       "layers": [
         "events",
@@ -660,6 +726,19 @@
         "de": "Der Krieg in Europa endete im Mai, gegen Japan aber erst im September. Was bedeutete das für diejenigen, die noch kämpften?",
         "fr": "La guerre a pris fin en mai en Europe, mais en septembre seulement contre le Japon. Qu’est-ce que cela signifiait pour ceux qui combattaient encore ?",
         "es": "La guerra en Europa terminó en mayo, pero contra Japón solo en septiembre. ¿Qué significó eso para quienes todavía combatían?"
+      },
+      "answer": {
+        "text": {
+          "sv": "Mellan Tysklands kapitulation den 8 maj och den 2 september fortsatte kriget mot Japan. Under den tiden fälldes atombomben över Hiroshima, och Sovjetunionen förklarade krig mot Japan. Kejsaren meddelade i radio den 15 augusti att Japan godtog villkoren. Japanska styrkor på andra håll kapitulerade formellt ännu senare, i Filippinerna den 3 september, i Korea den 9 september och i Sydostasien den 12 september.",
+          "en": "Between Germany's surrender on 8 May and 2 September, the war against Japan went on. During that time the atomic bomb was dropped on Hiroshima, and the Soviet Union declared war on Japan. On 15 August the Emperor announced on the radio that Japan accepted the terms. Japanese forces elsewhere surrendered formally even later: in the Philippines on 3 September, in Korea on 9 September and in Southeast Asia on 12 September.",
+          "de": "Zwischen der Kapitulation Deutschlands am 8. Mai und dem 2. September ging der Krieg gegen Japan weiter. In dieser Zeit wurde die Atombombe auf Hiroshima abgeworfen, und die Sowjetunion erklärte Japan den Krieg. Am 15. August gab der Kaiser im Radio bekannt, dass Japan die Bedingungen annahm. Japanische Truppen an anderen Orten kapitulierten förmlich noch später: auf den Philippinen am 3. September, in Korea am 9. September und in Südostasien am 12. September.",
+          "es": "Entre la rendición de Alemania el 8 de mayo y el 2 de septiembre, la guerra contra Japón continuó. En ese tiempo se lanzó la bomba atómica sobre Hiroshima y la Unión Soviética declaró la guerra a Japón. El 15 de agosto el emperador anunció por radio que Japón aceptaba las condiciones. Las fuerzas japonesas de otros lugares se rindieron formalmente aún más tarde: en Filipinas el 3 de septiembre, en Corea el 9 de septiembre y en el Sudeste Asiático el 12 de septiembre.",
+          "fr": "Entre la capitulation de l’Allemagne le 8 mai et le 2 septembre, la guerre contre le Japon a continué. Pendant cette période, la bombe atomique a été larguée sur Hiroshima et l’Union soviétique a déclaré la guerre au Japon. Le 15 août, l’empereur a annoncé à la radio que le Japon acceptait les conditions. Les forces japonaises d’autres régions ont capitulé officiellement plus tard encore : aux Philippines le 3 septembre, en Corée le 9 septembre et en Asie du Sud-Est le 12 septembre."
+        },
+        "sources": [
+          "wp-japanese-surrender",
+          "wp-german-surrender"
+        ]
       },
       "layers": [
         "events",

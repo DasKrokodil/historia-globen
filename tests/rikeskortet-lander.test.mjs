@@ -11,28 +11,35 @@ const json = path => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.u
 const places = json('data/platser.json').places;
 const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
 
-test('länderna kommer ur platsernas periods: Sverige, Norge (Sverige-Norge), Finland, Estland och Lettland för Sverige-gruppen, Danmark, Norge (Danmark-Norge), Estland och Island för Konungariket Danmark, alla fem nordiska för Kalmarunionen, Finland, Estland, Lettland och Litauen för Ryska imperiet, Norge och Island för Norgesväldet, Storbritannien och Frankrike för Romarriket, Storbritannien och Irland för Brittiska imperiet, Storbritannien, Irland och Frankrike för Kungariket England, Irland för Kungariket Man och Irland, Frankrike för Frankerriket, Kungariket Frankrike, Franska kolonialväldet och Frankrike, och Belgien för Romarriket, Frankerriket, Tysk-romerska riket, Habsburgska riket, Spanska imperiet, Nederländska kolonialväldet, Belgien, Tyska riket och Nazityskland, Nederländerna för Romarriket, Frankerriket, Tysk-romerska riket, Habsburgska riket, Spanska imperiet, Nederländska kolonialväldet, Nazityskland och Nederländerna, och Luxemburg för Romarriket, Frankerriket, Tysk-romerska riket, Habsburgska riket, Spanska imperiet, Kungariket Frankrike, Nederländska kolonialväldet, Belgien, Luxemburg, Tyska riket och Nazityskland, och Tyskland för Romarriket, Frankerriket, Tysk-romerska riket, Preussen, Tyska riket, Weimarrepubliken, Nazityskland, Sovjetunionen (med Estland, Lettland och Litauen), Brittiska imperiet, USA, Franska kolonialväldet, Östtyskland, Västtyskland och Tyskland', () => {
+test('länderna kommer ur platsernas periods: Sverige, Norge (Sverige-Norge), Finland, Estland och Lettland för Sverige-gruppen, Danmark, Norge (Danmark-Norge), Estland och Island för Konungariket Danmark, alla fem nordiska för Kalmarunionen, Finland, Estland, Lettland och Litauen för Ryska imperiet, Norge och Island för Norgesväldet, Storbritannien och Frankrike för Romarriket, Storbritannien och Irland för Brittiska imperiet, Storbritannien, Irland och Frankrike för Kungariket England, Irland för Kungariket Man och Irland, Frankrike för Frankerriket, Kungariket Frankrike, Franska kolonialväldet och Frankrike, och Belgien för Romarriket, Frankerriket, Tysk-romerska riket, Habsburgska riket, Spanska imperiet, Nederländska kolonialväldet, Belgien, Tyska riket och Nazityskland, Nederländerna för Romarriket, Frankerriket, Tysk-romerska riket, Habsburgska riket, Spanska imperiet, Nederländska kolonialväldet, Nazityskland och Nederländerna, och Luxemburg för Romarriket, Frankerriket, Tysk-romerska riket, Habsburgska riket, Spanska imperiet, Kungariket Frankrike, Nederländska kolonialväldet, Belgien, Luxemburg, Tyska riket och Nazityskland, och Tyskland för Romarriket, Frankerriket, Tysk-romerska riket, Preussen, Tyska riket, Weimarrepubliken, Nazityskland, Sovjetunionen (med Estland, Lettland och Litauen), Brittiska imperiet, USA, Franska kolonialväldet, Östtyskland, Västtyskland och Tyskland, och Österrike för Romarriket, Östgoternas rike, Frankerriket, Tysk-romerska riket, Habsburgska riket, Kungariket Ungern, Österrike-Ungern, Österrike och Nazityskland (men inte Spanska imperiet), och Schweiz för Romarriket, Frankerriket, Tysk-romerska riket och Schweiz, och Polen för Kungariket Polen, Preussen, Ryska imperiet, Tyska riket och Polen (men inte Nazityskland)', () => {
   const ids = empire => empirePlaces(places, empire).map(p => p.id);
   assert.deepEqual(ids('svenska-stormaktsvaldet'), ['sverige', 'norge', 'finland', 'estland', 'lettland']);
   assert.deepEqual(ids('konungariket-danmark'), ['danmark', 'norge', 'estland', 'island']);
   assert.deepEqual(ids('kalmarunionen'), ['sverige', 'danmark', 'norge', 'finland', 'island']);
-  assert.deepEqual(ids('ryska-imperiet'), ['finland', 'estland', 'lettland', 'litauen']);
+  assert.deepEqual(ids('ryska-imperiet'), ['finland', 'estland', 'lettland', 'litauen', 'polen']);
   assert.deepEqual(ids('norgesvaldet'), ['norge', 'island']);
-  assert.deepEqual(ids('romarriket'), ['storbritannien', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland']);
+  assert.deepEqual(ids('romarriket'), ['storbritannien', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz']);
   assert.deepEqual(ids('brittiska-imperiet'), ['storbritannien', 'irland', 'tyskland']);
   assert.deepEqual(ids('kungariket-england'), ['storbritannien', 'irland', 'frankrike']);
   assert.deepEqual(ids('kungariket-man'), ['irland']);
   assert.deepEqual(ids('irland'), ['irland']);
-  assert.deepEqual(ids('frankerriket'), ['frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland']);
-  assert.deepEqual(ids('tysk-romerska-riket'), ['estland', 'lettland', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland']);
-  assert.deepEqual(ids('habsburgska-riket'), ['belgien', 'nederlanderna', 'luxemburg']);
+  assert.deepEqual(ids('frankerriket'), ['frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz']);
+  assert.deepEqual(ids('tysk-romerska-riket'), ['estland', 'lettland', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz']);
+  assert.deepEqual(ids('habsburgska-riket'), ['belgien', 'nederlanderna', 'luxemburg', 'osterrike']);
   assert.deepEqual(ids('spanska-imperiet'), ['belgien', 'nederlanderna', 'luxemburg']);
   assert.deepEqual(ids('nederlandska-kolonialvaldet'), ['belgien', 'nederlanderna', 'luxemburg']);
   assert.deepEqual(ids('belgien'), ['belgien', 'luxemburg']);
-  assert.deepEqual(ids('tyska-riket'), ['estland', 'lettland', 'litauen', 'belgien', 'luxemburg', 'tyskland']);
-  assert.deepEqual(ids('nazityskland'), ['belgien', 'nederlanderna', 'luxemburg', 'tyskland']);
+  assert.deepEqual(ids('tyska-riket'), ['estland', 'lettland', 'litauen', 'belgien', 'luxemburg', 'tyskland', 'polen']);
+  assert.deepEqual(ids('nazityskland'), ['belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike']);
+  assert.deepEqual(ids('ostgoternas-rike'), ['osterrike']);
+  assert.deepEqual(ids('kungariket-ungern'), ['osterrike']);
+  assert.deepEqual(ids('osterrike-ungern'), ['osterrike']);
+  assert.deepEqual(ids('osterrike'), ['osterrike']);
+  assert.deepEqual(ids('schweiz'), ['schweiz']);
   assert.deepEqual(ids('luxemburg'), ['luxemburg']);
-  assert.deepEqual(ids('preussen'), ['tyskland']);
+  assert.deepEqual(ids('preussen'), ['tyskland', 'polen']);
+  assert.deepEqual(ids('kungariket-polen'), ['polen']);
+  assert.deepEqual(ids('polen'), ['polen']);
   assert.deepEqual(ids('weimarrepubliken'), ['tyskland']);
   assert.deepEqual(ids('sovjetunionen'), ['estland', 'lettland', 'litauen', 'tyskland']);
   assert.deepEqual(ids('usa'), ['tyskland']);

@@ -61,7 +61,7 @@ const reference = (from, to) => events.filter(e => e.start <= to && e.end >= fro
   && !(/\/\.\.$/.test(e.edtf ?? '') && e.start <= to - 100));
 
 for (const [name, from, to, expected] of [
-  ['1914–1918', 1914, 1918, 37], // 24 + vandringsduvan 1914 (#1336) + Kimberley 1871–1914 (#1015) + kvinnlig rösträtt i Danmark 1915 (#1263) + armeniska folkmordet 1915–1917 (#1018) + Finlands självständighet 1917 (#1809) + Estlands självständighet 1918 (#1811) + Kungariket Island 1918 (#1810) + Lettlands självständighet 1918 (#1812) + Litauens självständighetsakt 1918 (#1813) + rösträtt för kvinnor i Storbritannien 1918 (#1814) + påskupproret 1916 (#1815) + gasattacken vid Ypern 1915 (#1817) + kvinnlig rösträtt i Tyskland 1918–1919 (#1820)
+  ['1914–1918', 1914, 1918, 40], // 24 + vandringsduvan 1914 (#1336) + Kimberley 1871–1914 (#1015) + kvinnlig rösträtt i Danmark 1915 (#1263) + armeniska folkmordet 1915–1917 (#1018) + Finlands självständighet 1917 (#1809) + Estlands självständighet 1918 (#1811) + Kungariket Island 1918 (#1810) + Lettlands självständighet 1918 (#1812) + Litauens självständighetsakt 1918 (#1813) + rösträtt för kvinnor i Storbritannien 1918 (#1814) + påskupproret 1916 (#1815) + gasattacken vid Ypern 1915 (#1817) + kvinnlig rösträtt i Tyskland 1918–1919 (#1820) + republiken Tyskösterrike 1918 (#1821) + Polens självständighet 1918 och saltgruvan i Wieliczka 1201–1996 (#1823)
   ['500–400 f.Kr. (−499 till −399)', -499, -399, undefined],
   ['1900–1999', 1900, 1999, undefined],
 ]) {
