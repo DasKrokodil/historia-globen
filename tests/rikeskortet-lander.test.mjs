@@ -11,18 +11,22 @@ const json = path => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.u
 const places = json('data/platser.json').places;
 const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
 
-test('länderna kommer ur platsernas periods: Sverige, Norge (Sverige-Norge), Finland, Estland och Lettland för Sverige-gruppen, Danmark, Norge (Danmark-Norge), Estland och Island för Konungariket Danmark, alla fem nordiska för Kalmarunionen, Finland, Estland, Lettland och Litauen för Ryska imperiet, Norge och Island för Norgesväldet, Storbritannien för Romarriket, Storbritannien och Irland för Brittiska imperiet och Kungariket England, Irland för Kungariket Man och Irland', () => {
+test('länderna kommer ur platsernas periods: Sverige, Norge (Sverige-Norge), Finland, Estland och Lettland för Sverige-gruppen, Danmark, Norge (Danmark-Norge), Estland och Island för Konungariket Danmark, alla fem nordiska för Kalmarunionen, Finland, Estland, Lettland och Litauen för Ryska imperiet, Norge och Island för Norgesväldet, Storbritannien och Frankrike för Romarriket, Storbritannien och Irland för Brittiska imperiet, Storbritannien, Irland och Frankrike för Kungariket England, Irland för Kungariket Man och Irland, Frankrike för Frankerriket, Kungariket Frankrike, Franska kolonialväldet och Frankrike', () => {
   const ids = empire => empirePlaces(places, empire).map(p => p.id);
   assert.deepEqual(ids('svenska-stormaktsvaldet'), ['sverige', 'norge', 'finland', 'estland', 'lettland']);
   assert.deepEqual(ids('konungariket-danmark'), ['danmark', 'norge', 'estland', 'island']);
   assert.deepEqual(ids('kalmarunionen'), ['sverige', 'danmark', 'norge', 'finland', 'island']);
   assert.deepEqual(ids('ryska-imperiet'), ['finland', 'estland', 'lettland', 'litauen']);
   assert.deepEqual(ids('norgesvaldet'), ['norge', 'island']);
-  assert.deepEqual(ids('romarriket'), ['storbritannien']);
+  assert.deepEqual(ids('romarriket'), ['storbritannien', 'frankrike']);
   assert.deepEqual(ids('brittiska-imperiet'), ['storbritannien', 'irland']);
-  assert.deepEqual(ids('kungariket-england'), ['storbritannien', 'irland']);
+  assert.deepEqual(ids('kungariket-england'), ['storbritannien', 'irland', 'frankrike']);
   assert.deepEqual(ids('kungariket-man'), ['irland']);
   assert.deepEqual(ids('irland'), ['irland']);
+  assert.deepEqual(ids('frankerriket'), ['frankrike']);
+  assert.deepEqual(ids('kungariket-frankrike'), ['frankrike']);
+  assert.deepEqual(ids('franska-kolonialvaldet'), ['frankrike']);
+  assert.deepEqual(ids('frankrike'), ['frankrike']);
   assert.deepEqual(ids('osmanska-riket'), [], 'ett rike som inget landskort nämner får ingen lista');
 });
 
