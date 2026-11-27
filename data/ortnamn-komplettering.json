@@ -190,6 +190,26 @@
      "guldhornen-fran-gallehus"
     ]
    }
+  ],
+  "uppland": [
+   {
+    "wikidata": "Q433032",
+    "coordinates": [
+     17.639,
+     59.894
+    ],
+    "name": {
+     "sv": "Gamla Uppsala",
+     "en": "Gamla Uppsala",
+     "de": "Alt-Uppsala",
+     "es": "Gamla Uppsala",
+     "fr": "Gamla Uppsala"
+    },
+    "events": [
+     "uppsala-blir-arkebiskopssate"
+    ],
+    "checked": "2026-11-27"
+   }
   ]
  }
 }

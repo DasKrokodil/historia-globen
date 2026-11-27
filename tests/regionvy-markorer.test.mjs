@@ -125,8 +125,10 @@ test('wholePlace läser fältet, inte platstexten: fält, saknat fält och en mi
   assert.equal(wholePlace({ scope: 'place', locationPrecision: 'region', _lon: 150, _lat: -5 }, place('danmark'), places), false);
   // Platsen saknas
   assert.equal(wholePlace(at({ scope: 'place' }), null, places), false);
-  // En svensk händelse för hela landet med punkten i Stockholm (inte i någon mindre plats) gäller hela Sverige
-  assert.equal(wholePlace({ scope: 'place', locationPrecision: 'country', _lon: 18.0686, _lat: 59.3294 }, place('sverige'), places), true);
+  // En finsk händelse för hela landet med punkten i Helsingfors (inte i någon mindre plats) gäller hela Finland. Stockholm duger inte
+  // längre som exempel för Sverige: punkten ligger i landskapet Uppland (#1847), och när alla landskap finns hör varje svensk punkt
+  // till ett landskap, så en händelse för hela Sverige får då en punkt som landskapen inte täcker, eller ingen bricka.
+  assert.equal(wholePlace({ scope: 'place', locationPrecision: 'country', _lon: 24.9375, _lat: 60.17083 }, place('finland'), places), true);
 });
 
 test('högar: händelser på samma punkt och inom högens radie läggs ihop, i listans ordning; brickans händelser aldrig', () => {

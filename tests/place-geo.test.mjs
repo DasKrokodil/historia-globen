@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { placeAt, placeBounds, inGeometry, edgeKm, placeEvents, inPlace, inNeighbour, COAST_MARGIN_KM, INCLUDE_MAX_KM, linkIncludeEvents } from '../js/place-geo.js';
+import { placeAt, placeBounds, inGeometry, edgeKm, placeEvents, inPlace, inNeighbour, inSibling, COAST_MARGIN_KM, INCLUDE_MAX_KM, linkIncludeEvents } from '../js/place-geo.js';
 import { entry } from '../js/layers/places.js';
 
 const square = (id, w, s, e, n) => ({ id, boundary: { geometry: { type: 'Polygon', coordinates: [[[w, s], [e, s], [e, n], [w, n], [w, s]]] } } });
@@ -300,6 +300,25 @@ test('includeEvents (#2333): gränsorterna räknas till sina länder, ligger uta
       assert.ok(edgeKm(p.boundary.geometry, e._lon, e._lat) <= INCLUDE_MAX_KM, `${p.id}: ${id} ligger mer än ${INCLUDE_MAX_KM} km utanför`);
     }
   }
+});
+
+test('syskonlandskap (#1847): kustmarginalen tar inte land i ett annat landskap med samma partOf', () => {
+  const ev = (id, start, lon, lat) => ({ id, start, _lon: lon, _lat: lat });
+  const lsk = (id, w, s, e, n, partOf = 'land') => ({ ...square(id, w, s, e, n), type: 'landskap', partOf });
+  // A och B delar gräns vid längd 10; C har annan förälder; havet ligger öster om B (längd 12–12,1, utanför B:s gräns)
+  const a = lsk('a', 0, 0, 10, 10), b = lsk('b', 10, 0, 12, 10), c = lsk('c', 0, 10, 10, 12, 'annat');
+  const list = [ev('a-inne', 1, 5, 5), ev('i-b', 2, 10.05, 5), ev('havet-vid-b', 3, 12.05, 5), ev('i-c', 4, 5, 10.05)];
+  // Utan länkning som förut: marginalen tar 'i-b' till A (en punkt på land i grannen)
+  assert.ok(placeEvents(a, list).some(e => e.id === 'i-b'), 'utan linkIncludeEvents som förut');
+  linkIncludeEvents([a, b, c]);
+  assert.deepEqual(a._siblings.map(p => p.id), ['b'], 'syskon: samma partOf, inte sig själv och inte annan förälder');
+  assert.deepEqual(placeEvents(a, list).map(e => e.id), ['a-inne', 'i-c'], 'A räknar inte B:s land via marginalen, men C är inget syskon (annan förälder) och marginalen gäller som förut');
+  assert.deepEqual(placeEvents(b, list).map(e => e.id), ['i-b', 'havet-vid-b'], 'B räknar sitt land och havet inom marginalen');
+  assert.equal(inSibling(a, 10.05, 5), true);
+  assert.equal(inSibling(a, 12.05, 5), false, 'havet ligger inte i något syskon');
+  // C har inga syskon, så marginalen gäller som förut, även mot en punkt som ligger i A
+  assert.deepEqual(c._siblings, []);
+  assert.deepEqual(placeEvents(c, list).map(e => e.id), ['i-c'], 'C räknar sin egen punkt och inget av de andra landskapens land');
 });
 
 test('includeEvents (#2333): en händelse som ett land listar räknas inte till något annat land, men landskap räknas som förut', () => {

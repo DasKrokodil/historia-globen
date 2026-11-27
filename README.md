@@ -152,7 +152,7 @@ data/events.json      alla händelser i en fil, byggd ur data/handelser/ (redige
 data/funfacts.json    fun facts, kopplade till händelser
 data/missuppfattningar.json  vanliga historiska missuppfattningar och var de kom ifrån (#838); visas i faktarutan för händelserna i events och i quizet (Sant eller myt?, #846)
 data/quiz.json        quizets tidsfrågor (Vad kom först?, Vad låg närmast?, #846); pekar bara på händelser med id, svaret räknas ur deras årtal
-data/platser.json          platser: kort om platsers historia med dagens gräns som kontur, följs i Fokus (#579); gränserna hämtas med tools/platser_gransar.py ur Natural Earth
+data/platser.json          platser: kort om platsers historia med dagens gräns som kontur, följs i Fokus (#579); gränserna hämtas med tools/platser_gransar.py ur Natural Earth (landskapens ur Lantmäteriets distriktsindelning, #1847)
 data/ortnamn/              ortnamn för regionvyn (#1643): en fil per plats med orter, grannländer och hav på fem språk ur Natural Earth; skrivs av tools/ortnamn.py
 data/bildlager.json   bildlager: tidsstyrda rasterbilder och deras källor, bland annat nattljus och istidens kust (#54, #1325)
 data/teman.json            teman: namngivna urval av händelser som följs i Fokus (#398); innehåller temat Teknik (#105)

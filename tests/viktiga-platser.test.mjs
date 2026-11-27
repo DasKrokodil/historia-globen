@@ -23,10 +23,17 @@ test('platserna finns och har händelser', () => {
   assert.ok(places.length > 0, 'inga platser i data/platser.json');
 });
 
-test('varje plats har minst en och högst nio viktiga händelser (top eller major)', () => {
+// En plats med högst nio synliga händelser behöver ingen markering: uppspelningen pausar då vid alla (themeStops, reserven när
+// ingen är markerad). Så görs Sveriges landskap (beslut 2026-11-27, #1847): Sverige räknar med alla händelser inom sin gräns, så en
+// `major` i ett landskap skulle hamna i Sveriges godkända lista om nio. Har en plats fler än nio synliga händelser krävs minst en
+// markerad, annars pausar den vid alla.
+const ALL_STOPS_MAX = 9;
+
+test('varje plats har minst en och högst nio viktiga händelser (top eller major), eller högst nio händelser som alla pausar', () => {
   for (const p of places) {
     const n = important(p).length;
-    assert.ok(n >= 1, `${p.id}: inga viktiga händelser, uppspelningen stannar vid alla ${visibleEvents(p, events).length}`);
+    const shown = visibleEvents(p, events).length;
+    if (shown > ALL_STOPS_MAX) assert.ok(n >= 1, `${p.id}: inga viktiga händelser, uppspelningen stannar vid alla ${shown}`);
     const max = MAX_OK[p.id] ?? 9;
     assert.ok(n <= max, `${p.id}: ${n} viktiga händelser, fler än ${max} pauser`);
   }
