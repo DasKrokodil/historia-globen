@@ -15,9 +15,11 @@
 // till ett intervall som redan går att välja, inte ett nytt läge: ett klick gör samma sak som att fylla i Från och Till.
 import { formatYear, parseYear, loadPerioder, rangeParts, rangeText, t } from '../model.js';
 import { periodToRange } from '../period-range.js';
-import { MIN_YEAR, MAX_YEAR } from '../timeline.js';
+import { MIN_YEAR, MAX_YEAR } from '../state.js';
+import { clampYear } from '../year-clamp.js';
 import { ui } from '../i18n.js';
 
+const humanBounds = { from: MIN_YEAR, to: MAX_YEAR };
 const plural = (key, n, vars = {}) => String(ui(key)[n === 1 ? 0 : 1]).replace(/\{(\w+)\}/g, (m, k) => (k === 'count' ? n : vars[k] ?? m));
 
 // rangeParts och rangeText bor i js/model.js (fokustypen plats använder dem, och en fokustyp får inte dra in det här modulens DOM); de återexporteras
@@ -78,7 +80,7 @@ export function createRange(app) {
     };
     const step = d => {
       const y = f.value ?? 0;
-      f.value = Math.max(MIN_YEAR, Math.min(MAX_YEAR, y + d)); // över gränsen mellan f.Kr. och e.Kr. (1 f.Kr. + 1 = 1 e.Kr.)
+      f.value = clampYear(y + d, humanBounds); // över gränsen mellan f.Kr. och e.Kr. (1 f.Kr. + 1 = 1 e.Kr.)
       showError('');
       input.focus();
     };
@@ -200,7 +202,7 @@ export function createRange(app) {
     if (!store.canEnter('intervall')) return;
     const r = state.range, y = Math.floor(timeline.year);
     fromField.value = r ? r.from : y;
-    toField.value = r ? r.to : Math.min(MAX_YEAR, y + 10);
+    toField.value = r ? r.to : clampYear(y + 10, { to: MAX_YEAR });
     showError('');
     app.surfaces.opened('range'); // årshoppet stängs (samma grupp: popover)
     pop.hidden = false;
@@ -262,8 +264,8 @@ export function createRange(app) {
   /** Väljer intervallet från–till (from < to). Avslutar Fokus (lägeskontraktet). Ger false när ett annat läge stoppar det. */
   function set(from, to, period = null) {
     if (![from, to].every(Number.isFinite)) return false;
-    from = Math.max(MIN_YEAR, Math.min(MAX_YEAR, from));
-    to = Math.max(MIN_YEAR, Math.min(MAX_YEAR, to));
+    from = clampYear(from, humanBounds);
+    to = clampYear(to, humanBounds);
     if (from >= to) return false;
     if (!store.enter('intervall')) return false;
     setting = true;
