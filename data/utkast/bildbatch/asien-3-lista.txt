@@ -1,0 +1,20 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:Ramses II besieging the Cheta people in Dapur.jpg	belagringen-av-dapur
+# File:Phoenician alphabet as was discovered in Byblos.png	feniciska-alfabetet
+# File:Tambour-song-da2.jpg	bronstrummor-fran-dong-son
+# File:Babylonian astronomical diary recording the death of Alexander the Great (British Museum).jpg	babyloniska-astronomiska-dagbocker
+# File:Gochang Dolmens, South Korea.jpg	dosarna-i-gochang
+# File:Ghasabe Qanats of Gonabad.jpg	qanaterna-i-gonabad
+# File:Sudan Meroe Pyramids 2001.JPG	meroe-blir-huvudstad
+# File:The story of the greatest nations; a comprehensive history, extending from the earliest times to the present, founded on the most modern authorities, and including chronological summaries and (14780871184).jpg	kyros-grundar-perserriket
+# File:Issyk kurgan (Golden Man belt).jpg	guldmannen-i-issyk
+# File:Siege tryre.gif	belagringen-av-tyros
+# File:The story of the greatest nations, from the dawn of history to the twentieth century - a comprehensive history, founded upon the leading authorities, including a complete chronology of the world, and (14578669410).jpg	nearchos-flotta-fran-indus
+# File:Le Brun, Alexander and Porus.jpg	slaget-vid-hydaspes
+# File:Entry of Alexander in Babylon.jpg	alexanders-dod
+# File:Chinese Football Charm - China Numismatics (中國錢幣) 02.jpg	cuju-bollspel-i-kina
+# File:Ashoka's Major Rock Edict, Girnar Gujarat 001.jpg	asokas-inskrifter
+# File:Hou Xuanxuan The situation map of Qin's war.gif	qins-enandekrig
+# File:Apedemak temple in Musawwarat es-sufra 2018.jpg	lejontemplet-i-musawwarat-es-sufra
+# File:Chu-Han Contention.png	chu-han-kriget

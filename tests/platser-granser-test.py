@@ -105,7 +105,10 @@ for p in fx['points']:
 # 4. Grannländerna (#1449): kustmarginalen gäller inte en punkt inne i ett annat lands polygon
 check(ns['COAST_MARGIN_KM'] == int(re.search(r'COAST_MARGIN_KM = (\d+);', (ROOT / 'js' / 'place-geo.js').read_text(encoding='utf-8')).group(1)),
       'COAST_MARGIN_KM i validate-site.py och js/place-geo.js ska vara lika')
-check(pg.NEIGHBOUR_KM >= ns['COAST_MARGIN_KM'], 'NEIGHBOUR_KM i tools/platser_gransar.py ska täcka kustmarginalen')
+check(ns['INCLUDE_MAX_KM'] == float(re.search(r'INCLUDE_MAX_KM = ([\d.]+);', (ROOT / 'js' / 'place-geo.js').read_text(encoding='utf-8')).group(1)),
+      'INCLUDE_MAX_KM i validate-site.py och js/place-geo.js ska vara lika (#2333)')
+check(ns['INCLUDE_MAX_KM'] < ns['COAST_MARGIN_KM'], 'INCLUDE_MAX_KM ska vara mindre än kustmarginalen: listan gäller gränsorter, inte havet (#2333)')
+check(pg.NEIGHBOUR_KM >= ns['COAST_MARGIN_KM'],'NEIGHBOUR_KM i tools/platser_gransar.py ska täcka kustmarginalen')
 gr = json.loads((ROOT / 'tests' / 'fixtures' / 'granne.json').read_text(encoding='utf-8'))
 for p in gr['points']:
     pl = gr['places'][p['place']]

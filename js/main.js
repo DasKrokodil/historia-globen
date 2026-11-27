@@ -346,6 +346,8 @@ async function start() {
   // Dagens länder i rikeskortet (#1955): Följ landet börjar följa platsen; i lektionsläget följs ingenting, så där är länderna bara text
   panel.onFollowPlace = id => app.startFocus(`place:${id}`);
   panel.followLocked = () => !!app.lesson?.active;
+  // En lektion för åk 4–6 (eller F–3) visar missuppfattningarnas enklare texter i du-form där de finns (#1316, fältet young)
+  panel.youngReaders = () => !!app.lesson?.young;
   // Följ riket i landskortet (#1448): riket följs från periodens år, så att länken "Sverige-Norge 1815–1904" inte börjar år 980.
   // I lektionsläget följs ingenting, som ovan: riket öppnar bara sin faktaruta
   // Följ riket ersätter platsen (Fokus-typerna utesluter varandra; kortet säger det), och fokusraden har en knapp tillbaka till platsen (#1713). Rikets faktarutor är redan laddade för kortet, så

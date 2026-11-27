@@ -12,6 +12,8 @@ const json = path => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.u
 const places = json('data/platser.json').places;
 const groups = json('data/empires/index.json').groups;
 const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
+/** Inledningen och kartanteckningarna (introNotes, #2353) i ett språk: rikesperioderna ligger i anteckningarna, inte i den korta inledningen. */
+const introAll = (place, lang) => `${place.intro[lang]} ${place.introNotes?.[lang] ?? ''}`;
 
 /** Delens perioder i rikets fil, som [start, end] i tidsordning. */
 const spansOf = (empire, polity) => {
@@ -60,7 +62,7 @@ test('rikets egen rad Om kartan står vid raden bara när gruppen har en enda de
 });
 
 test('Skåne (landskap) och platser utan beslut har inga perioder', () => {
-  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
+  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'polen', 'tjeckien', 'slovakien'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
 });
 
 test('raderna får rikets eget namn ur indexet och en lucka för år som ingen period täcker', () => {
@@ -77,8 +79,8 @@ test('raderna får rikets eget namn ur indexet och en lucka för år som ingen p
     .filter(r => r.kind === 'gap'), []);
 });
 
-test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland och Litauen räknas ur datan: inga av de listade delarna täcker luckans år', () => {
-  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen']) {
+test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien, Nederländerna, Luxemburg, Tyskland, Österrike, Schweiz, Polen, Tjeckien och Slovakien räknas ur datan: inga av de listade delarna täcker luckans år', () => {
+  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'polen', 'tjeckien', 'slovakien']) {
     const pl = places.find(p => p.id === id);
     const rows = placeEmpireRows(pl, groups);
     assert.equal(rows.filter(r => r.kind === 'empire').length, pl.periods.length, `${id}: alla perioder blir rader`);
@@ -89,6 +91,204 @@ test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland och Litaue
     const first = Math.min(...rows.map(r => r.from)), last = Math.max(...rows.map(r => r.to));
     for (let y = first; y <= last; y++) assert.ok(rows.some(r => r.from <= y && y <= r.to), `${id}: år ${y} saknas i listan`);
   }
+});
+
+test('Belgiens luckor är de som kortets inledning nämner (#1817): Bryssel i inget rike på kartan', () => {
+  const rows = placeEmpireRows(places.find(p => p.id === 'belgien'), groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]),
+    [[261, 282], [439, 489], [661, 673], [860, 869], [1431, 1481], [1579, 1581], [1588, 1594], [1794, 1814]]);
+  const belgien = places.find(p => p.id === 'belgien');
+  const intro = Object.fromEntries(LANGS.map(l => [l, introAll(belgien, l)]));
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    for (const years of ['261–282', '439–489', '661–673', '860–869', '1431–1481', '1579–1581', '1588–1594', '1794–1814', '1915–1918', '1940–1944']) {
+      assert.ok(intro[lang].includes(years), `belgien: inledningen (${lang}) nämner inte ${years}`);
+    }
+  }
+});
+
+test('Nederländernas luckor är de som kortets inledning nämner (#1818): Amsterdam i inget rike på kartan', () => {
+  const pl = places.find(p => p.id === 'nederlanderna');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]),
+    [[9, 509], [661, 665], [860, 869], [1450, 1481], [1579, 1581], [1673, 1676], [1811, 1814]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    for (const years of ['1–8', '9–509', '661–665', '860–869', '1450–1481', '1579–1581', '1673–1676', '1811–1814', '1940–1944']) {
+      assert.ok(introAll(pl, lang).includes(years), `nederlanderna: inledningen (${lang}) nämner inte ${years}`);
+    }
+    for (const island of ['Bonaire', 'Saba', 'Aruba']) {
+      assert.ok(introAll(pl, lang).includes(island) && pl.boundary.note[lang].includes(island), `nederlanderna: inledningen eller konturens not (${lang}) nämner inte ${island}`);
+    }
+  }
+  assert.ok(pl.boundary.geometry.coordinates.every(poly => poly[0].every(([lon]) => lon > 0)), 'nederlanderna: en del av konturen ligger i Karibien');
+});
+
+test('Luxemburgs luckor och kartavvikelser är de som kortets inledning nämner (#1819): staden Luxemburg i inget rike på kartan', () => {
+  const pl = places.find(p => p.id === 'luxemburg');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]),
+    [[261, 282], [407, 409], [451, 451], [661, 665], [860, 869], [1450, 1481], [1700, 1701], [1794, 1814]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    // Luckorna, kartans avvikande år (Frankrike, Belgien, Tyska riket, Nazityskland, raderna som inte står i kortet) och delningarna
+    for (const years of ['261–282', '407–409', '451', '661–665', '860–869', '1450–1481', '1700–1701', '1794–1814', '1687–1699', '1834–1839',
+      '1815–1889', '1915–1918', '1940–1944', '1757–1761', '1956–1957', '1658', '1839']) {
+      assert.ok(introAll(pl, lang).includes(years), `luxemburg: inledningen (${lang}) nämner inte ${years}`);
+    }
+    for (const town of ['Echternach', 'Schengen']) assert.ok(introAll(pl, lang).includes(town), `luxemburg: inledningen (${lang}) nämner inte ${town}`);
+  }
+  // Raderna som kortet inte visar: Frankrike 1757–1761 och 1956–1957 överlappar andra rader i rikenas data
+  assert.ok(!pl.periods.some(p => (p.from <= 1761 && p.to >= 1757 && p.empire === 'kungariket-frankrike') || p.empire === 'franska-kolonialvaldet'));
+});
+
+test('Tysklands luckor och kartavvikelser är de som kortets inledning nämner (#1820): Köln till 1806, Berlin därefter', () => {
+  const pl = places.find(p => p.id === 'tyskland');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]), [[261, 282], [661, 665], [860, 869], [1807, 1870]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    // Luckorna, Berlin i Tysk-romerska riket och Svenska stormaktsväldet (raderna som inte står i kortet), Preussen,
+    // Weimarrepubliken, ockupationszonerna, Västtyskland och Saarområdet
+    for (const years of ['261–282', '661–665', '860–869', '1807–1870', '936–989', '1169–1806', '1632–1635', '1640–1647', '1701', '1918',
+      '1702–1806', '1815–1866', '1866–1871', '1919', '1920', '1945–1948', '1945–1946', '1945–1949', '1947', '1950', '1920–1934', '1947–1956']) {
+      assert.ok(introAll(pl, lang).includes(years), `tyskland: inledningen (${lang}) nämner inte ${years}`);
+    }
+    // Orterna utanför Tyskland som den grova gränsen eller kustmarginalen lägger i Tyskland; grannländernas includeEvents (#2333)
+    // räknar dem till sina länder, och inledningen säger det
+    for (const town of ['Echternach', 'Schengen', 'Kelmis', 'Dybbøl']) assert.ok(introAll(pl, lang).includes(town), `tyskland: inledningen (${lang}) nämner inte ${town}`);
+    assert.ok(!/syns därför i kortet|therefore appear on the card|erscheinen deshalb|por eso figuran|figurent donc/.test(introAll(pl, lang)), `tyskland: inledningen (${lang}) säger fortfarande att gränsorterna står i kortet`);
+  }
+  // Svenska stormaktsväldet i Berlin står inte i kortet; Preussen och Tysk-romerska riket överlappar
+  assert.ok(!pl.periods.some(p => p.empire === 'svenska-stormaktsvaldet'));
+  // Delningen: Östtyskland och Västtyskland båda till 1990, Tyskland från 1991
+  const end = id => pl.periods.filter(p => p.empire === id).map(p => [p.from, p.to]);
+  assert.deepEqual(end('osttyskland'), [[1949, 1990]]);
+  assert.deepEqual(end('vasttyskland'), [[1950, 1990]]);
+  assert.deepEqual(end('tyskland'), [[1991, 2024]]);
+});
+
+test('Österrikes luckor och kartavvikelser är de som kortets inledning nämner (#1821): rikena följer Wien', () => {
+  const pl = places.find(p => p.id === 'osterrike');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]), [[455, 499], [546, 787], [911, 959], [1683, 1686], [1805, 1805], [1807, 1867]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    // Luckorna, Romarriket (Noricum 16 f.Kr., kartan 14 f.Kr. och Wien från 43), Matthias Corvinus, belägringen 1683,
+    // Spanska imperiet och Habsburgska riket (raderna som inte står i kortet), Kejsardömet Österrike, Österrike-Ungern,
+    // republiken, gränserna 1919–1921, Nazityskland och ockupationen
+    for (const years of ['455–499', '546–787', '911–959', '1683–1686', '1805', '1807–1867', '16 ', '14 ', '43', '1485–1490', '1487–1491',
+      '1534–1555', '1529–1555', '1521', '1804–1867', '1806', '1867', '1868–1918', '12', '1918', '1919', '1920', '1921', '1938', '1938–1944', '1945–1955']) {
+      assert.ok(introAll(pl, lang).includes(years), `osterrike: inledningen (${lang}) nämner inte ${years}`);
+    }
+    // Ötzi ligger i Italien men innanför kartans grova gräns
+    assert.ok(introAll(pl, lang).includes('Ötzi'), `osterrike: inledningen (${lang}) nämner inte Ötzi`);
+  }
+  // Spanska imperiet i Wien 1534–1555 står inte i kortet; Kungariket Ungern (Matthias Corvinus) gör det
+  assert.ok(!pl.periods.some(p => p.empire === 'spanska-imperiet'));
+  const span = id => pl.periods.filter(p => p.empire === id).map(p => [p.from, p.to]);
+  assert.deepEqual(span('kungariket-ungern'), [[1487, 1491]]);
+  assert.deepEqual(span('nazityskland'), [[1938, 1944]]);
+  assert.deepEqual(span('osterrike'), [[1919, 1937], [1945, 2024]]);
+});
+
+test('Schweiz luckor och kartavvikelser är de som kortets inledning nämner (#1822): rikena följer Bern', () => {
+  const pl = places.find(p => p.id === 'schweiz');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]), [[451, 533], [661, 673], [922, 925], [936, 1009], [1799, 1814]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    // Luckorna, Romarriket (Genève och Basel från 50 f.Kr., Bern från 14 f.Kr.), förbundsbrevet, Tysk-romerska riket,
+    // Schwabiska kriget och Westfaliska freden, Basel som kanton, Helvetiska republiken, Genève (allierat, franskt, kanton,
+    // och på kartan i inget rike, i Frankrike och i Schweiz först från 1919)
+    for (const years of ['451–533', '661–673', '922–925', '936–1009', '1799–1814', '50 ', '14 ', '1291', '1010–1647', '1499', '1648',
+      '1501', '1648–1814', '1798–1803', '1803', '1798–1813', '1815', '1794–1859', '1860–1918', '1919']) {
+      assert.ok(introAll(pl, lang).includes(years), `schweiz: inledningen (${lang}) nämner inte ${years}`);
+    }
+    assert.ok(introAll(pl, lang).includes('Liechtenstein'), `schweiz: inledningen (${lang}) nämner inte Liechtenstein`);
+  }
+  // Kungariket Frankrike (Genève 1540-talet) står inte i kortet, eftersom raderna följer Bern
+  assert.ok(!pl.periods.some(p => ['kungariket-frankrike', 'franska-kolonialvaldet'].includes(p.empire)));
+  const span = id => pl.periods.filter(p => p.empire === id).map(p => [p.from, p.to]);
+  assert.deepEqual(span('romarriket'), [[-13, 394], [395, 450]]);
+  assert.deepEqual(span('tysk-romerska-riket'), [[1010, 1647]]);
+  assert.deepEqual(span('schweiz'), [[1648, 1798], [1815, 2024]]);
+});
+
+test('Polens luckor och kartavvikelser är de som kortets kartanteckningar nämner (#1823): rikena följer Warszawa', () => {
+  const pl = places.find(p => p.id === 'polen');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]), [[1139, 1351], [1450, 1793], [1807, 1813], [1830, 1833], [1940, 1944]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    // Luckorna, Kungariket Polen (962–1449, delningen 1138 och 1320), samväldet, delningarna, Preussen, Hertigdömet Warszawa,
+    // Ryska imperiet, Tyska riket, Andra polska republiken, Generalguvernementet, Kraków (fri stad, kartans Ryska imperiet),
+    // Poznań, Gdańsk (Kungliga Preussen och Fria staden Danzig) och Oder–Neisse-gränsen
+    for (const years of ['1139–1351', '1450–1793', '1807–1813', '1830–1833', '1940–1944', '962–1449', '1138', '1320', '1569–1795', '1772–1795',
+      '1794–1806', '1807–1815', '1814–1829', '1834–1915', '1916–1918', '1919–1939', '1945', '1815–1846', '1828–1829', '1814–1827', '1466',
+      '1459–1791', '1920–1939']) {
+      assert.ok(introAll(pl, lang).includes(years), `polen: kartanteckningarna (${lang}) nämner inte ${years}`);
+    }
+    // Kaliningrad ligger utanför kortet, och inledningen är kort (beslut 2026-11-27, #2353)
+    assert.ok(introAll(pl, lang).includes('Kaliningrad'), `polen: kartanteckningarna (${lang}) nämner inte Kaliningrad`);
+    assert.ok(pl.intro[lang].length <= 400, `polen: inledningen (${lang}) är längre än cirka 400 tecken`);
+  }
+  // Nazityskland (Generalguvernementet) står som lucka, inte som rad, som för Litauen
+  assert.ok(!pl.periods.some(p => p.empire === 'nazityskland'));
+  const span = id => pl.periods.filter(p => p.empire === id).map(p => [p.from, p.to]);
+  assert.deepEqual(span('kungariket-polen'), [[962, 1138], [1352, 1449]]);
+  assert.deepEqual(span('ryska-imperiet'), [[1814, 1829], [1834, 1915]]);
+  assert.deepEqual(span('polen'), [[1919, 1939], [1945, 2024]]);
+});
+
+test('Tjeckiens luckor och kartavvikelser är de som kortets kartanteckningar nämner (#1824): rikena följer Prag', () => {
+  const pl = places.find(p => p.id === 'tjeckien');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]), [[1807, 1867], [1939, 1944]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    // Luckorna, Stormähren (870), Bolesław I (1003, 1004) och kartans Kungariket Polen, Tysk-romerska riket (1002, 1010–1806),
+    // kungariket (1198), Habsburgarna (1526) och kartans Spanska imperiet och Preussen, Österrike-Ungern, Tjeckoslovakien,
+    // Sudetlandet och protektoratet, upplösningen, och Mährens och Ostravas avvikelser
+    for (const years of ['1807–1867', '1939–1944', '870', '1003', '1004', '1003–1009', '1002', '1010–1806', '1198', '1526', '1529–1555',
+      '1556', '1744–1747', '1804', '1868–1918', '1919–1938', '1938', '1939', '1945–1991', '1992', '1993', '999', '1019', '1029',
+      '1003–1027', '1468–1478', '1475–1491', '1873–1918']) {
+      assert.ok(introAll(pl, lang).includes(years), `tjeckien: kartanteckningarna (${lang}) nämner inte ${years}`);
+    }
+    for (const name of ['Brno', 'Ostrava', 'Liberec']) {
+      assert.ok(introAll(pl, lang).includes(name), `tjeckien: kartanteckningarna (${lang}) nämner inte ${name}`);
+    }
+    assert.ok(pl.intro[lang].length <= 400, `tjeckien: inledningen (${lang}) är längre än cirka 400 tecken`);
+  }
+  // Kungariket Polen, Spanska imperiet, Preussen och Nazityskland står inte som rader (kartavvikelser och protektoratet)
+  assert.ok(!pl.periods.some(p => ['kungariket-polen', 'spanska-imperiet', 'preussen', 'nazityskland'].includes(p.empire)));
+  const span = id => pl.periods.filter(p => p.empire === id).map(p => [p.from, p.to]);
+  assert.deepEqual(span('tysk-romerska-riket'), [[1010, 1806]]);
+  assert.deepEqual(span('habsburgska-riket'), [[1556, 1618], [1622, 1743], [1748, 1805]]);
+  assert.deepEqual(span('tjeckoslovakien'), [[1919, 1938], [1945, 1991]]);
+  assert.deepEqual(span('tjeckien'), [[1992, 2024]]);
+});
+
+test('Slovakiens luckor och kartavvikelser är de som kortets kartanteckningar nämner (#1825): rikena följer Bratislava', () => {
+  const pl = places.find(p => p.id === 'slovakien');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]), [[1450, 1458], [1547, 1555], [1806, 1867], [1939, 1944]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    // Luckorna, Stora Mähren, kartans Östgoter och Frankerrike, Kungariket Ungern med kartans Polen och Tysk-romerska riket,
+    // Pressburg som huvudstad och kröningsstad, kartans Osmanska och Spanska imperiet, Habsburgska riket, Österrike-Ungern,
+    // Tjeckoslovakien, Wienskiljedomen, Slovakiska staten, upplösningen och avvikelserna i öst och mitt
+    for (const years of ['1450–1458', '1547–1555', '1806–1867', '1939–1944', '833–907', '540–545', '793–824', '1000–1449', '1459–1546',
+      '1003–1017', '1305–1313', '1536–1783', '1830', '1529–1533', '1540–1555', '1556–1805', '1804', '1868–1918', '1919–1938', '1938',
+      '1939–1945', '1945–1991', '1992', '1993', '1919', '1683–1686', '1945']) {
+      assert.ok(introAll(pl, lang).includes(years), `slovakien: kartanteckningarna (${lang}) nämner inte ${years}`);
+    }
+    const pressburg = { es: 'Presburgo', fr: 'Presbourg' }[lang] ?? 'Pressburg';
+    for (const name of [pressburg, 'Košice', 'Prešov', 'Nitra', 'Banská Bystrica', 'Petržalka', 'Devín']) {
+      assert.ok(introAll(pl, lang).includes(name), `slovakien: kartanteckningarna (${lang}) nämner inte ${name}`);
+    }
+    assert.ok(pl.intro[lang].length <= 400, `slovakien: inledningen (${lang}) är längre än cirka 400 tecken`);
+  }
+  // Kartans Kungariket Polen, Tysk-romerska riket, Osmanska riket, Spanska imperiet, Nazityskland och Ungern står inte som rader
+  assert.ok(!pl.periods.some(p => ['kungariket-polen', 'tysk-romerska-riket', 'osmanska-riket', 'spanska-imperiet', 'nazityskland', 'ungern'].includes(p.empire)));
+  const span = id => pl.periods.filter(p => p.empire === id).map(p => [p.from, p.to]);
+  assert.deepEqual(span('kungariket-ungern'), [[1000, 1449], [1459, 1546]]);
+  assert.deepEqual(span('habsburgska-riket'), [[1556, 1805]]);
+  assert.deepEqual(span('tjeckoslovakien'), [[1919, 1938], [1945, 1991]]);
+  assert.deepEqual(span('slovakien'), [[1992, 2024]]);
+  // Devín ligger 0,9 km utanför Natural Earths gräns (i Österrikes polygon), men källan placerar borgen i Bratislava
+  assert.deepEqual(pl.includeEvents, ['devin-i-stora-mahren']);
 });
 
 test('kortet visar rikena som knappar med hela namnet, luckan som en rad och i en tur bara text', () => {
@@ -207,4 +407,31 @@ test('de nya texterna för landkortet finns på alla fem språken med samma plat
       assert.equal(holders(file[key]), holders(sv[key]), `${key} på ${lang} har andra platshållare än svenskan`);
     }
   }
+});
+
+test('landkortets inledning är kort och rikesstyckena ligger i introNotes (#2353)', () => {
+  for (const pl of places) {
+    for (const lang of LANGS) {
+      assert.ok(pl.intro[lang].length <= 400, `${pl.id}: inledningen (${lang}) är ${pl.intro[lang].length} tecken, högst 400`);
+      if (pl.introNotes) assert.ok(pl.introNotes[lang]?.trim(), `${pl.id}: introNotes saknar ${lang}`);
+    }
+    if (pl.introNotes) assert.deepEqual(Object.keys(pl.introNotes).sort(), [...LANGS].sort(), `${pl.id}: introNotes ska ha alla fem språk`);
+  }
+  assert.ok(places.filter(p => p.introNotes).length >= 15, 'länderna med anteckningar har fått introNotes');
+});
+
+test('platskortet visar introNotes först i den hopfällda raden Om kartan och källor, inte i inledningen (#2353)', () => {
+  const html = [];
+  const detail = { set innerHTML(v) { html.push(v); }, get innerHTML() { return html.at(-1) ?? ''; }, className: '', scrollTop: 0,
+    querySelector: () => ({ addEventListener() {}, focus() {} }), querySelectorAll: () => [] };
+  const fake = Object.create(Panel.prototype);
+  Object.assign(fake, { detail, srcById: {}, setDetailOpen() {} });
+  const lux = places.find(p => p.id === 'luxemburg');
+  fake.showSelection({ label: 'Plats', name: lux.name, intro: lux.intro, introNotes: lux.introNotes, notes: ['Dagens gräns.'], exit: 'Sluta', summary: 'Händelser', events: [], aboutLabel: 'Om kartan och källor', focus: false });
+  const card = html.at(-1);
+  const about = card.slice(card.indexOf('place-about'));
+  assert.ok(about.includes('place-intro-notes'), 'anteckningarna ligger i Om kartan och källor');
+  assert.ok(about.indexOf('place-intro-notes') < about.indexOf('Dagens gräns.'), 'anteckningarna står före kartanteckningen');
+  assert.ok(!card.slice(0, card.indexOf('place-about')).includes('Romarna'), 'rikesstycket står inte i inledningen');
+  assert.ok(card.includes('Loschbourmannen'), 'inledningen finns kvar');
 });

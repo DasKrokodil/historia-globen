@@ -1,6 +1,6 @@
 # 06. Granskningsperspektiv
 
-**Status:** utkast 2026-11-08. Det här dokumentet svarar på frågan "vad skulle en erfaren person med X-blick säga om sidan?". Varje **lins** är en uppsättning frågor och ett kontrollstöd som en granskare (människa eller agent) tar på sig. Vad linserna "brukar säga" är **hypoteser** härledda ur befintliga analyser; de är inte yttranden från riktiga personer och ersätter inte en användarstudie eller en riktig lärare.
+**Status:** utkast 2026-11-08; "Vad linsen har sagt hittills" för lins 1, 3 och 15 uppdaterad för förhistorien 2026-11-27 (#1108). Det här dokumentet svarar på frågan "vad skulle en erfaren person med X-blick säga om sidan?". Varje **lins** är en uppsättning frågor och ett kontrollstöd som en granskare (människa eller agent) tar på sig. Vad linserna "brukar säga" är **hypoteser** härledda ur befintliga analyser; de är inte yttranden från riktiga personer och ersätter inte en användarstudie eller en riktig lärare.
 
 ## Så används linserna
 
@@ -59,7 +59,7 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 
 **Bevis att samla in:** skärmbilder (2× upplösning) i 1400×900 och 400×800, konsolloggar, tidtagning på första handlingen, lista över krockar och täckta kontroller.
 
-**Vad linsen har sagt hittills:** 2026-11-06: mobilkortet täcker tidslinjen; sökningen öppnas med ett förvalt filter (helhetsanalys). 2026-11-08: tyst laddningsreserv, faktaruta bakom lektionskort (blind-spots, PR #871). 2026-11-08 (granskningen inför 6.1.0, `docs/granskningar/2026-11-08-release-6-1-0-granskning.md`): intervallformulärets knappar låg utanför skärmen på datorn, och Samtidigt-märket och intervallraden visade olika antal (rättade i #985); efter ett epokval syns inte vilken epok som valdes, och intervallet erbjuds där det inte går att välja (öppna förslag i granskningen). 2026-11-09: ett tomt tema gav en tom flik Teman, som nu är dold tills det finns ett tema (#987). 2026-11-09 (#992): knappraden täckte årtalets förklaringsrad i 820×1180. Årtalsblocket ligger nu under knapparnas uppmätta höjd i surfplattebredd. Automatiska geometri- och bildprov finns för 768×1024, 820×1180 och 1024×768; mått och placeringar i 1400×900 och 400×800 jämfördes före och efter utan ändring. Ingen observation på verklig iPad är gjord.
+**Vad linsen har sagt hittills:** 2026-11-21 (granskningen före 6.5.0): skarvens år stod som både 3000 och 3001 f.Kr. (#2152) och förhistoriska spann visades med falsk exakthet (#2155); rättade eller öppna enligt releaserapporten. Reglagets bredd för förhistorien på 400 px (cirka 37 px före delningen i två reglage) och tomma lager efter reglagebyte har fått rader i [05](05-ux-oversikt.md). 2026-11-06: mobilkortet täcker tidslinjen; sökningen öppnas med ett förvalt filter (helhetsanalys). 2026-11-08: tyst laddningsreserv, faktaruta bakom lektionskort (blind-spots, PR #871). 2026-11-08 (granskningen inför 6.1.0, `docs/granskningar/2026-11-08-release-6-1-0-granskning.md`): intervallformulärets knappar låg utanför skärmen på datorn, och Samtidigt-märket och intervallraden visade olika antal (rättade i #985); efter ett epokval syns inte vilken epok som valdes, och intervallet erbjuds där det inte går att välja (öppna förslag i granskningen). 2026-11-09: ett tomt tema gav en tom flik Teman, som nu är dold tills det finns ett tema (#987). 2026-11-09 (#992): knappraden täckte årtalets förklaringsrad i 820×1180. Årtalsblocket ligger nu under knapparnas uppmätta höjd i surfplattebredd. Automatiska geometri- och bildprov finns för 768×1024, 820×1180 och 1024×768; mått och placeringar i 1400×900 och 400×800 jämfördes före och efter utan ändring. Ingen observation på verklig iPad är gjord.
 
 ---
 
@@ -113,7 +113,7 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 
 **Bevis att samla in:** gå lektionen som lärare från länk till utskrivet blad; läs lärarbladet som om det vore det enda underlaget; kontrollera mot kursplanens centrala innehåll (från Skolverkets öppna text, inte ur minnet).
 
-**Vad linsen har sagt hittills:** ingen riktig lärare har granskat (ingen pilot, beslut 2026-11-07). Granskningen före v6.5.0 (2026-11-21, `docs/granskningar/release-2026-11-21.md`) gick igenom reglagen, korten, turerna och lektionerna ur lärarens synvinkel och kontrollerade Lgr22-kopplingarna mot Skolverkets öppna kursplan: de fem perioderna stämmer. Kvar: uppdraget syns inte på bladen (#1710), "Strax före eller efter" i förhistorien (#2158) och luckor för åk 7–9 efter 1900 (#2159). Det är det **största antagandet** i skolspåret. Tills dess: blind-spots-runda för lektionsläget (2026-11-08) har hittat att lärarens väg från länk till blad är bräcklig.
+**Vad linsen har sagt hittills:** ingen riktig lärare har granskat (ingen pilot, beslut 2026-11-07). Granskningen före v6.5.0 (2026-11-21, `docs/granskningar/release-2026-11-21.md`) gick igenom reglagen, korten, turerna och lektionerna ur lärarens synvinkel och kontrollerade Lgr22-kopplingarna mot Skolverkets öppna kursplan: de fem perioderna stämmer. Kvar: uppdraget syns inte på bladen (#1710), "Strax före eller efter" i förhistorien (#2158; `larare` varnar för att "strax" kan läsas som samtidigt när fönstret är tusentals år) och luckor för åk 7–9 efter 1900 (#2159). Frågan om lika breda reglage ger en felaktig tidsbild väntar på utvärderingen #1961. Det är det **största antagandet** i skolspåret. Tills dess: blind-spots-runda för lektionsläget (2026-11-08) har hittat att lärarens väg från länk till blad är bräcklig.
 
 ---
 
@@ -369,7 +369,7 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 
 **Bevis att samla in:** källtabell per art (spann, referens, oenighet), täckningsmått per världsdel, källsidor öppnade med datum.
 
-**Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10). Alla nio agenter i planeringen av version 7 efterlyste rollen (`docs/granskningar/2026-11-10-planering-version-7.md`).
+**Vad linsen har sagt hittills:** linsen är ny (2026-11-10); alla nio agenter i planeringen av version 7 efterlyste rollen (`docs/granskningar/2026-11-10-planering-version-7.md`). 2026-11-12: artlista och källtabell granskades av `historiker` och `forhistoriker` (`docs/granskningar/2026-11-12-manniskoarter-kalltabell.md`, beslut #1093). Granskningen före 6.5.0 (2026-11-21): förhistorien omgång 2 och 3 och spridningen kontrollerades; `1950 − BP` räknades om för hand för 19 nya händelser; kvar att besluta är att `docs/datamodell.md` och `about` i `data/spridning.json` fortfarande säger `2001 − 1000·X` (#2158) och att Amerika (21 händelser) och Afrika (32) är glesa. Granskningen 2026-11-26 (`docs/granskningar/release-2026-11-26.md`): spann från radiokolår visas fortfarande med falsk exakthet (Ksudach, Batur; avrundningen i #2155 är rätt i sak) och Gabarnmungs minsta ålder är angiven som exakt år (jfr #2137).
 
 ---
 

@@ -1070,6 +1070,8 @@ body {
 .hunt-list li { margin-bottom: 3px; }
 .hunt-region { font: 600 11px/1.3 var(--f-mono); color: var(--brass); text-transform: uppercase; letter-spacing: .06em; }
 .hunt-time { font: 400 11.5px/1.3 var(--f-mono); color: var(--parchment-dim); }
+.hunt-lasting { font: 500 11px/1.3 var(--f-mono); color: var(--brass); white-space: nowrap; }
+.hunt-reflection-more { display: block; margin-top: 6px; }
 .hunt-message { margin: 8px 0 0; min-height: 1em; font: 400 12.5px/1.4 var(--f-body); color: var(--parchment-dim); }
 .hunt-message.is-ok { color: var(--ok); }
 .hunt-done { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
@@ -2986,6 +2988,25 @@ details.used-by summary:hover { color: var(--parchment); }
      Lärarbladet får något mindre text, 10 pt i stället för 10,5, och tätare rader; minsta texten är fortfarande över 8 pt.
      Texten är densamma och elevbladen är orörda */
   .print-teacher { font-size: 10pt; line-height: 1.33; }
+  /* Ordförklaringarna på elevbladet för åk 4–6 (#1316): två spalter med ordet i fetstil först på raden, tätt, så att bladet
+     fortfarande ryms på ett A4 */
+  .print-glossary { break-inside: avoid; }
+  .print-glossary dl { columns: 2; column-gap: 14pt; margin: 0; font-size: 8pt; line-height: 1.15; }
+  .print-glossary dl > div { break-inside: avoid; margin: 0 0 1pt; }
+  .print-glossary h2 { margin-top: 4pt; }
+  .print-glossary dt { display: inline; font-weight: 600; }
+  .print-glossary dt::after { content: " –"; } /* ett tankstreck i stället för kolon, som gäller lika i alla språk (franskan har mellanrum före kolon) */
+  .print-glossary dd { display: inline; margin: 0 0 0 3pt; }
+  /* Svarsbladet (#1316): fråga, förväntat svar och källorna, en grupp per fråga som inte delas av en sidbrytning */
+  /* Svaren är långa på engelska, tyska, spanska och franska: bladet har mindre text, som lärarbladet, för att rymmas på ett A4 */
+  .print-answers { font-size: 9pt; line-height: 1.28; }
+  .print-answers h2 { margin: 4pt 0 1pt; font-size: 9.5pt; }
+  .print-answers-intro { margin: 0 0 3pt; }
+  .print-answer { margin: 0 0 3pt; break-inside: avoid; }
+  .print-answer p { margin: 1pt 0 0; }
+  .print-answer-src { font: 500 8pt/1.2 var(--f-mono); }
+  .print-answer-none { font-style: italic; }
+  .print-teacher .print-answers-note { font-size: 8.5pt; font-style: italic; }
 }
 
 /* Temats introduktionskort (#398): händelserna som knappar i tidsordning */

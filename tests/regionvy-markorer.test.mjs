@@ -5,7 +5,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { placeEvents, placeBounds, inGeometry } from '../js/place-geo.js';
+import { placeEvents, placeBounds, inGeometry, linkIncludeEvents } from '../js/place-geo.js';
 import { regionFrame } from '../js/region-frame.js';
 import { isVisibleReview, CAT } from '../js/model.js';
 import {
@@ -14,7 +14,7 @@ import {
 } from '../js/region-markers.js';
 
 const read = p => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), 'utf8'));
-const places = read('data/platser.json').places.filter(p => isVisibleReview(p.review));
+const places = linkIncludeEvents(read('data/platser.json').places.filter(p => isVisibleReview(p.review))); // som loadPlaces (#2333)
 const place = id => places.find(p => p.id === id);
 const events = read('data/events.json').events;
 for (const e of events) if (e.location?.type === 'Point') [e._lon, e._lat] = e.location.coordinates;
@@ -125,8 +125,10 @@ test('wholePlace läser fältet, inte platstexten: fält, saknat fält och en mi
   assert.equal(wholePlace({ scope: 'place', locationPrecision: 'region', _lon: 150, _lat: -5 }, place('danmark'), places), false);
   // Platsen saknas
   assert.equal(wholePlace(at({ scope: 'place' }), null, places), false);
-  // En svensk händelse för hela landet med punkten i Stockholm (inte i någon mindre plats) gäller hela Sverige
-  assert.equal(wholePlace({ scope: 'place', locationPrecision: 'country', _lon: 18.0686, _lat: 59.3294 }, place('sverige'), places), true);
+  // En finsk händelse för hela landet med punkten i Helsingfors (inte i någon mindre plats) gäller hela Finland. Stockholm duger inte
+  // längre som exempel för Sverige: punkten ligger i landskapet Uppland (#1847), och när alla landskap finns hör varje svensk punkt
+  // till ett landskap, så en händelse för hela Sverige får då en punkt som landskapen inte täcker, eller ingen bricka.
+  assert.equal(wholePlace({ scope: 'place', locationPrecision: 'country', _lon: 24.9375, _lat: 60.17083 }, place('finland'), places), true);
 });
 
 test('högar: händelser på samma punkt och inom högens radie läggs ihop, i listans ordning; brickans händelser aldrig', () => {

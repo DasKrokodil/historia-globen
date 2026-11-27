@@ -3,11 +3,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { placeAt, placeBounds, inGeometry, edgeKm, placeEvents, inPlace, inNeighbour, COAST_MARGIN_KM } from '../js/place-geo.js';
+import { placeAt, placeBounds, inGeometry, edgeKm, placeEvents, inPlace, inNeighbour, inSibling, COAST_MARGIN_KM, INCLUDE_MAX_KM, linkIncludeEvents } from '../js/place-geo.js';
 import { entry } from '../js/layers/places.js';
 
 const square = (id, w, s, e, n) => ({ id, boundary: { geometry: { type: 'Polygon', coordinates: [[[w, s], [e, s], [e, n], [w, n], [w, s]]] } } });
-const real = JSON.parse(readFileSync(new URL('../data/platser.json', import.meta.url), 'utf8')).places;
+const real = linkIncludeEvents(JSON.parse(readFileSync(new URL('../data/platser.json', import.meta.url), 'utf8')).places); // som loadPlaces (#2333)
 const place = id => real.find(p => p.id === id);
 
 test('platsen under en punkt är den vars gräns innehåller punkten, annars null', () => {
@@ -270,4 +270,75 @@ test('scope "wide" (#1806): händelser för ett större område än platsen räk
   const dryas = realEvents.find(e => e.id === 'yngre-dryas');
   assert.ok(inPlace(place('danmark'), dryas._lon, dryas._lat), 'markören ligger i Danmark');
   assert.equal(idsIn('danmark').has('yngre-dryas'), false, 'Yngre dryas står inte bland Danmarks händelser');
+});
+
+test('includeEvents (#2333): en listad händelse räknas till platsen också i grannens polygon; utan listan gäller gränsen', () => {
+  const ev = (id, start, lon, lat, extra = {}) => ({ id, start, _lon: lon, _lat: lat, ...extra });
+  const pl = { ...fxPlace('ruta'), includeEvents: ['vid-floden', 'vid'] };
+  const list = [ev('granne', 1, 10.05, 5), ev('vid-floden', 2, 10.02, 5), ev('inne', 0, 5, 5), ev('vid', 3, 10.02, 5, { scope: 'wide' })];
+  assert.equal(inPlace(fxPlace('ruta'), 10.02, 5), false, 'punkten ligger i grannens polygon');
+  assert.deepEqual(placeEvents(pl, list).map(e => e.id), ['inne', 'vid-floden'], 'listad räknas, olistad granne inte, "wide" aldrig');
+  assert.deepEqual(placeEvents(fxPlace('ruta'), list).map(e => e.id), ['inne'], 'utan listan som förut');
+  assert.deepEqual(placeEvents({ ...pl, includeEvents: [] }, list).map(e => e.id), ['inne']);
+});
+
+test('includeEvents (#2333): gränsorterna räknas till sina länder, ligger utanför 1:50m-gränsen och högst INCLUDE_MAX_KM från den', () => {
+  const want = { luxemburg: ['klostret-i-echternach', 'schengenavtalet'], belgien: ['moresnet-blir-belgiskt'], estland: ['slaget-vid-narva-1700'],
+    danmark: ['stormningen-av-dybbol'] };
+  for (const [pid, ids] of Object.entries(want)) {
+    assert.deepEqual(place(pid).includeEvents, ids, `${pid}: listan`);
+    for (const id of ids) assert.ok(idsIn(pid).has(id), `${id} saknas i ${pid}`);
+  }
+  assert.ok(INCLUDE_MAX_KM < COAST_MARGIN_KM);
+  const byId = new Map(realEvents.map(e => [e.id, e]));
+  for (const p of real) {
+    for (const id of p.includeEvents ?? []) {
+      const e = byId.get(id);
+      assert.ok(e && e._lon != null, `${p.id}: ${id} finns inte eller saknar punkt`);
+      assert.equal(inGeometry(p.boundary.geometry, e._lon, e._lat), false, `${p.id}: ${id} ligger redan inne i gränsen`);
+      assert.equal(real.filter(q => q.type === 'country' && q.includeEvents?.includes(id)).length, 1, `${id} står i flera länders lista`);
+      assert.ok(edgeKm(p.boundary.geometry, e._lon, e._lat) <= INCLUDE_MAX_KM, `${p.id}: ${id} ligger mer än ${INCLUDE_MAX_KM} km utanför`);
+    }
+  }
+});
+
+test('syskonlandskap (#1847): kustmarginalen tar inte land i ett annat landskap med samma partOf', () => {
+  const ev = (id, start, lon, lat) => ({ id, start, _lon: lon, _lat: lat });
+  const lsk = (id, w, s, e, n, partOf = 'land') => ({ ...square(id, w, s, e, n), type: 'landskap', partOf });
+  // A och B delar gräns vid längd 10; C har annan förälder; havet ligger öster om B (längd 12–12,1, utanför B:s gräns)
+  const a = lsk('a', 0, 0, 10, 10), b = lsk('b', 10, 0, 12, 10), c = lsk('c', 0, 10, 10, 12, 'annat');
+  const list = [ev('a-inne', 1, 5, 5), ev('i-b', 2, 10.05, 5), ev('havet-vid-b', 3, 12.05, 5), ev('i-c', 4, 5, 10.05)];
+  // Utan länkning som förut: marginalen tar 'i-b' till A (en punkt på land i grannen)
+  assert.ok(placeEvents(a, list).some(e => e.id === 'i-b'), 'utan linkIncludeEvents som förut');
+  linkIncludeEvents([a, b, c]);
+  assert.deepEqual(a._siblings.map(p => p.id), ['b'], 'syskon: samma partOf, inte sig själv och inte annan förälder');
+  assert.deepEqual(placeEvents(a, list).map(e => e.id), ['a-inne', 'i-c'], 'A räknar inte B:s land via marginalen, men C är inget syskon (annan förälder) och marginalen gäller som förut');
+  assert.deepEqual(placeEvents(b, list).map(e => e.id), ['i-b', 'havet-vid-b'], 'B räknar sitt land och havet inom marginalen');
+  assert.equal(inSibling(a, 10.05, 5), true);
+  assert.equal(inSibling(a, 12.05, 5), false, 'havet ligger inte i något syskon');
+  // C har inga syskon, så marginalen gäller som förut, även mot en punkt som ligger i A
+  assert.deepEqual(c._siblings, []);
+  assert.deepEqual(placeEvents(c, list).map(e => e.id), ['i-c'], 'C räknar sin egen punkt och inget av de andra landskapens land');
+});
+
+test('includeEvents (#2333): en händelse som ett land listar räknas inte till något annat land, men landskap räknas som förut', () => {
+  const ev = (id, start, lon, lat) => ({ id, start, _lon: lon, _lat: lat });
+  const square4 = (id, type, w, s, e, n, extra = {}) => ({ ...square(id, w, s, e, n), type, ...extra });
+  // Händelsen 'vid' ligger inne i B:s ruta, 0,02 grader (cirka 2 km) utanför A:s; A listar den
+  const a = square4('a', 'country', 0, 0, 10, 10, { includeEvents: ['vid'] });
+  const b = square4('b', 'country', 10, 0, 20, 10), lsk = square4('lsk', 'landskap', 10, 0, 12, 2), utan = square4('utan', 'country', 10, 0, 20, 10);
+  const list = [ev('vid', 1, 10.02, 1), ev('b-inne', 2, 15, 5)];
+  linkIncludeEvents([a, b, lsk, { id: 'gammal', type: 'country', boundary: a.boundary }]);
+  assert.deepEqual(placeEvents(a, list).map(e => e.id), ['vid'], 'A räknar sin listade händelse');
+  assert.deepEqual(placeEvents(b, list).map(e => e.id), ['b-inne'], 'B räknar inte A:s händelse fast punkten ligger i B');
+  assert.deepEqual(placeEvents(lsk, list).map(e => e.id), ['vid'], 'ett landskap påverkas inte');
+  assert.equal(lsk._claimedElsewhere, undefined);
+  assert.deepEqual(placeEvents(utan, list).map(e => e.id), ['vid', 'b-inne'], 'utan linkIncludeEvents som förut');
+  // De riktiga korten: Tyskland räknar inte Echternach, Schengen, Kelmis och Dybbøl; Ryssland har inget kort
+  if (place('tyskland')) {
+    for (const id of ['klostret-i-echternach', 'schengenavtalet', 'moresnet-blir-belgiskt', 'stormningen-av-dybbol']) {
+      assert.equal(idsIn('tyskland').has(id), false, `${id} räknas till Tyskland`);
+    }
+  }
+  assert.ok(idsIn('danmark').has('stormningen-av-dybbol') && idsIn('skane').has('slaget-vid-helsingborg'));
 });

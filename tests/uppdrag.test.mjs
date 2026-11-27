@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { checkHunt, eventRegion, huntDone, missionProblems, span, fitsLesson, missionsForLesson, defaultMission, huntCandidates } from '../js/uppdrag-rules.js';
+import { checkHunt, eventRegion, huntDone, missionProblems, span, fitsLesson, missionsForLesson, defaultMission, huntCandidates, isLasting } from '../js/uppdrag-rules.js';
 
 const json = p => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), 'utf8'));
 const visible = r => r === 'source-checked' || r === 'two-sources';
@@ -49,6 +49,43 @@ test('uppdragen i data/uppdrag.json är hela och går att klara med datan', () =
     assert.ok(regions.length >= m.count, `${m.id}: bara ${regions.length} världsdelar har händelser inom åren`);
   }
   assert.ok(missionProblems({ id: 'X!', kind: 'quiz', year: 1.5, window: 500, count: 9 }).length >= 5);
+});
+
+test('långa tillstånd räknas i jakten och märks "pågick då" (#1451)', () => {
+  const rike = at('rike', 1368, peking, { end: 1644, lasting: true });
+  assert.ok(isLasting(rike) && !isLasting(at('x', 1500, paris)) && !isLasting(null));
+  assert.ok(!isLasting({ ...rike, lasting: 'true' }), 'bara true räknas');
+  // Tillståndet räknas som förut: det pågår år 1500
+  assert.deepEqual(checkHunt(rike, mission, [], visible), { ok: true, region: 'Asien', when: 'together' });
+  // Texterna finns i alla fem språken
+  for (const l of ['sv', 'en', 'de', 'es', 'fr']) {
+    const ui = json(`data/ui/${l}.json`);
+    for (const k of ['hunt.okLasting', 'hunt.lasting', 'hunt.reflectLasting']) assert.ok(ui[k]?.trim(), `${l}: ${k} saknas`);
+    assert.ok(ui['hunt.okLasting'].includes('{title}') && ui['hunt.okLasting'].includes('{region}'), `${l}: hunt.okLasting`);
+  }
+});
+
+test('omgång 1: typningen av jaktens kandidater år 1500 (#1451)', () => {
+  const events = json('data/events.json').events;
+  const byId = Object.fromEntries(events.map(e => [e.id, e]));
+  const m = json('data/uppdrag.json').missions.find(x => x.id === 'samtidighetsjakten-1500');
+  const candidates = new Set(Object.values(huntCandidates(events, m, visible)).flat());
+  // Typade med källa: något som pågick (rike, kultur, handel, stad, lärosäte)
+  const lasting = ['osmanska-riket', 'ming', 'dorsetkulturen', 'atlantiska-slavhandeln', 'hansan-vaxer-fram', 'hansan-pa-bryggen',
+    'tenochtitlan', 'stora-zimbabwe', 'mutapariket', 'funjsultanatet-grundas', 'pachacamac', 'roi-mata-hovdingarna',
+    'polynesier-pa-henderson', 'moundville-hovdingadome', 'oxford', 'larda-i-timbuktu-sankore', 'senegambiska-stencirklar'];
+  for (const id of lasting) {
+    assert.ok(byId[id], `${id} finns inte`);
+    assert.equal(byId[id].lasting, true, `${id} ska vara typad`);
+    assert.ok(candidates.has(id), `${id} är ingen kandidat i jakten år 1500`);
+  }
+  // Något som hände, även med osäkert spann, typas inte
+  for (const id of ['rangitoto-bildas', 'ife-huvudet', 'columbus', 'osterbygden-overges', 'moriori-pa-chathamoarna', 'spanska-erovringen-av-aztekriket']) {
+    assert.ok(byId[id], `${id} finns inte`);
+    assert.equal(byId[id].lasting, undefined, `${id} hände och ska inte typas`);
+  }
+  // Fältet är bara true eller saknas
+  for (const e of events) if ('lasting' in e) assert.equal(e.lasting, true, `${e.id}: lasting ska vara true`);
 });
 
 test('ett uppdrag knyts till lektionen i data (#1340)', () => {

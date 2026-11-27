@@ -16,7 +16,8 @@
           "name": { "$ref": "#/$defs/text" },
           "nameIn": { "$ref": "#/$defs/phrase", "description": "Landets namn med preposition och artikel per språk (#1479, flyttad hit 2026-11-18, #1947): \"i Sverige\", \"in der Schweiz\". Krävs på ett land som en annan plats pekar på med partOf; kortet för den platsen skriver \"{typ} {nameIn}\" (\"Landskap i Sverige\") och listan i Sök och följ \"{typer} {nameIn}\" (\"Landskap i Sverige\")." },
           "partOf": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Id för landet (en annan plats i filen, type country) som platsen ingår i (#1947, beslut 2026-11-18). Landet ska ha nameIn. Sök och följ listar platsen under landet; scripts/validate-site.py kontrollerar länken." },
-          "intro": { "$ref": "#/$defs/text" },
+          "intro": { "$ref": "#/$defs/text", "description": "Kort inledning på kortet: vad kortet följer och att det är ett urval (högst cirka 400 tecken per språk, #2353)." },
+          "introNotes": { "$ref": "#/$defs/text", "description": "Kartanteckningar om landets rikesperioder, konturens avgränsning och luckor (#2353). Visas hopfällt i Om kartan och källor, inte i inledningen, så att knappen Visa på kartan syns i kortets första skärm." },
           "view": {
             "type": "object",
             "required": ["center", "zoom"],
@@ -79,6 +80,7 @@
               }
             }
           },
+          "includeEvents": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" }, "description": "Händelser vid gränsen (id i events.json) som räknas till platsen trots den grova gränsen (#2333, beslut 2026-11-27), också i ett grannlands polygon. Bara när händelsens egen källa placerar den i platsen; scripts/validate-site.py kräver att punkten ligger utanför gränsen men högst INCLUDE_MAX_KM (5 km) från den." },
           "sources": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
           "review": { "enum": ["draft", "source-checked", "two-sources"] },
           "placeholder": { "type": "boolean" }

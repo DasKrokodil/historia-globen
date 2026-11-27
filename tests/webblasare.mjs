@@ -1442,6 +1442,8 @@ async function run(browser, vp) {
     await add('vasco-da-gama-nar-indien');
     await visible('#hunt-done');
     if (await page.locator('#hunt-list li').count() !== 3) throw new Error('jakten har inte tre händelser');
+    // Inget av de tre är ett långt tillstånd (#1451): inget märke "pågick då" och ingen extra rad i frågan
+    if (await page.locator('#hunt-list .hunt-lasting, #hunt-reflection .hunt-reflection-more').count()) throw new Error('jakten märker något som hände som "pågick då"');
     await page.waitForFunction(() => document.querySelectorAll('#hunt-sources li a').length > 0, null, { timeout: T.step });
     const wide = await page.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1);
     if (wide) throw new Error('jakten ger horisontell scroll');
@@ -1455,6 +1457,43 @@ async function run(browser, vp) {
     await page.waitForFunction(() => !location.hash.includes('u='), null, { timeout: T.step });
     if (await page.isVisible('#detail')) await page.keyboard.press('Escape');
     return 'år 1500; Amerika två gånger ger besked; tre världsdelar ger fråga och källor; u= i adressen och bort efter Escape';
+  }
+
+  // Långa tillstånd i jakten (#1451): Mingdynastin (lasting) räknas men märks "pågick då" i meddelandet och listan, och
+  // frågan får raden om vad som hände och vad som pågick länge
+  await check('Samtidighetsjakten märker långa tillstånd "pågick då" (#1451)', async () => {
+    try { return await huntLastingCheck(); } catch (err) { if (await page.isVisible('#hunt')) await page.click('#hunt-end', { timeout: 3000 }).catch(() => {}); throw err; }
+  });
+  async function huntLastingCheck() {
+    await teacherItem('#teacher-hunt');
+    await visible('#hunt');
+    const add = async id => {
+      if (await page.isHidden('#panel')) await clickView('#btn-panel');
+      const btn = await panelEvent(page, { id });
+      await btn.click();
+      await page.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
+      await page.click('#detail [data-hunt]');
+      const message = (await page.textContent('#hunt-message')).trim();
+      if (await page.isVisible('#detail [data-close]')) await page.click('#detail [data-close]');
+      return message;
+    };
+    const ming = await add('ming');
+    if (!/räknas.*pågick då/.test(ming)) throw new Error(`Mingdynastin räknades inte som "pågick då": ${ming}`);
+    if (!/räknas/.test(await add('columbus')) || /pågick då/.test(await page.textContent('#hunt-message'))) throw new Error('Columbus märktes som "pågick då" eller räknades inte');
+    await add('bartolomeu-dias-rundar-afrika');
+    await visible('#hunt-done');
+    const tags = await page.locator('#hunt-list .hunt-lasting').allTextContents();
+    if (tags.length !== 1 || tags[0].trim() !== 'pågick då') throw new Error(`listan har märkena ${JSON.stringify(tags)}, inte ett "pågick då"`);
+    const more = (await page.textContent('#hunt-reflection .hunt-reflection-more').catch(() => '')) ?? '';
+    if (!/hände, och vilka pågick länge/.test(more)) throw new Error(`frågan saknar raden om vad som hände och pågick: ${more}`);
+    const wide = await page.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1);
+    if (wide) throw new Error('jakten ger horisontell scroll');
+    await shot('1451-jakten-pagick-da');
+    if (await page.isVisible('#panel-close')) await page.click('#panel-close');
+    await page.click('#hunt-end');
+    await hidden('#hunt');
+    if (await page.isVisible('#detail')) await page.keyboard.press('Escape');
+    return 'Mingdynastin räknas och märks "pågick då", Columbus och Dias märks inte, frågan har raden om hände och pågick';
   }
 
   // Menyn över en öppen Samtidigt-panel (#887): knapparna i Mer/Meny ska ta emot klicket, inte panelen.
@@ -4370,12 +4409,12 @@ async function run(browser, vp) {
       if (order.join() !== want.join()) throw new Error(`världsdelarna står ${order.join(', ')}, inte i Samtidigts ordning ${want.join(', ')}`);
       if (tree.regions.some(r => r.expanded !== 'true')) throw new Error('en världsdel är ihopfälld från början');
       const europa = tree.regions.find(r => r.id === 'Europa');
-      if (europa?.rows.join() !== 'place:danmark,place:estland,place:finland,place:island,place:lettland,place:litauen,place:norge,place:sverige') throw new Error(`Europa visar ${europa?.rows.join(', ')}, inte Danmark, Estland, Finland, Island, Lettland, Litauen, Norge och Sverige i namnordning`);
+      if (europa?.rows.join() !== 'place:belgien,place:danmark,place:estland,place:finland,place:frankrike,place:irland,place:island,place:lettland,place:litauen,place:luxemburg,place:nederlanderna,place:norge,place:polen,place:schweiz,place:slovakien,place:storbritannien,place:sverige,place:tjeckien,place:tyskland,place:osterrike') throw new Error(`Europa visar ${europa?.rows.join(', ')}, inte Belgien, Danmark, Estland, Finland, Frankrike, Irland, Island, Lettland, Litauen, Luxemburg, Nederländerna, Norge, Polen, Schweiz, Slovakien, Storbritannien, Sverige, Tjeckien, Tyskland och Österrike i namnordning`);
       if (tree.regions.find(r => r.id === 'Amerika')?.rows.join() !== 'place:gronland') throw new Error('Grönland står inte under Amerika (som i Samtidigt)');
       // Landskapen är ihopfällda under sitt land, och knappen säger landets namn ur datan
       const kids = tp.locator('#focus-menu [data-node="c:sverige:landskap"]');
       const kidsText = (await kids.textContent()).replace(/\s+/g, ' ').trim();
-      if (!/^Landskap i Sverige \(1\)$/.test(kidsText)) throw new Error(`landskapens knapp säger "${kidsText}", inte "Landskap i Sverige (1)"`);
+      if (!/^Landskap i Sverige \(2\)$/.test(kidsText)) throw new Error(`landskapens knapp säger "${kidsText}", inte "Landskap i Sverige (2)" (Skåne och Uppland, #1850)`);
       if (await kids.getAttribute('aria-expanded') !== 'false') throw new Error('landskapen är utfällda från början');
       if (await tp.locator('#focus-menu [data-key="place:skane"]').isVisible()) throw new Error('Skåne syns fast landskapen är ihopfällda');
       await kids.click();
@@ -4417,8 +4456,8 @@ async function run(browser, vp) {
       const at = () => tp.evaluate(() => { const a = document.activeElement; return a?.dataset.key ?? (a?.dataset.node ? `nod ${a.dataset.node}` : a?.className); });
       const walk = async keys => { const out = []; for (const k of keys) { await tp.keyboard.press(k); out.push(await at()); } return out; };
       await tp.locator('#focus-menu [data-node="r:Europa"]').focus();
-      const down = await walk(['ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown']);
-      const want = ['place:danmark', 'place:estland', 'place:finland', 'place:island', 'place:lettland', 'place:litauen', 'place:norge', 'place:sverige', 'nod c:sverige:landskap', 'nod r:Amerika', 'place:gronland'];
+      const down = await walk(Array(23).fill('ArrowDown'));
+      const want = ['place:belgien', 'place:danmark', 'place:estland', 'place:finland', 'place:frankrike', 'place:irland', 'place:island', 'place:lettland', 'place:litauen', 'place:luxemburg', 'place:nederlanderna', 'place:norge', 'place:polen', 'place:schweiz', 'place:slovakien', 'place:storbritannien', 'place:sverige', 'nod c:sverige:landskap', 'place:tjeckien', 'place:tyskland', 'place:osterrike', 'nod r:Amerika', 'place:gronland'];
       if (down.join() !== want.join()) throw new Error(`pil ner gick ${down.join(' → ')}, inte ${want.join(' → ')} (Skåne är ihopfällt och ska hoppas över)`);
       // Fäll ut landskapen med Enter: nu kommer Skåne efter knappen
       await tp.locator('#focus-menu [data-node="c:sverige:landskap"]').focus();
@@ -4616,7 +4655,7 @@ async function run(browser, vp) {
               tabScroll: tabs.scrollWidth > tabs.clientWidth, wide: document.documentElement.scrollWidth > innerWidth, sort: getComputedStyle(menu.querySelector('.focus-sort')).display };
           });
           const where = `${size.width} × ${size.height}`;
-          if (m.key !== 'place:danmark') throw new Error(`${where}: första landet är ${m.key}, inte Danmark`);
+          if (m.key !== 'place:belgien') throw new Error(`${where}: första landet är ${m.key}, inte Belgien`);
           if (m.scrollTop !== 0) throw new Error(`${where}: listan var rullad (${m.scrollTop} px)`);
           if (m.bottom > Math.min(m.bodyBottom, m.menuBottom, size.height) + 1 || m.top < m.bodyTop - 1) throw new Error(`${where}: första landet ligger ${Math.round(m.top)}–${Math.round(m.bottom)} px, utanför listan (${Math.round(m.bodyTop)}–${Math.round(Math.min(m.bodyBottom, size.height))})`);
           if (m.tabRows !== 1) throw new Error(`${where}: flikarna ligger på ${m.tabRows} rader, inte en rullrad`);
@@ -4630,7 +4669,7 @@ async function run(browser, vp) {
           await tp.locator('#focus-menu .menu-x').click({ timeout: T.step });
           await tp.waitForSelector('#focus-menu', { state: 'hidden', timeout: T.step });
           if (errs.length) throw new Error(`${where}: fel i konsolen: ${errs.join(' | ')}`);
-          out.push(`${where}: Danmark ${Math.round(m.top)}–${Math.round(m.bottom)} px`);
+          out.push(`${where}: Belgien ${Math.round(m.top)}–${Math.round(m.bottom)} px`);
         } finally { await tctx.close(); }
       }
       return out.join('; ');
@@ -8616,13 +8655,24 @@ async function run(browser, vp) {
     const imageHeight = await image.first().evaluate(el => Math.round(el.closest('.ff-pic').getBoundingClientRect().height));
     await page.screenshot({ path: path.join(OUT, `${vp.name}-samtidigt-reservkort-${mixedYear}.png`), fullPage: false });
     try {
-      await jumpTo(1274);
-      if ((await page.textContent('#ff-kind')).trim() !== 'När ett krig bröt ut') throw new Error('1274 saknar det verifierade krigskortet i Samtidigt');
-      // Krigskortet är en symbolruta när inget kort har bild och en reservruta bland bildkort (Marco Polo 1271 fick bild i #453).
+      // Året är inte fast (#2319): 1274 räckte tills Mongolinvasionen av Japan fick en bild och krigskortet blev ett bildkort.
+      // Kontrollen provar några år i ordning och använder det första där Samtidigt-kortet är krigskortet ("När ett krig bröt ut")
+      // och har ett bildlöst krigskort bland sina kort. Fler bilder i datan (#453) får inte fälla testet.
+      const WAR_YEARS = [1274, 1096, 1337, 1415, 1453, 1618, 1683, 1756, 1789, 1861, 1914, 1939];
       const symbol = page.locator('#ff-pics .ff-reserve[aria-label^="Krig och konflikter"]').first();
-      await symbol.waitFor({ state: 'visible', timeout: T.step });
+      let warYear = null;
+      for (const y of WAR_YEARS) {
+        await jumpTo(y);
+        // Ett år utan Samtidigt-kort hoppas över i stället för att fälla kontrollen.
+        if (!await page.locator('#funfact').waitFor({ state: 'visible', timeout: 2500 }).then(() => true, () => false)) continue;
+        if ((await page.locator('#ff-kind').textContent()).trim() !== 'När ett krig bröt ut') continue;
+        const found = await symbol.waitFor({ state: 'visible', timeout: 2500 }).then(() => true, () => false);
+        if (found) { warYear = y; break; }
+      }
+      if (warYear == null) throw new Error(`inget av åren ${WAR_YEARS.join(', ')} har ett bildlöst krigskort i Samtidigt`);
+      // Krigskortet är en symbolruta när inget kort har bild och en reservruta bland bildkort (Marco Polo 1271 fick bild i #453).
       const symbolHeight = await symbol.evaluate(el => Math.round(el.getBoundingClientRect().height));
-      if (Math.abs(symbolHeight - imageHeight) > 1) throw new Error(`bildlöst krigskort har höjd ${symbolHeight}, bildkortet ${imageHeight}`);
+      if (Math.abs(symbolHeight - imageHeight) > 1) throw new Error(`bildlöst krigskort har höjd ${symbolHeight}, bildkortet ${imageHeight} (${warYear})`);
     } finally {
       await jumpTo(1889);
     }
@@ -15993,7 +16043,7 @@ async function run(browser, vp) {
       const h1s = heads.filter(h => h.tagName === 'H1').map(h => h.textContent.trim());
       const texts = [...root.querySelectorAll('*')].filter(e => e.children.length === 0 && e.textContent.trim());
       const css = (e, p) => getComputedStyle(e).getPropertyValue(p);
-      const avoid = ['.print-questions > li', '.print-exit', '.print-sources li'].flatMap(s => [...root.querySelectorAll(s)]);
+      const avoid = ['.print-questions > li', '.print-exit', '.print-sources li', '.print-answer', '.print-glossary'].flatMap(s => [...root.querySelectorAll(s)]);
       return {
         h1: h1s.length,
         h1Same: new Set(h1s).size !== h1s.length,
@@ -16045,6 +16095,11 @@ async function run(browser, vp) {
           app: getComputedStyle(document.getElementById('app')).display,
           link: document.querySelector('#print-sheet .print-link')?.textContent ?? '',
           teacher: document.querySelector('#print-sheet .print-teacher')?.textContent ?? '',
+          // Svarsbladet (#1316): en grupp per fråga och en för exit ticket, och åk 7–9 behåller rubriken Exit ticket
+          answers: document.querySelectorAll('#print-sheet .print-answers .print-answer').length,
+          answered: document.querySelectorAll('#print-sheet .print-answers .print-answer-text').length,
+          answersHeading: document.querySelector('#print-sheet .print-answers h1')?.textContent.trim() ?? '',
+          exitHeading: document.querySelector('#print-sheet .print-student .print-exit h2')?.textContent.trim() ?? '',
         }));
         // Mätningen görs i A4:s tryckbara yta, 210 mm minus marginalerna 2 × 15 mm = 180 mm = 680 px bred och
         // 297 mm minus 2 × 11 mm = 275 mm = 1039 px hög, så att ett blad som är för brett eller för högt larmar innan det
@@ -16079,7 +16134,10 @@ async function run(browser, vp) {
         const maxHeight = Math.floor(A4_HEIGHT * 0.97);
         if (got.heights.some(h => h > maxHeight)) throw new Error(`ett blad är ${Math.max(...got.heights)} px högt, högst ${maxHeight} px av A4:s ${A4_HEIGHT} px (${got.heights.join(', ')})`);
         if (pdfPages !== got.pages) throw new Error(`utskriften blev ${pdfPages} A4-sidor i stället för ett blad per sida (${got.pages} blad)`);
-        if (got.pages !== 3) throw new Error(`${got.pages} blad i stället för elevblad, Källdetektiven och lärarblad`);
+        if (got.pages !== 4) throw new Error(`${got.pages} blad i stället för elevblad, Källdetektiven, lärarblad och svar`);
+        if (!/^Svar /.test(got.answersHeading)) throw new Error(`svarsbladets rubrik är "${got.answersHeading}"`);
+        if (got.answers !== 6 || got.answered !== 6) throw new Error(`svarsbladet har ${got.answers} frågor och ${got.answered} svar, turen har 5 frågor och exit ticket med svar (#1316)`);
+        if (got.exitHeading !== 'Exit ticket') throw new Error(`elevbladet för åk 7–9 har rubriken "${got.exitHeading}" i stället för Exit ticket`);
         if (!/^Källdetektiven /.test(got.detectiveHeading)) throw new Error(`Källdetektiv-bladets rubrik är "${got.detectiveHeading}"`);
         if (got.questions !== 5) throw new Error(`elevbladet har ${got.questions} frågor, turen har 5`);
         if (got.detective !== 2) throw new Error(`Källdetektiven har ${got.detective} händelser, lektionen har 2 (#742)`);
@@ -16091,7 +16149,7 @@ async function run(browser, vp) {
       } finally {
         await printPage.close();
       }
-      return 'ingen knapp utan lärarfält; tre blad (elevblad, Källdetektiven, lärarblad), fem frågor, bara bladen i utskrift, länk och Lgr22 med källa';
+      return 'ingen knapp utan lärarfält; fyra blad (elevblad, Källdetektiven, lärarblad, svar), fem frågor och sex svar, bara bladen i utskrift, länk och Lgr22 med källa';
     });
     // Höjden på bladen (#757, #742): alla fem språken och båda lektionerna, med webbtypsnitten och med reservtypsnittet.
     // Engelska, tyska, spanska och franska är längre än svenska, och utan webbtypsnitten byts typsnittet mot ett bredare
@@ -16130,6 +16188,8 @@ async function run(browser, vp) {
             webFonts: [...document.fonts].filter(f => f.status === 'loaded').map(f => f.family),
             allFonts: [...document.fonts].map(f => `${f.family}:${f.status}`).join(' '),
             bodyFont: getComputedStyle(document.querySelector('#print-sheet .print-q')).fontFamily,
+            glossary: document.querySelectorAll('#print-sheet .print-student .print-glossary dt').length,
+            answers: document.querySelectorAll('#print-sheet .print-answers').length,
           }));
           return got;
         } finally {
@@ -16156,8 +16216,13 @@ async function run(browser, vp) {
             if (fallback && (used || !got.bodyFont.replace(/"/g, '').startsWith('DejaVu Sans'))) throw new Error(`${tour} ${lang}: reservmätningen använder fel typsnitt (${got.bodyFont}, webbtypsnitt: ${used})`);
             const max = Math.max(...got.heights);
             const lim = limit[fallback ? 'fallback' : 'web'];
-            // Andra världskriget och Songhai har Källdetektiven (#742, #1279) och därmed tre blad, de andra två; varje blad har en h1
-            const sheets = ['andra-varldskriget', 'songhairikets-fall'].includes(tour) ? 3 : 2;
+            // Andra världskriget och Songhai har Källdetektiven (#742, #1279) och därmed ett blad till, och andra världskriget och
+            // vikingatiden har förväntade svar på ett eget svarsblad (#1316); varje blad har en h1
+            const answered = ['andra-varldskriget', 'vikingatiden-och-varlden'].includes(tour);
+            const sheets = 2 + (['andra-varldskriget', 'songhairikets-fall'].includes(tour) ? 1 : 0) + (answered ? 1 : 0);
+            if (got.answers !== (answered ? 1 : 0)) throw new Error(`${tour} ${lang}: ${got.answers} svarsblad`);
+            // Elevbladet för åk 4–6 har ordförklaringar (#1316) och ska ändå rymmas på ett A4
+            if (tour === 'vikingatiden-och-varlden' && got.glossary !== 5) throw new Error(`${tour} ${lang}: ${got.glossary} ordförklaringar i stället för 5`);
             if (got.heights.length !== sheets || got.h1 !== sheets) throw new Error(`${tour} ${lang}: ${got.heights.length} blad och ${got.h1} h1 i stället för ${sheets}`);
             if (max > lim) throw new Error(`${tour} ${lang} ${fallback ? 'med reservtypsnitt' : 'med webbtypsnitt'}: ett blad är ${max} px högt, högst ${lim} px av A4:s ${A4_HEIGHT} px (${got.heights.join(', ')})`);
             rows.push(`${fallback ? 'reserv' : 'web'} ${tour.slice(0, 4)} ${lang} ${got.heights.join('/')}`);
@@ -16165,6 +16230,47 @@ async function run(browser, vp) {
         }
       }
       return `${rows.length} mätningar inom gränsen: ${rows.join('; ')}`;
+    });
+    // Åk 4–6 (#1316): elevbladet har en elevvänlig rubrik i stället för Exit ticket och ordförklaringar, och i lektionen visar
+    // faktarutan vid Lindisfarne missuppfattningens enklare text i du-form; utanför lektionen visas vuxentexten
+    await check('vikingalektionen för åk 4–6: elevvänligt elevblad och enklare missuppfattning (#1316)', async () => {
+      const yp = await context.newPage();
+      const yErrors = [];
+      yp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(yErrors, m); });
+      const yAw = abortWatch(yp);
+      yp.on('pageerror', e => { if (!yAw.defer(e.message)) yErrors.push(e.message); });
+      try {
+        if (THREE_LOCAL) {
+          const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+          await yp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+          await yp.route(u => isFont(u.href), r => r.abort());
+        }
+        await yAw.goto(`${BASE}?ny=1316#t=vikingatiden-och-varlden&m=lektion&r=lararen`);
+        await yp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await yp.waitForSelector('#detail .detail-myth', { timeout: T.load });
+        const truth = (await yp.textContent('#detail .detail-myth .myth-truth')).replace(/\s+/g, ' ');
+        if (!/Gjermundbu/.test(truth) || /rituella/.test(truth)) throw new Error(`missuppfattningen i lektionen visar inte den enklare texten: ${truth.slice(0, 120)}`);
+        await yp.waitForSelector('#lesson-print', { state: 'visible', timeout: T.step });
+        await yp.evaluate(() => { window.print = () => { window.__printed = true; }; });
+        await yp.click('#lesson-print');
+        await yp.waitForFunction(() => window.__printed, null, { timeout: T.step });
+        const got = await yp.evaluate(() => ({
+          exit: document.querySelector('#print-sheet .print-student .print-exit h2')?.textContent.trim() ?? '',
+          words: [...document.querySelectorAll('#print-sheet .print-student .print-glossary dt')].map(d => d.textContent.trim()),
+          answers: document.querySelectorAll('#print-sheet .print-answers .print-answer').length,
+          answered: document.querySelectorAll('#print-sheet .print-answers .print-answer-text').length,
+          none: document.querySelectorAll('#print-sheet .print-answers .print-answer-none').length,
+        }));
+        if (got.exit !== 'Sista frågan') throw new Error(`elevbladets rubrik är "${got.exit}" i stället för Sista frågan`);
+        if (got.words.length !== 5 || !got.words.includes('arkeologiska fynd')) throw new Error(`ordförklaringarna är ${got.words.join(', ')}`);
+        // Fyra frågor och exit ticket; Newfoundland har inget facit i stegets källor och står med beskedet om det
+        if (got.answers !== 5 || got.answered !== 4 || got.none !== 1) throw new Error(`svarsbladet: ${got.answers} frågor, ${got.answered} svar, ${got.none} utan facit`);
+        yErrors.push(...yAw.settle());
+        if (yErrors.length) throw new Error(`konsolfel: ${yErrors.join('; ')}`);
+      } finally {
+        await yp.close();
+      }
+      return 'Sista frågan, fem ordförklaringar, fyra svar och ett utan facit; Lindisfarne visar den enklare texten om hjälmarna';
     });
   }
   // Sök och följ (#651, tidigare Sök #570): en händelse öppnas på sitt år, ett rike börjar följas, och tomt resultat syns tydligt

@@ -11,8 +11,14 @@
 // och "Lärarblad <titel>", och "Källdetektiven <titel>" när lektionen har den), därefter nivå 2, så att läsordning och rubriker blir rätta när utskriften sparas som
 // taggad PDF. Skrivrader och namnrad är dekoration och göms för hjälpmedel. Allt är svart på vitt, och ingenting
 // beror på färg. Länkar står som text, eftersom papper inte går att klicka på.
+//
+// Svar och ord (#1316): har turen förväntade svar (step.answer, lesson.exitAnswer) får läraren ett eget blad "Svar" efter
+// lärarbladet, med varje fråga, svaret och källorna det bygger på; en fråga utan svar står där med beskedet att källorna inte ger
+// något facit. Svaren står på ett eget blad så att lärarbladet fortfarande ryms på ett A4. I en lektion för åk 4–6 (och F–3) heter
+// exit ticket på elevbladet "Sista frågan", och lesson.glossary skrivs som ordförklaringar under den.
 import { t, loadSources } from '../model.js';
 import { TEACHER_ROLE } from '../url-state.js';
+import { YOUNG_GRADES } from '../tour-format.js';
 import { ui } from '../i18n.js';
 
 const el = (tag, cls, text) => {
@@ -56,17 +62,26 @@ const detective = tour => (tour.lesson?.sourceDetective ?? []).map(d => {
   return i < 0 ? null : { step: tour.steps[i], n: i + 1, questions: d.questions ?? [] };
 }).filter(Boolean);
 
+/** Lektionen riktar sig till elever till och med 13 år (#1316): elevbladet får elevvänliga rubriker. */
+const young = tour => YOUNG_GRADES.includes(tour.lesson?.grades);
+/** Rubriken för exit ticket på elevbladet: "Sista frågan" för de yngre, annars "Exit ticket". */
+const exitLabel = tour => ui(young(tour) ? 'print.exitYoung' : 'print.exit');
+/** Har turen något förväntat svar (#1316)? Då skrivs svarsbladet ut. */
+/** Exit ticket på lärarbladen: "Sista frågan (exit ticket)" för de yngre, så att läraren känner igen rubriken på elevbladet. */
+const exitName = tour => (young(tour) ? `${ui('print.exitYoung')} (${ui('print.exit')})` : ui('print.exit'));
+const hasAnswers = tour => !!tour.lesson?.exitAnswer || tour.steps.some(s => s.question && s.answer);
+
 /** Stegets rubrik som rad: "Steg 9: Stalingrad, 2 februari 1943". */
 const stepLabel = (step, n) => ui('print.step', { n, title: t(step.title) || '' }).replace(/:\s*$/, '');
 
-function head(tour, kind, id) {
+function head(tour, kind, id, { summary = true } = {}) {
   const h = el('header', 'print-head');
   // Bladets sort och turens titel i samma rubrik, så att de två bladen inte har samma h1
   const title = el('h1', 'print-heading');
   title.id = id;
   title.append(el('span', 'print-kind', kind), ' ', el('span', 'print-title', t(tour.title)));
   h.append(title);
-  if (tour.summary) h.append(el('p', 'print-summary', t(tour.summary)));
+  if (summary && tour.summary) h.append(el('p', 'print-summary', t(tour.summary)));
   return h;
 }
 
@@ -88,11 +103,29 @@ function studentSheet(tour, srcById) {
   }
   page.append(list);
   const exit = el('div', 'print-exit');
-  exit.append(el('h2', null, ui('print.exit')), el('p', 'print-q', t(tour.lesson.exitTicket)), lines(3));
+  exit.append(el('h2', null, exitLabel(tour)), el('p', 'print-q', t(tour.lesson.exitTicket)), lines(3));
   page.append(exit);
+  const words = glossary(tour);
+  if (words) page.append(words);
   const sources = sourceBox(questions(tour), srcById);
   if (sources) page.append(sources);
   return page;
+}
+
+/** Ordförklaringarna (lesson.glossary, #1316) som ruta på elevbladet, eller null när lektionen inte har några. */
+function glossary(tour) {
+  const list = tour.lesson?.glossary ?? [];
+  if (!list.length) return null;
+  const box = el('div', 'print-glossary');
+  box.append(el('h2', null, ui('print.glossary')));
+  const dl = el('dl');
+  for (const g of list) {
+    const row = el('div'); // dt och dd i en grupp, så att ett ord och dess förklaring står i samma spalt
+    row.append(el('dt', null, t(g.term)), el('dd', null, t(g.text)));
+    dl.append(row);
+  }
+  box.append(dl);
+  return box;
 }
 
 /** Källorna för stegen i listan, som ruta längst ned på ett elevblad (null när stegen saknar källor). */
@@ -157,7 +190,8 @@ function teacherSheet(tour, srcById) {
   qs.append(el('h2', null, ui('print.questions')));
   const ol = el('ol', 'print-questions-short');
   for (const { step, n } of questions(tour)) ol.append(el('li', null, `${ui('print.stepShort', { n })}: ${t(step.question)}`));
-  ol.append(el('li', null, `${ui('print.exit')}: ${t(lesson.exitTicket)}`));
+  ol.append(el('li', null, `${exitName(tour)}: ${t(lesson.exitTicket)}`));
+  if (hasAnswers(tour)) ol.append(el('li', 'print-answers-note', ui('print.answersNote')));
   qs.append(ol);
   page.append(qs);
   const cases = detective(tour);
@@ -169,6 +203,27 @@ function teacherSheet(tour, srcById) {
     det.append(dl);
     page.append(det);
   }
+  return page;
+}
+
+/** Svarsbladet (#1316): varje fråga i turen och exit ticket med förväntat svar och dess källor, eller beskedet att det saknas facit. */
+function answersSheet(tour, srcById) {
+  const page = el('section', 'print-page print-answers');
+  page.setAttribute('aria-labelledby', 'print-answers-title');
+  page.append(head(tour, ui('print.answers'), 'print-answers-title', { summary: false })); // sammanfattningen står redan på de andra bladen
+  page.append(el('p', 'print-answers-intro', ui('print.answersIntro')));
+  const item = (label, question, answer) => {
+    const box = el('div', 'print-answer');
+    box.append(el('h2', null, label), el('p', 'print-q', question));
+    if (answer) {
+      box.append(el('p', 'print-answer-text', t(answer.text)));
+      const titles = (answer.sources ?? []).map(id => srcById[id]?.title ?? id);
+      box.append(el('p', 'print-answer-src', `${ui('print.sources')}: ${titles.join(', ')}`));
+    } else box.append(el('p', 'print-answer-none', ui('print.noAnswer')));
+    return box;
+  };
+  for (const { step, n } of questions(tour)) page.append(item(stepLabel(step, n), t(step.question), step.answer));
+  page.append(item(exitName(tour), t(tour.lesson.exitTicket), tour.lesson.exitAnswer));
   return page;
 }
 
@@ -185,7 +240,9 @@ export async function printLesson(tour, root, { print = () => window.print() } =
   const cases = detective(tour);
   const sheets = [studentSheet(tour, srcById)];
   if (cases.length) sheets.push(detectiveSheet(tour, cases, srcById));
-  root.replaceChildren(...sheets, teacherSheet(tour, srcById));
+  sheets.push(teacherSheet(tour, srcById));
+  if (hasAnswers(tour)) sheets.push(answersSheet(tour, srcById));
+  root.replaceChildren(...sheets);
   root.hidden = false;
   const done = () => { root.hidden = true; root.replaceChildren(); removeEventListener('afterprint', done); };
   addEventListener('afterprint', done);

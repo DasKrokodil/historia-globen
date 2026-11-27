@@ -404,7 +404,6 @@ Följande händelser i #2098 lämnas utan bild; granskningslistan och valen finn
 |---|---|
 | `kgh-far-handelsmonopol` | 2026-11-26: Ingen kandidat i listan; sökningar på Den Kongelige Grønlandske Handel gav ingen användbar bild (flera nekades med HTTP 429). |
 | `slaget-vid-vertieres` | 2026-11-26: Enda kandidaten i listan var samma Raffet-gravyr som visar Crête-à-Pierrot (används där). Egen sökning gav tre bilder under 800 px ([Bataille de Vertières.jpg](https://commons.wikimedia.org/wiki/File:Bataille_de_Verti%C3%A8res.jpg), 600 × 438 px, PD; en CC BY-SA 4.0-bild på 620 × 458 px; ett monument på 566 × 382 px): för små för kortet. |
-| `slaveriet-avskaffas-1793` | 2026-11-26: Kandidat utsedd men inte hämtad: [Sonthonax.jpg](https://commons.wikimedia.org/wiki/File:Sonthonax.jpg) (porträtt av Léger-Félicité Sonthonax, PD-Art, målare och datering okända). Hämtningen nekades med HTTP 429 (Retry-After 600 s, över taket 60 s) vid upprepade försök. Raden finns i `data/utkast/bildbatch/2098-ej-hamtade.txt` och kan köras om med `tools/bild_hamta.py --lista` eller Actions-flödet `bild-ej-hamtade.yml`. |
 
 ## Amerika 1810–1865 (#2099, 2026-11-26)
 
@@ -456,16 +455,6 @@ Följande händelser i #2098 lämnas utan bild; granskningslistan och valen finn
 | `vaxtresterna-i-spirit-cave` | 2026-11-26: Sökningen på Spirit Cave gav bara bilder av en annan grotta (Spirit Well Cave); ingen lämplig bild. |
 | `keramiken-i-gosan-ri` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
 
-Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
-
-| Händelse (id) | Kandidat |
-|---|---|
-| `hundarna-pa-zjochovon` | Zhokhov - Landsat.jpg (PD, NASA/USGS) |
-| `salfangst-vid-bajkalsjon` | Из жизни байкальской нерпы близ Ушканьих островов 02.jpg (CC BY-SA 4.0) |
-| `persiska-viken-fylls` | PersianGulf vue satellite du golfe persique.jpg (PD, NASA) |
-| `ulleungdos-kaldera-bildas` | Ulleung Island ISS064.jpg (PD, NASA) |
-| `altaifloden` | Katun AltaiRepublicBoundary 013 1368.jpg (CC BY-SA 4.0) |
-
 ## Asien 7051 f.Kr.–1275 f.Kr. (#2058 och #2059, 2026-11-26)
 
 13 av 40 händelser fick bild i den här omgången. Följande 27 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-2.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Många står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
@@ -499,3 +488,586 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `lapitakulturen-i-bismarckarkipelagen` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
 | `ambumstenen` | 2026-11-26: Händelsen saknades i granskningslistan; ingen egen sökning hann göras. |
 | `stort-utbrott-i-witori` | 2026-11-26: Ingen kandidat i listan; sökningen på Witori gav bara orelaterade träffar. |
+
+## Asien 1269 f.Kr.–205 f.Kr. (#2060 och #2061, 2026-11-26)
+
+16 av 40 händelser fick bild i den här omgången. Följande 24 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-3.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Många står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `nauru-befolkas` | 2026-11-26: Kandidaterna är krigsfoton och vapen/flaggor från 1943 och senare; inget visar platsen eller befolkningen. Ingen lämplig bild. |
+| `risodlingen-nar-japan` | 2026-11-26: Ingen kandidat i listan; sökningen på Toro-lämningarna gav inga träffar. |
+| `arvsmassa-fran-palau` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `lapitafolket-pa-taumako` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `stora-dammen-i-marib` | 2026-11-26: Enda träffarna visar den moderna dammen (1986) eller är otydliga; ingen bild som säkert visar den forntida dammen. |
+| `arvsmassa-fran-watom` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `paninis-grammatik` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `mahavira` | 2026-11-26: Händelsen saknades i granskningslistan; sökningen på statyer av Mahavira gav inga träffar. |
+| `skylax-seglar-nerfor-indus` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kungsvagen-susa-sardes` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `pazyrykgravarna` | 2026-11-26: Händelsen gäller gravar med människor och hästar; bilder av gravar och kvarlevor avstås och ingen sökning gjordes. |
+| `belagringen-av-tyros` | 2026-11-26: Enda kandidaten är en karta på 738 × 563 px (Siege tryre.gif); en egen sökning gav bara böcker utan användbar bild. |
+| `nearchos-flotta-fran-indus` | 2026-11-26: Enda kandidaten är en bokbild med licensen "No restrictions", som programmet inte kan avgöra. |
+| `meroitisk-skrift` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `cuju-bollspel-i-kina` | 2026-11-26: Enda kandidaten är ett kinesiskt fotbollsamulett (mynt) av oklar datering och upphov ("Unknown authorship"); används inte. |
+| `dujiangyan` | 2026-11-26: Händelsen saknades i granskningslistan; sökningen på Dujiangyan gav inga träffar. |
+| `qins-enandekrig` | 2026-11-26: Enda kandidaten är en karta (Hou Xuanxuan, CC BY-SA 4.0); en karta visar inte händelsen och används inte när något bättre kan finnas. |
+| `qin-erovrar-han` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `handan-faller-228-fkr` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `qin-intar-ji` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `daliang-satts-under-vatten` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `qin-erovrar-chu` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `chu-han-kriget` | 2026-11-26: Enda kandidaten är en modern karta (Chu-Han Contention.png); används inte. |
+| `slaget-vid-pengcheng` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+
+## Asien 205 f.Kr.–637 (#2062 och #2063, 2026-11-26)
+
+12 av 40 händelser fick bild i den här omgången. Följande 28 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-4.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Många står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `slaget-vid-jingxing` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `slaget-vid-weifloden` | 2026-11-26: Enda kandidaten (Battle at the Wei River (Weihe).jpg) visar enligt filsidan en scen ur Dunganupproret (1862–1877) och inte slaget 204 f.Kr.; den används inte. |
+| `liu-bang-blir-kejsare` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `jordbavningen-i-judeen-31-fkr` | 2026-11-26: Kandidaterna visar Tiberias (David Roberts, 1855) och en bokbild; ingen koppling till jordbävningen. Ingen lämplig bild. |
+| `handelshamnen-adulis` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `han-folkrakningen-ar-2` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `gula-floden-byter-lopp-ar-11` | 2026-11-26: Enda träffen ("Old Course of the Yellow River", foto 2012) anger inte vilken flodfåra eller vilken ändring den visar och kan gälla ett senare lopp; används inte utan säker koppling. |
+| `vita-hastens-tempel` | 2026-11-26: Kandidaterna visar det thailändska templet i Vita hästens tempelområde, inte det ursprungliga templet; används inte utan säker koppling. |
+| `gan-ying-mot-rom` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `rabatakinskriften` | 2026-11-26: Enda träffen (RabatakInscription.jpg) har en filbeskrivning som själv säger att identifieringen är omstridd ("however, this is disputed"); används inte. |
+| `sandebud-fran-rom-via-rinan` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `gaststjarnan-sn-185` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `slaget-vid-vita-vargens-berg` | 2026-11-26: Enda kandidaten är en modern karta (End of Han Dynasty Warlords.png); används inte. |
+| `yingpanmannen` | 2026-11-26: Händelsen gäller en man begravd med en mumie (mänskliga kvarlevor och grav); bilder av kvarlevor avstås och ingen sökning gjordes. |
+| `aksums-mynt` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `antoniusklostret` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `aksums-stora-steler` | 2026-11-26: Kandidaten (Aksum, stele 3, Sailko, CC BY 3.0) kunde inte öppnas på Commons med den angivna filnamnsskrivningen (HTTP 404 på filsidan) och användes därför inte. |
+| `slakten-i-imdang-och-joyeong` | 2026-11-26: Händelsen gäller släktband bland människor begravda i gravar (kvarlevor och gravar); bilder avstås och ingen sökning gjordes. |
+| `loulan-overges` | 2026-11-26: Enda träffen är en karta (The Ruins of Lou-lan, 1935); används inte. |
+| `ge-hongs-handbok-mot-feber` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `offerpalarna-i-kutai` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `jordbavningarna-i-galileen-363` | 2026-11-26: Kandidaterna är synagogan vid Nevoraya i Biriyaskogen och Nabratein-synagogan; filsidorna kopplar dem inte till jordbävningarna år 363, så de används inte. |
+| `torka-i-sasanidernas-persien` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `aryabhatiya` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `arabiska-erovringarna` | 2026-11-26: Enda kandidaten är en karta (Map of expansion of Caliphate.svg); används inte. |
+| `jerusalem-intas-637` | 2026-11-26: Enda kandidaten visar Al-Aqsa-moskén (foto 1982, dubbellicens); kopplingen till kapitulationen är otydlig och platsen helig, så den används inte utan bedömning. |
+
+
+## Asien 637–1521 (#2064 och #2065, 2026-11-26)
+
+20 av 40 händelser fick bild i den här omgången. Följande 20 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-5.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `slaget-vid-jalula` | 2026-11-26: Enda kandidaterna är två stridsdiagram ritade av en Wikimedia-användare (BATTLE DISPOSITION 1-jalula.JPG, Phase Ijalula.JPG) utan angiven källa för uppställningen; används inte. |
+| `jiaozi-statliga-sedlar` | 2026-11-26: Enda träffen (Jiao zi.jpg, PD) är bara 308 px bred och blir suddig i kortet; en större bild på en jiaozi-sedel eller ett tryckblock återstår att söka. |
+| `nizamiyya-i-bagdad` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kutadgu-bilig` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `jalalikalendern` | 2026-11-26: Händelsen saknades i den automatiska listan (verktyget hoppade över den); ingen egen sökning hann göras. |
+| `shen-kuo-magnetkompassen` | 2026-11-26: Träffarna är bara skannade bokvolymer (PDF) av Mengxi bitan; ingen bild som visar kompassen eller Shen Kuo, så ingen används. |
+| `zagwedynastin` | 2026-11-26: Händelsen saknades i den automatiska listan. Egen sökning gav en karta (ZagweMap.jpg, CC0 för en karta ur en bok från 1972, osäker licens) och foton på levande kyrkor i Lalibela; ingen används utan närmare bedömning. |
+| `genpeikriget` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras (slagen i kriget har egna bilder: Kurikara, Ichi-no-Tani, Yashima). |
+| `slaget-vid-uji-1180` | 2026-11-26: Enda kandidaten (Fenixhallen i Byōdō-in) används i stället för händelsen `byodo-in-blir-tempel`; samma fil används inte för två händelser. En bild som visar slaget återstår att söka. |
+| `mongolerna-anfaller-vastra-xia` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `mongolerna-intar-buchara` | 2026-11-26: Ingen kandidat i listan; sökningen efter Kalyanminareten stoppades av HTTP 429. |
+| `sukhothairiket-grundas` | 2026-11-26: Kandidaterna är ett foto (Sukhothai, Wat, Thailand.jpg) vars licens verktyget flaggade (ingen igenkänd licensmall) och en karta från 1901; används inte. |
+| `observatoriet-i-maragheh` | 2026-11-26: Foto utsett (Maragheh observatory 1.JPG, Elmju, CC BY-SA 3.0, nutida foto av skyddshallen på platsen) men ryms inte i den här omgångens tak på 20 bilder; kan tas i nästa omgång. |
+| `forsta-slaget-i-hakatabukten` | 2026-11-26: Kandidaten (Mooko-HakataWall.jpg, försvarsmuren vid Hakata ur Mōko Shūrai Ekotoba) visar enligt filsidan muren under invasionerna; filsidan säger inte att muren fanns 1274, så den används inte här. |
+| `mongolerna-landar-pa-tsushima-1274` | 2026-11-26: Kandidaten är en kinesisk provinskarta från Qingtiden (Da Qing fen sheng yu tu); den visar inte händelsen och används inte. |
+| `jordbavningen-i-hongdong-1303` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `pesten-vid-issyk-kul` | 2026-11-26: Händelsen gäller pestgravar (mänskliga kvarlevor och gravar); bilder avstås och ingen sökning gjordes. |
+| `malacka-grundas` | 2026-11-26: Kandidaterna är portugisiska tennmynt från Malacka (1500-talet) och har ingen koppling till sultanatets grundande; används inte. |
+| `safaviderna-tar-makten-1501` | 2026-11-26: Träffarna är porträtt av Ismail I (Behzad, Altissimo m.fl.) men alla är mindre än 800 px och skulle bli suddiga i kortet; en större bild återstår att söka. |
+| `funjsultanatet-grundas` | 2026-11-26: Sökningen gav inga träffar; ingen egen vidare sökning hann göras. |
+
+
+## Asien 1526–1853 (#2066 och #2067, 2026-11-26)
+
+14 av 40 händelser fick bild i den här omgången. Följande 26 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-6.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `saavedra-over-stilla-havet` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `portugiserna-landstiger-i-massawa` | 2026-11-26: Egen sökning gav en gravyr av Cristóvão da Gama (Cristovao da Gama in Abyssinia.jpg) vars filsida anger "source: unknown" och okänd upphovsperson; licensen (PD-old-70) vilar på ett antagande och används inte. |
+| `slaget-vid-wofla` | 2026-11-26: Kandidaten (Burning of churches by the Adalites..., konstnär verksam cirka 1900) har licensmallen CC0 satt av uppladdaren för ett verk av en konstnär verksam 1900, vilket är osäkert; används inte. Övriga träffar är små eller en karta. |
+| `jordbavningen-i-shaanxi-1556` | 2026-11-26: Kandidaterna är nutida foton av Daci'en-templet i Xi'an och en liten karta; filsidorna kopplar inte templet till jordbävningen, så de används inte. |
+| `mendana-nar-salomonoarna` | 2026-11-26: Enda kandidaten är en liten karta (495 px); används inte. Sökning efter samtida bilder gav bara bokskanningar (PDF). |
+| `slaget-vid-komaki-nagakute` | 2026-11-26: Enda kandidaten (nutida foto av slagfältet, CC BY-SA 3.0) flaggades för licensen; används inte utan närmare kontroll. |
+| `slaget-vid-chungju-1592` | 2026-11-26: Enda kandidaten är en japansk bild (588 px bred) som blir suddig i kortet; en större bild återstår att söka. |
+| `sjoslaget-vid-hansan` | 2026-11-26: Kandidaten (Documentary painting of the Battle of Hansan Island) har licensen KOGL Type 1, som inte ingår i de tillåtna licenserna; används inte. En annan träff (Битва при Хансандо) saknar tydlig källa. |
+| `farden-till-vastern-1592` | 2026-11-26: Kandidaterna är foton av ett tåg (fel motiv); ingen bild som visar boken eller händelsen hann sökas. |
+| `belagringen-av-pyongyang-1593` | 2026-11-26: Enda träffarna (Chinapyongyangimjin.jpg, Battle of Pyongyang 1593.JPG) är mindre än 800 px; en större bild återstår att söka. |
+| `slaget-vid-haengju` | 2026-11-26: Enda kandidaten är ett nutida foto av ett monument (Haengjudaecheopbi); modernt konstverk och stående bild, används inte. |
+| `sjoslaget-vid-myeongnyang` | 2026-11-26: Enda kandidaten (Navalzhugenu2.jpg) visar ett kinesiskt fartyg och är bara 464 px bred; används inte. |
+| `adi-granth-i-gyllene-templet` | 2026-11-26: Kandidaterna är nutida foton av Gyllene templet i Amritsar, en aktiv helig plats där pilgrimer ofta syns; avstås tills en människa bedömt det. Ingen egen vidare sökning hann göras. |
+| `torres-seglar-genom-torressundet` | 2026-11-26: Enda kandidaten (Torres Strait.jpg) är en liten stående bild (444 px); används inte. |
+| `spansk-chamorriska-krigen` | 2026-11-26: Enda kandidaten (kvinnor som sköter trädgårdar vid regeringscentret på Guam, 1800-tal) är liten (604 px) och visar inte krigen; urfolkets kulturarv, används inte. |
+| `khalsa-grundas` | 2026-11-26: Egen sökning gav en 1800-talsmålning av Khalsas grundande (PD-art, upphovsperson okänd, källa Instagram) och en fresk; religiösa bilder av Guru Gobind Singh och svag proveniens, så de avstås tills en människa bedömt dem. |
+| `sirhind-1758` | 2026-11-26: Kandidaterna är små brev (Marathi letter references…, cirka 525 px); används inte. |
+| `slaget-vid-barari-ghat` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `marathas-tar-delhi-1760` | 2026-11-26: Kandidaterna är en karta från 1768 och små brevbilder; används inte. |
+| `slaget-vid-kunjpura` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `svalten-i-bengalen-1770` | 2026-11-26: Enda kandidaten (Distressed Natives Going to the Relief Works, The Graphic 1874) hör enligt titeln till en senare hungersnöd (1874), inte till 1770; används inte. |
+| `tenmei-svalten` | 2026-11-26: Kandidaten (Great Tenmei famine.jpg) visar enligt filsidan människor som äter hästar och människokött och har licensen CC BY-SA 4.0 för ett verk från 1790-talet utan känd upphovsperson; osäker licens och mycket obehaglig bild, används inte. |
+| `skarmytslingen-vid-kowloon-1839` | 2026-11-26: Kandidaten (Hong-kong, from Kow-loon, 1841–1842) visar en senare vy och inte skärmytslingen 1839; används inte. |
+| `andra-slaget-vid-chuanbi` | 2026-11-26: Kandidaterna (Attack and Capture of Chuenpee, Nemesis in Anson's Bay) hör enligt bildtexterna till striderna i januari 1841 och är inte uttryckligen kopplade till det andra slaget; används inte utan säker koppling. |
+| `bab-framtrader-1844` | 2026-11-26: Ingen kandidat i listan; Báb avbildas inte (bilder av Báb behandlas med vördnad inom bahá'í) och ingen sökning gjordes. |
+| `norra-expeditionen-taiping` | 2026-11-26: Enda träffen är ett foto av Chiang Kai-shek vid en grav (fel motiv); används inte. |
+
+
+## Asien 1856–1950 (#2068 och #2069, 2026-11-26)
+
+10 av 40 händelser fick bild i den här omgången. Följande 30 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-7.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `tianjingincidenten` | 2026-11-26: Händelsen saknades i den automatiska listan (verktyget hoppade över den); ingen egen sökning hann göras. |
+| `indiska-upproret-1857` | 2026-11-26: Enda kandidaten är en karta (Indian Rebellion of 1857.jpg, 1912) med licensflagga; används inte. |
+| `belagringen-av-cawnpore` | 2026-11-26: Enda kandidaten (gravyr ur The History of the Indian Mutiny, 1858, CC0 enligt British Library) visar mord på kvinnor och barn i båtar vid Satichaura Ghat och är en brittisk propagandabild; avstås tills en människa bedömt det. |
+| `belagringen-av-lucknow` | 2026-11-26: Enda kandidaten ("The Relief of Lucknow", cirka 1914) är 777 × 394 px och ett senare konstverk; används inte. |
+| `slaget-vid-gwalior-1858` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `slaget-vid-shanghai-1861` | 2026-11-26: Träffarna är kartor och diagram från 1937 ("Why the Fighting in Shanghai"); de hör inte till striderna 1861 och används inte. |
+| `tredje-slaget-vid-nanjing` | 2026-11-26: Enda kandidaten (Third Battle of Nanking.jpg) är bara 538 px bred; används inte. |
+| `muhammad-ahmad-utropar-sig-till-mahdi` | 2026-11-26: Enda kandidaten är ett porträtt (724 × 928 px) utan känt datum eller källa; används inte. |
+| `bac-ninh-falttaget` | 2026-11-26: Enda kandidaten (Prise de Bac-Ninh.jpg, 1884) är bara 416 px bred; används inte. |
+| `forsta-italiensk-etiopiska-kriget` | 2026-11-26: Enda kandidaten är ett nutida foto (stående, filsidan oklar); används inte. |
+| `slaget-vid-coatit` | 2026-11-26: Enda kandidaten är ett porträtt av en italiensk kapten (Federico Ciccodicola, 1889), inte striden; används inte. |
+| `slaget-vid-amba-alagi-1895` | 2026-11-26: Enda kandidaten (Ras Mekonnen Amba Alage-2.jpg) har oklart ursprung och stående format; används inte utan närmare kontroll. |
+| `belagringen-av-mekelle` | 2026-11-26: Enda kandidaten (Mekele 1896.jpg) är bara 687 px bred; används inte. |
+| `ross-malaria-myggan` | 2026-11-26: Kandidat utsedd (Major Ronald Ross ur A practical study of malaria, 1909, Internet Archive Book Images) men verktyget kunde inte avgöra licensen (API: "No restrictions", ingen igenkänd mall); används inte. |
+| `slaget-vid-quingua` | 2026-11-26: Enda kandidaten (Battle of Quingua.jpg) har licensrisk och är troligen en modern målning; används inte. |
+| `boxarupproret` | 2026-11-26: Händelsen saknades i den automatiska listan och sökningen efter belägringen av legationerna gav inga träffar; ingen egen vidare sökning hann göras. |
+| `rysk-japanska-kriget` | 2026-11-26: Enda kandidaten är liten (655 × 916 px, stående); används inte. |
+| `raja-harishchandra-har-premiar` | 2026-11-26: Enda kandidaten (affisch för filmen, 256 × 390 px) är för liten; används inte. |
+| `bose-statistiken` | 2026-11-26: Kandidat utsedd (Satyendra-nath-bose.jpg, foto från 1915, PD-India, okänd upphovsperson, källa en webbplats) men inte hämtad (HTTP 429) och proveniensen är svag; används inte. |
+| `ramaneffekten` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `andra-kinesisk-japanska-kriget` | 2026-11-26: Enda kandidaten är en karta (Japanese Occupation of China 1940); används inte. |
+| `nanjingmassakern` | 2026-11-26: Händelsen gäller ett massmord; bilder av offer avstås och ingen sökning gjordes. |
+| `lahoreresolutionen-1940` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `svalten-i-henan-1942` | 2026-11-26: Enda kandidaten är ett pressfoto av hungrande människor (Agsphoto 11239 full.jpg); avstås tills en människa bedömt om en värdig bild finns. |
+| `svalten-i-bengalen-1943` | 2026-11-26: Kandidaterna är foton av utsvultna människor (Calcutta 1943); avstås tills en människa bedömt om en värdig bild finns. |
+| `arabisk-israeliska-kriget-1948` | 2026-11-26: Enda kandidaten är en karta (1948 Arab Israeli War, May 15–June 10); används inte. |
+| `lydda-och-ramle-1948` | 2026-11-26: Kandidaterna är en israelisk soldatbild och en bild av palestinier i Ramle (liten) med oklar koppling till fördrivningen; avstås tills en människa bedömt urvalet av perspektiv. |
+| `operation-uvda` | 2026-11-26: Enda kandidaten (Raising the Ink Flag at Umm Rashrash) har licensflagga och är ett senare, uppsatt foto; används inte. |
+| `operation-yoav` | 2026-11-26: Kandidaten (Beersheba 1948.jpg, Israels statliga presskontor, PD-Israel) är fri enligt israelisk lag men fotot från 1948 kan fortfarande vara upphovsrättsskyddat i USA (URAA); används inte tills en människa bedömt det. |
+
+
+## Asien 1950–1975 (#2070 och #2071, 2026-11-26)
+
+13 av 40 händelser fick bild i den här omgången. Följande 27 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-8.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `nordkoreas-anfall-1950` | 2026-11-26: Kandidaterna ("Korean War, train attack", en kinesisk krigsfartygsbild, en övning 2020-talet) hör inte till anfallet i juni 1950 eller är nutida; används inte. Ingen egen vidare sökning hann göras. |
+| `slaget-vid-onjong` | 2026-11-26: Enda kandidaten är en karta (Map Chinese intervention.jpg); används inte. |
+| `tredje-slaget-om-seoul` | 2026-11-26: Enda kandidaten (UK 29th Brigade Prisoner.jpg) är bara 450 px bred; används inte. |
+| `ambedkar-blir-buddhist` | 2026-11-26: Ingen kandidat i listan; egen sökning gav bara bilder under 500 px (460 × 275 px m.fl.), som blir suddiga i kortet; används inte. |
+| `stora-spranget` | 2026-11-26: Enda kandidaten (People's commune canteen) är 400 × 416 px; används inte. |
+| `sexdagarskriget` | 2026-11-26: Händelsen saknades i den automatiska listan. Egen sökning gav foton av Boris Carmi (CC BY 4.0) som verktyget flaggade (ingen igenkänd licensmall) och israeliska GPO-bilder från 1967 med oklar USA-status; används inte utan närmare kontroll. |
+| `slaget-vid-abu-ageila-1967` | 2026-11-26: Enda kandidaten (GPO, Centurion Tanks, CC BY-SA 3.0) har licensflagga; används inte utan närmare kontroll. |
+| `golanhojderna-1967` | 2026-11-26: Kandidaten (Israeli tanks advancing on the Golan Heights, D327-098) har CC BY-SA 4.0 enligt API:et men ingen igenkänd licensmall på filsidan; verktyget flaggade den, så den används inte. |
+| `belagringen-av-khe-sanh` | 2026-11-26: Enda kandidaten (Tquad.jpg) är bara 699 × 344 px; används inte. |
+| `faltaget-i-kambodja-1970` | 2026-11-26: Enda kandidaten är en karta (Map Cambodian Incursion May 70); används inte. |
+| `ohsumi-japans-forsta-satellit` | 2026-11-26: Kandidaten (Ohsumi.jpg, CC BY-SA 3.0) är en montage av en satellitbild och en NASA-bild där delbildens licens inte är kontrollerad; används inte. |
+| `bangladeshs-befrielsekrig` | 2026-11-26: Enda kandidaten är en karta (Bangladesh 1971 Liberation.jpg); används inte. |
+| `operation-searchlight` | 2026-11-26: Kandidaterna är ett diagram, en montage och ett modernt verk med oklar proveniens; används inte. |
+| `bangladeshs-sjalvstandighet-utropas` | 2026-11-26: Kandidaterna är foton från 2026 av ministrar och minnesceremonier, inte utropandet 1971; används inte. |
+| `mujibnagarregeringen` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `slaget-vid-hilli` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `operation-lam-son-719` | 2026-11-26: Enda kandidaten är en karta (Map Lam Son 719); används inte. |
+| `saljut-1` | 2026-11-26: Enda kandidaten (frimärke från 1972, PD-RU-exempt) visar en rymdstation med ett rymdskepp men filsidan nämner inte Saljut 1 och licensen för frimärken är osäker; används inte. |
+| `ramsarkonventionen` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `jom-kippurkriget` | 2026-11-26: Enda kandidaten (Yom Kippur War. XXXVI, CC BY-SA 3.0) har licensflagga; används inte utan närmare kontroll. Händelsen "slaget om Suez" har fått en egen bild. |
+| `tararnas-dal-1973` | 2026-11-26: Enda kandidaten är en karta (Golan heights theater); används inte. |
+| `slaget-vid-kinesiska-farmen` | 2026-11-26: Enda kandidaten är en karta (1973 Sinai war maps); används inte. |
+| `saigons-fall` | 2026-11-26: Enda kandidaten är en karta (HCMCampaign.svg); används inte. |
+| `papua-nya-guinea-blir-sjalvstandigt` | 2026-11-26: Kandidaterna är kartor; används inte. |
+| `aryabhata-indiens-forsta-satellit` | 2026-11-26: Enda kandidaten (Aryabhata Satellite.jpg) är bara 484 × 381 px; används inte. |
+| `folkmordet-i-kambodja` | 2026-11-26: Enda kandidaten visar skallar från "killing fields" (mänskliga kvarlevor); bilder av kvarlevor avstås. |
+
+
+## Asien 1978–2021 (#2072 och #2073, 2026-11-26)
+
+13 av 38 händelser fick bild i den här omgången. Följande 25 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-9.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `iranska-revolutionen` | 2026-11-26: Kandidaterna (demonstrationsbilder 1979) är under 800 px eller har oklar licens (GFDL ensamt, okänd fotograf); används inte. |
+| `iran-irak-kriget` | 2026-11-26: Enda kandidaten är en montage (380 px); används inte. |
+| `tankerkriget` | 2026-11-26: Händelsen saknades i den automatiska listan; egen sökning gav inga lämpliga bilder. |
+| `operation-ramadan` | 2026-11-26: Enda kandidaten är en liten karta (328 px); används inte. |
+| `svalten-i-etiopien-1983-1985` | 2026-11-26: Enda kandidaten (Opbushel.jpg) är bara 500 px bred och har licensflagga; bilder av hungersnöden avstås tills en människa bedömt om en värdig bild finns. |
+| `forsta-slaget-om-al-faw` | 2026-11-26: Enda kandidaten (Al-faw.jpg) är bara 495 px bred; används inte. |
+| `halabja-1988` | 2026-11-26: Enda kandidaten visar familjegravar för offren (gravar); bilder av gravar avstås. |
+| `vapenvilan-iran-irak-1988` | 2026-11-26: Enda kandidaten är en liten montage (572 px); används inte. |
+| `bougainvillekonflikten` | 2026-11-26: Händelsen saknades i den automatiska listan; egen sökning efter Panguna gav inga träffar. |
+| `upproret-vid-panguna` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `panguna-gruvan-stangs` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `himmelska-fridens-torg-1989` | 2026-11-26: Enda kandidaten (CC BY 2.5, 550 × 749 px) är liten och stående; används inte. Pressbilder från protesterna är inte fria. |
+| `irak-invaderar-kuwait` | 2026-11-26: Enda kandidaten visar ett övergivet irakiskt stridsvagn på vägen till Kuwait City i februari 1991, alltså efter befrielsen och inte invasionen 1990; används inte. |
+| `slaget-vid-khafji` | 2026-11-26: Kandidaterna är en bred bild (1000 × 442) och en bild (Cleaning up Khafji.jpg) som efter konvertering ser konstgjord ut; används inte utan närmare kontroll. |
+| `slaget-vid-73-easting` | 2026-11-26: Enda kandidaten (Type 69 Operation Desert Storm.jpg) visar enligt filsidan en irakisk stridsvagn som brinner efter en attack av brittiska 1:a pansardivisionen och hör inte till slaget vid 73 Easting; används inte. |
+| `vapenvila-i-gulfkriget` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `arawa-aterintas` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `sandlineaffaren` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `asienkrisen-1997` | 2026-11-26: Enda kandidaten är en karta (PIIGS Mk 4 map.png) och hör inte till Asienkrisen; används inte. |
+| `kriget-i-afghanistan-2001` | 2026-11-26: Enda kandidaten är en collage (926 px); används inte. |
+| `slaget-vid-tora-bora` | 2026-11-26: Enda kandidaten är en liten karta (450 px) med licensflagga; används inte. |
+| `operation-anaconda` | 2026-11-26: Enda kandidaten är en karta (AnacondaAreaOfOperations.jpg); används inte. |
+| `saddam-hussein-tillfangatas` | 2026-11-26: Enda kandidaten (SaddamSpiderHole.jpg) är 640 × 480 px och blir suddig i kortet; används inte. |
+| `folkomrostning-om-bougainvilles-sjalvstandighet` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `talibanerna-intar-kabul-2021` | 2026-11-26: Enda kandidaten (Crowds in front of Kabul International Airport) har licensflagga; används inte. |
+
+
+## Amerika 21500 f.Kr.–600 (#2091 och #2094, 2026-11-26)
+
+14 av 40 händelser fick bild i den här omgången. Följande 26 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/amerika-1.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `bonnevillefloden` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `monte-verde` | 2026-11-26: Enda kandidaten (Monte Verde 3.JPG, CC BY-SA 3.0) visar enligt filsidan "ett nationalmonument i Chile" men bilden är en park med en vattenspegel utan synliga lämningar; kopplingen till boplatsen är oklar och bilden används inte. |
+| `clovis-kulturen` | 2026-11-26: Enda kandidaten (Clovis spear point, British Museum, CC BY-SA 4.0) flaggades av verktyget (ingen igenkänd licensmall på filsidan); används inte. |
+| `havet-bryter-igenom-vid-berings-sund` | 2026-11-26: Kandidaterna är kartor och en satellitbild med licensen CC BY-SA 3.0 IGO (inte en tillåten licens); används inte. |
+| `pumpan-tams-i-guila-naquitz` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `lapa-do-santo-begravningar` | 2026-11-26: Enda kandidaten visar en utgrävd begravning med skelett (mänskliga kvarlevor); bilder av kvarlevor avstås. |
+| `potatisen-tams` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `koster-hundgravar` | 2026-11-26: Enda kandidaten (utgrävningen vid Koster 1973, NARA/EPA) visar enligt sin titel en utgrävning av en indiansk gravplats; gravplats och urfolkets kulturarv, bilden avstås. |
+| `obsidian-fran-oregon-under-huronsjon` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `majsen-tams-i-balsasdalen` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kopparkulturen-vid-stora-sjoarna` | 2026-11-26: Enda kandidaten är en holländsk atlas från cirka 1685 ("Aangezicht op het pavilioen") som inte hör till kopparkulturen; används inte. |
+| `agassizsjon-toms` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `windover-gravarna` | 2026-11-26: Händelsen gäller gravar med människoben; bilder av kvarlevor och gravar avstås och ingen sökning gjordes. |
+| `chinchorromumier` | 2026-11-26: Händelsen gäller mumier (mänskliga kvarlevor); bilder avstås och ingen sökning gjordes. |
+| `indigo-i-huaca-prieta` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `la-tolita-storhetstid` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `moche-kulturen` | 2026-11-26: Kandidaterna ("Tomb of Lord of Sipán", Museo-rekonstruktioner av en grav) ligger nära en gravplats och har inte granskats för kvarlevor; används inte utan närmare kontroll. |
+| `torka-pa-yucatan-150-250` | 2026-11-26: Kandidaterna är moderna satellitbilder av bränder (2020); de visar inte torkan och används inte. |
+| `la-mojarra-stele-1` | 2026-11-26: Enda kandidaten (Harvestermountainlord.jpg) är 286 × 473 px och visar inte stelen; används inte. |
+| `pachacamac` | 2026-11-26: Händelsen saknades i den automatiska listan. Egen sökning gav Flickr-bilder av platsen, men den bild som hämtades visar hästar i dis och inte lämningarna; används inte. |
+| `nya-grodor-hos-hohokam` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `el-mollekulturen` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `havsytan-star-nastan-still-i-franska-polynesien` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `casarabekulturen` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `tainofolk-nar-bahamas` | 2026-11-26: Enda kandidaten ("The merchant vessel", 1884) hör inte till Taínofolkets färder och har licensflagga; används inte. |
+| `wari-riket` | 2026-11-26: Ingen kandidat i listan; sökningen efter Pikillacta gav inga träffar. |
+
+
+## Amerika 1520–1914 (#2097 och #2100, 2026-11-26)
+
+13 av 40 händelser fick bild i den här omgången. Följande 27 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/amerika-2.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `smittkoppor-i-tenochtitlan-1520` | 2026-11-26: Ingen kandidat i listan; bilder av sjuka och döda avstås tills en människa bedömt dem; ingen egen sökning hann göras. |
+| `atahualpa-avrattas` | 2026-11-26: Enda kandidaten (porträtt, 355 × 458 px) är för liten; används inte. |
+| `cocoliztli-1545` | 2026-11-26: Ingen kandidat i listan; bilder av sjuka och döda avstås; ingen egen sökning hann göras. |
+| `san-marcos-universitet-1551` | 2026-11-26: Enda kandidaten (UNMSM sedes principales.png, CC BY-SA 4.0) är en sammanställning av moderna byggnader; används inte. |
+| `vilcabamba-intas-1572` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `mita-i-potosi-1573` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `cocoliztli-1576` | 2026-11-26: Ingen kandidat i listan; bilder av sjuka och döda avstås; ingen egen sökning hann göras. |
+| `palmares-quilombo` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `sor-juana-respuesta-1691` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `godthab-grundas` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `sjuarskriget` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `stand-watie-kapitulerar` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `trippelalliansfordraget` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `slaget-vid-curupayty` | 2026-11-26: Enda kandidaten (Batalhacurupaiti.jpg) är bara 400 × 285 px; används inte. |
+| `humaita-faller-1868` | 2026-11-26: Enda kandidaten är en liten karta (532 px); används inte. |
+| `slaget-vid-acosta-nu` | 2026-11-26: Enda kandidaten (Batalha de Campo Grande, 1871) är bara 620 × 387 px och visar enligt titeln en annan strid; används inte. |
+| `finlay-gula-febern` | 2026-11-26: Enda kandidaten (Walter Reeds brev till Truby, museifoto) hör inte till Finlays upptäckt; används inte. |
+| `slaget-vid-palonegro` | 2026-11-26: Enda kandidaten (Visperas batalla palonegro.jpg) är bara 709 × 432 px; används inte. |
+| `mont-pelee-1902` | 2026-11-26: Enda kandidaten (plansch ur National Geographic 1902, "No restrictions") har licensflagga: verktyget kunde inte avgöra licensen; används inte. |
+| `chagas-ny-parasit-1909` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `mexikanska-revolutionen` | 2026-11-26: Enda kandidaten är en karta (Revolución mexicana 1915.svg); används inte. |
+| `fordraget-i-ciudad-juarez` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `bingham-vid-machu-picchu` | 2026-11-26: Kandidaterna visar ett tåg som bär Binghams namn (Perurail) och en karta; de visar inte händelsen och används inte. |
+| `decena-tragica` | 2026-11-26: Kandidaten (Decena trágica.JPG: 1913 års foto av Osuna) har enligt filsidan licensen GFDL/CC BY-SA 3.0 satt av uppladdaren på ett foto från 1913; licensen är overifierad och bilden används inte. |
+| `slaget-vid-zacatecas-1914` | 2026-11-26: Enda kandidaten (TakingofZacatecas.JPG) är ett verk från 1965 (en senare avbildning, troligen ett modernt konstverk); används inte. |
+| `vandringsduvan-dor-ut` | 2026-11-26: Enda kandidaten (Martha, den sista vandringsduvan, 1912) har licensrisk (PD-US); verktyget flaggade att fotot kanske bara är fritt i USA; används inte utan närmare kontroll. |
+
+
+## Europa 208000 f.Kr.–3600 f.Kr. (#2074 och #2076, 2026-11-26)
+
+11 av 40 händelser fick bild i den här omgången. Följande 29 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/europa-1.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `apidima` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras (gäller fossil av människoarter: riktiga fynd först, ingen rekonstruktion). |
+| `ranis-zlaty-kun` | 2026-11-26: Ingen kandidat i listan; gäller människoben; ingen egen sökning hann göras. |
+| `kampanska-ignimbriten` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `lascaux` | 2026-11-26: Händelsen saknades i den automatiska listan; sökningen efter repliker av Lascaux stoppades av HTTP 429. |
+| `tandingreppet-i-villabruna` | 2026-11-26: Händelsen gäller en människas tänder och begravning (mänskliga kvarlevor); bilder avstås och ingen sökning gjordes. |
+| `yngre-dryas` | 2026-11-26: Enda kandidaten är en liten karta (582 px); används inte. |
+| `baltiska-issjon-tappas-ut` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `pessekanoten` | 2026-11-26: Kandidaten (Drents Museum, prehistoriska rummet) visar kanoten bara som en liten del längst ned i en mörk museisal med besökare; används inte. En bättre bild (Boomstamkano van Pesse, 730 × 430 px) är för liten. |
+| `doggerland-drankes` | 2026-11-26: Enda kandidaten är en karta (Doggerland.svg) med licensflagga; används inte. |
+| `akermyrapaddeln` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `barumkvinnan` | 2026-11-26: Händelsen gäller en kvinnas grav (mänskliga kvarlevor); bilder avstås och ingen sökning gjordes. |
+| `ladoga-blir-en-egen-sjo` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `storeggaskredet` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `bar-och-fisk-i-zamostje` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `tybrind-vig` | 2026-11-26: Kandidaten (Tybrind Vig bow tips, CC BY 3.0) är en bearbetad bild med en vit effekt över fotot; används inte. |
+| `ilumetsakratrarna` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `rodockragraven-i-manjarv` | 2026-11-26: Händelsen gäller en grav; bilder av gravar och kvarlevor avstås och ingen sökning gjordes. |
+| `koppargruvan-i-rudna-glava` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `gravfaltet-i-naltjik` | 2026-11-26: Enda kandidaten (NalchikJewishCemetery.jpg) är en modern judisk kyrkogård och hör inte till gravfältet; används inte. |
+| `hepatit-b-i-sachtysj` | 2026-11-26: Händelsen gäller gravar och människoben; bilder av kvarlevor avstås och ingen sökning gjordes. |
+| `varna-gravfaltet` | 2026-11-26: Enda kandidaten (Or de Varna - Nécropole.jpg, CC BY-SA 3.0) visar en rekonstruerad grav med ett skelett (mänskliga kvarlevor); avstås. |
+| `variscitgruvorna-i-gava` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kamkeramikernas-byteshandel` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `saimen-bryter-igenom-salpausselka` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `hallmalningarna-i-astuvansalmi` | 2026-11-26: Enda kandidaten (Astuvansalmen kalliolippa.jpg) är bara 768 px bred och datumet är osäkert; används inte. |
+| `trypillias-jatteboplatser` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `lillberget` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `majkopkurganen` | 2026-11-26: Händelsen saknades i den automatiska listan; gäller en gravhög; ingen egen sökning hann göras. |
+| `ggantija` | 2026-11-26: Händelsen saknades i den automatiska listan; sökningen gav inga träffar. |
+
+
+## Europa 3500 f.Kr.–800 f.Kr. (#2077 och #2078, 2026-11-26)
+
+13 av 40 händelser fick bild i den här omgången. Följande 27 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/europa-2.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `vagnshjulen-i-novokorsunskaja` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `otzi` | 2026-11-26: Händelsen saknades i den automatiska listan och gäller en mumifierad människa (mänskliga kvarlevor); bilder avstås och ingen sökning gjordes. |
+| `newgrange` | 2026-11-26: Händelsen saknades i den automatiska listan; sökningen efter Newgrange gav inga träffar; ingen egen vidare sökning hann göras. |
+| `meteoritkratrarna-i-morasko` | 2026-11-26: Enda kandidaten (Morasko krater zima.jpg) saknar fotograf och beskrivning på filsidan (GFDL/CC BY-SA 3.0 utan angiven upphovsperson); används inte. |
+| `tumlarna-blir-farre-i-ostra-ostersjon` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `elfenbensdamen-i-valencina` | 2026-11-26: Enda kandidaten (Gold foil with four oculi, CC BY 4.0, 2025) visar ett guldfolieföremål och inte elfenbensfiguren; används inte. |
+| `meningokocker-pa-ajvide` | 2026-11-26: Ingen kandidat i listan; gäller gravfynd; ingen egen sökning hann göras. |
+| `kalenderkarlet-fran-vinkovci` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `mjolk-i-lerkarlen-i-kyrkslatt` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kyla-i-alperna-4-2` | 2026-11-26: Kandidaterna är ett klimatdiagram (2025) och en svampbild; används inte. |
+| `torka-i-mesopotamien-4-2` | 2026-11-26: Enda kandidaten är ett diagram (2025); används inte. |
+| `pest-i-bronsalderns-britannien` | 2026-11-26: Enda kandidaterna (en karikatyr från 1819 och en gravbild) hör inte till händelsen; pest och gravar, bilder avstås. |
+| `metallen-till-sydskandinavien-byter-vag` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kopparbrytning-pa-great-orme` | 2026-11-26: Kandidaterna (geograph-foton av Great Orme Copper Mines, CC BY-SA 2.0) har licensflagga; används inte utan närmare kontroll. |
+| `kastelli-jattekyrka` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `megalitgravarna-vid-trafalgar` | 2026-11-26: Ingen kandidat i listan; gäller gravar; ingen egen sökning hann göras. |
+| `nebra-himmelsskivan` | 2026-11-26: Enda kandidaten (foto av skivan av Anagoria, PD enligt filsidan) har licensflagga; används inte utan närmare kontroll. |
+| `bete-vid-mortensnes` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `hirs-i-pielgrzymowice` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `solvagnen-fran-trundholm` | 2026-11-26: Kandidaten (Solvognen DO-6865 2000.jpg) har motstridiga licensuppgifter (filsidans mall CC BY-SA 2.5, API:et CC BY-SA 3.0) och flaggades av verktyget; används inte. |
+| `egtvedflickan` | 2026-11-26: Händelsen saknades i den automatiska listan och gäller en begravning med kvarlevor; bilder avstås och ingen sökning gjordes. |
+| `bronsalderns-kollaps` | 2026-11-26: Kandidaterna är fynd av en depå i England (Portable Antiquities Scheme) som inte hör till kollapsen; används inte. |
+| `terramarebyarna-overges` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `befasta-kullar-i-ostra-litauen` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `hastutrustningen-fran-eskelhem` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `faltnabbmus-i-aalborg` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `barnsten-och-brons-i-kukuliskiai` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+
+
+## Europa 748 f.Kr.–1 (#2079 och #2080, 2026-11-26)
+
+12 av 40 händelser fick bild i den här omgången. Följande 28 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/europa-3.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `biskupin-byggs` | 2026-11-26: Ingen kandidat i listan; sökningen efter den rekonstruerade byn gav inga träffar; ingen egen vidare sökning hann göras. |
+| `mjolkproteiner-i-skyternas-tandsten` | 2026-11-26: Ingen kandidat i listan; gäller tandsten från människor (kvarlevor); ingen egen sökning hann göras. |
+| `hannos-resa-langs-afrika` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `offerplatsen-skedemosse` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `alkmaion-fran-kroton` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `perserkrigen` | 2026-11-26: Händelsen saknades i den automatiska listan; sökningen efter målningar av sjöslaget vid Salamis gav inga träffar (HTTP 429); ingen egen vidare sökning hann göras. Slagen vid Marathon, Plataiai och Lade har egna händelser. |
+| `joniska-upproret` | 2026-11-26: Enda kandidaten är en karta (Map Anatolia ancient regions); används inte. |
+| `slaget-vid-lade` | 2026-11-26: Enda kandidaten är en liten karta (366 px); används inte. |
+| `kalliasfreden` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `tollundmannen` | 2026-11-26: Händelsen saknades i den automatiska listan och gäller en välbevarad människa (mänskliga kvarlevor); bilder avstås och ingen sökning gjordes. |
+| `medracen` | 2026-11-26: Händelsen saknades i den automatiska listan; sökningen gav foton av Medghacen-mausoleet men filnamnet kunde inte öppnas inom tiden (HTTP 429); gäller en kunglig grav; ingen egen vidare sökning hann göras. |
+| `slaget-vid-allia` | 2026-11-26: Enda kandidaten (Paul Jamin, Le Brenn et sa part de butin, 1893) är bara 709 px bred och är en senare målning av en annan scen; används inte. |
+| `pytheas-seglar-norrut` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `handelsstaden-tanais-grundas` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `arkimedes-i-syrakusa` | 2026-11-26: Kandidaterna (Syracuse University, en judisk museibyggnad) har inget med Arkimedes att göra; en egen sökning gav bara en montage av 25 greker; används inte. |
+| `puniska-krigen` | 2026-11-26: Enda kandidaten är en karta; används inte. |
+| `slaget-vid-mylae` | 2026-11-26: Enda kandidaten (plansch ur "The story of the greatest nations", "No restrictions") har licensflagga: verktyget kunde inte avgöra licensen; används inte. |
+| `slaget-vid-egadiska-oarna` | 2026-11-26: Enda kandidaten är en liten karta; används inte. |
+| `hannibal-over-alperna` | 2026-11-26: Enda kandidaten är en karta med licensflagga; används inte. |
+| `slaget-vid-cannae` | 2026-11-26: Enda kandidaten är ett litet diagram (737 px); används inte. |
+| `corlea-vagen-byggs` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `karthago-forstors` | 2026-11-26: Enda kandidaten (Carthage villas-romaines 1950.jpg, PD-Tunisia) saknar upphovsperson och beskrivning och visar romerska villor; används inte. |
+| `uppakra` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `biatec-mynten` | 2026-11-26: Kandidaterna är en informationstavla vid en skulptur i Bratislava och en liten bild med licensrisk; används inte. |
+| `antikytheravraket` | 2026-11-26: Händelsen saknades i den automatiska listan. Kandidat utsedd (Logg Tandys foto av fragment A av Antikytheramekanismen, CC BY 4.0, 2025) men verktyget flaggade den (ingen igenkänd licensmall); används inte utan närmare kontroll. |
+| `slaget-vid-gindarus` | 2026-11-26: Kandidaterna är kartor; används inte. |
+| `damhjortar-fors-till-britannien` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `gravar-av-estnisk-typ-vid-kroggardsmalmen` | 2026-11-26: Ingen kandidat i listan; gäller gravar; ingen egen sökning hann göras. |
+
+
+## Europa 1–670 (#2081 och #2082, 2026-11-26)
+
+10 av 40 händelser fick bild i den här omgången. Följande 30 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/europa-4.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `romerska-fynd-vid-drumanagh` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kalendern-fran-coligny` | 2026-11-26: Ingen kandidat i listan; sökningen efter museifoton gav inga träffar; ingen egen vidare sökning hann göras. |
+| `gravfaltet-vid-driffield-terrace` | 2026-11-26: Enda kandidaten är en karta (Bell Beaker Culture.png); gäller ett gravfält med kvarlevor; används inte. |
+| `tjerniachovkulturen` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `antiokia-jordbavningen-115` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `torka-i-romerska-nordafrika-under-hadrianus` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `vaxtavlan-fran-alburnus-maior` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `runorna-fran-vimose` | 2026-11-26: Kandidaterna (Nationalmuseets foto av kammen med runor, DO-4148) har licensflagga; används inte utan närmare kontroll. |
+| `guldet-i-timra` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `handelsplatsen-pa-helgo` | 2026-11-26: Ingen kandidat i listan; sökningen efter Helgö gav inga träffar; ingen egen vidare sökning hann göras. |
+| `fynden-pa-fjallens-isfalt-okar` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `hastarna-i-litauens-gravar` | 2026-11-26: Ingen kandidat i listan; gäller gravar med hästben; ingen egen sökning hann göras. |
+| `baiae-sjunker-i-havet` | 2026-11-26: Ingen kandidat i listan; sökningen gav bara bokskanningar (PDF); ingen egen vidare sökning hann göras. |
+| `kyla-i-syditalien-245-275` | 2026-11-26: Kandidaterna är en satellitbild av saharadamm och en väderkarta från 2024 som inte hör till händelsen; används inte. |
+| `cyprianus-pest` | 2026-11-26: Kandidaterna är porträtt av helgonet Cyprianus (liten och stående); de visar inte pesten och används inte; pest och död, bilder avstås. |
+| `aldsta-hona-i-finland-pa-aland` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `vattengraven-i-levanluhta` | 2026-11-26: Kandidaterna visar människoben (mänskliga kvarlevor) och en modern skulptur; kvarlevor och gravar avstås. |
+| `goternas-gravar-i-bulgarien` | 2026-11-26: Ingen kandidat i listan; gäller gravar; ingen egen sökning hann göras. |
+| `jordbavningen-i-nicomedia-358` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `hovdingagravarna-i-snartemo` | 2026-11-26: Ingen kandidat i listan; gäller gravar; ingen egen sökning hann göras. |
+| `augustinus-skriver-bekannelser` | 2026-11-26: Enda träffen (Augustine Confessiones.jpg) är bara 227 × 350 px; används inte. |
+| `guldhornen-fran-gallehus` | 2026-11-26: Enda kandidaten (Guldhornene.jpg) är bara 650 × 384 px och har licensflagga; används inte. |
+| `caelius-aurelianus-oversatter-soranos` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `martianus-capella-och-de-sju-fria-konsterna` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `spetalska-i-great-chesterford` | 2026-11-26: Ingen kandidat i listan; gäller människoben (kvarlevor); bilder avstås. |
+| `spetalska-i-fallward` | 2026-11-26: Ingen kandidat i listan; gäller en grav med kvarlevor; bilder avstås. |
+| `malaria-i-barngravarna-vid-lugnano` | 2026-11-26: Ingen kandidat i listan; gäller barngravar; bilder avstås. |
+| `vesuvius-472` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras (sökningen efter Vesuvius gav bara bokskanningar). |
+| `justinianska-pesten-541` | 2026-11-26: Kandidaterna (Barberinidiptyken och en bild av pestbakterien, 600 × 441 px) hör inte till pestens förlopp eller är för små; pest, bilder avstås tills en människa bedömt dem. |
+| `kairouan-grundas` | 2026-11-26: Enda kandidaten (vy över Kairouan från 1899) är bara 600 × 443 px; används inte. |
+
+
+## Europa 705–1494 (#2083 och #2084, 2026-11-26)
+
+20 av 40 händelser fick bild i den här omgången. Följande 20 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/europa-5.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `ribe-handelsplats` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `slaget-vid-zab` | 2026-11-26: Enda kandidaten (Battle of Al-Zāb.jpg, 1962, PD-Lebanon) är en tecknad serieliknande illustration från 1962 utan känd upphovsperson; svag proveniens, används inte. |
+| `skane-namns-forsta-gangen` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `ansgar-i-birka` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `knut-blir-kung-av-england` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `slaget-vid-hastings` | 2026-11-26: Enda kandidaten (Bayeux Tapestry scene 57, Harolds död, foto av Myrabella) flaggades av verktyget: filsidan anger "eget verk" av en bild från 1070-talet; används inte tills en människa kontrollerat licensen. |
+| `uppsala-blir-arkebiskopssate` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `absalons-borg-kopenhamn` | 2026-11-26: Ingen kandidat i listan; sökningen efter Absalonstatyn i Köpenhamn gav inga träffar (HTTP 429). |
+| `tornet-i-pisa-grundlaggs` | 2026-11-26: Kandidaten (Pisatornet, Chabe01, CC BY-SA 4.0) är en mycket hög och smal bild (2601 × 5767 px) som blir liten i kortet; används inte. |
+| `gerard-av-cremona-almagest` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `jyske-lov` | 2026-11-26: Enda kandidaten (Codex Holmiensis) är bara 385 px; används inte. |
+| `stockholm-namns-1252` | 2026-11-26: Kandidaterna är brev från 1900-talet utan koppling till händelsen och med licensflagga; används inte. |
+| `florinen-praglas` | 2026-11-26: Enda kandidaten (Fiorino d'oro, CC BY-SA 2.0) har licensflagga; används inte utan närmare kontroll. |
+| `stora-svalten-1315` | 2026-11-26: Enda kandidaten (Great famine.jpg) har licensrisk (PD-US) och visar svält; bilder av hungrande människor avstås tills en människa bedömt dem. |
+| `skane-under-magnus-eriksson` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `karantan-i-ragusa-1377` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `brunelleschis-kupol` | 2026-11-26: Ingen kandidat i listan; sökningen efter Florens domkyrka gav inga träffar; ingen egen vidare sökning hann göras. |
+| `tordesillasfordraget` | 2026-11-26: Händelsen saknades i den automatiska listan; sökningen gav bara bokskanningar och ett gränsmärke; används inte. |
+
+## Europa 1508–1676 och 1809–1871 (#2085 och #2087, 2026-11-26)
+
+20 av 40 händelser fick bild i den här omgången. Följande 20 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/europa-6.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `slaget-vid-nordlingen-1634` | 2026-11-26: Enda kandidaten (Jacques Courtois, Battle of Nordlingen) är bara 620 × 308 px; för liten, används inte. |
+| `slaget-vid-rocroi` | 2026-11-26: Enda kandidaten (La Bataille de Rocroi.jpg) är bara 593 px bred; för liten, används inte. |
+| `slaget-vid-jankau` | 2026-11-26: Enda kandidaten (kopparstick av slaget) är bara 460 px bred; för liten, används inte. |
+| `freden-i-kopenhamn-1660` | 2026-11-26: Enda kandidaten (en sida ur "Sju böcker om konung Carl X Gustafs bragder", 1915 års tryck) har enligt verktyget osäkert datum och kontrollerades inte vidare; ingen bild vald. |
+| `lunds-universitet-grundas` | 2026-11-26: Enda kandidaten (Universitetsbyggnaden, Lund.JPG) är bara 640 × 480 px och har osäkert datum; för liten, används inte. |
+| `slaget-vid-leipzig` | 2026-11-26: Enda kandidaten är en karta ur Meyers Konversations-Lexikon (1890) i närmast kvadratiskt format; används inte som bild för slaget. |
+| `slaget-vid-vitoria` | 2026-11-26: Enda kandidaten flaggades av verktyget som nutida foto (Museo de Armería i Vitoria) och visar inte slaget; används inte. |
+| `andra-parisfreden` | 2026-11-26: Kandidaterna är en karta över Frankrikes östra gräns och ett tidningsurklipp från Parisfredskonferensen 1919; det senare gäller en annan händelse, kartan bedömdes inte som en bild av händelsen. Ingen vald. |
+| `gota-kanal-invigs` | 2026-11-26: Enda kandidaten (Göta kanal, KMB) är bara 768 × 504 px och har okänt datum; används inte. |
+| `grundloven-1849` | 2026-11-26: Enda kandidaten (Alaska Statehood, 2009) gäller en annan händelse; används inte. |
+| `reformationen-i-danmark` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `reformationen-i-skane` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `trohetseden-i-malmo` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `friskyttar-och-snapphanar` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `freden-i-fredrikshamn` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kielfreden-gronland` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `orsted-elektromagnetism` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `rodding-folkhogskola` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `wienkongressen` | 2026-11-26: Verktyget `tools/bildbatch.py` hoppar över händelser med `start` i stället för `year`; ingen kandidatlista togs fram och ingen egen sökning hann göras. |
+| `representationsreformen` | 2026-11-26: Verktyget `tools/bildbatch.py` hoppar över händelser med `start` i stället för `year`; ingen kandidatlista togs fram och ingen egen sökning hann göras. |
+
+## Europa 1896–1936 och 1938–1993 (#2088 och #2089, 2026-11-26)
+
+13 av 40 händelser fick bild i den här omgången och 2 har en utsedd bild som inte kunde hämtas. Följande 27 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/europa-7.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `de-forsta-nobelprisen` | 2026-11-26: Enda kandidaterna gäller Ig Nobel-ceremonin och senare Nobelpris (2011–2013), inte 1901 års utdelning; den egna sökningen gav inga träffar. Ingen bild vald. |
+| `einsteins-artiklar-1905` | 2026-11-26: Enda träffarna var innehållsförteckningen för Annalen der Physik, juni 1905 (CC0, bara 397 × 544 px, för liten) och digitaliserade artiklar som inte är bilder. Ingen bild vald. |
+| `sveriges-forsta-nationalparker` | 2026-11-26: Kandidaterna i listan gäller litauiska nationalparker; den egna sökningen gav bara en karta (181 × 364 px). Ingen bild vald. |
+| `allman-rostratt-for-man-1911` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `kvinnlig-rostratt-danmark-1915` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `armeniska-folkmordet` | 2026-11-26: Enda kandidaten (Ambassador Morgenthau's Story p314.jpg) visar enligt filsidan dödade armenier längs en väg; bilder av döda lämnas utan vidare granskning av en människa (värdighet). Ingen bild vald. |
+| `turkiska-frihetskriget` | 2026-11-26: Enda kandidaten är en collage på 404 × 404 px; för liten, används inte. |
+| `massakern-vid-monte-arruit` | 2026-11-26: Enda kandidaten (Guerra del Rif 1922 - 2.jpg, 711 × 607 px) är liten och gäller läget efter slaget vid Annual enligt filsidan; bilder från platsen kan visa dödade och bedömdes inte som värdiga utan granskning. Ingen bild vald. |
+| `kvinnor-rostar-1921` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `abd-el-krim-ger-upp` | 2026-11-26: Porträttet av Abd el-Krim används redan för `rifrepubliken-utropas`; ingen annan bild hittades. |
+| `holodomor` | 2026-11-26: Träffarna är nutida minnesmärken (skulpturer) i flera länder, med oklar upphovsrätt för skulpturerna, och bilder av offer lämnas av värdighetsskäl. Ingen bild vald. |
+| `lego-grundas` | 2026-11-26: Enda kandidaten (Legoland Miniland London) visar inte LEGO:s början; den egna sökningen gav inga träffar. Ingen bild vald. |
+| `jordbavningen-i-erzincan-1939` | 2026-11-26: Kandidaterna är en karta över internationell hjälp, en collage över 1939 och en staty av İnönü i Erzincan (nutida skulptur); ingen visar jordbävningen. Ingen bild vald. |
+| `algeriska-frihetskriget` | 2026-11-26: Enda kandidaten är en collage (960 × 960 px) gjord av en Commons-användare av skärmbilder; används inte. |
+| `toussaint-rouge` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `philippeville-1955` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `slaget-om-alger` | 2026-11-26: Kandidaterna är ett foto av en gömma i Casbah (licensrisk enligt verktyget), ett foto av Ali la Pointe efter hans död och ett litet porträtt; bilder av döda lämnas utan granskning av en människa. Ingen bild vald. |
+| `majkrisen-1958` | 2026-11-26: Ingen kandidat i listan; sökningen efter de Gaulle i Alger gav bara en collage och tidskrifts-PDF:er. Ingen bild vald. |
+| `generalskuppen-1961` | 2026-11-26: Enda kandidaten är en karta över Alger från 1830 (Boutin), som inte visar kuppen. Ingen bild vald. |
+| `pragvaren` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `stockholmskonferensen-1972` | 2026-11-26: Kandidaten UN-environment-in-Stockholm-1972.jpg är ett anonymt pressfoto från 1972 med licensmallen PD-Sweden; skyddstiden, särskilt i USA, är osäker för ett foto från 1972, så bilden används inte tills en människa bedömt licensen. |
+| `danmark-gar-med-i-eg` | 2026-11-26: Kandidaterna är foton från toppmöten 2024–2025, inte från 1973. Ingen bild vald. |
+| `esa-bildas` | 2026-11-26: Enda kandidaten (ESA Headquarters in Paris.jpg, CC BY-SA 3.0 IGO) flaggades av verktyget; licensen bedöms av en människa innan bilden används. Ingen bild vald. |
+| `ipcc-bildas` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `sametinget-inrattas` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+
+## Europa 1995–2024 och Amerika 1960–2022 (#2090 och #2102, 2026-11-26)
+
+9 av 31 händelser fick bild i den här omgången och 1 har en utsedd bild som inte kunde hämtas. Följande 22 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/slut-1.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `sverige-gar-med-i-eu` | 2026-11-26: Enda kandidaten är en karta över EU:s utvidgning (680 × 520 px); används inte. |
+| `skane-lan-bildas` | 2026-11-26: Enda kandidaten (radhus vid Stora Torg i Kristianstad) visar inte länets bildande; ingen bild vald. |
+| `euron-infors` | 2026-11-26: Kandidaterna (euromynt och eurosedlar) har osäker licens eftersom designen på mynt och sedlar kan vara skyddad; ingen bild vald tills en människa bedömt licensen. |
+| `pavevalet-2013` | 2026-11-26: Enda kandidaten (Casa Rosada, CC-AR-Presidency) flaggades av verktyget för oklar licens; bedöms av en människa innan den används. |
+| `massakern-i-butja` | 2026-11-26: Kandidaterna visar enligt filtitlarna avrättade människor och staden efter befrielsen (licensflagga); bilder av offer lämnas av värdighetsskäl. Ingen bild vald. |
+| `belagringen-av-mariupol` | 2026-11-26: Kandidaterna (Ukrainas inrikesministerium via Facebook, licensmall mvs.gov.ua) flaggades av verktyget för oklar licens; ingen bild vald tills en människa bedömt licensen. |
+| `charkivoffensiven-2022` | 2026-11-26: Enda kandidaten är en flagga i Balakliia (604 × 1047 px, licensflagga); för liten, används inte. |
+| `chersons-befrielse` | 2026-11-26: Kandidaterna är bilder från Ukrainas försvarsdepartement via Facebook och Twitter med osäker licens (CC BY-SA enligt uppladdaren, PD-UA-exempt för den andra); ingen bild vald tills en människa bedömt licensen. |
+| `slaget-om-bachmut` | 2026-11-26: Enda kandidaten kommer från Armyinform (flaggad licens) och visar enligt filsidan ett hus efter bombning med människor under rasmassorna; ingen bild vald. |
+| `ukrainas-offensiv-2023` | 2026-11-26: Enda kandidaten är en karta över invasionen; används inte. |
+| `medellinkonferensen-1968` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `cites-washingtonkonventionen` | 2026-11-26: Kandidaterna är ett foto av leopardskinn (licensflagga) och en liten etikett (480 × 360 px); används inte. |
+| `operation-condor` | 2026-11-26: Enda kandidaten är en liten karta (363 × 353 px); används inte. |
+| `gronlands-hemstyre` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `gronland-lamnar-eg` | 2026-11-26: Enda kandidaten är en liten karta (262 × 160 px); används inte. |
+| `klimatkonventionen-rio-1992` | 2026-11-26: Enda kandidaten (en byggnad i Bonn, licensflagga) hör inte till Rio-mötet; ingen bild vald. |
+| `obama-valjs-till-president` | 2026-11-26: Kandidaterna visar personal som skålar för Obama och ett möte med Trump 2016 (annan händelse); ingen visar valet. Ingen bild vald. |
+| `gronlands-sjalvstyre` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `fredsavtalet-med-farc` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
+| `os-i-rio-2016` | 2026-11-26: Enda kandidaten är ett foto av Rios kandidaturkommitté i Genève 2009 (licensflagga) och visar inte spelen; ingen bild vald. |
+| `fn-resolution-es-11-1` | 2026-11-26: Enda kandidaten är ett diagram över omröstningen (SVG, flaggad som karta); ingen bild vald. |
+
+## Hämtade i efterhand (2026-11-27)
+
+Bilder som först gav HTTP 429 hämtades i Actions (arbetsflödet `bild-ej-hamtade.yml`, körningarna [45905221527](https://github.com/DasKrokodil/historia-globen/actions/runs/45905221527) och [45958547779](https://github.com/DasKrokodil/historia-globen/actions/runs/45958547779)) och har bild sedan den här omgången. Raderna om dem i tabellerna ovan är borttagna.
+
+| Händelse (id) | Bild |
+|---|---|
+| `slaveriet-avskaffas-1793` | Sonthonax.jpg (PD-Art-old-100) |
+| `belagringen-av-cusco-1536` | POMA0402v.jpg (pd-art) |
+| `hundarna-pa-zjochovon` | Zhokhov - Landsat.jpg (PD, NASA/USGS) |
+| `salfangst-vid-bajkalsjon` | Ushkany-sälar (CC BY-SA 4.0) |
+| `persiska-viken-fylls` | PersianGulf vue satellite du golfe persique.jpg (PD, NASA) |
+| `ulleungdos-kaldera-bildas` | Ulleung Island ISS064.jpg (PD, NASA) |
+| `altaifloden` | Katun AltaiRepublicBoundary 013 1368.jpg (CC BY-SA 4.0) |
+| `myteriet-i-meerut` | The death of Colonel Finnis on the parade ground at Meerut.jpg (PD-Art) |
+| `vietnamkriget` | Beach activity at Da Nang … March of 1965.jpg (PD-USGov-Military-Marines) |
+| `belagringen-av-edessa-1144` | Urfacastle.jpg (CC BY-SA 3.0) |
+| `fibonaccis-liber-abaci` | Liber abbaci magliab f124r.jpg (PD-Art) |
+| `saltsjobadsavtalet` | Saltsjobadsavtalet.jpg (PD-Sweden-photo) |
+| `gulag` | Gulag drivers licence.jpg (PD-Russia-2008) |
+| `kurskoffensiven` | President Vladimir Putin talks with the governor of Kursk in August 2024.jpg (CC BY 4.0) |
+| `justinianska-pesten-nar-egypten` | Yersinia pestis wayson.jpg (PD, CDC) |
+| `slaget-vid-qadisiyya` | Shahnameh-miniatyr, British Library (PD-Art) |
+
+`ambryms-kaldera` används inte (se tillägget för #2113 ovan: bilden visar mest moln).
+
