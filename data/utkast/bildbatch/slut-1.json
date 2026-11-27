@@ -1,0 +1,1777 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "slut-1",
+  "datum": "2026-11-26",
+  "urval": "ids=30 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "brasilia-invigs",
+      "titel": "Brasília blir Brasiliens huvudstad",
+      "start": 1960,
+      "plats": "Brasília, Brasilien",
+      "wikidata": "Q2844",
+      "kandidater": [
+        {
+          "fil": "File:Planalto Central (cropped).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Planalto_Central_(cropped).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Arturdiasr",
+          "datum": "2015-03-29 11:30:21",
+          "datum_original": "2015-03-29 11:30:21",
+          "datum_fil": "2022-03-05 01:31:47",
+          "kredit": "Own work",
+          "beskrivning": "This is a photo of a monument in Brazil identified by the ID",
+          "bredd": 2733,
+          "hojd": 1308,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Planalto_Central_%28cropped%29.jpg/960px-Planalto_Central_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Clouds and blue sky in Brazil",
+            "Plano Piloto (administrative region)",
+            "Views of Eixo Monumental from Torre de TV de Brasília southeastward"
+          ],
+          "smal": false,
+          "flaggor": [
+            "konstverk"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "jamaica-blir-sjalvstandigt",
+      "titel": "Jamaica blir självständigt",
+      "start": 1962,
+      "plats": "Kingston, Jamaica",
+      "wikidata": "Q17080530",
+      "kandidater": [
+        {
+          "fil": "File:Independence Proclamation of Jamaica.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Independence_Proclamation_of_Jamaica.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Royal Constitutional Convention of Queen Elizabeth II",
+          "datum": "1962-08-06",
+          "datum_original": "1962-08-06",
+          "datum_fil": "2018-10-21 14:54:26",
+          "kredit": "Constitution of Jamaica",
+          "beskrivning": "Independence Proclamation of Jamaica",
+          "bredd": 1000,
+          "hojd": 600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Independence_Proclamation_of_Jamaica.jpg/960px-Independence_Proclamation_of_Jamaica.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1962-08-06",
+            "1962 in Jamaica"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Jamaica"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "karnvapenproven-pa-moruroa",
+      "titel": "Frankrikes kärnvapenprov på Moruroa",
+      "start": 1966,
+      "plats": "Atollen Moruroa, Tuamotuöarna (Franska Polynesien)",
+      "wikidata": "Q318446",
+      "kandidater": [
+        {
+          "fil": "File:Moruroa 1971 bâche d'eau.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Moruroa_1971_b%C3%A2che_d%27eau.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Gérard JOYON",
+          "datum": "2005-12-16",
+          "datum_original": "2005-12-16",
+          "datum_fil": "2013-01-27 10:23:41",
+          "kredit": "Own work",
+          "beskrivning": "Cette réserve d'eau nous servait pour la consommation. La centrale n'étant pas encore en fonction, c'était l'eau du lagon, passée par les bouilleurs de la marine, qui était contenue, en plein soleil dans ce réservoir. Le lagon où les tirs aériens nucléaires étaient effectués. C'est une diapositive personnelle appareil 24/36 faite par moi. Collection de 1971, MORUROA.",
+          "bredd": 3360,
+          "hojd": 2240,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Moruroa_1971_b%C3%A2che_d%27eau.jpg/960px-Moruroa_1971_b%C3%A2che_d%27eau.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1971 in France",
+            "Mururoa",
+            "Water towers in France",
+            "Water towers in Oceania"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "cites-washingtonkonventionen",
+      "titel": "CITES: avtalet mot handel med hotade arter",
+      "start": 1973,
+      "plats": "Washington D.C., USA",
+      "wikidata": "Q191836",
+      "kandidater": [
+        {
+          "fil": "File:Leopardenfelle 2001-01-110008.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Leopardenfelle_2001-01-110008.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kürschner ( talk ) 08:01, 12 February 2010 (UTC)",
+          "datum": "2010-02-11",
+          "datum_original": "2010-02-11",
+          "datum_fil": "2010-02-12 08:20:41",
+          "kredit": "Own work",
+          "beskrivning": "Leopard fur-skin, Stamp for CITES",
+          "bredd": 2048,
+          "hojd": 1536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Leopardenfelle_2001-01-110008.JPG/960px-Leopardenfelle_2001-01-110008.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Convention on International Trade in Endangered Species of Wild Fauna and Flora",
+            "Furs in 2010",
+            "Leopard fur-skins"
+          ],
+          "smal": false,
+          "flaggor": [
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "Public domain",
+            "skal": [
+              "API:et säger \"Public domain\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Indicaz etichetta cites.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Indicaz_etichetta_cites.png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Mario Pazzaglia",
+          "datum": "2016-11-29",
+          "datum_original": "2016-11-29",
+          "datum_fil": "2016-11-29 22:10:19",
+          "kredit": "creazione propria per una presentazione sull'etichettatura del caviale",
+          "beskrivning": "explanation in italian Language of caviar label according Cites regulation",
+          "bredd": 480,
+          "hojd": 360,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/71/Indicaz_etichetta_cites.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Convention on International Trade in Endangered Species of Wild Fauna and Flora"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 4.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-sa-all}}. Commons API (LicenseShortName): \"CC BY-SA 4.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 4.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-all"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "operation-condor",
+      "titel": "Operation Condor",
+      "start": 1975,
+      "plats": "Sydamerikas södra kon (markören i Santiago, Chile, där samarbetet bildades)",
+      "wikidata": "Q156017",
+      "kandidater": [
+        {
+          "fil": "File:Operation Condor participants.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Operation_Condor_participants.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Sannita",
+          "datum": "2012-02-16",
+          "datum_original": "2012-02-16",
+          "datum_fil": "2022-11-22 11:41:40",
+          "kredit": "Own work",
+          "beskrivning": "Map of the States that took part in Operation Condor . Green: main active members. Light green: less active members. Blue: United States (cooperation).",
+          "bredd": 363,
+          "hojd": 353,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Operation_Condor_participants.svg/960px-Operation_Condor_participants.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Operation Condor"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "ariane-1-forsta-uppskjutningen",
+      "titel": "Den första Ariane-raketen skjuts upp",
+      "start": 1979,
+      "plats": "Kourou, Franska Guyana",
+      "wikidata": "Q18375",
+      "kandidater": [
+        {
+          "fil": "File:Ariane 1 Le Bourget FRA 001.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ariane_1_Le_Bourget_FRA_001.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "ignis",
+          "datum": "8/Sep./2006",
+          "datum_original": "8/Sep./2006",
+          "datum_fil": "2006-10-27 21:58:01",
+          "kredit": "Own work",
+          "beskrivning": "A model of an European rocket Ariane 1 in the Museum of Air and Space (Musée de l'air et de l'espace, Le Bourget, France)",
+          "bredd": 2311,
+          "hojd": 3471,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Ariane_1_Le_Bourget_FRA_001.jpg/960px-Ariane_1_Le_Bourget_FRA_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ariane 1 at the Musée de l'Air"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "flera licenser: CC BY-SA 3.0, CC BY-SA 2.5",
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|Cc-by-sa-3.0-migrated}}, {{self|Cc-by-sa-2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Flera licenser anges (CC BY-SA 3.0 och CC BY-SA 2.5); bilden används under CC BY-SA 3.0. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|Cc-by-sa-3.0-migrated",
+              "self|Cc-by-sa-2.5,2.0,1.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "gronland-lamnar-eg",
+      "titel": "Grönland lämnar EG",
+      "start": 1982,
+      "plats": "Grönland",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:EUenl.gif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:EUenl.gif",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "No machine-readable author provided. Roke~commonswiki assumed (based on copyright claims).",
+          "datum": "2022",
+          "datum_original": "2022",
+          "datum_fil": "2007-05-26 02:35:42",
+          "kredit": "No machine-readable source provided. Own work assumed (based on copyright claims).",
+          "beskrivning": "Founding and enlarging the EU. Image made using the freely licenced maps at commons: EU-6 , EU-9 , EU-10 , EU-12 , EU-15 , EU-25 , EU-27 EU-28",
+          "bredd": 262,
+          "hojd": 160,
+          "mime": "image/gif",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/3e/EUenl.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Animated maps of the European Union",
+            "Maps of the enlargement of the European Union"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{Self|GFDL}}, {{Self|Cc-by-sa-3.0-migrated}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "Self|GFDL",
+              "Self|Cc-by-sa-3.0-migrated"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "klimatkonventionen-rio-1992",
+      "titel": "Klimatkonventionen undertecknas i Rio",
+      "start": 1992,
+      "plats": "Rio de Janeiro, Brasilien",
+      "wikidata": "Q208645",
+      "kandidater": [
+        {
+          "fil": "File:2014-06-12 Altes Abgeordnetenhochhaus, Bonn IMG 5597.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2014-06-12_Altes_Abgeordnetenhochhaus,_Bonn_IMG_5597.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0 de",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "upphovsperson": "Eckhard Henkel",
+          "datum": "2014-06-12",
+          "datum_original": "2014-06-12",
+          "datum_fil": "2014-12-29 03:39:28",
+          "kredit": "Own work",
+          "beskrivning": "“Old highrise of members of parliament”, Platz der Vereinten Nationen 1, Bonn -Gronau; now used as office building by the secretary of the United Nations Framework Convention on Climate Change and part of the “UN-Campus”",
+          "bredd": 2179,
+          "hojd": 1732,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/2014-06-12_Altes_Abgeordnetenhochhaus%2C_Bonn_IMG_5597.jpg/960px-2014-06-12_Altes_Abgeordnetenhochhaus%2C_Bonn_IMG_5597.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2014 in Bonn",
+            "Altes Abgeordnetenhochhaus (Bonn)",
+            "Außenthermometer (Altes Abgeordnetenhaus Bonn)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 3.0 DE",
+            "skal": [
+              "API:et säger \"CC BY-SA 3.0 de\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "sverige-gar-med-i-eu",
+      "titel": "Sverige blir medlem i EU",
+      "start": 1995,
+      "plats": "Sverige",
+      "wikidata": "Q4590816",
+      "kandidater": [
+        {
+          "fil": "File:EU15-1995 European Union map enlargement.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:EU15-1995_European_Union_map_enlargement.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.5",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.5",
+          "upphovsperson": "Europe_countries.svg : Júlio Reis derivative work: Kolja21 ( talk )",
+          "datum": "2009-05-18 23:11",
+          "datum_original": "2009-05-18 23:11",
+          "datum_fil": "2014-02-01 10:13:43",
+          "kredit": "EU15-1995_European_Union_map.svg",
+          "beskrivning": "European Union (EU 15)",
+          "bredd": 680,
+          "hojd": 520,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/EU15-1995_European_Union_map_enlargement.svg/960px-EU15-1995_European_Union_map_enlargement.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "SVG maps of the enlargement of the European Union",
+            "SVG maps of the history of the European Union"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.5",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|Cc-by-sa-2.5"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "skane-lan-bildas",
+      "titel": "Skåne län bildas",
+      "start": 1997,
+      "plats": "Skåne",
+      "wikidata": "Q103659",
+      "kandidater": [
+        {
+          "fil": "File:20200508 Radhus Skane Stora Torg Kristianstad 005 (49908236963).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:20200508_Radhus_Skane_Stora_Torg_Kristianstad_005_(49908236963).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Johan Wessman / News Oresund",
+          "datum": "Taken on 8 May 2020, 11:34:06 (according to Exif data)",
+          "datum_original": "Taken on 8 May 2020, 11:34:06 (according to Exif data)",
+          "datum_fil": "2021-03-11 18:00:20",
+          "kredit": "20200508 Radhus Skane Stora Torg Kristianstad 005",
+          "beskrivning": "Rådhus Skåne vid Stora Torg i Kristianstad. En gemensam byggnad för Kristianstads kommuns och Region Skånes centrala och politiska administrationer. Photo: News Øresund - Johan Wessman © News Øresund - Johan Wessman (CC BY 3.0) Detta verk av News Øresund är licensierat under en Creative Commons Erkännande 3.0 Unported-licens (CC BY 3.0). Bilden får fritt publiceras under förutsättning att källa anges. .The picture can be used freely under the prerequisite that the source is given. News Øresund, Malmö, Sweden News Øresund är en oberoende regional nyhetsbyrå som är en del av det oberoende dansk-svenska kunskapscentrat Øresundsinstituttet.",
+          "bredd": 6000,
+          "hojd": 4000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/20200508_Radhus_Skane_Stora_Torg_Kristianstad_005_%2849908236963%29.jpg/960px-20200508_Radhus_Skane_Stora_Torg_Kristianstad_005_%2849908236963%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Foreground flowers in Europe",
+            "Kristianstads rådhus",
+            "Stora torg, Kristianstad"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "euron-infors",
+      "titel": "Euron införs",
+      "start": 1999,
+      "plats": "Euroområdet (Europeiska centralbanken i Frankfurt, Tyskland)",
+      "wikidata": "Q4916",
+      "kandidater": [
+        {
+          "fil": "File:Euro coins and banknotes.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Euro_coins_and_banknotes.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Avij ( talk · contribs )",
+          "datum": "2006-10-14",
+          "datum_original": "2006-10-14",
+          "datum_fil": "2006-10-28 14:40:55",
+          "kredit": "Own work",
+          "beskrivning": "A picture of some Euro banknotes and various Euro coins .",
+          "bredd": 2272,
+          "hojd": 1704,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Euro_coins_and_banknotes.jpg/960px-Euro_coins_and_banknotes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Euro banknotes and coins",
+            "Euro coins (10 cents)",
+            "Euro coins (1 euro)",
+            "Euro coins (20 cents)",
+            "Euro coins (2 euro)",
+            "Euro coins (50 cents)",
+            "Euro coins (5 cents)",
+            "Euro coins of Belgium",
+            "Euro coins of Finland",
+            "Euro coins of Germany",
+            "Euro coins of Luxembourg",
+            "Euro coins of Spain",
+            "First series 100 euro banknotes",
+            "First series 10 euro banknotes",
+            "First series 200 euro banknotes",
+            "First series 20 euro banknotes",
+            "First series 50 euro banknotes",
+            "First series 5 euro banknotes"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        },
+        {
+          "fil": "File:Euro Series Banknotes (2019) - centered.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Euro_Series_Banknotes_(2019)_-_centered.png",
+          "kalla": "wikidata-P18",
+          "licens": "ECB decisions ECB/2003/4 and ECB/2003/5",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": null,
+          "upphovsperson": "The RedBurn",
+          "datum": "2026-04-22",
+          "datum_original": "2026-04-22",
+          "datum_fil": "2026-04-22 19:29:35",
+          "kredit": "File:EUR 5 obverse (2013 issue).png , File:EUR 10 obverse (2014 issue).png , File:The Europa series 20 € obverse side.jpg , File:The Europa series 50 € obverse side.png , File:The Europa series 100 € obverse side.jpg , File:The Europa series 200 € obverse side.jpg",
+          "beskrivning": "Euro Banknotes Europa series as of 28th May 2019",
+          "bredd": 1280,
+          "hojd": 959,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Euro_Series_Banknotes_%282019%29_-_centered.png/960px-Euro_Series_Banknotes_%282019%29_-_centered.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Second series Euro banknotes"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: ECB decisions ECB/2003/4 and ECB/2003/5",
+          "flaggor": [
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"ECB decisions ECB/2003/4 and ECB/2003/5\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "oresundsbron-oppnas",
+      "titel": "Öresundsförbindelsen öppnas",
+      "start": 2000,
+      "plats": "Öresund mellan Malmö och Köpenhamn",
+      "wikidata": "Q297871",
+      "kandidater": [
+        {
+          "fil": "File:Øresund Bridge from the air in September 2015.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%C3%98resund_Bridge_from_the_air_in_September_2015.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Nick-D",
+          "datum": "2015-09-28 12:16:29",
+          "datum_original": "2015-09-28 12:16:29",
+          "datum_fil": "2015-11-28 09:13:15",
+          "kredit": "Own work",
+          "beskrivning": "Øresund Bridge viewed from a plane taking off from Copenhagen Airport",
+          "bredd": 4000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/%C3%98resund_Bridge_from_the_air_in_September_2015.jpg/960px-%C3%98resund_Bridge_from_the_air_in_September_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aerial photographs of Oresund Bridge",
+            "Peberholm",
+            "September 2015 Denmark photographs"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "orkanen-katrina",
+      "titel": "Orkanen Katrina",
+      "start": 2005,
+      "plats": "New Orleans och Mexikanska golfens kust (USA)",
+      "wikidata": "Q16422",
+      "kandidater": [
+        {
+          "fil": "File:Katrina 2005-08-28 1700Z.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Katrina_2005-08-28_1700Z.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA",
+          "datum": "2005-08-28",
+          "datum_original": "2005-08-28",
+          "datum_fil": "2024-08-23 12:10:04",
+          "kredit": "https://worldview.earthdata.nasa.gov/",
+          "beskrivning": "Hurricane Katrina on August 28, 2005",
+          "bredd": 5400,
+          "hojd": 7200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Katrina_2005-08-28_1700Z.jpg/960px-Katrina_2005-08-28_1700Z.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "250m-resolution MODIS images of tropical cyclones",
+            "Satellite pictures of Hurricane Katrina"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "obama-valjs-till-president",
+      "titel": "Barack Obama väljs till USA:s president",
+      "start": 2008,
+      "plats": "USA (segertalet i Grant Park, Chicago)",
+      "wikidata": "Q45578",
+      "kandidater": [
+        {
+          "fil": "File:CNT Staff Toast President-Elect Barack Obama (3214944005).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:CNT_Staff_Toast_President-Elect_Barack_Obama_(3214944005).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Center for Neighborhood Technology from Chicago, USA",
+          "datum": "2008-11-05 14:05",
+          "datum_original": "2008-11-05 14:05",
+          "datum_fil": "2024-12-22 12:22:01",
+          "kredit": "CNT Staff Toast President-Elect Barack Obama",
+          "beskrivning": "On November 5, CNT Staff gathered on our patio to toast the election of former CNT board member, Barack Obama.",
+          "bredd": 1280,
+          "hojd": 720,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/CNT_Staff_Toast_President-Elect_Barack_Obama_%283214944005%29.jpg/960px-CNT_Staff_Toast_President-Elect_Barack_Obama_%283214944005%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Barack Obama 2009 presidential inauguration",
+            "Barack Obama 2009 presidential inauguration images for SecretName101 to review"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Barack Obama meets with Donald Trump in the Oval Office (crop 1).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Barack_Obama_meets_with_Donald_Trump_in_the_Oval_Office_(crop_1).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Jesusemen Oni / VOA",
+          "datum": "2016-11-10",
+          "datum_original": "2016-11-10",
+          "datum_fil": "2020-06-04 14:37:03",
+          "kredit": "https://www.voanews.com/usa/us-politics/obama-talks-trump-excellent-wide-ranging",
+          "beskrivning": "President Barack Obama meets with President-elect Donald Trump at the White House, Nov. 10, 2016. (Photo: J. Oni / VOA)",
+          "bredd": 3451,
+          "hojd": 1926,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Barack_Obama_meets_with_Donald_Trump_in_the_Oval_Office_%28crop_1%29.jpg/960px-Barack_Obama_meets_with_Donald_Trump_in_the_Oval_Office_%28crop_1%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Barack Obama gesturing with hands",
+            "Bust of Martin Luther King, Jr. by Charles Alston",
+            "Donald Trump wearing red necktie",
+            "President Barack Obama meets with President-elect Donald Trump (November 10, 2016)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-VOA"
+            ]
+          }
+        },
+        {
+          "fil": "File:Barack Obama meets with Donald Trump in the Oval Office (crop 2).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Barack_Obama_meets_with_Donald_Trump_in_the_Oval_Office_(crop_2).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Jesusemen Oni / VOA",
+          "datum": "2016-11-10",
+          "datum_original": "2016-11-10",
+          "datum_fil": "2020-06-04 14:39:36",
+          "kredit": "https://www.voanews.com/usa/us-politics/obama-talks-trump-excellent-wide-ranging",
+          "beskrivning": "President Barack Obama meets with President-elect Donald Trump at the White House, Nov. 10, 2016. (Photo: J. Oni / VOA)",
+          "bredd": 2361,
+          "hojd": 1811,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Barack_Obama_meets_with_Donald_Trump_in_the_Oval_Office_%28crop_2%29.jpg/960px-Barack_Obama_meets_with_Donald_Trump_in_the_Oval_Office_%28crop_2%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Barack Obama gesturing with hands",
+            "Bust of Martin Luther King, Jr. by Charles Alston",
+            "Donald Trump wearing red necktie",
+            "President Barack Obama meets with President-elect Donald Trump (November 10, 2016)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-VOA"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "gruvarbetarna-i-copiapo-raddas",
+      "titel": "De 33 gruvarbetarna i Chile räddas",
+      "start": 2010,
+      "plats": "Gruvan San José nära Copiapó, Atacamaöknen, Chile",
+      "wikidata": "Q214790",
+      "kandidater": [
+        {
+          "fil": "File:Mina San José de Copiapó en 2010.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mina_San_Jos%C3%A9_de_Copiap%C3%B3_en_2010.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "desierto_atacama",
+          "datum": "2010-08-10 15:24",
+          "datum_original": "2010-08-10 15:24",
+          "datum_fil": "2010-10-15 15:04:25",
+          "kredit": "Mina San Josè Uploaded by Diego Grez",
+          "beskrivning": "Mina San Josè, lugar de tragedia minera. 2010",
+          "bredd": 1024,
+          "hojd": 768,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Mina_San_Jos%C3%A9_de_Copiap%C3%B3_en_2010.jpg/960px-Mina_San_Jos%C3%A9_de_Copiap%C3%B3_en_2010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2010 Copiapó mining accident",
+            "Drilling rigs"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "jordbavningen-i-haiti-2010",
+      "titel": "Jordbävningen i Haiti",
+      "start": 2010,
+      "plats": "Nära Léogâne, cirka 25 km väster om Port-au-Prince (Haiti)",
+      "wikidata": "Q43777",
+      "kandidater": [
+        {
+          "fil": "File:Ruins of Haiti National Palace - Port au Prince 2012.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ruins_of_Haiti_National_Palace_-_Port_au_Prince_2012.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Trocaire from Ireland",
+          "datum": "2012-01-10 14:31",
+          "datum_original": "2012-01-10 14:31",
+          "datum_fil": "2013-04-14 00:07:28",
+          "kredit": "DSC_1200 Uploaded by victorgrigas",
+          "beskrivning": "In January 2010 a massive earthquake struck Haiti, killing over 300,000 people and making 1.5 million people homeless. The disaster was the worst in the history of a country that has been ravaged by conflict and crisis. Two years after the earthquake struck, the ruins of the Cathedral in the centre of Port au Prince offered a reminder of the tragedy of that fateful morning. (Eoghan Rice / Trocaire)",
+          "bredd": 4608,
+          "hojd": 3072,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Ruins_of_Haiti_National_Palace_-_Port_au_Prince_2012.jpg/960px-Ruins_of_Haiti_National_Palace_-_Port_au_Prince_2012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2010 Haiti earthquake damage in Port-au-Prince",
+            "National Palace (Haiti)"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "pavevalet-2013",
+      "titel": "Franciskus väljs till den förste påven från Amerika",
+      "start": 2013,
+      "plats": "Sixtinska kapellet, Vatikanstaten",
+      "wikidata": "Q4422669",
+      "kandidater": [
+        {
+          "fil": "File:Pope Francis in March 2013.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Pope_Francis_in_March_2013.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Casa Rosada",
+          "datum": "2013-03-18",
+          "datum_original": "2013-03-18",
+          "datum_fil": "2025-02-27 13:30:09",
+          "kredit": "casarosada.gob.ar This file was derived from: Pope Francis with Cristina Fernandez de Kirchner 7.jpg",
+          "beskrivning": "Pope Francis",
+          "bredd": 996,
+          "hojd": 996,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Pope_Francis_in_March_2013.jpg/960px-Pope_Francis_in_March_2013.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Franciscus in 2013",
+            "Portrait photographs of Franciscus",
+            "White zucchettos"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 2.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 2.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "os-i-rio-2016",
+      "titel": "Olympiska sommarspelen i Rio de Janeiro",
+      "start": 2016,
+      "plats": "Rio de Janeiro, Brasilien (huvudarena Maracanã)",
+      "wikidata": "Q8613",
+      "kandidater": [
+        {
+          "fil": "File:Rio de Janeiro 2016 Committee in Geneva.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Rio_de_Janeiro_2016_Committee_in_Geneva.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0 br",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0/br/deed.en",
+          "upphovsperson": "Ricardo Stuckert/PR",
+          "datum": "2009-06-15",
+          "datum_original": "2009-06-15",
+          "datum_fil": "2009-07-09 01:58:42",
+          "kredit": "Agência Brasil",
+          "beskrivning": "Genebra (Suíça) - O ministro do Esporte, Orlando Silva, o presidente Luiz Inácio Lula da Silva e o governador do Rio de Janeiro, Sérgio Cabral, defendem, em Genebra, a candidatura do Rio como sede das Olimpíadas de 2016.",
+          "bredd": 4018,
+          "hojd": 3357,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Rio_de_Janeiro_2016_Committee_in_Geneva.jpg/960px-Rio_de_Janeiro_2016_Committee_in_Geneva.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2016 Summer Olympics logos and marketing",
+            "Luiz Inácio Lula da Silva in 2009",
+            "Orlando Silva (politician)",
+            "Rio de Janeiro bid for the 2016 Summer Olympics"
+          ],
+          "smal": false,
+          "flaggor": [
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 3.0 BR",
+            "skal": [
+              "API:et säger \"CC BY 3.0 br\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "belagringen-av-mariupol",
+      "titel": "Belägringen av Mariupol",
+      "start": 2022,
+      "plats": "Mariupol, Donetsk oblast, Ukraina",
+      "wikidata": "Q111017791",
+      "kandidater": [
+        {
+          "fil": "File:Russian bombing of Mariupol.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Russian_bombing_of_Mariupol.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Міністерство внутрішніх справ України",
+          "datum": "2022-03-03",
+          "datum_original": "2022-03-03",
+          "datum_fil": "2022-03-08 20:59:26",
+          "kredit": "https://www.facebook.com/photo/?fbid=323044143184575&set=pcb.323044476517875 ( the whole post )",
+          "beskrivning": "Russian bombing of Mariupol",
+          "bredd": 949,
+          "hojd": 1002,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Russian_bombing_of_Mariupol.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Mariupol",
+            "Buildings in Ukraine photographed in 2022",
+            "Damaged retail buildings in the 2022 Russian invasion of Ukraine",
+            "Epicentr K",
+            "Fires in Donetsk Oblast",
+            "Gray corrugated slate roofs in Ukraine",
+            "Leafless trees in Ukraine",
+            "March 2022 in Mariupol",
+            "Mariupol massacre",
+            "Russo-Ukrainian War on 2022-03-03",
+            "Smoke in Ukraine",
+            "Supermarkets in Mariupol",
+            "War crimes during the 2022 Russian invasion of Ukraine",
+            "War damages in Mariupol, 2022",
+            "War in Donbas, March 2022"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 4.0",
+            "skal": [
+              "API:et säger \"CC BY 4.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Russian bombing of Mariupol (05).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Russian_bombing_of_Mariupol_(05).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Ministry of Internal Affairs of Ukraine",
+          "datum": "2022-03-03",
+          "datum_original": "2022-03-03",
+          "datum_fil": "2022-03-09 17:08:18",
+          "kredit": "https://www.facebook.com/photo/?fbid=323044276517895&set=pcb.323044476517875 ( the whole post )",
+          "beskrivning": "Aftermath of Russian bombing of Mariupol city (Ukraine) diring siege of Mariupol .",
+          "bredd": 960,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/16/Russian_bombing_of_Mariupol_%2805%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Air conditioners in Ukraine",
+            "Destroyed in Ukraine in 2022",
+            "March 2022 in Mariupol",
+            "Nine-story buildings in Ukraine",
+            "Russo-Ukrainian War on 2022-03-03",
+            "Satellite dishes (residential) in Ukraine",
+            "War crimes during the 2022 Russian invasion of Ukraine",
+            "War damages in Mariupol, 2022",
+            "War in Donbas, March 2022"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 4.0",
+            "skal": [
+              "API:et säger \"CC BY 4.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Russian bombing of Mariupol (03).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Russian_bombing_of_Mariupol_(03).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Ministry of Internal Affairs of Ukraine",
+          "datum": "2022-03-03",
+          "datum_original": "2022-03-03",
+          "datum_fil": "2022-03-10 06:42:57",
+          "kredit": "https://www.facebook.com/photo/?fbid=323044389851217&set=pcb.323044476517875 ( the whole post )",
+          "beskrivning": "Aftermath of Russian bombing of Mariupol city (Ukraine) diring siege of Mariupol .",
+          "bredd": 576,
+          "hojd": 1280,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Russian_bombing_of_Mariupol_%2803%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "113-87",
+            "Air conditioners in Ukraine",
+            "Blue objects in Ukraine",
+            "Buildings in Ukraine photographed in 2022",
+            "Damaged buildings in Mariupol",
+            "Damaged objects in Ukraine",
+            "Green waste containers in Ukraine",
+            "March 2022 in Mariupol",
+            "Russo-Ukrainian War on 2022-03-03",
+            "War crimes during the 2022 Russian invasion of Ukraine",
+            "War damages in Mariupol, 2022",
+            "War in Donbas, March 2022"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 4.0",
+            "skal": [
+              "API:et säger \"CC BY 4.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "charkivoffensiven-2022",
+      "titel": "Ukrainas motoffensiv i Charkiv oblast",
+      "start": 2022,
+      "plats": "Charkiv oblast, Ukraina (började vid Balaklija)",
+      "wikidata": "Q113865480",
+      "kandidater": [
+        {
+          "fil": "File:UA flag in liberated Balakliia 01.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:UA_flag_in_liberated_Balakliia_01.png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "General Staff of the Ukrainian Armed Forces",
+          "datum": "2022-09-08",
+          "datum_original": "2022-09-08",
+          "datum_fil": "2022-09-10 11:47:27",
+          "kredit": "Screenshot from https://www.facebook.com/watch/?v=487462409552616",
+          "beskrivning": "Ukrainian soldiers of the Kraken Regiment with national flag in Balakliia after its liberation from Russian forces.One soldier is holding a SCAR rifle",
+          "bredd": 604,
+          "hojd": 1047,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/3b/UA_flag_in_liberated_Balakliia_01.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "2022 Ukrainian Kharkiv counteroffensive",
+            "3 people in Ukraine",
+            "Battle of Balakliia",
+            "Blue tape in military identification (Ukraine)",
+            "Kraken Special Unit",
+            "National flag of Ukraine in liberated populated places",
+            "People with AK variants",
+            "People with FN SCAR-L",
+            "Photographs of the national flag of Russia with other flags",
+            "Russo-Ukrainian War on 2022-09-08",
+            "Soldiers of Ukraine",
+            "Trampling the flag of Russia",
+            "Ukrainian towns and villages liberated from Russia, 2022"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 4.0",
+            "skal": [
+              "API:et säger \"CC BY 4.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "chersons-befrielse",
+      "titel": "Ukraina befriar Cherson",
+      "start": 2022,
+      "plats": "Cherson, Ukraina",
+      "wikidata": "Q115172927",
+      "kandidater": [
+        {
+          "fil": "File:UA 128th brigade liberating Kherson region 03.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:UA_128th_brigade_liberating_Kherson_region_03.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Ministry of Defence of Ukraine",
+          "datum": "2022-10-09",
+          "datum_original": "2022-10-09",
+          "datum_fil": "2022-10-14 21:56:16",
+          "kredit": "https://www.facebook.com/MinistryofDefence.UA/posts/pfbid02fyTk8xKAFxFzbpwkSAGHq8kC6V7zsWp1Vyuhw6nYt7Sc1MgjtgLgUrGfTCmXX9agl",
+          "beskrivning": "128th Zakarpattia Mountain Assault Brigade liberating Kherson region from Russian soldiers. A truck was captured and achieved a new tactical marking of AFU, a yellow square",
+          "bredd": 1284,
+          "hojd": 963,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/UA_128th_brigade_liberating_Kherson_region_03.jpg/960px-UA_128th_brigade_liberating_Kherson_region_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2022 Russian Invasion V-shaped markings on military vehicles",
+            "2022 Ukrainian Kherson counteroffensive",
+            "Blue or yellow color markings on military vehicles of Ukraine",
+            "Captured military vehicles in the 2022 Russian invasion of Ukraine",
+            "Destroyed military trucks of the Russo-Ukrainian War",
+            "KamAZ trucks in Ukraine",
+            "Military vehicle markings of Ukraine",
+            "Unidentified locations in Kherson Oblast"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Kherson Counteroffensive Tanks (Cropped).png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kherson_Counteroffensive_Tanks_(Cropped).png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Defense of Ukraine",
+          "datum": "2022-11-11",
+          "datum_original": "2022-11-11",
+          "datum_fil": "2022-11-12 02:41:30",
+          "kredit": "https://twitter.com/DefenceU/status/1591125394505478144/video/1",
+          "beskrivning": "A column of Ukrainian tanks liberating territory in Kherson Oblast.",
+          "bredd": 1062,
+          "hojd": 807,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Kherson_Counteroffensive_Tanks_%28Cropped%29.png/960px-Kherson_Counteroffensive_Tanks_%28Cropped%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2022 Ukrainian Kherson counteroffensive",
+            "T-72 tanks in Ukrainian service",
+            "Tanks in Kherson Raion"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-UA-exempt"
+            ]
+          }
+        },
+        {
+          "fil": "File:UA 128th brigade liberating Kherson region 02.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:UA_128th_brigade_liberating_Kherson_region_02.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Ministry of Defence of Ukraine",
+          "datum": "2022-10-09",
+          "datum_original": "2022-10-09",
+          "datum_fil": "2022-10-14 21:56:17",
+          "kredit": "https://www.facebook.com/MinistryofDefence.UA/posts/pfbid02fyTk8xKAFxFzbpwkSAGHq8kC6V7zsWp1Vyuhw6nYt7Sc1MgjtgLgUrGfTCmXX9agl",
+          "beskrivning": "128th Zakarpattia Mountain Assault Brigade liberating Kherson region from Russian soldiers. T-62M with cope cage was captured",
+          "bredd": 1284,
+          "hojd": 963,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/UA_128th_brigade_liberating_Kherson_region_02.jpg/960px-UA_128th_brigade_liberating_Kherson_region_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2022 Russian Invasion vehicle improvised armor",
+            "2022 Ukrainian Kherson counteroffensive",
+            "Captured military vehicles in the 2022 Russian invasion of Ukraine",
+            "Captured tanks of the Russo-Ukrainian War",
+            "Cope cage",
+            "T-62M tanks in Russian service",
+            "T-62 tanks in Ukraine"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "fn-resolution-es-11-1",
+      "titel": "FN:s generalförsamling fördömer invasionen",
+      "start": 2022,
+      "plats": "FN:s högkvarter, New York",
+      "wikidata": "Q111060761",
+      "kandidater": [
+        {
+          "fil": "File:United Nations General Assembly resolution ES-11 L.1 vote.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:United_Nations_General_Assembly_resolution_ES-11_L.1_vote.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Jurta",
+          "datum": "2022-03-02",
+          "datum_original": "2022-03-02",
+          "datum_fil": "2022-03-19 13:10:25",
+          "kredit": "Own work",
+          "beskrivning": "A map that shows the countries and their respective voting in the eleventh emergency special session of the United Nations General Assembly resolution ES-11/1 . In favor Against Abstentions Absent Non member",
+          "bredd": 2754,
+          "hojd": 1398,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/United_Nations_General_Assembly_resolution_ES-11_L.1_vote.svg/960px-United_Nations_General_Assembly_resolution_ES-11_L.1_vote.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Language-neutral maps of the world",
+            "Russo-Ukrainian War on 2022-03-02",
+            "UN resolutions maps",
+            "World maps of the international reaction to the 2022 Russian invasion of Ukraine"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-zero"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "massakern-i-butja",
+      "titel": "Massakern i Butja",
+      "start": 2022,
+      "plats": "Butja nordväst om Kyiv, Ukraina",
+      "wikidata": "Q111467700",
+      "kandidater": [
+        {
+          "fil": "File:The city of Bucha after liberation from the Russians 01.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_city_of_Bucha_after_liberation_from_the_Russians_01.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Ukrinform TV",
+          "datum": "Taken on 3 April 2022",
+          "datum_original": "Taken on 3 April 2022",
+          "datum_fil": "2022-06-26 21:27:33",
+          "kredit": "YouTube : Місто Буча після звільнення від російських окупантів – View/save archived versions on archive.org",
+          "beskrivning": "Video published by the National News Agency of Ukraine showing Bucha civilians massacred by Russian soldiers.",
+          "bredd": 1920,
+          "hojd": 677,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/The_city_of_Bucha_after_liberation_from_the_Russians_01.jpg/960px-The_city_of_Bucha_after_liberation_from_the_Russians_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bucha massacre",
+            "Human corpses in Ukraine",
+            "Pallet piles in Ukraine",
+            "Russo-Ukrainian War on 2022-04-03",
+            "Stacks of construction materials in Ukraine",
+            "Stacks of paving stones"
+          ],
+          "smal": false,
+          "flaggor": [
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 3.0",
+            "skal": [
+              "API:et säger \"CC BY 3.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Executed people in basement in Bucha.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Executed_people_in_basement_in_Bucha.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Військове телебачення України",
+          "datum": "2022-04-03",
+          "datum_original": "2022-04-03",
+          "datum_fil": "2022-04-04 20:27:29",
+          "kredit": "File:Місто_Буча_після_звільнення_від_російських_окупантів.webm",
+          "beskrivning": "Civilian casualties found in a basement in Bucha. 3 April 2022. From left to right: Mateshko Serhiy Viktorovych, born in 1981, native of Gostomel. Shulmeister Dmytro Valeriiovych, born in 1968, native of Kyiv. Boychenko Volodymyr Leonidovych, born in 1987, native of Bucha. Prudko Victor Eduardovich, born in 1997, native of Gostomel. Prudko Valeriy Petrovich, born in 1974, native of Gostomel.",
+          "bredd": 1920,
+          "hojd": 1080,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Executed_people_in_basement_in_Bucha.jpg/960px-Executed_people_in_basement_in_Bucha.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bucha massacre",
+            "Human corpses in Ukraine",
+            "People killed in the 2022 Russian invasion of Ukraine (civilians)",
+            "Russo-Ukrainian War on 2022-04-04"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "CC-BY-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "rysslands-invasion-av-ukraina",
+      "titel": "Rysslands invasion av Ukraina",
+      "start": 2022,
+      "plats": "Ukraina (anfall från norr, öster och söder, bland annat mot Kyiv)",
+      "wikidata": "Q110999040",
+      "kandidater": [
+        {
+          "fil": "File:Последствия удара ракеты по Голосеевскому району Киева (6).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D1%80%D0%B0%D0%BA%D0%B5%D1%82%D1%8B_%D0%BF%D0%BE_%D0%93%D0%BE%D0%BB%D0%BE%D1%81%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%BC%D1%83_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D1%83_%D0%9A%D0%B8%D0%B5%D0%B2%D0%B0_(6).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Arrikel",
+          "datum": "2022-02-24 13:32:24",
+          "datum_original": "2022-02-24 13:32:24",
+          "datum_fil": "2022-02-24 17:17:59",
+          "kredit": "Own work",
+          "beskrivning": "The consequences of a missile strike on Kyiv (6)",
+          "bredd": 4032,
+          "hojd": 3024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D1%80%D0%B0%D0%BA%D0%B5%D1%82%D1%8B_%D0%BF%D0%BE_%D0%93%D0%BE%D0%BB%D0%BE%D1%81%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%BC%D1%83_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D1%83_%D0%9A%D0%B8%D0%B5%D0%B2%D0%B0_%286%29.jpg/960px-%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B8%D1%8F_%D1%83%D0%B4%D0%B0%D1%80%D0%B0_%D1%80%D0%B0%D0%BA%D0%B5%D1%82%D1%8B_%D0%BF%D0%BE_%D0%93%D0%BE%D0%BB%D0%BE%D1%81%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%BC%D1%83_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D1%83_%D0%9A%D0%B8%D0%B5%D0%B2%D0%B0_%286%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Damaged buildings in Kyiv",
+            "Russo-Ukrainian War on 2022-02-24",
+            "War damages in Kyiv (2022 Russian invasion of Ukraine)"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "slaget-om-bachmut",
+      "titel": "Slaget om Bachmut",
+      "start": 2022,
+      "plats": "Bachmut, Donetsk oblast, Ukraina",
+      "wikidata": "Q112114958",
+      "kandidater": [
+        {
+          "fil": "File:Bakhmut after Russian shelling, 2022-09-15 (15).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bakhmut_after_Russian_shelling,_2022-09-15_(15).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "АрміяInform",
+          "datum": "2022-09-15",
+          "datum_original": "2022-09-15",
+          "datum_fil": "2022-09-16 04:15:49",
+          "kredit": "Росармія обстріляла Бахмут: під завалами люди",
+          "beskrivning": "5-store residential building in Bakhmut city (Donetsk Oblast of Ukraine) after Russian airstrike in the night on 15 September 2022.",
+          "bredd": 1200,
+          "hojd": 898,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Bakhmut_after_Russian_shelling%2C_2022-09-15_%2815%29.jpg/960px-Bakhmut_after_Russian_shelling%2C_2022-09-15_%2815%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Destroyed buildings in Bakhmut",
+            "Russo-Ukrainian War on 2022-09-15",
+            "September 2022 in Bakhmut",
+            "War damages in Bakhmut (2022 Russian invasion of Ukraine)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 4.0",
+            "skal": [
+              "API:et säger \"CC BY 4.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "ukrainas-offensiv-2023",
+      "titel": "Ukrainas offensiv 2023",
+      "start": 2023,
+      "plats": "Zaporizjzja och Donetsk oblast, Ukraina (bland annat Robotyne)",
+      "wikidata": "Q118951092",
+      "kandidater": [
+        {
+          "fil": "File:2022 Russian invasion of Ukraine.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2022_Russian_invasion_of_Ukraine.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Viewsridge",
+          "datum": "24 February 2022 (first version), last update: 11 months ago",
+          "datum_original": "24 February 2022 (first version), last update: 11 months ago",
+          "datum_fil": "2026-11-17 06:18:55",
+          "kredit": "Own work based on: Russo-Ukrainian conflict (2014-2022).svg by Rr016 & Ukraine adm location map improved.svg by Yakiv Gluck Territorial control sources: Template:Russo-Ukrainian War detailed map / Template:Russo-Ukrainian War detailed relief map ISW",
+          "beskrivning": "full-scale Russo-Ukrainian war – full-scale invasion of Ukraine by Russia starting on 24 February 2022, part of Russo-Ukrainian War [ edit ]",
+          "bredd": 2199,
+          "hojd": 1478,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/2022_Russian_invasion_of_Ukraine.svg/960px-2022_Russian_invasion_of_Ukraine.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2022 maps",
+            "Multilingual SVG maps of 2020-ies Russia-Ukraine war",
+            "Multilingual SVG with Arabic language (ar) option",
+            "Multilingual SVG with Armenian language (hy) option",
+            "Multilingual SVG with Basque language (eu) option",
+            "Multilingual SVG with Belarusian (Taraškievica orthography) language (be-tarask) option",
+            "Multilingual SVG with Belarusian language (be) option",
+            "Multilingual SVG with Bulgarian language (bg) option",
+            "Multilingual SVG with Catalan language (ca) option",
+            "Multilingual SVG with Chinese (China) language (zh-cn) option",
+            "Multilingual SVG with Chinese (Taiwan) language (zh-tw) option",
+            "Multilingual SVG with Chinese language (zh) option",
+            "Multilingual SVG with Croatian language (hr) option",
+            "Multilingual SVG with Czech language (cs) option",
+            "Multilingual SVG with Dutch language (nl) option",
+            "Multilingual SVG with Egyptian Arabic language (arz) option",
+            "Multilingual SVG with English language (en) as default",
+            "Multilingual SVG with English language (en) option",
+            "Multilingual SVG with Esperanto language (eo) option",
+            "Multilingual SVG with French language (fr) option",
+            "Multilingual SVG with Georgian language (ka) option",
+            "Multilingual SVG with German language (de) option",
+            "Multilingual SVG with Greek language (el) option",
+            "Multilingual SVG with Hebrew language (he) option",
+            "Multilingual SVG with Hungarian language (hu) option",
+            "Multilingual SVG with Ido language (io) option",
+            "Multilingual SVG with Irish language (ga) option",
+            "Multilingual SVG with Italian language (it) option",
+            "Multilingual SVG with Japanese language (ja) option",
+            "Multilingual SVG with Korean language (ko) option",
+            "Multilingual SVG with Lithuanian language (lt) option",
+            "Multilingual SVG with Malay language (ms) option",
+            "Multilingual SVG with Mongolian language (mn) option",
+            "Multilingual SVG with Persian language (fa) option",
+            "Multilingual SVG with Polish language (pl) option",
+            "Multilingual SVG with Portuguese language (pt) option",
+            "Multilingual SVG with Romanian language (ro) option",
+            "Multilingual SVG with Russian language (ru) option",
+            "Multilingual SVG with Serbian (Cyrillic script) language (sr-cyrl) option",
+            "Multilingual SVG with Serbian language (sr) option",
+            "Multilingual SVG with Slovak language (sk) option",
+            "Multilingual SVG with Spanish language (es) option",
+            "Multilingual SVG with Swedish language (sv) option",
+            "Multilingual SVG with Thai language (th) option",
+            "Multilingual SVG with Traditional Chinese language (zh-hant) option",
+            "Multilingual SVG with Turkish language (tr) option",
+            "Multilingual SVG with Ukrainian language (uk) option",
+            "Multilingual SVG with Urdu language (ur) option",
+            "Multilingual SVG with Vietnamese language (vi) option",
+            "Multilingual SVG with Welsh language (cy) option"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "medellinkonferensen-1968",
+      "titel": "Biskoparna i Medellín väljer de fattigas sida",
+      "start": 1968,
+      "plats": "Medellín, Colombia",
+      "wikidata": "Q5159913",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "gronlands-hemstyre",
+      "titel": "Grönland får hemstyre",
+      "start": 1979,
+      "plats": "Nuuk",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "gronlands-sjalvstyre",
+      "titel": "Grönland får självstyre",
+      "start": 2009,
+      "plats": "Nuuk",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    },
+    {
+      "id": "fredsavtalet-med-farc",
+      "titel": "Fredsavtalet mellan Colombia och FARC",
+      "start": 2016,
+      "plats": "Cartagena, Colombia (första undertecknandet)",
+      "wikidata": "Q5858325",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "rymdalder"
+    }
+  ]
+}
