@@ -63,7 +63,7 @@ export function showPlaceCard(app, place, events, { follow = true, note = '', fo
   // Fast rad om vad kortet visar (#1260) och tillståndsraden för året som visas (bara i Fokus; i en tur styr steget året)
   const today = placeTodayLine(place, rows.some(r => r.kind === 'empire'));
   panel.showSelection({ label: ui('place.label'), name: place.name, lead: placeLead(place), today, state: follow ? panel.placeState ?? '' : '', emblems: place.emblems,
-    intro: place.intro, mapNote: ui('place.mapContext'),
+    intro: place.intro, introNotes: place.introNotes, mapNote: ui('place.mapContext'),
     // Visa i Platt karta (#1161): byter vy och ramar in platsen; knappen finns när main.js har kopplat återanropet
     // En liten plats får regionvyn (#1641), och knappen säger det, men bara när den ryms (#1692, controllers/region.js)
     action: follow && panel.onPlaceFlat ? flatAction(place, () => panel.onPlaceFlat(place), app.region?.buttonKey(place)) : null,

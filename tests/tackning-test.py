@@ -76,6 +76,26 @@ assert row('Fun facts', '1800-tal') == '| 1800-tal | 33 % | – | – | – | �
 assert row('Två källor', 'Antiken (3000 f.Kr.–500)').startswith('| Antiken (3000 f.Kr.–500) | – | 0 % |'), 'okänd källa räknas inte'
 assert row('Osäkert datum', '1800-tal') == '| 1800-tal | 33 % | – | – | – | – | 33 % |'
 assert row('Ungefärlig plats', '1800-tal') == '| 1800-tal | 33 % | – | – | – | – | 33 % |'
+# Människans ursprung (#2349): tom efter år 1500 är inte en lucka ('–'), före är den det, och finns det ändå händelser visas de
+def cat_row(report, period, cat):
+    part = report.split(f'### {period}\n', 1)[1].split('\n### ', 1)[0]
+    return next(line for line in part.splitlines() if line.startswith(f'| {cat} |'))
+
+
+assert cat_row(first, '1800-tal', 'manniskan') == '| manniskan | – | – | – | – | – | 0 |', 'ursprung efter 1500 är inte en lucka'
+assert cat_row(first, 'Medeltid (501–1500)', 'manniskan') == '| manniskan | **0** | **0** | **0** | **0** | **0** | 0 |', 'före 1500 är tomt en lucka'
+assert cat_row(first, '1800-tal', 'natur').startswith('| natur | **0** |'), 'andra kategorier räknas som förut'
+assert tackning.applicable('manniskan', 'forhistoria') and tackning.applicable('manniskan', 'medeltid')
+assert not tackning.applicable('manniskan', 'tidigmodern') and not tackning.applicable('manniskan', '2000')
+assert tackning.applicable('natur', '2000')
+assert tackning.cat_cell('manniskan', '1800', 0) == '–' and tackning.cat_cell('manniskan', '1800', 2) == '2*'
+with tempfile.TemporaryDirectory() as tmp:
+    root = Path(tmp)
+    write(root, 'data/events.json', {'events': [event('m1', 1850, 2.35, 48.85, 'manniskan')]})
+    write(root, 'data/funfacts.json', {'funfacts': []})
+    write(root, 'data/sources.json', {'sources': SOURCES})
+    extra = tackning.build(root, date(2026, 11, 5))
+assert cat_row(extra, '1800-tal', 'manniskan') == '| manniskan | 1* | – | – | – | – | 1 |', 'en händelse visas även där kategorin inte väntas'
 gaps = first.split('## De 10 största luckorna\n', 1)[1]
 assert len(re.findall(r'^\| \d+ \|', gaps, re.M)) == 10, 'listan ska ha tio luckor'
 assert '| 1 | ' in gaps and '| alla |' in gaps

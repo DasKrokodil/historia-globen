@@ -25,17 +25,20 @@ const srcLine = (srcs, pending) => pending ? '' : `<div class="src">${esc(ui('de
  * Vanliga missuppfattningar som hör till händelsen (#838, beslut 2026-11-07): vad många tror, vad källorna säger,
  * var missuppfattningen kom ifrån (hopfälld) och källorna. Texterna ligger i data/missuppfattningar.json.
  * Tom text när händelsen saknar missuppfattningar eller när källregistret ännu inte har laddats (pending).
+ * young (#1316): faktarutan visas i en lektion för åk 4–6, så posten använder sina enklare texter i du-form (fältet young)
+ * där de finns; en del utan enklare text visas som vanligt.
  */
-export function mythsHtml(list, srcById, pending = false) {
+export function mythsHtml(list, srcById, pending = false, young = false) {
   if (pending) return '';
   return (list ?? []).map(m => {
+    const txt = part => t((young && m.young?.[part]) || m[part]);
     const rv = REVIEW[m.review] ?? REVIEW.draft;
     const srcs = (m.sources ?? []).map(id => srcById?.[id]).filter(Boolean);
     return `<aside class="detail-note detail-myth" data-myth="${esc(m.id)}">
       <h4>${esc(ui('detail.myth.title'))}</h4>
-      <p class="myth-claim"><b>${esc(ui('detail.myth.claim'))}</b> ${esc(t(m.claim))}</p>
-      <p class="myth-truth"><b>${esc(ui('detail.myth.truth'))}</b> ${esc(t(m.truth))}</p>
-      <details class="myth-origin"><summary>${esc(ui('detail.myth.origin'))}</summary><p>${esc(t(m.origin))}</p></details>
+      <p class="myth-claim"><b>${esc(ui('detail.myth.claim'))}</b> ${esc(txt('claim'))}</p>
+      <p class="myth-truth"><b>${esc(ui('detail.myth.truth'))}</b> ${esc(txt('truth'))}</p>
+      <details class="myth-origin"><summary>${esc(ui('detail.myth.origin'))}</summary><p>${esc(txt('origin'))}</p></details>
       <div class="src">${esc(ui('detail.source'))} ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || esc(ui('detail.sourceMissing'))}</div>
       <p class="myth-review"><span class="review-badge ${rv.cls}">${esc(reviewLabel(m.review, 'Missuppfattningen'))}</span></p>
     </aside>`;
@@ -762,7 +765,7 @@ export class Panel {
    * Kortet för ett urval (tema eller plats). empires (#1448, bara platser med periods): { title, note, follow, rows }, där en rad är
    * { years, name, label, run } (run saknas i en tur: raden är då bara text) eller { gap } (en lucka, en läsbar rad).
    */
-  showSelection({ label, name, lead = '', today = '', state = '', mapNote = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel, aboutLabel = null }) {
+  showSelection({ label, name, lead = '', today = '', state = '', mapNote = '', emblems = [], intro, introNotes = null, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel, aboutLabel = null }) {
     this.selectedId = null;
     // Ingen tidsålderns ram (#1713, punkt 4): plats- och temakortet är en ruta för läsning, i samma neutrala mörka kort som rikes-, religions-
     // och krigskorten. Ramen efter första händelsens epok gav olika kort för Skåne (grotta, 3,46:1) och Grönland (papyrus) och ockra text under AA.
@@ -806,9 +809,11 @@ export class Panel {
       </details>`;
     // Om kartan och källor (#1790): flaggans källa, kartanteckningarna och källorna, hopfällt längst ned i platsens kort
     const credits = shown.filter(em => !needsCredit(em)).map(em => `<p class="place-credit">${esc(t(em.caption))}: ${esc(em.credit)} · ${esc(em.license)}</p>`).join('');
+    // Kartanteckningarna om landets rikesperioder och kontur (#2353) står först i Om kartan och källor, inte i inledningen: knappen Visa på kartan ska synas i kortets första skärm
+    const introNotesHtml = placeCard && introNotes ? `<p class="theme-filter-note place-intro-notes"${langAttr(introNotes)}>${esc(t(introNotes))}</p>` : '';
     const aboutHtml = placeCard ? `<details class="theme-event-list place-about">
         <summary>${esc(aboutLabel)}</summary>
-        ${credits}${notesHtml}${srcs.length ? srcLine(srcs, false) : ''}
+        ${introNotesHtml}${credits}${notesHtml}${srcs.length ? srcLine(srcs, false) : ''}
       </details>` : '';
     const body = placeCard ? [actionHtml, eventsHtml, empireHtml, aboutHtml, exitHtml] : [actionHtml, notesHtml, exitHtml, empireHtml, eventsHtml];
     this.detail.innerHTML = `
@@ -1037,7 +1042,7 @@ export class Panel {
       ${figure(e, this.srcById, evidence.marker('image'))}
       ${loading ? loadingHtml() : paras(t(e.summary), evidence.marker('summary'), langAttr(e.summary))}
       ${e.note ? `<details class="detail-note"${noteOpen ? ' open' : ''}><summary>${esc(t(e.note.title))}</summary><p>${esc(t(e.note.text))}</p></details>` : ''}
-      ${loading ? '' : mythsHtml(misconceptionsFor(e.id), this.srcById, pending)}
+      ${loading ? '' : mythsHtml(misconceptionsFor(e.id), this.srcById, pending, !!this.youngReaders?.())}
       ${e._war ? `<p class="war-link">${esc(ui('detail.partOf'))} <button type="button" class="link-btn" data-goto="${esc(e._war.id)}">${esc(t(e._war.title))}</button></p>` : ''}
       ${e.kind === 'war' ? `<button type="button" class="chip-btn focus-btn" data-focus="${esc(e.id)}">▶ ${esc(ui('detail.followWar'))}</button>` : ''}
       ${e._battles?.length ? `<div class="war-list"><h4>${esc(ui('detail.battles'))}</h4><ol>${e._battles.map(b =>

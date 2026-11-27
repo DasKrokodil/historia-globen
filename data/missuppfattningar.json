@@ -181,6 +181,29 @@
         "es": "Los cuernos aparecieron por primera vez como elemento de disfraz en el siglo XIX. Según Wikipedia, la idea errónea fue difundida en parte por los entusiastas del siglo XIX del Götiska förbundet, fundado en Estocolmo en 1811. Según HISTORY, artistas escandinavos como el sueco Gustav Malmström incluyeron el tocado en sus representaciones de los vikingos, y cuando Wagner estrenó «El anillo del nibelungo» en la década de 1870, el figurinista Carl Emil Doepler creó cascos con cuernos para los personajes vikingos, con lo que nació un estereotipo duradero. HISTORY añade que pudieron inspirarse en hallazgos del siglo XIX de antiguos cascos con cuernos que resultaron ser anteriores a la época vikinga.",
         "fr": "Les cornes sont apparues pour la première fois comme élément de costume au XIXe siècle. Selon Wikipédia, l'idée fausse a été en partie propagée par des passionnés du XIXe siècle du Götiska förbundet, fondé à Stockholm en 1811. Selon HISTORY, des artistes scandinaves comme le Suédois Gustav Malmström ont inclus la coiffure dans leurs représentations des Vikings, et lorsque Wagner a monté « L'Anneau du Nibelung » dans les années 1870, le costumier Carl Emil Doepler a créé des casques à cornes pour les personnages vikings, d'où un stéréotype durable. HISTORY ajoute qu'ils ont pu s'inspirer de découvertes faites au XIXe siècle d'anciens casques à cornes qui se sont révélés antérieurs à l'époque viking."
       },
+      "young": {
+        "claim": {
+          "sv": "Vikingarna hade horn på hjälmen.",
+          "en": "The Vikings had horns on their helmets.",
+          "de": "Die Wikinger hatten Hörner an ihren Helmen.",
+          "es": "Los vikingos tenían cuernos en el casco.",
+          "fr": "Les Vikings avaient des cornes sur leur casque."
+        },
+        "truth": {
+          "sv": "Det finns inga bevis för att vikingarna hade horn på hjälmen. Den enda hela hjälm från vikingatiden som har hittats kommer från Gjermundbu i Norge. Den är rund, gjord av järn och har skydd för ögonen och näsan, men inga horn. På bilder från vikingatiden har krigarna ingen hjälm alls eller en enkel hjälm.",
+          "en": "There is no evidence that the Vikings had horns on their helmets. The only complete helmet from the Viking Age that has been found comes from Gjermundbu in Norway. It is round, made of iron and has a guard for the eyes and nose, but no horns. In pictures from the Viking Age, the warriors have no helmet at all or a simple one.",
+          "de": "Es gibt keine Beweise dafür, dass die Wikinger Hörner an ihren Helmen hatten. Der einzige vollständige Helm aus der Wikingerzeit, der gefunden wurde, stammt aus Gjermundbu in Norwegen. Er ist rund, aus Eisen und hat einen Schutz für Augen und Nase, aber keine Hörner. Auf Bildern aus der Wikingerzeit haben die Krieger gar keinen Helm oder einen einfachen.",
+          "es": "No hay pruebas de que los vikingos tuvieran cuernos en el casco. El único casco completo de la época vikinga que se ha encontrado procede de Gjermundbu, en Noruega. Es redondo, de hierro y tiene una protección para los ojos y la nariz, pero no tiene cuernos. En las imágenes de la época vikinga, los guerreros no llevan casco o llevan uno sencillo.",
+          "fr": "Rien ne prouve que les Vikings avaient des cornes sur leur casque. Le seul casque complet de l’époque viking retrouvé vient de Gjermundbu, en Norvège. Il est rond, en fer, et protège les yeux et le nez, mais il n’a pas de cornes. Sur les images de l’époque viking, les guerriers n’ont pas de casque ou en portent un simple."
+        },
+        "origin": {
+          "sv": "Hornen kom till långt efter vikingatiden, på 1800-talet. Konstnärer målade då vikingar med horn, och när en känd opera av Richard Wagner sattes upp på 1870-talet fick vikingarna i den hjälmar med horn. Ser du en viking med horn i dag kommer bilden alltså från 1800-talet.",
+          "en": "The horns came long after the Viking Age, in the 1800s. Artists then painted Vikings with horns, and when a famous opera by Richard Wagner was staged in the 1870s, the Vikings in it were given horned helmets. So if you see a Viking with horns today, the picture comes from the 1800s.",
+          "de": "Die Hörner kamen lange nach der Wikingerzeit auf, im 19. Jahrhundert. Damals malten Künstler Wikinger mit Hörnern, und als in den 1870er Jahren eine berühmte Oper von Richard Wagner aufgeführt wurde, bekamen die Wikinger darin Helme mit Hörnern. Wenn du heute einen Wikinger mit Hörnern siehst, stammt das Bild also aus dem 19. Jahrhundert.",
+          "es": "Los cuernos aparecieron mucho después de la época vikinga, en el siglo XIX. Entonces algunos artistas pintaron vikingos con cuernos, y cuando se estrenó una famosa ópera de Richard Wagner en la década de 1870, los vikingos de la obra llevaron cascos con cuernos. Así que, si hoy ves un vikingo con cuernos, la imagen viene del siglo XIX.",
+          "fr": "Les cornes sont apparues bien après l’époque viking, au XIXe siècle. Des artistes peignaient alors des Vikings à cornes, et quand un célèbre opéra de Richard Wagner a été monté dans les années 1870, les Vikings y portaient des casques à cornes. Donc, si tu vois aujourd’hui un Viking avec des cornes, l’image vient du XIXe siècle."
+        }
+      },
       "originKinds": [
         "other"
       ],
