@@ -62,7 +62,7 @@ test('rikets egen rad Om kartan står vid raden bara när gruppen har en enda de
 });
 
 test('Skåne (landskap) och platser utan beslut har inga perioder', () => {
-  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'polen', 'tjeckien'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
+  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'polen', 'tjeckien', 'slovakien'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
 });
 
 test('raderna får rikets eget namn ur indexet och en lucka för år som ingen period täcker', () => {
@@ -79,8 +79,8 @@ test('raderna får rikets eget namn ur indexet och en lucka för år som ingen p
     .filter(r => r.kind === 'gap'), []);
 });
 
-test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien, Nederländerna, Luxemburg, Tyskland, Österrike, Schweiz, Polen och Tjeckien räknas ur datan: inga av de listade delarna täcker luckans år', () => {
-  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'polen', 'tjeckien']) {
+test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien, Nederländerna, Luxemburg, Tyskland, Österrike, Schweiz, Polen, Tjeckien och Slovakien räknas ur datan: inga av de listade delarna täcker luckans år', () => {
+  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'polen', 'tjeckien', 'slovakien']) {
     const pl = places.find(p => p.id === id);
     const rows = placeEmpireRows(pl, groups);
     assert.equal(rows.filter(r => r.kind === 'empire').length, pl.periods.length, `${id}: alla perioder blir rader`);
@@ -259,6 +259,36 @@ test('Tjeckiens luckor och kartavvikelser är de som kortets kartanteckningar n�
   assert.deepEqual(span('habsburgska-riket'), [[1556, 1618], [1622, 1743], [1748, 1805]]);
   assert.deepEqual(span('tjeckoslovakien'), [[1919, 1938], [1945, 1991]]);
   assert.deepEqual(span('tjeckien'), [[1992, 2024]]);
+});
+
+test('Slovakiens luckor och kartavvikelser är de som kortets kartanteckningar nämner (#1825): rikena följer Bratislava', () => {
+  const pl = places.find(p => p.id === 'slovakien');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]), [[1450, 1458], [1547, 1555], [1806, 1867], [1939, 1944]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    // Luckorna, Stora Mähren, kartans Östgoter och Frankerrike, Kungariket Ungern med kartans Polen och Tysk-romerska riket,
+    // Pressburg som huvudstad och kröningsstad, kartans Osmanska och Spanska imperiet, Habsburgska riket, Österrike-Ungern,
+    // Tjeckoslovakien, Wienskiljedomen, Slovakiska staten, upplösningen och avvikelserna i öst och mitt
+    for (const years of ['1450–1458', '1547–1555', '1806–1867', '1939–1944', '833–907', '540–545', '793–824', '1000–1449', '1459–1546',
+      '1003–1017', '1305–1313', '1536–1783', '1830', '1529–1533', '1540–1555', '1556–1805', '1804', '1868–1918', '1919–1938', '1938',
+      '1939–1945', '1945–1991', '1992', '1993', '1919', '1683–1686', '1945']) {
+      assert.ok(introAll(pl, lang).includes(years), `slovakien: kartanteckningarna (${lang}) nämner inte ${years}`);
+    }
+    const pressburg = { es: 'Presburgo', fr: 'Presbourg' }[lang] ?? 'Pressburg';
+    for (const name of [pressburg, 'Košice', 'Prešov', 'Nitra', 'Banská Bystrica', 'Petržalka', 'Devín']) {
+      assert.ok(introAll(pl, lang).includes(name), `slovakien: kartanteckningarna (${lang}) nämner inte ${name}`);
+    }
+    assert.ok(pl.intro[lang].length <= 400, `slovakien: inledningen (${lang}) är längre än cirka 400 tecken`);
+  }
+  // Kartans Kungariket Polen, Tysk-romerska riket, Osmanska riket, Spanska imperiet, Nazityskland och Ungern står inte som rader
+  assert.ok(!pl.periods.some(p => ['kungariket-polen', 'tysk-romerska-riket', 'osmanska-riket', 'spanska-imperiet', 'nazityskland', 'ungern'].includes(p.empire)));
+  const span = id => pl.periods.filter(p => p.empire === id).map(p => [p.from, p.to]);
+  assert.deepEqual(span('kungariket-ungern'), [[1000, 1449], [1459, 1546]]);
+  assert.deepEqual(span('habsburgska-riket'), [[1556, 1805]]);
+  assert.deepEqual(span('tjeckoslovakien'), [[1919, 1938], [1945, 1991]]);
+  assert.deepEqual(span('slovakien'), [[1992, 2024]]);
+  // Devín ligger 0,9 km utanför Natural Earths gräns (i Österrikes polygon), men källan placerar borgen i Bratislava
+  assert.deepEqual(pl.includeEvents, ['devin-i-stora-mahren']);
 });
 
 test('kortet visar rikena som knappar med hela namnet, luckan som en rad och i en tur bara text', () => {
