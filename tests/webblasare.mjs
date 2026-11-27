@@ -1147,8 +1147,14 @@ async function run(browser, vp) {
     if (/(^|\s)oxford(\s|$)/.test((await page.locator('#flat-view').getAttribute('data-visible-events')) ?? '')) throw new Error('Oxford-markören syns i Platt vy år 1612');
     await clickView('#btn-flat');
     await page.click('#btn-panel'); await visible('#panel');
-    const more = page.locator('#event-list [data-panel-region]:not([hidden]) [data-region]').first();
-    if (await more.count()) { if (!/Visa \d+ till i /.test((await more.textContent()) ?? '')) throw new Error('Visa fler saknar synlig datastyrd världsdel'); await more.focus(); await page.keyboard.press('Enter'); if ((await more.getAttribute('aria-expanded')) !== 'true') throw new Error('Visa fler öppnas inte med tangentbord'); }
+    // panelEvent fäller ut en grupp när Oxford ligger bortom taket; prova därför en hopfälld knapp (#2372).
+    const moreSel = '#event-list [data-panel-region]:not([hidden]) .panel-more[data-region]';
+    let more = page.locator(`${moreSel}[aria-expanded="false"]`).first();
+    if (!(await more.count())) {
+      const open = page.locator(`${moreSel}[aria-expanded="true"]`).first();
+      if (await open.count()) { await open.click(); more = page.locator(`${moreSel}[aria-expanded="false"]`).first(); }
+    }
+    if (await more.count()) { if (!/Visa \d+ till i /.test((await more.textContent()) ?? '')) throw new Error('Visa fler saknar synlig datastyrd världsdel'); const kind = await more.getAttribute('data-kind'); const valda = page.locator(`${moreSel}[data-kind="${kind}"]`).first(); await valda.focus(); await page.keyboard.press('Enter'); if ((await valda.getAttribute('aria-expanded')) !== 'true') throw new Error('Visa fler öppnas inte med tangentbord'); }
     await jumpTo(1889);
     return 'Oxford: Pågick då i Europa även 1612, markör bara 1100; Visa fler nås med tangentbord';
   });
@@ -4409,7 +4415,7 @@ async function run(browser, vp) {
       if (order.join() !== want.join()) throw new Error(`världsdelarna står ${order.join(', ')}, inte i Samtidigts ordning ${want.join(', ')}`);
       if (tree.regions.some(r => r.expanded !== 'true')) throw new Error('en världsdel är ihopfälld från början');
       const europa = tree.regions.find(r => r.id === 'Europa');
-      if (europa?.rows.join() !== 'place:belgien,place:danmark,place:estland,place:finland,place:frankrike,place:irland,place:island,place:lettland,place:litauen,place:luxemburg,place:nederlanderna,place:norge,place:polen,place:schweiz,place:slovakien,place:storbritannien,place:sverige,place:tjeckien,place:tyskland,place:osterrike') throw new Error(`Europa visar ${europa?.rows.join(', ')}, inte Belgien, Danmark, Estland, Finland, Frankrike, Irland, Island, Lettland, Litauen, Luxemburg, Nederländerna, Norge, Polen, Schweiz, Slovakien, Storbritannien, Sverige, Tjeckien, Tyskland och Österrike i namnordning`);
+      if (europa?.rows.join() !== 'place:belgien,place:danmark,place:estland,place:finland,place:frankrike,place:irland,place:island,place:lettland,place:litauen,place:luxemburg,place:nederlanderna,place:norge,place:polen,place:schweiz,place:slovakien,place:storbritannien,place:sverige,place:tjeckien,place:tyskland,place:ungern,place:osterrike') throw new Error(`Europa visar ${europa?.rows.join(', ')}, inte Belgien, Danmark, Estland, Finland, Frankrike, Irland, Island, Lettland, Litauen, Luxemburg, Nederländerna, Norge, Polen, Schweiz, Slovakien, Storbritannien, Sverige, Tjeckien, Tyskland, Ungern och Österrike i namnordning`);
       if (tree.regions.find(r => r.id === 'Amerika')?.rows.join() !== 'place:gronland') throw new Error('Grönland står inte under Amerika (som i Samtidigt)');
       // Landskapen är ihopfällda under sitt land, och knappen säger landets namn ur datan
       const kids = tp.locator('#focus-menu [data-node="c:sverige:landskap"]');
@@ -4456,8 +4462,8 @@ async function run(browser, vp) {
       const at = () => tp.evaluate(() => { const a = document.activeElement; return a?.dataset.key ?? (a?.dataset.node ? `nod ${a.dataset.node}` : a?.className); });
       const walk = async keys => { const out = []; for (const k of keys) { await tp.keyboard.press(k); out.push(await at()); } return out; };
       await tp.locator('#focus-menu [data-node="r:Europa"]').focus();
-      const down = await walk(Array(23).fill('ArrowDown'));
-      const want = ['place:belgien', 'place:danmark', 'place:estland', 'place:finland', 'place:frankrike', 'place:irland', 'place:island', 'place:lettland', 'place:litauen', 'place:luxemburg', 'place:nederlanderna', 'place:norge', 'place:polen', 'place:schweiz', 'place:slovakien', 'place:storbritannien', 'place:sverige', 'nod c:sverige:landskap', 'place:tjeckien', 'place:tyskland', 'place:osterrike', 'nod r:Amerika', 'place:gronland'];
+      const down = await walk(Array(24).fill('ArrowDown'));
+      const want = ['place:belgien', 'place:danmark', 'place:estland', 'place:finland', 'place:frankrike', 'place:irland', 'place:island', 'place:lettland', 'place:litauen', 'place:luxemburg', 'place:nederlanderna', 'place:norge', 'place:polen', 'place:schweiz', 'place:slovakien', 'place:storbritannien', 'place:sverige', 'nod c:sverige:landskap', 'place:tjeckien', 'place:tyskland', 'place:ungern', 'place:osterrike', 'nod r:Amerika', 'place:gronland'];
       if (down.join() !== want.join()) throw new Error(`pil ner gick ${down.join(' → ')}, inte ${want.join(' → ')} (Skåne är ihopfällt och ska hoppas över)`);
       // Fäll ut landskapen med Enter: nu kommer Skåne efter knappen
       await tp.locator('#focus-menu [data-node="c:sverige:landskap"]').focus();
