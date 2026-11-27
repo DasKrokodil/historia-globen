@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historia-globen: platser på andra himlakroppar (#1527)",
+  "description": "data/rymd.json. Det som schemat inte kan uttrycka (att händelsen och källorna finns, att varje id är unikt, att kartfilen finns och att coord ligger inom kartan) kontrolleras i scripts/validate-site.py.",
+  "type": "object",
+  "required": ["schema", "maps", "items"],
+  "properties": {
+    "schema": { "type": "string", "pattern": "^historia-globen/rymd@1$" },
+    "about": { "type": "string" },
+    "maps": {
+      "type": "object",
+      "required": ["moon"],
+      "properties": { "moon": { "$ref": "#/$defs/map" } }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "eventId", "body", "coord", "placeType", "name", "summary", "sources", "review"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "eventId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "body": { "enum": ["moon"] },
+          "coord": {
+            "type": "array", "minItems": 2,
+            "items": { "type": "number", "minimum": -180, "maximum": 180 }
+          },
+          "placeType": { "enum": ["landing-site"] },
+          "name": { "$ref": "#/$defs/text" },
+          "summary": { "$ref": "#/$defs/text" },
+          "sources": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
+          "coordSources": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
+          "review": { "enum": ["draft", "source-checked", "two-sources"] },
+          "note": { "$ref": "#/$defs/text" },
+          "checkNote": { "type": "string" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "map": {
+      "type": "object",
+      "required": ["file", "width", "height", "projection", "bounds", "source", "credit", "license", "caption"],
+      "properties": {
+        "file": { "type": "string", "pattern": "^images/rymd/[a-z0-9-]+\\.webp$" },
+        "width": { "type": "integer", "minimum": 1, "maximum": 4096 },
+        "height": { "type": "integer", "minimum": 1, "maximum": 2048 },
+        "projection": { "enum": ["equirectangular"] },
+        "bounds": { "type": "array", "minItems": 4, "items": { "type": "number", "minimum": -180, "maximum": 180 } },
+        "source": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "credit": { "type": "string", "pattern": ".+" },
+        "license": { "type": "string", "pattern": ".+" },
+        "made": { "type": "string" },
+        "caption": { "$ref": "#/$defs/text" }
+      }
+    },
+    "text": {
+      "type": "object",
+      "required": ["sv", "en", "de", "es", "fr"],
+      "properties": {
+        "sv": { "type": "string", "pattern": ".+" }, "en": { "type": "string", "pattern": ".+" }, "de": { "type": "string", "pattern": ".+" },
+        "es": { "type": "string", "pattern": ".+" }, "fr": { "type": "string", "pattern": ".+" }
+      }
+    }
+  }
+}

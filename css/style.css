@@ -1750,6 +1750,51 @@ html.calm .year-tip { animation: none; }
 /* Grupper, granskningsläge och sökning (#141) */
 .src-intro { color: var(--parchment-dim); }
 .sheet-body .src-version { color: var(--parchment-dim); font-size: .85rem; margin: 24px 0 0; overflow-wrap: anywhere; text-align: center; }
+
+/* ---------- månvyn (#1527) ---------- */
+/* Knappen Visa på månen i faktarutan (js/ui/panel.js): minst 44 px, en liten skära framför texten */
+.detail .moon-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin: 10px 0 2px; }
+.moon-btn-icon { width: 14px; height: 14px; border-radius: 50%; box-shadow: inset -4px 0 0 0 var(--parchment); flex: none; }
+/* Dialogen (js/ui/moon.js): ett ark som Om källorna, med bandet överst och Tillbaka till jorden underst. Ingen flygning eller zoom
+   mellan kloten, bara en kort toning, som stängs av vid prefers-reduced-motion och Lugn rörelse (.calm). */
+.moon-sheet:not([hidden]) { animation: moon-fade .28s ease-out; }
+@keyframes moon-fade { from { opacity: 0; } to { opacity: 1; } }
+.moon-inner { width: min(900px, 100%); }
+.moon-band { margin: 0; padding: 8px 18px; border-bottom: 1px solid var(--line); background: var(--night); color: var(--brass); font: 600 12px/1.35 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; }
+.moon-head h2 { outline: none; }
+.moon-head h2:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 3px; border-radius: 2px; }
+.moon-year { margin: 0 0 10px; color: var(--parchment-dim); font: 500 13px/1.4 var(--f-mono); }
+.moon-map { margin: 0; }
+.moon-frame { position: relative; aspect-ratio: 2 / 1; overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: var(--night); }
+.moon-img { display: block; width: 100%; height: 100%; }
+.moon-marker { position: absolute; box-sizing: border-box; width: 22px; height: 22px; margin: -11px 0 0 -11px; border: 2px solid var(--brass); border-radius: 50%; box-shadow: 0 0 0 2px var(--night), inset 0 0 0 2px var(--night); pointer-events: none; }
+.moon-marker::after { content: ''; position: absolute; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: var(--brass-light); }
+.moon-marker.moon-pulse { animation: moon-pulse .9s ease-out 2; }
+@keyframes moon-pulse { 50% { transform: scale(1.7); } }
+.moon-loading, .moon-missing { margin: 8px 0 0; color: var(--parchment-dim); }
+.moon-map figcaption { margin: 6px 0 0; color: var(--parchment-dim); font-size: .85rem; line-height: 1.4; }
+.moon-credit { overflow-wrap: anywhere; }
+.sheet-body .moon-places-title { margin-top: 16px; }
+.moon-places { list-style: none; margin: 0; padding: 0; }
+.moon-place { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; min-height: 44px; padding: 8px 12px; text-align: left;
+  background: var(--night-3); color: var(--parchment); border: 1px solid var(--control-line); border-radius: 6px; font: inherit; cursor: pointer; }
+.moon-place:hover { border-color: var(--brass); }
+.moon-place:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
+.moon-place-name { font-weight: 600; }
+.moon-place-meta { color: var(--parchment-dim); font: 500 12.5px/1.4 var(--f-mono); }
+.moon-note, .moon-review { color: var(--parchment-dim); font-size: .9rem; }
+.moon-body .src { overflow-wrap: anywhere; }
+.moon-foot { display: flex; justify-content: flex-end; padding: 10px 18px; border-top: 1px solid var(--line); }
+.moon-back { min-height: 44px; }
+/* Ett kort i taget (beslut 2026-11-14, punkt 3): faktarutan och Samtidigt-kortet döljs medan månvyn är öppen och kommer tillbaka oförändrade */
+.app.moon-open :is(#detail, #funfact) { visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { .moon-sheet:not([hidden]), .moon-marker.moon-pulse { animation: none; } }
+@media (max-width: 760px) {
+  .moon-sheet { padding: 8px; }
+  .moon-band { padding: 8px 12px; }
+  .moon-foot { padding: 8px 12px; }
+  .moon-back { width: 100%; }
+}
 .src-version a { color: var(--brass); }
 .src-groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); gap: 8px; margin: 10px 0 12px; }
 .src-group {

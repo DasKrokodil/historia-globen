@@ -16609,6 +16609,135 @@ async function run(browser, vp) {
     }
   });
 
+  // Månvyn (#1527, beslut 2026-11-14-rymden-forsta-steget.md): Visa på månen finns bara för händelser med en post i data/rymd.json, och
+  // dialogen öppnas och stängs med Escape och Tillbaka till jorden på samma sätt. Egen sida, så att den delade sidan inte påverkas.
+  // Kontrollerna ligger i jobbet matris (tests/jobb.json), som kör både dator och mobil (400 px).
+  const moonPage = async (name, broken = false) => {
+    const mp = await context.newPage();
+    const mpAw = abortWatch(mp);
+    const errs = [];
+    mp.on('pageerror', e => { if (!mpAw.defer(e.message)) errs.push(`sidfel: ${e.message}`); });
+    mp.on('console', m => {
+      if (m.type() !== 'error' || isFont(m.location()?.url || '')) return;
+      if (broken && /manen-lroc-wac|ERR_FAILED|Failed to load resource/.test(`${m.text()} ${m.location()?.url || ''}`)) return; // den avsiktligt saknade kartan
+      errs.push(`konsol: ${m.text()}`);
+    });
+    if (THREE_LOCAL) {
+      const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+      await mp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      await mp.route(u => isFont(u.href), r => r.abort());
+    }
+    if (broken) await mp.route(u => /images\/rymd\//.test(u.href), r => r.abort());
+    await mpAw.goto(`${BASE}?manen=${name}#y=1969&l=events`);
+    await mp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+    const open = async id => {
+      if (await mp.isHidden('#panel')) await mp.click('#btn-panel');
+      await (await panelEvent(mp, { id })).click({ timeout: T.step });
+      await mp.waitForFunction(i => !document.getElementById('detail').hidden && document.getElementById('detail').dataset.eventId === i, id, { timeout: T.step });
+    };
+    return { mp, mpAw, errs, open };
+  };
+  const moonState = pg => pg.evaluate(() => {
+    const d = document.getElementById('detail'), dlg = document.getElementById('moon-dialog');
+    return {
+      open: !dlg.hidden, focus: document.activeElement?.id || (document.activeElement?.hasAttribute('data-moon') ? 'data-moon' : document.activeElement?.className || ''),
+      detailShown: !d.hidden && getComputedStyle(d).visibility === 'visible', live: document.getElementById('moon-live').textContent,
+      overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    };
+  });
+
+  await check('månvyn: Visa på månen bara för Apollo 11, öppnas och stängs med Escape och Tillbaka till jorden, och fokus kommer tillbaka (#1527)', async () => {
+    const { mp, mpAw, errs, open } = await moonPage('knapp');
+    try {
+      // En annan händelse samma år har ingen knapp
+      const other = await mp.evaluate(() => [...document.querySelectorAll('#event-list .event-btn')].map(b => b.dataset.id).find(id => id && id !== 'apollo-11'));
+      if (!other) throw new Error('ingen annan händelse i listan 1969');
+      await open(other);
+      if (await mp.locator('#detail [data-moon]').count()) throw new Error(`${other} har knappen Visa på månen utan post i data/rymd.json`);
+      // Apollo 11 har knappen, minst 44 px hög, och namnet börjar med den synliga texten (WCAG 2.5.3)
+      await open('apollo-11');
+      const btn = mp.locator('#detail [data-moon]');
+      await btn.waitFor({ state: 'visible', timeout: T.step });
+      const b = await btn.evaluate(el => ({ h: el.getBoundingClientRect().height, text: el.textContent.trim(), label: el.getAttribute('aria-label') }));
+      if (b.h < 44) throw new Error(`knappen är ${b.h} px hög (minst 44)`);
+      if (!b.label?.startsWith(b.text)) throw new Error(`namnet "${b.label}" börjar inte med texten "${b.text}"`);
+      // Öppna: fokus på rubriken, bandet och jordens år syns, kartan har role="img" med textalternativ och bilden laddas, platsen står i listan
+      await btn.click();
+      await mp.waitForSelector('#moon-dialog:not([hidden])', { timeout: T.step });
+      await mp.waitForFunction(() => { const i = document.querySelector('#moon-body .moon-img'); return i && i.complete && i.naturalWidth > 0 && !i.hidden; }, null, { timeout: T.step });
+      await mp.waitForFunction(() => document.getElementById('moon-live').textContent.length > 0, null, { timeout: T.step });
+      const st = await moonState(mp);
+      if (st.focus !== 'moon-title') throw new Error(`fokus står på ${st.focus}, inte på rubriken`);
+      if (st.detailShown) throw new Error('faktarutan syns bakom månvyn (ett kort i taget)');
+      if (st.overflow > 0) throw new Error(`horisontell scroll: ${st.overflow} px`);
+      const dlg = await mp.evaluate(() => {
+        const f = document.querySelector('#moon-body [role="img"]'), m = document.querySelector('#moon-body .moon-marker');
+        const fr = f.getBoundingClientRect(), mr = m.getBoundingClientRect();
+        return {
+          band: document.querySelector('.moon-band').textContent, year: document.querySelector('.moon-year').textContent, alt: f.getAttribute('aria-label'),
+          caption: document.querySelector('.moon-map figcaption').textContent, place: document.querySelector('#moon-body [data-moon-place]')?.textContent ?? '',
+          // Punkten 23,47° Ö, 0,67° N ligger på (23,47 + 180) / 360 och (90 − 0,67) / 180 av kartan
+          x: (mr.left + mr.width / 2 - fr.left) / fr.width, y: (mr.top + mr.height / 2 - fr.top) / fr.height,
+          ff: getComputedStyle(document.getElementById('funfact')).visibility,
+        };
+      });
+      if (!/utanför jordens tid och plats/.test(dlg.band)) throw new Error(`bandet saknas: "${dlg.band}"`);
+      if (!/Året är 1969, jordens tid/.test(dlg.year)) throw new Error(`året saknas: "${dlg.year}"`);
+      if (!/Statio Tranquillitatis/.test(dlg.alt) || !/inte skalenlig/.test(dlg.alt)) throw new Error(`textalternativet är fel: "${dlg.alt}"`);
+      if (!/inte skalenlig/.test(dlg.caption) || !/Public domain/.test(dlg.caption)) throw new Error(`bildtexten saknar märkning eller licens: "${dlg.caption}"`);
+      if (!/Statio Tranquillitatis/.test(dlg.place)) throw new Error('platsen saknas i listan');
+      if (Math.abs(dlg.x - 203.47314 / 360) > 0.01 || Math.abs(dlg.y - 89.32584 / 180) > 0.01) throw new Error(`markören ligger fel: ${dlg.x.toFixed(3)}, ${dlg.y.toFixed(3)}`);
+      if (dlg.ff === 'visible') throw new Error('Samtidigt-kortet syns bakom månvyn');
+      // Tab går till listans knapp, och knappen säger var platsen ligger
+      await mp.keyboard.press('Tab');
+      if (!(await mp.evaluate(() => document.activeElement?.hasAttribute('data-moon-place')))) throw new Error('Tab från rubriken når inte platsens knapp');
+      await mp.keyboard.press('Enter');
+      await mp.waitForFunction(() => /0,67° N, 23,47° Ö/.test(document.getElementById('moon-live').textContent), null, { timeout: T.step });
+      // Escape stänger, faktarutan kommer tillbaka och fokus står på knappen
+      await mp.keyboard.press('Escape');
+      await mp.waitForSelector('#moon-dialog', { state: 'hidden', timeout: T.step });
+      const esc = await moonState(mp);
+      if (esc.focus !== 'data-moon' || !esc.detailShown) throw new Error(`efter Escape: ${JSON.stringify(esc)}`);
+      // Tillbaka till jorden gör samma sak
+      await btn.click();
+      await mp.waitForSelector('#moon-dialog:not([hidden])', { timeout: T.step });
+      await mp.click('#moon-back');
+      await mp.waitForSelector('#moon-dialog', { state: 'hidden', timeout: T.step });
+      const back = await moonState(mp);
+      if (back.focus !== 'data-moon' || !back.detailShown) throw new Error(`efter Tillbaka till jorden: ${JSON.stringify(back)}`);
+      errs.push(...mpAw.settle());
+      if (errs.length) throw new Error(errs.join(' | '));
+      return 'knappen bara på Apollo 11, Escape och Tillbaka ger samma resultat, inga konsolfel';
+    } finally {
+      await mp.close();
+    }
+  });
+
+  await check('månvyn: utan kartbild visas en lugn text och platsen, och Tillbaka till jorden fungerar (#1527)', async () => {
+    const { mp, mpAw, errs, open } = await moonPage('utan-bild', true);
+    try {
+      await open('apollo-11');
+      await mp.click('#detail [data-moon]');
+      await mp.waitForSelector('#moon-body [data-moon-missing]', { state: 'visible', timeout: T.step });
+      const got = await mp.evaluate(() => ({
+        text: document.querySelector('#moon-body [data-moon-missing]').textContent, frame: !document.querySelector('#moon-body .moon-frame').hidden,
+        place: !!document.querySelector('#moon-body [data-moon-place]')?.offsetParent, back: !!document.getElementById('moon-back').offsetParent,
+      }));
+      if (!/kunde inte laddas/.test(got.text)) throw new Error(`texten saknas: "${got.text}"`);
+      if (got.frame) throw new Error('den tomma kartytan visas');
+      if (!got.place || !got.back) throw new Error(`listan eller knappen saknas: ${JSON.stringify(got)}`);
+      await mp.click('#moon-back');
+      await mp.waitForSelector('#moon-dialog', { state: 'hidden', timeout: T.step });
+      const st = await moonState(mp);
+      if (st.focus !== 'data-moon' || !st.detailShown) throw new Error(`efter Tillbaka till jorden: ${JSON.stringify(st)}`);
+      errs.push(...mpAw.settle());
+      if (errs.length) throw new Error(errs.join(' | '));
+      return 'lugn text, platsen i listan och vägen tillbaka fungerar utan bild';
+    } finally {
+      await mp.close();
+    }
+  });
+
   // Språkbytet laddar om sidan även när adressen har en #-del (url-state.js, #501). Med location.assign() till
   // samma adress laddades sidan inte om: valet sparades men texterna stod kvar på svenska. Körs sist, eftersom
   // sidan laddas om, och återställer svenska efteråt.
