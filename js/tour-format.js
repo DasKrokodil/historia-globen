@@ -17,6 +17,10 @@
 //                      med 1–2 händelser som har en anteckning om källorna (note.kind, #613) och som ett
 //                      steg i turen öppnar (open); 1–4 frågor per händelse, som bara frågar efter det
 //                      anteckningen säger
+//           exitAnswer valfritt (#1316): förväntat svar på exit ticket för lärarbladet, { text, sources }; källorna är
+//                      källor som turens steg anger, och svaret säger bara det som de källorna säger
+//           glossary   valfritt (#1316): ordförklaringar på elevbladet, 1–8 poster { term, text, sources } (term och
+//                      text per språk); källorna är källor som turens steg anger
 //           lock       valfritt: lektionsläget (#795, länken #t=<id>&m=lektion): { years?, layers?, escape? }
 //                      years   [från, till]: tidslinjen stannar i intervallet (alla steg ligger inom det och det har
 //                              händelser från minst två världsdelar)
@@ -25,6 +29,8 @@
 // Ett steg: { id, at, camera: { lat, lon, zoom }, title?, chapter?, question?, text, layers: [lager-id], open?, place?, sources: [käll-id] }
 //   chapter valfritt kapitelnamn per språk, visas ovanför rubriken (berättelseläget, #247)
 //   question valfri fråga att fundera på, per språk; den påstår inget som stegets källor inte säger
+//   answer  valfritt (#1316), bara med question: förväntat svar för lärarbladet, { text: text per språk, sources: [käll-id] }.
+//           Källorna är några av stegets egna (sources), och svaret säger bara det som de säger. Går ett svar inte att belägga skrivs det inte.
 //   status  valfritt: vad källorna säger om steget, samma ord som slutkortet (#500): belagt, omtvistat eller okant (#499)
 //   at      år med astronomisk årsräkning; decimaltal är tillåtet (delar av år, #204), men utanför
 //           fokusläget för korta krig visar tidslinjen hela år
@@ -52,6 +58,8 @@ export const TOUR_REVIEW = ['draft', 'source-checked', 'two-sources'];
 export const LOW_WINDOW = '(max-height: 600px), (min-width: 761px) and (max-height: 700px)';
 export const STEP_STATUS = ['belagt', 'omtvistat', 'okant'];
 export const LESSON_GRADES = ['F-3', '4-6', '7-9', 'gy'];
+// Årskurserna för elever till och med 13 år (beslut 2026-11-08 om tilltal): elevbladet och faktarutan väljer då de enklare texterna (#1316)
+export const YOUNG_GRADES = ['F-3', '4-6'];
 const ID = /^[a-z0-9-]+$/;
 const ID_KEY = /^[A-Za-z][A-Za-z0-9-]*$/;
 
@@ -93,6 +101,7 @@ export function tourProblems(tour, known = {}) {
     if (s.title != null && !isText(s.title)) say(`${where}: titeln ska vara text per språk.`);
     if (s.chapter != null && !isText(s.chapter)) say(`${where}: kapitlet ska vara text per språk.`);
     if (s.question != null && !isText(s.question)) say(`${where}: frågan ska vara text per språk.`);
+    if (s.answer != null) answerProblems(s.answer, new Set(Array.isArray(s.sources) ? s.sources : []), s.question == null).forEach(msg => say(`${where}: ${msg}`));
     if (s.status != null && !STEP_STATUS.includes(s.status)) say(`${where}: okänd status ${s.status}.`);
     if (!Array.isArray(s.layers)) say(`${where}: layers ska vara en lista med lager-id.`);
     else for (const l of s.layers) if (known.layers && !known.layers.has(l)) say(`${where}: lagret ${l} finns inte.`);
@@ -108,6 +117,20 @@ export function tourProblems(tour, known = {}) {
     if (!Array.isArray(s.sources) || !s.sources.length) say(`${where}: källor saknas (sources).`);
     else for (const id of s.sources) if (known.sources && !known.sources.has(id)) say(`${where}: källan ${id} finns inte.`);
   });
+  return out;
+}
+
+/**
+ * Ett förväntat svar (step.answer och lesson.exitAnswer, #1316): text per språk och källor, som alla ska finnas bland own
+ * (stegets källor, eller turens för exit ticket). noQuestion: steget har ingen fråga att svara på.
+ */
+function answerProblems(a, own, noQuestion = false, label = 'svaret (answer)') {
+  if (!a || typeof a !== 'object' || Array.isArray(a)) return [`${label} ska vara ett objekt.`];
+  const out = [];
+  if (noQuestion) out.push(`${label} finns men steget har ingen fråga.`);
+  if (!isText(a.text)) out.push(`${label} saknar text (text.sv).`);
+  if (!Array.isArray(a.sources) || !a.sources.length) out.push(`${label} saknar källor (sources).`);
+  else for (const id of a.sources) if (!own.has(id)) out.push(`${label}: källan ${id} är inte en av källorna för det som svaret bygger på.`);
   return out;
 }
 
@@ -174,8 +197,25 @@ function lessonProblems(l, known, tour) {
   if (!isText(l.teacher)) out.push('lesson: lärarinstruktionen saknas (teacher.sv).');
   if (!isText(l.exitTicket)) out.push('lesson: exit ticket saknas (exitTicket.sv).');
   if (l.prerequisites != null && !isText(l.prerequisites)) out.push('lesson: förkunskaperna ska vara text per språk.');
+  const tourSources = new Set((Array.isArray(tour.steps) ? tour.steps : []).flatMap(s => (Array.isArray(s?.sources) ? s.sources : [])));
+  if (l.exitAnswer != null) answerProblems(l.exitAnswer, tourSources, false, 'svaret på exit ticket (exitAnswer)').forEach(p => out.push(`lesson: ${p}`));
+  if (l.glossary != null) glossaryProblems(l.glossary, tourSources).forEach(p => out.push(p));
   if (l.sourceDetective != null) detectiveProblems(l.sourceDetective, tour.steps, known).forEach(p => out.push(p));
   if (l.lock != null) lockProblems(l.lock, known, tour).forEach(p => out.push(p));
+  return out;
+}
+
+/** Ordförklaringarna på elevbladet (lesson.glossary, #1316): 1–8 ord med förklaring per språk och källor ur turens steg. */
+function glossaryProblems(list, tourSources) {
+  if (!Array.isArray(list) || !list.length || list.length > 8) return ['lesson: ordförklaringarna (glossary) ska vara en lista med 1–8 ord.'];
+  const out = [];
+  list.forEach((g, i) => {
+    const where = `lesson: ordförklaring ${i + 1}`;
+    if (!g || !isText(g.term)) out.push(`${where}: ordet saknas (term.sv).`);
+    if (!g || !isText(g.text)) out.push(`${where}: förklaringen saknas (text.sv).`);
+    if (!Array.isArray(g?.sources) || !g.sources.length) out.push(`${where}: källor saknas (sources).`);
+    else for (const id of g.sources) if (!tourSources.has(id)) out.push(`${where}: källan ${id} anges inte av något steg i turen.`);
+  });
   return out;
 }
 

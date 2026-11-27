@@ -25,17 +25,20 @@ const srcLine = (srcs, pending) => pending ? '' : `<div class="src">${esc(ui('de
  * Vanliga missuppfattningar som hör till händelsen (#838, beslut 2026-11-07): vad många tror, vad källorna säger,
  * var missuppfattningen kom ifrån (hopfälld) och källorna. Texterna ligger i data/missuppfattningar.json.
  * Tom text när händelsen saknar missuppfattningar eller när källregistret ännu inte har laddats (pending).
+ * young (#1316): faktarutan visas i en lektion för åk 4–6, så posten använder sina enklare texter i du-form (fältet young)
+ * där de finns; en del utan enklare text visas som vanligt.
  */
-export function mythsHtml(list, srcById, pending = false) {
+export function mythsHtml(list, srcById, pending = false, young = false) {
   if (pending) return '';
   return (list ?? []).map(m => {
+    const txt = part => t((young && m.young?.[part]) || m[part]);
     const rv = REVIEW[m.review] ?? REVIEW.draft;
     const srcs = (m.sources ?? []).map(id => srcById?.[id]).filter(Boolean);
     return `<aside class="detail-note detail-myth" data-myth="${esc(m.id)}">
       <h4>${esc(ui('detail.myth.title'))}</h4>
-      <p class="myth-claim"><b>${esc(ui('detail.myth.claim'))}</b> ${esc(t(m.claim))}</p>
-      <p class="myth-truth"><b>${esc(ui('detail.myth.truth'))}</b> ${esc(t(m.truth))}</p>
-      <details class="myth-origin"><summary>${esc(ui('detail.myth.origin'))}</summary><p>${esc(t(m.origin))}</p></details>
+      <p class="myth-claim"><b>${esc(ui('detail.myth.claim'))}</b> ${esc(txt('claim'))}</p>
+      <p class="myth-truth"><b>${esc(ui('detail.myth.truth'))}</b> ${esc(txt('truth'))}</p>
+      <details class="myth-origin"><summary>${esc(ui('detail.myth.origin'))}</summary><p>${esc(txt('origin'))}</p></details>
       <div class="src">${esc(ui('detail.source'))} ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || esc(ui('detail.sourceMissing'))}</div>
       <p class="myth-review"><span class="review-badge ${rv.cls}">${esc(reviewLabel(m.review, 'Missuppfattningen'))}</span></p>
     </aside>`;
@@ -1037,7 +1040,7 @@ export class Panel {
       ${figure(e, this.srcById, evidence.marker('image'))}
       ${loading ? loadingHtml() : paras(t(e.summary), evidence.marker('summary'), langAttr(e.summary))}
       ${e.note ? `<details class="detail-note"${noteOpen ? ' open' : ''}><summary>${esc(t(e.note.title))}</summary><p>${esc(t(e.note.text))}</p></details>` : ''}
-      ${loading ? '' : mythsHtml(misconceptionsFor(e.id), this.srcById, pending)}
+      ${loading ? '' : mythsHtml(misconceptionsFor(e.id), this.srcById, pending, !!this.youngReaders?.())}
       ${e._war ? `<p class="war-link">${esc(ui('detail.partOf'))} <button type="button" class="link-btn" data-goto="${esc(e._war.id)}">${esc(t(e._war.title))}</button></p>` : ''}
       ${e.kind === 'war' ? `<button type="button" class="chip-btn focus-btn" data-focus="${esc(e.id)}">▶ ${esc(ui('detail.followWar'))}</button>` : ''}
       ${e._battles?.length ? `<div class="war-list"><h4>${esc(ui('detail.battles'))}</h4><ol>${e._battles.map(b =>

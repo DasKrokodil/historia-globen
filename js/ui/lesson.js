@@ -14,7 +14,7 @@ import { t } from '../model.js';
 import { ui } from '../i18n.js';
 import { printLesson } from './print-sheet.js';
 import { missionsForLesson, fitsLesson } from '../uppdrag-rules.js';
-import { LOW_WINDOW } from '../tour-format.js';
+import { LOW_WINDOW, YOUNG_GRADES } from '../tour-format.js';
 
 export class LessonMode {
   /**
@@ -116,6 +116,8 @@ export class LessonMode {
 
   get active() { return !!this.tour; }
   get lock() { return this.tour?.lesson?.lock ?? null; }
+  /** Lektionen riktar sig till elever till och med 13 år (F–3 och 4–6, beslut 2026-11-08): faktarutan väljer då enklare texter där de finns (#1316). */
+  get young() { return YOUNG_GRADES.includes(this.tour?.lesson?.grades); }
   /** Lagren som är på hela lektionen (lock.layers), eller null när turens steg bestämmer. */
   get layers() { return this.lock?.layers ?? null; }
 

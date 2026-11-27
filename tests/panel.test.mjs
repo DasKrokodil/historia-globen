@@ -40,6 +40,29 @@ test('missuppfattningen ritas inte medan källorna laddas eller när listan är 
   assert.equal(mythsHtml(undefined, srcs), '');
 });
 
+test('en lektion för åk 4–6 visar de enklare texterna (young) där de finns, annars vuxentexten (#1316)', () => {
+  const both = { ...myth, young: { truth: { sv: 'Enkel sanning' }, origin: { sv: 'Enkelt ursprung' } } };
+  const kids = mythsHtml([both], srcs, false, true);
+  assert.match(kids, /Enkel sanning/);
+  assert.match(kids, /Enkelt ursprung/);
+  assert.ok(!/>Sanningen|Ursprunget/.test(kids), 'vuxentexten ska inte stå kvar där en enklare finns');
+  assert.match(kids, /Påstående &lt;b&gt;fet/, 'påståendet utan enklare text visas som vanligt');
+  const adults = mythsHtml([both], srcs, false, false);
+  assert.match(adults, /Sanningen/);
+  assert.ok(!/Enkel sanning/.test(adults), 'utanför lektionen visas vuxentexten');
+});
+
+test('missuppfattningarnas enklare texter har samma språk som vuxentexten (#1316)', () => {
+  const doc = JSON.parse(readFileSync(new URL('../data/missuppfattningar.json', import.meta.url)));
+  for (const m of doc.misconceptions.filter(x => x.young)) {
+    assert.ok(m.young.truth?.sv, `${m.id}: young.truth.sv saknas`);
+    for (const part of ['claim', 'truth', 'origin']) {
+      if (!m.young[part]) continue;
+      assert.deepEqual(Object.keys(m.young[part]).sort(), Object.keys(m[part]).sort(), `${m.id}: young.${part} har inte samma språk som ${part}`);
+    }
+  }
+});
+
 // Varför listan är tom (#886)
 
 test('tom lista: alla kategorier av ger filters, ett tomt år ger year, och en lista med träffar ger null', () => {
