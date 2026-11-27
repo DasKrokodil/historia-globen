@@ -423,6 +423,50 @@
     ],
     "checked": "2026-11-27"
    }
+  ],
+  "medelpad": [
+   {
+    "wikidata": "Q10502305",
+    "coordinates": [
+     17.494,
+     62.164
+    ],
+    "name": {
+     "sv": "Galtström",
+     "en": "Galtström",
+     "de": "Galtström",
+     "es": "Galtström",
+     "fr": "Galtström"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "galtstroms-bruk"
+    ],
+    "checked": "2026-11-27"
+   },
+   {
+    "wikidata": "Q2842068",
+    "coordinates": [
+     17.383,
+     62.417
+    ],
+    "name": {
+     "sv": "Tunadal",
+     "en": "Tunadal",
+     "de": "Tunadal",
+     "es": "Tunadal",
+     "fr": "Tunadal"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "forsta-angsagen-i-tunadal"
+    ],
+    "checked": "2026-11-27"
+   }
   ]
  }
 }
