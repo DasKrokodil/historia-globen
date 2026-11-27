@@ -175,13 +175,30 @@ export function smallestPlace(places, lon, lat) {
  * `scope: "wide"` (#1806) gäller ett större område än platsen (ett halvklot, en kultur över flera länder, en följd i ett annat
  * land) och markören visar bara var området finns, så den räknas inte som platsens händelse: platskortet, platsens händelser i
  * Fokus och regionvyns lista läser alla den här funktionen. På globen visas den som vanligt.
- * Platsens `includeEvents` (#2333, beslut 2026-11-27) är händelser vid gränsen som räknas till platsen trots den grova gränsen,
+ * Platsens `includeEvents` (#2333, beslut 2026-11-27) är händelser vid gränsen som hör till platsen trots den grova gränsen,
  * också när punkten ligger i ett grannlands polygon (Echternach vid Sauer, Kelmis vid trelandspunkten). Listan används bara när
- * händelsens egen källa placerar den i landet; scripts/validate-site.py kräver att punkten ligger högst INCLUDE_MAX_KM utanför.
+ * händelsens egen källa placerar den i landet; scripts/validate-site.py kräver att punkten ligger högst INCLUDE_MAX_KM från gränsen.
+ * En händelse som ett land listar räknas inte till något annat land (Echternach inte till Tyskland), men landskap räknas som förut:
+ * det sköter `_claimedElsewhere`, som linkIncludeEvents() sätter på varje land när platserna laddas.
  */
 export function placeEvents(place, events) {
   const listed = new Set(place.includeEvents ?? []);
-  return events.filter(e => e._lon != null && e.scope !== 'wide' && (listed.has(e.id) || inPlace(place, e._lon, e._lat))).sort((a, b) => a.start - b.start);
+  const elsewhere = place._claimedElsewhere;
+  return events.filter(e => e._lon != null && e.scope !== 'wide'
+    && (listed.has(e.id) || (!elsewhere?.has(e.id) && inPlace(place, e._lon, e._lat)))).sort((a, b) => a.start - b.start);
+}
+
+/**
+ * Knyter ihop platsernas `includeEvents` (#2333): varje plats av typen `country` får `_claimedElsewhere`, id för händelser som ett
+ * annat land listar, så att placeEvents inte räknar dem till det här landet. Landskap och andra typer får ingen lista och påverkas
+ * inte. Anropas av loadPlaces i js/model.js (och av testerna) med alla platser; ger samma lista tillbaka.
+ */
+export function linkIncludeEvents(places) {
+  const countries = places.filter(p => p?.type === 'country');
+  for (const p of countries) {
+    p._claimedElsewhere = new Set(countries.filter(q => q !== p).flatMap(q => q.includeEvents ?? []));
+  }
+  return places;
 }
 
 /** Högsta avstånd i km utanför gränsen för en händelse i `includeEvents` (#2333); validate-site.py och testerna läser samma tal. */
