@@ -1,0 +1,23 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:36th Ig Nobel Prize Ceremony Zurich 188.jpg	de-forsta-nobelprisen
+# File:Palūšė 04.jpg	sveriges-forsta-nationalparker
+# File:Ambassador Morgenthau's Story p314.jpg	armeniska-folkmordet
+# File:Turkish War of Independence - collage.jpg	turkiska-frihetskriget
+# File:Guerra del Rif 1922 - 2.jpg	massakern-vid-monte-arruit
+# File:222Drapeau de l'ancienne république du rif (1921-1926).png	rifrepubliken-utropas
+# File:14. La playa de Morro Nuevo en los días del desembarco.jpg	landstigningen-vid-alhucemas
+# File:Legoland Minilands London.jpg	lego-grundas
+# File:Soldrepteruel1937.jpg	spanska-inbordeskriget
+# File:Nuclear Fission Experimental Apparatus 1938 - Deutsches Museum - Munich.jpg	karnklyvningen-upptacks
+# File:1939 Events Collage V 1.1.jpg	jordbavningen-i-erzincan-1939
+# File:The fishing boat "Elisabeth" took part in the rescue of Danish Jews in 1943. Around 700 Jews fled trough Dragør harbour to neutral Sweden. - Flickr - Cederskjold Photo.jpg	raddningen-av-de-danska-judarna
+# File:Rhodes 1949 Palestine War Armnistice Plate.jpg	vapenstillestand-egypten-israel-1949
+# File:Algerian war collage wikipedia.jpg	algeriska-frihetskriget
+# File:Casbah-cache-Ali-lapointe.jpg	slaget-om-alger
+# File:Hungarian Revolution of 1956.png	ungernrevolten-1956
+# File:Plan D'Alger Et Ses Environs d'après Boutin.png	generalskuppen-1961
+# File:Second Vatican Council by Lothar Wolleh 005 cropped.jpg	andra-vatikankonciliet
+# File:UN-environment-in-Stockholm-1972.jpg	stockholmskonferensen-1972
+# File:Securing Our Future (EC pic) 2025-03-02-15-13.jpg	danmark-gar-med-i-eg
+# File:ESA Headquarters in Paris.jpg	esa-bildas

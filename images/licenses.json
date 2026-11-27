@@ -357,6 +357,21 @@
       }
     },
     {
+      "eventId": "andra-vatikankonciliet",
+      "eventTitle": "Andra Vatikankonciliet",
+      "file": "images/events/andra-vatikankonciliet.webp",
+      "kind": "historisk",
+      "credit": "Lothar Wolleh / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-andra-vatikankonciliet",
+        "title": "Second Vatican Council by Lothar Wolleh 005 cropped – Lothar Wolleh (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Second_Vatican_Council_by_Lothar_Wolleh_005_cropped.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "andrianampoinimerina-enar-imerina",
       "eventTitle": "Andrianampoinimerina enar Imerina",
       "file": "images/events/andrianampoinimerina-enar-imerina.webp",
@@ -481,6 +496,21 @@
         "id": "commons-bild-aralsjon-borjar-krympa",
         "title": "Aral Sea 1989-2008 – NASA, derivative work by Zafiroblue05 at en.wikipedia (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Aral_Sea_1989-2008.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "arrhenius-koldioxid-och-temperatur",
+      "eventTitle": "Arrhenius räknar på koldioxid och jordens temperatur",
+      "file": "images/events/arrhenius-koldioxid-och-temperatur.webp",
+      "kind": "historisk",
+      "credit": "Richard Bergh / Kungl. Vetenskapsakademien / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-arrhenius-koldioxid-och-temperatur",
+        "title": "Svante Arrhenius x Richard Bergh – Richard Bergh (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Svante_Arrhenius_x_Richard_Bergh.jpg",
         "license": "Public domain",
         "checked": "2026-11-26"
       }
@@ -4785,6 +4815,21 @@
       }
     },
     {
+      "eventId": "karnklyvningen-upptacks",
+      "eventTitle": "Kärnklyvningen upptäcks",
+      "file": "images/events/karnklyvningen-upptacks.webp",
+      "kind": "historisk",
+      "credit": "J Brew / Wikimedia Commons (Flickr)",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-karnklyvningen-upptacks",
+        "title": "Nuclear Fission Experimental Apparatus 1938 - Deutsches Museum - Munich – J Brew (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Nuclear_Fission_Experimental_Apparatus_1938_-_Deutsches_Museum_-_Munich.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "karthago-grundas",
       "eventTitle": "Kartago grundas",
       "file": "images/events/karthago-grundas.webp",
@@ -5490,6 +5535,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Lalibela,_san_giorgio,_esterno_07.jpg",
         "license": "CC BY 3.0",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "landstigningen-vid-alhucemas",
+      "eventTitle": "Landstigningen vid Alhucemas",
+      "file": "images/events/landstigningen-vid-alhucemas.webp",
+      "kind": "historisk",
+      "credit": "Okänd upphovsperson / Mando de Adiestramiento y Doctrina del Ejército de Tierra / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-landstigningen-vid-alhucemas",
+        "title": "14. La playa de Morro Nuevo en los días del desembarco (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:14._La_playa_de_Morro_Nuevo_en_los_d%C3%ADas_del_desembarco.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -7863,6 +7923,21 @@
       }
     },
     {
+      "eventId": "raddningen-av-de-danska-judarna",
+      "eventTitle": "De danska judarna räddas till Sverige",
+      "file": "images/events/raddningen-av-de-danska-judarna.webp",
+      "kind": "historisk",
+      "credit": "Brigade Piron / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-raddningen-av-de-danska-judarna",
+        "title": "Danish Rescue Boat (USHMM) – Brigade Piron (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Danish_Rescue_Boat_(USHMM).jpg",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "rainbow-warrior-sanks",
       "eventTitle": "Rainbow Warrior sänks i Auckland",
       "file": "images/events/rainbow-warrior-sanks.webp",
@@ -7965,6 +8040,36 @@
         "url": "https://commons.wikimedia.org/wiki/File:Kunyu_Wanguo_Quantu_by_Matteo_Ricci_All_panels.jpg",
         "license": "Public domain",
         "checked": "2026-11-12"
+      }
+    },
+    {
+      "eventId": "rifkriget",
+      "eventTitle": "Rifkriget",
+      "file": "images/events/rifkriget.webp",
+      "kind": "historisk",
+      "credit": "Jean du Taillis (Agence Rol) / Bibliothèque nationale de France / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-rifkriget",
+        "title": "Camp militaire espagnol dans le Rif oriental - btv1b532131048 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Camp_militaire_espagnol_dans_le_Rif_oriental_-_btv1b532131048.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "rifrepubliken-utropas",
+      "eventTitle": "Rifrepubliken utropas",
+      "file": "images/events/rifrepubliken-utropas.webp",
+      "kind": "historisk",
+      "credit": "Okänd upphovsperson / Narodowe Archiwum Cyfrowe / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-rifrepubliken-utropas",
+        "title": "Abd el-Krim, portrait (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Abd_el-Krim,_portrait.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -10167,6 +10272,21 @@
       }
     },
     {
+      "eventId": "spanska-inbordeskriget",
+      "eventTitle": "Spanska inbördeskriget",
+      "file": "images/events/spanska-inbordeskriget.webp",
+      "kind": "historisk",
+      "credit": "Okänd upphovsperson / Narodowe Archiwum Cyfrowe / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-spanska-inbordeskriget",
+        "title": "Soldrepteruel1937 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Soldrepteruel1937.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "spanska-sjukan",
       "eventTitle": "Spanska sjukan",
       "file": "images/events/spanska-sjukan.webp",
@@ -10983,6 +11103,21 @@
       }
     },
     {
+      "eventId": "tjernobylkatastrofen",
+      "eventTitle": "Tjernobylkatastrofen",
+      "file": "images/events/tjernobylkatastrofen.webp",
+      "kind": "historisk",
+      "credit": "USFCRFC / IAEA Imagebank / Wikimedia Commons (Flickr)",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-tjernobylkatastrofen",
+        "title": "IAEA 02790015 (5613115146) – IAEA Imagebank (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:IAEA_02790015_(5613115146).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "tjurhoppning-pa-knossos",
       "eventTitle": "Tjurhopp på väggarna i Knossos",
       "file": "images/events/tjurhoppning-pa-knossos.webp",
@@ -11268,6 +11403,21 @@
       }
     },
     {
+      "eventId": "ungernrevolten-1956",
+      "eventTitle": "Ungernrevolten",
+      "file": "images/events/ungernrevolten-1956.webp",
+      "kind": "historisk",
+      "credit": "Jack Metzger / ETH-Bibliothek Zürich, Bildarchiv / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-ungernrevolten-1956",
+        "title": "Hungarian 1956 Revolution Su-76M Assault Gun in the Streets of Budapest (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Hungarian_1956_Revolution_Su-76M_Assault_Gun_in_the_Streets_of_Budapest.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "universitetet-i-alexandria-1942",
       "eventTitle": "Universitetet i Alexandria blir självständigt",
       "file": "images/events/universitetet-i-alexandria-1942.webp",
@@ -11382,6 +11532,21 @@
       }
     },
     {
+      "eventId": "vapenstillestand-egypten-israel-1949",
+      "eventTitle": "Vapenstillestånd mellan Egypten och Israel",
+      "file": "images/events/vapenstillestand-egypten-israel-1949.webp",
+      "kind": "historisk",
+      "credit": "Catlemur / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-vapenstillestand-egypten-israel-1949",
+        "title": "Rhodes 1949 Palestine War Armnistice Plate – Catlemur (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Rhodes_1949_Palestine_War_Armnistice_Plate.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "vapenstillestandet-1918",
       "eventTitle": "Vapenstilleståndet i Compiègne",
       "file": "images/events/vapenstillestandet-1918.webp",
@@ -11468,6 +11633,21 @@
         "title": "Barbegal aqueduct 01 – maarjaara (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Barbegal_aqueduct_01.jpg",
         "license": "CC BY 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "versaillesfreden",
+      "eventTitle": "Versaillesfreden",
+      "file": "images/events/versaillesfreden.webp",
+      "kind": "historisk",
+      "credit": "William Orpen / Imperial War Museums (Google Art Project) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-versaillesfreden",
+        "title": "Orpen, William (Sir) (RA) - The Signing of Peace in the Hall of Mirrors, Versailles, 28th June 1919 - Google Art Project – William Orpen (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Orpen,_William_(Sir)_(RA)_-_The_Signing_of_Peace_in_the_Hall_of_Mirrors,_Versailles,_28th_June_1919_-_Google_Art_Project.jpg",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
@@ -11633,6 +11813,21 @@
         "title": "Cattle Creek outstation, Wave Hill – Ellen Sarah Kettle (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Cattle_Creek_outstation,_Wave_Hill.jpg",
         "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "wegener-kontinentaldriften",
+      "eventTitle": "Wegener lägger fram kontinentaldriften",
+      "file": "images/events/wegener-kontinentaldriften.webp",
+      "kind": "historisk",
+      "credit": "Alfred Wegener / Alfred-Wegener-Institut / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-wegener-kontinentaldriften",
+        "title": "Wegener Expedition-1912 001 – Alfred Lothar Wegener (1880–1930) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Wegener_Expedition-1912_001.jpg",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
