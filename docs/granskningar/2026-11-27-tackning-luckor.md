@@ -23,9 +23,9 @@ Mätningen växte från cirka 1 500 till 1 706 händelser. Luckorna i releaserap
 | `manniskan` 1501–1799: 0 | **0**, men se nedan: kategorins namn är "Människans ursprung" | delvis ([#2159](https://github.com/DasKrokodil/historia-globen/issues/2159)); beslut i [#2349](https://github.com/DasKrokodil/historia-globen/issues/2349) (nytt) |
 | Vetenskap i Oceanien: 0 till och med medeltid | **0** i förhistoria, antiken, medeltid och tidigmodern tid | [#2346](https://github.com/DasKrokodil/historia-globen/issues/2346) (nytt) |
 | Oceanien 180 och Afrika 260 av 1 500 | **180 och 260 av 1 706** (10,6 % och 15,2 %); samma antal som i releaserapporten | delvis ([#1962](https://github.com/DasKrokodil/historia-globen/issues/1962), [#1757](https://github.com/DasKrokodil/historia-globen/issues/1757), [#646](https://github.com/DasKrokodil/historia-globen/issues/646)) |
-| Tidigmodern tid är tunnast (193) | **222**, fortfarande tunnast av de sju perioderna; Asien 38, Afrika 32, Oceanien 22 | [#2347](https://github.com/DasKrokodil/historia-globen/issues/2347) (nytt; [#766](https://github.com/DasKrokodil/historia-globen/issues/766) är stängt) | |
+| Tidigmodern tid är tunnast (193) | **222**, fortfarande tunnast av de sju perioderna; Asien 38, Afrika 32, Oceanien 22 | [#2347](https://github.com/DasKrokodil/historia-globen/issues/2347) (nytt; [#766](https://github.com/DasKrokodil/historia-globen/issues/766) är stängt) |
 
-Nytt i den här mätningen: **Asien på 1800-talet** har 31 händelser, varav 24 krig (77 %), och 0 i vetenskap och kultur. Balansen krig mot övrigt utan slag som bara syns i Fokus ger 56 % krig där (tabellen "utan slag som bara syns i Fokus").
+Nytt i den här mätningen ([#2348](https://github.com/DasKrokodil/historia-globen/issues/2348)): **Asien på 1800-talet** har 31 händelser, varav 24 krig (77 %), och 0 i vetenskap och kultur. Balansen krig mot övrigt utan slag som bara syns i Fokus ger 56 % krig där (tabellen "utan slag som bara syns i Fokus").
 
 ## Vad som saknas, per lucka
 
