@@ -8623,8 +8623,10 @@ async function run(browser, vp) {
       const symbol = page.locator('#ff-pics .ff-reserve[aria-label^="Krig och konflikter"]').first();
       let warYear = null;
       for (const y of WAR_YEARS) {
-        await jumpTo(y); await visible('#funfact');
-        if ((await page.textContent('#ff-kind')).trim() !== 'När ett krig bröt ut') continue;
+        await jumpTo(y);
+        // Ett år utan Samtidigt-kort hoppas över i stället för att fälla kontrollen.
+        if (!await page.locator('#funfact').waitFor({ state: 'visible', timeout: 2500 }).then(() => true, () => false)) continue;
+        if ((await page.locator('#ff-kind').textContent()).trim() !== 'När ett krig bröt ut') continue;
         const found = await symbol.waitFor({ state: 'visible', timeout: 2500 }).then(() => true, () => false);
         if (found) { warYear = y; break; }
       }
