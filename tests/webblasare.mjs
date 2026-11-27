@@ -8616,13 +8616,24 @@ async function run(browser, vp) {
     const imageHeight = await image.first().evaluate(el => Math.round(el.closest('.ff-pic').getBoundingClientRect().height));
     await page.screenshot({ path: path.join(OUT, `${vp.name}-samtidigt-reservkort-${mixedYear}.png`), fullPage: false });
     try {
-      await jumpTo(1274);
-      if ((await page.textContent('#ff-kind')).trim() !== 'När ett krig bröt ut') throw new Error('1274 saknar det verifierade krigskortet i Samtidigt');
-      // Krigskortet är en symbolruta när inget kort har bild och en reservruta bland bildkort (Marco Polo 1271 fick bild i #453).
+      // Året är inte fast (#2319): 1274 räckte tills Mongolinvasionen av Japan fick en bild och krigskortet blev ett bildkort.
+      // Kontrollen provar några år i ordning och använder det första där Samtidigt-kortet är krigskortet ("När ett krig bröt ut")
+      // och har ett bildlöst krigskort bland sina kort. Fler bilder i datan (#453) får inte fälla testet.
+      const WAR_YEARS = [1274, 1096, 1337, 1415, 1453, 1618, 1683, 1756, 1789, 1861, 1914, 1939];
       const symbol = page.locator('#ff-pics .ff-reserve[aria-label^="Krig och konflikter"]').first();
-      await symbol.waitFor({ state: 'visible', timeout: T.step });
+      let warYear = null;
+      for (const y of WAR_YEARS) {
+        await jumpTo(y);
+        // Ett år utan Samtidigt-kort hoppas över i stället för att fälla kontrollen.
+        if (!await page.locator('#funfact').waitFor({ state: 'visible', timeout: 2500 }).then(() => true, () => false)) continue;
+        if ((await page.locator('#ff-kind').textContent()).trim() !== 'När ett krig bröt ut') continue;
+        const found = await symbol.waitFor({ state: 'visible', timeout: 2500 }).then(() => true, () => false);
+        if (found) { warYear = y; break; }
+      }
+      if (warYear == null) throw new Error(`inget av åren ${WAR_YEARS.join(', ')} har ett bildlöst krigskort i Samtidigt`);
+      // Krigskortet är en symbolruta när inget kort har bild och en reservruta bland bildkort (Marco Polo 1271 fick bild i #453).
       const symbolHeight = await symbol.evaluate(el => Math.round(el.getBoundingClientRect().height));
-      if (Math.abs(symbolHeight - imageHeight) > 1) throw new Error(`bildlöst krigskort har höjd ${symbolHeight}, bildkortet ${imageHeight}`);
+      if (Math.abs(symbolHeight - imageHeight) > 1) throw new Error(`bildlöst krigskort har höjd ${symbolHeight}, bildkortet ${imageHeight} (${warYear})`);
     } finally {
       await jumpTo(1889);
     }

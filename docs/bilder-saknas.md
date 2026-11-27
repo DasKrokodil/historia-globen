@@ -565,3 +565,31 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `arabiska-erovringarna` | 2026-11-26: Enda kandidaten är en karta (Map of expansion of Caliphate.svg); används inte. |
 | `slaget-vid-qadisiyya` | 2026-11-26: Utsedd men inte hämtad: handskriftsbild ur Shahnameh (British Library, 1614), HTTP 429. Står i `data/utkast/bildbatch/asien-4-ej-hamtade.txt`. |
 | `jerusalem-intas-637` | 2026-11-26: Enda kandidaten visar Al-Aqsa-moskén (foto 1982, dubbellicens); kopplingen till kapitulationen är otydlig och platsen helig, så den används inte utan bedömning. |
+
+
+## Asien 637–1521 (#2064 och #2065, 2026-11-26)
+
+20 av 40 händelser fick bild i den här omgången. Följande 20 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-5.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `slaget-vid-jalula` | 2026-11-26: Enda kandidaterna är två stridsdiagram ritade av en Wikimedia-användare (BATTLE DISPOSITION 1-jalula.JPG, Phase Ijalula.JPG) utan angiven källa för uppställningen; används inte. |
+| `jiaozi-statliga-sedlar` | 2026-11-26: Enda träffen (Jiao zi.jpg, PD) är bara 308 px bred och blir suddig i kortet; en större bild på en jiaozi-sedel eller ett tryckblock återstår att söka. |
+| `nizamiyya-i-bagdad` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `kutadgu-bilig` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `jalalikalendern` | 2026-11-26: Händelsen saknades i den automatiska listan (verktyget hoppade över den); ingen egen sökning hann göras. |
+| `shen-kuo-magnetkompassen` | 2026-11-26: Träffarna är bara skannade bokvolymer (PDF) av Mengxi bitan; ingen bild som visar kompassen eller Shen Kuo, så ingen används. |
+| `zagwedynastin` | 2026-11-26: Händelsen saknades i den automatiska listan. Egen sökning gav en karta (ZagweMap.jpg, CC0 för en karta ur en bok från 1972, osäker licens) och foton på levande kyrkor i Lalibela; ingen används utan närmare bedömning. |
+| `genpeikriget` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras (slagen i kriget har egna bilder: Kurikara, Ichi-no-Tani, Yashima). |
+| `slaget-vid-uji-1180` | 2026-11-26: Enda kandidaten (Fenixhallen i Byōdō-in) används i stället för händelsen `byodo-in-blir-tempel`; samma fil används inte för två händelser. En bild som visar slaget återstår att söka. |
+| `mongolerna-anfaller-vastra-xia` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `mongolerna-intar-buchara` | 2026-11-26: Ingen kandidat i listan; sökningen efter Kalyanminareten stoppades av HTTP 429. |
+| `sukhothairiket-grundas` | 2026-11-26: Kandidaterna är ett foto (Sukhothai, Wat, Thailand.jpg) vars licens verktyget flaggade (ingen igenkänd licensmall) och en karta från 1901; används inte. |
+| `observatoriet-i-maragheh` | 2026-11-26: Foto utsett (Maragheh observatory 1.JPG, Elmju, CC BY-SA 3.0, nutida foto av skyddshallen på platsen) men ryms inte i den här omgångens tak på 20 bilder; kan tas i nästa omgång. |
+| `forsta-slaget-i-hakatabukten` | 2026-11-26: Kandidaten (Mooko-HakataWall.jpg, försvarsmuren vid Hakata ur Mōko Shūrai Ekotoba) visar enligt filsidan muren under invasionerna; filsidan säger inte att muren fanns 1274, så den används inte här. |
+| `mongolerna-landar-pa-tsushima-1274` | 2026-11-26: Kandidaten är en kinesisk provinskarta från Qingtiden (Da Qing fen sheng yu tu); den visar inte händelsen och används inte. |
+| `jordbavningen-i-hongdong-1303` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `pesten-vid-issyk-kul` | 2026-11-26: Händelsen gäller pestgravar (mänskliga kvarlevor och gravar); bilder avstås och ingen sökning gjordes. |
+| `malacka-grundas` | 2026-11-26: Kandidaterna är portugisiska tennmynt från Malacka (1500-talet) och har ingen koppling till sultanatets grundande; används inte. |
+| `safaviderna-tar-makten-1501` | 2026-11-26: Träffarna är porträtt av Ismail I (Behzad, Altissimo m.fl.) men alla är mindre än 800 px och skulle bli suddiga i kortet; en större bild återstår att söka. |
+| `funjsultanatet-grundas` | 2026-11-26: Sökningen gav inga träffar; ingen egen vidare sökning hann göras. |

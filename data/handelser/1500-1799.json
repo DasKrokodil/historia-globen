@@ -5739,6 +5739,21 @@
     "en": "The Portuguese governor Afonso de Albuquerque takes the city of Goa from the Bijapur Sultanate, with the support of Timoji and his troops. The soldiers are allowed to plunder it for four days, and the Muslims who have not fled are killed on the governor's orders. Goa becomes the capital of Portuguese India and remains Portuguese for over 450 years, until India takes the territory in December 1961.",
     "de": "Der portugiesische Gouverneur Afonso de Albuquerque nimmt die Stadt Goa dem Sultanat Bijapur ab, unterstützt von Timoji und seinen Truppen. Die Soldaten dürfen die Stadt vier Tage lang plündern, und die Muslime, die nicht geflohen sind, werden auf Befehl des Gouverneurs getötet. Goa wird Hauptstadt von Portugiesisch-Indien und bleibt über 450 Jahre portugiesisch, bis Indien das Gebiet im Dezember 1961 einnimmt."
    },
+   "image": {
+    "file": "images/events/goa-1510.webp",
+    "kind": "historisk",
+    "style": "miniatyr",
+    "caption": {
+     "sv": "\"Plan de Goa\", plan över Goa ur Prévost d'Exiles Histoire générale des voyages (Paris, Didot); filsidan anger 1750. Gjord cirka 240 år efter erövringen 1510 och visar staden som den ritades på 1700-talet, inte 1510. Licens: Public domain.",
+     "en": "\"Plan de Goa\", a plan of Goa from Prévost d'Exiles' Histoire générale des voyages (Paris, Didot); the file page gives 1750. Made about 240 years after the conquest in 1510 and shows the city as it was drawn in the 18th century, not in 1510. Licence: Public domain.",
+     "de": "„Plan de Goa“, ein Plan von Goa aus Prévost d'Exiles' Histoire générale des voyages (Paris, Didot); die Dateiseite nennt 1750. Etwa 240 Jahre nach der Eroberung von 1510 entstanden; er zeigt die Stadt, wie sie im 18. Jahrhundert gezeichnet wurde, nicht 1510. Lizenz: gemeinfrei.",
+     "es": "«Plan de Goa», un plano de Goa de la Histoire générale des voyages de Prévost d'Exiles (París, Didot); la página del archivo indica 1750. Hecho unos 240 años después de la conquista de 1510; muestra la ciudad tal como se dibujó en el siglo XVIII, no en 1510. Licencia: dominio público.",
+     "fr": "« Plan de Goa », un plan de Goa tiré de l'Histoire générale des voyages de Prévost d'Exiles (Paris, Didot) ; la page du fichier indique 1750. Réalisé environ 240 ans après la conquête de 1510 ; il montre la ville telle qu'elle fut dessinée au XVIIIe siècle, pas en 1510. Licence : domaine public."
+    },
+    "credit": "Okänd (Prévost d'Exiles) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-goa-1510"
+   },
    "wikidata": "Q2357384",
    "sources": [
     "wp-portuguese-conquest-goa",
@@ -6815,6 +6830,21 @@
     "sv": "Den 6 mars 1521 nådde Magellans spanska expedition Marianerna och ankrade vid Guam, efter tre månader och tjugo dagar över Stilla havet. Det var den första kända kontakten mellan européer och chamorrofolket. Efter en sammandrabbning där minst en chamorro dödades lät Magellan bränna 40–50 hus och döda sju män, och den 9 mars seglade flottan vidare. Landstigningsplatsen anges traditionellt som Umatac, men den kan ha varit Tumon.",
     "en": "On 6 March 1521 Magellan's Spanish expedition reached the Marianas and anchored at Guam, after three months and twenty days across the Pacific. It was the first known contact between Europeans and the Chamorro people. After a clash in which at least one Chamorro was killed, Magellan had 40–50 houses burned and seven men killed, and on 9 March the fleet sailed on. The landing place is traditionally given as Umatac, but it may have been Tumon.",
     "de": "Am 6. März 1521 erreichte Magellans spanische Expedition nach drei Monaten und zwanzig Tagen über den Pazifik die Marianen und ankerte bei Guam. Es war der erste bekannte Kontakt zwischen Europäern und dem Volk der Chamorro. Nach einem Zusammenstoß, bei dem mindestens ein Chamorro getötet wurde, ließ Magellan 40–50 Häuser niederbrennen und sieben Männer töten, und am 9. März segelte die Flotte weiter. Als Landungsplatz wird traditionell Umatac angegeben, es kann aber auch Tumon gewesen sein."
+   },
+   "image": {
+    "file": "images/events/magellan-nar-guam.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Detalj ur Abraham Ortelius karta över Stilla havet (1590): Magellans skepp Victoria. Gjord knappt 70 år efter Magellans resa; en senare kartbild, inte en bild av ankomsten till Guam. Licens: Public domain.",
+     "en": "Detail from Abraham Ortelius's map of the Pacific (1590): Magellan's ship Victoria. Made less than 70 years after Magellan's voyage; a later map illustration, not a picture of the arrival at Guam. Licence: Public domain.",
+     "de": "Ausschnitt aus Abraham Ortelius' Karte des Pazifiks (1590): Magellans Schiff Victoria. Knapp 70 Jahre nach Magellans Reise entstanden; eine spätere Kartendarstellung, kein Bild der Ankunft auf Guam. Lizenz: gemeinfrei.",
+     "es": "Detalle del mapa del Pacífico de Abraham Ortelius (1590): la nao Victoria de Magallanes. Hecho menos de 70 años después del viaje de Magallanes; una imagen cartográfica posterior, no una imagen de la llegada a Guam. Licencia: dominio público.",
+     "fr": "Détail de la carte du Pacifique d'Abraham Ortelius (1590) : le navire Victoria de Magellan. Réalisé moins de 70 ans après le voyage de Magellan ; une illustration cartographique postérieure, pas une image de l'arrivée à Guam. Licence : domaine public."
+    },
+    "credit": "Abraham Ortelius / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-magellan-nar-guam"
    },
    "wikidata": "Q1225170",
    "sources": [

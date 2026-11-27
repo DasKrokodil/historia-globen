@@ -1,0 +1,1895 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "asien-5",
+  "datum": "2026-11-26",
+  "urval": "ids=36 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "slaget-vid-jalula",
+      "titel": "Slaget vid Jalula",
+      "start": 637,
+      "plats": "Jalula, nordost om Ktesifon i dagens Irak",
+      "wikidata": "Q2700721",
+      "kandidater": [
+        {
+          "fil": "File:BATTLE DISPOSITION 1-jalula.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:BATTLE_DISPOSITION_1-jalula.JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Mohkum Shabbir",
+          "datum": "2009-11-27 06:52:12",
+          "datum_original": null,
+          "datum_fil": "2009-11-27 06:52:12",
+          "kredit": "Own work",
+          "beskrivning": "Battle of jalula disposition on eve of battle",
+          "bredd": 738,
+          "hojd": 468,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/48/BATTLE_DISPOSITION_1-jalula.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Jalula"
+          ],
+          "smal": true,
+          "flaggor": [
+            "datum-osakert",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        },
+        {
+          "fil": "File:Phase Ijalula.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Phase_Ijalula.JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Mohkum Shabbir",
+          "datum": "2009-11-26",
+          "datum_original": "2009-11-26",
+          "datum_fil": "2009-11-27 07:28:09",
+          "kredit": "Own work",
+          "beskrivning": "phase 1 of jalula",
+          "bredd": 738,
+          "hojd": 468,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Phase_Ijalula.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Jalula"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        },
+        {
+          "fil": "File:Phase IVjalula.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Phase_IVjalula.JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Mohkum Shabbir",
+          "datum": "2009-11-26",
+          "datum_original": "2009-11-26",
+          "datum_fil": "2009-11-27 08:45:45",
+          "kredit": "Own work",
+          "beskrivning": "the fourth phase",
+          "bredd": 738,
+          "hojd": 468,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/47/Phase_IVjalula.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Jalula"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "slaget-vid-nahavand",
+      "titel": "Slaget vid Nahavand",
+      "start": 642,
+      "plats": "Nahavand, nära Hamadan, Iran",
+      "wikidata": "Q603549",
+      "kandidater": [
+        {
+          "fil": "File:Castle Nahavend by Eugène Flandin.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Castle_Nahavend_by_Eug%C3%A8ne_Flandin.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Eugène Flandin",
+          "datum": "1840",
+          "datum_original": "1840",
+          "datum_fil": "2013-10-25 08:01:48",
+          "kredit": "Voyage en Perse, avec Flandin, éd. Gide et Baudry, 1851",
+          "beskrivning": "Castle Nahavend",
+          "bredd": 1907,
+          "hojd": 990,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Castle_Nahavend_by_Eug%C3%A8ne_Flandin.jpg/960px-Castle_Nahavend_by_Eug%C3%A8ne_Flandin.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "City gates in Iran",
+            "Drawings of gates in Iran",
+            "Eugène Flandin",
+            "Nahavand Castle",
+            "Voyage en Perse"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "visdomens-hus-bagdad",
+      "titel": "Visdomens hus i Bagdad",
+      "start": 754,
+      "plats": "Bagdad, Irak",
+      "wikidata": "Q33018",
+      "kandidater": [
+        {
+          "fil": "File:Maqamat hariri.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Maqamat_hariri.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Zereshk",
+          "datum": "13 th century date QS:P,+1250-00-00T00:00:00Z/7",
+          "datum_original": "13 th century date QS:P,+1250-00-00T00:00:00Z/7",
+          "datum_fil": "2023-06-14 02:13:41",
+          "kredit": "Own work",
+          "beskrivning": "Manuscript with depiction by Yahya ibn Vaseti found in the Maqama of Hariri located at the Bibliotheque Nationale de France. Image depicts a library with pupils in it.",
+          "bredd": 974,
+          "hojd": 989,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Maqamat_hariri.jpg/960px-Maqamat_hariri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Education in Iran",
+            "History of the Arabs",
+            "Maqamat of al-Hariri - BNF Arabe5847"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "licens-risk"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "risk: \"eget verk\" av en bild daterad 1250: kontrollera vem som tog eller gjorde originalet"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-art}}. Commons API (LicenseShortName): \"Public domain\". Att kontrollera: \"eget verk\" av en bild daterad 1250: kontrollera vem som tog eller gjorde originalet.",
+            "risker": [
+              "\"eget verk\" av en bild daterad 1250: kontrollera vem som tog eller gjorde originalet"
+            ],
+            "mallar": [
+              "PD-art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "islamisk"
+    },
+    {
+      "id": "slaget-vid-uji-1180",
+      "titel": "Slaget vid Uji",
+      "start": 1180,
+      "plats": "Uji utanför Kyoto",
+      "wikidata": "Q1887494",
+      "kandidater": [
+        {
+          "fil": "File:Byodoin Phoenix Hall Uji 10-2R.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Byodoin_Phoenix_Hall_Uji_10-2R.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Oilstreet ( talk )",
+          "datum": "2010-03-12",
+          "datum_original": "2010-03-12",
+          "datum_fil": "2010-04-04 06:20:48",
+          "kredit": "Own work",
+          "beskrivning": "Byōdō-in Phoenix Hall, Uji , Kyoto prefecture , Japan , 1059.",
+          "bredd": 3000,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Byodoin_Phoenix_Hall_Uji_10-2R.jpg/960px-Byodoin_Phoenix_Hall_Uji_10-2R.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2010 in Uji, Kyoto",
+            "Phoenix Hall (1957-2012)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-sa-3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-3.0,2.5,2.0,1.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "slaget-vid-kurikara",
+      "titel": "Slaget vid Kurikara",
+      "start": 1183,
+      "plats": "Kurikarapasset, provinsen Etchū",
+      "wikidata": "Q2889028",
+      "kandidater": [
+        {
+          "fil": "File:Battle of Kurikaradani Kassen Zu.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Battle_of_Kurikaradani_Kassen_Zu.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Katsukawa Shuntei, 1770-1820, artist",
+          "datum": "1810",
+          "datum_original": "1810",
+          "datum_fil": "2020-11-29 05:35:40",
+          "kredit": "Library of Congress Catalog: https://lccn.loc.gov/2008660462 Image download: https://cdn.loc.gov/service/pnp/jpd/01600/01689v.jpg Original url: https://www.loc.gov/pictures/item/2008660462/",
+          "beskrivning": "The battle of Kurikaradani (Kurikaradani Kassen zu). It occurred on June 2, 1183. Abstract/medium: 1 print (3 sheets) : woodcut, color ; 37.1 x 25.4 cm (left panel), 37 x 25 cm (center panel), 37.4 x 25.6 cm (right panel)",
+          "bredd": 8498,
+          "hojd": 4293,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Battle_of_Kurikaradani_Kassen_Zu.jpg/960px-Battle_of_Kurikaradani_Kassen_Zu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Katsukawa Shuntei",
+            "Moriya Jihei",
+            "Ukiyo-e of the Battle of Kurikara"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-100-1923"
+            ]
+          }
+        },
+        {
+          "fil": "File:Kurikaradani kassen- Kiso Yoshinaka Heisho Tomonori wo uchitori 倶利伽羅谷合戦- 木曽義仲平將智教をうちとり (BM 2008,3037.18401 1).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kurikaradani_kassen-_Kiso_Yoshinaka_Heisho_Tomonori_wo_uchitori_%E5%80%B6%E5%88%A9%E4%BC%BD%E7%BE%85%E8%B0%B7%E5%90%88%E6%88%A6-_%E6%9C%A8%E6%9B%BD%E7%BE%A9%E4%BB%B2%E5%B9%B3%E5%B0%87%E6%99%BA%E6%95%99%E3%82%92%E3%81%86%E3%81%A1%E3%81%A8%E3%82%8A_(BM_2008,3037.18401_1).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Print artist: Utagawa Kuniyoshi (歌川国芳) Published by: Yamaguchiya Tobei (山口屋藤兵衛)",
+          "datum": "1853 (6th month)",
+          "datum_original": "1853 (6th month)",
+          "datum_fil": "2020-05-08 09:48:43",
+          "kredit": "https://www.britishmuseum.org/collection/object/A_2008-3037-18401",
+          "beskrivning": "Woodblock triptych print, oban tate-e. Minamoto no Yoshinaka kills the Taira commander Tomonori (right) amongst trees, whilst Taira Kagekiyo (centre) kills the oxen that the Minamoto sent into the Taira ranks with burning brushwood attached to their horns.",
+          "bredd": 1067,
+          "hojd": 1600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Kurikaradani_kassen-_Kiso_Yoshinaka_Heisho_Tomonori_wo_uchitori_%E5%80%B6%E5%88%A9%E4%BC%BD%E7%BE%85%E8%B0%B7%E5%90%88%E6%88%A6-_%E6%9C%A8%E6%9B%BD%E7%BE%A9%E4%BB%B2%E5%B9%B3%E5%B0%87%E6%99%BA%E6%95%99%E3%82%92%E3%81%86%E3%81%A1%E3%81%A8%E3%82%8A_%28BM_2008%2C3037.18401_1%29.jpg/960px-Kurikaradani_kassen-_Kiso_Yoshinaka_Heisho_Tomonori_wo_uchitori_%E5%80%B6%E5%88%A9%E4%BC%BD%E7%BE%85%E8%B0%B7%E5%90%88%E6%88%A6-_%E6%9C%A8%E6%9B%BD%E7%BE%A9%E4%BB%B2%E5%B9%B3%E5%B0%87%E6%99%BA%E6%95%99%E3%82%92%E3%81%86%E3%81%A1%E3%81%A8%E3%82%8A_%28BM_2008%2C3037.18401_1%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Japanese prints in the British Museum",
+            "Kurikaradani kassen: Kiso Yoshinaka Heishō Tomonori wo uchitori by Utagawa Kuniyoshi"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-scan"
+            ]
+          }
+        },
+        {
+          "fil": "File:Kurikara Station - Staircase.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kurikara_Station_-_Staircase.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Fred Cherrygarden",
+          "datum": "2025-01-21 11:07:32",
+          "datum_original": "2025-01-21 11:07:32",
+          "datum_fil": "2025-01-24 14:37:48",
+          "kredit": "Own work",
+          "beskrivning": "The staircase at Kurikara Station, Tsubata, with art depicting the “fiery bull” used in the Battle of Kurikara Pass.",
+          "bredd": 4000,
+          "hojd": 6000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Kurikara_Station_-_Staircase.jpg/960px-Kurikara_Station_-_Staircase.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Kurikara in art",
+            "Kurikara Station",
+            "Oxen in art"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "slaget-vid-ichi-no-tani",
+      "titel": "Slaget vid Ichi-no-Tani",
+      "start": 1184,
+      "plats": "Ichi-no-Tani vid Suma, väster om dagens Kobe",
+      "wikidata": "Q2116658",
+      "kandidater": [
+        {
+          "fil": "File:Battle of Ichi-no-Tani Folding Screen by Kano School.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Battle_of_Ichi-no-Tani_Folding_Screen_by_Kano_School.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kano School",
+          "datum": "circa 1650 date QS:P,+1650-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1650 date QS:P,+1650-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2022-07-15 18:40:37",
+          "kredit": "Minneapolis Institute of Art - https://collections.artsmia.org/art/123455/the-battle-of-ichinotani-kano-school",
+          "beskrivning": "The Battle of Ichi-no-Tani [right of a pair of Scenes from the Tale of the Heike], mid 17th century. These screens illustrate two battles of the epochal Genpei War (1180–85) as narrated in the Tales of the Heike, an epic semihistorical account of two rival clans’ fight for control of Japan, written in the early 1200s. Each screen narrates a single battle through a number of small episodes divided and framed by gold clouds, landscape elements, and architectural spaces. The right screen shows scenes related to the Battle of Ichi-no-Tani (March 20, 1184), during which the Minamoto clan, identified by the white banners they carry, made a daring attack on the rival Taira clan at a Taira stronghold. The left screen shows the Battle of Yashima (March 22, 1185), another defeat for the Taira. The devastating war came to an end only a month later with the victory of the Minamoto, who took the title shogun, thus becoming Japan’s first military rulers.",
+          "bredd": 10601,
+          "hojd": 4513,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Battle_of_Ichi-no-Tani_Folding_Screen_by_Kano_School.jpg/960px-Battle_of_Ichi-no-Tani_Folding_Screen_by_Kano_School.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Ichi-no-Tani (six-fold screen)",
+            "Paintings of the Battle of Ichi-no-Tani"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "slaget-vid-yashima",
+      "titel": "Slaget vid Yashima",
+      "start": 1185,
+      "plats": "Yashima vid dagens Takamatsu, Shikoku",
+      "wikidata": "Q2117322",
+      "kandidater": [
+        {
+          "fil": "File:Battle of Yashima Folding Screens Kano School.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Battle_of_Yashima_Folding_Screens_Kano_School.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kano School",
+          "datum": "circa 1650 date QS:P,+1650-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1650 date QS:P,+1650-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2022-06-20 19:31:18",
+          "kredit": "Minneapolis Institute of Art - https://collections.artsmia.org/art/118227/the-battle-of-yashima-kano-school",
+          "beskrivning": "The Battle of Yashima [left of a pair of Scenes from the Tale of the Heike], mid 17th century. Ink, color, gold, and silver on paper. These screens illustrate two battles of the epochal Genpei War (1180–85) as narrated in the Tales of the Heike, an epic semihistorical account of two rival clans’ fight for control of Japan, written in the early 1200s. Each screen narrates a single battle through a number of small episodes divided and framed by gold clouds, landscape elements, and architectural spaces. The right screen shows scenes related to the Battle of Ichi-no-Tani (March 20, 1184), during which the Minamoto clan, identified by the white banners they carry, made a daring attack on the rival Taira clan at a Taira stronghold. The left screen shows the Battle of Yashima (March 22, 1185), another defeat for the Taira. The devastating war came to an end only a month later with the victory of the Minamoto, who took the title shogun, thus becoming Japan’s first military rulers.",
+          "bredd": 10969,
+          "hojd": 4896,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Battle_of_Yashima_Folding_Screens_Kano_School.jpg/960px-Battle_of_Yashima_Folding_Screens_Kano_School.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Armour in 1650s art of Japan",
+            "Genpei War",
+            "Minamoto clan",
+            "Paintings of the Battle of Yashima",
+            "Paintings on screens from Japan",
+            "Taira clan"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "belagringen-av-akko-1189",
+      "titel": "Belägringen av Akko",
+      "start": 1189,
+      "plats": "Akko (Acre), i dagens Israel",
+      "wikidata": "Q815116",
+      "kandidater": [
+        {
+          "fil": "File:Philippe Auguste et Richard Acre.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Philippe_Auguste_et_Richard_Acre.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "between circa 1375 and circa 1380 date QS:P571,+1350-00-00T00:00:00Z/7,P1319,+1375-00-00T00:00:00Z/9,P1326,+1380-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "between circa 1375 and circa 1380 date QS:P571,+1350-00-00T00:00:00Z/7,P1319,+1375-00-00T00:00:00Z/9,P1326,+1380-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2019-03-13 18:53:51",
+          "kredit": "This file comes from Gallica Digital Library and is available under the digital ID btv1b84472995/f484",
+          "beskrivning": "Philippe Auguste et Richard Cœur de Lion reçoivent les clés d'Acre (1191). Enluminure des Grandes Chroniques de France , vers 1375-1380. Paris, Bibliothèque nationale de France, département des Manuscrits, Français 2813, folio 238 verso.",
+          "bredd": 967,
+          "hojd": 953,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Philippe_Auguste_et_Richard_Acre.jpg/960px-Philippe_Auguste_et_Richard_Acre.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Grandes Chroniques de France (BNF, FR 2813)",
+            "Philip II of France in miniature",
+            "Richard I of England in miniature",
+            "Siege of Acre (1189–1191)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "islamisk"
+    },
+    {
+      "id": "mongolernas-erovringar",
+      "titel": "Mongolernas erövringar",
+      "start": 1209,
+      "plats": "Asien och Östeuropa (började i Västra Xia, dagens nordvästra Kina)",
+      "wikidata": "Q2092093",
+      "kandidater": [
+        {
+          "fil": "File:Bataille de vâliyân (1221).jpeg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bataille_de_v%C3%A2liy%C3%A2n_(1221).jpeg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Sayf al-Vâhidî. Hérât. Afghanistan",
+          "datum": "1430",
+          "datum_original": "1430",
+          "datum_fil": "2024-02-10 08:46:23",
+          "kredit": "Bibliothèque nationale de France. Département des Manuscrits. Division orientale. Supplément persan 1113, fol. 72v",
+          "beskrivning": "Battle of Vâliyân (1221). Jami' al-tawarikh , Rashid al-Din . \"Mongol officers Taqacaq and Mulgar attempted to take Waliyan. Jalal al-Din moved to Parwan; making a quick move across the mountains to the north, he surprised and routed the Mongols at Waliyan, inflincting a reported 1,000 loss on them. The Mongols retreated across a river and destroyed a bridge to keep the enemy from following (spring 1221). Jalal al-Din had left his baggage at Parwan and returned there.\" [1]",
+          "bredd": 3188,
+          "hojd": 2080,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Bataille_de_v%C3%A2liy%C3%A2n_%281221%29.jpeg/960px-Bataille_de_v%C3%A2liy%C3%A2n_%281221%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Waliyan",
+            "Battles in 1221",
+            "Bibliothèque nationale Supplément persan 1113",
+            "Cavalry in ancient Asia",
+            "Cavalry of the history of Iran",
+            "Mongol conquests"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-100"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "zhongdus-fall-1215",
+      "titel": "Zhongdu (Peking) faller",
+      "start": 1215,
+      "plats": "Zhongdu (dagens Peking), Jindynastins huvudstad",
+      "wikidata": "Q954923",
+      "kandidater": [
+        {
+          "fil": "File:Siège de Beijing (1213-1214).jpeg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Si%C3%A8ge_de_Beijing_(1213-1214).jpeg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Sayf al-Vâhidî. Hérât. Afghanistan",
+          "datum": "1430",
+          "datum_original": "1430",
+          "datum_fil": "2010-04-14 22:20:06",
+          "kredit": "Bibliothèque nationale de France. Département des Manuscrits. Division orientale. Supplément persan 1113, fol. 65v",
+          "beskrivning": "Siege of Beijing. Jami' al-tawarikh , Rashid al-Din .",
+          "bredd": 1503,
+          "hojd": 1181,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Si%C3%A8ge_de_Beijing_%281213-1214%29.jpeg/960px-Si%C3%A8ge_de_Beijing_%281213-1214%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1210s",
+            "Battle of Zhongdu",
+            "Battles in 1213",
+            "Battles in 1214",
+            "Bibliothèque nationale Supplément persan 1113",
+            "Genghis Khan in miniature",
+            "Jin Dynasty (1115-1234)",
+            "Jin Zhongdu",
+            "Mongol invasion of China"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-art-old-100-1923"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "sukhothairiket-grundas",
+      "titel": "Sukhothairiket grundas",
+      "start": 1238,
+      "plats": "Sukhothai, Thailand",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Sukhothai, Wat, Thailand.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sukhothai,_Wat,_Thailand.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Vyacheslav Argenberg",
+          "datum": "2007-02-03 09:48:23",
+          "datum_original": "2007-02-03 09:48:23",
+          "datum_fil": "2021-10-28 15:43:14",
+          "kredit": "Own work",
+          "beskrivning": "Wat Mahathat or Mahathat Temple is the most important and most impressive temple in Sukhothai Park. The temple's name translates to 'temple of the great relic'. It was founded in the early 14th century as the main temple of the Kingdom of Sukhothai. The Kingdom of Sukhothai, a powerful early kingdom in north central Thailand. Sukhothai, Thailand.",
+          "bredd": 3072,
+          "hojd": 2048,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Sukhothai%2C_Wat%2C_Thailand.jpg/960px-Sukhothai%2C_Wat%2C_Thailand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Sukhothai Historical Park",
+            "Wat Mahathat (Sukhothai)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 4.0",
+            "skal": [
+              "API:et säger \"CC BY 4.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Sukhothai City Old Map c1901.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sukhothai_City_Old_Map_c1901.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "From the book written by Narisara Nuwattiwong",
+          "datum": "circa 1901 date QS:P,+1901-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1901 date QS:P,+1901-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2025-05-23 12:11:04",
+          "kredit": "อุทยานประวัติศาสตร์สุโขทัย (Sukhothai Historical Park) Facebook - https://www.facebook.com/skt.his.park/posts/แผนที่เมืองเก่าสุโขทัย-ราวปี-พศ๒๔๔๔จากหนังสือจดหมายเหตุระยะทางไปพิษณุโลก-พระนิพน/2517337008318792/",
+          "beskrivning": "Old map of the city of Sukhothai. This is a copy made around 1901 of an antique map. Sukhothai city was founded in 1238. It is located about 12 km from the city Sukhotaj Thani. It was the capital city of the Sukhothai Kingdom (1238 - 1438). From the book of the chronicles of the distance to Phitsanulok, written by His Royal Highness Prince Narisara Nuwattiwong (1863-1947).",
+          "bredd": 3000,
+          "hojd": 2713,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Sukhothai_City_Old_Map_c1901.png/960px-Sukhothai_City_Old_Map_c1901.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Old maps of Sukhothai",
+            "Sukhothai Kingdom"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-70"
+            ]
+          }
+        },
+        {
+          "fil": "File:4Y1A0470 Sukhothai (34384204661).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:4Y1A0470_Sukhothai_(34384204661).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Ninara from Helsinki, Finland",
+          "datum": "2017-01-03 18:07",
+          "datum_original": "2017-01-03 18:07",
+          "datum_fil": "2018-05-17 03:51:09",
+          "kredit": "4Y1A0470 Sukhothai",
+          "beskrivning": "Sukhothai, Thailand, Wat Sorasak Wikipedia: Sukhothai was the capital of the Sukhothai Kingdom. Sukhothai is 12 km west of the modern city of Sukhothai Thani. Founded in 1238, it is about 427 km north of Bangkok. Sukhothai was the capital of the Thai Empire for approximately 140 years. As of 2014, 193 temples have been excavated and partly reconstructed. The stele of Ram Khamhaeng states the city had a triple wall and four gates. At its center was a pond, a \"marvelous pond of clear and delicious water like the water of the Mekong in the dry season.\"",
+          "bredd": 2861,
+          "hojd": 2445,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/4Y1A0470_Sukhothai_%2834384204661%29.jpg/960px-4Y1A0470_Sukhothai_%2834384204661%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Mueang Sukhothai District"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "soltemplet-i-konark",
+      "titel": "Soltemplet i Konark byggs",
+      "start": 1250,
+      "plats": "Konark i Odisha, Indien",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Wheel engraved in the 13th century built Konark Sun Temple in Orissa, India.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wheel_engraved_in_the_13th_century_built_Konark_Sun_Temple_in_Orissa,_India.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Joydeep",
+          "datum": "2025-11-18 10:31:41",
+          "datum_original": "2025-11-18 10:31:41",
+          "datum_fil": "2025-11-23 14:00:40",
+          "kredit": "Own work",
+          "beskrivning": "Wheel engraved in the 13th century built Konark Sun Temple in Orissa, India.",
+          "bredd": 5130,
+          "hojd": 3318,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Wheel_engraved_in_the_13th_century_built_Konark_Sun_Temple_in_Orissa%2C_India.jpg/960px-Wheel_engraved_in_the_13th_century_built_Konark_Sun_Temple_in_Orissa%2C_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Chariot wheels of Konark Sun Temple",
+            "Odisha",
+            "Tourism in Odisha"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Stone wheel engraved in the 13th century built Konark Sun Temple in Orissa, India.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Stone_wheel_engraved_in_the_13th_century_built_Konark_Sun_Temple_in_Orissa,_India.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Subhrajyoti07",
+          "datum": "2016-08-13 17:15:32",
+          "datum_original": "2016-08-13 17:15:32",
+          "datum_fil": "2018-10-06 05:24:42",
+          "kredit": "Own work",
+          "beskrivning": "This is a wheel engraved in the 13th century built Konark Sun Temple in Orissa, India. The temple is designed as a chariot consisting of 24 such wheels. Each wheel has a diameter of 9 feet 9 inches with 8 spokes. Each wheel acts as a sun dial and the various engravings shows the daily activity of people at different hours of the day. This is a UNESCO World Heritage site.",
+          "bredd": 4984,
+          "hojd": 3638,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Stone_wheel_engraved_in_the_13th_century_built_Konark_Sun_Temple_in_Orissa%2C_India.jpg/960px-Stone_wheel_engraved_in_the_13th_century_built_Konark_Sun_Temple_in_Orissa%2C_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Chariot wheels of Konark Sun Temple"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Closeup of the center of a stone wheel - Konark Sun Temple, Orissa, India.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Closeup_of_the_center_of_a_stone_wheel_-_Konark_Sun_Temple,_Orissa,_India.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Subhrajyoti07",
+          "datum": "2018-09-22 16:32:47",
+          "datum_original": "2018-09-22 16:32:47",
+          "datum_fil": "2018-10-09 16:37:50",
+          "kredit": "Own work",
+          "beskrivning": "Center of a stone wheel engraved in the 13th century built Konark Sun Temple in Orissa, India",
+          "bredd": 5814,
+          "hojd": 3866,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Closeup_of_the_center_of_a_stone_wheel_-_Konark_Sun_Temple%2C_Orissa%2C_India.jpg/960px-Closeup_of_the_center_of_a_stone_wheel_-_Konark_Sun_Temple%2C_Orissa%2C_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Chariot wheels of Konark Sun Temple"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "slaget-vid-ain-jalut",
+      "titel": "Slaget vid Ain Jalut",
+      "start": 1260,
+      "plats": "Ain Jalut i Jisreeldalen, Galileen",
+      "wikidata": "Q244356",
+      "kandidater": [
+        {
+          "fil": "File:Campaign of the Battle of Ain Jalut 1260.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Campaign_of_the_Battle_of_Ain_Jalut_1260.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "MapMaster",
+          "datum": "2008-06-13",
+          "datum_original": "2008-06-13",
+          "datum_fil": "2008-07-07 19:01:07",
+          "kredit": "Own work",
+          "beskrivning": "A map of the campaign leading to the Battle of Ain Jalut — in 1260 CE.",
+          "bredd": 432,
+          "hojd": 572,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Campaign_of_the_Battle_of_Ain_Jalut_1260.svg/960px-Campaign_of_the_Battle_of_Ain_Jalut_1260.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Ain Jalut (1260)",
+            "Maps of the County of Tripoli",
+            "Maps of the Kingdom of Jerusalem",
+            "Maps of the Levant in the 13th century",
+            "Maps of the Mongol Empire",
+            "Maps of the history of the Levant",
+            "Palestine in the 13th century"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "islamisk"
+    },
+    {
+      "id": "forsta-slaget-i-hakatabukten",
+      "titel": "Första slaget i Hakatabukten",
+      "start": 1274,
+      "plats": "Hakatabukten vid dagens Fukuoka, Kyushu",
+      "wikidata": "Q2237386",
+      "kandidater": [
+        {
+          "fil": "File:Mooko-HakataWall.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mooko-HakataWall.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2019-08-24 12:54:48",
+          "datum_original": null,
+          "datum_fil": "2019-08-24 12:54:48",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 2085,
+          "hojd": 875,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Mooko-HakataWall.jpg/960px-Mooko-HakataWall.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Depictions of samurai on horses",
+            "Details of Mōko Shūrai Ekotoba, Scroll 2"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "mongolerna-landar-pa-tsushima-1274",
+      "titel": "Mongolerna landar på Tsushima",
+      "start": 1274,
+      "plats": "Tsushima, Japan",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Da Qing fen sheng yu tu LOC 2002626726-1.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Da_Qing_fen_sheng_yu_tu_LOC_2002626726-1.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1754",
+          "datum_original": "1754",
+          "datum_fil": "2019-01-03 14:52:53",
+          "kredit": "LOC",
+          "beskrivning": "The General Map of the 1754 Da Qing Fensheng Yutu , showing the Qing Empire during the reign of the Qianlong Emperor. Provincial borders and capitals, the Yangtze and Yellow River, Great Wall and Willow Palisade, and Gobi Desert are clearly marked. Vietnam appears twice, once as the contemporary realm of Annam (marked as a Chinese province) and once as the ancient land of Jiaozhi (vaguely placed as an island somewhere in the southern seas). Korea and Tsushima (\"Fengma Island\") appear. The Mongols are placed as a small group in Inner Mongolia. Pen-and-ink and watercolor. Library of Congress copy, G2305 .D35 1782 Vault Shelf, G2305 .T15 17-- Vault.",
+          "bredd": 5280,
+          "hojd": 4534,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Da_Qing_fen_sheng_yu_tu_LOC_2002626726-1.jpg/960px-Da_Qing_fen_sheng_yu_tu_LOC_2002626726-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1750s maps of China",
+            "18th-century maps of Korea",
+            "18th-century maps of Vietnam",
+            "Daqing Fensheng Yutu",
+            "Gobi Desert",
+            "Maps of the Great Wall of China",
+            "Maps of the Yangtze River",
+            "Old maps of the Yellow River",
+            "Willow Palisade"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        },
+        {
+          "fil": "File:Da Qing fen sheng yu tu LOC 2002626726-1.tif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Da_Qing_fen_sheng_yu_tu_LOC_2002626726-1.tif",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1754",
+          "datum_original": "1754",
+          "datum_fil": "2019-01-03 14:52:38",
+          "kredit": "LOC",
+          "beskrivning": "The General Map of the 1754 Da Qing Fensheng Yutu , showing the Qing Empire during the reign of the Qianlong Emperor. Provincial borders and capitals, the Yangtze and Yellow River, Great Wall and Willow Palisade, and Gobi Desert are clearly marked. Vietnam appears twice, once as the contemporary realm of Annam (marked as a Chinese province) and once as the ancient land of Jiaozhi (vaguely placed as an island somewhere in the southern seas). Korea and Tsushima (\"Fengma Island\") appear. The Mongols are placed as a small group in Inner Mongolia. Pen-and-ink and watercolor. Library of Congress copy, G2305 .D35 1782 Vault Shelf, G2305 .T15 17-- Vault.",
+          "bredd": 5280,
+          "hojd": 4534,
+          "mime": "image/tiff",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Da_Qing_fen_sheng_yu_tu_LOC_2002626726-1.tif/lossy-page1-960px-Da_Qing_fen_sheng_yu_tu_LOC_2002626726-1.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "LC TIF images with categorized JPGs"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "mongolernas-invasioner-av-japan",
+      "titel": "Mongolernas invasioner av Japan",
+      "start": 1274,
+      "plats": "Norra Kyushu och öarna Tsushima och Iki, Japan (började på Tsushima)",
+      "wikidata": "Q208156",
+      "kandidater": [
+        {
+          "fil": "File:Kikuchi Yoosai - Mongol Invasion (mōko shūrai) - Tokyo National Museum.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kikuchi_Yoosai_-_Mongol_Invasion_(m%C5%8Dko_sh%C5%ABrai)_-_Tokyo_National_Museum.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kikuchi Yoosai / (of the reproduction) Tokyo National Museum",
+          "datum": "1847",
+          "datum_original": "1847",
+          "datum_fil": "2008-06-11 14:25:17",
+          "kredit": "Dschingis Khan und seine Erben (exhibition catalogue), München 2005, p. 331",
+          "beskrivning": "Mongol Invasion (Japanese: mōko shūrai), by Kikuchi Yōsai, 1847. Ink and water colors on paper. Tokyo National Museum. Shows the destruction of the Mongol fleet in a typhoon",
+          "bredd": 1499,
+          "hojd": 2409,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Kikuchi_Yoosai_-_Mongol_Invasion_%28m%C5%8Dko_sh%C5%ABrai%29_-_Tokyo_National_Museum.jpg/960px-Kikuchi_Yoosai_-_Mongol_Invasion_%28m%C5%8Dko_sh%C5%ABrai%29_-_Tokyo_National_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1847 watercolor paintings",
+            "Edo paintings in the Tokyo National Museum",
+            "Ink paintings",
+            "Paintings by Kikuchi Yōsai",
+            "Paintings of the Mongol invasions of Japan",
+            "Watercolor paintings from Japan"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "samma-fil"
+          ],
+          "samma_fil_som": [
+            "andra-slaget-i-hakatabukten"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art-100"
+            ]
+          }
+        },
+        {
+          "fil": "File:Japan in Marco Polo's travel record (2).JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Japan_in_Marco_Polo%27s_travel_record_(2).JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "江戸東京博物館、熊本県立美術館",
+          "datum": "2013-09-26 18:28:17",
+          "datum_original": "2013-09-26 18:28:17",
+          "datum_fil": "2013-09-26 09:50:53",
+          "kredit": "『北条時宗とその時代展』、『蒙古襲来絵詞展』",
+          "beskrivning": "Japan in Marco Polo's travel record",
+          "bredd": 1102,
+          "hojd": 653,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Japan_in_Marco_Polo%27s_travel_record_%282%29.JPG/960px-Japan_in_Marco_Polo%27s_travel_record_%282%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Japan in art",
+            "Le Livre de Marco Polo, ms. BnF fr. 2810",
+            "Marco Polo in miniatures",
+            "Mongol invasions of Japan",
+            "Mongol invasions of Japan in art"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "slaget-vid-yamen",
+      "titel": "Slaget vid Yamen: Songdynastin faller",
+      "start": 1279,
+      "plats": "Yamen i Guangdong, södra Kina",
+      "wikidata": "Q1078359",
+      "kandidater": [
+        {
+          "fil": "File:Jingmen002.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Jingmen002.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "(Long night without wind) 长夜无风",
+          "datum": "2008-05-03",
+          "datum_original": "2008-05-03",
+          "datum_fil": "2008-07-05 04:06:54",
+          "kredit": "Own work",
+          "beskrivning": "Songyuan Yamen Sea Battle Cultural Tourism Zone, Xinhui District, Jiangmen City",
+          "bredd": 2304,
+          "hojd": 1728,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Jingmen002.jpg/960px-Jingmen002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battles of the Yuan dynasty",
+            "Xinhui"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|GFDL}}, {{self|cc-by-3.0}}. Commons API (LicenseShortName): \"CC BY 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "andra-slaget-i-hakatabukten",
+      "titel": "Andra invasionen: striderna i Hakatabukten",
+      "start": 1281,
+      "plats": "Hakatabukten vid dagens Fukuoka, Kyushu",
+      "wikidata": "Q2237622",
+      "kandidater": [
+        {
+          "fil": "File:Kikuchi Yoosai - Mongol Invasion (mōko shūrai) - Tokyo National Museum.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kikuchi_Yoosai_-_Mongol_Invasion_(m%C5%8Dko_sh%C5%ABrai)_-_Tokyo_National_Museum.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kikuchi Yoosai / (of the reproduction) Tokyo National Museum",
+          "datum": "1847",
+          "datum_original": "1847",
+          "datum_fil": "2008-06-11 14:25:17",
+          "kredit": "Dschingis Khan und seine Erben (exhibition catalogue), München 2005, p. 331",
+          "beskrivning": "Mongol Invasion (Japanese: mōko shūrai), by Kikuchi Yōsai, 1847. Ink and water colors on paper. Tokyo National Museum. Shows the destruction of the Mongol fleet in a typhoon",
+          "bredd": 1499,
+          "hojd": 2409,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Kikuchi_Yoosai_-_Mongol_Invasion_%28m%C5%8Dko_sh%C5%ABrai%29_-_Tokyo_National_Museum.jpg/960px-Kikuchi_Yoosai_-_Mongol_Invasion_%28m%C5%8Dko_sh%C5%ABrai%29_-_Tokyo_National_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1847 watercolor paintings",
+            "Edo paintings in the Tokyo National Museum",
+            "Ink paintings",
+            "Paintings by Kikuchi Yōsai",
+            "Paintings of the Mongol invasions of Japan",
+            "Watercolor paintings from Japan"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "samma-fil"
+          ],
+          "samma_fil_som": [
+            "mongolernas-invasioner-av-japan"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art-100"
+            ]
+          }
+        },
+        {
+          "fil": "File:Mooko-SamuraiShips.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mooko-SamuraiShips.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2005-12-20 00:18:15",
+          "datum_original": null,
+          "datum_fil": "2005-12-20 00:18:15",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 601,
+          "hojd": 379,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Mooko-SamuraiShips.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Boats in Japan in art",
+            "Details of Mōko Shūrai Ekotoba, Scroll 2",
+            "Shimazu Hisatsune",
+            "Shōni Tsunesuke"
+          ],
+          "smal": true,
+          "flaggor": [
+            "datum-osakert",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "akkos-fall-1291",
+      "titel": "Akkos fall",
+      "start": 1291,
+      "plats": "Akko (Acre), kungariket Jerusalem",
+      "wikidata": "Q325985",
+      "kandidater": [
+        {
+          "fil": "File:SiegeOfAcre1291.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:SiegeOfAcre1291.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Dominique Papety",
+          "datum": "circa 1840 date QS:P571,+1840-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1840 date QS:P571,+1840-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2020-05-20 20:15:45",
+          "kredit": "Collections de Versailles",
+          "beskrivning": "The Hospitalier Master Mathieu de Clermont defending the walls in 1291.",
+          "bredd": 1145,
+          "hojd": 1457,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/SiegeOfAcre1291.jpg/960px-SiegeOfAcre1291.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Acre (city) in art",
+            "Paintings by Dominique Papety",
+            "Paintings of the Order of Saint John of Jerusalem",
+            "Siege of Acre (1291)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "islamisk"
+    },
+    {
+      "id": "vijayanagarariket-grundas",
+      "titel": "Vijayanagarariket grundas",
+      "start": 1336,
+      "plats": "Vijayanagara (i dag Hampi) i Karnataka, Indien",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Hampi, India, Watch Tower, The Zenana Enclosure, Vijayanagara Empire.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Hampi,_India,_Watch_Tower,_The_Zenana_Enclosure,_Vijayanagara_Empire.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Vyacheslav Argenberg",
+          "datum": "2011-02-04 16:53:32",
+          "datum_original": "2011-02-04 16:53:32",
+          "datum_fil": "2020-11-09 14:50:50",
+          "kredit": "Own work",
+          "beskrivning": "Indo-Islamic style structure. Hampi, Karnataka, India. Ancient temples at Hampi, Vijayanagara Empire, 14th century, a UNESCO World Heritage Site.",
+          "bredd": 4032,
+          "hojd": 2688,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Hampi%2C_India%2C_Watch_Tower%2C_The_Zenana_Enclosure%2C_Vijayanagara_Empire.jpg/960px-Hampi%2C_India%2C_Watch_Tower%2C_The_Zenana_Enclosure%2C_Vijayanagara_Empire.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Southeast Watch Tower in the Zenana Enclosure"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 4.0",
+            "skal": [
+              "API:et säger \"CC BY 4.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Vijayanagara, Hampi.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Vijayanagara,_Hampi.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Aleksandr Zykov",
+          "datum": "2015-01-19 13:01:39",
+          "datum_original": "2015-01-19 13:01:39",
+          "datum_fil": "2021-09-28 07:52:21",
+          "kredit": "https://www.flickr.com/photos/84292292@N00/37726982124/",
+          "beskrivning": "File from Flickr",
+          "bredd": 3264,
+          "hojd": 2448,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Vijayanagara%2C_Hampi.jpg/960px-Vijayanagara%2C_Hampi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Vijayanagara"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Hampi, India, Elephant Stable for royal elephants of the Vijayanagara Empire.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Hampi,_India,_Elephant_Stable_for_royal_elephants_of_the_Vijayanagara_Empire.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Vyacheslav Argenberg",
+          "datum": "2011-02-04 16:54:41",
+          "datum_original": "2011-02-04 16:54:41",
+          "datum_fil": "2020-11-09 14:50:51",
+          "kredit": "Own work",
+          "beskrivning": "Indo-Islamic style structure. Hampi, Karnataka, India. Ancient temples at Hampi, Vijayanagara Empire, 14th century, a UNESCO World Heritage Site.",
+          "bredd": 4032,
+          "hojd": 2688,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Hampi%2C_India%2C_Elephant_Stable_for_royal_elephants_of_the_Vijayanagara_Empire.jpg/960px-Hampi%2C_India%2C_Elephant_Stable_for_royal_elephants_of_the_Vijayanagara_Empire.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Elephant stables at Hampi"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 4.0",
+            "skal": [
+              "API:et säger \"CC BY 4.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "malacka-grundas",
+      "titel": "Malackasultanatet grundas",
+      "start": 1400,
+      "plats": "Malacka, Malaysia",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Soldo (Tin) - Portuguese Malacca (Dom Joao III) - Scott Semans 01.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Soldo_(Tin)_-_Portuguese_Malacca_(Dom_Joao_III)_-_Scott_Semans_01.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Scott Semans",
+          "datum": "2018-09-25",
+          "datum_original": "2018-09-25",
+          "datum_fil": "2018-09-25 10:20:12",
+          "kredit": "Portuguese colonial coinage (CoinCoin.com).",
+          "beskrivning": "PORTUGUESE MALACCA For pre-Portuguese coins, see Malacca Sultanate . I know of no really good reference for this series, and authors disagree on ruler attributions and denominations. Since it at least has a straightforward numbering system, I have used MN = Shaw & Ali, Malacca Coins (available: $2.50), with secondary references to: SS = Singh, Saran, The Coins of Malaysia Singapore and Brunei 1400-1967, (1996 ed.) which uses \"Sim\" numbers, and V = Vaz (as above). It has long been known from a report by Justus Schouten of 7 September, 1641, that upon conquest of Malacca from the Portuguese, underweight tin coins of local style were issued, but until recently these issues had not been identified. In Research Article No. 2 of 1989 (Malaysia Numismatic Soc.), PortugueseOccupation (1511-1641), Unlisted Tin Coins Found in Malacca (photocopy available $1.25) E. E. Sim catalogs and discusses a number of types, now generally thought to be products of the forgery factory still operating in Kuala Lumpur. He speculates that the last four listings may represent the legitimate Dutch issues, and from the numbers of pieces found in recent excavations and dredgings, it is now quite apparent that this is the case. In 1983 I sent one such piece (Sim AF2.8) to Md. Kassim Hajji Ali of the Muzium Negara, who opined that it was genuine. This page offers some tips for detecting fake Portuguese Malacca coins. These are tin coins, crudely made, dark in color, and rough from soil or water immersion, however they do look better \"in person\" than in the scans, as it is impossible to get good scans of very dark coins. Generally the design is quite bold and the coins are not seriously worn, but they are not \"pretty.\" Scans are enlarged to show detail, and show typical examples, not necessarily the specimen you will receive. MN-B16a Dom Joao III, 1521-52 , Tin Soldo, O: Heraldic Shield in circle, +IONES 3 RP ET AL DG G around; R: Globe (Armillary Sphere) with 5-6 lines of latitude, A crude issue, supplier says privately minted during Garcia de Sa's period. Thicker flan variety. 23-25m, avg. 5.6g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 60.00; rough Vg-F 40.00 MN-B16b Dom Joao III, 1521-52 , Tin Soldo, As above, but Thinner flan variety. 23-25m, avg. 4.1g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 55.00 MN-A16 Dom Joao III, 1521-52 , Tin Dinheiro, As Soldo aove. 19-21m, avg. 2.88g MN-A16, SS-J3.11, V-J3.23 SAMPLES shown. rough F-VF 27.50 MN18 Dom Joao III, 1521-52 , Tin Soldo, O: Plain Cross & legend +IOA: III: POR: ET: AL: R. Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 24m, 3.6 - 3.7g MN18, SS-J3.06, V-J3.03 SAMPLES shown. rough Vg-F 42.50 MN19 Dom Joao III, 1521-52 , Tin Dinheiro, O: Plain Cross & legend +IOA: III: POR: ET: AL: Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 19-21m, avg. 1.72g MN19, SS-J3.07, V-J3.04 rough F-VF SAMPLE shown. 26.50 MN20 Dom Joao III, 1521-52 , Tin Dinheiro, O: I S M A (Iohannes Senhor MAlacca) in angles of cross, R: Globe (Armillary Sphere), 17-18m, avg. 4g MN20, SS-J3.12, V-Se24.01 rough F-VF SAMPLE shown. 24.50 MN25 Dom Sebastiao I, 1557-78, Tin Dinheiro, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper right, 17-19m, avg. 2.5g MN25, SS-S.13 etc., V-Se25.01 etc. rough F-VF SAMPLE shown. 23.50 MN24 Dom Sebastiao I, 1557-78, Tin Soldo, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper left, the only indicator besides thickness that this is a different denomination, 17-19m, avg. 3.8g MN24, SS-S.13, 15., V-Se30.01, 30.02. rough F-VF SAMPLE shown. 26.50 MN36 Dutch issue of ca. 1641 in imitation of Dom Felipe II, 1598-1621, Tin 1/2 Bazaruco, O: Heraldic sheld of Felipe, R: Cross surrounded by border of dots , 13-15m, avg. 1.14g One of four similar types specifically issued by the Dutch for use in Malacca. MN-nl, SS-nl, V-F2/13.01 \"doubtful\", Sim (1983) AF2.6 rough F-VF SAMPLE shown. 23.50",
+          "bredd": 1494,
+          "hojd": 752,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Soldo_%28Tin%29_-_Portuguese_Malacca_%28Dom_Joao_III%29_-_Scott_Semans_01.jpg/960px-Soldo_%28Tin%29_-_Portuguese_Malacca_%28Dom_Joao_III%29_-_Scott_Semans_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Coins of Portuguese Malacca"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 3.0",
+            "skal": [
+              "API:et säger \"CC BY 3.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Soldo (Tin) - Portuguese Malacca (Dom Sebastiao I) - Scott Semans.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Soldo_(Tin)_-_Portuguese_Malacca_(Dom_Sebastiao_I)_-_Scott_Semans.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Scott Semans",
+          "datum": "2018-09-25",
+          "datum_original": "2018-09-25",
+          "datum_fil": "2018-09-25 10:20:17",
+          "kredit": "Portuguese colonial coinage (CoinCoin.com).",
+          "beskrivning": "PORTUGUESE MALACCA For pre-Portuguese coins, see Malacca Sultanate . I know of no really good reference for this series, and authors disagree on ruler attributions and denominations. Since it at least has a straightforward numbering system, I have used MN = Shaw & Ali, Malacca Coins (available: $2.50), with secondary references to: SS = Singh, Saran, The Coins of Malaysia Singapore and Brunei 1400-1967, (1996 ed.) which uses \"Sim\" numbers, and V = Vaz (as above). It has long been known from a report by Justus Schouten of 7 September, 1641, that upon conquest of Malacca from the Portuguese, underweight tin coins of local style were issued, but until recently these issues had not been identified. In Research Article No. 2 of 1989 (Malaysia Numismatic Soc.), PortugueseOccupation (1511-1641), Unlisted Tin Coins Found in Malacca (photocopy available $1.25) E. E. Sim catalogs and discusses a number of types, now generally thought to be products of the forgery factory still operating in Kuala Lumpur. He speculates that the last four listings may represent the legitimate Dutch issues, and from the numbers of pieces found in recent excavations and dredgings, it is now quite apparent that this is the case. In 1983 I sent one such piece (Sim AF2.8) to Md. Kassim Hajji Ali of the Muzium Negara, who opined that it was genuine. This page offers some tips for detecting fake Portuguese Malacca coins. These are tin coins, crudely made, dark in color, and rough from soil or water immersion, however they do look better \"in person\" than in the scans, as it is impossible to get good scans of very dark coins. Generally the design is quite bold and the coins are not seriously worn, but they are not \"pretty.\" Scans are enlarged to show detail, and show typical examples, not necessarily the specimen you will receive. MN-B16a Dom Joao III, 1521-52 , Tin Soldo, O: Heraldic Shield in circle, +IONES 3 RP ET AL DG G around; R: Globe (Armillary Sphere) with 5-6 lines of latitude, A crude issue, supplier says privately minted during Garcia de Sa's period. Thicker flan variety. 23-25m, avg. 5.6g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 60.00; rough Vg-F 40.00 MN-B16b Dom Joao III, 1521-52 , Tin Soldo, As above, but Thinner flan variety. 23-25m, avg. 4.1g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 55.00 MN-A16 Dom Joao III, 1521-52 , Tin Dinheiro, As Soldo aove. 19-21m, avg. 2.88g MN-A16, SS-J3.11, V-J3.23 SAMPLES shown. rough F-VF 27.50 MN18 Dom Joao III, 1521-52 , Tin Soldo, O: Plain Cross & legend +IOA: III: POR: ET: AL: R. Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 24m, 3.6 - 3.7g MN18, SS-J3.06, V-J3.03 SAMPLES shown. rough Vg-F 42.50 MN19 Dom Joao III, 1521-52 , Tin Dinheiro, O: Plain Cross & legend +IOA: III: POR: ET: AL: Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 19-21m, avg. 1.72g MN19, SS-J3.07, V-J3.04 rough F-VF SAMPLE shown. 26.50 MN20 Dom Joao III, 1521-52 , Tin Dinheiro, O: I S M A (Iohannes Senhor MAlacca) in angles of cross, R: Globe (Armillary Sphere), 17-18m, avg. 4g MN20, SS-J3.12, V-Se24.01 rough F-VF SAMPLE shown. 24.50 MN25 Dom Sebastiao I, 1557-78, Tin Dinheiro, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper right, 17-19m, avg. 2.5g MN25, SS-S.13 etc., V-Se25.01 etc. rough F-VF SAMPLE shown. 23.50 MN24 Dom Sebastiao I, 1557-78, Tin Soldo, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper left, the only indicator besides thickness that this is a different denomination, 17-19m, avg. 3.8g MN24, SS-S.13, 15., V-Se30.01, 30.02. rough F-VF SAMPLE shown. 26.50 MN36 Dutch issue of ca. 1641 in imitation of Dom Felipe II, 1598-1621, Tin 1/2 Bazaruco, O: Heraldic sheld of Felipe, R: Cross surrounded by border of dots , 13-15m, avg. 1.14g One of four similar types specifically issued by the Dutch for use in Malacca. MN-nl, SS-nl, V-F2/13.01 \"doubtful\", Sim (1983) AF2.6 rough F-VF SAMPLE shown. 23.50",
+          "bredd": 467,
+          "hojd": 259,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/95/Soldo_%28Tin%29_-_Portuguese_Malacca_%28Dom_Sebastiao_I%29_-_Scott_Semans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Coins of Portuguese Malacca"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 3.0",
+            "skal": [
+              "API:et säger \"CC BY 3.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Dinheiro (Tin) - Portuguese Malacca (Dom Sebastiao I) - Scott Semans.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Dinheiro_(Tin)_-_Portuguese_Malacca_(Dom_Sebastiao_I)_-_Scott_Semans.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Scott Semans",
+          "datum": "2018-09-25",
+          "datum_original": "2018-09-25",
+          "datum_fil": "2018-09-25 10:20:17",
+          "kredit": "Portuguese colonial coinage (CoinCoin.com).",
+          "beskrivning": "PORTUGUESE MALACCA For pre-Portuguese coins, see Malacca Sultanate . I know of no really good reference for this series, and authors disagree on ruler attributions and denominations. Since it at least has a straightforward numbering system, I have used MN = Shaw & Ali, Malacca Coins (available: $2.50), with secondary references to: SS = Singh, Saran, The Coins of Malaysia Singapore and Brunei 1400-1967, (1996 ed.) which uses \"Sim\" numbers, and V = Vaz (as above). It has long been known from a report by Justus Schouten of 7 September, 1641, that upon conquest of Malacca from the Portuguese, underweight tin coins of local style were issued, but until recently these issues had not been identified. In Research Article No. 2 of 1989 (Malaysia Numismatic Soc.), PortugueseOccupation (1511-1641), Unlisted Tin Coins Found in Malacca (photocopy available $1.25) E. E. Sim catalogs and discusses a number of types, now generally thought to be products of the forgery factory still operating in Kuala Lumpur. He speculates that the last four listings may represent the legitimate Dutch issues, and from the numbers of pieces found in recent excavations and dredgings, it is now quite apparent that this is the case. In 1983 I sent one such piece (Sim AF2.8) to Md. Kassim Hajji Ali of the Muzium Negara, who opined that it was genuine. This page offers some tips for detecting fake Portuguese Malacca coins. These are tin coins, crudely made, dark in color, and rough from soil or water immersion, however they do look better \"in person\" than in the scans, as it is impossible to get good scans of very dark coins. Generally the design is quite bold and the coins are not seriously worn, but they are not \"pretty.\" Scans are enlarged to show detail, and show typical examples, not necessarily the specimen you will receive. MN-B16a Dom Joao III, 1521-52 , Tin Soldo, O: Heraldic Shield in circle, +IONES 3 RP ET AL DG G around; R: Globe (Armillary Sphere) with 5-6 lines of latitude, A crude issue, supplier says privately minted during Garcia de Sa's period. Thicker flan variety. 23-25m, avg. 5.6g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 60.00; rough Vg-F 40.00 MN-B16b Dom Joao III, 1521-52 , Tin Soldo, As above, but Thinner flan variety. 23-25m, avg. 4.1g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 55.00 MN-A16 Dom Joao III, 1521-52 , Tin Dinheiro, As Soldo aove. 19-21m, avg. 2.88g MN-A16, SS-J3.11, V-J3.23 SAMPLES shown. rough F-VF 27.50 MN18 Dom Joao III, 1521-52 , Tin Soldo, O: Plain Cross & legend +IOA: III: POR: ET: AL: R. Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 24m, 3.6 - 3.7g MN18, SS-J3.06, V-J3.03 SAMPLES shown. rough Vg-F 42.50 MN19 Dom Joao III, 1521-52 , Tin Dinheiro, O: Plain Cross & legend +IOA: III: POR: ET: AL: Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 19-21m, avg. 1.72g MN19, SS-J3.07, V-J3.04 rough F-VF SAMPLE shown. 26.50 MN20 Dom Joao III, 1521-52 , Tin Dinheiro, O: I S M A (Iohannes Senhor MAlacca) in angles of cross, R: Globe (Armillary Sphere), 17-18m, avg. 4g MN20, SS-J3.12, V-Se24.01 rough F-VF SAMPLE shown. 24.50 MN25 Dom Sebastiao I, 1557-78, Tin Dinheiro, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper right, 17-19m, avg. 2.5g MN25, SS-S.13 etc., V-Se25.01 etc. rough F-VF SAMPLE shown. 23.50 MN24 Dom Sebastiao I, 1557-78, Tin Soldo, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper left, the only indicator besides thickness that this is a different denomination, 17-19m, avg. 3.8g MN24, SS-S.13, 15., V-Se30.01, 30.02. rough F-VF SAMPLE shown. 26.50 MN36 Dutch issue of ca. 1641 in imitation of Dom Felipe II, 1598-1621, Tin 1/2 Bazaruco, O: Heraldic sheld of Felipe, R: Cross surrounded by border of dots , 13-15m, avg. 1.14g One of four similar types specifically issued by the Dutch for use in Malacca. MN-nl, SS-nl, V-F2/13.01 \"doubtful\", Sim (1983) AF2.6 rough F-VF SAMPLE shown. 23.50",
+          "bredd": 481,
+          "hojd": 253,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/40/Dinheiro_%28Tin%29_-_Portuguese_Malacca_%28Dom_Sebastiao_I%29_-_Scott_Semans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Coins of Portuguese Malacca"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 3.0",
+            "skal": [
+              "API:et säger \"CC BY 3.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "goa-1510",
+      "titel": "Portugal erövrar Goa",
+      "start": 1510,
+      "plats": "Gamla Goa, Indien",
+      "wikidata": "Q2357384",
+      "kandidater": [
+        {
+          "fil": "File:\"Plan de Goa\", in Histoire générale des voyages,1750.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%22Plan_de_Goa%22,_in_Histoire_g%C3%A9n%C3%A9rale_des_voyages,1750.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Victorcouto",
+          "datum": "1750",
+          "datum_original": "1750",
+          "datum_fil": "2009-07-01 22:59:56",
+          "kredit": "Own work",
+          "beskrivning": "\"Plan de Goa\", Goa. PREVOST D’EXILES, Antoine François. \" Histoire générale des Voyages, ou Nouvelle Collection de toutes les Relations de Voyages par Mer et par Terre, qui ont été publiées […] Avec les mœurs et les usages des habitans, leur Religion, leur Gouvernement, leurs Arts et leurs Sciences, leur Commerce et leurs Manufactures; pour former un système complet d’histoire et de géographie moderne […] \". Paris: Didot, 1746-1789.",
+          "bredd": 5707,
+          "hojd": 3339,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/%22Plan_de_Goa%22%2C_in_Histoire_g%C3%A9n%C3%A9rale_des_voyages%2C1750.jpg/960px-%22Plan_de_Goa%22%2C_in_Histoire_g%C3%A9n%C3%A9rale_des_voyages%2C1750.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Colonial wars of Portugal",
+            "Maps of Goa by Linschoten",
+            "Portuguese India"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "licens-risk"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "risk: \"eget verk\" av en bild daterad 1750: kontrollera vem som tog eller gjorde originalet"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-self}}. Commons API (LicenseShortName): \"Public domain\". Att kontrollera: \"eget verk\" av en bild daterad 1750: kontrollera vem som tog eller gjorde originalet.",
+            "risker": [
+              "\"eget verk\" av en bild daterad 1750: kontrollera vem som tog eller gjorde originalet"
+            ],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "magellan-nar-guam",
+      "titel": "Magellans flotta når Guam",
+      "start": 1521,
+      "plats": "Guam i Marianerna, traditionellt vid Umatac (i dag Guam, USA)",
+      "wikidata": "Q1225170",
+      "kandidater": [
+        {
+          "fil": "File:Detail from a map of Ortelius - Magellan's ship Victoria.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Detail_from_a_map_of_Ortelius_-_Magellan%27s_ship_Victoria.png",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Abraham Ortelius",
+          "datum": "1590",
+          "datum_original": "1590",
+          "datum_fil": "2016-01-02 17:14:41",
+          "kredit": "www.helmink.com (Archive: https://web.archive.org/web/20170203125700/http://www.helmink.com/Antique_Map_Ortelius_Pacific/ )",
+          "beskrivning": "Detail from a map of Ortelius : Magellan 's ship Victoria",
+          "bredd": 2522,
+          "hojd": 1538,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Detail_from_a_map_of_Ortelius_-_Magellan%27s_ship_Victoria.png/960px-Detail_from_a_map_of_Ortelius_-_Magellan%27s_ship_Victoria.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1590 in art",
+            "Details of maps",
+            "Drawings of sailing ships",
+            "Iberian ship development, 1400–1600",
+            "Maps by Abraham Ortelius",
+            "Paintings of carracks",
+            "Ships on maps",
+            "Victoria (ship, 1519)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "renassans"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "jiaozi-statliga-sedlar",
+      "titel": "Songstaten ger ut de första statliga sedlarna",
+      "start": 1024,
+      "plats": "Chengdu i Sichuan, Kina",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "byodo-in-blir-tempel",
+      "titel": "Byōdō-in i Uji blir buddhistiskt tempel",
+      "start": 1052,
+      "plats": "Uji i Kyoto prefektur, Japan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "nizamiyya-i-bagdad",
+      "titel": "Nizamiyya, ett lärosäte i Bagdad, grundas",
+      "start": 1065,
+      "plats": "Bagdad, Irak",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "islamisk"
+    },
+    {
+      "id": "kutadgu-bilig",
+      "titel": "Kutadgu Bilig skrivs för fursten i Kashgar",
+      "start": 1069,
+      "plats": "Kashgar i Xinjiang, Kina",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "shen-kuo-magnetkompassen",
+      "titel": "Shen Kuo beskriver magnetkompassen",
+      "start": 1088,
+      "plats": "Shen Kuos gods nära Zhenjiang i Jiangsu, Kina",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "mongolerna-anfaller-vastra-xia",
+      "titel": "Mongolerna anfaller Västra Xia",
+      "start": 1209,
+      "plats": "Zhongxing (dagens Yinchuan), huvudstad i Västra Xia",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "mongolerna-intar-buchara",
+      "titel": "Mongolerna intar Buchara",
+      "start": 1220,
+      "plats": "Buchara, Khwarazmriket (dagens Uzbekistan)",
+      "wikidata": "Q110970851",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "observatoriet-i-maragheh",
+      "titel": "Bygget av observatoriet i Maragheh börjar",
+      "start": 1259,
+      "plats": "Maragheh i Östazarbaijan, Iran",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "jordbavningen-i-hongdong-1303",
+      "titel": "Jordbävningen i Hongdong",
+      "start": 1303,
+      "plats": "Shanxi, Kina",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "mausoleet-i-soltaniyeh",
+      "titel": "Mausoleet med kupolen i Soltaniyeh byggs",
+      "start": 1307,
+      "plats": "Soltaniyeh i Zanjan, Iran",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "pesten-vid-issyk-kul",
+      "titel": "Pestgravarna vid Issyk-Kul, de tidigaste kända offren för digerdöden",
+      "start": 1338,
+      "plats": "Chüydalen nära Issyk-Kul, Kirgizistan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "medeltid"
+    },
+    {
+      "id": "safaviderna-tar-makten-1501",
+      "titel": "Ismail I blir shah och safaviderna tar makten i Iran",
+      "start": 1501,
+      "plats": "Tabriz, nordvästra Iran",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "miniatyr"
+    },
+    {
+      "id": "funjsultanatet-grundas",
+      "titel": "Funjsultanatet grundas i Sennar",
+      "start": 1504,
+      "plats": "Sennar vid Blå Nilen (i dag Sudan)",
+      "wikidata": "Q1475713",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "islamisk"
+    }
+  ]
+}
