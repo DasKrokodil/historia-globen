@@ -872,6 +872,7 @@
 "magyarerna-tar-karpaterbackenet":{"place":{"de":"Große Ungarische Tiefebene, Ungarn (ungefährer Ort)"},"title":{"de":"Die Ungarn nehmen das Karpatenbecken ein"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "pannonhalma-grundas":{"place":{"de":"Pannonhalma südöstlich von Győr, Ungarn"},"title":{"de":"Gründung der Abtei Pannonhalma"}},
 "stefan-krons-till-kung":{"place":{"de":"Esztergom oder Székesfehérvár, Ungarn (die Markierung in Esztergom)"},"title":{"de":"Stephan wird zum ersten König Ungarns gekrönt"},"note":{"title":{"de":"Zum Ort"}}},
+"kopparberget-i-falun-i-skrift":{"place":{"de":"Kupferbergwerk Falun, Falun, Dalarna"},"title":{"de":"Der Kupferberg von Falun wird schriftlich erwähnt"}},
 "imjinkriget":{"place":{"de":"Korea und die Meere um die Koreanische Halbinsel (begann bei Busan)"},"title":{"de":"Der Imjin-Krieg"},"note":{"title":{"de":"Zum Kalender"}}},
 "belagringen-av-busan-1592":{"place":{"de":"Busan, Korea"},"title":{"de":"Die Japaner stürmen Busan"}},
 "slaget-vid-chungju-1592":{"place":{"de":"Tangeumdae bei Chungju, Korea"},"title":{"de":"Die Schlacht bei Chungju"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
@@ -1111,6 +1112,7 @@
 "osmanerna-intar-buda":{"place":{"de":"Buda (Ofen), heute ein Teil von Budapest, Ungarn"},"title":{"de":"Die Osmanen erobern Buda"}},
 "serberna-i-szentendre":{"place":{"de":"Szentendre nördlich von Budapest, Ungarn"},"title":{"de":"Serben siedeln sich in Szentendre an"}},
 "tokajs-vingardar-klassas":{"place":{"de":"Tokaj im Nordosten Ungarns"},"title":{"de":"Die Weinberge von Tokaj werden klassifiziert"}},
+"stora-stoten":{"place":{"de":"Stora Stöten, Kupferbergwerk Falun, Dalarna"},"title":{"de":"Der Einsturz im Bergwerk von Falun: Stora Stöten"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "forsta-opiumkriget":{"place":{"de":"Küste Chinas von der Perlflussmündung bis zum Jangtse (begann bei Kowloon, im heutigen Hongkong)"},"title":{"de":"Erster Opiumkrieg"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
 "skarmytslingen-vid-kowloon-1839":{"place":{"de":"Kowloon, heute Hongkong"},"title":{"de":"Scharmützel bei Kowloon"}},
 "britterna-intar-zhoushan-1840":{"place":{"de":"Dinghai auf der Insel Zhoushan (Chusan), Zhejiang"},"title":{"de":"Die Briten nehmen Zhoushan ein"}},
@@ -1528,6 +1530,7 @@
 "slovakiska-nationalupproret":{"place":{"de":"Banská Bystrica, Slowakei"},"title":{"de":"Der Slowakische Nationalaufstand"}},
 "szent-gyorgyi-och-c-vitaminet":{"place":{"de":"Szeged, Ungarn"},"title":{"de":"Szent-Györgyi und das Vitamin C"}},
 "forintelsen-i-ungern":{"place":{"de":"Ungarn (die Markierung am Ghetto in Budapest)"},"title":{"de":"Der Holocaust in Ungarn"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
+"forsta-vasaloppet":{"place":{"de":"Von Sälen nach Mora, Dalarna"},"title":{"de":"Der erste Wasalauf"}},
 "bangladeshs-befrielsekrig":{"place":{"de":"Ostpakistan, heute Bangladesch (Beginn in Dhaka)"},"title":{"de":"Bangladesch-Befreiungskrieg"},"note":{"title":{"de":"Zum Beginn des Krieges"}}},
 "operation-searchlight":{"place":{"de":"Dhaka und andere Städte in Ostpakistan"},"title":{"de":"Operation Searchlight"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "bangladeshs-sjalvstandighet-utropas":{"place":{"de":"Dhaka"},"title":{"de":"Die Unabhängigkeit Bangladeschs wird ausgerufen"},"note":{"title":{"de":"Nur eine Quelle für den Ort"}}},
@@ -1828,5 +1831,6 @@
 "slovakien-blir-egen-stat-1993":{"place":{"de":"Die ganze Slowakei (die Markierung in Bratislava)"},"title":{"de":"Die Slowakei wird ein eigener Staat"},"note":{"title":{"de":"Zum Datum"}}},
 "slovakien-gar-med-i-eu":{"place":{"de":"Die ganze Slowakei (die Markierung in Bratislava)"},"title":{"de":"Die Slowakei tritt der EU bei"}},
 "paneuropeiska-picknicken":{"place":{"de":"Die Grenze zu Österreich bei Sopron, Ungarn"},"title":{"de":"Das Paneuropäische Picknick"}},
-"ungern-gar-med-i-eu":{"place":{"de":"Ganz Ungarn (die Markierung in Budapest)"},"title":{"de":"Ungarn tritt der EU bei"}}
+"ungern-gar-med-i-eu":{"place":{"de":"Ganz Ungarn (die Markierung in Budapest)"},"title":{"de":"Ungarn tritt der EU bei"}},
+"falu-gruva-blir-varldsarv":{"place":{"de":"Falun, Dalarna"},"title":{"de":"Das Bergwerk von Falun wird Welterbe"}}
 }}
