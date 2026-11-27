@@ -1001,7 +1001,7 @@
   "space.missing": "Kartbilden kunde inte laddas. Platsen står i listan nedan.",
   "space.announce": "Månen visas. Markerad plats: {name}, {type}.",
   "space.placeSaid": "{name}: {type}, {coord}.",
-  "space.noTime": "Månen har ingen egen tid här: tidsreglaget ändrar inte bilden, och året ovan är jordens.",
+  "space.noTime": "Tidsreglaget ändrar inte månkartan.",
   "space.coord": "{lat}° {ns}, {lon}° {ew}",
   "space.north": "N",
   "space.south": "S",
@@ -1009,5 +1009,6 @@
   "space.west": "V",
   "space.type.landing-site": "Landningsplats",
   "sources.spacePlace": "Platsen på månen: {name} ({title})",
-  "sources.moonMap": "Månkartan i månvyn"
+  "sources.moonMap": "Månkartan i månvyn",
+  "space.eventWhen": "Händelsen: {when}"
 }

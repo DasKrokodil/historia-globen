@@ -1156,7 +1156,7 @@
   "space.missing": "No se ha podido cargar la imagen del mapa. El lugar figura en la lista de abajo.",
   "space.announce": "Se muestra la Luna. Lugar marcado: {name}, {type}.",
   "space.placeSaid": "{name}: {type}, {coord}.",
-  "space.noTime": "Aquí la Luna no tiene tiempo propio: el control de la línea de tiempo no cambia la imagen, y el año de arriba es el de la Tierra.",
+  "space.noTime": "El control de la línea de tiempo no cambia el mapa de la Luna.",
   "space.coord": "{lat}° {ns}, {lon}° {ew}",
   "space.north": "N",
   "space.south": "S",
@@ -1165,5 +1165,6 @@
   "space.type.landing-site": "Lugar de alunizaje",
   "review.subject.Platsen på månen": "Lugar en la Luna",
   "sources.spacePlace": "Lugar en la Luna: {name} ({title})",
-  "sources.moonMap": "El mapa de la vista de la Luna"
+  "sources.moonMap": "El mapa de la vista de la Luna",
+  "space.eventWhen": "El acontecimiento: {when}"
 }

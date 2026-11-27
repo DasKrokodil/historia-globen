@@ -1156,7 +1156,7 @@
   "space.missing": "Das Kartenbild konnte nicht geladen werden. Der Ort steht in der Liste unten.",
   "space.announce": "Der Mond wird angezeigt. Markierter Ort: {name}, {type}.",
   "space.placeSaid": "{name}: {type}, {coord}.",
-  "space.noTime": "Der Mond hat hier keine eigene Zeit: Der Zeitleisten-Regler ändert das Bild nicht, und das Jahr oben ist das der Erde.",
+  "space.noTime": "Der Zeitleisten-Regler ändert die Mondkarte nicht.",
   "space.coord": "{lat}° {ns}, {lon}° {ew}",
   "space.north": "N",
   "space.south": "S",
@@ -1165,5 +1165,6 @@
   "space.type.landing-site": "Landeplatz",
   "review.subject.Platsen på månen": "Ort auf dem Mond",
   "sources.spacePlace": "Ort auf dem Mond: {name} ({title})",
-  "sources.moonMap": "Die Karte in der Mondansicht"
+  "sources.moonMap": "Die Karte in der Mondansicht",
+  "space.eventWhen": "Das Ereignis: {when}"
 }

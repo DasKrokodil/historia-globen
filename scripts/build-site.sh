@@ -75,7 +75,7 @@ ls img/flags/*.svg >/dev/null 2>&1 || fail "inga flaggor i img/flags/"
 for f in img/flags/*.svg; do copy "$f"; done
 
 # Datafiler som js/model.js och UI-modulerna laddar, inklusive introduktionen (#363), elevuppdragen (#741), människans spridning (#1094) och rymden (#1527)
-for f in events funfacts missuppfattningar quiz perioder teman platser intro uppdrag sources land land-10m borders styles religions religions-polities upptackt upptackt-europa bildlager vyer version spridning rymd; do
+for f in events funfacts missuppfattningar quiz perioder teman platser intro uppdrag sources land land-10m borders styles religions religions-polities upptackt upptackt-europa bildlager vyer version spridning; do
   copy "data/$f.json"
 done
 copy data/licenses.json
@@ -167,14 +167,18 @@ for layer in json.load(open('data/bildlager.json')).get('layers', []):
 PY
 )
 
-# Kartorna över andra himlakroppar (#1527): maps.<himlakropp>.file i data/rymd.json
-while IFS= read -r f; do copy "$f"; done < <(python3 -I - <<'PY'
+# Rymden (#1527): data/rymd.json och kartorna den pekar på (maps.<himlakropp>.file). Filen är valfri: tas den bort försvinner
+# knappen Visa på månen, och bygget och kontrollen fungerar som förut (docs/datamodell.md)
+if [ -f data/rymd.json ]; then
+  copy data/rymd.json
+  while IFS= read -r f; do copy "$f"; done < <(python3 -I - <<'PY'
 import json
 for m in json.load(open('data/rymd.json')).get('maps', {}).values():
     if m.get('file'):
         print(m['file'])
 PY
 )
+fi
 
 echo "build-site: $(find "$DIST" -type f | wc -l) filer i dist/ ($(du -sh "$DIST" | cut -f1))"
 

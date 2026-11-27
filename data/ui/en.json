@@ -1156,7 +1156,7 @@
   "space.missing": "The map image could not be loaded. The site is listed below.",
   "space.announce": "The Moon is shown. Marked site: {name}, {type}.",
   "space.placeSaid": "{name}: {type}, {coord}.",
-  "space.noTime": "The Moon has no time of its own here: the time slider does not change the image, and the year above is Earth’s.",
+  "space.noTime": "The time slider does not change the map of the Moon.",
   "space.coord": "{lat}° {ns}, {lon}° {ew}",
   "space.north": "N",
   "space.south": "S",
@@ -1165,5 +1165,6 @@
   "space.type.landing-site": "Landing site",
   "review.subject.Platsen på månen": "Site on the Moon",
   "sources.spacePlace": "Site on the Moon: {name} ({title})",
-  "sources.moonMap": "The map in the Moon view"
+  "sources.moonMap": "The map in the Moon view",
+  "space.eventWhen": "The event: {when}"
 }

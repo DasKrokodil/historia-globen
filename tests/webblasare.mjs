@@ -16661,6 +16661,9 @@ async function run(browser, vp) {
       const b = await btn.evaluate(el => ({ h: el.getBoundingClientRect().height, text: el.textContent.trim(), label: el.getAttribute('aria-label') }));
       if (b.h < 44) throw new Error(`knappen är ${b.h} px hög (minst 44)`);
       if (!b.label?.startsWith(b.text)) throw new Error(`namnet "${b.label}" börjar inte med texten "${b.text}"`);
+      // Adressen (beslutet punkt 5): himlakroppen skrivs inte i etapp 1, och året i adressen ändras inte av månvyn
+      const hashYear = () => mp.evaluate(() => ({ y: new URLSearchParams(location.hash.slice(1)).get('y'), b: new URLSearchParams(location.hash.slice(1)).has('b') }));
+      const before = await hashYear();
       // Öppna: fokus på rubriken, bandet och jordens år syns, kartan har role="img" med textalternativ och bilden laddas, platsen står i listan
       await btn.click();
       await mp.waitForSelector('#moon-dialog:not([hidden])', { timeout: T.step });
@@ -16688,6 +16691,9 @@ async function run(browser, vp) {
       if (!/Statio Tranquillitatis/.test(dlg.place)) throw new Error('platsen saknas i listan');
       if (Math.abs(dlg.x - 203.47314 / 360) > 0.01 || Math.abs(dlg.y - 89.32584 / 180) > 0.01) throw new Error(`markören ligger fel: ${dlg.x.toFixed(3)}, ${dlg.y.toFixed(3)}`);
       if (dlg.ff === 'visible') throw new Error('Samtidigt-kortet syns bakom månvyn');
+      await mp.waitForTimeout(900); // adressen skrivs var 0,7 sekund (controllers/address.js)
+      const during = await hashYear();
+      if (during.b || during.y !== before.y) throw new Error(`adressen ändrades av månvyn: före ${JSON.stringify(before)}, under ${JSON.stringify(during)}`);
       // Tab går till listans knapp, och knappen säger var platsen ligger
       await mp.keyboard.press('Tab');
       if (!(await mp.evaluate(() => document.activeElement?.hasAttribute('data-moon-place')))) throw new Error('Tab från rubriken når inte platsens knapp');
@@ -16705,6 +16711,9 @@ async function run(browser, vp) {
       await mp.waitForSelector('#moon-dialog', { state: 'hidden', timeout: T.step });
       const back = await moonState(mp);
       if (back.focus !== 'data-moon' || !back.detailShown) throw new Error(`efter Tillbaka till jorden: ${JSON.stringify(back)}`);
+      await mp.waitForTimeout(900);
+      const after = await hashYear();
+      if (after.b || after.y !== before.y) throw new Error(`adressen efter månvyn: före ${JSON.stringify(before)}, efter ${JSON.stringify(after)}`);
       errs.push(...mpAw.settle());
       if (errs.length) throw new Error(errs.join(' | '));
       return 'knappen bara på Apollo 11, Escape och Tillbaka ger samma resultat, inga konsolfel';

@@ -1156,7 +1156,7 @@
   "space.missing": "L’image de la carte n’a pas pu être chargée. Le site figure dans la liste ci-dessous.",
   "space.announce": "La Lune est affichée. Site marqué : {name}, {type}.",
   "space.placeSaid": "{name} : {type}, {coord}.",
-  "space.noTime": "Ici, la Lune n’a pas de temps propre : le curseur de la frise ne change pas l’image, et l’année ci-dessus est celle de la Terre.",
+  "space.noTime": "Le curseur de la frise ne change pas la carte de la Lune.",
   "space.coord": "{lat}° {ns}, {lon}° {ew}",
   "space.north": "N",
   "space.south": "S",
@@ -1165,5 +1165,6 @@
   "space.type.landing-site": "Site d’alunissage",
   "review.subject.Platsen på månen": "Site sur la Lune",
   "sources.spacePlace": "Site sur la Lune : {name} ({title})",
-  "sources.moonMap": "La carte de la vue de la Lune"
+  "sources.moonMap": "La carte de la vue de la Lune",
+  "space.eventWhen": "L’événement : {when}"
 }

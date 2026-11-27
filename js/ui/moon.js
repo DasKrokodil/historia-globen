@@ -14,7 +14,7 @@
 //
 // Medan månvyn är öppen döljs faktarutan och Samtidigt-kortet (klassen moon-open på #app), så att ett kort visas i taget; de kommer
 // tillbaka oförändrade när man går tillbaka till jorden.
-import { t, formatYear, reviewLabel } from '../model.js';
+import { t, formatYear, formatEventTime, reviewLabel } from '../model.js';
 import { ui, LANG, langAttr, textLang } from '../i18n.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -43,8 +43,10 @@ export class MoonView {
   constructor({ root, title, body, back, live, app }, { srcById }) {
     Object.assign(this, { root, title, body, back, live, app, srcById });
     this.opener = null;
-    this.onClose = null;
+    this.eventId = null; // händelsen som visas; main.js stänger vyn om faktarutan byter händelse
     back.addEventListener('click', () => this.close(true));
+    // Ett klick på den mörka bakgrunden utanför arket stänger, som Om källorna
+    root.addEventListener('click', ev => { if (ev.target === root) this.close(true); });
     // Tab stannar i dialogen (aria-modal): från sista till första och tvärtom
     root.addEventListener('keydown', ev => {
       if (ev.key !== 'Tab') return;
@@ -64,6 +66,7 @@ export class MoonView {
    */
   open({ event: e, item, map, year, opener }) {
     this.opener = opener;
+    this.eventId = e.id;
     const pos = mapPosition(item.coord, map.bounds);
     const coord = formatCoord(item.coord);
     const type = ui(`space.type.${item.placeType}`);
@@ -76,7 +79,7 @@ export class MoonView {
     const titleLang = textLang(e.title); // rubriken på ett reservspråk får lang (#1308)
     if (titleLang && titleLang !== LANG) this.title.setAttribute('lang', titleLang); else this.title.removeAttribute('lang');
     this.body.innerHTML = `
-      <p class="moon-year">${esc(ui('space.year', { year: formatYear(Math.round(year)) }))}</p>
+      <p class="moon-year" id="moon-year">${esc(ui('space.year', { year: formatYear(Math.round(year)) }))}<br><span class="moon-when">${esc(ui('space.eventWhen', { when: formatEventTime(e) }))}</span></p>
       <figure class="moon-map">
         <div class="moon-frame" role="img" aria-label="${esc(ui('space.mapAlt', { places: `${name}, ${typeInline}, ${coord}` }))}">
           <img class="moon-img" alt="" width="${map.width}" height="${map.height}" decoding="async" hidden>
@@ -84,7 +87,7 @@ export class MoonView {
         </div>
         <p class="moon-loading" data-moon-loading>${esc(ui('space.loading'))}</p>
         <p class="moon-missing" data-moon-missing hidden>${esc(ui('space.missing'))}</p>
-        <figcaption><span${langAttr(map.caption)}>${esc(t(map.caption))}</span> <span class="moon-credit">${esc(credit)}</span></figcaption>
+        <figcaption data-moon-caption><span${langAttr(map.caption)}>${esc(t(map.caption))}</span> <span class="moon-credit">${esc(credit)}</span></figcaption>
       </figure>
       <h3 class="moon-places-title">${esc(ui('space.places'))}</h3>
       <ul class="moon-places">
@@ -104,6 +107,7 @@ export class MoonView {
     img.addEventListener('error', () => {
       loading.hidden = true;
       frame.hidden = true;
+      this.body.querySelector('[data-moon-caption]').hidden = true; // ingen bildtext för en bild som inte syns
       this.body.querySelector('[data-moon-missing]').hidden = false;
       this.say(ui('space.missing'));
     }, { once: true });
@@ -144,6 +148,5 @@ export class MoonView {
     if (img && !img.complete) img.removeAttribute('src'); // avbryt en hämtning som pågår
     const opener = typeof this.opener === 'function' ? this.opener() : this.opener;
     if (refocus && opener?.isConnected) opener.focus({ preventScroll: true });
-    this.onClose?.();
   }
 }

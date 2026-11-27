@@ -220,9 +220,12 @@ while todo:
 for f in sorted(set(graph) - seen):
     err(f'{f} importeras inte från js/main.js (onödig fil i dist/, eller saknas importen?)')
 
-# 6. Datafiler som laddas med getJSON('…')
+# 6. Datafiler som laddas med getJSON('…'). Valfria filer (sidan klarar sig utan dem) får saknas: data/rymd.json (#1527)
+OPTIONAL_DATA = {'data/rymd.json'}
 for p in sorted(DIST.rglob('*.js')):
     for path in re.findall(r'''getJSON\(\s*['"]([^'"]+)['"]''', p.read_text(encoding='utf-8')):
+        if path in OPTIONAL_DATA and not (DIST / path).exists():
+            continue
         exists(path, f'{rel(p)} (getJSON)')
 
 # 7. Filer som data pekar på
@@ -374,7 +377,7 @@ for item in (spread or {}).get('items', []):
             err(f"data/spridning.json ({item.get('id')}): en plats saknar event och coord")
 # Rymden (#1527): platser på andra himlakroppar. Händelsen och källorna finns, id är unika, en händelse har högst en post per
 # himlakropp, kartfilen finns och punkten ligger inom kartan (längd −180 till 180, bredd −90 till 90). Schemat prövas i 8b.
-space = load('data/rymd.json') if exists('data/rymd.json', 'Rymden') else None
+space = load('data/rymd.json') if (DIST / 'data/rymd.json').is_file() else None  # valfri: utan filen finns ingen månvy
 if space:
     seen_space, seen_pairs = set(), set()
     for name, m in (space.get('maps') or {}).items():
