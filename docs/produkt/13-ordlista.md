@@ -34,8 +34,8 @@
 | **Berättelseläge** | Turens kapitel och frågor "Att fundera på", som läses upp med steget. |
 | **Slutkort** | Kortet i slutet av en tur eller när man har följt något, med det viktigaste att ta med sig. |
 | **Lektion / lektionsläge** | En tur med lärarfält. Länken med `m=lektion` döljer menyerna, låser år och lager och visar bandet med "Lämna lektionen". |
-| **Elevblad / lärarblad** | Utskriften ur en lektions data: eleven får frågor med skrivrader, läraren får årskurs, tid och förkunskaper. |
-| **Samtidighetsjakten** | Elevuppdraget under Mer: hitta händelser på olika kontinenter som pågår uppdragets år eller ligger nära i tid (inom uppdragets fönster). Du-form. |
+| **Elevblad / lärarblad** | Utskriften ur en lektions data: eleven får frågor med skrivrader (och i åk 4–6 ordförklaringar och rubriken Sista frågan i stället för Exit ticket), läraren får årskurs, tid och förkunskaper, och ett svarsblad med förväntade svar och deras källor när lektionen har sådana (#1316). |
+| **Samtidighetsjakten** | Elevuppdraget under Mer: hitta händelser i olika världsdelar som pågår uppdragets år eller ligger nära i tid (inom uppdragets fönster). Du-form. |
 | **Quiz** | "Vad hände samtidigt?" ur befintliga fun facts, bara med par som pågår samma år, och frågorna **Sant eller myt?** ur missuppfattningarna, som inte räknas i poängen, och **Vad kom först?** och **Vad låg närmast i tid?** ur `data/quiz.json`, där svaret räknas fram ur händelsernas årtal (#846). |
 | **Introduktion** | De tre stilla stegen för nya besökare. Knappen heter "Kom igång" och ligger under Mer (#996). |
 | **Missuppfattning** | Ett vanligt felaktigt påstående, vad källorna säger och ursprunget; visas i faktarutan. |
