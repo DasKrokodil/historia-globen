@@ -627,3 +627,41 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `andra-slaget-vid-chuanbi` | 2026-11-26: Kandidaterna (Attack and Capture of Chuenpee, Nemesis in Anson's Bay) hör enligt bildtexterna till striderna i januari 1841 och är inte uttryckligen kopplade till det andra slaget; används inte utan säker koppling. |
 | `bab-framtrader-1844` | 2026-11-26: Ingen kandidat i listan; Báb avbildas inte (bilder av Báb behandlas med vördnad inom bahá'í) och ingen sökning gjordes. |
 | `norra-expeditionen-taiping` | 2026-11-26: Enda träffen är ett foto av Chiang Kai-shek vid en grav (fel motiv); används inte. |
+
+
+## Asien 1856–1950 (#2068 och #2069, 2026-11-26)
+
+10 av 40 händelser fick bild i den här omgången. Följande 30 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/asien-7.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `tianjingincidenten` | 2026-11-26: Händelsen saknades i den automatiska listan (verktyget hoppade över den); ingen egen sökning hann göras. |
+| `indiska-upproret-1857` | 2026-11-26: Enda kandidaten är en karta (Indian Rebellion of 1857.jpg, 1912) med licensflagga; används inte. |
+| `myteriet-i-meerut` | 2026-11-26: Utsedd men inte hämtad: "The death of Colonel Finnis on the parade ground at Meerut" (Illustrated Times, 18 juli 1857, PD), HTTP 429. Står i `data/utkast/bildbatch/asien-7-ej-hamtade.txt`. |
+| `belagringen-av-cawnpore` | 2026-11-26: Enda kandidaten (gravyr ur The History of the Indian Mutiny, 1858, CC0 enligt British Library) visar mord på kvinnor och barn i båtar vid Satichaura Ghat och är en brittisk propagandabild; avstås tills en människa bedömt det. |
+| `belagringen-av-lucknow` | 2026-11-26: Enda kandidaten ("The Relief of Lucknow", cirka 1914) är 777 × 394 px och ett senare konstverk; används inte. |
+| `slaget-vid-gwalior-1858` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `slaget-vid-shanghai-1861` | 2026-11-26: Träffarna är kartor och diagram från 1937 ("Why the Fighting in Shanghai"); de hör inte till striderna 1861 och används inte. |
+| `tredje-slaget-vid-nanjing` | 2026-11-26: Enda kandidaten (Third Battle of Nanking.jpg) är bara 538 px bred; används inte. |
+| `muhammad-ahmad-utropar-sig-till-mahdi` | 2026-11-26: Enda kandidaten är ett porträtt (724 × 928 px) utan känt datum eller källa; används inte. |
+| `bac-ninh-falttaget` | 2026-11-26: Enda kandidaten (Prise de Bac-Ninh.jpg, 1884) är bara 416 px bred; används inte. |
+| `forsta-italiensk-etiopiska-kriget` | 2026-11-26: Enda kandidaten är ett nutida foto (stående, filsidan oklar); används inte. |
+| `slaget-vid-coatit` | 2026-11-26: Enda kandidaten är ett porträtt av en italiensk kapten (Federico Ciccodicola, 1889), inte striden; används inte. |
+| `slaget-vid-amba-alagi-1895` | 2026-11-26: Enda kandidaten (Ras Mekonnen Amba Alage-2.jpg) har oklart ursprung och stående format; används inte utan närmare kontroll. |
+| `belagringen-av-mekelle` | 2026-11-26: Enda kandidaten (Mekele 1896.jpg) är bara 687 px bred; används inte. |
+| `ross-malaria-myggan` | 2026-11-26: Kandidat utsedd (Major Ronald Ross ur A practical study of malaria, 1909, Internet Archive Book Images) men verktyget kunde inte avgöra licensen (API: "No restrictions", ingen igenkänd mall); används inte. |
+| `slaget-vid-quingua` | 2026-11-26: Enda kandidaten (Battle of Quingua.jpg) har licensrisk och är troligen en modern målning; används inte. |
+| `boxarupproret` | 2026-11-26: Händelsen saknades i den automatiska listan och sökningen efter belägringen av legationerna gav inga träffar; ingen egen vidare sökning hann göras. |
+| `rysk-japanska-kriget` | 2026-11-26: Enda kandidaten är liten (655 × 916 px, stående); används inte. |
+| `raja-harishchandra-har-premiar` | 2026-11-26: Enda kandidaten (affisch för filmen, 256 × 390 px) är för liten; används inte. |
+| `bose-statistiken` | 2026-11-26: Kandidat utsedd (Satyendra-nath-bose.jpg, foto från 1915, PD-India, okänd upphovsperson, källa en webbplats) men inte hämtad (HTTP 429) och proveniensen är svag; används inte. |
+| `ramaneffekten` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `andra-kinesisk-japanska-kriget` | 2026-11-26: Enda kandidaten är en karta (Japanese Occupation of China 1940); används inte. |
+| `nanjingmassakern` | 2026-11-26: Händelsen gäller ett massmord; bilder av offer avstås och ingen sökning gjordes. |
+| `lahoreresolutionen-1940` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `svalten-i-henan-1942` | 2026-11-26: Enda kandidaten är ett pressfoto av hungrande människor (Agsphoto 11239 full.jpg); avstås tills en människa bedömt om en värdig bild finns. |
+| `svalten-i-bengalen-1943` | 2026-11-26: Kandidaterna är foton av utsvultna människor (Calcutta 1943); avstås tills en människa bedömt om en värdig bild finns. |
+| `arabisk-israeliska-kriget-1948` | 2026-11-26: Enda kandidaten är en karta (1948 Arab Israeli War, May 15–June 10); används inte. |
+| `lydda-och-ramle-1948` | 2026-11-26: Kandidaterna är en israelisk soldatbild och en bild av palestinier i Ramle (liten) med oklar koppling till fördrivningen; avstås tills en människa bedömt urvalet av perspektiv. |
+| `operation-uvda` | 2026-11-26: Enda kandidaten (Raising the Ink Flag at Umm Rashrash) har licensflagga och är ett senare, uppsatt foto; används inte. |
+| `operation-yoav` | 2026-11-26: Kandidaten (Beersheba 1948.jpg, Israels statliga presskontor, PD-Israel) är fri enligt israelisk lag men fotot från 1948 kan fortfarande vara upphovsrättsskyddat i USA (URAA); används inte tills en människa bedömt det. |

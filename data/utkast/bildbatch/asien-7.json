@@ -1,0 +1,1877 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "asien-7",
+  "datum": "2026-11-26",
+  "urval": "ids=35 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "belagringen-av-cawnpore",
+      "titel": "Belägringen av Cawnpore",
+      "start": 1857,
+      "plats": "Cawnpore (i dag Kanpur), vid Ganges",
+      "wikidata": "Q627881",
+      "kandidater": [
+        {
+          "fil": "File:Massacre in the boats off Cawnpore - The history of the Indian Mutiny (1858-1859), opposite 336 - BL.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Massacre_in_the_boats_off_Cawnpore_-_The_history_of_the_Indian_Mutiny_(1858-1859),_opposite_336_-_BL.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Charles Ball",
+          "datum": "1858 date QS:P571,+1858-00-00T00:00:00Z/9",
+          "datum_original": "1858 date QS:P571,+1858-00-00T00:00:00Z/9",
+          "datum_fil": "2014-03-05 03:18:00",
+          "kredit": "This file has been provided by the British Library from its digital collections. Links to the British Library's website may be broken as the library recovers from a October 2023 cyber attack, and will be updated once material becomes accessible online. For more information on the attack see: https://www.bl.uk/about/cyber-attack Catalogue entry .",
+          "beskrivning": "A contemporary engraving of the massacre at the Satichaura Ghat on 27 June 1857 following the Siege of Cawnpore during the 1857 Indian rebellion .",
+          "bredd": 1470,
+          "hojd": 1057,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Massacre_in_the_boats_off_Cawnpore_-_The_history_of_the_Indian_Mutiny_%281858-1859%29%2C_opposite_336_-_BL.jpg/960px-Massacre_in_the_boats_off_Cawnpore_-_The_history_of_the_Indian_Mutiny_%281858-1859%29%2C_opposite_336_-_BL.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Images released by British Library Images Online, March 2014",
+            "Massacre Ghat",
+            "Massacres in art",
+            "Siege of Cawnpore",
+            "The history of the Indian Mutiny, Volume I (CH. Bell)"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-zero"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "belagringen-av-lucknow",
+      "titel": "Belägringen av Lucknow",
+      "start": 1857,
+      "plats": "Residenset i Lucknow, Awadh",
+      "wikidata": "Q815165",
+      "kandidater": [
+        {
+          "fil": "File:The Relief of Lucknow.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Relief_of_Lucknow.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Thomas J. Barker",
+          "datum": "circa 1914 date QS:P,+1914-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1914 date QS:P,+1914-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2012-04-05 14:44:27",
+          "kredit": "http://www.columbia.edu/itc/mealac/pritchett/00routesdata/1800_1899/1857revolt/lucknowsiege/lucknowsiege.html",
+          "beskrivning": "\"The Relief of Lucknow,\" by Thomas J. Barker; a print from c.1914",
+          "bredd": 777,
+          "hojd": 394,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/31/The_Relief_of_Lucknow.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Siege of Lucknow",
+            "Thomas Jones Barker"
+          ],
+          "smal": true,
+          "flaggor": [
+            "konstverk",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "indiska-upproret-1857",
+      "titel": "Indiska upproret 1857",
+      "start": 1857,
+      "plats": "Norra och mellersta Indien (började i Meerut)",
+      "wikidata": "Q129864",
+      "kandidater": [
+        {
+          "fil": "File:Indian Rebellion of 1857.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Indian_Rebellion_of_1857.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author Cambridge University Press; Stanford's Geogl. Estabt..",
+          "datum": "1912",
+          "datum_original": "1912",
+          "datum_fil": "2012-09-11 15:35:47",
+          "kredit": "Perry-Castañeda Library Map Collection Website .",
+          "beskrivning": "Map, \"North India: The Mutiny 1857-9\" from \"The Cambridge Modern History Atlas\". Cambridge University Press; London. 1912. Editors were Sir Adolphus William Ward ( †1924 ), G.W. Prothero ( †1922 ), and Sir Stanley Mordaunt Leathes ( †1938 ). Individual authors of works making up the atlas are not identified, nor are the likely to be, after reasonable research.",
+          "bredd": 1959,
+          "hojd": 1647,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Indian_Rebellion_of_1857.jpg/960px-Indian_Rebellion_of_1857.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1850s maps of India",
+            "Cambridge Modern History Atlas",
+            "Maps of the Indian Rebellion of 1857",
+            "Old maps of North India"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "Public domain",
+            "skal": [
+              "licensmallen (action=raw) kunde inte hämtas, så API:ets licens är inte korskontrollerad",
+              "licensmallen (action=raw) ej hämtad: HTTP 429 efter 3 försök"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "myteriet-i-meerut",
+      "titel": "Myteriet i Meerut",
+      "start": 1857,
+      "plats": "Meerut, cirka 65 km nordost om Delhi",
+      "wikidata": "Q120262092",
+      "kandidater": [
+        {
+          "fil": "File:The death of Colonel Finnis on the parade ground at Meerut.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_death_of_Colonel_Finnis_on_the_parade_ground_at_Meerut.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "18 July 1857 date QS:P571,+1857-07-18T00:00:00Z/11",
+          "datum_original": "18 July 1857 date QS:P571,+1857-07-18T00:00:00Z/11",
+          "datum_fil": "2019-09-20 20:47:50",
+          "kredit": "The Illustrated Times",
+          "beskrivning": "The Death of Colonel Finnis on the Parade Ground at Meerut. Illustration for The Illustrated Times, 18 July 1857. Colonel John Finnis, 11th Regiment, Bengal Army. Colonel Finnis was shot off his horse, and fell dead to the ground. He was the first European officer to be killed in the Mutiny.",
+          "bredd": 797,
+          "hojd": 600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/11/The_death_of_Colonel_Finnis_on_the_parade_ground_at_Meerut.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1857 engravings",
+            "1857 in India",
+            "1857 in Meerut",
+            "Death in art",
+            "Engravings of men of India",
+            "History of Meerut",
+            "Horse riding in engravings",
+            "Illustrated Times 1857",
+            "Indian Rebellion of 1857",
+            "John Finnis (Bengal Army officer)",
+            "Meerut Mutiny",
+            "Parade grounds",
+            "Soldiers of India in art"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "belagringen-av-jhansi",
+      "titel": "Belägringen av Jhansi",
+      "start": 1858,
+      "plats": "Jhansi, Bundelkhand",
+      "wikidata": "Q16034303",
+      "kandidater": [
+        {
+          "fil": "File:Defeat of the Peshwa's army before Jhansi.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Defeat_of_the_Peshwa%27s_army_before_Jhansi.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Anonymous Unknown author",
+          "datum": "1858",
+          "datum_original": "1858",
+          "datum_fil": "2021-06-11 17:02:11",
+          "kredit": "The history of the Indian mutiny by Ball, Charles Publication date: 1858 https://archive.org/details/historyofindianm212ball_1/page/n28/mode/1up",
+          "beskrivning": "Defeat of the Peshwa's army before Jhansi",
+          "bredd": 1397,
+          "hojd": 1143,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Defeat_of_the_Peshwa%27s_army_before_Jhansi.jpg/960px-Defeat_of_the_Peshwa%27s_army_before_Jhansi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Nana Sahib",
+            "Siege of Jhansi",
+            "The history of the Indian Mutiny (1858) by Charles Ball"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-India"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "slaget-vid-anqing",
+      "titel": "Belägringen av Anqing",
+      "start": 1860,
+      "plats": "Anqing, Anhui",
+      "wikidata": "Q10946696",
+      "kandidater": [
+        {
+          "fil": "File:Regaining the Provincial City Anqing2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Regaining_the_Provincial_City_Anqing2.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Wu Youru",
+          "datum": "1886",
+          "datum_original": "1886",
+          "datum_fil": "2010-05-14 03:35:00",
+          "kredit": "https://www.battle-of-qurman.com.cn/e/hist.htm",
+          "beskrivning": "A scene of the Taiping Rebellion, 1850-1864",
+          "bredd": 1024,
+          "hojd": 595,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Regaining_the_Provincial_City_Anqing2.jpg/960px-Regaining_the_Provincial_City_Anqing2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Paintings of the Qing Dynasty",
+            "Taiping Rebellion",
+            "Wu Youru"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "slaget-vid-shanghai-1861",
+      "titel": "Striderna om Shanghai",
+      "start": 1861,
+      "plats": "Shanghai med omgivningar",
+      "wikidata": "Q3493762",
+      "kandidater": [
+        {
+          "fil": "File:Why the Fighting in Shanghai 7.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Why_the_Fighting_in_Shanghai_7.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1937",
+          "datum_original": "1937",
+          "datum_fil": "2025-11-14 23:04:16",
+          "kredit": "https://upload.wikimedia.org/wikipedia/commons/2/22/Why_the_Fighting_in_Shanghai.pdf",
+          "beskrivning": "Why the Fighting in Shanghai 7",
+          "bredd": 9703,
+          "hojd": 6879,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Why_the_Fighting_in_Shanghai_7.png/960px-Why_the_Fighting_in_Shanghai_7.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Shanghai"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-70"
+            ]
+          }
+        },
+        {
+          "fil": "File:Why the Fighting in Shanghai 4.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Why_the_Fighting_in_Shanghai_4.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1937",
+          "datum_original": "1937",
+          "datum_fil": "2025-11-14 23:04:12",
+          "kredit": "https://upload.wikimedia.org/wikipedia/commons/2/22/Why_the_Fighting_in_Shanghai.pdf",
+          "beskrivning": "Why the Fighting in Shanghai 4",
+          "bredd": 9693,
+          "hojd": 6851,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Why_the_Fighting_in_Shanghai_4.png/960px-Why_the_Fighting_in_Shanghai_4.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Shanghai"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-70"
+            ]
+          }
+        },
+        {
+          "fil": "File:Why the Fighting in Shanghai 3.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Why_the_Fighting_in_Shanghai_3.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1937",
+          "datum_original": "1937",
+          "datum_fil": "2025-11-14 23:04:12",
+          "kredit": "https://upload.wikimedia.org/wikipedia/commons/2/22/Why_the_Fighting_in_Shanghai.pdf",
+          "beskrivning": "Why the Fighting in Shanghai 3",
+          "bredd": 10679,
+          "hojd": 6941,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Why_the_Fighting_in_Shanghai_3.png/960px-Why_the_Fighting_in_Shanghai_3.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Shanghai"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-70"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "tredje-slaget-vid-nanjing",
+      "titel": "Nanjing faller",
+      "start": 1864,
+      "plats": "Nanjing, Kina",
+      "wikidata": "Q7784779",
+      "kandidater": [
+        {
+          "fil": "File:Third Battle of Nanking.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Third_Battle_of_Nanking.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown 19th century",
+          "datum": "2021-04-30",
+          "datum_original": "2021-04-30",
+          "datum_fil": "2021-04-30 05:03:25",
+          "kredit": "http://taipingrebellion.com/fall.htm",
+          "beskrivning": "Qing Troops reclaiming back Nanking.",
+          "bredd": 538,
+          "hojd": 388,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Third_Battle_of_Nanking.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Taiping Rebellion"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-assumed"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "muhammad-ahmad-utropar-sig-till-mahdi",
+      "titel": "Muhammad Ahmad utropar sig till Mahdi",
+      "start": 1881,
+      "plats": "Sudan; hans anhängare samlades på ön Aba i Vita Nilen",
+      "wikidata": "Q298678",
+      "kandidater": [
+        {
+          "fil": "File:Muhammad Ahmad al-Mahdi.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Muhammad_Ahmad_al-Mahdi.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2019-02-10 11:27:21",
+          "datum_original": null,
+          "datum_fil": "2019-02-10 11:27:21",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 724,
+          "hojd": 928,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/8/89/Muhammad_Ahmad_al-Mahdi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Messianism",
+            "Muhammad Ahmad"
+          ],
+          "smal": true,
+          "flaggor": [
+            "datum-osakert",
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "islamisk"
+    },
+    {
+      "id": "bac-ninh-falttaget",
+      "titel": "Fälttåget mot Bắc Ninh",
+      "start": 1884,
+      "plats": "Bắc Ninh i norra Vietnam",
+      "wikidata": "Q4141584",
+      "kandidater": [
+        {
+          "fil": "File:Prise de Bac-Ninh.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Prise_de_Bac-Ninh.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Images d'Epinal",
+          "datum": "1884",
+          "datum_original": "1884",
+          "datum_fil": "2010-06-13 18:01:29",
+          "kredit": "Internet/English Wikipedia",
+          "beskrivning": "Capture of Bac Ninh during the Tonkin campaign",
+          "bredd": 416,
+          "hojd": 255,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/65/Prise_de_Bac-Ninh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Bac-Ninh campaign",
+            "Images d'Épinal"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "forsta-italiensk-etiopiska-kriget",
+      "titel": "Första italiensk-etiopiska kriget",
+      "start": 1895,
+      "plats": "Italienska Eritrea och Etiopien (började vid Coatit i dagens Eritrea)",
+      "wikidata": "Q989115",
+      "kandidater": [
+        {
+          "fil": "File:Ethiopia Italia war-2.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ethiopia_Italia_war-2.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Ethiopia_Italia_war.JPG : * Mekele_1896.jpg : Unknown but died more than 70 years ago In_Vista_Di_Massaua.jpg : Unknown but obviously died more than 70 years ago Ebalgume.jpg : Unknown but obviously died more than 70 years ago Prisonniers_italiens_en_Abyssinie-2.jpg : * Prisonniers_italiens_en_Abyssinie.jpg : Le Petit Journal - F. Méaulle, scan by Vob08 derivative work: Zheim ( talk ) Menelik_-_Adoua-2.jpg : * Menelik_-_Adoua.jpg : Le Petit Journal - F. Méaulle, scan by Vob08 derivative work: Zheim ( talk ) Ras_Mekonnen_Amba_Alage_2.jpg : Le Petit Journal - F. Méaulle derivative work: Vob08 ( talk ) improved colors: Zheim ( talk )",
+          "datum": "2010-03-07 12:27",
+          "datum_original": "2010-03-07 12:27",
+          "datum_fil": "2010-03-07 12:29:57",
+          "kredit": "Ethiopia_Italia_war.JPG",
+          "beskrivning": "Page from old french newspaper \"Le Petit Journal\" depicting Ras Mekonnen at the battle of Amba Alage - Detail",
+          "bredd": 1379,
+          "hojd": 2237,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Ethiopia_Italia_war-2.JPG/960px-Ethiopia_Italia_war-2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "First Italo-Ethiopian War"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|PD-self"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "etiopien"
+    },
+    {
+      "id": "slaget-vid-amba-alagi-1895",
+      "titel": "Etiopisk seger vid Amba Alagi",
+      "start": 1895,
+      "plats": "Amba Alagi i södra Tigray, Etiopien",
+      "wikidata": "Q1398069",
+      "kandidater": [
+        {
+          "fil": "File:Ras Mekonnen Amba Alage-2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ras_Mekonnen_Amba_Alage-2.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Ras_Mekonnen_Amba_Alage.jpg : Le Petit Journal - F. Méaulle derivative work: Zheim ( talk )",
+          "datum": "2010-03-06 15:07",
+          "datum_original": "2010-03-06 15:07",
+          "datum_fil": "2010-03-06 15:08:56",
+          "kredit": "Ras_Mekonnen_Amba_Alage.jpg",
+          "beskrivning": "Page from old french newspaper \"Le Petit Journal\" depicting Ras Mekonnen at the battle of Amba Alage",
+          "bredd": 3492,
+          "hojd": 5077,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Ras_Mekonnen_Amba_Alage-2.jpg/960px-Ras_Mekonnen_Amba_Alage-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1895 Le Petit Journal",
+            "Battle of Amba Alagi",
+            "Colored engravings",
+            "Engravings by Fortuné Méaulle",
+            "Ras Makonnen"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-old}}, {{GFDL}}. Commons API (LicenseShortName): \"Public domain\". Filen är också licensierad under GFDL; bilden används under Public domain.",
+            "risker": [],
+            "mallar": [
+              "PD-old",
+              "GFDL"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "etiopien"
+    },
+    {
+      "id": "slaget-vid-coatit",
+      "titel": "Slaget vid Coatit",
+      "start": 1895,
+      "plats": "Coatit (Quatit), Italienska Eritrea, i dag Eritrea",
+      "wikidata": "Q2888324",
+      "kandidater": [
+        {
+          "fil": "File:Capitano Federico Ciccodicola.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Capitano_Federico_Ciccodicola.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1889",
+          "datum_original": "1889",
+          "datum_fil": "2013-02-01 11:31:05",
+          "kredit": "Unknown source Unknown source",
+          "beskrivning": "Fotografia di mia proprietà",
+          "bredd": 2177,
+          "hojd": 1333,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Capitano_Federico_Ciccodicola.jpg/960px-Capitano_Federico_Ciccodicola.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cannone da 75B Montagne",
+            "Colonialism of Italy",
+            "Federico Ciccodicola",
+            "Italian occupation of Eritrea",
+            "Luigi Naretti",
+            "People of Italy in 1889",
+            "Royal Corps of Colonial Troops",
+            "Vittorio Bottego"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "etiopien"
+    },
+    {
+      "id": "belagringen-av-mekelle",
+      "titel": "Belägringen av Mekelle",
+      "start": 1896,
+      "plats": "Mekelle, Tigray, Etiopien",
+      "wikidata": "Q2237609",
+      "kandidater": [
+        {
+          "fil": "File:Mekele 1896.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mekele_1896.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown but died more than 70 years ago",
+          "datum": "1896",
+          "datum_original": "1896",
+          "datum_fil": "2009-11-03 22:22:01",
+          "kredit": "http://miles.forumcommunity.net/?t=9366478",
+          "beskrivning": "The fort of Mekele in 1896, Ethiopian Empire",
+          "bredd": 687,
+          "hojd": 499,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Mekele_1896.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Macallè",
+            "Yohannes IV Palace in Mek'ele"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "etiopien"
+    },
+    {
+      "id": "slaget-vid-quingua",
+      "titel": "Slaget vid Quingua",
+      "start": 1899,
+      "plats": "Quingua, i dag Plaridel, i provinsen Bulacan, Filippinerna",
+      "wikidata": "Q4872146",
+      "kandidater": [
+        {
+          "fil": "File:Battle of Quingua.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Battle_of_Quingua.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kurz & Allison",
+          "datum": "2008-04-14",
+          "datum_original": "2008-04-14",
+          "datum_fil": "2024-12-30 09:17:34",
+          "kredit": "http://memory.loc.gov/service/pnp/pga/03400/03400v.jpg",
+          "beskrivning": "Kurz & Allison print of the Battle of Quingua, April 23, 1899",
+          "bredd": 8227,
+          "hojd": 5882,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Battle_of_Quingua.jpg/960px-Battle_of_Quingua.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1899 in art",
+            "American Colonialism in art",
+            "Battle of Quingua",
+            "Kurz and Allison",
+            "Paintings of flags of the Philippines",
+            "Paintings of flags of the United States"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "licens-risk"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "risk: public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-US}}. Commons API (LicenseShortName): \"Public domain\". Att kontrollera: public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet.",
+            "risker": [
+              "public domain bara i USA (pd-us): kontrollera att verket först publicerades i USA, eller vad som gäller i ursprungslandet"
+            ],
+            "mallar": [
+              "PD-US"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "rysk-japanska-kriget",
+      "titel": "Rysk-japanska kriget",
+      "start": 1904,
+      "plats": "Manchuriet, Korea, Gula havet och Japanska havet (markören vid Port Arthur, i dagens Lüshunkou, där kriget började)",
+      "wikidata": "Q159950",
+      "kandidater": [
+        {
+          "fil": "File:RUSSOJAPANESEWARIMAGE.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:RUSSOJAPANESEWARIMAGE.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Original uploader and author was Dustandshadow at en.wikipedia",
+          "datum": "22 July 2007 (original upload date)",
+          "datum_original": "22 July 2007 (original upload date)",
+          "datum_fil": "2024-12-11 05:33:15",
+          "kredit": "Русско-японская война (8 февраля 1904 — 27 июля 1905)",
+          "beskrivning": "Russo-Japanese War montage",
+          "bredd": 655,
+          "hojd": 916,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/dd/RUSSOJAPANESEWARIMAGE.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of the Yellow Sea - Russian forces",
+            "Pallada (ship, 1899)",
+            "Pallada class cruiser",
+            "Protected cruisers of the Imperial Japanese Navy",
+            "Russo-Japanese War photography",
+            "Ships built in 1899",
+            "Ships named Pallada",
+            "Ships with 3 funnels",
+            "Two-masted ships"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-user-w"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "kina-tusch"
+    },
+    {
+      "id": "raja-harishchandra-har-premiar",
+      "titel": "Raja Harishchandra, Indiens första långfilm",
+      "start": 1913,
+      "plats": "Bombay (Mumbai), Indien",
+      "wikidata": "Q2985396",
+      "kandidater": [
+        {
+          "fil": "File:Publicity poster for film, Raja Harishchandra (1913).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Publicity_poster_for_film,_Raja_Harishchandra_(1913).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Dadasaheb Phalke",
+          "datum": "1913",
+          "datum_original": "1913",
+          "datum_fil": "2008-08-22 14:32:13",
+          "kredit": "http://www.phalkefactory.net/wiki/index.php?title=Biography",
+          "beskrivning": "Publicity poster for film, Raja Harishchandra (1913), India's first full length completely indeginously made, feature film.",
+          "bredd": 256,
+          "hojd": 390,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Publicity_poster_for_film%2C_Raja_Harishchandra_%281913%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Film posters of India",
+            "Posters of Maharashtra",
+            "Raja Harishchandra"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-India"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "tutankhamons-grav-hittas",
+      "titel": "Tutankhamons grav hittas",
+      "start": 1922,
+      "plats": "Konungarnas dal, Egypten",
+      "wikidata": "Q835309",
+      "kandidater": [
+        {
+          "fil": "File:Inside Pharaoh Tutankhamun's tomb, 18th dynasty.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Inside_Pharaoh_Tutankhamun%27s_tomb,_18th_dynasty.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "EditorfromMars",
+          "datum": "2016-05-20 10:07:55",
+          "datum_original": "2016-05-20 10:07:55",
+          "datum_fil": "2020-08-19 05:42:40",
+          "kredit": "Own work",
+          "beskrivning": "Inside Pharaoh Tutankhamun's tomb, 18th dynasty",
+          "bredd": 3264,
+          "hojd": 2448,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Inside_Pharaoh_Tutankhamun%27s_tomb%2C_18th_dynasty.jpg/960px-Inside_Pharaoh_Tutankhamun%27s_tomb%2C_18th_dynasty.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "KV62",
+            "Sarcophagus of Tutankhamun"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "andra-kinesisk-japanska-kriget",
+      "titel": "Andra kinesisk-japanska kriget",
+      "start": 1937,
+      "plats": "Kina, Burma, Korea, Indokina och Taiwan (markören vid Marco Polo-bron nära Peking, där kriget började)",
+      "wikidata": "Q170314",
+      "kandidater": [
+        {
+          "fil": "File:Japanese Occupation of China 1940.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Japanese_Occupation_of_China_1940.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "File:Japanese_Occupation_-_Map.jpg : original File:OcupaciónJaponesaDeChina1940.svg : Rowanwindwhistler ( talk ) \"Turned into SVG and translated into Spanish.\" Odie5533 \"Translated back into English\"",
+          "datum": "2012-11-13 20:23:39",
+          "datum_original": "2012-11-13 20:23:39",
+          "datum_fil": "2012-11-14 02:25:58",
+          "kredit": "This file was derived from: Japanese Occupation - Map.jpg OcupaciónJaponesaDeChina1940.svg",
+          "beskrivning": "Japanese Occupation of China in 1940. Translated back to English from the Spanish svg.",
+          "bredd": 1119,
+          "hojd": 857,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Japanese_Occupation_of_China_1940.svg/960px-Japanese_Occupation_of_China_1940.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "English-language SVG maps of the history of China",
+            "Maps of the Second Sino-Japanese War",
+            "Maps showing 1940",
+            "Occupation of China by Japan",
+            "SVG maps of the Republic of China (1912–1949)",
+            "SVG maps of the history of China"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "rabindranath-tagore-dor-1941",
+      "titel": "Rabindranath Tagore dör",
+      "start": 1941,
+      "plats": "Jorasanko Thakur Bari, Tagorefamiljens hus i Calcutta, Brittiska Indien",
+      "wikidata": "Q7241",
+      "kandidater": [
+        {
+          "fil": "File:Rabindranath Tagore in 1909.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Rabindranath_Tagore_in_1909.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Generalstabens litografiska anstalt",
+          "datum": "1909",
+          "datum_original": "1909",
+          "datum_fil": "2018-05-13 11:10:03",
+          "kredit": "Various, e.g. [1] , published in 1914 in Sweden in Les Prix Nobel 1913 , p. 60",
+          "beskrivning": "Rabindranath Tagore in Kolkata .",
+          "bredd": 1071,
+          "hojd": 1500,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Rabindranath_Tagore_in_1909.jpg/960px-Rabindranath_Tagore_in_1909.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Men with beards",
+            "Portraits of Rabindranath Tagore",
+            "Rabindranath Tagore in 1909",
+            "Rabindranath Tagore with long beard"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-100-1923"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "svalten-i-henan-1942",
+      "titel": "Svälten i Henan",
+      "start": 1942,
+      "plats": "Provinsen Henan, Kina",
+      "wikidata": "Q11141749",
+      "kandidater": [
+        {
+          "fil": "File:Agsphoto 11239 full.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Agsphoto_11239_full.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Harrison Forman",
+          "datum": "1943-01-01",
+          "datum_original": "1943-01-01",
+          "datum_fil": "2023-03-05 00:35:26",
+          "kredit": "https://collections.lib.uwm.edu/digital/collection/agsphoto/id/11239/",
+          "beskrivning": "Great Honan [Henan] famine. Famine victim crazed with hunger gnaws bark from tree. China.",
+          "bredd": 3645,
+          "hojd": 5453,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Agsphoto_11239_full.jpg/960px-Agsphoto_11239_full.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1943 in China"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-CHINA"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "svalten-i-bengalen-1943",
+      "titel": "Svälten i Bengalen",
+      "start": 1943,
+      "plats": "Provinsen Bengalen i Brittiska Indien (dagens Bangladesh och Västbengalen); många sökte hjälp i Calcutta",
+      "wikidata": "Q522837",
+      "kandidater": [
+        {
+          "fil": "File:FatherSonCowRummagingFoodBengalFamine1943.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:FatherSonCowRummagingFoodBengalFamine1943.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kalyani Bhattacharyee, and Sj. Manoj Sarbadhikar, Servants of Bengal Society, at 153/3N, Upper Circular Road, Calcutta; All Rights Reserved. First edition 1944. Printed by Manindra Chandra Dutta at Sabita Press, 18-B, Shamacharan De Street, Calcutta. See also World Cat Catalog entry",
+          "datum": "1944-11-22",
+          "datum_original": "1944-11-22",
+          "datum_fil": "2018-02-01 18:47:18",
+          "kredit": "Bengal Speaks edited by Kalyanee Bhattacharyee, Hind Kitabs, Bombay, 1944 (first edition). Scanned from personal copy by Fowler&fowler ( talk ) 18:41, 21 April 2017 (UTC)",
+          "beskrivning": "A father, his young son, and a cow rummaging for scraps of food on the street during the Bengal famine 1943. The photo caption says, \"destitute peasants lived on scrappings from drains. Bad food killed lakhs of people.\"",
+          "bredd": 2257,
+          "hojd": 1681,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/FatherSonCowRummagingFoodBengalFamine1943.jpg/960px-FatherSonCowRummagingFoodBengalFamine1943.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1943 Bengal famine",
+            "Bengal Speaks edited by Kalyani Bhattacharyee"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-India"
+            ]
+          }
+        },
+        {
+          "fil": "File:MotherWithShredsOfClothingAndChildCalcutta1943.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:MotherWithShredsOfClothingAndChildCalcutta1943.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kalyani Bhattacharyee, and Sj. Manoj Sarbadhikar, Servants of Bengal Society, at 153/3N, Upper Circular Road, Calcutta; All Rights Reserved. First edition 1944. Printed by Manindra Chandra Dutta at Sabita Press, 18-B, Shamacharan De Street, Calcutta. See also World Cat Catalog entry",
+          "datum": "1944-11-22",
+          "datum_original": "1944-11-22",
+          "datum_fil": "2018-02-01 18:45:57",
+          "kredit": "Bengal Speaks edited by Kalyanee Bhattacharyee, Hind Kitabs, Bombay, 1944 (first edition). Scanned from personal copy by Fowler&fowler ( talk ) 18:10, 21 April 2017 (UTC)",
+          "beskrivning": "Mother in shreds of clothing with child begging on the streets of Calcutta during the Bengal famine of 1943",
+          "bredd": 960,
+          "hojd": 1287,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/59/MotherWithShredsOfClothingAndChildCalcutta1943.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1943 Bengal famine",
+            "Bengal Speaks edited by Kalyani Bhattacharyee",
+            "Kolkata in the 1940s",
+            "Mothers and children in India"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-India"
+            ]
+          }
+        },
+        {
+          "fil": "File:Bengal famine 1943 photo.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bengal_famine_1943_photo.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1943",
+          "datum_original": "1943",
+          "datum_fil": "2012-06-14 21:39:58",
+          "kredit": "http://histclo.com/essay/war/ww2/cou/india/w2i-fam.html",
+          "beskrivning": "Bengali famine 1943",
+          "bredd": 763,
+          "hojd": 571,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Bengal_famine_1943_photo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1943 Bengal famine",
+            "Dog health",
+            "Dogs in West Bengal",
+            "Emaciation",
+            "Victims of British Imperialism"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-India"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "tata-institutet-grundas-1945",
+      "titel": "Tata-institutet för grundforskning grundas",
+      "start": 1945,
+      "plats": "Indian Institute of Science, Bangalore, Brittiska Indien (flyttade till Bombay samma år)",
+      "wikidata": "Q142617",
+      "kandidater": [
+        {
+          "fil": "File:Tifr main.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tifr_main.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Annytifr",
+          "datum": "2007-10-23",
+          "datum_original": "2007-10-23",
+          "datum_fil": "2007-10-24 21:34:39",
+          "kredit": "Own work",
+          "beskrivning": "tifr picture",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Tifr_main.jpg/960px-Tifr_main.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Tata Institute of Fundamental Research"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "vietnams-sjalvstandighetsforklaring-1945",
+      "titel": "Ho Chi Minh utropar Vietnams självständighet",
+      "start": 1945,
+      "plats": "Ba Đình-torget, Hanoi, Vietnam",
+      "wikidata": "Q1925172",
+      "kandidater": [
+        {
+          "fil": "File:Bản Tuyên ngôn độc lập của nước Việt Nam Dân chủ Cộng hòa. - Trung tâm Lưu trữ quốc gia III. Phông Phủ Thủ tướng, hồ sơ 586, tờ số 1 – 3.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:B%E1%BA%A3n_Tuy%C3%AAn_ng%C3%B4n_%C4%91%E1%BB%99c_l%E1%BA%ADp_c%E1%BB%A7a_n%C6%B0%E1%BB%9Bc_Vi%E1%BB%87t_Nam_D%C3%A2n_ch%E1%BB%A7_C%E1%BB%99ng_h%C3%B2a._-_Trung_t%C3%A2m_L%C6%B0u_tr%E1%BB%AF_qu%E1%BB%91c_gia_III._Ph%C3%B4ng_Ph%E1%BB%A7_Th%E1%BB%A7_t%C6%B0%E1%BB%9Bng,_h%E1%BB%93_s%C6%A1_586,_t%E1%BB%9D_s%E1%BB%91_1_%E2%80%93_3.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "The government of Vietnam.",
+          "datum": "2020-08-14 18:57:43",
+          "datum_original": "2020-08-14 18:57:43",
+          "datum_fil": "2021-04-18 16:08:32",
+          "kredit": "Nhà sử học, nhà báo Trần Huy Liệu (1901-1969) (Phần 2 và hết). - 30/08/2019 - 08:36 - 1270 - Điểm: 0/5 (0 đánh giá) * Người khởi thảo Quân lệnh số 1 của Ủy ban Khởi nghĩa; sau Cách mạng tháng Tám, là Trưởng phái đoàn của Chính phủ Lâm thời vào Huế tiếp nhận ấn kiếm của vua Bảo Đại ( Bảo tàng Lịch sử Quốc gia - Giấy phép số: 176/GP-TTĐT cấp ngày: 24/09/2020 ). Quân lệnh số 1 của Ủy ban Khởi nghĩa toàn quốc, ngày 13-8-1945 ( Bảo tàng Lịch sử Quốc gia - Giấy phép số: 176/GP-TTĐT cấp ngày: 24/09/2020 ). Các thành viên Chính phủ Lâm thời nước Việt Nam DCCH, tháng 08-1945 ( Bảo tàng Lịch sử Quốc gia - Giấy phép số: 176/GP-TTĐT cấp ngày: 24/09/2020 ). Chiếu thoái vị của Bảo Đại, tháng 08-1945 ( Bảo tàng Lịch sử Quốc gia - Giấy phép số: 176/GP-TTĐT cấp ngày: 24/09/2020 ). Cách mạng tháng Tám và sự ra đời của Chính phủ Lâm thời qua một số tư liệu, tài liệu lưu trữ (tiếp theo) - 08:47 AM 17/08/2020 - Lượt xem: 547 - Bài viết trình bày đôi nét về cuộc Tổng khởi nghĩa giành chính quyền mùa thu Tháng Tám năm 1945, sự ra đời của Chính phủ Lâm thời nước Việt Nam Dân chủ Cộng hoà. ( CỤC VĂN THƯ VÀ LƯU TRỮ NHÀ NƯỚC - Số giấy phép: 64/GP-BC, cấp ngày: 12/02/2007. - Địa chỉ: 12, Đào Tấn, Ba Đình, Hà Nội ). Tuyên cáo thoái vị của Hoàng đế Việt Nam - Bảo Đại ngày 25/8/1945. - Trung tâm Lưu trữ quốc gia III, Phông Phủ Thủ tướng, hồ sơ 589. ( CỤC VĂN THƯ VÀ LƯU TRỮ NHÀ NƯỚC - Số giấy phép: 64/GP-BC, cấp ngày: 12/02/2007. - Địa chỉ: 12, Đào Tấn, Ba Đình, Hà Nội ). Ngày 28/8/1945, Đoàn giải phóng quân ở Việt Bắc về duyệt binh ở quảng trường Nhà hát Lớn - Hà Nội - Trung tâm Lưu trữ quốc gia III. Phông Nghệ sĩ nhiếp ảnh Nguyễn Bá Khoản, SLT 79 - B20 . ( CỤC VĂN THƯ VÀ LƯU TRỮ NHÀ NƯỚC - Số giấy phép: 64/GP-BC, cấp ngày: 12/02/2007. - Địa chỉ: 12, Đào Tấn, Ba Đình, Hà Nội ). Toàn cảnh lễ đài tại Quảng trường Ba Đình - Hà Nội, ngày 02/9/1945. - Trung tâm Lưu trữ quốc gia III. Phông Nghệ sĩ nhiếp ảnh Nguyễn Bá Khoản, SLT 106 - C97. ( CỤC VĂN THƯ VÀ LƯU TRỮ NHÀ NƯỚC - Số giấy phép: 64/GP-BC, cấp ngày: 12/02/2007. - Địa chỉ: 12, Đào Tấn, Ba Đình, Hà Nội ). Bản Tuyên ngôn độc lập của nước Việt Nam Dân chủ Cộng hòa. - Trung tâm Lưu trữ quốc gia III. Phông Phủ Thủ tướng, hồ sơ 586, tờ số 1 – 3. ( CỤC VĂN THƯ VÀ LƯU TRỮ NHÀ NƯỚC - Số giấy phép: 64/GP-BC, cấp ngày: 12/02/2007. - Địa chỉ: 12, Đào Tấn, Ba Đình, Hà Nội ).",
+          "beskrivning": "A file from the Cục Văn thư và Lưu trữ nhà nước related to the August Revolution at the end of World War II (two).",
+          "bredd": 6896,
+          "hojd": 2924,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/B%E1%BA%A3n_Tuy%C3%AAn_ng%C3%B4n_%C4%91%E1%BB%99c_l%E1%BA%ADp_c%E1%BB%A7a_n%C6%B0%E1%BB%9Bc_Vi%E1%BB%87t_Nam_D%C3%A2n_ch%E1%BB%A7_C%E1%BB%99ng_h%C3%B2a._-_Trung_t%C3%A2m_L%C6%B0u_tr%E1%BB%AF_qu%E1%BB%91c_gia_III._Ph%C3%B4ng_Ph%E1%BB%A7_Th%E1%BB%A7_t%C6%B0%E1%BB%9Bng%2C_h%E1%BB%93_s%C6%A1_586%2C_t%E1%BB%9D_s%E1%BB%91_1_%E2%80%93_3.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Declaration of Independence of the Democratic Republic of Vietnam"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-VietnamGov"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "arabisk-israeliska-kriget-1948",
+      "titel": "Arabisk-israeliska kriget 1948",
+      "start": 1948,
+      "plats": "Det tidigare brittiska mandatet Palestina, Sinaihalvön och södra Libanon",
+      "wikidata": "Q49092",
+      "kandidater": [
+        {
+          "fil": "File:1948 Arab Israeli War - May 15-June 10.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1948_Arab_Israeli_War_-_May_15-June_10.svg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Mr. Edward J. Krasnoborski and Mr. Frank Martini, Department of History, U.S. Military Academy Honza.havlicek ( talk )",
+          "datum": "2009-11-20 15:17",
+          "datum_original": "2009-11-20 15:17",
+          "datum_fil": "2023-10-12 03:34:51",
+          "kredit": "Israel 1949-1967.svg 1948 arab israeli war - May15-June10.jpg",
+          "beskrivning": "Map depicting military operations from 15th May 1948 to 10th June 1948 during Israeli War of Independence . Symbols used in the map are NATO military symbols .",
+          "bredd": 904,
+          "hojd": 884,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/1948_Arab_Israeli_War_-_May_15-June_10.svg/960px-1948_Arab_Israeli_War_-_May_15-June_10.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of the 1948 Arab-Israeli War"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "lydda-och-ramle-1948",
+      "titel": "Fördrivningen från Lydda och Ramle",
+      "start": 1948,
+      "plats": "Lydda (Lod) och Ramle",
+      "wikidata": "Q774054",
+      "kandidater": [
+        {
+          "fil": "File:Israei soldiers in Ramle during 1948 Palestine war.webp",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Israei_soldiers_in_Ramle_during_1948_Palestine_war.webp",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1948",
+          "datum_original": "1948",
+          "datum_fil": "2024-10-22 04:18:46",
+          "kredit": "Haaretz, Was Israeli Looting in '48 Part of a Broader Policy to Expel Arabs? , Benny Morris, 3 June 2021",
+          "beskrivning": "Description from source: \"Troops of the nascent Israeli army in Ramle during the War of Independence. Credit: Bettmann Archive / GETTY IMAGES\"",
+          "bredd": 1028,
+          "hojd": 834,
+          "mime": "image/webp",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Israei_soldiers_in_Ramle_during_1948_Palestine_war.webp/960px-Israei_soldiers_in_Ramle_during_1948_Palestine_war.webp?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1948 Palestine war",
+            "1948 Palestinian exodus from Lydda and Ramle",
+            "Nakba"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Israel"
+            ]
+          }
+        },
+        {
+          "fil": "File:1948 Arab-Israeli War 997008137024705171.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1948_Arab-Israeli_War_997008137024705171.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Benno Rothenberg",
+          "datum": "Taken on 10 July 1948",
+          "datum_original": "Taken on 10 July 1948",
+          "datum_fil": "2022-01-08 21:03:04",
+          "kredit": "This image is available from National Library of Israel under the digital ID: 997008137024705171",
+          "beskrivning": "1948 Arab-Israeli War, Ramla",
+          "bredd": 1484,
+          "hojd": 924,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/1948_Arab-Israeli_War_997008137024705171.jpg/960px-1948_Arab-Israeli_War_997008137024705171.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1948 Palestinian exodus from Lydda and Ramle",
+            "1948 Palestinian expulsion and flight",
+            "Meitar Collection",
+            "Meitar Collection (review needed)",
+            "Photographs by Benno Rothenberg",
+            "Prisoners of war in the 1948 Arab–Israeli War"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 4.0",
+            "skal": [
+              "API:et säger \"CC BY 4.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Palestinians in Ramle 1948.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Palestinians_in_Ramle_1948.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Eldad David",
+          "datum": "1948",
+          "datum_original": "1948",
+          "datum_fil": "2024-10-20 18:32:41",
+          "kredit": "https://www.972mag.com/learned-stop-worrying-recognize-nakba/",
+          "beskrivning": "Description from source: \"Palestinians in the city of Ramle surrender to Israeli forces during 1948 war. (Eldad David/GPO)\"",
+          "bredd": 720,
+          "hojd": 480,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/18/Palestinians_in_Ramle_1948.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1948 Palestine war",
+            "1948 Palestinian exodus from Lydda and Ramle",
+            "Nakba"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Israel"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "operation-yoav",
+      "titel": "Operation Yoav i Negev",
+      "start": 1948,
+      "plats": "Negevöknen",
+      "wikidata": "Q2890420",
+      "kandidater": [
+        {
+          "fil": "File:Beersheba 1948.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Beersheba_1948.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Hugo Mendelson",
+          "datum": "1948-10-20",
+          "datum_original": "1948-10-20",
+          "datum_fil": "2020-02-16 07:00:46",
+          "kredit": "This is available from National Photo Collection of Israel, Photography dept. Government Press Office ( link ), under the digital ID D284-072 . This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing for more information.",
+          "beskrivning": "Israeli soldiers capturing Beersheba , 1948",
+          "bredd": 3072,
+          "hojd": 2048,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Beersheba_1948.jpg/960px-Beersheba_1948.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1948 in Beersheba",
+            "Historical images of the soldiers of the Israel Defense Forces",
+            "M3 halftracks in Israeli service",
+            "Operation Yoav",
+            "Photographs by Hugo Mendelson",
+            "Piper J-3 (Israeli Air Force)"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Israel"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "striderna-vid-latrun-1948",
+      "titel": "Striderna vid Latrun",
+      "start": 1948,
+      "plats": "Latrun, vid vägen mellan Tel Aviv och Jerusalem",
+      "wikidata": "Q2096397",
+      "kandidater": [
+        {
+          "fil": "File:Latrun-Police-Building.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Latrun-Police-Building.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "No machine-readable author provided. Bukvoed assumed (based on copyright claims).",
+          "datum": "12 November 2005 (according to Exif data)",
+          "datum_original": "12 November 2005 (according to Exif data)",
+          "datum_fil": "2022-06-12 13:40:04",
+          "kredit": "No machine-readable source provided. Own work assumed (based on copyright claims).",
+          "beskrivning": "Former police building in Latrun, Israel. Now part of the Armored Corps Museum (Yad la-Shiryon). 2005.",
+          "bredd": 1296,
+          "hojd": 972,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Latrun-Police-Building.jpg/960px-Latrun-Police-Building.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Buildings with flags in Israel",
+            "Latrun fort"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY 2.5",
+            "skal": [
+              "flera licenser: CC BY-SA 3.0, CC BY 2.5",
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{Self|GFDL}}, {{Self|Cc-by-sa-3.0-migrated}}, {{Self|Cc-by-2.5}}. Commons API (LicenseShortName): \"CC BY 2.5\". Flera licenser anges (CC BY-SA 3.0 och CC BY 2.5); bilden används under CC BY 2.5. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under CC BY 2.5.",
+            "risker": [],
+            "mallar": [
+              "Self|GFDL",
+              "Self|Cc-by-sa-3.0-migrated",
+              "Self|Cc-by-2.5"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "folkrepubliken-kina-utropas",
+      "titel": "Folkrepubliken Kina utropas",
+      "start": 1949,
+      "plats": "Tiananmen, Peking, Kina",
+      "wikidata": "Q10872057",
+      "kandidater": [
+        {
+          "fil": "File:1996 -247-15a Beijing Tiananmen Gate (5068462443).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1996_-247-15a_Beijing_Tiananmen_Gate_(5068462443).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Dan Lundberg",
+          "datum": "2009-10-17 15:25",
+          "datum_original": "2009-10-17 15:25",
+          "datum_fil": "2019-04-27 04:10:22",
+          "kredit": "1996 #247-15a Beijing Tiananmen Gate",
+          "beskrivning": "The Tiananmen, the “Gate of Heavenly Peace” which leads to the Forbidden City, forms the northern boundary of Tiananmen Square. The gate was built in the 15th century and restored in the 17th century. On October 1, 1949, Mao Zedong proclaimed the People’s Republic of China here. Tiananmen Square was originally designed and built in 1651. Starting in 1954, it was greatly expanded and altered such that today it can accommodate 600,000 people. The square is largely open with just a few trees and no benches. On Google Earth: Gate of Heavenly Peace 39°54'26.43\"N, 116°23'28.44\"E",
+          "bredd": 1698,
+          "hojd": 1007,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/1996_-247-15a_Beijing_Tiananmen_Gate_%285068462443%29.jpg/960px-1996_-247-15a_Beijing_Tiananmen_Gate_%285068462443%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1996 in Beijing",
+            "Changhe CH-Series",
+            "FAW Tianjin Xiali",
+            "Jinghua BK6141",
+            "Taxis in Beijing",
+            "Tiananmen",
+            "Tianjin Daihatsu TJ110"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:1996 -247-8a Beijing Tiananmen Square (5068460547).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1996_-247-8a_Beijing_Tiananmen_Square_(5068460547).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Dan Lundberg",
+          "datum": "2009-10-17 15:18",
+          "datum_original": "2009-10-17 15:18",
+          "datum_fil": "2019-04-27 04:10:17",
+          "kredit": "1996 #247-8a Beijing Tiananmen Square",
+          "beskrivning": "The Tiananmen, the “Gate of Heavenly Peace” which leads to the Forbidden City, forms the northern boundary of Tiananmen Square. The gate was built in the 15th century and restored in the 17th century. On October 1, 1949, Mao Zedong proclaimed the People’s Republic of China here. Tiananmen Square was originally designed and built in 1651. Starting in 1954, it was greatly expanded and altered such that today it can accommodate 600,000 people. The square is largely open with just a few trees and no benches. On Google Earth: Gate of Heavenly Peace 39°54'26.43\"N, 116°23'28.44\"E",
+          "bredd": 1625,
+          "hojd": 956,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/1996_-247-8a_Beijing_Tiananmen_Square_%285068460547%29.jpg/960px-1996_-247-8a_Beijing_Tiananmen_Square_%285068460547%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1996 in Beijing"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Mao proclaiming establishment of PRC.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mao_proclaiming_establishment_of_PRC.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1949-10-01",
+          "datum_original": "1949-10-01",
+          "datum_fil": "2012-08-19 10:16:42",
+          "kredit": "Lehtikuva",
+          "beskrivning": "A retouched picture released by the Chinese official news agency showing the Chairman Mao Zedong ( ) proclaiming 01 October 1949 at the rostrum of Tiananmen Square in Beijing the establishment of the People's Republic of China. Person on right: Dong Bi-wu.",
+          "bredd": 423,
+          "hojd": 540,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/12/Mao_proclaiming_establishment_of_PRC.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "2 men",
+            "Dong Biwu",
+            "Founding Ceremony of People's Republic of China",
+            "Mao Zedong in 1949",
+            "Men with microphones in China",
+            "Microphones in 1949"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-China"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "operation-uvda",
+      "titel": "Operation Uvda: krigets sista fälttåg",
+      "start": 1949,
+      "plats": "Umm Rashrash (dagens Eilat) vid Röda havet",
+      "wikidata": "Q931576",
+      "kandidater": [
+        {
+          "fil": "File:Raising the Ink Flag at Umm Rashrash (Eilat).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Raising_the_Ink_Flag_at_Umm_Rashrash_(Eilat).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Micha Perry",
+          "datum": "Taken on 10 March 1949",
+          "datum_original": "Taken on 10 March 1949",
+          "datum_fil": "2015-03-15 08:45:53",
+          "kredit": "This file contains IDF content and released by the Israeli Defence Forces Spokesperson's Unit . To view all images uploaded courtesy of IDF Spokesperson's Unit This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing .",
+          "beskrivning": "The ink-drawn national flag of Israel flies at Um Rashrash (now Eilat) across the Gulf of Aqaba on the northern tip of the Red Sea.",
+          "bredd": 1844,
+          "hojd": 2821,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Raising_the_Ink_Flag_at_Umm_Rashrash_%28Eilat%29.jpg/960px-Raising_the_Ink_Flag_at_Umm_Rashrash_%28Eilat%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Avraham Adan in 1949",
+            "Black and white photographs of Israel",
+            "Denison smock in Israeli service",
+            "Eilat in the 1940s",
+            "Historical images of the soldiers of the Israel Defense Forces",
+            "IDF in 1949",
+            "Ink Flag",
+            "M1 Carbine",
+            "Male people with flags",
+            "Military people with flags",
+            "People with the national flag of Israel in Israel",
+            "Photographs by Micha Perry"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 3.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "slaget-vid-gwalior-1858",
+      "titel": "Slaget vid Gwalior och Rani Lakshmibais död",
+      "start": 1858,
+      "plats": "Gwalior, mellersta Indien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "ross-malaria-myggan",
+      "titel": "Ross hittar malariaparasiten i en mygga",
+      "start": 1897,
+      "plats": "Begumpet, Secunderabad, Indien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "1800-tal"
+    },
+    {
+      "id": "bose-statistiken",
+      "titel": "Bose räknar ljusets kvanta på ett nytt sätt",
+      "start": 1924,
+      "plats": "Dhakas universitet, Brittiska Indien (i dag Bangladesh)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "yukawas-mesonteori",
+      "titel": "Yukawa förutsäger mesonen",
+      "start": 1935,
+      "plats": "Osakas kejserliga universitet, Japan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    },
+    {
+      "id": "lahoreresolutionen-1940",
+      "titel": "Lahoreresolutionen kräver egna muslimska stater",
+      "start": 1940,
+      "plats": "Lahore, Punjab, Brittiska Indien (i dag Pakistan)",
+      "wikidata": "Q1800631",
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "affisch"
+    }
+  ]
+}

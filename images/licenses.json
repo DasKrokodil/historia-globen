@@ -840,6 +840,21 @@
       }
     },
     {
+      "eventId": "belagringen-av-jhansi",
+      "eventTitle": "Belägringen av Jhansi",
+      "file": "images/events/belagringen-av-jhansi.webp",
+      "kind": "historisk",
+      "credit": "Okänd gravör (Charles Ball, The History of the Indian Mutiny) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-belagringen-av-jhansi",
+        "title": "Defeat of the Peshwa's army before Jhansi – Anonymous Unknown author (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Defeat_of_the_Peshwa%27s_army_before_Jhansi.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "belagringen-av-kut",
       "eventTitle": "Belägringen av Kut",
       "file": "images/events/belagringen-av-kut.webp",
@@ -2277,6 +2292,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ntrama_Church_-_Remains_and_clothing.jpg",
         "license": "CC BY 2.0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "folkrepubliken-kina-utropas",
+      "eventTitle": "Folkrepubliken Kina utropas",
+      "file": "images/events/folkrepubliken-kina-utropas.webp",
+      "kind": "historisk",
+      "credit": "Dan Lundberg / Wikimedia Commons (Flickr)",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-folkrepubliken-kina-utropas",
+        "title": "1996 -247-15a Beijing Tiananmen Gate (5068462443) – Dan Lundberg (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:1996_-247-15a_Beijing_Tiananmen_Gate_(5068462443).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -4260,6 +4290,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Copernican_heliocentrism.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "koreakriget",
+      "eventTitle": "Koreakriget",
+      "file": "images/events/koreakriget.webp",
+      "kind": "historisk",
+      "credit": "U.S. Marine Corps / National Archives",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-koreakriget",
+        "title": "Landing craft loaded with Marines head for the smoking beach in invasion of Inchon, September 15, 1950. - NARA - 532399 – Unknown author Unknown author or not provided (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Landing_craft_loaded_with_Marines_head_for_the_smoking_beach_in_invasion_of_Inchon,_September_15,_1950._-_NARA_-_532399.tif",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -6498,6 +6543,21 @@
       }
     },
     {
+      "eventId": "rabindranath-tagore-dor-1941",
+      "eventTitle": "Rabindranath Tagore dör",
+      "file": "images/events/rabindranath-tagore-dor-1941.webp",
+      "kind": "historisk",
+      "credit": "Generalstabens litografiska anstalt / Les Prix Nobel 1913",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-rabindranath-tagore-dor-1941",
+        "title": "Rabindranath Tagore in 1909 – Generalstabens litografiska anstalt (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Rabindranath_Tagore_in_1909.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "rainbow-warrior-sanks",
       "eventTitle": "Rainbow Warrior sänks i Auckland",
       "file": "images/events/rainbow-warrior-sanks.webp",
@@ -7188,6 +7248,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Annual_Campamento_1921.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-anqing",
+      "eventTitle": "Belägringen av Anqing",
+      "file": "images/events/slaget-vid-anqing.webp",
+      "kind": "historisk",
+      "credit": "Wu Youru / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-anqing",
+        "title": "Regaining the Provincial City Anqing2 – Wu Youru (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Regaining_the_Provincial_City_Anqing2.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -8475,6 +8550,21 @@
       }
     },
     {
+      "eventId": "striderna-vid-latrun-1948",
+      "eventTitle": "Striderna vid Latrun",
+      "file": "images/events/striderna-vid-latrun-1948.webp",
+      "kind": "historisk",
+      "credit": "Bukvoed (antagen) / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-striderna-vid-latrun-1948",
+        "title": "Latrun-Police-Building (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Latrun-Police-Building.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "su-songs-urtorn",
       "eventTitle": "Su Songs vattendrivna astronomiska urtorn",
       "file": "images/events/su-songs-urtorn.webp",
@@ -8772,6 +8862,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:The_Tanzoumaitak_cave_painting_in_Tassili_n%27ajjer.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "tata-institutet-grundas-1945",
+      "eventTitle": "Tata-institutet för grundforskning grundas",
+      "file": "images/events/tata-institutet-grundas-1945.webp",
+      "kind": "historisk",
+      "credit": "Annytifr / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tata-institutet-grundas-1945",
+        "title": "Tifr main – Annytifr (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tifr_main.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -9153,6 +9258,21 @@
       }
     },
     {
+      "eventId": "tutankhamons-grav-hittas",
+      "eventTitle": "Tutankhamons grav hittas",
+      "file": "images/events/tutankhamons-grav-hittas.webp",
+      "kind": "historisk",
+      "credit": "EditorfromMars / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-tutankhamons-grav-hittas",
+        "title": "Inside Pharaoh Tutankhamun's tomb, 18th dynasty – EditorfromMars (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Inside_Pharaoh_Tutankhamun%27s_tomb,_18th_dynasty.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "tyfonen-kamikaze-1281",
       "eventTitle": "Tyfonen kamikaze förstör flottan",
       "file": "images/events/tyfonen-kamikaze-1281.webp",
@@ -9342,6 +9462,21 @@
       }
     },
     {
+      "eventId": "vietnams-sjalvstandighetsforklaring-1945",
+      "eventTitle": "Ho Chi Minh utropar Vietnams självständighet",
+      "file": "images/events/vietnams-sjalvstandighetsforklaring-1945.webp",
+      "kind": "historisk",
+      "credit": "Nationella arkivcentrum III, Vietnam / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-vietnams-sjalvstandighetsforklaring-1945",
+        "title": "Bản Tuyên ngôn độc lập của nước Việt Nam Dân chủ Cộng hòa. - Trung tâm Lưu trữ quốc gia III. Phông Phủ Thủ tướng, hồ sơ 586, tờ số 1 – 3 – The government of Vietnam. (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:B%E1%BA%A3n_Tuy%C3%AAn_ng%C3%B4n_%C4%91%E1%BB%99c_l%E1%BA%ADp_c%E1%BB%A7a_n%C6%B0%E1%BB%9Bc_Vi%E1%BB%87t_Nam_D%C3%A2n_ch%E1%BB%A7_C%E1%BB%99ng_h%C3%B2a._-_Trung_t%C3%A2m_L%C6%B0u_tr%E1%BB%AF_qu%E1%BB%91c_gia_III._Ph%C3%B4ng_Ph%E1%BB%A7_Th%E1%BB%A7_t%C6%B0%E1%BB%9Bng,_h%E1%BB%93_s%C6%A1_586,_t%E1%BB%9D_s%E1%BB%91_1_%E2%80%93_3.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "vijayanagarariket-grundas",
       "eventTitle": "Vijayanagarariket grundas",
       "file": "images/events/vijayanagarariket-grundas.webp",
@@ -9522,6 +9657,21 @@
         "url": "https://www.loc.gov/item/2008660220/",
         "license": "No known restrictions on publication",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "yukawas-mesonteori",
+      "eventTitle": "Yukawa förutsäger mesonen",
+      "file": "images/events/yukawas-mesonteori.webp",
+      "kind": "historisk",
+      "credit": "Nobel Foundation archive / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-yukawas-mesonteori",
+        "title": "Yukawa – Nobel Foundation archive (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Yukawa.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
