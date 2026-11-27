@@ -1,6 +1,6 @@
 # 05. UX-översikt
 
-**Status:** utkast 2026-11-08, genomgånget inför v6.1.0 2026-11-09 (rum, känd UX-skuld), bygger på `index.html`, [arkitektur.md](../arkitektur.md) (Mobilen, Tangentbord, Fokusläget) och granskningarna i [docs/granskningar/](../granskningar/README.md). Hur sidan **upplevs** är antaganden tills vi har användarobservationer. Utseendet (observatorietema, typsnitt, färger) är bindande enligt [CLAUDE.md](../../CLAUDE.md#utseende).
+**Status:** utkast 2026-11-08, genomgånget inför v6.1.0 2026-11-09 (rum, känd UX-skuld), förhistorien genomgången 2026-11-27 mot `main` `cefd6f7` (#1108: flöde 9, lägen att prova, tre rader känd UX-skuld), bygger på `index.html`, [arkitektur.md](../arkitektur.md) (Mobilen, Tangentbord, Fokusläget) och granskningarna i [docs/granskningar/](../granskningar/README.md). Hur sidan **upplevs** är antaganden tills vi har användarobservationer. Utseendet (observatorietema, typsnitt, färger) är bindande enligt [CLAUDE.md](../../CLAUDE.md#utseende).
 
 ## Designidé i tre meningar
 
@@ -34,7 +34,7 @@ Det finns sex "rum" att vara i, och man ska alltid kunna komma tillbaka till huv
 | **Faktaruta** | Markör, lista eller sökresultat | Läsa, öppna källa, rapportera fel, följa | Kryss, Escape |
 | **Sök och följ** | Knappen Sök och följ | Söka; följa krig, rike, religion, land, resa och tema. Teman ligger som första grupp under Alla och har en egen flik när minst ett publicerat tema finns; fliken Plats visar vad som hände nära en plats | Val eller Escape |
 | **Intervallformulär** | Årshoppet → "Välj ett tidsintervall" | Välja från och till, eller en epok med ett klick | Avsluta intervallet, Escape |
-| **Lager och Vy** | Lager, Vy | Välja vad som syns; glob / platt / upptäckt | Utanför-tryck, Escape |
+| **Lager och Vy** | Lager, Vy | Välja vad som syns; glob / platt / upptäckt. Förhistoria: vyn Människans spridning (händelser och lagret) och, i Lager under Historiskt perspektiv, Istidens kust (modell), av som standard | Utanför-tryck, Escape |
 | **Tur / lektion / quiz / jakt** | Turer, Mer, delad länk | Följa ett förlopp steg för steg | Avsluta, Klar, Escape |
 
 Mer-menyn (Källor, Hjälp, För lärare, Quiz, Samtidighetsjakten, Dela) samlar det som inte är kärnflödet. **För lärare** (#1315) är ingången för den som undervisar: ett kort med lektionerna (Starta som lektion), en förklaring av utskriften av elev- och lärarblad, Quiz, Samtidighetsjakten och en knapp för presentationsläget, och det säger att ingen inloggning och inga elevkonton behövs. Hjälp har en rad "Undervisar du?" som öppnar det, och en fjärde rad, "Läs om en plats", som förklarar att de prickade konturerna runt platser med kort går att trycka på när man har zoomat in, och vad Enter gör (#1454). Språket väljs med en egen knapp i raden överst (jordglob och kod, ofärdiga språk märkta beta), så att den som inte läser svenska hittar den utan att öppna en meny (#1167).
@@ -53,6 +53,7 @@ Antagna "lyckade vägar". Varje flöde är också en testplan: den som granskar 
 6. **Dela:** Dela → länk → mottagaren ser samma vy (adressen bär år, kamera, fokus, lager).
 7. **Rapportera fel:** faktaruta → Rapportera faktafel.
 8. **Följ ett tema:** Sök och följ → första gruppen Teman → introduktionskort → välj händelser eller spela genom urvalet → Avsluta temat. På mobil är händelselistan hopfälld; Escape stänger först kortet och därefter temat.
+9. **Utforska förhistorien (#1108):** tryck dörren "← Före 3000 f.Kr." eller hoppa till ett förhistoriskt år (växlaren ovanför reglaget byter reglage; ett drag byter aldrig reglage, och Home och End går till ändarna av det reglage som syns; beslut 2026-11-19) → Samtidigt visar händelser inom ett stort fönster, med "≈ N år sedan" och osäkerhet i ord → för att se vandringarna: Vy-menyn ("Vad vill du se på kartan?") → Människans spridning (teckenförklaringen är kartans textalternativ) → vill man se kusten: Lager → Istidens kust (modell). Slår man på ett lager och byter reglage kan det stå tomt; raden "Ingen data för året · data från …" under lagrets rad säger det (#1960). Det är ett **antaget** flöde; ingen elev eller lärare har observerats (utvärdering #1961 tidigast 2026-11-27).
 
 **Trasig länk (#1324):** en delad länk med ett skrivfel (en tur, ett krig eller ett år som inte finns) öppnas som förut, men en rad (över tidsreglaget i bred skärm, under årtalet på mobil) säger vad som saknades och vad sidan visar i stället (”Turen ’…’ finns inte. Länken kan vara felskriven eller gammal. Globen visas utan turen.”). Raden är en status för skärmläsare, tar inte fokus, har Stäng och försvinner vid nästa handling, ett nytt år, Escape eller efter 30 sekunder. En lektionslänk till en lektion som saknas förklaras som förut av lektionsbandet, utan en andra rad. Läraren som delar en länk bör öppna den själv först. Skärmbilder: `docs/ux-review/trasig-lank-1324/`.
 
@@ -97,6 +98,7 @@ Fel hittas sällan i "lyckat flöde". Granskare ska prova dessa lägen, och ett 
 - **Laddning och fel:** långsam laddning, misslyckad bildhämtning, ingen grafikaccelerering (WebGL), blockerat CDN.
 - **Övergångar:** byta språk mitt i en tur, avsluta lektionsläget, öppna en delad länk med Fokus, bakåt-knappen, paus och byte under uppspelning.
 - **Inmatning:** bara tangentbord, bara touch, 200 % zoom, lugn rörelse på.
+- **Förhistorien:** år före 10 000 f.Kr. med en tom Samtidigt-lista; lager påslagna utanför sin täckning (Människans spridning efter 3000 f.Kr., riken före sin start); gränsåret mellan reglagen (3001 och 3000 f.Kr.); spridningslagret i 400 px med utfällda poster; "år sedan" och osäkerhet bredvid varandra.
 - **Skillnad urval mot full lista:** är det tydligt vad som visas och vad som inte gör det?
 
 ## Tillgänglighet i korthet
@@ -125,6 +127,9 @@ Det här är pekare, inte en backlog. Källan är den daterade rapporten; fynden
 | Länk med år utanför tidslinjen | `#y=-20000&y2=3000` ger ett intervall som inte finns | #976, samma granskning; väntar till nästa release |
 | Datumformat på de, es och fr | "4 Juli 1776" skrivs på svenskt vis | #983; väntar till nästa release |
 | Översättningsluckor i gränssnittet | Svensk feltext i annat språk | översättningsspärren; #672 |
+| Förhistorien: "strax före eller efter" och dubbla (i) | Rubriken "Strax före eller efter" betyder tusentals år före 10 000 f.Kr.; osäkerhetsmärket och förklaringen av "år sedan" har samma (i) | #2158 (beslut väntar), release 2026-11-21 |
+| Förhistorien: reglagets bredd | Lika breda reglage för 97 000 och 5 000 år; på 400 px är förhistorien cirka 37 px bred (beslut 2026-11-12, före delningen i två reglage) | utvärdering #1961, beslut 2026-11-19 |
+| Förhistorien: glesa områden | Amerika 21 och Afrika 32 händelser före 3000 f.Kr. mot väntade 181 och 129; Penghu 1 och Harbin finns bara i noter | granskningen 2026-11-26 (`docs/granskningar/release-2026-11-21.md`, `release-2026-11-26.md`) |
 
 ## Att kontrollera vid uppdatering
 

@@ -237,6 +237,21 @@
       }
     },
     {
+      "eventId": "altaifloden",
+      "eventTitle": "Altajfloden",
+      "file": "images/events/altaifloden.webp",
+      "kind": "historisk",
+      "credit": "Ludvig14 / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-altaifloden",
+        "title": "Katun AltaiRepublicBoundary 013 1368 – Ludvig14 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Katun_AltaiRepublicBoundary_013_1368.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-27"
+      }
+    },
+    {
       "eventId": "amazigher-befolkar-kanarieoarna",
       "eventTitle": "Amazigher från Nordafrika slår sig ner på Kanarieöarna",
       "file": "images/events/amazigher-befolkar-kanarieoarna.webp",
@@ -990,6 +1005,21 @@
       }
     },
     {
+      "eventId": "belagringen-av-cusco-1536",
+      "eventTitle": "Manco Inca belägrar Cusco",
+      "file": "images/events/belagringen-av-cusco-1536.webp",
+      "kind": "historisk",
+      "credit": "Felipe Guaman Poma de Ayala / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-belagringen-av-cusco-1536",
+        "title": "POMA0402v – Felipe Guaman Poma de Ayala (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:POMA0402v.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-27"
+      }
+    },
+    {
       "eventId": "belagringen-av-dapur",
       "eventTitle": "Ramses II belägrar Dapur",
       "file": "images/events/belagringen-av-dapur.webp",
@@ -1017,6 +1047,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:1857_cashmeri_gate_delhi.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "belagringen-av-edessa-1144",
+      "eventTitle": "Edessa faller",
+      "file": "images/events/belagringen-av-edessa-1144.webp",
+      "kind": "historisk",
+      "credit": "Gerry Lynch (antagen) / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-belagringen-av-edessa-1144",
+        "title": "Urfacastle (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Urfacastle.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-27"
       }
     },
     {
@@ -2610,6 +2655,21 @@
       }
     },
     {
+      "eventId": "fibonaccis-liber-abaci",
+      "eventTitle": "Fibonaccis Liber Abaci för de arabiska siffrorna till Europa",
+      "file": "images/events/fibonaccis-liber-abaci.webp",
+      "kind": "historisk",
+      "credit": "Leonardo da Pisa (handskrift, Biblioteca Nazionale di Firenze) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-fibonaccis-liber-abaci",
+        "title": "Liber abbaci magliab f124r (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Liber_abbaci_magliab_f124r.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-27"
+      }
+    },
+    {
       "eventId": "finanskrisen-2008",
       "eventTitle": "Finanskrisen",
       "file": "images/events/finanskrisen-2008.webp",
@@ -3390,6 +3450,21 @@
       }
     },
     {
+      "eventId": "gulag",
+      "eventTitle": "Gulag, Sovjetunionens system av arbetsläger",
+      "file": "images/events/gulag.webp",
+      "kind": "historisk",
+      "credit": "Sovjetunionens myndigheter / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-gulag",
+        "title": "Gulag drivers licence – USSR government (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Gulag_drivers_licence.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-27"
+      }
+    },
+    {
       "eventId": "guld-i-minas-gerais-1695",
       "eventTitle": "Guldrushen i Minas Gerais börjar",
       "file": "images/events/guld-i-minas-gerais-1695.webp",
@@ -4008,6 +4083,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Alexander_von_Humboldt_by_Friedrich_Georg_Weitsch.jpg",
         "license": "Public domain",
         "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "hundarna-pa-zjochovon",
+      "eventTitle": "Hundarna på Zjochovön",
+      "file": "images/events/hundarna-pa-zjochovon.webp",
+      "kind": "historisk",
+      "credit": "USGS/NASA Landsat Program (beskuren av Fenix down) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-hundarna-pa-zjochovon",
+        "title": "Zhokhov - Landsat – USGS/NASA Landsat Program; cropped by Fenix down (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Zhokhov_-_Landsat.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-27"
       }
     },
     {
@@ -4666,6 +4756,21 @@
         "id": "commons-bild-juneteenth-1865",
         "title": "General Gordon Granger, The Galveston Daily News (June 21, 1865) – The Galveston Daily News (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:General_Gordon_Granger,_The_Galveston_Daily_News_(June_21,_1865).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "justinianska-pesten-nar-egypten",
+      "eventTitle": "Justinianska pesten når Egypten",
+      "file": "images/events/justinianska-pesten-nar-egypten.webp",
+      "kind": "historisk",
+      "credit": "U.S. Center for Disease Control / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-justinianska-pesten-nar-egypten",
+        "title": "Yersinia pestis wayson – U.S. Center for Disease Control (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Yersinia_pestis_wayson.jpg",
         "license": "Public domain",
         "checked": "2026-11-26"
       }
@@ -5490,6 +5595,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Kuntur_Wasi.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "kurskoffensiven",
+      "eventTitle": "Ukrainas offensiv i Kursk oblast",
+      "file": "images/events/kurskoffensiven.webp",
+      "kind": "historisk",
+      "credit": "Rysslands presidentkansli (Kremlin.ru) / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-kurskoffensiven",
+        "title": "President Vladimir Putin talks with the governor of Kursk in August 2024 – Office of the President of the Russian Federation (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:President_Vladimir_Putin_talks_with_the_governor_of_Kursk_in_August_2024.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-27"
       }
     },
     {
@@ -6834,6 +6954,21 @@
       }
     },
     {
+      "eventId": "myteriet-i-meerut",
+      "eventTitle": "Myteriet i Meerut",
+      "file": "images/events/myteriet-i-meerut.webp",
+      "kind": "historisk",
+      "credit": "Okänd upphovsperson / The Illustrated Times (Wikimedia Commons)",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-myteriet-i-meerut",
+        "title": "The death of Colonel Finnis on the parade ground at Meerut (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_death_of_Colonel_Finnis_on_the_parade_ground_at_Meerut.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-27"
+      }
+    },
+    {
       "eventId": "nabta-playa",
       "eventTitle": "Stencirkeln i Nabta Playa",
       "file": "images/events/nabta-playa.webp",
@@ -7644,6 +7779,21 @@
       }
     },
     {
+      "eventId": "persiska-viken-fylls",
+      "eventTitle": "Havet fyller Persiska viken efter istiden",
+      "file": "images/events/persiska-viken-fylls.webp",
+      "kind": "historisk",
+      "credit": "NASA / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-persiska-viken-fylls",
+        "title": "PersianGulf vue satellite du golfe persique – NASA (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:PersianGulf_vue_satellite_du_golfe_persique.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-27"
+      }
+    },
+    {
       "eventId": "piilani-enar-maui",
       "eventTitle": "Piʻilani enar Maui",
       "file": "images/events/piilani-enar-maui.webp",
@@ -8418,6 +8568,21 @@
       }
     },
     {
+      "eventId": "salfangst-vid-bajkalsjon",
+      "eventTitle": "Sälfångst vid Bajkalsjön",
+      "file": "images/events/salfangst-vid-bajkalsjon.webp",
+      "kind": "historisk",
+      "credit": "Nina Zhavoronkova / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-salfangst-vid-bajkalsjon",
+        "title": "Из жизни байкальской нерпы близ Ушканьих островов 02 – Nina Zhavoronkova (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%D0%98%D0%B7_%D0%B6%D0%B8%D0%B7%D0%BD%D0%B8_%D0%B1%D0%B0%D0%B9%D0%BA%D0%B0%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%BD%D0%B5%D1%80%D0%BF%D1%8B_%D0%B1%D0%BB%D0%B8%D0%B7_%D0%A3%D1%88%D0%BA%D0%B0%D0%BD%D1%8C%D0%B8%D1%85_%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2%D0%BE%D0%B2_02.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-27"
+      }
+    },
+    {
       "eventId": "saltbrytning-i-hallstatt",
       "eventTitle": "Saltgruvorna i Hallstatt blomstrar",
       "file": "images/events/saltbrytning-i-hallstatt.webp",
@@ -8445,6 +8610,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Marche_sel.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "saltsjobadsavtalet",
+      "eventTitle": "Saltsjöbadsavtalet",
+      "file": "images/events/saltsjobadsavtalet.webp",
+      "kind": "historisk",
+      "credit": "Meyerhöffer / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-saltsjobadsavtalet",
+        "title": "Saltsjobadsavtalet – Photographer Meyerhöffer (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Saltsjobadsavtalet.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-27"
       }
     },
     {
@@ -9864,6 +10044,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-qadisiyya",
+      "eventTitle": "Slaget vid al-Qadisiyya",
+      "file": "images/events/slaget-vid-qadisiyya.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / British Library (Wikimedia Commons)",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-qadisiyya",
+        "title": "Depiction of the Battle of al-Qādisiyyah from a manuscript of the Persian epic Shāh-nāmeh. Source- British Library (MS. I.O.Islamic 3265 (1614) f. 602r) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Depiction_of_the_Battle_of_al-Q%C4%81disiyyah_from_a_manuscript_of_the_Persian_epic_Sh%C4%81h-n%C4%81meh._Source-_British_Library_(MS._I.O.Islamic_3265_(1614)_f._602r).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-rangiriri",
       "eventTitle": "Slaget vid Rangiriri",
       "file": "images/events/slaget-vid-rangiriri.webp",
@@ -10260,6 +10455,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:West_Gate_of_Ching-Keang-Foo_1842.jpg",
         "license": "Public domain",
         "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "slaveriet-avskaffas-1793",
+      "eventTitle": "Slaveriet avskaffas i Saint-Domingue",
+      "file": "images/events/slaveriet-avskaffas-1793.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaveriet-avskaffas-1793",
+        "title": "Sonthonax – Unidentified painter (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Sonthonax.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-27"
       }
     },
     {
@@ -11538,6 +11748,21 @@
       }
     },
     {
+      "eventId": "ulleungdos-kaldera-bildas",
+      "eventTitle": "Utbrottet som gav Ulleungdo dess kaldera",
+      "file": "images/events/ulleungdos-kaldera-bildas.webp",
+      "kind": "historisk",
+      "credit": "NASA Johnson Space Center (ISS064-E-58303) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-ulleungdos-kaldera-bildas",
+        "title": "Ulleung Island ISS064 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ulleung_Island_ISS064.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-27"
+      }
+    },
+    {
       "eventId": "ungernrevolten-1956",
       "eventTitle": "Ungernrevolten",
       "file": "images/events/ungernrevolten-1956.webp",
@@ -11799,6 +12024,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Destruction_of_Pompeii_and_Herculaneum.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "vietnamkriget",
+      "eventTitle": "Vietnamkriget",
+      "file": "images/events/vietnamkriget.webp",
+      "kind": "historisk",
+      "credit": "United States Marine Corps / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-vietnamkriget",
+        "title": "Beach activity at Da Nang, Vietnam during landing of United States Marines of the 9th Marine Expeditionary Brigade in March of 1965 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Beach_activity_at_Da_Nang,_Vietnam_during_landing_of_United_States_Marines_of_the_9th_Marine_Expeditionary_Brigade_in_March_of_1965.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-27"
       }
     },
     {

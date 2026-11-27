@@ -404,7 +404,6 @@ Följande händelser i #2098 lämnas utan bild; granskningslistan och valen finn
 |---|---|
 | `kgh-far-handelsmonopol` | 2026-11-26: Ingen kandidat i listan; sökningar på Den Kongelige Grønlandske Handel gav ingen användbar bild (flera nekades med HTTP 429). |
 | `slaget-vid-vertieres` | 2026-11-26: Enda kandidaten i listan var samma Raffet-gravyr som visar Crête-à-Pierrot (används där). Egen sökning gav tre bilder under 800 px ([Bataille de Vertières.jpg](https://commons.wikimedia.org/wiki/File:Bataille_de_Verti%C3%A8res.jpg), 600 × 438 px, PD; en CC BY-SA 4.0-bild på 620 × 458 px; ett monument på 566 × 382 px): för små för kortet. |
-| `slaveriet-avskaffas-1793` | 2026-11-26: Kandidat utsedd men inte hämtad: [Sonthonax.jpg](https://commons.wikimedia.org/wiki/File:Sonthonax.jpg) (porträtt av Léger-Félicité Sonthonax, PD-Art, målare och datering okända). Hämtningen nekades med HTTP 429 (Retry-After 600 s, över taket 60 s) vid upprepade försök. Raden finns i `data/utkast/bildbatch/2098-ej-hamtade.txt` och kan köras om med `tools/bild_hamta.py --lista` eller Actions-flödet `bild-ej-hamtade.yml`. |
 
 ## Amerika 1810–1865 (#2099, 2026-11-26)
 
@@ -455,16 +454,6 @@ Följande händelser i #2098 lämnas utan bild; granskningslistan och valen finn
 | `torressundet-bildas` | 2026-11-26: Kandidaterna var fel motiv (en gammal karta över Kaukasus, en satellitbild av hela Australien) eller hade en otillåten licens; en egen sökning gav bara en bild på 444 × 446 px. |
 | `vaxtresterna-i-spirit-cave` | 2026-11-26: Sökningen på Spirit Cave gav bara bilder av en annan grotta (Spirit Well Cave); ingen lämplig bild. |
 | `keramiken-i-gosan-ri` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
-
-Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
-
-| Händelse (id) | Kandidat |
-|---|---|
-| `hundarna-pa-zjochovon` | Zhokhov - Landsat.jpg (PD, NASA/USGS) |
-| `salfangst-vid-bajkalsjon` | Из жизни байкальской нерпы близ Ушканьих островов 02.jpg (CC BY-SA 4.0) |
-| `persiska-viken-fylls` | PersianGulf vue satellite du golfe persique.jpg (PD, NASA) |
-| `ulleungdos-kaldera-bildas` | Ulleung Island ISS064.jpg (PD, NASA) |
-| `altaifloden` | Katun AltaiRepublicBoundary 013 1368.jpg (CC BY-SA 4.0) |
 
 ## Asien 7051 f.Kr.–1275 f.Kr. (#2058 och #2059, 2026-11-26)
 
@@ -561,9 +550,7 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `jordbavningarna-i-galileen-363` | 2026-11-26: Kandidaterna är synagogan vid Nevoraya i Biriyaskogen och Nabratein-synagogan; filsidorna kopplar dem inte till jordbävningarna år 363, så de används inte. |
 | `torka-i-sasanidernas-persien` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
 | `aryabhatiya` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
-| `justinianska-pesten-nar-egypten` | 2026-11-26: Utsedd men inte hämtad: Yersinia pestis wayson.jpg (CDC, PD), HTTP 429. Står i `data/utkast/bildbatch/asien-4-ej-hamtade.txt`. |
 | `arabiska-erovringarna` | 2026-11-26: Enda kandidaten är en karta (Map of expansion of Caliphate.svg); används inte. |
-| `slaget-vid-qadisiyya` | 2026-11-26: Utsedd men inte hämtad: handskriftsbild ur Shahnameh (British Library, 1614), HTTP 429. Står i `data/utkast/bildbatch/asien-4-ej-hamtade.txt`. |
 | `jerusalem-intas-637` | 2026-11-26: Enda kandidaten visar Al-Aqsa-moskén (foto 1982, dubbellicens); kopplingen till kapitulationen är otydlig och platsen helig, så den används inte utan bedömning. |
 
 
@@ -637,7 +624,6 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 |---|---|
 | `tianjingincidenten` | 2026-11-26: Händelsen saknades i den automatiska listan (verktyget hoppade över den); ingen egen sökning hann göras. |
 | `indiska-upproret-1857` | 2026-11-26: Enda kandidaten är en karta (Indian Rebellion of 1857.jpg, 1912) med licensflagga; används inte. |
-| `myteriet-i-meerut` | 2026-11-26: Utsedd men inte hämtad: "The death of Colonel Finnis on the parade ground at Meerut" (Illustrated Times, 18 juli 1857, PD), HTTP 429. Står i `data/utkast/bildbatch/asien-7-ej-hamtade.txt`. |
 | `belagringen-av-cawnpore` | 2026-11-26: Enda kandidaten (gravyr ur The History of the Indian Mutiny, 1858, CC0 enligt British Library) visar mord på kvinnor och barn i båtar vid Satichaura Ghat och är en brittisk propagandabild; avstås tills en människa bedömt det. |
 | `belagringen-av-lucknow` | 2026-11-26: Enda kandidaten ("The Relief of Lucknow", cirka 1914) är 777 × 394 px och ett senare konstverk; används inte. |
 | `slaget-vid-gwalior-1858` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
@@ -676,7 +662,6 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `nordkoreas-anfall-1950` | 2026-11-26: Kandidaterna ("Korean War, train attack", en kinesisk krigsfartygsbild, en övning 2020-talet) hör inte till anfallet i juni 1950 eller är nutida; används inte. Ingen egen vidare sökning hann göras. |
 | `slaget-vid-onjong` | 2026-11-26: Enda kandidaten är en karta (Map Chinese intervention.jpg); används inte. |
 | `tredje-slaget-om-seoul` | 2026-11-26: Enda kandidaten (UK 29th Brigade Prisoner.jpg) är bara 450 px bred; används inte. |
-| `vietnamkriget` | 2026-11-26: Händelsen saknades i den automatiska listan. Kandidat utsedd (USMC-foto från landstigningen vid Da Nang, mars 1965, PD-USGov-Military-Marines) men inte hämtad (HTTP 429); kan tas i nästa omgång. |
 | `ambedkar-blir-buddhist` | 2026-11-26: Ingen kandidat i listan; egen sökning gav bara bilder under 500 px (460 × 275 px m.fl.), som blir suddiga i kortet; används inte. |
 | `stora-spranget` | 2026-11-26: Enda kandidaten (People's commune canteen) är 400 × 416 px; används inte. |
 | `sexdagarskriget` | 2026-11-26: Händelsen saknades i den automatiska listan. Egen sökning gav foton av Boris Carmi (CC BY 4.0) som verktyget flaggade (ingen igenkänd licensmall) och israeliska GPO-bilder från 1967 med oklar USA-status; används inte utan närmare kontroll. |
@@ -777,7 +762,6 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 |---|---|
 | `smittkoppor-i-tenochtitlan-1520` | 2026-11-26: Ingen kandidat i listan; bilder av sjuka och döda avstås tills en människa bedömt dem; ingen egen sökning hann göras. |
 | `atahualpa-avrattas` | 2026-11-26: Enda kandidaten (porträtt, 355 × 458 px) är för liten; används inte. |
-| `belagringen-av-cusco-1536` | 2026-11-26: Utsedd men inte hämtad: Guaman Pomas teckning "Mango Inga pega fuego al Cuzco" (POMA0402v.jpg, PD-Art), HTTP 429. Står i `data/utkast/bildbatch/amerika-2-ej-hamtade.txt`. |
 | `cocoliztli-1545` | 2026-11-26: Ingen kandidat i listan; bilder av sjuka och döda avstås; ingen egen sökning hann göras. |
 | `san-marcos-universitet-1551` | 2026-11-26: Enda kandidaten (UNMSM sedes principales.png, CC BY-SA 4.0) är en sammanställning av moderna byggnader; används inte. |
 | `vilcabamba-intas-1572` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
@@ -962,12 +946,10 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `ansgar-i-birka` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
 | `knut-blir-kung-av-england` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
 | `slaget-vid-hastings` | 2026-11-26: Enda kandidaten (Bayeux Tapestry scene 57, Harolds död, foto av Myrabella) flaggades av verktyget: filsidan anger "eget verk" av en bild från 1070-talet; används inte tills en människa kontrollerat licensen. |
-| `belagringen-av-edessa-1144` | 2026-11-26: Utsedd men inte hämtad: Urfacastle.jpg (CC BY-SA 3.0, foto av Urfa-borgen), HTTP 429. Står i `data/utkast/bildbatch/europa-5-ej-hamtade.txt`. |
 | `uppsala-blir-arkebiskopssate` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
 | `absalons-borg-kopenhamn` | 2026-11-26: Ingen kandidat i listan; sökningen efter Absalonstatyn i Köpenhamn gav inga träffar (HTTP 429). |
 | `tornet-i-pisa-grundlaggs` | 2026-11-26: Kandidaten (Pisatornet, Chabe01, CC BY-SA 4.0) är en mycket hög och smal bild (2601 × 5767 px) som blir liten i kortet; används inte. |
 | `gerard-av-cremona-almagest` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
-| `fibonaccis-liber-abaci` | 2026-11-26: Utsedd men inte hämtad: Liber abbaci magliab f124r.jpg (handskriftssida, PD-Art), HTTP 429. Står i `data/utkast/bildbatch/europa-5-ej-hamtade.txt`. |
 | `jyske-lov` | 2026-11-26: Enda kandidaten (Codex Holmiensis) är bara 385 px; används inte. |
 | `stockholm-namns-1252` | 2026-11-26: Kandidaterna är brev från 1900-talet utan koppling till händelsen och med licensflagga; används inte. |
 | `florinen-praglas` | 2026-11-26: Enda kandidaten (Fiorino d'oro, CC BY-SA 2.0) har licensflagga; används inte utan närmare kontroll. |
@@ -1020,10 +1002,8 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `massakern-vid-monte-arruit` | 2026-11-26: Enda kandidaten (Guerra del Rif 1922 - 2.jpg, 711 × 607 px) är liten och gäller läget efter slaget vid Annual enligt filsidan; bilder från platsen kan visa dödade och bedömdes inte som värdiga utan granskning. Ingen bild vald. |
 | `kvinnor-rostar-1921` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
 | `abd-el-krim-ger-upp` | 2026-11-26: Porträttet av Abd el-Krim används redan för `rifrepubliken-utropas`; ingen annan bild hittades. |
-| `gulag` | 2026-11-26: Utsedd men inte hämtad: Gulag drivers licence.jpg (PD-Russia-2008, förarbevis från ett arbetsläger 1941), HTTP 429. Står i `data/utkast/bildbatch/europa-7-ej-hamtade.txt`. |
 | `holodomor` | 2026-11-26: Träffarna är nutida minnesmärken (skulpturer) i flera länder, med oklar upphovsrätt för skulpturerna, och bilder av offer lämnas av värdighetsskäl. Ingen bild vald. |
 | `lego-grundas` | 2026-11-26: Enda kandidaten (Legoland Miniland London) visar inte LEGO:s början; den egna sökningen gav inga träffar. Ingen bild vald. |
-| `saltsjobadsavtalet` | 2026-11-26: Utsedd men inte hämtad: Saltsjobadsavtalet.jpg (pressfoto av Meyerhöffer från undertecknandet 20 december 1938, PD-Sweden-photo), HTTP 429. Står i `data/utkast/bildbatch/europa-7-ej-hamtade.txt`. |
 | `jordbavningen-i-erzincan-1939` | 2026-11-26: Kandidaterna är en karta över internationell hjälp, en collage över 1939 och en staty av İnönü i Erzincan (nutida skulptur); ingen visar jordbävningen. Ingen bild vald. |
 | `algeriska-frihetskriget` | 2026-11-26: Enda kandidaten är en collage (960 × 960 px) gjord av en Commons-användare av skärmbilder; används inte. |
 | `toussaint-rouge` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
@@ -1054,7 +1034,6 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `chersons-befrielse` | 2026-11-26: Kandidaterna är bilder från Ukrainas försvarsdepartement via Facebook och Twitter med osäker licens (CC BY-SA enligt uppladdaren, PD-UA-exempt för den andra); ingen bild vald tills en människa bedömt licensen. |
 | `slaget-om-bachmut` | 2026-11-26: Enda kandidaten kommer från Armyinform (flaggad licens) och visar enligt filsidan ett hus efter bombning med människor under rasmassorna; ingen bild vald. |
 | `ukrainas-offensiv-2023` | 2026-11-26: Enda kandidaten är en karta över invasionen; används inte. |
-| `kurskoffensiven` | 2026-11-26: Utsedd men inte hämtad: President Vladimir Putin talks with the governor of Kursk in August 2024.jpg (CC BY 4.0, kremlin.ru, 8 augusti 2024), HTTP 429. Står i `data/utkast/bildbatch/slut-1-ej-hamtade.txt`. Bilden är en rysk officiell bild; flaggas för historikern. |
 | `medellinkonferensen-1968` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
 | `cites-washingtonkonventionen` | 2026-11-26: Kandidaterna är ett foto av leopardskinn (licensflagga) och en liten etikett (480 × 360 px); används inte. |
 | `operation-condor` | 2026-11-26: Enda kandidaten är en liten karta (363 × 353 px); används inte. |
@@ -1066,3 +1045,29 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `fredsavtalet-med-farc` | 2026-11-26: Ingen kandidat i listan; sökningen gav inga användbara träffar eller avbröts av HTTP 429 (Wikimedia-gränsen). |
 | `os-i-rio-2016` | 2026-11-26: Enda kandidaten är ett foto av Rios kandidaturkommitté i Genève 2009 (licensflagga) och visar inte spelen; ingen bild vald. |
 | `fn-resolution-es-11-1` | 2026-11-26: Enda kandidaten är ett diagram över omröstningen (SVG, flaggad som karta); ingen bild vald. |
+
+## Hämtade i efterhand (2026-11-27)
+
+Bilder som först gav HTTP 429 hämtades i Actions (arbetsflödet `bild-ej-hamtade.yml`, körningarna [45905221527](https://github.com/DasKrokodil/historia-globen/actions/runs/45905221527) och [45958547779](https://github.com/DasKrokodil/historia-globen/actions/runs/45958547779)) och har bild sedan den här omgången. Raderna om dem i tabellerna ovan är borttagna.
+
+| Händelse (id) | Bild |
+|---|---|
+| `slaveriet-avskaffas-1793` | Sonthonax.jpg (PD-Art-old-100) |
+| `belagringen-av-cusco-1536` | POMA0402v.jpg (pd-art) |
+| `hundarna-pa-zjochovon` | Zhokhov - Landsat.jpg (PD, NASA/USGS) |
+| `salfangst-vid-bajkalsjon` | Ushkany-sälar (CC BY-SA 4.0) |
+| `persiska-viken-fylls` | PersianGulf vue satellite du golfe persique.jpg (PD, NASA) |
+| `ulleungdos-kaldera-bildas` | Ulleung Island ISS064.jpg (PD, NASA) |
+| `altaifloden` | Katun AltaiRepublicBoundary 013 1368.jpg (CC BY-SA 4.0) |
+| `myteriet-i-meerut` | The death of Colonel Finnis on the parade ground at Meerut.jpg (PD-Art) |
+| `vietnamkriget` | Beach activity at Da Nang … March of 1965.jpg (PD-USGov-Military-Marines) |
+| `belagringen-av-edessa-1144` | Urfacastle.jpg (CC BY-SA 3.0) |
+| `fibonaccis-liber-abaci` | Liber abbaci magliab f124r.jpg (PD-Art) |
+| `saltsjobadsavtalet` | Saltsjobadsavtalet.jpg (PD-Sweden-photo) |
+| `gulag` | Gulag drivers licence.jpg (PD-Russia-2008) |
+| `kurskoffensiven` | President Vladimir Putin talks with the governor of Kursk in August 2024.jpg (CC BY 4.0) |
+| `justinianska-pesten-nar-egypten` | Yersinia pestis wayson.jpg (PD, CDC) |
+| `slaget-vid-qadisiyya` | Shahnameh-miniatyr, British Library (PD-Art) |
+
+`ambryms-kaldera` används inte (se tillägget för #2113 ovan: bilden visar mest moln).
+

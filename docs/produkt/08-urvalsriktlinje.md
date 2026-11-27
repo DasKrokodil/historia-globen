@@ -13,7 +13,7 @@ Globen visar ett urval, inte allt. Historiker, lärare och nyfikna besökare fr�
 - **Varje paket och version ska ha innehåll från flera världsdelar** (versionsplanen).
 - **Listan över det som borde finnas bygger på källor, aldrig på minnet** (täckningsrunda, 2026-11-03). Kärnhändelserna kom ur en lista som DasKrokodil godkände (2026-11-05, [karnhandelser.md](../karnhandelser.md)), i omgångar om högst 20 per pull request.
 - **Omstridda gränser** ritas enligt Sveriges officiella hållning, med källa per fall ([omstridda-granser.md](../omstridda-granser.md)).
-- **Förhistorien väntar** på beslutet om ungefärliga datum (#396).
+- **Förhistorien finns** sedan version 7 (beslut om ungefärliga datum och riktning 2026-11-10, #396): händelser med spann och öppen osäkerhet, artlistan (beslut 2026-11-12, #1093) och lagret Människans spridning. Täckningen är ojämn (Amerika och Afrika glest, se [05](05-ux-oversikt.md#känd-ux-skuld)); luckorna går före fler europeiska händelser.
 
 ## Förslag på urvalskriterier
 

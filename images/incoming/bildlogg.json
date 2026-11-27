@@ -10350,5 +10350,261 @@
     "source": "commons-bild-rysslands-invasion-av-ukraina",
     "id": "rysslands-invasion-av-ukraina",
     "file": "rysslands-invasion-av-ukraina.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Porträtt av Léger-Félicité Sonthonax (1763–1813), oljemålning från slutet av 1700-talet av okänd konstnär (filsidan). Visar kommissarien som person, inte själva frigivningen 1793. Licens: Public domain.",
+      "en": "Portrait of Léger-Félicité Sonthonax (1763–1813), an oil painting from the late 18th century by an unknown artist (file page). It shows the commissioner as a person, not the emancipation itself in 1793. Licence: Public domain.",
+      "de": "Porträt von Léger-Félicité Sonthonax (1763–1813), Ölgemälde vom Ende des 18. Jahrhunderts von unbekanntem Künstler (Dateiseite). Es zeigt den Kommissar als Person, nicht die Freilassung selbst im Jahr 1793. Lizenz: gemeinfrei.",
+      "es": "Retrato de Léger-Félicité Sonthonax (1763–1813), óleo de finales del siglo XVIII de un artista desconocido (página del archivo). Muestra al comisario como persona, no la emancipación misma de 1793. Licencia: dominio público.",
+      "fr": "Portrait de Léger-Félicité Sonthonax (1763–1813), huile de la fin du XVIIIe siècle d'un artiste inconnu (page du fichier). Il montre le commissaire en tant que personne, pas l'abolition elle-même en 1793. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaveriet-avskaffas-1793",
+    "id": "slaveriet-avskaffas-1793",
+    "file": "slaveriet-avskaffas-1793.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "inka",
+    "caption": {
+      "sv": "Teckning ur Felipe Guaman Poma de Ayalas krönika (cirka 1615, filsidan); rubriken lyder \"Mango Inga pega fuego\" och kategorierna kopplar bilden till belägringen av Cusco. En senare teckning, inte ett samtida dokument från 1536. Licens: Public domain.",
+      "en": "Drawing from Felipe Guaman Poma de Ayala's chronicle (about 1615, file page); the heading reads “Mango Inga pega fuego” and the categories link the image to the siege of Cuzco. A later drawing, not a contemporary document from 1536. Licence: Public domain.",
+      "de": "Zeichnung aus der Chronik von Felipe Guaman Poma de Ayala (um 1615, Dateiseite); die Überschrift lautet „Mango Inga pega fuego“, und die Kategorien verbinden das Bild mit der Belagerung von Cusco. Eine spätere Zeichnung, kein zeitgenössisches Dokument von 1536. Lizenz: gemeinfrei.",
+      "es": "Dibujo de la crónica de Felipe Guaman Poma de Ayala (hacia 1615, página del archivo); el encabezado dice «Mango Inga pega fuego» y las categorías vinculan la imagen con el cerco del Cuzco. Un dibujo posterior, no un documento contemporáneo de 1536. Licencia: dominio público.",
+      "fr": "Dessin tiré de la chronique de Felipe Guaman Poma de Ayala (vers 1615, page du fichier) ; l'intitulé porte « Mango Inga pega fuego » et les catégories rattachent l'image au siège de Cuzco. Un dessin postérieur, pas un document contemporain de 1536. Licence : domaine public."
+    },
+    "credit": "Felipe Guaman Poma de Ayala / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-belagringen-av-cusco-1536",
+    "id": "belagringen-av-cusco-1536",
+    "file": "belagringen-av-cusco-1536.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Satellitbild från Landsat, 12 december 2016, av Zjochovön (filsidan, beskuren av Fenix down). Visar ön i dag från rymden, inte boplatsen eller hundarna. Licens: Public domain.",
+      "en": "Landsat satellite image of Zhokhov Island, 12 December 2016 (file page, cropped by Fenix down). It shows the island today from space, not the settlement or the dogs. Licence: Public domain.",
+      "de": "Landsat-Satellitenbild der Insel Schochow vom 12. Dezember 2016 (Dateiseite, zugeschnitten von Fenix down). Sie zeigt die Insel heute aus dem All, nicht die Siedlung oder die Hunde. Lizenz: gemeinfrei.",
+      "es": "Imagen de satélite Landsat de la isla Zhokhov del 12 de diciembre de 2016 (página del archivo, recortada por Fenix down). Muestra la isla hoy desde el espacio, no el asentamiento ni los perros. Licencia: dominio público.",
+      "fr": "Image satellite Landsat de l'île Jokhov, 12 décembre 2016 (page du fichier, recadrée par Fenix down). Elle montre l'île aujourd'hui depuis l'espace, pas le campement ni les chiens. Licence : domaine public."
+    },
+    "credit": "USGS/NASA Landsat Program (beskuren av Fenix down) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-hundarna-pa-zjochovon",
+    "id": "hundarna-pa-zjochovon",
+    "file": "hundarna-pa-zjochovon.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (2014) av Nina Zhavoronkova (Wiki Loves Earth): bajkalsälar på en sten vid Ushkanyöarna, Barguzinskij rajon, Burjatien (filsidan och kategorin Pusa sibirica). Visar levande sälar i dag, inte fångsten för tusentals år sedan. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2014) by Nina Zhavoronkova (Wiki Loves Earth): Baikal seals on a rock at the Ushkany Islands, Barguzinsky District, Buryatia (file page and the category Pusa sibirica). It shows living seals today, not the hunting thousands of years ago. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2014) von Nina Zhavoronkova (Wiki Loves Earth): Baikalrobben auf einem Felsen bei den Uschkanyinseln, Rajon Barguzin, Burjatien (Dateiseite und Kategorie Pusa sibirica). Es zeigt lebende Robben heute, nicht die Jagd vor Jahrtausenden. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2014) de Nina Zhavoronkova (Wiki Loves Earth): focas del Baikal sobre una roca en las islas Ushkany, distrito de Barguzin, Buriatia (página del archivo y categoría Pusa sibirica). Muestra focas vivas hoy, no la caza de hace miles de años. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2014) de Nina Zhavoronkova (Wiki Loves Earth) : phoques du Baïkal sur un rocher des îles Ouchkani, district de Barguzine, Bouriatie (page du fichier et catégorie Pusa sibirica). Elle montre des phoques vivants aujourd'hui, pas la chasse d'il y a des milliers d'années. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Nina Zhavoronkova / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-salfangst-vid-bajkalsjon",
+    "id": "salfangst-vid-bajkalsjon",
+    "file": "salfangst-vid-bajkalsjon.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Satellitbild från NASA av Persiska viken, hämtad från NASA Earth Observatory (bild-id 8354, filsidan); datum anges inte. Visar viken i dag, inte istidens slätt. Licens: Public domain.",
+      "en": "NASA satellite image of the Persian Gulf, taken from NASA Earth Observatory (image id 8354, file page); no date is given. It shows the Gulf today, not the Ice Age plain. Licence: Public domain.",
+      "de": "NASA-Satellitenbild des Persischen Golfs von NASA Earth Observatory (Bild-ID 8354, Dateiseite); ein Datum wird nicht angegeben. Sie zeigt den Golf heute, nicht die eiszeitliche Ebene. Lizenz: gemeinfrei.",
+      "es": "Imagen de satélite de la NASA del golfo Pérsico, tomada de NASA Earth Observatory (id de imagen 8354, página del archivo); no se indica la fecha. Muestra el golfo hoy, no la llanura de la Edad de Hielo. Licencia: dominio público.",
+      "fr": "Image satellite de la NASA du golfe Persique, prise de NASA Earth Observatory (id d'image 8354, page du fichier) ; aucune date n'est indiquée. Elle montre le golfe aujourd'hui, pas la plaine de l'ère glaciaire. Licence : domaine public."
+    },
+    "credit": "NASA / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-persiska-viken-fylls",
+    "id": "persiska-viken-fylls",
+    "file": "persiska-viken-fylls.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Foto från Internationella rymdstationen, 14 april 2021 (NASA ISS064-E-58303, filsidan): Ulleungdo sedd från rymden. Visar ön i dag, inte utbrottet omkring 8000 f.Kr. Licens: Public domain.",
+      "en": "Photo from the International Space Station, 14 April 2021 (NASA ISS064-E-58303, file page): Ulleungdo seen from space. It shows the island today, not the eruption around 8000 BC. Licence: Public domain.",
+      "de": "Foto von der Internationalen Raumstation, 14. April 2021 (NASA ISS064-E-58303, Dateiseite): Ulleungdo aus dem All gesehen. Es zeigt die Insel heute, nicht den Ausbruch um 8000 v. Chr. Lizenz: gemeinfrei.",
+      "es": "Foto de la Estación Espacial Internacional, 14 de abril de 2021 (NASA ISS064-E-58303, página del archivo): Ulleungdo vista desde el espacio. Muestra la isla hoy, no la erupción de hacia 8000 a. C. Licencia: dominio público.",
+      "fr": "Photo de la Station spatiale internationale, 14 avril 2021 (NASA ISS064-E-58303, page du fichier) : Ulleungdo vue depuis l'espace. Elle montre l'île aujourd'hui, pas l'éruption d'environ 8000 av. J.-C. Licence : domaine public."
+    },
+    "credit": "NASA Johnson Space Center (ISS064-E-58303) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-ulleungdos-kaldera-bildas",
+    "id": "ulleungdos-kaldera-bildas",
+    "file": "ulleungdos-kaldera-bildas.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Nutida foto (2021) av Ludvig14: floden Katun vid gränsen mellan Altajrepubliken och Altaj kraj i Ryssland (filsidan; kategorin anger solnedgång). Visar floden i dag, inte istidens översvämning. Licens: CC BY-SA 4.0.",
+      "en": "Modern photo (2021) by Ludvig14: the Katun river at the boundary of the Altai Republic and Altai Krai in Russia (file page; the category gives sunset). It shows the river today, not the Ice Age flood. Licence: CC BY-SA 4.0.",
+      "de": "Heutiges Foto (2021) von Ludvig14: der Fluss Katun an der Grenze zwischen der Republik Altai und der Region Altai in Russland (Dateiseite; die Kategorie nennt Sonnenuntergang). Es zeigt den Fluss heute, nicht die eiszeitliche Flut. Lizenz: CC BY-SA 4.0.",
+      "es": "Foto actual (2021) de Ludvig14: el río Katún en el límite entre la República del Altái y el Krai del Altái, en Rusia (página del archivo; la categoría indica puesta de sol). Muestra el río hoy, no la inundación de la Edad de Hielo. Licencia: CC BY-SA 4.0.",
+      "fr": "Photo actuelle (2021) de Ludvig14 : la rivière Katoun à la limite entre la république de l'Altaï et le kraï de l'Altaï, en Russie (page du fichier ; la catégorie indique un coucher de soleil). Elle montre la rivière aujourd'hui, pas l'inondation de l'ère glaciaire. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Ludvig14 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-altaifloden",
+    "id": "altaifloden",
+    "file": "altaifloden.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Illustration i The Illustrated Times den 18 juli 1857: \"Överste Finnis död på exercisplanen i Meerut\" (filsidan; kategorin anger gravyr). Filsidan anger att överste John Finnis var den första europeiska officer som dödades i myteriet. En brittisk tidningsbild gjord efter händelsen, inte ett foto. Licens: Public domain.",
+      "en": "Illustration in The Illustrated Times of 18 July 1857: “The Death of Colonel Finnis on the Parade Ground at Meerut” (file page; the category gives engraving). The file page states that Colonel John Finnis was the first European officer to be killed in the Mutiny. A British newspaper image made after the event, not a photograph. Licence: Public domain.",
+      "de": "Illustration in The Illustrated Times vom 18. Juli 1857: „Der Tod von Oberst Finnis auf dem Exerzierplatz von Meerut“ (Dateiseite; die Kategorie nennt Stich). Laut Dateiseite war Oberst John Finnis der erste europäische Offizier, der im Aufstand getötet wurde. Ein britisches Zeitungsbild, nach dem Ereignis angefertigt, kein Foto. Lizenz: gemeinfrei.",
+      "es": "Ilustración en The Illustrated Times del 18 de julio de 1857: «La muerte del coronel Finnis en el campo de desfiles de Meerut» (página del archivo; la categoría indica grabado). La página indica que el coronel John Finnis fue el primer oficial europeo muerto en el motín. Una imagen de prensa británica hecha después del suceso, no una fotografía. Licencia: dominio público.",
+      "fr": "Illustration parue dans The Illustrated Times le 18 juillet 1857 : « La mort du colonel Finnis sur le terrain de parade de Meerut » (page du fichier ; la catégorie indique une gravure). La page précise que le colonel John Finnis fut le premier officier européen tué pendant la mutinerie. Une image de presse britannique réalisée après l'événement, pas une photographie. Licence : domaine public."
+    },
+    "credit": "Okänd upphovsperson / The Illustrated Times (Wikimedia Commons)",
+    "license": "Public domain",
+    "source": "commons-bild-myteriet-i-meerut",
+    "id": "myteriet-i-meerut",
+    "file": "myteriet-i-meerut.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Foto från den amerikanska marinkåren, mars 1965 (Official Marine Corps Photograph A183813, filsidan): strandaktivitet vid Da Nang när marinkårens 9:e expeditionsbrigad landsattes. Visar en enskild händelse tidigt i kriget, sedd från amerikanskt håll. Licens: Public domain.",
+      "en": "US Marine Corps photograph, March 1965 (Official Marine Corps Photograph A183813, file page): beach activity at Da Nang during the landing of the 9th Marine Expeditionary Brigade. It shows one event early in the war, seen from the American side. Licence: Public domain.",
+      "de": "Foto des US Marine Corps, März 1965 (Official Marine Corps Photograph A183813, Dateiseite): Aktivität am Strand von Da Nang bei der Landung der 9. Marine Expeditionary Brigade. Es zeigt ein einzelnes Ereignis früh im Krieg, aus amerikanischer Sicht. Lizenz: gemeinfrei.",
+      "es": "Fotografía del Cuerpo de Marines de EE. UU., marzo de 1965 (Official Marine Corps Photograph A183813, página del archivo): actividad en la playa de Da Nang durante el desembarco de la 9.ª Brigada Expedicionaria de Marines. Muestra un suceso concreto al comienzo de la guerra, visto desde el lado estadounidense. Licencia: dominio público.",
+      "fr": "Photo du corps des Marines des États-Unis, mars 1965 (Official Marine Corps Photograph A183813, page du fichier) : activité sur la plage de Da Nang lors du débarquement de la 9e brigade expéditionnaire des Marines. Elle montre un événement précis au début de la guerre, vu du côté américain. Licence : domaine public."
+    },
+    "credit": "United States Marine Corps / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-vietnamkriget",
+    "id": "vietnamkriget",
+    "file": "vietnamkriget.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Nutida foto (2003) av Gerry Lynch: Urfa slott i sydöstra Turkiet, med höga kolonner som romarna byggde (filsidan). Edessa är dagens Şanlıurfa; fotot visar platsen i dag, inte belägringen 1144. Licens: CC BY-SA 3.0.",
+      "en": "Modern photo (2003) by Gerry Lynch: Urfa Castle in south-eastern Turkey, with towering columns built by the Romans (file page). Edessa is present-day Şanlıurfa; the photo shows the place today, not the siege of 1144. Licence: CC BY-SA 3.0.",
+      "de": "Heutiges Foto (2003) von Gerry Lynch: die Burg von Urfa in der Südosttürkei mit hohen Säulen, die die Römer errichteten (Dateiseite). Edessa ist das heutige Şanlıurfa; das Foto zeigt den Ort heute, nicht die Belagerung von 1144. Lizenz: CC BY-SA 3.0.",
+      "es": "Foto actual (2003) de Gerry Lynch: el castillo de Urfa, en el sureste de Turquía, con altas columnas construidas por los romanos (página del archivo). Edesa es la actual Şanlıurfa; la foto muestra el lugar hoy, no el asedio de 1144. Licencia: CC BY-SA 3.0.",
+      "fr": "Photo actuelle (2003) de Gerry Lynch : le château d'Urfa, dans le sud-est de la Turquie, avec de hautes colonnes construites par les Romains (page du fichier). Édesse est l'actuelle Şanlıurfa ; la photo montre le lieu aujourd'hui, pas le siège de 1144. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Gerry Lynch (antagen) / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-belagringen-av-edessa-1144",
+    "id": "belagringen-av-edessa-1144",
+    "file": "belagringen-av-edessa-1144.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Sidan fol. 124r ur en handskrift av Leonardo da Pisas Liber abaci i Biblioteca Nazionale i Florens (Codice Magliabechiano Conv. Soppr. C 1, 2616). I högermarginalen står talföljden 1, 2, 3, 5, 8 … 377 i röda arabiska siffror (filsidan). Handskriftens ålder anges inte tydligt på filsidan. Licens: Public domain.",
+      "en": "Page fol. 124r from a manuscript of Leonardo da Pisa's Liber abaci in the Biblioteca Nazionale in Florence (Codice Magliabechiano Conv. Soppr. C 1, 2616). In the right margin is the number sequence 1, 2, 3, 5, 8 … 377 in red Hindu-Arabic numerals (file page). The age of the manuscript is not clearly stated on the file page. Licence: Public domain.",
+      "de": "Seite fol. 124r aus einer Handschrift von Leonardo da Pisas Liber abaci in der Biblioteca Nazionale in Florenz (Codice Magliabechiano Conv. Soppr. C 1, 2616). Am rechten Rand steht die Zahlenfolge 1, 2, 3, 5, 8 … 377 in roten indisch-arabischen Ziffern (Dateiseite). Das Alter der Handschrift wird auf der Dateiseite nicht klar angegeben. Lizenz: gemeinfrei.",
+      "es": "Página fol. 124r de un manuscrito del Liber abaci de Leonardo de Pisa en la Biblioteca Nazionale de Florencia (Codice Magliabechiano Conv. Soppr. C 1, 2616). En el margen derecho figura la sucesión 1, 2, 3, 5, 8 … 377 en cifras indoarábigas rojas (página del archivo). La antigüedad del manuscrito no se indica con claridad en la página del archivo. Licencia: dominio público.",
+      "fr": "Page fol. 124r d'un manuscrit du Liber abaci de Léonard de Pise à la Biblioteca Nazionale de Florence (Codice Magliabechiano Conv. Soppr. C 1, 2616). Dans la marge de droite figure la suite 1, 2, 3, 5, 8 … 377 en chiffres indo-arabes rouges (page du fichier). L'ancienneté du manuscrit n'est pas indiquée clairement sur la page du fichier. Licence : domaine public."
+    },
+    "credit": "Leonardo da Pisa (handskrift, Biblioteca Nazionale di Firenze) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-fibonaccis-liber-abaci",
+    "id": "fibonaccis-liber-abaci",
+    "file": "fibonaccis-liber-abaci.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Foto av Meyerhöffer, 20 december 1938: underskriften av Saltsjöbadsavtalet (filsidan; källa: Lars Olsson, Klass i rörelse, 2002). Filsidans kategorier nämner Landsorganisationen, August Lindberg och Sigfrid Edström; bilden anger inte vem som sitter var. Licens: Public domain.",
+      "en": "Photo by Meyerhöffer, 20 December 1938: the signing of the Saltsjöbaden Agreement (file page; source: Lars Olsson, Klass i rörelse, 2002). The categories on the file page mention the Swedish Trade Union Confederation, August Lindberg and Sigfrid Edström; the image does not say who is sitting where. Licence: Public domain.",
+      "de": "Foto von Meyerhöffer, 20. Dezember 1938: die Unterzeichnung des Abkommens von Saltsjöbaden (Dateiseite; Quelle: Lars Olsson, Klass i rörelse, 2002). Die Kategorien der Dateiseite nennen den Gewerkschaftsbund LO, August Lindberg und Sigfrid Edström; das Bild gibt nicht an, wer wo sitzt. Lizenz: gemeinfrei.",
+      "es": "Foto de Meyerhöffer, 20 de diciembre de 1938: la firma del Acuerdo de Saltsjöbaden (página del archivo; fuente: Lars Olsson, Klass i rörelse, 2002). Las categorías de la página mencionan a la confederación sindical LO, a August Lindberg y a Sigfrid Edström; la imagen no indica quién está sentado dónde. Licencia: dominio público.",
+      "fr": "Photo de Meyerhöffer, 20 décembre 1938 : la signature de l'accord de Saltsjöbaden (page du fichier ; source : Lars Olsson, Klass i rörelse, 2002). Les catégories de la page du fichier mentionnent la confédération syndicale LO, August Lindberg et Sigfrid Edström ; l'image n'indique pas qui est assis où. Licence : domaine public."
+    },
+    "credit": "Meyerhöffer / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-saltsjobadsavtalet",
+    "id": "saltsjobadsavtalet",
+    "file": "saltsjobadsavtalet.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Förarbevis utfärdat den 7 januari 1941 till en fånge i arbetslägret i Kandalaksja (filsidan, texten är på ryska). Visar ett dokument om en enskild fånge, inte lägerlivet i stort; personen namnges inte här. Licens: Public domain.",
+      "en": "Driver's licence issued on 7 January 1941 to a prisoner of the labour camp at Kandalaksha (file page; the text is in Russian). It shows a document about one prisoner, not camp life in general; the person is not named here. Licence: Public domain.",
+      "de": "Führerschein, am 7. Januar 1941 an einen Häftling des Arbeitslagers Kandalakscha ausgestellt (Dateiseite; der Text ist russisch). Er zeigt ein Dokument über einen einzelnen Häftling, nicht das Lagerleben insgesamt; die Person wird hier nicht genannt. Lizenz: gemeinfrei.",
+      "es": "Permiso de conducir expedido el 7 de enero de 1941 a un preso del campo de trabajo de Kandalaksha (página del archivo; el texto está en ruso). Muestra un documento sobre un preso concreto, no la vida en los campos en general; aquí no se nombra a la persona. Licencia: dominio público.",
+      "fr": "Permis de conduire délivré le 7 janvier 1941 à un détenu du camp de travail de Kandalakcha (page du fichier ; le texte est en russe). Il montre un document concernant un détenu, pas la vie dans les camps en général ; la personne n'est pas nommée ici. Licence : domaine public."
+    },
+    "credit": "Sovjetunionens myndigheter / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-gulag",
+    "id": "gulag",
+    "file": "gulag.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Foto från Rysslands presidentkansli, 8 augusti 2024: president Putin samtalar med guvernören i Kursk om läget efter Ukrainas intåg i södra delen av oblastet (filsidan). Bilden visar ett möte vid ett skrivbord, inte striderna, och kommer från ena partens kansli. Licens: CC BY 4.0.",
+      "en": "Photo from the Office of the President of Russia, 8 August 2024: President Putin talks with the governor of Kursk about the situation after Ukraine's incursion into the south of the oblast (file page). The image shows a meeting at a desk, not the fighting, and comes from one party's office. Licence: CC BY 4.0.",
+      "de": "Foto des Präsidialamts Russlands, 8. August 2024: Präsident Putin spricht mit dem Gouverneur von Kursk über die Lage nach dem ukrainischen Einmarsch in den Süden des Gebiets (Dateiseite). Das Bild zeigt ein Treffen an einem Schreibtisch, nicht die Kämpfe, und stammt aus dem Amt einer der Parteien. Lizenz: CC BY 4.0.",
+      "es": "Foto de la Oficina del Presidente de Rusia, 8 de agosto de 2024: el presidente Putin conversa con el gobernador de Kursk sobre la situación tras la incursión de Ucrania en el sur del óblast (página del archivo). La imagen muestra una reunión ante un escritorio, no los combates, y procede de la oficina de una de las partes. Licencia: CC BY 4.0.",
+      "fr": "Photo de l'administration présidentielle russe, 8 août 2024 : le président Poutine s'entretient avec le gouverneur de Koursk de la situation après l'incursion ukrainienne dans le sud de l'oblast (page du fichier). L'image montre une réunion à un bureau, pas les combats, et provient du bureau de l'une des parties. Licence : CC BY 4.0."
+    },
+    "credit": "Rysslands presidentkansli (Kremlin.ru) / Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "commons-bild-kurskoffensiven",
+    "id": "kurskoffensiven",
+    "file": "kurskoffensiven.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "tidig-medeltid",
+    "caption": {
+      "sv": "Mikroskopbild från CDC (2005): Yersinia pestis med Wayson-färgning, där bakterierna får ett utseende som en säkerhetsnål (filsidan). Visar bakterien som orsakar pest, inte epidemin år 541. Licens: Public domain.",
+      "en": "Microscope image from the CDC (2005): Yersinia pestis with Wayson stain, where the bacteria have the appearance of a safety pin (file page). It shows the bacterium that causes plague, not the epidemic of 541. Licence: Public domain.",
+      "de": "Mikroskopaufnahme der CDC (2005): Yersinia pestis mit Wayson-Färbung, bei der die Bakterien wie eine Sicherheitsnadel aussehen (Dateiseite). Sie zeigt das Bakterium, das die Pest verursacht, nicht die Epidemie von 541. Lizenz: gemeinfrei.",
+      "es": "Imagen de microscopio de los CDC (2005): Yersinia pestis con tinción de Wayson, en la que las bacterias tienen aspecto de imperdible (página del archivo). Muestra la bacteria que causa la peste, no la epidemia de 541. Licencia: dominio público.",
+      "fr": "Image au microscope des CDC (2005) : Yersinia pestis avec la coloration de Wayson, où les bactéries ont l'aspect d'une épingle de sûreté (page du fichier). Elle montre la bactérie responsable de la peste, pas l'épidémie de 541. Licence : domaine public."
+    },
+    "credit": "U.S. Center for Disease Control / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-justinianska-pesten-nar-egypten",
+    "id": "justinianska-pesten-nar-egypten",
+    "file": "justinianska-pesten-nar-egypten.webp"
+  },
+  {
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Miniatyr ur en handskrift av det persiska eposet Shahnameh från Astarabad, januari 1614 (British Library, I.O. Islamic 3265, fol. 602r); filsidans titel: \"Sa'd-i Vaqqas dödar Rustam\". En avbildning gjord nästan tusen år efter slaget (636) i ett episkt verk, inte ett samtida dokument. Licens: Public domain.",
+      "en": "Miniature from a manuscript of the Persian epic Shahnameh from Astarabad, January 1614 (British Library, I.O. Islamic 3265, fol. 602r); the file page title is “Sa'd-i Vaqqas kills Rustam”. A depiction made almost a thousand years after the battle (636) in an epic work, not a contemporary document. Licence: Public domain.",
+      "de": "Miniatur aus einer Handschrift des persischen Epos Schahname aus Astarabad, Januar 1614 (British Library, I.O. Islamic 3265, fol. 602r); der Titel der Dateiseite lautet „Sa'd-i Vaqqas tötet Rustam“. Eine fast tausend Jahre nach der Schlacht (636) entstandene Darstellung in einem Epos, kein zeitgenössisches Dokument. Lizenz: gemeinfrei.",
+      "es": "Miniatura de un manuscrito de la epopeya persa Shahnameh de Astarabad, enero de 1614 (British Library, I.O. Islamic 3265, fol. 602r); el título de la página del archivo es «Sa'd-i Vaqqas mata a Rustam». Una representación hecha casi mil años después de la batalla (636) en una obra épica, no un documento contemporáneo. Licencia: dominio público.",
+      "fr": "Miniature tirée d'un manuscrit de l'épopée persane Shâhnâmeh d'Astarabad, janvier 1614 (British Library, I.O. Islamic 3265, fol. 602r) ; le titre de la page du fichier est « Sa'd-i Vaqqas tue Rostam ». Une représentation réalisée presque mille ans après la bataille (636) dans une œuvre épique, pas un document contemporain. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär / British Library (Wikimedia Commons)",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-qadisiyya",
+    "id": "slaget-vid-qadisiyya",
+    "file": "slaget-vid-qadisiyya.webp"
   }
 ]

@@ -1442,6 +1442,8 @@ async function run(browser, vp) {
     await add('vasco-da-gama-nar-indien');
     await visible('#hunt-done');
     if (await page.locator('#hunt-list li').count() !== 3) throw new Error('jakten har inte tre händelser');
+    // Inget av de tre är ett långt tillstånd (#1451): inget märke "pågick då" och ingen extra rad i frågan
+    if (await page.locator('#hunt-list .hunt-lasting, #hunt-reflection .hunt-reflection-more').count()) throw new Error('jakten märker något som hände som "pågick då"');
     await page.waitForFunction(() => document.querySelectorAll('#hunt-sources li a').length > 0, null, { timeout: T.step });
     const wide = await page.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1);
     if (wide) throw new Error('jakten ger horisontell scroll');
@@ -1455,6 +1457,43 @@ async function run(browser, vp) {
     await page.waitForFunction(() => !location.hash.includes('u='), null, { timeout: T.step });
     if (await page.isVisible('#detail')) await page.keyboard.press('Escape');
     return 'år 1500; Amerika två gånger ger besked; tre världsdelar ger fråga och källor; u= i adressen och bort efter Escape';
+  }
+
+  // Långa tillstånd i jakten (#1451): Mingdynastin (lasting) räknas men märks "pågick då" i meddelandet och listan, och
+  // frågan får raden om vad som hände och vad som pågick länge
+  await check('Samtidighetsjakten märker långa tillstånd "pågick då" (#1451)', async () => {
+    try { return await huntLastingCheck(); } catch (err) { if (await page.isVisible('#hunt')) await page.click('#hunt-end', { timeout: 3000 }).catch(() => {}); throw err; }
+  });
+  async function huntLastingCheck() {
+    await teacherItem('#teacher-hunt');
+    await visible('#hunt');
+    const add = async id => {
+      if (await page.isHidden('#panel')) await clickView('#btn-panel');
+      const btn = await panelEvent(page, { id });
+      await btn.click();
+      await page.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
+      await page.click('#detail [data-hunt]');
+      const message = (await page.textContent('#hunt-message')).trim();
+      if (await page.isVisible('#detail [data-close]')) await page.click('#detail [data-close]');
+      return message;
+    };
+    const ming = await add('ming');
+    if (!/räknas.*pågick då/.test(ming)) throw new Error(`Mingdynastin räknades inte som "pågick då": ${ming}`);
+    if (!/räknas/.test(await add('columbus')) || /pågick då/.test(await page.textContent('#hunt-message'))) throw new Error('Columbus märktes som "pågick då" eller räknades inte');
+    await add('bartolomeu-dias-rundar-afrika');
+    await visible('#hunt-done');
+    const tags = await page.locator('#hunt-list .hunt-lasting').allTextContents();
+    if (tags.length !== 1 || tags[0].trim() !== 'pågick då') throw new Error(`listan har märkena ${JSON.stringify(tags)}, inte ett "pågick då"`);
+    const more = (await page.textContent('#hunt-reflection .hunt-reflection-more').catch(() => '')) ?? '';
+    if (!/hände, och vilka pågick länge/.test(more)) throw new Error(`frågan saknar raden om vad som hände och pågick: ${more}`);
+    const wide = await page.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1);
+    if (wide) throw new Error('jakten ger horisontell scroll');
+    await shot('1451-jakten-pagick-da');
+    if (await page.isVisible('#panel-close')) await page.click('#panel-close');
+    await page.click('#hunt-end');
+    await hidden('#hunt');
+    if (await page.isVisible('#detail')) await page.keyboard.press('Escape');
+    return 'Mingdynastin räknas och märks "pågick då", Columbus och Dias märks inte, frågan har raden om hände och pågick';
   }
 
   // Menyn över en öppen Samtidigt-panel (#887): knapparna i Mer/Meny ska ta emot klicket, inte panelen.
