@@ -1,0 +1,24 @@
+HTTP/2 302 
+date: Fri, 27 Nov 2026 08:37:30 GMT
+content-type: text/html; charset=iso-8859-1
+location: https://asc-pds-services.s3.us-west-2.amazonaws.com/mosaic/Lunar_LRO_LROC-WAC_Mosaic_global_100m_June2013.tif
+server: cloudflare
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+set-cookie: __cf_bm=Uu5a.LiUVihtBVjsoY8dbQxFKRFe22dhLmeQwEcuJAs-1795768650.4635487-1.0.1.1-RGcd8bWRZJ5Gz4IbGVJ8tA7bmsX63RshkJUCjht92WMdGNZzNkdsfnk6joT.JD9chzCXPo4onCLZ3ThkH_bHLmaSKkN6iaH4PWd7s8quWBZfN3G9abH9bJjYbFO8O6Oa; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=usgs.gov; Expires=Fri, 27 Nov 2026 09:07:30 GMT
+cf-cache-status: BYPASS
+x-content-type-options: nosniff
+cf-ray: a60fcfb16a87ebf6-DFW
+
+HTTP/1.1 200 OK
+x-amz-request-id: YTGEXBP32DT92PZZ
+x-amz-id-2: orU6Ez/aHbLwAJjRZJ227qDxnIScmLvQMnyRSlph74uK1HJ7poj8l4EP0Aph7I3U2K0lujZF6q2gTe5N6gJIzYHqQ7ZBQKkt
+Content-Length: 5959263751
+Accept-Ranges: bytes
+Date: Fri, 27 Nov 2026 08:37:30 GMT
+Server: AmazonS3
+Last-Modified: Tue, 08 Nov 2022 23:37:48 GMT
+ETag: "47d026c2618ee60e92eda4f2e0e5347b-711"
+x-amz-version-id: null
+Content-Type: image/tiff
+x-amz-storage-class: STANDARD_IA
+
