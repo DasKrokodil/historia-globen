@@ -467,6 +467,49 @@
     ],
     "checked": "2026-11-27"
    }
+  ],
+  "angermanland": [
+   {
+    "wikidata": "Q10656400",
+    "coordinates": [
+     17.718,
+     63.078
+    ],
+    "name": {
+     "sv": "Rogstaklippen",
+     "en": "Rogstaklippen",
+     "de": "Rogstaklippen",
+     "es": "Rogstaklippen",
+     "fr": "Rogstaklippen"
+    },
+    "fallback": [
+     "es",
+     "fr"
+    ],
+    "events": [
+     "fornborgen-pa-rogstaklippen"
+    ],
+    "checked": "2026-11-27"
+   },
+   {
+    "wikidata": "Q3486391",
+    "coordinates": [
+     18.346,
+     63.075
+    ],
+    "name": {
+     "sv": "Skuleberget",
+     "en": "Skuleberget",
+     "de": "Skuleberget",
+     "es": "Skuleberget",
+     "fr": "Skuleberget"
+    },
+    "fallback": [],
+    "events": [
+     "hoga-kusten-blir-varldsarv"
+    ],
+    "checked": "2026-11-27"
+   }
   ]
  }
 }

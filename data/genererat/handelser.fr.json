@@ -841,6 +841,8 @@
 "arvsmassa-fran-kulubnarti":{"place":{"fr":"Kulubnarti, sur le Nil, nord du Soudan"},"title":{"fr":"L’ADN de la Nubie chrétienne"},"note":{"title":{"fr":"Les sources divergent"}}},
 "svalt-och-kris-i-egypten-1065":{"place":{"fr":"Basse-Égypte (le point est approximatif)"},"title":{"fr":"Famine et crise dans l’Égypte fatimide"},"note":{"title":{"fr":"Une seule source"}}},
 "storhogarna-i-hogom":{"place":{"fr":"Högom, Selånger, Medelpad"},"title":{"fr":"Les grands tertres de Högom"},"note":{"title":{"fr":"Les sources divergent"}}},
+"garden-pa-genesmon":{"place":{"fr":"Genesmon, Gene, Ångermanland"},"title":{"fr":"La ferme de l’âge du fer de Genesmon"},"note":{"title":{"fr":"Les sources divergent"}}},
+"fornborgen-pa-rogstaklippen":{"place":{"fr":"Rogstaklippen, Torsåker, Ångermanland"},"title":{"fr":"L’enceinte fortifiée du Rogstaklippen"}},
 "slaget-vid-landskrona":{"note":{"title":{"fr":"À propos du calendrier"}}},
 "slaget-vid-helsingborg":{"note":{"title":{"fr":"À propos du calendrier"}}},
 "agadez-mosken":{"place":{"fr":"Agadez, Niger"},"title":{"fr":"La mosquée d'Agadez est construite"}},
@@ -957,6 +959,7 @@
 "sundsvall-grundas":{"place":{"fr":"Sundsvall (en same du Sud Sjädtavallie), Medelpad"},"title":{"fr":"Fondation de Sundsvall"}},
 "galtstroms-bruk":{"place":{"fr":"Galtström, Njurunda, Medelpad"},"title":{"fr":"Les forges de Galtström"}},
 "slaget-vid-selanger":{"place":{"fr":"Selånger et Sundsvall, Medelpad"},"title":{"fr":"La bataille de Selånger"},"note":{"title":{"fr":"Les sources divergent"}}},
+"harnosand-grundas":{"place":{"fr":"Härnösand, Ångermanland"},"title":{"fr":"Fondation de Härnösand"}},
 "nya-zeelandkrigen":{"note":{"title":{"fr":"Les sources divergent"}}},
 "forsta-missionen-rangihoua":{"place":{"fr":"Oihi, à Rangihoua, Bay of Islands, Nouvelle-Zélande"},"title":{"fr":"La première mission chrétienne en Nouvelle-Zélande"}},
 "muskotkrigen":{"place":{"fr":"Toute la Nouvelle-Zélande, y compris les îles Chatham (la première bataille connue avec des mousquets eut lieu à Moremonui, dans le Northland)"},"title":{"fr":"Guerres des mousquets"},"note":{"title":{"fr":"Les sources divergent"}}},
@@ -1059,6 +1062,7 @@
 "forsta-angsagen-i-tunadal":{"place":{"fr":"Tunadal, Sundsvall, Medelpad"},"title":{"fr":"La première scierie à vapeur de Suède"}},
 "sundsvallsstrejken-1879":{"place":{"fr":"Sundsvall, Medelpad"},"title":{"fr":"La grève de Sundsvall"},"note":{"title":{"fr":"Les sources divergent"}}},
 "sundsvallsbranden":{"place":{"fr":"Sundsvall, Medelpad"},"title":{"fr":"L’incendie de Sundsvall"}},
+"ornskoldsvik-grundas":{"place":{"fr":"Örnsköldsvik (en same du Sud Orrestaare), Ångermanland"},"title":{"fr":"Fondation d’Örnsköldsvik"}},
 "rifkriget":{"place":{"fr":"Rif, dans le nord du Maroc, alors protectorat espagnol (la guerre commença près d'Annual)"},"title":{"fr":"Guerre du Rif"},"note":{"title":{"fr":"Les sources divergent"}}},
 "slaget-vid-annual":{"place":{"fr":"Annual, dans le nord-est du Maroc, à environ 60 km à l'ouest de Melilla"},"title":{"fr":"Les Rifains battent l'Espagne à Annual"},"note":{"title":{"fr":"Les sources divergent"}}},
 "massakern-vid-monte-arruit":{"place":{"fr":"Monte Arruit, à Al Aaroui, à environ 35 km au sud de Melilla"},"title":{"fr":"Le massacre de Monte Arruit"},"note":{"title":{"fr":"Les sources divergent"}}},
@@ -1250,6 +1254,7 @@
 "szent-gyorgyi-och-c-vitaminet":{"place":{"fr":"Szeged, Hongrie"},"title":{"fr":"Szent-Györgyi et la vitamine C"}},
 "forintelsen-i-ungern":{"place":{"fr":"Hongrie (le marqueur au ghetto de Budapest)"},"title":{"fr":"La Shoah en Hongrie"},"note":{"title":{"fr":"Les sources divergent"}}},
 "forsta-vasaloppet":{"place":{"fr":"De Sälen à Mora, Dalécarlie"},"title":{"fr":"La première Vasaloppet"}},
+"adalshandelserna-1931":{"place":{"fr":"Lunde, Ådalen, Ångermanland"},"title":{"fr":"La fusillade d’Ådalen"}},
 "bangladeshs-befrielsekrig":{"place":{"fr":"Pakistan oriental, aujourd’hui Bangladesh (la guerre commença à Dacca)"},"title":{"fr":"Guerre de libération du Bangladesh"},"note":{"title":{"fr":"Sur le début de la guerre"}}},
 "operation-searchlight":{"place":{"fr":"Dacca et d’autres villes du Pakistan oriental"},"title":{"fr":"Opération Searchlight"},"note":{"title":{"fr":"Les sources divergent"}}},
 "bangladeshs-sjalvstandighet-utropas":{"place":{"fr":"Dacca"},"title":{"fr":"L’indépendance du Bangladesh est proclamée"},"note":{"title":{"fr":"Une seule source pour le lieu"}}},
@@ -1462,5 +1467,6 @@
 "slovakien-gar-med-i-eu":{"place":{"fr":"Toute la Slovaquie (le marqueur à Bratislava)"},"title":{"fr":"La Slovaquie entre dans l’UE"}},
 "paneuropeiska-picknicken":{"place":{"fr":"La frontière avec l’Autriche près de Sopron, Hongrie"},"title":{"fr":"Le pique-nique paneuropéen"}},
 "ungern-gar-med-i-eu":{"place":{"fr":"Toute la Hongrie (le marqueur à Budapest)"},"title":{"fr":"La Hongrie entre dans l’UE"}},
-"falu-gruva-blir-varldsarv":{"place":{"fr":"Falun, Dalécarlie"},"title":{"fr":"La mine de Falun inscrite au patrimoine mondial"}}
+"falu-gruva-blir-varldsarv":{"place":{"fr":"Falun, Dalécarlie"},"title":{"fr":"La mine de Falun inscrite au patrimoine mondial"}},
+"hoga-kusten-blir-varldsarv":{"place":{"fr":"Skuleberget, Haute Côte, Ångermanland"},"title":{"fr":"La Haute Côte devient patrimoine mondial"},"note":{"title":{"fr":"Les sources divergent"}}}
 }}
