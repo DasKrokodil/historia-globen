@@ -1,0 +1,1464 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "europa-4",
+  "datum": "2026-11-26",
+  "urval": "ids=39 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "hobygraven-pa-lolland",
+      "titel": "Hobygraven på Lolland",
+      "start": 1,
+      "plats": "Hoby på Lolland, Danmark",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Silver cup Hoby Philoctetes Nationalmuseet.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Silver_cup_Hoby_Philoctetes_Nationalmuseet.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Marie-Lan Nguyen",
+          "datum": "2017-07-17",
+          "datum_original": "2017-07-17",
+          "datum_fil": "2020-02-20 08:17:31",
+          "kredit": "Own work",
+          "beskrivning": null,
+          "bredd": 4500,
+          "hojd": 3375,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Silver_cup_Hoby_Philoctetes_Nationalmuseet.jpg/960px-Silver_cup_Hoby_Philoctetes_Nationalmuseet.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Roman silverware in Denmark",
+            "Ancient Roman skyphoi",
+            "Cheirisophos",
+            "Hoby treasure",
+            "Philoctetes",
+            "Roman antiquities in Nationalmuseet, Copenhagen",
+            "Skyphoi in Denmark"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "flera licenser: Public domain, CC BY 4.0"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-old-100-1923}}, {{self|Cc-by-4.0}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (Public domain och CC BY 4.0); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto).",
+            "risker": [],
+            "mallar": [
+              "PD-old-100-1923",
+              "self|Cc-by-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Silver cup Hoby Priam Nationalmuseet n1.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Silver_cup_Hoby_Priam_Nationalmuseet_n1.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Marie-Lan Nguyen",
+          "datum": "2017-07-17",
+          "datum_original": "2017-07-17",
+          "datum_fil": "2020-02-20 08:47:07",
+          "kredit": "Own work",
+          "beskrivning": null,
+          "bredd": 4500,
+          "hojd": 3004,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Silver_cup_Hoby_Priam_Nationalmuseet_n1.jpg/960px-Silver_cup_Hoby_Priam_Nationalmuseet_n1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Roman silverware in Denmark",
+            "Ancient Roman skyphoi",
+            "Cheirisophos",
+            "Hoby treasure",
+            "Ransom of Hector",
+            "Roman antiquities in Nationalmuseet, Copenhagen",
+            "Skyphoi in Denmark"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "flera licenser: Public domain, CC BY 4.0"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-old-100-1923}}, {{self|Cc-by-4.0}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (Public domain och CC BY 4.0); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto).",
+            "risker": [],
+            "mallar": [
+              "PD-old-100-1923",
+              "self|Cc-by-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Silver cup Hoby Priam Nationalmuseet n2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Silver_cup_Hoby_Priam_Nationalmuseet_n2.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Marie-Lan Nguyen",
+          "datum": "2017-07-17",
+          "datum_original": "2017-07-17",
+          "datum_fil": "2020-02-20 08:55:11",
+          "kredit": "Own work",
+          "beskrivning": null,
+          "bredd": 4000,
+          "hojd": 2669,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Silver_cup_Hoby_Priam_Nationalmuseet_n2.jpg/960px-Silver_cup_Hoby_Priam_Nationalmuseet_n2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Roman silverware in Denmark",
+            "Ancient Roman skyphoi",
+            "Cheirisophos",
+            "Hoby treasure",
+            "Ransom of Hector",
+            "Roman antiquities in Nationalmuseet, Copenhagen",
+            "Skyphoi in Denmark"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "flera licenser: Public domain, CC BY 4.0"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-old-100-1923}}, {{self|Cc-by-4.0}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (Public domain och CC BY 4.0); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto).",
+            "risker": [],
+            "mallar": [
+              "PD-old-100-1923",
+              "self|Cc-by-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "claudius-tunnel-vid-fucinosjon",
+      "titel": "Claudius tunnel ska sänka Fucinosjön",
+      "start": 41,
+      "plats": "Claudius tunnlar vid berget Salviano nära Avezzano, Abruzzo, Italien",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Fuciner-lake nasa.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Fuciner-lake_nasa.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "ISS Crew Earth Observations experiment , Caption by M. Justin Wilkinson, NASA-JSC.",
+          "datum": "2008-02-26",
+          "datum_original": "2008-02-26",
+          "datum_fil": "2008-03-20 07:23:59",
+          "kredit": "earth observatory of NASA (Astronaut photograph ISS016-E-30337)",
+          "beskrivning": "The light tan oval in this image is the floor of a lake in central Italy that has been drained by a tunnel dug through the surrounding hills. Numerous rectangular fields occupy the former lake bottom—now one of the most fertile regions of Italy. The area is still referred to as “Fucine Lake,” even though the lake has been dry for nearly 150 years. The city of Avezzano (top right), near the drainage outlet of the basin, lies 80 kilometers east of Rome . The “circumference road” runs around the edge of the former lake; it roughly follows the boundary between green, vegetated fields around the basin and tan fallow fields within. This recent astronaut photograph shows a dusting of snow along mountain ridges to the south (upper and lower left). The basin of Fucine Lake has no natural outlet. Consequently the level of the original lake fluctuated widely with any higher-than-average rainfall. In Roman times, this variability caused flooding of the fishing communities around the lake. (Some of these towns, with their distinctive red tile roofs, are located around the margin of the lake floor.) Emperors Claudius and Hadrian achieved limited draining of the original lake—to control both flooding and malaria—by digging and then expanding a tunnel through the hills near Avezzano at the top of the image. Claudius used 30,000 workers over a span of ten years to dig the 5.6-kilometer-long tunnel. This engineering work reduced the size of the lake from an original area of about 140 square kilometers to about 57 square kilometers. After the Roman Empire collapsed and maintenance failed, the tunnel was blocked up with vegetation and sediment. An earthquake—possibly the same event that damaged the Coliseum, somewhat before 508 CE—dropped the lake bottom by 30-35 centimeters. Drainage slowed, and the lake expanded; water filled the basin for the next 1,000 years. A serious draining effort was commissioned by Prince Alessandro Torlonia in 1862. That effort achieved complete emptying of the lake, giving it the modern appearance.",
+          "bredd": 1080,
+          "hojd": 810,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Fuciner-lake_nasa.jpg/960px-Fuciner-lake_nasa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Drained",
+            "ISS Expedition 16 Crew Earth Observations",
+            "Satellite pictures of Avezzano",
+            "Satellite pictures of Fucine Plain"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "guldgruvan-i-las-medulas",
+      "titel": "Romarna bryter guld i stor skala i Las Médulas",
+      "start": 51,
+      "plats": "Las Médulas nära Ponferrada, León, Spanien",
+      "wikidata": "Q696803",
+      "kandidater": [
+        {
+          "fil": "File:Las Medulas (17504738221).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Las_Medulas_(17504738221).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Frayle from Salamanca, España",
+          "datum": "2014-05-09 14:22",
+          "datum_original": "2014-05-09 14:22",
+          "datum_fil": "2021-10-15 02:11:39",
+          "kredit": "Las Medulas",
+          "beskrivning": "Las Medulas",
+          "bredd": 4288,
+          "hojd": 2848,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Las_Medulas_%2817504738221%29.jpg/960px-Las_Medulas_%2817504738221%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Las Médulas"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-author-FlickrPDM"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "herkules-torn-i-a-coruna",
+      "titel": "Herkules torn, en romersk fyr vid Atlanten",
+      "start": 71,
+      "plats": "A Coruña, Galicien, Spanien",
+      "wikidata": "Q245151",
+      "kandidater": [
+        {
+          "fil": "File:Torre de Hércules 2023.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Torre_de_H%C3%A9rcules_2023.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Fernando",
+          "datum": "2023-04-30 13:34:55",
+          "datum_original": "2023-04-30 13:34:55",
+          "datum_fil": "2024-10-17 17:26:25",
+          "kredit": "Own work",
+          "beskrivning": "Tower of Hercules, an ancient Roman lighthouse in A Coruña , northern Spain.",
+          "bredd": 3823,
+          "hojd": 5734,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Torre_de_H%C3%A9rcules_2023.jpg/960px-Torre_de_H%C3%A9rcules_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Clouds and blue sky in Spain",
+            "Torre de Hércules"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "gravfaltet-vid-driffield-terrace",
+      "titel": "Arvsmassan från det romerska gravfältet i York",
+      "start": 101,
+      "plats": "York, England (punkten är staden; gravfältet ligger vid Driffield Terrace)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Bell Beaker Culture.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bell_Beaker_Culture.png",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Maptist",
+          "datum": "2026-09-07",
+          "datum_original": "2026-09-07",
+          "datum_fil": "2026-09-27 13:39:15",
+          "kredit": "Own work",
+          "beskrivning": "Simplified map of the Bell Beaker Culture and all of its subgroups",
+          "bredd": 3200,
+          "hojd": 2741,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Bell_Beaker_Culture.png/960px-Bell_Beaker_Culture.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bellbeaker culture",
+            "Maps of the European Neolithic"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-zero"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "vattenkvarnarna-i-barbegal",
+      "titel": "Vattenkvarnarna i Barbegal",
+      "start": 101,
+      "plats": "Barbegal vid Fontvieille, nära Arles, Frankrike",
+      "wikidata": "Q89272148",
+      "kandidater": [
+        {
+          "fil": "File:Barbegal aqueduct 01.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Barbegal_aqueduct_01.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "maarjaara",
+          "datum": "2008-08-10 16:44:23",
+          "datum_original": "2008-08-10 16:44:23",
+          "datum_fil": "2009-05-17 08:08:08",
+          "kredit": "originally posted to Flickr as Barbegal aqueduct",
+          "beskrivning": "Barbegal aqueduct",
+          "bredd": 3072,
+          "hojd": 2304,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Barbegal_aqueduct_01.jpg/960px-Barbegal_aqueduct_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Barbegal aqueduct"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "trajanus-bro-over-donau",
+      "titel": "Trajanus bro över nedre Donau",
+      "start": 103,
+      "plats": "Donau vid Drobeta-Turnu Severin, Rumänien, och Kladovo, Serbien",
+      "wikidata": "Q849786",
+      "kandidater": [
+        {
+          "fil": "File:Piciorul Podului lui Traian, malul românesc (19 august 2009).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Piciorul_Podului_lui_Traian,_malul_rom%C3%A2nesc_(19_august_2009).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0 ro",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0/ro/deed.en",
+          "upphovsperson": "Dan Mihai Pitea",
+          "datum": "2009-08-19 12:00:07",
+          "datum_original": "2009-08-19 12:00:07",
+          "datum_fil": "2013-03-31 15:01:38",
+          "kredit": "Own work",
+          "beskrivning": "The ancient ruin of a pier of Trajan's Bridge on the Romanian shore of the Danube, at Drobeta-Turnu Severin. It is presently surrounded by a square concrete compound which was built to protect it from the rise of the water level following the construction of the Iron Gate I dam. In the background, a few meters away from the concrete wall and not visible, the railway track which connects Orșova to Craiova.",
+          "bredd": 1368,
+          "hojd": 1824,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Piciorul_Podului_lui_Traian%2C_malul_rom%C3%A2nesc_%2819_august_2009%29.jpg/960px-Piciorul_Podului_lui_Traian%2C_malul_rom%C3%A2nesc_%2819_august_2009%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Trajan's Bridge ruins in Drobeta-Turnu Severin"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0 RO",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0-ro"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "runorna-fran-vimose",
+      "titel": "Runorna från Vimose",
+      "start": 160,
+      "plats": "Vimose, nordvästra Fyn, Danmark",
+      "wikidata": "Q1465016",
+      "kandidater": [
+        {
+          "fil": "File:Kam-med-runer-fra-Vimose DO-4148 2000.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kam-med-runer-fra-Vimose_DO-4148_2000.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Nationalmuseet, Roberto Fortuna og Kira Ursem",
+          "datum": "2007-01-01",
+          "datum_original": "2007-01-01",
+          "datum_fil": "2016-03-01 11:35:42",
+          "kredit": "http://samlinger.natmus.dk/DO/4148",
+          "beskrivning": "Crest with runes HARJA. From Vimose, Næsbyhoved-Broby parish. It transliterates: \"harja\" (ᚺᚨᚱᛃᚨ), a male name. It translates: \"warrior\".",
+          "bredd": 2000,
+          "hojd": 1616,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Kam-med-runer-fra-Vimose_DO-4148_2000.jpg/960px-Kam-med-runer-fra-Vimose_DO-4148_2000.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Germanic combs",
+            "Elder Futhark inscriptions",
+            "Medieval objects in the Nationalmuseet, Copenhagen",
+            "Objects made of antler",
+            "Vimose"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "motsägelse: filsidans mallar ({{cc-by-sa-2.5}}) och API:et (\"CC BY-SA 3.0\") anger olika licens"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{cc-by-sa-2.5}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". De anger olika licens; kontrollera filsidan för hand.",
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.5"
+            ]
+          }
+        },
+        {
+          "fil": "File:Kam-med-runer-fra-Vimose DO-4148 2000 (cropped).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kam-med-runer-fra-Vimose_DO-4148_2000_(cropped).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Nationalmuseet, Roberto Fortuna og Kira Ursem",
+          "datum": "2007-01-01",
+          "datum_original": "2007-01-01",
+          "datum_fil": "2024-02-04 13:57:02",
+          "kredit": "http://samlinger.natmus.dk/DO/4148",
+          "beskrivning": "Crest with runes HARJA. From Vimose, Næsbyhoved-Broby parish. It transliterates: \"harja\" (ᚺᚨᚱᛃᚨ), a male name. It translates: \"warrior\".",
+          "bredd": 1275,
+          "hojd": 1125,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Kam-med-runer-fra-Vimose_DO-4148_2000_%28cropped%29.jpg/960px-Kam-med-runer-fra-Vimose_DO-4148_2000_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Germanic combs",
+            "Elder Futhark inscriptions",
+            "Medieval objects in the Nationalmuseet, Copenhagen",
+            "Objects made of antler",
+            "Vimose"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "motsägelse: filsidans mallar ({{cc-by-sa-2.5}}) och API:et (\"CC BY-SA 3.0\") anger olika licens"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{cc-by-sa-2.5}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". De anger olika licens; kontrollera filsidan för hand.",
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.5"
+            ]
+          }
+        },
+        {
+          "fil": "File:Antler comb from Vimose, Funen, Denmark (DR 207).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Antler_comb_from_Vimose,_Funen,_Denmark_(DR_207).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Bloodofox",
+          "datum": "2008-05-28 20:45:22",
+          "datum_original": null,
+          "datum_fil": "2008-05-28 20:45:22",
+          "kredit": "Own work",
+          "beskrivning": "A comb made of antler from around 150 to 200 CE and was found in Vimose on the island of Funen, Denmark. The Elder Futhark inscription reads \"Harja\", a male name. This is the oldest known runic inscription. The comb is housed at the National Museum of Denmark .",
+          "bredd": 1000,
+          "hojd": 816,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Antler_comb_from_Vimose%2C_Funen%2C_Denmark_%28DR_207%29.jpg/960px-Antler_comb_from_Vimose%2C_Funen%2C_Denmark_%28DR_207%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Germanic combs",
+            "Danish prehistory objects in the Nationalmuseet, Copenhagen",
+            "Elder Futhark inscriptions",
+            "Objects made of antler"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{self|cc-by-sa-3.0}}, {{self|GFDL}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0",
+              "self|GFDL"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "kyla-i-syditalien-245-275",
+      "titel": "Kallt och torrt i södra Italien",
+      "start": 245,
+      "plats": "Södra Italien (punkten är borrkärnan i Tarantobukten)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Saharan dust over the Mediterranean Sea (MODIS 2016-03-08).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Saharan_dust_over_the_Mediterranean_Sea_(MODIS_2016-03-08).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Jeff Schmaltz, MODIS Land Rapid Response Team, NASA GSFC",
+          "datum": "Taken on 29 February 2016",
+          "datum_original": "Taken on 29 February 2016",
+          "datum_fil": "2024-02-15 19:43:23",
+          "kredit": "This image or video was catalogued by Goddard Space Flight Center of the United States National Aeronautics and Space Administration (NASA) under Photo ID: 2016-03-08 .",
+          "beskrivning": "In late February 2016, a river of dust flowed from the Saharan Desert across the Mediterranean Sea behind a strong cold front. The Moderate Resolution Imaging Spectroradiometer (MODIS) aboard NASA's Terra satellite acquired this true-color image on February 29. A line of heavy cloud marks the leading edge of the cold front as it marches across the Mediterranean from east to west. The landscape ahead of the front appears crisply defined while cloud and dust obscure most of the land and water from view behind the leading edge. This cold front was part of a cyclonic system named Golia which circulated over the Adriatic Sea and Northern Balkans from February 27 � 29. The system created severe weather across the region. Italy was hit especially hard, with heavy rain, high wind gusts, and storm surge battering the southern part of the country while snowstorms hit the north. Five people were reported killed in Italy from extreme weather caused by Golia. As the cold front moved across the Mediterranean, sand and dust from as far south as the Sahara Desert rode a powerful dry intrusion which moved behind the front. It is not uncommon for strong southerly winds to carry dust from Africa across the Mediterranean. The dramatic spectacle of a massive movement of Saharan dust behind a crisp cold front is more rarely captured from space.",
+          "bredd": 5000,
+          "hojd": 6400,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Saharan_dust_over_the_Mediterranean_Sea_%28MODIS_2016-03-08%29.jpg/960px-Saharan_dust_over_the_Mediterranean_Sea_%28MODIS_2016-03-08%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2016 satellite pictures",
+            "Mediterranean Sea",
+            "Photos by the Terra (satellite) MODIS"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA"
+            ]
+          }
+        },
+        {
+          "fil": "File:2024-09-11--23 synops(svg)ver2'2.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2024-09-11--23_synops(svg)ver2%272.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Map: EUMETNET – MeteoAlarm www.meteoalarm.org Graphics: Own work W!B: ( talk ) 23:52, 8 October 2024 (UTC)",
+          "datum": "2024-09-16",
+          "datum_original": "2024-09-16",
+          "datum_fil": "2024-10-08 23:52:23",
+          "kredit": "EUMETNET – MeteoAlarm www.meteoalarm.org Koninklijk Nederlands Meteorologisch Instituut (KNMI): weerkaarten (Greilinger et al. 2024) M. Greilinger, A. Orlik, A. Tilg, H. Schellander, G. Pistonik, S. Lehener, M. Schlögel, R. Koch: Klimatologische Analyse betreffend des Niederschlagsereignisses vom 12. bis 16. September 2024. Geosphere Austria, 2004 ( pdf ; Version 1, 30 September 2024, Figure 1, p. 5 (ECWMF/ESSL)",
+          "beskrivning": "Map showing a schematic surface weather analysis and impact areas of Vb-type low pressure system Boris causing heavy floods in Central Europe mid September 2024. Background shows alert levels given by EUMETNET – MeteoAlarm, the EU-wide early warning dissemination system, based on the national meteorological and hydrological services. The map is an overlay of screenshots taken daily from Friday, 13, to Monday, 23 September Colours : alert levels – yellow = moderate, orange = severe, red = extreme. Transparency shading: shows duration of alert throughout the time span Figure shows Continuous lines: Weather fronts of first main phase 14/16 September, based on Koninklijk Nederlands Meteorologisch Instituut (KNMI) daily analysis blue = cold front, red = warm front, pink = occlusion Long dashed arrows: Main wind systems: bluish = cool, greenish = humid, reddish = warm Small dashed arrows: Tracks of the three low-level cyclone components of Boris (after Greilinger et al. 2024): smallest dashed: Genoa low 12–13 September; mid small dashed: Second Genoa low with Vb-track 13–15 September; wider small dashed: Eastern European low reentering to Mediterranean Basin (\"retrograde Vb\") 15–17 September Dotted cycles: Main impact areas (Moldavian Area 13/14 September; Sudetes an Northeastern Alps 13–16 September; Northeastern Italy 17–19 September) Boris (in Germany Anett ) was a upper level low, over Northern Italy and Pannonian Basin, blocked by one high pressure system over the Channel and another over Russia. A initial phase caused heavy rain at the Eastern Adria. At the first main phase the cold front stretched along the Carpathians towards the Eastern Alps. The cyclone was transporting subtropic moisture, mixed with cold polar air masses intruding over Western Europe. That causes heavy orographic lifting rainfalls, and snow in higher areas. The northern warm front belonged to a Northern Scandinavian low system (named Zilan ), which had caused the secondary cyclogenesis of Boris over Northern Italy 10./11. September. Unusual hurricane-force winds occurred within the center of the low pressure system. The system had an very irregular track returning to the Mediterranean Basin, with a surprising final phase of rain in the Lower Po area. Notes: Alert levels outside the low, in the Mediterranean region (Italy, the Western Balkans) and Eastern Europe (Ukrainian and Baltic area), were mainly wind warnings. Southern Westerlies were cool and humid, eastern Southerlies warm and dry (with unusual warming from the Baltic states up to Finland). Czechia seems over-represented due to a nearly nation wide red alert lasting about a week; also red alert in eastern Bayaria (Germany) was somehow overcautious. But Romania and Moldavia, and Italy had no red flood alerts due to hard to predict short-lived rains.",
+          "bredd": 1220,
+          "hojd": 1200,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/2024-09-11--23_synops%28svg%29ver2%272.png/960px-2024-09-11--23_synops%28svg%29ver2%272.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2024 Central European floods",
+            "Maps of weather and climate of Europe",
+            "Mediterranean tropical-like cyclone track maps",
+            "Meteorological analysis maps",
+            "Storm Boris (2024)",
+            "Weather warning maps"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "Public domain",
+            "skal": [
+              "flera licenser: Public domain, CC BY 4.0"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{PD-European-Commission}}, {{Cc-by-4.0}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (Public domain och CC BY 4.0); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto).",
+            "risker": [],
+            "mallar": [
+              "PD-European-Commission",
+              "Cc-by-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:A descriptive catalogue of vegetables (1940) (20258260133).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:A_descriptive_catalogue_of_vegetables_(1940)_(20258260133).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1940",
+          "datum_original": "1940",
+          "datum_fil": "2015-10-20 15:25:04",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/20258260133/ Source book page: https://archive.org/stream/descriptivecatal1940asso/#page/n37/mode/1up",
+          "beskrivning": "Title : A descriptive catalogue of vegetables Identifier : descriptivecatal1940asso ( find matches ) Year : 1940 ( 1940s ) Authors : Associated Seed Growers, Inc Subjects : Vegetables ; Commercial catalogs ; Nurseries (Horticulture), Catalogs ; Vegetables, Seeds, Catalogs ; Seeds, Catalogs ; Herbs, Catalogs Publisher : New Haven, Conn. : Associated Seed Growers, Inc. Contributing Library : U.S. Department of Agriculture, National Agricultural Library Digitizing Sponsor : U.S. Department of Agriculture, National Agricultural Library View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: 34 ASSOCIATED SEED GROWERS, INC. CHICORY Cichorium intybus Cicoria di Catalogna (Radichetta) Of Italian origin; increasingly popular with market gardeners. An annual with leaves like Dandelion used for early greens; leaves and flower shoots very tender, with faint asparagus flavor. Also known as Asparagus or Sprouting Chicory. Large Rooted (Magdeburg) Dried roots are roasted and mixed with ground coffee. Roots 12\"-14\" long, 2\" in diameter at top; tapered; weigh 16 ozs. Witloof (French Endive) Used extensively for salads. The parsnip-shaped roots are reset for forcing in cold frames or greenhouse, and the new leaf growth forms an attractive, com- pact blanched head, 5\"-6\" long, with broad, crisp leaves, having a pleasantly sharp flavor. CHIVES Alii um schoenoprasum A small perennial belonging to the onion family which grows in clusters. Known in Michigan as Schnittlauch. May be grown from seed or propagated by division of the clusters. Leaves used in salads and for flavoring in soups and stews. COLLARD Brassica oleracea var. acephala A non-heading type of cabbage, used extensively in the South for \"greens.\" Cabbage Collard Medium tall, with a cluster of loose folding, tender leaves, which can be left on the plants and picked as needed. Of Georgia origin, from a cross between Georgia collard and Jersey Wakefield cabbage, and well adapted to Southern conditions. Carolina Short Stem Very closely resembles Georgia collard but has somewhat shorter stem. Georgia (Southern) The old standard variety. Plant upstanding, and vigorous, with large, undulated leaves; withstands heat and adverse soil conditions. Of fine quality when cooked. Louisiana Sweet An attractive new strain of the old Georgia collard bred by Dr. J. C. Miller of Louisiana Experiment Station. Plant tall, hardy, with a cluster of large, thick, tender leaves. Leaf area much greater and with less leaf stem than other varieties. Text Appearing After Image: Louisiana Sweet, right, has greater leaf area than Georgia, left Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 1902,
+          "hojd": 1226,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/A_descriptive_catalogue_of_vegetables_%281940%29_%2820258260133%29.jpg/960px-A_descriptive_catalogue_of_vegetables_%281940%29_%2820258260133%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1940 catalogs",
+            "Brassica oleracea var. viridis",
+            "Descriptive catalogues"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions",
+          "flaggor": [
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": null,
+            "skal": [
+              "licensen kunde inte avgöras (inga igenkända licensmallar; API: \"No restrictions\")"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "cyprianus-pest",
+      "titel": "Cyprianus pest",
+      "start": 249,
+      "plats": "Romarriket; Karthago, där biskop Cyprianus beskrev pesten (i dag Tunisien)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Heiliger Cyprianus.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Heiliger_Cyprianus.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Master of Messkirch",
+          "datum": "circa 1535/40",
+          "datum_original": "circa 1535/40",
+          "datum_fil": "2007-02-20 07:45:13",
+          "kredit": "Eingescannt aus: Anna Moraht-Fromm und Hans Westhoff: Der Meister von Meßkirch – Forschungen zur südwestdeutschen Malerei des 16. Jahrhunderts, Ulm, 1997, S. 190, rechts",
+          "beskrivning": "Ausstattung der ehemaligen Seitenaltäre der Meßkircher St. Martinskirche, Standflügel: als Bischof und Märtyrer",
+          "bredd": 910,
+          "hojd": 1986,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Heiliger_Cyprianus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Bishops in art",
+            "Paintings by Meister von Meßkirch in the Staatsgalerie Stuttgart",
+            "Paintings of Saint Cyprian",
+            "Seitenaltäre des Meisters von Meßkirch (ehemals St. Martin, Meßkirch) (Seitentafeln)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Art"
+            ]
+          }
+        },
+        {
+          "fil": "File:Saint Cyprien évêque de Carthage.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Saint_Cyprien_%C3%A9v%C3%AAque_de_Carthage.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1780-01-01 16:52:03",
+          "datum_original": "1780-01-01 16:52:03",
+          "datum_fil": "2017-09-17 17:20:30",
+          "kredit": "http://www.befr.ebay.be/itm/BELLE-Gravure-PORTRAIT-SAINT-CYPRIEN-EVEQUE-CARTHAGE-TUNISIE-TUNISIA-QARTAJ-1780-/121869992913?hash=item1c600483d1:g:SpYAAOSwEgVWRLG8",
+          "beskrivning": "Saint Cyprien évêque de Carthage",
+          "bredd": 826,
+          "hojd": 1153,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Saint_Cyprien_%C3%A9v%C3%AAque_de_Carthage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Prints of Saint Cyprian"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-70-1923"
+            ]
+          }
+        },
+        {
+          "fil": "File:Nuremberg chronicles f 121v 1.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Nuremberg_chronicles_f_121v_1.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Michel Wolgemut, Wilhelm Pleydenwurff (Text: Hartmann Schedel )",
+          "datum": "1493",
+          "datum_original": "1493",
+          "datum_fil": "2007-07-21 21:32:31",
+          "kredit": "Self-scanned",
+          "beskrivning": "Illustration from the Nuremberg Chronicle",
+          "bredd": 230,
+          "hojd": 293,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/09/Nuremberg_chronicles_f_121v_1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Bishops in the Nuremberg Chronicle",
+            "Nuremberg Chronicle illustrations f 121-130",
+            "Prints of Saint Cyprian"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-100"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "vattengraven-i-levanluhta",
+      "titel": "Vattengraven i Levänluhta",
+      "start": 300,
+      "plats": "Levänluhta, Orismala by, Storkyro, Finland",
+      "wikidata": "Q10560736",
+      "kandidater": [
+        {
+          "fil": "File:Leväluhta bog, Merovingian age bones - National Museum of Finland - DSC04176.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lev%C3%A4luhta_bog,_Merovingian_age_bones_-_National_Museum_of_Finland_-_DSC04176.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Daderot",
+          "datum": "2012-08-14 09:00:51",
+          "datum_original": "2012-08-14 09:00:51",
+          "datum_fil": "2012-12-05 23:28:50",
+          "kredit": "Own work",
+          "beskrivning": "Remains from Levänluhta (Isokyrö, Ostrobothnia). Exhibit in the Archaeological collections, National Museum of Finland, Helsinki, Finland. Photography was permitted in the museum without restriction.",
+          "bredd": 4320,
+          "hojd": 3240,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Lev%C3%A4luhta_bog%2C_Merovingian_age_bones_-_National_Museum_of_Finland_-_DSC04176.JPG/960px-Lev%C3%A4luhta_bog%2C_Merovingian_age_bones_-_National_Museum_of_Finland_-_DSC04176.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological collections of the National Museum of Finland",
+            "Leväluhta",
+            "Skeleton specimens"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Leväluhta 2013.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lev%C3%A4luhta_2013.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Kaj Höglund",
+          "datum": "2013-06-21 22:20:38",
+          "datum_original": "2013-06-21 22:20:38",
+          "datum_fil": "2017-09-29 09:05:58",
+          "kredit": "Own work",
+          "beskrivning": "This is a photo of a monument in Finland identified by the ID 'Levänluhta' (Q10560736)",
+          "bredd": 5616,
+          "hojd": 3744,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Lev%C3%A4luhta_2013.jpg/960px-Lev%C3%A4luhta_2013.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Leväluhta"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "konstverk"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "eketorps-borg-byggs",
+      "titel": "Eketorps borg byggs på Öland",
+      "start": 400,
+      "plats": "Eketorp, sydöstra Öland, Sverige",
+      "wikidata": "Q1011625",
+      "kandidater": [
+        {
+          "fil": "File:Eketorp main view.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Eketorp_main_view.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "Håkan Svensson (Xauxa)",
+          "datum": "2005-08-02",
+          "datum_original": "2005-08-02",
+          "datum_fil": "2006-08-19 17:33:56",
+          "kredit": "Own work",
+          "beskrivning": "Eketorp fornby / Eketorp ancient village. Island of Öland, Sweden.",
+          "bredd": 2345,
+          "hojd": 1777,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Eketorp_main_view.jpg/960px-Eketorp_main_view.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2005 in Mörbylånga Municipality",
+            "August 2005 in Kalmar County",
+            "Eketorps fornborg"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY 2.5",
+            "skal": [
+              "flera licenser: CC BY-SA 3.0, CC BY 2.5",
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{Self|GFDL}}, {{Self|Cc-by-sa-3.0-migrated}}, {{Self|Cc-by-2.5}}. Commons API (LicenseShortName): \"CC BY 2.5\". Flera licenser anges (CC BY-SA 3.0 och CC BY 2.5); bilden används under CC BY 2.5. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under CC BY 2.5.",
+            "risker": [],
+            "mallar": [
+              "Self|GFDL",
+              "Self|Cc-by-sa-3.0-migrated",
+              "Self|Cc-by-2.5"
+            ]
+          }
+        },
+        {
+          "fil": "File:Eketorp main view02.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Eketorp_main_view02.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "Håkan Svensson (Xauxa)",
+          "datum": "2005-08-02",
+          "datum_original": "2005-08-02",
+          "datum_fil": "2006-08-19 17:34:52",
+          "kredit": "Own work",
+          "beskrivning": "Eketorp fornby / Eketorp ancient village. Island of Öland, Sweden.",
+          "bredd": 1994,
+          "hojd": 1492,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Eketorp_main_view02.jpg/960px-Eketorp_main_view02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2005 in Mörbylånga Municipality",
+            "August 2005 in Kalmar County",
+            "Eketorps fornborg"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY 2.5",
+            "skal": [
+              "flera licenser: CC BY-SA 3.0, CC BY 2.5",
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-26): {{Self|GFDL}}, {{Self|Cc-by-sa-3.0-migrated}}, {{Self|Cc-by-2.5}}. Commons API (LicenseShortName): \"CC BY 2.5\". Flera licenser anges (CC BY-SA 3.0 och CC BY 2.5); bilden används under CC BY 2.5. Kontrollera vilken licens som gäller vilken del (verk respektive foto). Filen är också licensierad under GFDL; bilden används under CC BY 2.5.",
+            "risker": [],
+            "mallar": [
+              "Self|GFDL",
+              "Self|Cc-by-sa-3.0-migrated",
+              "Self|Cc-by-2.5"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "guldhornen-fran-gallehus",
+      "titel": "Guldhornen från Gallehus",
+      "start": 400,
+      "plats": "Gallehus nära Møgeltønder, Danmark",
+      "wikidata": "Q1394096",
+      "kandidater": [
+        {
+          "fil": "File:Guldhornene.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Guldhornene.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": null,
+          "datum": "2025-06-06 14:32:59",
+          "datum_original": null,
+          "datum_fil": "2025-06-06 14:32:59",
+          "kredit": null,
+          "beskrivning": null,
+          "bredd": 650,
+          "hojd": 384,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/74/Guldhornene.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Golden horns of Gallehus"
+          ],
+          "smal": true,
+          "flaggor": [
+            "datum-osakert",
+            "smal",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 3.0\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "justinianska-pesten-541",
+      "titel": "Justinianska pesten",
+      "start": 541,
+      "plats": "Konstantinopel och Medelhavsområdet",
+      "wikidata": "Q821711",
+      "kandidater": [
+        {
+          "fil": "File:Diptych Barberini Louvre OA9063 whole.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Diptych_Barberini_Louvre_OA9063_whole.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "early 6th century",
+          "datum_original": "early 6th century",
+          "datum_fil": "2011-03-26 14:00:42",
+          "kredit": "Marie-Lan Nguyen (2011)",
+          "beskrivning": "Barberini diptych. Constantinople, Late Roman Theodosian style.",
+          "bredd": 2500,
+          "hojd": 3125,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Diptych_Barberini_Louvre_OA9063_whole.jpg/960px-Diptych_Barberini_Louvre_OA9063_whole.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Barberini diptych"
+          ],
+          "smal": false,
+          "flaggor": [
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        },
+        {
+          "fil": "File:Yersinia pestis wayson.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Yersinia_pestis_wayson.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S. Center for Disease Control",
+          "datum": "2005-03-30",
+          "datum_original": "2005-03-30",
+          "datum_fil": "2006-10-28 18:45:22",
+          "kredit": "https://www.cdc.gov/ncidod/dvbid/plague/bacterium.htm",
+          "beskrivning": "Wayson stain of Yersinia pestis. Note the characteristic \"safety pin\" appearance of the bacteria.",
+          "bredd": 600,
+          "hojd": 441,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Yersinia_pestis_wayson.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Yersinia pestis"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-HHS-CDC"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "tidig-medeltid"
+    },
+    {
+      "id": "kairouan-grundas",
+      "titel": "Kairouan grundas",
+      "start": 670,
+      "plats": "Kairouan (i dag Tunisien)",
+      "wikidata": "Q179570",
+      "kandidater": [
+        {
+          "fil": "File:View of Kairouan from the Minaret of the Great Mosque - Tunisia - 1899.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:View_of_Kairouan_from_the_Minaret_of_the_Great_Mosque_-_Tunisia_-_1899.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1899",
+          "datum_original": "1899",
+          "datum_fil": "2008-12-05 16:01:01",
+          "kredit": "http://www.old-picture.com/europe/minaret-Great-From-the.htm",
+          "beskrivning": "Photograph of Kairouan from the Minaret of the Great Mosque, Tunisia. This color photochrome print was taken in 1899 in Kairouan, Tunisia.",
+          "bredd": 600,
+          "hojd": 443,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/93/View_of_Kairouan_from_the_Minaret_of_the_Great_Mosque_-_Tunisia_-_1899.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Kairouan on photochrome prints"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-Tunisia"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-22",
+      "stil": "islamisk"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "nero-och-korinthkanalen",
+      "titel": "Nero börjar gräva en kanal genom Korinthiska näset",
+      "start": 67,
+      "plats": "Korinthiska näset, Grekland",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "romerska-fynd-vid-drumanagh",
+      "titel": "Romerska föremål vid Drumanagh på Irlands östkust",
+      "start": 71,
+      "plats": "Drumanagh vid Loughshinny, grevskapet Dublin, Irland",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "akvedukten-fran-zaghouan",
+      "titel": "Akvedukten från Zaghouan leder vatten till Karthago",
+      "start": 101,
+      "plats": "Zaghouan, Tunisien (där akvedukten börjar)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "kalendern-fran-coligny",
+      "titel": "Bronstavlan från Coligny visar en gallisk kalender",
+      "start": 101,
+      "plats": "Coligny, Ain, Frankrike (orten där tavlan hittades)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "antiokia-jordbavningen-115",
+      "titel": "Jordbävningen i Antiokia",
+      "start": 115,
+      "plats": "Antiokia (dagens Antakya), Turkiet",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "torka-i-romerska-nordafrika-under-hadrianus",
+      "titel": "Fem år av torka i romerska Nordafrika",
+      "start": 123,
+      "plats": "Romerska Nordafrika (punkten är Timgad i dagens Algeriet)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "vaxtavlan-fran-alburnus-maior",
+      "titel": "Gruvstaden Alburnus Maior nämns på en vaxtavla",
+      "start": 131,
+      "plats": "Roșia Montană (Alburnus Maior), Alba, Rumänien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "guldet-i-timra",
+      "titel": "Guldet i Timrå och handeln i Medelpad",
+      "start": 200,
+      "plats": "Indalsälvens mynning vid Timrå, Medelpad, Sverige",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "handelsplatsen-pa-helgo",
+      "titel": "Handelsplatsen på Helgö växer fram",
+      "start": 200,
+      "plats": "Helgö i Mälaren, Ekerö kommun, Sverige (punkten är öns mitt; boplatsen låg på öns nordöstra del)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "baiae-sjunker-i-havet",
+      "titel": "Baiae börjar sjunka i havet",
+      "start": 201,
+      "plats": "Baiae (Baia) i Bacoli vid Neapelbukten, Italien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "fynden-pa-fjallens-isfalt-okar",
+      "titel": "Fynden på fjällens isfält blir fler",
+      "start": 201,
+      "plats": "Isfälten i Jotunheimen och fjällen runt omkring, Innlandet (tidigare Oppland), Norge (punkten är Lendbreen, ett av isfälten)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "hastarna-i-litauens-gravar",
+      "titel": "Hästarna i Litauens gravar",
+      "start": 201,
+      "plats": "Litauen (punkten är landets mitt; hästarna kommer från sex gravplatser)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "aldsta-hona-i-finland-pa-aland",
+      "titel": "Finlands äldsta daterade höns fanns på Åland",
+      "start": 266,
+      "plats": "Kvarnbo i Saltvik, Åland, Finland (punkten är byn)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "idrottande-kvinnor-i-villa-romana-del-casale",
+      "titel": "Idrottande kvinnor i Villa Romana del Casale",
+      "start": 300,
+      "plats": "Villa Romana del Casale vid Piazza Armerina, Sicilien, Italien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "goternas-gravar-i-bulgarien",
+      "titel": "Arvsmassa från gravplatser med gotisk anknytning i Bulgarien",
+      "start": 320,
+      "plats": "Aquae Calidae vid Burgas, Bulgarien (en av två gravplatser; den andra är Khan Omurtags aul vid Sjumen)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "jordbavningen-i-nicomedia-358",
+      "titel": "Jordbävning och brand ödelägger Nicomedia",
+      "start": 358,
+      "plats": "Nicomedia, dagens İzmit, Turkiet",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "hovdingagravarna-i-snartemo",
+      "titel": "Hövdingagravarna i Snartemo",
+      "start": 375,
+      "plats": "Snartemo, Hægebostad, Agder, Norge",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "augustinus-skriver-bekannelser",
+      "titel": "Augustinus skriver Bekännelser",
+      "start": 397,
+      "plats": "Hippo Regius, dagens Annaba i Algeriet (där Augustinus var biskop)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "caelius-aurelianus-oversatter-soranos",
+      "titel": "Caelius Aurelianus för över Soranos läkekonst till latin",
+      "start": 400,
+      "plats": "Sicca i Numidien, dagens El Kef i Tunisien (hans hemstad)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "martianus-capella-och-de-sju-fria-konsterna",
+      "titel": "Martianus Capella samlar de sju fria konsterna i en bok",
+      "start": 410,
+      "plats": "Karthago, Tunisien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "spetalska-i-great-chesterford",
+      "titel": "Spetälska hos en ung man i Great Chesterford",
+      "start": 415,
+      "plats": "Great Chesterford, Essex, England",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "spetalska-i-fallward",
+      "titel": "Mannen i båtgraven i Fallward hade spetälska",
+      "start": 426,
+      "plats": "Fallward vid Wremen, Cuxhaven, Tyskland (punkten är Wremen)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "malaria-i-barngravarna-vid-lugnano",
+      "titel": "Malaria bland barnen vid Lugnano",
+      "start": 450,
+      "plats": "Lugnano in Teverina, Umbrien, Italien (punkten är orten; villan vid Poggio Gramignano ligger i närheten)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    },
+    {
+      "id": "vesuvius-472",
+      "titel": "Aska från Vesuvius når Konstantinopel",
+      "start": 472,
+      "plats": "Vesuvius vid Neapelbukten, Italien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-22",
+      "stil": "antik"
+    }
+  ]
+}

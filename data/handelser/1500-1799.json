@@ -4810,6 +4810,21 @@
     "en": "On 23 May 1618, representatives of the Emperor are thrown out of a window in Prague. The event marks the start of the war.",
     "de": "Am 23. Mai 1618 werden Gesandte des Kaisers in Prag aus einem Fenster geworfen. Das Ereignis markiert den Beginn des Krieges."
    },
+   "image": {
+    "file": "images/events/defenestrationen-1618.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Kopparstick av Matthäus Merian ur Theatrum Europaeum, band 1 (filsidan: tredje upplagan, 1662): Prags andra defenestration. Tryckt 44 år efter händelsen (1618); en senare framställning av en våldsam händelse. Licens: Public domain.",
+     "en": "Engraving by Matthäus Merian from the Theatrum Europaeum, volume 1 (file page: third edition, 1662): the Second Defenestration of Prague. Printed 44 years after the event (1618); a later depiction of a violent event. Licence: Public domain.",
+     "de": "Kupferstich von Matthäus Merian aus dem Theatrum Europaeum, Band 1 (Dateiseite: dritte Auflage, 1662): der Zweite Prager Fenstersturz. 44 Jahre nach dem Ereignis (1618) gedruckt; eine spätere Darstellung eines gewaltsamen Ereignisses. Lizenz: gemeinfrei.",
+     "es": "Grabado de Matthäus Merian del Theatrum Europaeum, volumen 1 (página del archivo: tercera edición, 1662): la segunda defenestración de Praga. Impreso 44 años después del suceso (1618); una representación posterior de un hecho violento. Licencia: dominio público.",
+     "fr": "Gravure de Matthäus Merian tirée du Theatrum Europaeum, volume 1 (page du fichier : troisième édition, 1662) : la seconde défenestration de Prague. Imprimée 44 ans après l'événement (1618) ; une représentation postérieure d'un événement violent. Licence : domaine public."
+    },
+    "credit": "Matthäus Merian / Theatrum Europaeum (Universitätsbibliothek Augsburg) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-defenestrationen-1618"
+   },
    "wikidata": "Q374696",
    "sources": [
     "wp-defenestrations-prague",
@@ -4851,6 +4866,21 @@
     "en": "The battle on 8 November 1620 near Prague belongs to the Bohemian Revolt, the first phase of the war.",
     "de": "Die Schlacht am 8. November 1620 bei Prag gehört zum Böhmischen Aufstand, der ersten Phase des Krieges."
    },
+   "image": {
+    "file": "images/events/slaget-vid-vita-berget.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Pieter Snayers' målning \"Slag op de Witte Berg\" (filsidan: olja på duk, daterad 1620), samma år som slaget (1620). Slagfältet sett uppifrån, med ängelfigurer och en banderoll högst upp. Licens: Public domain.",
+     "en": "Pieter Snayers' painting \"Slag op de Witte Berg\" (file page: oil on canvas, dated 1620), the same year as the battle (1620). The battlefield seen from above, with angel figures and a banner at the top. Licence: Public domain.",
+     "de": "Pieter Snayers' Gemälde „Slag op de Witte Berg“ (Dateiseite: Öl auf Leinwand, datiert 1620), im selben Jahr wie die Schlacht (1620). Das Schlachtfeld von oben gesehen, mit Engelsfiguren und einem Banner am oberen Rand. Lizenz: gemeinfrei.",
+     "es": "Pintura «Slag op de Witte Berg» de Pieter Snayers (página del archivo: óleo sobre lienzo, fechado en 1620), el mismo año que la batalla (1620). El campo de batalla visto desde arriba, con figuras de ángeles y una cinta en la parte superior. Licencia: dominio público.",
+     "fr": "Tableau « Slag op de Witte Berg » de Pieter Snayers (page du fichier : huile sur toile, daté de 1620), la même année que la bataille (1620). Le champ de bataille vu d'en haut, avec des figures d'anges et une bannière en haut. Licence : domaine public."
+    },
+    "credit": "Pieter Snayers / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-vita-berget"
+   },
    "wikidata": "Q4373",
    "sources": [
     "wp-white-mountain",
@@ -4889,6 +4919,21 @@
     "sv": "Den 17 september 1631 leder Gustav II Adolf svenska och sachsiska trupper till seger över kejsarens och Katolska ligans arméer.",
     "en": "On 17 September 1631, Gustavus Adolphus leads Swedish and Saxon troops to victory over the armies of the Emperor and the Catholic League.",
     "de": "Am 17. September 1631 führt Gustav II. Adolf schwedische und sächsische Truppen zum Sieg über die Armeen des Kaisers und der Katholischen Liga."
+   },
+   "image": {
+    "file": "images/events/slaget-vid-breitenfeld-1631.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Slagordningsbild av slaget vid Breitenfeld (1631) med latinsk text och namn på arméerna (Gustav, Tilly, Pappenheim, kurfursten av Sachsen) ur en nederländsk bok från 1642 (filsidan). Tryckt 11 år efter slaget; en senare framställning. Licens: Public domain.",
+     "en": "Battle-order plan of the battle of Breitenfeld (1631) with Latin text and the names of the armies (Gustav, Tilly, Pappenheim, the Elector of Saxony), from a Dutch book of 1642 (file page). Printed 11 years after the battle; a later depiction. Licence: Public domain.",
+     "de": "Schlachtordnungsplan der Schlacht bei Breitenfeld (1631) mit lateinischem Text und den Namen der Armeen (Gustav, Tilly, Pappenheim, Kurfürst von Sachsen) aus einem niederländischen Buch von 1642 (Dateiseite). 11 Jahre nach der Schlacht gedruckt; eine spätere Darstellung. Lizenz: gemeinfrei.",
+     "es": "Plano del orden de batalla de Breitenfeld (1631) con texto en latín y los nombres de los ejércitos (Gustavo, Tilly, Pappenheim, el elector de Sajonia), de un libro neerlandés de 1642 (página del archivo). Impreso 11 años después de la batalla; una representación posterior. Licencia: dominio público.",
+     "fr": "Plan de l'ordre de bataille de Breitenfeld (1631) avec texte latin et noms des armées (Gustave, Tilly, Pappenheim, l'électeur de Saxe), tiré d'un livre néerlandais de 1642 (page du fichier). Imprimé 11 ans après la bataille ; une représentation postérieure. Licence : domaine public."
+    },
+    "credit": "Matthäus Merian / Peace Palace Library / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-breitenfeld-1631"
    },
    "wikidata": "Q205379",
    "sources": [
@@ -5020,6 +5065,21 @@
     "en": "On 4 October 1636, a Swedish army under Johan Banér wins a battle at Wittstock.",
     "de": "Am 4. Oktober 1636 gewinnt eine schwedische Armee unter Johan Banér eine Schlacht bei Wittstock."
    },
+   "image": {
+    "file": "images/events/slaget-vid-wittstock.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Illustration av slaget vid Wittstock (1636) av okänd upphovsperson (filsidan: 1600-talet). Filsidan säger inte var den kommer från eller vad den föreställer i detalj. Licens: Public domain.",
+     "en": "Illustration of the battle of Wittstock (1636) by an unknown author (file page: 17th century). The file page does not say where it comes from or what it shows in detail. Licence: Public domain.",
+     "de": "Illustration der Schlacht bei Wittstock (1636) von unbekanntem Urheber (Dateiseite: 17. Jahrhundert). Die Dateiseite sagt nicht, woher sie stammt oder was sie im Einzelnen zeigt. Lizenz: gemeinfrei.",
+     "es": "Ilustración de la batalla de Wittstock (1636) de autor desconocido (página del archivo: siglo XVII). La página del archivo no indica de dónde procede ni qué muestra en detalle. Licencia: dominio público.",
+     "fr": "Illustration de la bataille de Wittstock (1636) d'auteur inconnu (page du fichier : XVIIe siècle). La page du fichier n'indique ni son origine ni ce qu'elle montre en détail. Licence : domaine public."
+    },
+    "credit": "Okänd upphovsperson / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-wittstock"
+   },
    "wikidata": "Q428972",
    "sources": [
     "wp-wittstock-battle",
@@ -5136,6 +5196,21 @@
     "sv": "Fredsavtalen i Osnabrück och Münster undertecknas den 24 oktober 1648 och avslutar kriget.",
     "en": "The peace treaties in Osnabrück and Münster are signed on 24 October 1648 and end the war.",
     "de": "Die Friedensverträge in Osnabrück und Münster werden am 24. Oktober 1648 unterzeichnet und beenden den Krieg."
+   },
+   "image": {
+    "file": "images/events/westfaliska-freden.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Gerard ter Borchs målning, signerad och daterad \"Monasterij A. 1648\" (filsidan; Rijksmuseum). Filsidan kopplar den till Münsterfreden och namnger flera avbildade, bland andra Adriaan Pauw och greven av Peñaranda. Visar en del av de fredsavtal som kallas Westfaliska freden, inte hela freden. Licens: Public domain.",
+     "en": "Gerard ter Borch's painting, signed and dated \"Monasterij A. 1648\" (file page; Rijksmuseum). The file page links it to the Peace of Münster and names several of those shown, among them Adriaan Pauw and the Count of Peñaranda. It shows part of the peace treaties known as the Peace of Westphalia, not the whole peace. Licence: Public domain.",
+     "de": "Gemälde von Gerard ter Borch, signiert und datiert „Monasterij A. 1648“ (Dateiseite; Rijksmuseum). Die Dateiseite verbindet es mit dem Münsterschen Frieden und nennt mehrere Dargestellte, darunter Adriaan Pauw und den Grafen von Peñaranda. Es zeigt einen Teil der Friedensverträge, die als Westfälischer Friede bekannt sind, nicht den ganzen Frieden. Lizenz: gemeinfrei.",
+     "es": "Pintura de Gerard ter Borch, firmada y fechada «Monasterij A. 1648» (página del archivo; Rijksmuseum). La página del archivo la vincula con la Paz de Münster y nombra a varias de las personas representadas, entre ellas Adriaan Pauw y el conde de Peñaranda. Muestra una parte de los tratados de paz conocidos como Paz de Westfalia, no toda la paz. Licencia: dominio público.",
+     "fr": "Tableau de Gerard ter Borch, signé et daté « Monasterij A. 1648 » (page du fichier ; Rijksmuseum). La page du fichier le rattache à la paix de Münster et nomme plusieurs personnes représentées, dont Adriaan Pauw et le comte de Peñaranda. Il montre une partie des traités de paix appelés paix de Westphalie, pas la paix entière. Licence : domaine public."
+    },
+    "credit": "Gerard ter Borch / Rijksmuseum / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-westfaliska-freden"
    },
    "wikidata": "Q150995",
    "sources": [
@@ -8663,6 +8738,21 @@
      "fr": "Den Store Danske et Nordisk familjebok indiquent le 26 février 1658. La Wikipédia en anglais donne le 26 février de l'ancien calendrier (julien), soit le 8 mars du grégorien. Wikidata indique le 28 février."
     }
    },
+   "image": {
+    "file": "images/events/freden-i-roskilde.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Erik Dahlberghs kopparstick av fredsfesten (Fredstaffelet) på Frederiksborgs slott efter undertecknandet av freden i Roskilde 1658, ur Pufendorfs verk om Karl X Gustavs bedrifter (1696; filsidan). Tryckt 38 år efter freden; en senare framställning, beskuren och retuscherad enligt filsidan. Licens: Public domain.",
+     "en": "Erik Dahlbergh's engraving of the peace banquet (Fredstaffelet) at Frederiksborg Castle after the signing of the Treaty of Roskilde in 1658, from Pufendorf's work on the deeds of Charles X Gustav (1696; file page). Printed 38 years after the peace; a later depiction, cropped and retouched according to the file page. Licence: Public domain.",
+     "de": "Erik Dahlberghs Kupferstich des Friedensbanketts (Fredstaffelet) auf Schloss Frederiksborg nach der Unterzeichnung des Friedens von Roskilde 1658, aus Pufendorfs Werk über die Taten Karls X. Gustav (1696; Dateiseite). 38 Jahre nach dem Frieden gedruckt; eine spätere Darstellung, laut Dateiseite zugeschnitten und retuschiert. Lizenz: gemeinfrei.",
+     "es": "Grabado de Erik Dahlbergh del banquete de la paz (Fredstaffelet) en el castillo de Frederiksborg tras la firma de la paz de Roskilde en 1658, de la obra de Pufendorf sobre los hechos de Carlos X Gustavo (1696; página del archivo). Impreso 38 años después de la paz; una representación posterior, recortada y retocada según la página del archivo. Licencia: dominio público.",
+     "fr": "Gravure d'Erik Dahlbergh du banquet de la paix (Fredstaffelet) au château de Frederiksborg après la signature de la paix de Roskilde en 1658, tirée de l'ouvrage de Pufendorf sur les actes de Charles X Gustave (1696 ; page du fichier). Imprimée 38 ans après la paix ; une représentation postérieure, rognée et retouchée d'après la page du fichier. Licence : domaine public."
+    },
+    "credit": "Erik Dahlbergh / Polona (Nationalbiblioteket i Warszawa) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-freden-i-roskilde"
+   },
    "wikidata": "Q212234",
    "sources": [
     "lex-roskildefreden",
@@ -8725,6 +8815,21 @@
      "es": "La Wikipedia en sueco sitúa la suequización entre 1658 y 1719, con la ley sueca en la década de 1680 y el ordenamiento eclesiástico sueco en 1686. Lex.dk (danmarkshistorien.dk) dice que un acuerdo de 1662 impidió al principio una verdadera suequización, y que esta comenzó tras el fin de la guerra en 1679, con una campaña después de 1681. Nordisk familjebok dice que la suequización estaba completada al final de la Gran Guerra del Norte, en 1720.",
      "fr": "La Wikipédia en suédois date la suédisation de 1658 à 1719, avec la loi suédoise dans les années 1680 et l'ordonnance ecclésiastique suédoise en 1686. Lex.dk (danmarkshistorien.dk) écrit qu'un accord de 1662 empêcha d'abord une véritable suédisation, et que celle-ci ne commença qu'après la fin de la guerre en 1679, avec une campagne après 1681. Nordisk familjebok écrit que la suédisation était achevée à la fin de la grande guerre du Nord, en 1720."
     }
+   },
+   "image": {
+    "file": "images/events/forsvenskningen-av-skane.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Framsidan av kung Fredrik III:s cessionsbrev om avträdelsen av Skåne till Sverige, undertecknat i Köpenhamn den 24 februari 1658 (Riksarkivet; filsidan). Visar avträdelsen 1658, inte själva försvenskningen efteråt (1658–1719). Licens: Public domain.",
+     "en": "The front of King Frederick III's deed of cession of the province of Skåne to Sweden, signed in Copenhagen on 24 February 1658 (Swedish National Archives; file page). It shows the cession of 1658, not the Swedenisation that followed (1658–1719). Licence: Public domain.",
+     "de": "Vorderseite der Abtretungsurkunde König Friedrichs III. über die Provinz Schonen an Schweden, unterzeichnet am 24. Februar 1658 in Kopenhagen (Schwedisches Reichsarchiv; Dateiseite). Sie zeigt die Abtretung von 1658, nicht die anschließende Schwedisierung (1658–1719). Lizenz: gemeinfrei.",
+     "es": "Anverso de la carta de cesión del rey Federico III de la provincia de Escania a Suecia, firmada en Copenhague el 24 de febrero de 1658 (Archivo Nacional de Suecia; página del archivo). Muestra la cesión de 1658, no la posterior suecización (1658–1719). Licencia: dominio público.",
+     "fr": "Recto de l'acte de cession par le roi Frédéric III de la province de Scanie à la Suède, signé à Copenhague le 24 février 1658 (Archives nationales de Suède ; page du fichier). Il montre la cession de 1658, pas la suédisation qui a suivi (1658–1719). Licence : domaine public."
+    },
+    "credit": "Riksarkivet / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-forsvenskningen-av-skane"
    },
    "sources": [
     "wp-sv-forsvenskningen",
@@ -10024,6 +10129,21 @@
     "es": "El 10 de agosto de 1628 el buque de guerra Vasa zozobra y se hunde en el puerto de Estocolmo, en su viaje inaugural y a poca distancia de tierra. El barco fue reflotado en 1961 con el casco casi intacto y hoy se expone en el Museo Vasa de Estocolmo.",
     "fr": "Le 10 août 1628, le navire de guerre Vasa chavire et coule dans le port de Stockholm, lors de son voyage inaugural et à peu de distance de la terre. Le navire a été renfloué en 1961 avec une coque presque intacte et il est aujourd'hui exposé au musée Vasa de Stockholm."
    },
+   "image": {
+    "file": "images/events/vasa-sjunker.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Nutida foto (2009) av JavierKohen: Vasa sedd från fören (filsidan, kategori \"Exterior of Vasa (ship, 1627)\"). Fotot visar skeppet i dag, inte när det sjönk (1628). Licens: CC BY-SA 3.0.",
+     "en": "Modern photo (2009) by JavierKohen: the Vasa seen from the bow (file page, category \"Exterior of Vasa (ship, 1627)\"). The photo shows the ship today, not when it sank (1628). Licence: CC BY-SA 3.0.",
+     "de": "Heutiges Foto (2009) von JavierKohen: die Vasa vom Bug aus gesehen (Dateiseite, Kategorie „Exterior of Vasa (ship, 1627)“). Das Foto zeigt das Schiff heute, nicht beim Untergang (1628). Lizenz: CC BY-SA 3.0.",
+     "es": "Foto actual (2009) de JavierKohen: el Vasa visto desde la proa (página del archivo, categoría «Exterior of Vasa (ship, 1627)»). La foto muestra el barco hoy, no cuando se hundió (1628). Licencia: CC BY-SA 3.0.",
+     "fr": "Photo actuelle (2009) de JavierKohen : le Vasa vu de la proue (page du fichier, catégorie « Exterior of Vasa (ship, 1627) »). La photo montre le navire aujourd'hui, pas lors de son naufrage (1628). Licence : CC BY-SA 3.0."
+    },
+    "credit": "JavierKohen / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-vasa-sjunker"
+   },
    "sources": [
     "wp-sv-regalskeppet-vasa",
     "wp-en-vasa-ship",
@@ -10066,6 +10186,21 @@
     "de": "1668 gründet der Reichstag die Bank der Reichsstände, heute Sveriges Riksbank, nachdem die private Stockholms Banco zusammengebrochen war. Die Riksbank gilt als älteste noch bestehende Zentralbank der Welt.",
     "es": "En 1668 el Riksdag funda el Banco de los Estados del Reino, hoy Sveriges Riksbank, tras la quiebra del banco privado Stockholms Banco. El Riksbank se considera el banco central más antiguo del mundo que sigue existiendo.",
     "fr": "En 1668, le Riksdag fonde la Banque des États du royaume, aujourd'hui Sveriges Riksbank, après la faillite de la banque privée Stockholms Banco. La Riksbank est considérée comme la plus ancienne banque centrale encore en activité au monde."
+   },
+   "image": {
+    "file": "images/events/riksbanken-grundas.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Nutida foto (2020) av Holger Ellgaard av Riksbankshusets fasad mot Brunkebergstorg i Stockholm (filsidan). Byggnaden och fotot är inte från grundandet (1668). Licens: CC BY-SA 4.0.",
+     "en": "Modern photo (2020) by Holger Ellgaard of the facade of the Riksbank building facing Brunkebergstorg in Stockholm (file page). The building and the photo are not from the founding (1668). Licence: CC BY-SA 4.0.",
+     "de": "Heutiges Foto (2020) von Holger Ellgaard der Fassade des Riksbankgebäudes am Brunkebergstorg in Stockholm (Dateiseite). Gebäude und Foto stammen nicht aus der Gründungszeit (1668). Lizenz: CC BY-SA 4.0.",
+     "es": "Foto actual (2020) de Holger Ellgaard de la fachada del edificio del Riksbank hacia Brunkebergstorg, en Estocolmo (página del archivo). El edificio y la foto no son de la fundación (1668). Licencia: CC BY-SA 4.0.",
+     "fr": "Photo actuelle (2020) de Holger Ellgaard de la façade du bâtiment de la Riksbank donnant sur Brunkebergstorg, à Stockholm (page du fichier). Le bâtiment et la photo ne datent pas de la fondation (1668). Licence : CC BY-SA 4.0."
+    },
+    "credit": "Holger.Ellgaard / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-riksbanken-grundas"
    },
    "sources": [
     "wp-sv-riksbanken",
@@ -10833,6 +10968,21 @@
     "es": "La Rundetårn (Torre Redonda) de Copenhague se construye entre 1637 y 1642 por encargo de Cristián IV, junto con la iglesia de la Trinidad y una biblioteca para la universidad. En lo alto hay un observatorio astronómico, y durante más de 200 años la torre es el centro de la astronomía danesa. A la cima lleva una larga rampa en espiral en lugar de escaleras.",
     "fr": "La Rundetårn (Tour ronde) de Copenhague est construite de 1637 à 1642 pour Christian IV, avec l’église de la Trinité et une bibliothèque pour l’université. Au sommet se trouve un observatoire astronomique, et pendant plus de 200 ans la tour est le centre de l’astronomie danoise. Une longue rampe en spirale, et non un escalier, mène au sommet."
    },
+   "image": {
+    "file": "images/events/rundetarn-star-klart.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Nutida foto (2013) av Avda av Rundetårn i Köpenhamn (filsidan). Fotot visar tornet i dag, inte när det stod klart (1642). Licens: CC BY-SA 3.0.",
+     "en": "Modern photo (2013) by Avda of the Round Tower (Rundetårn) in Copenhagen (file page). The photo shows the tower today, not when it was completed (1642). Licence: CC BY-SA 3.0.",
+     "de": "Heutiges Foto (2013) von Avda des Runden Turms (Rundetårn) in Kopenhagen (Dateiseite). Das Foto zeigt den Turm heute, nicht bei seiner Fertigstellung (1642). Lizenz: CC BY-SA 3.0.",
+     "es": "Foto actual (2013) de Avda de la Torre Redonda (Rundetårn) de Copenhague (página del archivo). La foto muestra la torre hoy, no cuando se terminó (1642). Licencia: CC BY-SA 3.0.",
+     "fr": "Photo actuelle (2013) d'Avda de la Tour ronde (Rundetårn) à Copenhague (page du fichier). La photo montre la tour aujourd'hui, pas à son achèvement (1642). Licence : CC BY-SA 3.0."
+    },
+    "credit": "Avda / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-rundetarn-star-klart"
+   },
    "sources": [
     "lex-rundetarn",
     "wp-rundetarn",
@@ -11191,6 +11341,21 @@
     "de": "Zwischen 1508 und 1512 malt Michelangelo im Auftrag von Papst Julius II. die Decke der Sixtinischen Kapelle als Fresko. In der Mitte stehen neun Szenen aus dem Buch Genesis, darunter die Erschaffung Adams, und die gesamte Decke zeigt über 300 Figuren. Die fertige Decke wurde am 31. Oktober 1512 gezeigt. Sie gilt als eines der wichtigsten Werke der Hochrenaissance, und Michelangelo war einer der Künstler, die der Renaissance ihre Höhepunkte gaben.",
     "es": "Entre 1508 y 1512, Miguel Ángel pinta al fresco el techo de la Capilla Sixtina por encargo del papa Julio II. En el centro hay nueve escenas del libro del Génesis, entre ellas La creación de Adán, y todo el techo tiene más de 300 figuras. El techo terminado se mostró el 31 de octubre de 1512. Se considera una de las obras más importantes del Alto Renacimiento, y Miguel Ángel fue uno de los artistas que dieron al Renacimiento sus puntos culminantes.",
     "fr": "Entre 1508 et 1512, Michel-Ange peint à fresque le plafond de la chapelle Sixtine, à la demande du pape Jules II. Au centre figurent neuf scènes du livre de la Genèse, dont La Création d'Adam, et l'ensemble du plafond compte plus de 300 personnages. Le plafond achevé fut montré le 31 octobre 1512. Il compte parmi les œuvres majeures de la Haute Renaissance, et Michel-Ange fut l'un des artistes qui donnèrent à la Renaissance ses sommets."
+   },
+   "image": {
+    "file": "images/events/sixtinska-kapellets-tak.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Foto (2010) av Qypchak av Sixtinska kapellets tak, målat av Michelangelo (filsidan: 1508–1512). Filsidan anger att bilden är en bearbetad version där färgstick justerats och att färgerna kan se för blå ut. Licens: CC BY-SA 3.0.",
+     "en": "Photo (2010) by Qypchak of the ceiling of the Sistine Chapel, painted by Michelangelo (file page: 1508–1512). The file page says this is a derived version with the colour cast adjusted and that the colours may look too blue. Licence: CC BY-SA 3.0.",
+     "de": "Foto (2010) von Qypchak der Decke der Sixtinischen Kapelle, gemalt von Michelangelo (Dateiseite: 1508–1512). Laut Dateiseite ist dies eine bearbeitete Version mit korrigiertem Farbstich; die Farben können zu blau wirken. Lizenz: CC BY-SA 3.0.",
+     "es": "Foto (2010) de Qypchak del techo de la Capilla Sixtina, pintado por Miguel Ángel (página del archivo: 1508–1512). Según la página del archivo es una versión derivada con el tinte de color corregido; los colores pueden verse demasiado azules. Licencia: CC BY-SA 3.0.",
+     "fr": "Photo (2010) de Qypchak du plafond de la chapelle Sixtine, peint par Michel-Ange (page du fichier : 1508–1512). Selon la page du fichier, c'est une version dérivée dont la dominante colorée a été corrigée ; les couleurs peuvent paraître trop bleues. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Qypchak (foto) efter Michelangelo / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-sixtinska-kapellets-tak"
    },
    "wikidata": "Q844675",
    "sources": [

@@ -1,0 +1,24 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# File:The Battle of Carchemish.png	slaget-vid-karkemish
+# File:Olbian dolphin coins.jpg	delfinmynt-i-olbia
+# File:Map Anatolia ancient regions-en.svg	joniska-upproret
+# File:Mycale map.gif	slaget-vid-lade
+# File:Scene of the Battle of Marathon.jpg	slaget-vid-marathon
+# File:Scene of the Battle of Plataea.jpg	slaget-vid-plataiai
+# File:Eurymedon Bridge, Aspendos, Turkey. Pic 01.jpg	slaget-vid-eurymedon
+# File:Paul Jamin - Le Brenn et sa part de butin 1893.jpg	slaget-vid-allia
+# File:Alexander and Bucephalus - Battle of Issus mosaic - Museo Archeologico Nazionale - Naples BW.jpg	alexanders-faltag
+# File:Charles R. Stantonː Alexander at the Sack of Thebes in 335 BC (illustration from Hutchinsons History of the Nations, 1915).jpg	thebe-forstors
+# File:Charles Le Brun, Le Passage du Granique, 1665.png	slaget-vid-granikos
+# File:Tolley Building, Syracuse University (north west view).jpg	arkimedes-i-syrakusa
+# File:Map of Rome and Carthage at the start of the Second Punic War.svg	puniska-krigen
+# File:The story of the greatest nations, from the dawn of history to the twentieth century - a comprehensive history, founded upon the leading authorities, including a complete chronology of the world, and (14578958927).jpg	slaget-vid-mylae
+# File:Aegadian Islands map.png	slaget-vid-egadiska-oarna
+# File:Castillo02 Sagunto.JPG	belagringen-av-saguntum
+# File:Hannibal route of invasion-en.svg	hannibal-over-alperna
+# File:Battle cannae destruction.-ca.svg	slaget-vid-cannae
+# File:Carthage villas-romaines 1950.jpg	karthago-forstors
+# File:Mount Etna Volcano Dawn at Paternò Sicilia Italy - Creative Commons by gnuckx (4773785162).jpg	etnas-utbrott-122-fkr
+# File:NBS, Biatec, informačná tabuľa.jpg	biatec-mynten
+# File:J-m-dent-and-sons atlas-of-ancient-and-classical-geography 1912 syria-mesopotamia-assyria-etc-northern-middle-east 3296 2114 600.jpg	slaget-vid-gindarus
