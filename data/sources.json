@@ -4798,6 +4798,10 @@
     {"id": "wp-sunset-crater", "title": "Sunset Crater – Wikipedia", "url": "https://en.wikipedia.org/wiki/Sunset_Crater", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
     {"id": "wp-sinagua", "title": "Sinagua – Wikipedia", "url": "https://en.wikipedia.org/wiki/Sinagua", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
     {"id": "cochrane-2024-falefa", "title": "Cochrane m.fl. 2024: Collective action problems led to the cultural transformation of Sāmoa 800 years ago (PLoS One 19, via PMC)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11189243/", "license": "CC BY 4.0", "checked": "2026-11-27"},
-    {"id": "wp-falefa", "title": "Falefa – Wikipedia", "url": "https://en.wikipedia.org/wiki/Falefa", "license": "CC BY-SA 4.0", "checked": "2026-11-27"}
+    {"id": "wp-falefa", "title": "Falefa – Wikipedia", "url": "https://en.wikipedia.org/wiki/Falefa", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "harney-2019-roopkund", "title": "Harney m.fl. 2019: Ancient DNA from the skeletons of Roopkund Lake reveals Mediterranean migrants in India (Nature Communications, via PMC)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6702210/", "license": "CC BY 4.0", "checked": "2026-11-27"},
+    {"id": "wp-roopkund", "title": "Roopkund – Wikipedia", "url": "https://en.wikipedia.org/wiki/Roopkund", "license": "CC BY-SA 4.0", "checked": "2026-11-27"},
+    {"id": "mcgowan-2018-yarrangobilly", "title": "McGowan m.fl. 2018: Global warming in the context of 2000 years of Australian alpine temperature and snow cover (Scientific Reports, via PMC)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5849736/", "license": "CC BY 4.0", "checked": "2026-11-27"},
+    {"id": "wp-yarrangobilly-caves", "title": "Yarrangobilly Caves – Wikipedia", "url": "https://en.wikipedia.org/wiki/Yarrangobilly_Caves", "license": "CC BY-SA 4.0", "checked": "2026-11-27"}
   ]
 }
