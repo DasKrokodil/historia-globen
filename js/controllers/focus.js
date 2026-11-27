@@ -5,7 +5,7 @@
 //
 // Varje typ är en post i js/focus/ (#1327, kontraktet står överst i js/focus/registry.js): posten laddar och räknar
 // spannet, säger vad kortet visar och ger sin grupp i menyn. Här står bara det som är lika för alla typer.
-import { formatYear, groupDigits } from '../model.js';
+import { formatYear, groupDigits, placesLoadStatus } from '../model.js';
 import { FocusMenu } from '../ui/focusmenu.js';
 import { ui } from '../i18n.js';
 import { OVERLAY_IDS } from '../surfaces.js';
@@ -21,6 +21,13 @@ export function createFocus(app) {
 
   /** Händelser där en religion grundades (founding: true), i tidsordning. */
   const founding = id => foundingOf(data.events, id);
+
+  let pendingPlaceNotice = null;
+  // Beskedet hör till begäran som visade det. En ny adress kan hinna före medan platsen laddas.
+  const clearNotice = () => {
+    pendingPlaceNotice = null;
+    $('focus-notice').hidden = true;
+  };
 
   /**
    * Börjar läget Fokus (#893). Fokuset börjar bara om biljetten fortfarande gäller när det har laddats: ingen nyare
@@ -38,13 +45,23 @@ export function createFocus(app) {
    * origin ({ key, name }, valfri, #1713): fokuset började från ett annat fokus som det ersätter, till exempel Följ riket i landskortet.
    * Fokusraden får då knappen "Till platsen …" som börjar följa origin.key igen, så att man inte måste använda webbläsarens Bakåt.
    */
-  async function startFocus(key, { within = null, origin = null } = {}) {
+  async function startFocus(key, { within = null, origin = null, fromAddress = false } = {}) {
     const ticket = app.store.ticket('fokus');
     const [type, id] = key.split(':');
-    $('focus-notice').hidden = true;
+    clearNotice();
     const post = types.get(type);
+    if (fromAddress && type === 'place' && ['idle', 'loading'].includes(placesLoadStatus())) {
+      pendingPlaceNotice = ticket;
+      $('focus-notice').textContent = ui('place.loadingLink');
+      $('focus-notice').hidden = false;
+    }
     // En okänd typ eller ett okänt id börjar inget fokus
-    const loaded = post ? await post.load(id) : null;
+    let loaded;
+    try {
+      loaded = post ? await post.load(id) : null;
+    } finally {
+      if (pendingPlaceNotice === ticket) clearNotice();
+    }
     if (!loaded) return false;
     if (loaded.unavailable) {
       // Beskedet visas bara om ingen nyare begäran har tagit över: en plats som laddas långsamt och saknas ska inte ge ett
@@ -220,7 +237,7 @@ export function createFocus(app) {
   timeline.addEventListener('change', () => { if (!focusMenu.menu.hidden) syncMenuTime(); });
   focusMenu.onOpen = async () => {
     app.surfaces.opened('focus');
-    $('focus-notice').hidden = true;
+    if (!pendingPlaceNotice) clearNotice();
     syncMenuTime();
     // Det som hämtas först nu (religioner, resor, teman, platser) hämtas en gång, och menyn ritas om en gång
     for (const post of types.all()) await post.menuLoad?.();
@@ -231,8 +248,13 @@ export function createFocus(app) {
     app.detailFocus?.pickFromMenu(true);
     try { return await startFocus(key); } finally { app.detailFocus?.pickFromMenu(false); }
   };
-  /** Beskedet om en länk till något som saknas (#1162) hör till den länken: en nyare adress, Bakåt eller Framåt tar bort det. */
-  const clearNotice = () => { $('focus-notice').hidden = true; };
+  focusMenu.onRetryPlaces = async () => {
+    const request = types.get('place').menuLoad({ retry: true });
+    focusMenu.setGroups(types.menu());
+    await request;
+    if (state.labels?.placeHints) app.places.ensure();
+    focusMenu.setGroups(types.menu());
+  };
 
   return { startFocus, endFocus, founding, focusMenu, showFacts, isSelection, clearNotice };
 }

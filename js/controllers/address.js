@@ -124,7 +124,7 @@ export function createAddress(app) {
       if (s.focus !== focusNow) {
         if (s.focus && focusExists(s.focus)) {
           let started = false, crashed = false;
-          try { started = await app.startFocus(s.focus); } catch (err) { crashed = true; console.warn('Fokus i länken kunde inte öppnas', err); }
+          try { started = await app.startFocus(s.focus, { fromAddress: true }); } catch (err) { crashed = true; console.warn('Fokus i länken kunde inte öppnas', err); }
           // Medan fokuset laddades kan en nyare adress ha tagit över, eller ett läge som krockar (en tur, en lektion) ha
           // börjat; då började fokuset inte (lägeskontraktet, #893). Den nya ägaren har året och kameran, och den gamla
           // adressen skriver inte över dem (#865)
