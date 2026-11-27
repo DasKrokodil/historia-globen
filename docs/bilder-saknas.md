@@ -767,3 +767,38 @@ Utsedda men inte hämtade (HTTP 429, Retry-After 600 s):
 | `casarabekulturen` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
 | `tainofolk-nar-bahamas` | 2026-11-26: Enda kandidaten ("The merchant vessel", 1884) hör inte till Taínofolkets färder och har licensflagga; används inte. |
 | `wari-riket` | 2026-11-26: Ingen kandidat i listan; sökningen efter Pikillacta gav inga träffar. |
+
+
+## Amerika 1520–1914 (#2097 och #2100, 2026-11-26)
+
+13 av 40 händelser fick bild i den här omgången. Följande 27 lämnas utan bild; granskningslistan och valen finns i `data/utkast/bildbatch/amerika-2.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas. Flera står som "ingen egen sökning hann göras": Wikimedia nekade upprepat med HTTP 429, och de kan tas om i en senare omgång.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `smittkoppor-i-tenochtitlan-1520` | 2026-11-26: Ingen kandidat i listan; bilder av sjuka och döda avstås tills en människa bedömt dem; ingen egen sökning hann göras. |
+| `atahualpa-avrattas` | 2026-11-26: Enda kandidaten (porträtt, 355 × 458 px) är för liten; används inte. |
+| `belagringen-av-cusco-1536` | 2026-11-26: Utsedd men inte hämtad: Guaman Pomas teckning "Mango Inga pega fuego al Cuzco" (POMA0402v.jpg, PD-Art), HTTP 429. Står i `data/utkast/bildbatch/amerika-2-ej-hamtade.txt`. |
+| `cocoliztli-1545` | 2026-11-26: Ingen kandidat i listan; bilder av sjuka och döda avstås; ingen egen sökning hann göras. |
+| `san-marcos-universitet-1551` | 2026-11-26: Enda kandidaten (UNMSM sedes principales.png, CC BY-SA 4.0) är en sammanställning av moderna byggnader; används inte. |
+| `vilcabamba-intas-1572` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `mita-i-potosi-1573` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `cocoliztli-1576` | 2026-11-26: Ingen kandidat i listan; bilder av sjuka och döda avstås; ingen egen sökning hann göras. |
+| `palmares-quilombo` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `sor-juana-respuesta-1691` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `godthab-grundas` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `sjuarskriget` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `stand-watie-kapitulerar` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `trippelalliansfordraget` | 2026-11-26: Händelsen saknades i den automatiska listan; ingen egen sökning hann göras. |
+| `slaget-vid-curupayty` | 2026-11-26: Enda kandidaten (Batalhacurupaiti.jpg) är bara 400 × 285 px; används inte. |
+| `humaita-faller-1868` | 2026-11-26: Enda kandidaten är en liten karta (532 px); används inte. |
+| `slaget-vid-acosta-nu` | 2026-11-26: Enda kandidaten (Batalha de Campo Grande, 1871) är bara 620 × 387 px och visar enligt titeln en annan strid; används inte. |
+| `finlay-gula-febern` | 2026-11-26: Enda kandidaten (Walter Reeds brev till Truby, museifoto) hör inte till Finlays upptäckt; används inte. |
+| `slaget-vid-palonegro` | 2026-11-26: Enda kandidaten (Visperas batalla palonegro.jpg) är bara 709 × 432 px; används inte. |
+| `mont-pelee-1902` | 2026-11-26: Enda kandidaten (plansch ur National Geographic 1902, "No restrictions") har licensflagga: verktyget kunde inte avgöra licensen; används inte. |
+| `chagas-ny-parasit-1909` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `mexikanska-revolutionen` | 2026-11-26: Enda kandidaten är en karta (Revolución mexicana 1915.svg); används inte. |
+| `fordraget-i-ciudad-juarez` | 2026-11-26: Ingen kandidat i listan; ingen egen sökning hann göras. |
+| `bingham-vid-machu-picchu` | 2026-11-26: Kandidaterna visar ett tåg som bär Binghams namn (Perurail) och en karta; de visar inte händelsen och används inte. |
+| `decena-tragica` | 2026-11-26: Kandidaten (Decena trágica.JPG: 1913 års foto av Osuna) har enligt filsidan licensen GFDL/CC BY-SA 3.0 satt av uppladdaren på ett foto från 1913; licensen är overifierad och bilden används inte. |
+| `slaget-vid-zacatecas-1914` | 2026-11-26: Enda kandidaten (TakingofZacatecas.JPG) är ett verk från 1965 (en senare avbildning, troligen ett modernt konstverk); används inte. |
+| `vandringsduvan-dor-ut` | 2026-11-26: Enda kandidaten (Martha, den sista vandringsduvan, 1912) har licensrisk (PD-US); verktyget flaggade att fotot kanske bara är fritt i USA; används inte utan närmare kontroll. |

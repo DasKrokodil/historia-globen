@@ -651,6 +651,21 @@
       }
     },
     {
+      "eventId": "azul-ruben-dario-1888",
+      "eventTitle": "Rubén Darío ger ut Azul…",
+      "file": "images/events/azul-ruben-dario-1888.webp",
+      "kind": "historisk",
+      "credit": "Rubén Darío / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-azul-ruben-dario-1888",
+        "title": "Azul - Primera edición – Ruben Dario (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Azul_-_Primera_edici%C3%B3n.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "babyloniska-astronomiska-dagbocker",
       "eventTitle": "Babyloniska astronomiska dagböcker",
       "file": "images/events/babyloniska-astronomiska-dagbocker.webp",
@@ -3060,6 +3075,21 @@
       }
     },
     {
+      "eventId": "guld-i-minas-gerais-1695",
+      "eventTitle": "Guldrushen i Minas Gerais börjar",
+      "file": "images/events/guld-i-minas-gerais-1695.webp",
+      "kind": "historisk",
+      "credit": "Alvesgaspar / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-guld-i-minas-gerais-1695",
+        "title": "Ouro Preto November 2009-7 – Alvesgaspar (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ouro_Preto_November_2009-7.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "guldmannen-i-issyk",
       "eventTitle": "Guldmannen i Issykkurganen",
       "file": "images/events/guldmannen-i-issyk.webp",
@@ -3239,6 +3269,21 @@
         "title": "Image from \"Surgical Casebook\" by Hanaoka Seishu – Hanaoka Seishu (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Image_from_%22Surgical_Casebook%22_by_Hanaoka_Seishu.jpg",
         "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "hans-egede-kommer-till-gronland",
+      "eventTitle": "Hans Egede kommer till Grönland",
+      "file": "images/events/hans-egede-kommer-till-gronland.webp",
+      "kind": "historisk",
+      "credit": "Louis Moe / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-hans-egede-kommer-till-gronland",
+        "title": "Hans Egede på Grønland - Louis Moe (17042) - cropped (cropped) – Louis Moe (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Hans_Egede_p%C3%A5_Gr%C3%B8nland_-_Louis_Moe_(17042)_-_cropped_(cropped).png",
+        "license": "CC BY-SA 4.0",
         "checked": "2026-11-26"
       }
     },
@@ -6147,6 +6192,21 @@
       }
     },
     {
+      "eventId": "noche-triste",
+      "eventTitle": "Noche Triste – mexica driver ut spanjorerna",
+      "file": "images/events/noche-triste.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-noche-triste",
+        "title": "The Sad Night (Noche Triste) (Conquest of Mexico) Painting (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Sad_Night_(Noche_Triste)_(Conquest_of_Mexico)_Painting.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "nok-kulturen",
       "eventTitle": "Nok-kulturen och dess terrakottaskulpturer",
       "file": "images/events/nok-kulturen.webp",
@@ -6579,6 +6639,21 @@
       }
     },
     {
+      "eventId": "panamakanalen-oppnas",
+      "eventTitle": "Panamakanalen öppnas",
+      "file": "images/events/panamakanalen-oppnas.webp",
+      "kind": "historisk",
+      "credit": "Stan Shebs / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-panamakanalen-oppnas",
+        "title": "Panama Canal Gatun Locks – User:Stan Shebs (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Panama_Canal_Gatun_Locks.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "paquime",
       "eventTitle": "Paquimé (Casas Grandes)",
       "file": "images/events/paquime.webp",
@@ -6666,6 +6741,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Stele_Piye_submission_Mariette.jpg",
         "license": "Public domain",
         "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "plan-de-ayala",
+      "eventTitle": "Zapata utropar Plan de Ayala",
+      "file": "images/events/plan-de-ayala.webp",
+      "kind": "historisk",
+      "credit": "Otilio Montaño och Emiliano Zapata / World Digital Library",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-plan-de-ayala",
+        "title": "Plan of Ayala WDL2970 – Montaño, Otilio (1877-1917) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Plan_of_Ayala_WDL2970.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
       }
     },
     {
@@ -6931,6 +7021,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "quebec-grundas-1608",
+      "eventTitle": "Samuel de Champlain grundar Québec",
+      "file": "images/events/quebec-grundas-1608.webp",
+      "kind": "historisk",
+      "credit": "Fabian Roudra Baroi / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-quebec-grundas-1608",
+        "title": "Buildings and Roads of Old Quebec City 14 – Fabian Roudra Baroi (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Buildings_and_Roads_of_Old_Quebec_City_14.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-26"
+      }
     },
     {
       "eventId": "queiros-pa-espiritu-santo",
@@ -7881,6 +7986,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-cerro-cora",
+      "eventTitle": "Solano López dödas vid Cerro Corá",
+      "file": "images/events/slaget-vid-cerro-cora.webp",
+      "kind": "historisk",
+      "credit": "Okänd tecknare / Semana Illustrada",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-cerro-cora",
+        "title": "CHICO DIABO atravessando com uma lança Solano López (Semana Illustrada n 485, 27.03.1870) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:CHICO_DIABO_atravessando_com_uma_lan%C3%A7a_Solano_L%C3%B3pez_(Semana_Illustrada_n_485,_27.03.1870).JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-crete-a-pierrot",
       "eventTitle": "Slaget vid Crête-à-Pierrot",
       "file": "images/events/slaget-vid-crete-a-pierrot.webp",
@@ -8349,6 +8469,21 @@
       "source": null
     },
     {
+      "eventId": "slaget-vid-ollantaytambo",
+      "eventTitle": "Inkasegern vid Ollantaytambo",
+      "file": "images/events/slaget-vid-ollantaytambo.webp",
+      "kind": "historisk",
+      "credit": "Fondo Antiguo de la Biblioteca / Wikimedia Commons (Flickr)",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-slaget-vid-ollantaytambo",
+        "title": "Historia de la conquista del Perú, 1851 427026 (3970910539) – Fondo Antiguo de la Biblioteca de la Universidad de Sevilla from Sevilla, España (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Historia_de_la_conquista_del_Per%C3%BA,_1851_427026_(3970910539).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "slaget-vid-orakau",
       "eventTitle": "Slaget vid Ōrākau",
       "file": "images/events/slaget-vid-orakau.webp",
@@ -8374,6 +8509,21 @@
         "id": "commons-bild-slaget-vid-oriskany",
         "title": "Battle of Oriskany – John R. Chapin (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Oriskany.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "slaget-vid-otumba",
+      "eventTitle": "Slaget vid Otumba",
+      "file": "images/events/slaget-vid-otumba.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-otumba",
+        "title": "Battle of Otumba (Conquest of Mexico) Painting (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Otumba_(Conquest_of_Mexico)_Painting.jpg",
         "license": "Public domain",
         "checked": "2026-11-26"
       }
@@ -8888,6 +9038,21 @@
         "title": "Museo de América Conquest of Mexico 04 (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Museo_de_Am%C3%A9rica_Conquest_of_Mexico_04.jpg",
         "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "spanska-erovringen-av-inkariket",
+      "eventTitle": "Spanska erövringen av Inkariket",
+      "file": "images/events/spanska-erovringen-av-inkariket.webp",
+      "kind": "historisk",
+      "credit": "Girolamo Benzoni / Theodor de Bry / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-spanska-erovringen-av-inkariket",
+        "title": "Inca-Spanish confrontation – Girolamo Benzoni / Theodor de Bry (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Inca-Spanish_confrontation.JPG",
+        "license": "Public domain",
         "checked": "2026-11-26"
       }
     },
@@ -9813,6 +9978,21 @@
       }
     },
     {
+      "eventId": "tupac-amaru-avrattas",
+      "eventTitle": "Den siste inkan, Túpac Amaru, avrättas",
+      "file": "images/events/tupac-amaru-avrattas.webp",
+      "kind": "historisk",
+      "credit": "Cuzcoskolan / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tupac-amaru-avrattas",
+        "title": "TupacamaruI – Cuzco School / Unidentified painter (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:TupacamaruI.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-26"
+      }
+    },
+    {
       "eventId": "tutankhamons-grav-hittas",
       "eventTitle": "Tutankhamons grav hittas",
       "file": "images/events/tutankhamons-grav-hittas.webp",
@@ -10256,6 +10436,21 @@
         "title": "Pirámide de Cuicuilco al Sur del Distrito Federal – Felipe huerta hdez (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Pir%C3%A1mide_de_Cuicuilco_al_Sur_del_Distrito_Federal.jpg",
         "license": "CC BY-SA 3.0",
+        "checked": "2026-11-26"
+      }
+    },
+    {
+      "eventId": "yellowstone-nationalpark",
+      "eventTitle": "Yellowstone blir nationalpark",
+      "file": "images/events/yellowstone-nationalpark.webp",
+      "kind": "historisk",
+      "credit": "James St. John / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-yellowstone-nationalpark",
+        "title": "Grand Prismatic Spring 2013 – James St. John from Newark, Ohio (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Grand_Prismatic_Spring_2013.jpg",
+        "license": "CC BY 2.0",
         "checked": "2026-11-26"
       }
     },
