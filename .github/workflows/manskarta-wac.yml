@@ -22,7 +22,7 @@ concurrency:
 
 jobs:
   hamta:
-    name: Hämta, mät och förminska WAC-kartan
+    name: Hämta, mät och förminska WAC-kartan (kvalitetsprov)
     runs-on: ubuntu-latest
     timeout-minutes: 90
     permissions:
@@ -33,7 +33,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq gdal-bin
-          python3 -m pip install pillow
+          python3 -m pip install pillow numpy
           gdalinfo --version
       - name: Hämta, mät och förminska
         run: |
@@ -65,11 +65,19 @@ jobs:
                   px = list(g.crop((0, y0, w, y1)).getdata()); return round(sum(px) / len(px), 1)
               r['medel_helbild'] = medel(0, h); r['medel_ovre_5_procent'] = medel(0, h // 20); r['medel_undre_5_procent'] = medel(h - h // 20, h)
               r['andel_svarta_pixlar'] = round(sum(1 for p in g.getdata() if p == 0) / (w * h), 4)
-              for q in (80, 70):
+              import numpy as np
+              ref = np.asarray(g, dtype=np.float64)
+              r['kvaliteter'] = {}
+              for q in (40, 45, 50, 55, 60, 65, 70):
                   p = f'{ut}/manskarta-wac-2048x1024-q{q}.webp'
-                  g.save(p, 'WEBP', quality=q, method=6); r[f'webp_q{q}_byte'] = os.path.getsize(p)
-              g.resize((1024, 512), Image.LANCZOS).save(f'{ut}/manskarta-wac-1024x512-q80.webp', 'WEBP', quality=80, method=6)
-              r['webp_1024_q80_byte'] = os.path.getsize(f'{ut}/manskarta-wac-1024x512-q80.webp')
+                  g.save(p, 'WEBP', quality=q, method=6)
+                  d = np.asarray(Image.open(p).convert('L'), dtype=np.float64)
+                  mse = float(((ref - d) ** 2).mean())
+                  r['kvaliteter'][q] = {'byte': os.path.getsize(p), 'psnr_db': round(10 * np.log10(255 ** 2 / mse), 2)}
+              # Utsnitt i full upplösning (512 x 512 ur mitten av nära sidan) för att se detaljförlusten
+              g.crop((768, 256, 1280, 768)).save(f'{ut}/utsnitt-original.png')
+              for q in (50, 60, 70):
+                  Image.open(f'{ut}/manskarta-wac-2048x1024-q{q}.webp').convert('L').crop((768, 256, 1280, 768)).save(f'{ut}/utsnitt-q{q}.png')
           except Exception as e:
               r['fel'] = str(e)
           json.dump(r, open(ut + '/rapport.json', 'w'), indent=2, ensure_ascii=False)
