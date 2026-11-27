@@ -365,7 +365,12 @@ for item in (spread or {}).get('items', []):
     for s in item.get('sources', []):
         if s not in src_ids:
             err(f"data/spridning.json ({item.get('id')}): källan {s} finns inte i sources.json")
-    for place in item.get('places', []) + [p for part in item.get('parts', []) for p in part] + [p for path in item.get('paths', []) for p in path]:
+    # En del är en lista med platser eller { radiusKm, places } med egen radie (#1593)
+    part_places = [part if isinstance(part, list) else part.get('places', []) for part in item.get('parts', [])]
+    for part in item.get('parts', []):
+        if isinstance(part, dict) and not (isinstance(part.get('radiusKm'), (int, float)) and part['radiusKm'] > 0 and part.get('places')):
+            err(f"data/spridning.json ({item.get('id')}): en del med egen radie saknar radiusKm > 0 eller places")
+    for place in item.get('places', []) + [p for part in part_places for p in part] + [p for path in item.get('paths', []) for p in path]:
         if 'event' in place and place['event'] not in ev_ids:
             err(f"data/spridning.json ({item.get('id')}): händelsen {place['event']} finns inte i events.json")
         elif place.get('coordSource') and place['coordSource'] not in src_ids:

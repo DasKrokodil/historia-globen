@@ -87,7 +87,10 @@ export class SpreadLayer {
       ...i,
       // Ett område är en eller flera delar (parts); varje del blir ett hölje, och delarna ritas som en yta.
       // Delar gör att en yta kan följa en båge (Iberien–Kaukasus–Altaj) utan att täcka det som ligger innanför.
-      _parts: (i.parts ?? [i.places ?? []]).map(part => part.map(p => this.coord(p)).filter(Boolean)).filter(part => part.length),
+      // En del är en lista med platser, eller { radiusKm, places } med en egen radie (#1593); annars gäller ytans radiusKm.
+      _parts: (i.parts ?? [i.places ?? []])
+        .map(part => ({ pts: (Array.isArray(part) ? part : part.places ?? []).map(p => this.coord(p)).filter(Boolean), r: part.radiusKm ?? i.radiusKm ?? 600 }))
+        .filter(part => part.pts.length),
       _paths: (i.paths ?? []).map(path => path.map(p => this.coord(p)).filter(Boolean)).filter(p => p.length > 1),
     }));
   }
@@ -200,7 +203,7 @@ export class SpreadLayer {
   }
 
   /**
-   * Ett antaget område: ett mjukt hölje med radien radiusKm runt platserna i varje del, och alla delar som en yta.
+   * Ett antaget område: ett mjukt hölje med radien radiusKm (ytans eller delens egen) runt platserna i varje del, och alla delar som en yta.
    * Ytan fylls svagt och med snedstreck; ytterkanten är streckad med mörk kontur under, så att den syns mot både land och
    * hav (skissen på #1094, fynd 2). Kanterna där delarna överlappar suddas bort, så att bara ytterkanten syns.
    * Med en mask (istidens kust, #1565) klipps ytan, snedstrecken och kanten mot land utan is i modellen: ytan ritas på en
@@ -209,7 +212,7 @@ export class SpreadLayer {
    */
   drawArea(ctx, W, H, k, item) {
     const col = this.colors[item.group] ?? '#e9c46a';
-    const polys = item._parts.map(pts => padHull(pts, item.radiusKm ?? 600, W, H)).filter(h => h.length > 2);
+    const polys = item._parts.map(({ pts, r }) => padHull(pts, r, W, H)).filter(h => h.length > 2);
     if (!polys.length) return null;
     const all = polys.flat(), xs = all.map(([x]) => x), ys = all.map(([, y]) => y), shifts = [0];
     if (Math.min(...xs) < 0) shifts.push(W);

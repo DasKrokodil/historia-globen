@@ -272,6 +272,12 @@
       ]
     },
     {
+      "license": "CC BY 4.0 (enligt artikeln och Europe PMC)",
+      "sourceIds": [
+        "xhauflair-2023-tabon"
+      ]
+    },
+    {
       "license": "CC BY-NC (enligt Europe PMC), länkad källa: ingen text kopierad (beslut 2026-10-29)",
       "sourceIds": [
         "gousset-2026-homo-luzonensis"
@@ -3310,6 +3316,7 @@
         "wp-szechenyi-chain-bridge",
         "wp-szeged",
         "wp-szentendre",
+        "wp-tabon-caves",
         "wp-tabriz",
         "wp-taforalt",
         "wp-taiping-heavenly-kingdom",
@@ -3909,6 +3916,7 @@
         "wd-suriname-kingdom",
         "wd-swedish-empire",
         "wd-syrakusa",
+        "wd-tabon-caves",
         "wd-tacuba",
         "wd-taiping-heavenly-kingdom",
         "wd-tanum",
