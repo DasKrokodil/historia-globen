@@ -62,7 +62,7 @@ test('rikets egen rad Om kartan står vid raden bara när gruppen har en enda de
 });
 
 test('Skåne (landskap) och platser utan beslut har inga perioder', () => {
-  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'polen'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
+  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'polen', 'tjeckien'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
 });
 
 test('raderna får rikets eget namn ur indexet och en lucka för år som ingen period täcker', () => {
@@ -79,8 +79,8 @@ test('raderna får rikets eget namn ur indexet och en lucka för år som ingen p
     .filter(r => r.kind === 'gap'), []);
 });
 
-test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien, Nederländerna, Luxemburg, Tyskland, Österrike, Schweiz och Polen räknas ur datan: inga av de listade delarna täcker luckans år', () => {
-  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'polen']) {
+test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien, Nederländerna, Luxemburg, Tyskland, Österrike, Schweiz, Polen och Tjeckien räknas ur datan: inga av de listade delarna täcker luckans år', () => {
+  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'polen', 'tjeckien']) {
     const pl = places.find(p => p.id === id);
     const rows = placeEmpireRows(pl, groups);
     assert.equal(rows.filter(r => r.kind === 'empire').length, pl.periods.length, `${id}: alla perioder blir rader`);
@@ -232,6 +232,33 @@ test('Polens luckor och kartavvikelser är de som kortets kartanteckningar nämn
   assert.deepEqual(span('kungariket-polen'), [[962, 1138], [1352, 1449]]);
   assert.deepEqual(span('ryska-imperiet'), [[1814, 1829], [1834, 1915]]);
   assert.deepEqual(span('polen'), [[1919, 1939], [1945, 2024]]);
+});
+
+test('Tjeckiens luckor och kartavvikelser är de som kortets kartanteckningar nämner (#1824): rikena följer Prag', () => {
+  const pl = places.find(p => p.id === 'tjeckien');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]), [[1807, 1867], [1939, 1944]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    // Luckorna, Stormähren (870), Bolesław I (1003, 1004) och kartans Kungariket Polen, Tysk-romerska riket (1002, 1010–1806),
+    // kungariket (1198), Habsburgarna (1526) och kartans Spanska imperiet och Preussen, Österrike-Ungern, Tjeckoslovakien,
+    // Sudetlandet och protektoratet, upplösningen, och Mährens och Ostravas avvikelser
+    for (const years of ['1807–1867', '1939–1944', '870', '1003', '1004', '1003–1009', '1002', '1010–1806', '1198', '1526', '1529–1555',
+      '1556', '1744–1747', '1804', '1868–1918', '1919–1938', '1938', '1939', '1945–1991', '1992', '1993', '999', '1019', '1029',
+      '1003–1027', '1468–1478', '1475–1491', '1873–1918']) {
+      assert.ok(introAll(pl, lang).includes(years), `tjeckien: kartanteckningarna (${lang}) nämner inte ${years}`);
+    }
+    for (const name of ['Brno', 'Ostrava', 'Liberec']) {
+      assert.ok(introAll(pl, lang).includes(name), `tjeckien: kartanteckningarna (${lang}) nämner inte ${name}`);
+    }
+    assert.ok(pl.intro[lang].length <= 400, `tjeckien: inledningen (${lang}) är längre än cirka 400 tecken`);
+  }
+  // Kungariket Polen, Spanska imperiet, Preussen och Nazityskland står inte som rader (kartavvikelser och protektoratet)
+  assert.ok(!pl.periods.some(p => ['kungariket-polen', 'spanska-imperiet', 'preussen', 'nazityskland'].includes(p.empire)));
+  const span = id => pl.periods.filter(p => p.empire === id).map(p => [p.from, p.to]);
+  assert.deepEqual(span('tysk-romerska-riket'), [[1010, 1806]]);
+  assert.deepEqual(span('habsburgska-riket'), [[1556, 1618], [1622, 1743], [1748, 1805]]);
+  assert.deepEqual(span('tjeckoslovakien'), [[1919, 1938], [1945, 1991]]);
+  assert.deepEqual(span('tjeckien'), [[1992, 2024]]);
 });
 
 test('kortet visar rikena som knappar med hela namnet, luckan som en rad och i en tur bara text', () => {
