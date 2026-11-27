@@ -6919,7 +6919,7 @@
     "wp-goree",
     "wikidata"
    ],
-   "review": "source-checked"
+   "review": "source-checked", "lasting": true
   },
   {
    "id": "sakoku-japan-stanger",
@@ -7579,7 +7579,7 @@
     "wp-sennar",
     "wikidata"
    ],
-   "review": "source-checked"
+   "review": "source-checked", "lasting": true
   },
   {
    "id": "afonso-i-kung-av-kongo",
@@ -10887,7 +10887,7 @@
    "sources": [
     "wp-sankore-madrasah"
    ],
-   "review": "source-checked"
+   "review": "source-checked", "lasting": true
   },
   {
    "id": "reformationen-i-danmark",
