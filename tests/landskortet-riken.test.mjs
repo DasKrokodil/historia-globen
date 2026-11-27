@@ -62,7 +62,7 @@ test('rikets egen rad Om kartan står vid raden bara när gruppen har en enda de
 });
 
 test('Skåne (landskap) och platser utan beslut har inga perioder', () => {
-  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'polen', 'tjeckien', 'slovakien'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
+  for (const pl of places.filter(p => !['sverige', 'danmark', 'norge', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'polen', 'tjeckien', 'slovakien', 'ungern'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
 });
 
 test('raderna får rikets eget namn ur indexet och en lucka för år som ingen period täcker', () => {
@@ -79,8 +79,8 @@ test('raderna får rikets eget namn ur indexet och en lucka för år som ingen p
     .filter(r => r.kind === 'gap'), []);
 });
 
-test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien, Nederländerna, Luxemburg, Tyskland, Österrike, Schweiz, Polen, Tjeckien och Slovakien räknas ur datan: inga av de listade delarna täcker luckans år', () => {
-  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'polen', 'tjeckien', 'slovakien']) {
+test('luckorna i Sverige, Danmark, Finland, Estland, Island, Lettland, Litauen, Storbritannien, Irland, Frankrike, Belgien, Nederländerna, Luxemburg, Tyskland, Österrike, Schweiz, Polen, Tjeckien, Slovakien och Ungern räknas ur datan: inga av de listade delarna täcker luckans år', () => {
+  for (const id of ['sverige', 'danmark', 'finland', 'estland', 'island', 'lettland', 'litauen', 'storbritannien', 'irland', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'polen', 'tjeckien', 'slovakien', 'ungern']) {
     const pl = places.find(p => p.id === id);
     const rows = placeEmpireRows(pl, groups);
     assert.equal(rows.filter(r => r.kind === 'empire').length, pl.periods.length, `${id}: alla perioder blir rader`);
@@ -289,6 +289,37 @@ test('Slovakiens luckor och kartavvikelser är de som kortets kartanteckningar n
   assert.deepEqual(span('slovakien'), [[1992, 2024]]);
   // Devín ligger 0,9 km utanför Natural Earths gräns (i Österrikes polygon), men källan placerar borgen i Bratislava
   assert.deepEqual(pl.includeEvents, ['devin-i-stora-mahren']);
+});
+
+test('Ungerns luckor och kartavvikelser är de som kortets kartanteckningar nämner (#1826): rikena följer Budapest', () => {
+  const pl = places.find(p => p.id === 'ungern');
+  const rows = placeEmpireRows(pl, groups);
+  assert.deepEqual(rows.filter(r => r.kind === 'gap').map(r => [r.from, r.to]), [[451, 499], [546, 792], [900, 999], [1450, 1458], [1806, 1867], [1944, 1944]]);
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    // Luckorna, Romarriket, Hunnerriket, Östgoterna, Frankerriket, magyarernas ankomst, Kungariket Ungern med kartans Tysk-romerska riket,
+    // Mohács och Buda, Osmanska riket, Habsburgska riket, Kejsardömet Österrike, Österrike-Ungern, Trianon, Wienskiljedomarna,
+    // ockupationen och kapitulationen, folkrepubliken och avvikelserna i Szeged, Győr, Esztergom och Debrecen
+    for (const years of ['451–499', '546–792', '900–999', '1450–1458', '1806–1867', '1944', '43–394', '395–450', '370–469', '500–545', '793–899',
+      '862–895', '1000–1449', '1459–1546', '1305–1313', '1526', '1541', '1547–1686', '1687–1805', '1804', '1868–1918', '1919', '1920', '1938',
+      '1940', '1947', '1945', '1949', '1989', '806–899', '1552–1695', '1540–1555', '1547–1608', '1673–1686', '1547–1594', '1619–1695']) {
+      assert.ok(introAll(pl, lang).includes(years), `ungern: kartanteckningarna (${lang}) nämner inte ${years}`);
+    }
+    const trianon = lang === 'es' ? 'Trianón' : 'Trianon';
+    for (const name of ['Aquincum', 'Mohács', 'Buda', trianon, 'Szeged', 'Győr', 'Esztergom', 'Debrecen']) {
+      assert.ok(introAll(pl, lang).includes(name), `ungern: kartanteckningarna (${lang}) nämner inte ${name}`);
+    }
+    assert.ok(pl.intro[lang].length <= 400, `ungern: inledningen (${lang}) är längre än cirka 400 tecken`);
+  }
+  // Kartans Tysk-romerska riket, Nazityskland, Första bulgariska riket och Spanska imperiet står inte som rader
+  assert.ok(!pl.periods.some(p => ['tysk-romerska-riket', 'nazityskland', 'forsta-bulgariska-riket', 'spanska-imperiet'].includes(p.empire)));
+  const span = id => pl.periods.filter(p => p.empire === id).map(p => [p.from, p.to]);
+  assert.deepEqual(span('romarriket'), [[43, 394], [395, 450]]);
+  assert.deepEqual(span('kungariket-ungern'), [[1000, 1449], [1459, 1546]]);
+  assert.deepEqual(span('osmanska-riket'), [[1547, 1686]]);
+  assert.deepEqual(span('habsburgska-riket'), [[1687, 1805]]);
+  assert.deepEqual(span('ungern'), [[1919, 1943], [1945, 2024]]);
+  // Paneuropeiska picknicken ligger 1,3 km utanför Natural Earths gräns (i Österrikes polygon), men källan placerar den vid gränsen nära Sopron i Ungern
+  assert.deepEqual(pl.includeEvents, ['paneuropeiska-picknicken']);
 });
 
 test('kortet visar rikena som knappar med hela namnet, luckan som en rad och i en tur bara text', () => {
