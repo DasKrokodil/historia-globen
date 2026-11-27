@@ -698,6 +698,24 @@ Antagna områden och vågor i förhistorien, som lagret Människans spridning (`
   - `sources` (id i `sources.json`) och `review` som för händelser (`draft` visas inte).
 - `scripts/validate-site.py` kontrollerar att källorna och händelserna finns och att varje plats har `event` eller `coord`. `tools/oversattning.py` räknar texterna.
 
+## `rymd.json`: platser på andra himlakroppar (#1527)
+
+Rymden, etapp 1 ([beslut 2026-11-14](beslut/2026-11-14-rymden-forsta-steget.md)): en händelse på jorden som har en plats på månen får knappen **Visa på månen** i faktarutan, och platsen visas på en platt månkarta i en dialog (`js/ui/moon.js`). Kopplingen ligger i den här filen och inte som fält på händelsen: händelsens `location` är alltid en jordplats (WGS 84) och används av platssökning, Platt vy, fokus och bågar. Tas filen bort försvinner knappen och vyn. Schema: `schemas/rymd.schema.json`.
+
+- `schema`: `historia-globen/rymd@1`.
+- `maps.<himlakropp>`: kartan för himlakroppen (i etapp 1 bara `moon`).
+  - `file` (`images/rymd/<namn>.webp`), `width`, `height`: bilden i pixlar. Månkartan är LROC WAC Global Morphology Mosaic 100 m (USGS Astropedia, public domain), förminskad till 2048 × 1024 och WebP kvalitet 45 (286 890 byte). Den laddas först när dialogen öppnas.
+  - `projection` (`equirectangular`) och `bounds` `[väst, syd, öst, nord]` i grader (`[-180, -90, 180, 90]`). En punkt `[längd, bredd]` ritas på `(längd − väst) / (öst − väst)` av bredden och `(nord − bredd) / (nord − syd)` av höjden (`mapPosition` i `js/ui/moon.js`).
+  - `source` (id i `sources.json`), `credit`, `license` och `caption` (text per språk, "Gråskala, bearbetad, inte skalenlig."), som visas i bildtexten. `made` säger hur bilden gjordes ur originalet.
+- `items[]`, en post per plats:
+  - `id`; `eventId` (händelsens id i `events.json`); `body` (himlakroppen: `moon`, samma värden som `CELESTIAL_BODIES` i `js/state.js` utom `earth`). En händelse har högst en post per himlakropp.
+  - `coord`: `[längd, bredd]` i grader, selenografiska koordinater med östlig längd positiv, −180 till 180 (samma som kartan). Koordinater och namn kommer bara ur öppnade källor (NASA, USGS), aldrig ur minnet.
+  - `placeType`: vad platsen är (`landing-site`); texten står i `space.type.<typ>` i `data/ui/<språk>.json`.
+  - `name`, `summary`, valfri `note` (till exempel "Källorna skiljer sig"): texter per språk.
+  - `sources` (id i `sources.json`) och `coordSources` (de av dem som ger koordinaten). `review` som för händelser: `draft` visas inte, `two-sources` bara när två oberoende källor i `coordSources` ger samma punkt. `checkNote` (valfri, bara svenska, visas inte) säger vad som jämfördes.
+- `scripts/validate-site.py` kontrollerar schemat, att händelsen, källorna och kartfilen finns, att `id` är unika, att `coord` ligger inom kartan och att `two-sources` har två källor i `coordSources`. `scripts/build-site.sh` kopierar filen och kartbilden. `tools/oversattning.py` räknar texterna.
+- I tillståndet och adressen är himlakroppen reserverad (`body` och `b`), men skrivs inte i etapp 1; se docs/arkitektur.md, Tillståndet i adressen.
+
 ## `upptackt.json`: upptäcktsvyn (#101)
 
 Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/discovery.js`):

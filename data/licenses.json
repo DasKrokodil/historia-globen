@@ -1812,6 +1812,7 @@
         "wp-gastarbeiter",
         "wp-gautama-buddha",
         "wp-gava-mines",
+        "wp-gavle",
         "wp-gdansk-shipyard",
         "wp-ge-hong",
         "wp-gebel-ramlah",
@@ -1858,6 +1859,7 @@
         "wp-gondar",
         "wp-gonur-depe",
         "wp-good-friday-agreement",
+        "wp-goran-fredrik-goransson",
         "wp-goree",
         "wp-gothic-christianity",
         "wp-gotthard-rail-tunnel",
@@ -3244,14 +3246,19 @@
         "wp-surinam-dutch-colony",
         "wp-suriname",
         "wp-susa",
+        "wp-sv-1869",
         "wp-sv-ansgar",
         "wp-sv-antiken",
+        "wp-sv-bjorkebaten",
         "wp-sv-celsiusskalan",
         "wp-sv-dalarna",
+        "wp-sv-edsken",
         "wp-sv-falu-koppargruva",
         "wp-sv-finland-romersk-jarnalder",
         "wp-sv-forsvenskningen",
         "wp-sv-frosostenen",
+        "wp-sv-gastrikland",
+        "wp-sv-gavle",
         "wp-sv-glosa",
         "wp-sv-gota-kanal",
         "wp-sv-gotland",
@@ -3729,6 +3736,7 @@
         "wd-bangladesh",
         "wd-belgian-congo",
         "wd-billund",
+        "wd-bjorkebaten",
         "wd-bogd-khanate",
         "wd-buguldejka",
         "wd-byzantine-empire",
@@ -3753,6 +3761,7 @@
         "wd-dzungar-khanate",
         "wd-east-germany",
         "wd-eastern-wu",
+        "wd-edsken",
         "wd-egypt",
         "wd-emirate-of-afghanistan",
         "wd-emirate-of-bukhara",
@@ -3771,6 +3780,8 @@
         "wd-funan",
         "wd-funj-sultanate",
         "wd-gallehushornen",
+        "wd-gastrikland",
+        "wd-gavle",
         "wd-ghaznavid-empire",
         "wd-ghaznavids",
         "wd-glosahallen",
@@ -4623,6 +4634,7 @@
         "pigafetta-blair-robertson-33",
         "pigafetta-blair-robertson-34",
         "rockhill-1915-toung-pao",
+        "usgs-lroc-wac-global-100m",
         "whe-chinese-diamond-sutra",
         "wilber-1886"
       ]
@@ -5315,13 +5327,22 @@
       "license": "Public domain (USA:s federala myndighet)",
       "sourceIds": [
         "commons-bild-ghanas-sjalvstandighet",
-        "nasa-great-wall"
+        "nasa-great-wall",
+        "nasa-nssdca-apollo-11",
+        "nasa-nssdca-apollo-11-30",
+        "nasa-nssdca-apollo-landningsplatser"
       ]
     },
     {
       "license": "Public domain (USA:s federala regering)",
       "sourceIds": [
         "nps-yellowstone-establishment"
+      ]
+    },
+    {
+      "license": "Public domain (USGS; metadata i MOON_nomenclature_center_pts.zip)",
+      "sourceIds": [
+        "usgs-gazetteer-statio-tranquillitatis"
       ]
     },
     {
@@ -5497,6 +5518,7 @@
       "sourceIds": [
         "lex-dalarna",
         "lex-freden-i-kobenhavn",
+        "lex-gastrikland",
         "lex-gotland",
         "lex-jamtland",
         "lex-lappland",
@@ -5570,6 +5592,7 @@
       "license": "© Store norske leksikon, begrenset gjenbruk (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "snl-dalarna",
+        "snl-gastrikland",
         "snl-gotland",
         "snl-jamtland",
         "snl-lappland",
