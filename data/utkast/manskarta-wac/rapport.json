@@ -1,0 +1,41 @@
+{
+  "storlek": [
+    2048,
+    1024
+  ],
+  "lage": "L",
+  "medel_helbild": 64.3,
+  "medel_ovre_5_procent": 33.4,
+  "medel_undre_5_procent": 38.0,
+  "andel_svarta_pixlar": 0.0,
+  "kvaliteter": {
+    "40": {
+      "byte": 259932,
+      "psnr_db": 30.5
+    },
+    "45": {
+      "byte": 286890,
+      "psnr_db": 31.24
+    },
+    "50": {
+      "byte": 308034,
+      "psnr_db": 31.73
+    },
+    "55": {
+      "byte": 327438,
+      "psnr_db": 32.22
+    },
+    "60": {
+      "byte": 348656,
+      "psnr_db": 32.73
+    },
+    "65": {
+      "byte": 374272,
+      "psnr_db": 33.35
+    },
+    "70": {
+      "byte": 397046,
+      "psnr_db": 33.89
+    }
+  }
+}
