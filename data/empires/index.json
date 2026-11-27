@@ -19392,7 +19392,8 @@
    "id": "preussen",
    "name": {
     "sv": "Preussen",
-    "en": "Prussia"
+    "en": "Prussia",
+    "de": "Preußen"
    },
    "color": "#4a6fa0",
    "from": 1526,
@@ -19403,7 +19404,8 @@
      "id": "hertigdomet-preussen",
      "name": {
       "sv": "Hertigdömet Preussen",
-      "en": "Duchy of Prussia"
+      "en": "Duchy of Prussia",
+      "de": "Herzogtum Preußen"
      },
      "sources": [
       "cliopatria"
@@ -19414,7 +19416,8 @@
      "id": "brandenburg-preussen",
      "name": {
       "sv": "Brandenburg-Preussen",
-      "en": "Brandenburg-Prussia"
+      "en": "Brandenburg-Prussia",
+      "de": "Brandenburg-Preußen"
      },
      "sources": [
       "cliopatria"
@@ -19425,7 +19428,8 @@
      "id": "kungariket-preussen",
      "name": {
       "sv": "Kungariket Preussen",
-      "en": "Kingdom of Prussia"
+      "en": "Kingdom of Prussia",
+      "de": "Königreich Preußen"
      },
      "sources": [
       "cliopatria"
@@ -19442,7 +19446,8 @@
      {
       "name": {
        "sv": "Tyska ordensstaten",
-       "en": "The Teutonic Order State"
+       "en": "The Teutonic Order State",
+       "de": "Deutschordensstaat"
       },
       "wikidata": "Q156020"
      }
@@ -19451,14 +19456,16 @@
      {
       "name": {
        "sv": "Polen",
-       "en": "Poland"
+       "en": "Poland",
+       "de": "Polen"
       },
       "wikidata": "Q36"
      },
      {
       "name": {
        "sv": "Sovjetunionen",
-       "en": "The Soviet Union"
+       "en": "The Soviet Union",
+       "de": "Sowjetunion"
       },
       "group": "sovjetunionen",
       "wikidata": "Q15180"
@@ -19466,13 +19473,15 @@
      {
       "name": {
        "sv": "Tyska delstater (bland dem Brandenburg, Sachsen-Anhalt, Mecklenburg-Vorpommern, Nordrhein-Westfalen, Niedersachsen, Hessen, Rheinland-Pfalz och Schleswig-Holstein)",
-       "en": "German states (among them Brandenburg, Saxony-Anhalt, Mecklenburg-Vorpommern, North Rhine-Westphalia, Lower Saxony, Hesse, Rhineland-Palatinate and Schleswig-Holstein)"
+       "en": "German states (among them Brandenburg, Saxony-Anhalt, Mecklenburg-Vorpommern, North Rhine-Westphalia, Lower Saxony, Hesse, Rhineland-Palatinate and Schleswig-Holstein)",
+       "de": "Deutsche Länder (darunter Brandenburg, Sachsen-Anhalt, Mecklenburg-Vorpommern, Nordrhein-Westfalen, Niedersachsen, Hessen, Rheinland-Pfalz und Schleswig-Holstein)"
       }
      }
     ],
     "note": {
      "sv": "Källorna skiljer sig om efterträdarna. Wikipedia beskriver hur landet delades 1945–1947: öster om Oder–Neisse till Polen och Sovjetunionen, resten till tyska delstater. Wikidata anger Nazityskland och Tyskland. Båda anger 1525–1947, men Wikidata har också 1933 som slutår, och Wikipedia skriver att Preussen i praktiken upplöstes 1932–1934.",
-     "en": "The sources differ about the successors. Wikipedia describes how the country was divided in 1945–1947: east of the Oder–Neisse to Poland and the Soviet Union, the rest to German states. Wikidata gives Nazi Germany and Germany. Both give 1525–1947, but Wikidata also has 1933 as an end year, and Wikipedia writes that Prussia was in practice dissolved in 1932–1934."
+     "en": "The sources differ about the successors. Wikipedia describes how the country was divided in 1945–1947: east of the Oder–Neisse to Poland and the Soviet Union, the rest to German states. Wikidata gives Nazi Germany and Germany. Both give 1525–1947, but Wikidata also has 1933 as an end year, and Wikipedia writes that Prussia was in practice dissolved in 1932–1934.",
+     "de": "Die Quellen unterscheiden sich bei den Nachfolgern. Wikipedia beschreibt die Aufteilung des Landes 1945–1947: östlich von Oder und Neiße an Polen und die Sowjetunion, der Rest an deutsche Länder. Wikidata nennt den NS-Staat und Deutschland. Beide nennen 1525–1947, aber Wikidata gibt auch 1933 als Endjahr an, und Wikipedia schreibt, dass Preußen praktisch 1932–1934 aufgelöst wurde."
     },
     "sources": [
      "wp-prussia",
@@ -19483,57 +19492,68 @@
    "facts": {
     "summary": {
      "sv": "Preussen var en tysk stat på den nordeuropeiska slätten från 1525 till 1947. Det började som ett hertigdöme kring Königsberg, förenades med Brandenburg och blev 1701 ett kungarike med Berlin som huvudstad. Huset Hohenzollern styrde i århundraden, och 1871 enade Preussen de tyska staterna till Tyska riket.",
-     "en": "Prussia was a German state on the North European Plain from 1525 to 1947. It began as a duchy around Königsberg, was united with Brandenburg and in 1701 became a kingdom with Berlin as its capital. The House of Hohenzollern ruled for centuries, and in 1871 Prussia united the German states into the German Empire."
+     "en": "Prussia was a German state on the North European Plain from 1525 to 1947. It began as a duchy around Königsberg, was united with Brandenburg and in 1701 became a kingdom with Berlin as its capital. The House of Hohenzollern ruled for centuries, and in 1871 Prussia united the German states into the German Empire.",
+     "de": "Preußen war von 1525 bis 1947 ein deutscher Staat in der nordeuropäischen Tiefebene. Es begann als Herzogtum um Königsberg, wurde mit Brandenburg vereinigt und 1701 ein Königreich mit Berlin als Hauptstadt. Das Haus Hohenzollern herrschte jahrhundertelang, und 1871 vereinigte Preußen die deutschen Staaten zum Deutschen Reich."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
-       "en": "When and where it arose"
+       "en": "When and where it arose",
+       "de": "Wann und wo es entstand"
       },
       "text": {
        "sv": "1525 gjordes Tyska ordens del av Preussen till ett världsligt hertigdöme, som lydde under Polens krona till 1657. Hertigdömet förenades med Brandenburg 1618, och 18 januari 1701 blev Preussen ett kungarike.",
-       "en": "In 1525 the Teutonic Order's part of Prussia was made a secular duchy, which was subject to the Polish crown until 1657. The duchy was united with Brandenburg in 1618, and on 18 January 1701 Prussia became a kingdom."
+       "en": "In 1525 the Teutonic Order's part of Prussia was made a secular duchy, which was subject to the Polish crown until 1657. The duchy was united with Brandenburg in 1618, and on 18 January 1701 Prussia became a kingdom.",
+       "de": "1525 wurde der Teil Preußens, der dem Deutschen Orden gehörte, in ein weltliches Herzogtum umgewandelt, das bis 1657 der polnischen Krone unterstand. Das Herzogtum wurde 1618 mit Brandenburg vereinigt, und am 18. Januar 1701 wurde Preußen ein Königreich."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
-       "en": "How it ended"
+       "en": "How it ended",
+       "de": "Wie es endete"
       },
       "text": {
        "sv": "Monarkin föll i den tyska revolutionen 1918, och Preussen blev en fristat i Weimarrepubliken. Statskuppen 1932 och nazisternas lagar 1934–1935 tömde den på makt. De allierade upplöste Preussen formellt 25 februari 1947. Landet öster om Oder–Neisse hade då gått till Polen och Sovjetunionen, och resten delades mellan tyska delstater.",
-       "en": "The monarchy fell in the German Revolution of 1918, and Prussia became a free state in the Weimar Republic. The coup of 1932 and the Nazis' laws of 1934–1935 emptied it of power. The Allies formally dissolved Prussia on 25 February 1947. The land east of the Oder–Neisse had by then gone to Poland and the Soviet Union, and the rest was divided among German states."
+       "en": "The monarchy fell in the German Revolution of 1918, and Prussia became a free state in the Weimar Republic. The coup of 1932 and the Nazis' laws of 1934–1935 emptied it of power. The Allies formally dissolved Prussia on 25 February 1947. The land east of the Oder–Neisse had by then gone to Poland and the Soviet Union, and the rest was divided among German states.",
+       "de": "Die Monarchie fiel in der deutschen Revolution 1918, und Preußen wurde ein Freistaat in der Weimarer Republik. Der Staatsstreich 1932 und die Gesetze der Nationalsozialisten 1934–1935 entzogen ihm die Macht. Die Alliierten lösten Preußen am 25. Februar 1947 formell auf. Das Gebiet östlich von Oder und Neiße war damals an Polen und die Sowjetunion gefallen, der Rest wurde unter deutschen Ländern aufgeteilt."
       }
      },
      {
       "label": {
        "sv": "Huvudstäder",
-       "en": "Capitals"
+       "en": "Capitals",
+       "de": "Hauptstädte"
       },
       "text": {
        "sv": "Königsberg (1525–1701), sedan Berlin.",
-       "en": "Königsberg (1525–1701), then Berlin."
+       "en": "Königsberg (1525–1701), then Berlin.",
+       "de": "Königsberg (1525–1701), danach Berlin."
       }
      },
      {
       "label": {
        "sv": "Befolkning",
-       "en": "Population"
+       "en": "Population",
+       "de": "Bevölkerung"
       },
       "text": {
        "sv": "10,3 miljoner invånare 1816 och 24,7 miljoner 1871, då 60 procent av Tyska rikets befolkning. I Tyska riket hade Preussen tre femtedelar av ytan och två tredjedelar av invånarna.",
-       "en": "10.3 million inhabitants in 1816 and 24.7 million in 1871, then 60 per cent of the German Empire's population. In the German Empire Prussia had three fifths of the area and two thirds of the inhabitants."
+       "en": "10.3 million inhabitants in 1816 and 24.7 million in 1871, then 60 per cent of the German Empire's population. In the German Empire Prussia had three fifths of the area and two thirds of the inhabitants.",
+       "de": "10,3 Millionen Einwohner 1816 und 24,7 Millionen 1871, damals 60 Prozent der Bevölkerung des Deutschen Reiches. Im Deutschen Reich hatte Preußen drei Fünftel der Fläche und zwei Drittel der Einwohner."
       }
      },
      {
       "label": {
        "sv": "Symbolen på kartan",
-       "en": "The symbol on the map"
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte"
       },
       "text": {
        "sv": "Den preussiska örnen, en svart örn. Kejsar Fredrik II gav Tyska orden rätt att föra rikets svarta örn 1229, och den förblev vapnet för de preussiska staterna ända till 1947. Från 1701 bar örnen en kunglig krona.",
-       "en": "The Prussian eagle, a black eagle. Emperor Frederick II gave the Teutonic Order the right to bear the empire's black eagle in 1229, and it remained the arms of the Prussian states until 1947. From 1701 the eagle wore a royal crown."
+       "en": "The Prussian eagle, a black eagle. Emperor Frederick II gave the Teutonic Order the right to bear the empire's black eagle in 1229, and it remained the arms of the Prussian states until 1947. From 1701 the eagle wore a royal crown.",
+       "de": "Der preußische Adler, ein schwarzer Adler. Kaiser Friedrich II. verlieh dem Deutschen Orden 1229 das Recht, den schwarzen Reichsadler zu führen, und er blieb bis 1947 das Wappen der preußischen Staaten. Ab 1701 trug der Adler eine Königskrone."
       }
      }
     ],
@@ -19542,81 +19562,96 @@
       "year": 1525,
       "label": {
        "sv": "1525",
-       "en": "1525"
+       "en": "1525",
+       "de": "1525"
       },
       "title": {
        "sv": "Hertigdömet Preussen",
-       "en": "The Duchy of Prussia"
+       "en": "The Duchy of Prussia",
+       "de": "Herzogtum Preußen"
       },
       "text": {
        "sv": "Tyska ordens land i Preussen blir ett världsligt hertigdöme under polsk överhöghet.",
-       "en": "The Teutonic Order's land in Prussia becomes a secular duchy under Polish suzerainty."
+       "en": "The Teutonic Order's land in Prussia becomes a secular duchy under Polish suzerainty.",
+       "de": "Das Land des Deutschen Ordens in Preußen wird ein weltliches Herzogtum unter polnischer Oberhoheit."
       },
       "sources": [
        "wp-prussia"
       ],
       "mapNote": {
        "sv": "Kartan börjar 1526.",
-       "en": "The map begins in 1526."
+       "en": "The map begins in 1526.",
+       "de": "Die Karte beginnt 1526."
       }
      },
      {
       "year": 1618,
       "label": {
        "sv": "1618",
-       "en": "1618"
+       "en": "1618",
+       "de": "1618"
       },
       "title": {
        "sv": "Förenat med Brandenburg",
-       "en": "United with Brandenburg"
+       "en": "United with Brandenburg",
+       "de": "Mit Brandenburg vereinigt"
       },
       "text": {
        "sv": "Hertigdömet och Brandenburg får samma furste 27 augusti 1618. Länderna ligger ännu inte ihop.",
-       "en": "The duchy and Brandenburg get the same prince on 27 August 1618. The lands are not yet connected."
+       "en": "The duchy and Brandenburg get the same prince on 27 August 1618. The lands are not yet connected.",
+       "de": "Das Herzogtum und Brandenburg erhalten am 27. August 1618 denselben Fürsten. Die Länder bilden noch kein zusammenhängendes Gebiet."
       },
       "sources": [
        "wp-prussia"
       ],
       "mapNote": {
        "sv": "Kartan visar Brandenburg-Preussen från 1619.",
-       "en": "The map shows Brandenburg-Prussia from 1619."
+       "en": "The map shows Brandenburg-Prussia from 1619.",
+       "de": "Die Karte zeigt Brandenburg-Preußen ab 1619."
       }
      },
      {
       "year": 1701,
       "label": {
        "sv": "1701",
-       "en": "1701"
+       "en": "1701",
+       "de": "1701"
       },
       "title": {
        "sv": "Kungariket",
-       "en": "The Kingdom"
+       "en": "The Kingdom",
+       "de": "Das Königreich"
       },
       "text": {
        "sv": "Preussen blir ett kungarike 18 januari 1701, med Berlin som huvudstad. Kort därefter räknas landet till Europas stormakter.",
-       "en": "Prussia becomes a kingdom on 18 January 1701, with Berlin as its capital. Shortly afterwards the country is counted among Europe's great powers."
+       "en": "Prussia becomes a kingdom on 18 January 1701, with Berlin as its capital. Shortly afterwards the country is counted among Europe's great powers.",
+       "de": "Preußen wird am 18. Januar 1701 ein Königreich mit Berlin als Hauptstadt. Kurz darauf zählt das Land zu den europäischen Großmächten."
       },
       "sources": [
        "wp-prussia"
       ],
       "mapNote": {
        "sv": "Kartan visar kungariket från 1702.",
-       "en": "The map shows the kingdom from 1702."
+       "en": "The map shows the kingdom from 1702.",
+       "de": "Die Karte zeigt das Königreich ab 1702."
       }
      },
      {
       "year": 1772,
       "label": {
        "sv": "1772",
-       "en": "1772"
+       "en": "1772",
+       "de": "1772"
       },
       "title": {
        "sv": "Polens första delning",
-       "en": "The first partition of Poland"
+       "en": "The first partition of Poland",
+       "de": "Die erste Teilung Polens"
       },
       "text": {
        "sv": "Fredrik den store tar del i Polens första delning tillsammans med Österrike och Ryssland. Brandenburg och Preussen hänger nu ihop.",
-       "en": "Frederick the Great takes part in the first partition of Poland together with Austria and Russia. Brandenburg and Prussia are now connected."
+       "en": "Frederick the Great takes part in the first partition of Poland together with Austria and Russia. Brandenburg and Prussia are now connected.",
+       "de": "Friedrich der Große beteiligt sich gemeinsam mit Österreich und Russland an der ersten Teilung Polens. Brandenburg und Preußen bilden nun ein zusammenhängendes Gebiet."
       },
       "sources": [
        "wp-prussia"
@@ -19626,37 +19661,44 @@
       "year": 1871,
       "label": {
        "sv": "1871",
-       "en": "1871"
+       "en": "1871",
+       "de": "1871"
       },
       "title": {
        "sv": "Tyska riket",
-       "en": "The German Empire"
+       "en": "The German Empire",
+       "de": "Das Deutsche Reich"
       },
       "text": {
        "sv": "Preussen enar de tyska staterna till Tyska riket. Preussen finns kvar som delstat och dominerar riket.",
-       "en": "Prussia unites the German states into the German Empire. Prussia remains as a state and dominates the empire."
+       "en": "Prussia unites the German states into the German Empire. Prussia remains as a state and dominates the empire.",
+       "de": "Preußen vereinigt die deutschen Staaten zum Deutschen Reich. Preußen besteht als Teilstaat weiter und dominiert das Reich."
       },
       "sources": [
        "wp-prussia"
       ],
       "mapNote": {
        "sv": "Kartan har ingen egen gräns för Preussen efter 1806; landet ingår i Tyska riket.",
-       "en": "The map has no border of its own for Prussia after 1806; the country is part of the German Empire."
+       "en": "The map has no border of its own for Prussia after 1806; the country is part of the German Empire.",
+       "de": "Die Karte hat nach 1806 keine eigene Grenze für Preußen; das Land gehört zum Deutschen Reich."
       }
      },
      {
       "year": 1947,
       "label": {
        "sv": "1947",
-       "en": "1947"
+       "en": "1947",
+       "de": "1947"
       },
       "title": {
        "sv": "Upplösningen",
-       "en": "The dissolution"
+       "en": "The dissolution",
+       "de": "Die Auflösung"
       },
       "text": {
        "sv": "De allierades kontrollråd upplöser Preussen genom lag nr 46, 25 februari 1947.",
-       "en": "The Allied Control Council dissolves Prussia by Law No. 46, on 25 February 1947."
+       "en": "The Allied Control Council dissolves Prussia by Law No. 46, on 25 February 1947.",
+       "de": "Der Alliierte Kontrollrat löst Preußen durch das Gesetz Nr. 46 vom 25. Februar 1947 auf."
       },
       "sources": [
        "wp-prussia"
@@ -19665,7 +19707,8 @@
     ],
     "mapNote": {
      "sv": "Källorna anger 1525–1947. Kartan visar Preussen 1526–1806: hertigdömet (1526–1618), Brandenburg-Preussen (1619–1701) och kungariket (1702–1806). Från 1807 har Cliopatria ingen egen gräns för Preussen: landet räknas till Franska kejsardömet och Rhenförbundet, sedan till Tyska förbundet (1815–1867), Nordtyska förbundet (1868–1870) och Tyska riket. Några mycket små preussiska områden som Cliopatria visar 1807–1863 är inte med.",
-     "en": "The sources give 1525–1947. The map shows Prussia 1526–1806: the duchy (1526–1618), Brandenburg-Prussia (1619–1701) and the kingdom (1702–1806). From 1807 Cliopatria has no border of its own for Prussia: the country is counted as part of the French Empire and the Confederation of the Rhine, then of the German Confederation (1815–1867), the North German Confederation (1868–1870) and the German Empire. Some very small Prussian areas that Cliopatria shows in 1807–1863 are not included."
+     "en": "The sources give 1525–1947. The map shows Prussia 1526–1806: the duchy (1526–1618), Brandenburg-Prussia (1619–1701) and the kingdom (1702–1806). From 1807 Cliopatria has no border of its own for Prussia: the country is counted as part of the French Empire and the Confederation of the Rhine, then of the German Confederation (1815–1867), the North German Confederation (1868–1870) and the German Empire. Some very small Prussian areas that Cliopatria shows in 1807–1863 are not included.",
+     "de": "Die Quellen nennen 1525–1947. Die Karte zeigt Preußen 1526–1806: das Herzogtum (1526–1618), Brandenburg-Preußen (1619–1701) und das Königreich (1702–1806). Ab 1807 hat Cliopatria keine eigene Grenze für Preußen: Das Land wird dem Französischen Kaiserreich und dem Rheinbund, danach dem Deutschen Bund (1815–1867), dem Norddeutschen Bund (1868–1870) und dem Deutschen Reich zugerechnet. Einige sehr kleine preußische Gebiete, die Cliopatria 1807–1863 zeigt, sind nicht enthalten."
     },
     "sources": [
      "wp-prussia",
@@ -19678,7 +19721,8 @@
     {
      "name": {
       "sv": "Königsberg",
-      "en": "Königsberg"
+      "en": "Königsberg",
+      "de": "Königsberg"
      },
      "wikidata": "Q4120832",
      "at": [
@@ -19696,7 +19740,8 @@
     {
      "name": {
       "sv": "Berlin",
-      "en": "Berlin"
+      "en": "Berlin",
+      "de": "Berlin"
      },
      "wikidata": "Q64",
      "at": [
@@ -19716,7 +19761,8 @@
    "id": "jugoslavien",
    "name": {
     "sv": "Jugoslavien",
-    "en": "Yugoslavia"
+    "en": "Yugoslavia",
+    "de": "Jugoslawien"
    },
    "color": "#2d8fa8",
    "from": 1919,
@@ -19727,7 +19773,8 @@
      "id": "kungariket-jugoslavien",
      "name": {
       "sv": "Jugoslavien",
-      "en": "Yugoslavia"
+      "en": "Yugoslavia",
+      "de": "Jugoslawien"
      },
      "sources": [
       "cliopatria"
@@ -19738,7 +19785,8 @@
      "id": "sfr-jugoslavien",
      "name": {
       "sv": "Jugoslavien",
-      "en": "Socialist Federal Republic of Yugoslavia"
+      "en": "Socialist Federal Republic of Yugoslavia",
+      "de": "Jugoslawien"
      },
      "sources": [
       "cliopatria"
@@ -19755,28 +19803,32 @@
      {
       "name": {
        "sv": "Kungariket Serbien",
-       "en": "The Kingdom of Serbia"
+       "en": "The Kingdom of Serbia",
+       "de": "Königreich Serbien"
       },
       "wikidata": "Q241748"
      },
      {
       "name": {
        "sv": "Kungariket Montenegro",
-       "en": "The Kingdom of Montenegro"
+       "en": "The Kingdom of Montenegro",
+       "de": "Königreich Montenegro"
       },
       "wikidata": "Q386496"
      },
      {
       "name": {
        "sv": "Sloveners, kroaters och serbers stat",
-       "en": "The State of Slovenes, Croats and Serbs"
+       "en": "The State of Slovenes, Croats and Serbs",
+       "de": "Staat der Slowenen, Kroaten und Serben"
       },
       "wikidata": "Q718374"
      },
      {
       "name": {
        "sv": "Österrike-Ungern",
-       "en": "Austria-Hungary"
+       "en": "Austria-Hungary",
+       "de": "Österreich-Ungarn"
       },
       "group": "osterrike-ungern",
       "wikidata": "Q28513"
@@ -19786,42 +19838,48 @@
      {
       "name": {
        "sv": "Kroatien",
-       "en": "Croatia"
+       "en": "Croatia",
+       "de": "Kroatien"
       },
       "wikidata": "Q224"
      },
      {
       "name": {
        "sv": "Slovenien",
-       "en": "Slovenia"
+       "en": "Slovenia",
+       "de": "Slowenien"
       },
       "wikidata": "Q215"
      },
      {
       "name": {
        "sv": "Nordmakedonien",
-       "en": "North Macedonia"
+       "en": "North Macedonia",
+       "de": "Nordmazedonien"
       },
       "wikidata": "Q221"
      },
      {
       "name": {
        "sv": "Bosnien och Hercegovina",
-       "en": "Bosnia and Herzegovina"
+       "en": "Bosnia and Herzegovina",
+       "de": "Bosnien und Herzegowina"
       },
       "wikidata": "Q225"
      },
      {
       "name": {
        "sv": "Förbundsrepubliken Jugoslavien (Serbien och Montenegro)",
-       "en": "The Federal Republic of Yugoslavia (Serbia and Montenegro)"
+       "en": "The Federal Republic of Yugoslavia (Serbia and Montenegro)",
+       "de": "Bundesrepublik Jugoslawien (Serbien und Montenegro)"
       },
       "wikidata": "Q838261"
      }
     ],
     "note": {
      "sv": "Föregångare och efterträdare enligt Wikipedia. Wikidatas post för hela Jugoslavien anger bara Förbundsrepubliken Jugoslavien och de postjugoslaviska staterna; posten för den socialistiska förbundsrepubliken anger samma fem stater som Wikipedia. Båda anger 1 december 1918 och 27 april 1992.",
-     "en": "Predecessors and successors according to Wikipedia. Wikidata's entry for the whole of Yugoslavia gives only the Federal Republic of Yugoslavia and the post-Yugoslav states; the entry for the Socialist Federal Republic gives the same five states as Wikipedia. Both give 1 December 1918 and 27 April 1992."
+     "en": "Predecessors and successors according to Wikipedia. Wikidata's entry for the whole of Yugoslavia gives only the Federal Republic of Yugoslavia and the post-Yugoslav states; the entry for the Socialist Federal Republic gives the same five states as Wikipedia. Both give 1 December 1918 and 27 April 1992.",
+     "de": "Vorgänger und Nachfolger nach Wikipedia. Der Wikidata-Eintrag für ganz Jugoslawien nennt nur die Bundesrepublik Jugoslawien und die postjugoslawischen Staaten; der Eintrag für die sozialistische Bundesrepublik nennt dieselben fünf Staaten wie Wikipedia. Beide nennen den 1. Dezember 1918 und den 27. April 1992."
     },
     "sources": [
      "wp-yugoslavia",
@@ -19832,77 +19890,92 @@
    "facts": {
     "summary": {
      "sv": "Jugoslavien, \"sydslavernas land\", var ett land på Balkan 1918–1992 och den första egna staten för de sydslaviska folken. Det började som ett kungarike och blev efter andra världskriget en kommunistisk förbundsrepublik med sex delrepubliker.",
-     "en": "Yugoslavia, “the land of the South Slavs”, was a country in the Balkans in 1918–1992 and the first state of their own for the South Slavic peoples. It began as a kingdom and after the Second World War became a communist federal republic with six constituent republics."
+     "en": "Yugoslavia, “the land of the South Slavs”, was a country in the Balkans in 1918–1992 and the first state of their own for the South Slavic peoples. It began as a kingdom and after the Second World War became a communist federal republic with six constituent republics.",
+     "de": "Jugoslawien, das „Land der Südslawen“, war 1918–1992 ein Land auf dem Balkan und der erste eigene Staat der südslawischen Völker. Es begann als Königreich und wurde nach dem Zweiten Weltkrieg eine kommunistische Bundesrepublik mit sechs Teilrepubliken."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
-       "en": "When and where it arose"
+       "en": "When and where it arose",
+       "de": "Wann und wo es entstand"
       },
       "text": {
        "sv": "Landet bildades 1 december 1918, när kungariket Serbien gick samman med Sloveners, kroaters och serbers stat, som hade bildats på Österrike-Ungerns sydslaviska områden. Det hette först Serbernas, kroaternas och slovenernas kungarike och från 3 oktober 1929 Kungariket Jugoslavien.",
-       "en": "The country was formed on 1 December 1918, when the Kingdom of Serbia joined the State of Slovenes, Croats and Serbs, which had been formed on Austria-Hungary's South Slavic territories. It was first called the Kingdom of Serbs, Croats and Slovenes and from 3 October 1929 the Kingdom of Yugoslavia."
+       "en": "The country was formed on 1 December 1918, when the Kingdom of Serbia joined the State of Slovenes, Croats and Serbs, which had been formed on Austria-Hungary's South Slavic territories. It was first called the Kingdom of Serbs, Croats and Slovenes and from 3 October 1929 the Kingdom of Yugoslavia.",
+       "de": "Das Land entstand am 1. Dezember 1918, als sich das Königreich Serbien mit dem Staat der Slowenen, Kroaten und Serben vereinigte, der auf den südslawischen Gebieten Österreich-Ungarns entstanden war. Es hieß zunächst Königreich der Serben, Kroaten und Slowenen und ab dem 3. Oktober 1929 Königreich Jugoslawien."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
-       "en": "How it ended"
+       "en": "How it ended",
+       "de": "Wie es endete"
       },
       "text": {
        "sv": "Efter Titos död 1980 och kriser under 1980-talet förklarade Slovenien och Kroatien sig självständiga 25 juni 1991. Fram till april 1992 lämnade fyra av de sex republikerna landet. 27 april 1992 antogs grundlagen för Förbundsrepubliken Jugoslavien (Serbien och Montenegro), och uppbrottet var formellt klart. De jugoslaviska krigen följde, 1991–2001.",
-       "en": "After Tito's death in 1980 and crises during the 1980s Slovenia and Croatia declared independence on 25 June 1991. By April 1992 four of the six republics had left the country. On 27 April 1992 the constitution of the Federal Republic of Yugoslavia (Serbia and Montenegro) was adopted, and the break-up was formally complete. The Yugoslav Wars followed, 1991–2001."
+       "en": "After Tito's death in 1980 and crises during the 1980s Slovenia and Croatia declared independence on 25 June 1991. By April 1992 four of the six republics had left the country. On 27 April 1992 the constitution of the Federal Republic of Yugoslavia (Serbia and Montenegro) was adopted, and the break-up was formally complete. The Yugoslav Wars followed, 1991–2001.",
+       "de": "Nach Titos Tod 1980 und Krisen in den 1980er Jahren erklärten Slowenien und Kroatien am 25. Juni 1991 ihre Unabhängigkeit. Bis April 1992 verließen vier der sechs Republiken das Land. Am 27. April 1992 wurde die Verfassung der Bundesrepublik Jugoslawien (Serbien und Montenegro) verabschiedet, und der Zerfall war formell abgeschlossen. Es folgten die Jugoslawienkriege, 1991–2001."
       }
      },
      {
       "label": {
        "sv": "Huvudstad",
-       "en": "Capital"
+       "en": "Capital",
+       "de": "Hauptstadt"
       },
       "text": {
        "sv": "Belgrad.",
-       "en": "Belgrade."
+       "en": "Belgrade.",
+       "de": "Belgrad."
       }
      },
      {
       "label": {
        "sv": "Andra världskriget och Tito",
-       "en": "The Second World War and Tito"
+       "en": "The Second World War and Tito",
+       "de": "Der Zweite Weltkrieg und Tito"
       },
       "text": {
        "sv": "Axelmakterna invaderade landet 6 april 1941. Partisanerna under Josip Broz Tito fick de allierades stöd, och 29 november 1945 blev Jugoslavien en förbundsrepublik utan kung. Tito styrde från 1944 till sin död 1980.",
-       "en": "The Axis powers invaded the country on 6 April 1941. The Partisans under Josip Broz Tito received the Allies' support, and on 29 November 1945 Yugoslavia became a federal republic without a king. Tito ruled from 1944 until his death in 1980."
+       "en": "The Axis powers invaded the country on 6 April 1941. The Partisans under Josip Broz Tito received the Allies' support, and on 29 November 1945 Yugoslavia became a federal republic without a king. Tito ruled from 1944 until his death in 1980.",
+       "de": "Die Achsenmächte marschierten am 6. April 1941 in das Land ein. Die Partisanen unter Josip Broz Tito erhielten die Unterstützung der Alliierten, und am 29. November 1945 wurde Jugoslawien eine Bundesrepublik ohne König. Tito regierte von 1944 bis zu seinem Tod 1980."
       }
      },
      {
       "label": {
        "sv": "Delrepubliker",
-       "en": "Constituent republics"
+       "en": "Constituent republics",
+       "de": "Teilrepubliken"
       },
       "text": {
        "sv": "Bosnien och Hercegovina, Kroatien, Makedonien, Montenegro, Serbien och Slovenien. I Serbien fanns dessutom de självstyrande provinserna Vojvodina och Kosovo.",
-       "en": "Bosnia and Herzegovina, Croatia, Macedonia, Montenegro, Serbia and Slovenia. In Serbia there were also the autonomous provinces of Vojvodina and Kosovo."
+       "en": "Bosnia and Herzegovina, Croatia, Macedonia, Montenegro, Serbia and Slovenia. In Serbia there were also the autonomous provinces of Vojvodina and Kosovo.",
+       "de": "Bosnien und Herzegowina, Kroatien, Mazedonien, Montenegro, Serbien und Slowenien. In Serbien gab es außerdem die autonomen Provinzen Vojvodina und Kosovo."
       }
      },
      {
       "label": {
        "sv": "Befolkning",
-       "en": "Population"
+       "en": "Population",
+       "de": "Bevölkerung"
       },
       "text": {
        "sv": "17,5 miljoner invånare 1955 och 23,5 miljoner 1991, enligt Jugoslaviens statistiska årsböcker.",
-       "en": "17.5 million inhabitants in 1955 and 23.5 million in 1991, according to Yugoslavia's statistical yearbooks."
+       "en": "17.5 million inhabitants in 1955 and 23.5 million in 1991, according to Yugoslavia's statistical yearbooks.",
+       "de": "17,5 Millionen Einwohner 1955 und 23,5 Millionen 1991 laut den statistischen Jahrbüchern Jugoslawiens."
       }
      },
      {
       "label": {
        "sv": "Symbolen på kartan",
-       "en": "The symbol on the map"
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte"
       },
       "text": {
        "sv": "Socialistiska Jugoslaviens emblem: sex facklor som brinner i en gemensam låga, en för varje delrepublik. Emblemet ritades 1943 och hade fem facklor fram till 1963. Kungariket Jugoslavien (1918–1941) hade i stället en vit dubbelörn, som utvecklades ur Serbiens vapen, och visas med den.",
-       "en": "The emblem of Socialist Yugoslavia: six torches burning in a common flame, one for each constituent republic. The emblem was drawn in 1943 and had five torches until 1963. The Kingdom of Yugoslavia (1918–1941) instead had a white double-headed eagle, developed from Serbia's coat of arms, and is shown with it."
+       "en": "The emblem of Socialist Yugoslavia: six torches burning in a common flame, one for each constituent republic. The emblem was drawn in 1943 and had five torches until 1963. The Kingdom of Yugoslavia (1918–1941) instead had a white double-headed eagle, developed from Serbia's coat of arms, and is shown with it.",
+       "de": "Das Emblem des sozialistischen Jugoslawiens: sechs Fackeln, die in einer gemeinsamen Flamme brennen, eine für jede Teilrepublik. Das Emblem wurde 1943 entworfen und hatte bis 1963 fünf Fackeln. Das Königreich Jugoslawien (1918–1941) hatte stattdessen einen weißen Doppeladler, der aus dem serbischen Wappen entwickelt wurde, und wird mit diesem dargestellt."
       }
      }
     ],
@@ -19911,37 +19984,44 @@
       "year": 1918,
       "label": {
        "sv": "1918",
-       "en": "1918"
+       "en": "1918",
+       "de": "1918"
       },
       "title": {
        "sv": "Ett nytt kungarike",
-       "en": "A new kingdom"
+       "en": "A new kingdom",
+       "de": "Ein neues Königreich"
       },
       "text": {
        "sv": "Serbien går samman med Sloveners, kroaters och serbers stat 1 december 1918. Kungariket får internationellt erkännande 1922.",
-       "en": "Serbia joins the State of Slovenes, Croats and Serbs on 1 December 1918. The kingdom gains international recognition in 1922."
+       "en": "Serbia joins the State of Slovenes, Croats and Serbs on 1 December 1918. The kingdom gains international recognition in 1922.",
+       "de": "Serbien vereinigt sich am 1. Dezember 1918 mit dem Staat der Slowenen, Kroaten und Serben. Das Königreich erhält 1922 die internationale Anerkennung."
       },
       "sources": [
        "wp-yugoslavia"
       ],
       "mapNote": {
        "sv": "Kartan börjar 1919.",
-       "en": "The map begins in 1919."
+       "en": "The map begins in 1919.",
+       "de": "Die Karte beginnt 1919."
       }
      },
      {
       "year": 1929,
       "label": {
        "sv": "1929",
-       "en": "1929"
+       "en": "1929",
+       "de": "1929"
       },
       "title": {
        "sv": "Kungariket Jugoslavien",
-       "en": "The Kingdom of Yugoslavia"
+       "en": "The Kingdom of Yugoslavia",
+       "de": "Das Königreich Jugoslawien"
       },
       "text": {
        "sv": "Landet byter namn till Kungariket Jugoslavien 3 oktober 1929, under kung Alexander I:s diktatur.",
-       "en": "The country changes its name to the Kingdom of Yugoslavia on 3 October 1929, under King Alexander I's dictatorship."
+       "en": "The country changes its name to the Kingdom of Yugoslavia on 3 October 1929, under King Alexander I's dictatorship.",
+       "de": "Das Land wird am 3. Oktober 1929 unter der Diktatur König Alexanders I. in Königreich Jugoslawien umbenannt."
       },
       "sources": [
        "wp-yugoslavia"
@@ -19951,15 +20031,18 @@
       "year": 1941,
       "label": {
        "sv": "1941",
-       "en": "1941"
+       "en": "1941",
+       "de": "1941"
       },
       "title": {
        "sv": "Invasionen",
-       "en": "The invasion"
+       "en": "The invasion",
+       "de": "Die Invasion"
       },
       "text": {
        "sv": "Axelmakterna invaderar och ockuperar landet i april 1941. Andra världskriget i Jugoslavien börjar.",
-       "en": "The Axis powers invade and occupy the country in April 1941. The Second World War in Yugoslavia begins."
+       "en": "The Axis powers invade and occupy the country in April 1941. The Second World War in Yugoslavia begins.",
+       "de": "Die Achsenmächte marschieren im April 1941 in das Land ein und besetzen es. Der Zweite Weltkrieg in Jugoslawien beginnt."
       },
       "sources": [
        "wp-yugoslavia"
@@ -19969,22 +20052,26 @@
       ],
       "mapNote": {
        "sv": "Kartan visar inget Jugoslavien 1941–1944.",
-       "en": "The map shows no Yugoslavia in 1941–1944."
+       "en": "The map shows no Yugoslavia in 1941–1944.",
+       "de": "Die Karte zeigt 1941–1944 kein Jugoslawien."
       }
      },
      {
       "year": 1945,
       "label": {
        "sv": "1945",
-       "en": "1945"
+       "en": "1945",
+       "de": "1945"
       },
       "title": {
        "sv": "Förbundsrepubliken",
-       "en": "The federal republic"
+       "en": "The federal republic",
+       "de": "Die Bundesrepublik"
       },
       "text": {
        "sv": "Den konstituerande församlingen avskaffar monarkin 29 november 1945. Landet får Istrien, Rijeka och Zadar från Italien.",
-       "en": "The constituent assembly abolishes the monarchy on 29 November 1945. The country gets Istria, Rijeka and Zadar from Italy."
+       "en": "The constituent assembly abolishes the monarchy on 29 November 1945. The country gets Istria, Rijeka and Zadar from Italy.",
+       "de": "Die verfassunggebende Versammlung schafft am 29. November 1945 die Monarchie ab. Das Land erhält Istrien, Rijeka und Zadar von Italien."
       },
       "sources": [
        "wp-yugoslavia"
@@ -19994,37 +20081,44 @@
       "year": 1991,
       "label": {
        "sv": "1991",
-       "en": "1991"
+       "en": "1991",
+       "de": "1991"
       },
       "title": {
        "sv": "Slovenien och Kroatien lämnar",
-       "en": "Slovenia and Croatia leave"
+       "en": "Slovenia and Croatia leave",
+       "de": "Slowenien und Kroatien treten aus"
       },
       "text": {
        "sv": "Slovenien och Kroatien förklarar sig självständiga 25 juni 1991. Krigen börjar.",
-       "en": "Slovenia and Croatia declare independence on 25 June 1991. The wars begin."
+       "en": "Slovenia and Croatia declare independence on 25 June 1991. The wars begin.",
+       "de": "Slowenien und Kroatien erklären am 25. Juni 1991 ihre Unabhängigkeit. Die Kriege beginnen."
       },
       "sources": [
        "wp-breakup-of-yugoslavia"
       ],
       "mapNote": {
        "sv": "Kartan slutar 1991.",
-       "en": "The map ends in 1991."
+       "en": "The map ends in 1991.",
+       "de": "Die Karte endet 1991."
       }
      },
      {
       "year": 1992,
       "label": {
        "sv": "1992",
-       "en": "1992"
+       "en": "1992",
+       "de": "1992"
       },
       "title": {
        "sv": "Slutet",
-       "en": "The end"
+       "en": "The end",
+       "de": "Das Ende"
       },
       "text": {
        "sv": "27 april 1992 antas grundlagen för Förbundsrepubliken Jugoslavien, som bara består av Serbien och Montenegro.",
-       "en": "On 27 April 1992 the constitution of the Federal Republic of Yugoslavia is adopted, which consists only of Serbia and Montenegro."
+       "en": "On 27 April 1992 the constitution of the Federal Republic of Yugoslavia is adopted, which consists only of Serbia and Montenegro.",
+       "de": "Am 27. April 1992 wird die Verfassung der Bundesrepublik Jugoslawien verabschiedet, die nur aus Serbien und Montenegro besteht."
       },
       "sources": [
        "wp-breakup-of-yugoslavia"
@@ -20033,7 +20127,8 @@
     ],
     "mapNote": {
      "sv": "Källorna anger 1918–1992. Kartan visar kungariket 1919–1940 och 1945 och förbundsrepubliken 1946–1991. Under ockupationen 1941–1944 räknar Cliopatria landet till Nazityskland.",
-     "en": "The sources give 1918–1992. The map shows the kingdom 1919–1940 and 1945 and the federal republic 1946–1991. During the occupation 1941–1944 Cliopatria counts the country as part of Nazi Germany."
+     "en": "The sources give 1918–1992. The map shows the kingdom 1919–1940 and 1945 and the federal republic 1946–1991. During the occupation 1941–1944 Cliopatria counts the country as part of Nazi Germany.",
+     "de": "Die Quellen nennen 1918–1992. Die Karte zeigt das Königreich 1919–1940 und 1945 und die Bundesrepublik 1946–1991. Während der Besetzung 1941–1944 rechnet Cliopatria das Land dem NS-Staat zu."
     },
     "sources": [
      "wp-yugoslavia",
@@ -20052,7 +20147,8 @@
     {
      "name": {
       "sv": "Belgrad",
-      "en": "Belgrade"
+      "en": "Belgrade",
+      "de": "Belgrad"
      },
      "wikidata": "Q3711",
      "at": [
@@ -20071,7 +20167,8 @@
    "id": "tjeckoslovakien",
    "name": {
     "sv": "Tjeckoslovakien",
-    "en": "Czechoslovakia"
+    "en": "Czechoslovakia",
+    "de": "Tschechoslowakei"
    },
    "color": "#c06a3a",
    "from": 1919,
@@ -20082,7 +20179,8 @@
      "id": "tjeckoslovakien",
      "name": {
       "sv": "Tjeckoslovakien",
-      "en": "Czechoslovakia"
+      "en": "Czechoslovakia",
+      "de": "Tschechoslowakei"
      },
      "sources": [
       "cliopatria"
@@ -20099,7 +20197,8 @@
      {
       "name": {
        "sv": "Österrike-Ungern",
-       "en": "Austria-Hungary"
+       "en": "Austria-Hungary",
+       "de": "Österreich-Ungarn"
       },
       "group": "osterrike-ungern",
       "wikidata": "Q28513"
@@ -20109,21 +20208,24 @@
      {
       "name": {
        "sv": "Tjeckien",
-       "en": "The Czech Republic"
+       "en": "The Czech Republic",
+       "de": "Tschechien"
       },
       "wikidata": "Q213"
      },
      {
       "name": {
        "sv": "Slovakien",
-       "en": "Slovakia"
+       "en": "Slovakia",
+       "de": "Slowakei"
       },
       "wikidata": "Q214"
      }
     ],
     "note": {
      "sv": "Wikipedia anger 1 januari 1993 som slutdatum i faktarutan och 31 december 1992 i artikeln om delningen; Wikidata anger 31 december 1992. Landet upphörde alltså vid nyåret. Wikidata anger inga efterträdare; de kommer från Wikipedia. Wikidata räknar också Kungariket Böhmen som föregångare.",
-     "en": "Wikipedia gives 1 January 1993 as the end date in the fact box and 31 December 1992 in the article on the dissolution; Wikidata gives 31 December 1992. The country thus ceased at the new year. Wikidata gives no successors; they come from Wikipedia. Wikidata also counts the Kingdom of Bohemia as a predecessor."
+     "en": "Wikipedia gives 1 January 1993 as the end date in the fact box and 31 December 1992 in the article on the dissolution; Wikidata gives 31 December 1992. The country thus ceased at the new year. Wikidata gives no successors; they come from Wikipedia. Wikidata also counts the Kingdom of Bohemia as a predecessor.",
+     "de": "Wikipedia nennt im Infokasten den 1. Januar 1993 als Enddatum und im Artikel über die Teilung den 31. Dezember 1992; Wikidata nennt den 31. Dezember 1992. Das Land endete also zum Jahreswechsel. Wikidata nennt keine Nachfolger; sie stammen aus Wikipedia. Wikidata zählt auch das Königreich Böhmen zu den Vorgängern."
     },
     "sources": [
      "wp-czechoslovakia",
@@ -20135,67 +20237,80 @@
    "facts": {
     "summary": {
      "sv": "Tjeckoslovakien var ett land i Centraleuropa 1918–1992, med Prag som huvudstad. Det bildades när Österrike-Ungern föll sönder och delades fredligt i Tjeckien och Slovakien vid nyåret 1993.",
-     "en": "Czechoslovakia was a country in Central Europe in 1918–1992, with Prague as its capital. It was formed when Austria-Hungary fell apart and was peacefully divided into the Czech Republic and Slovakia at the new year of 1993."
+     "en": "Czechoslovakia was a country in Central Europe in 1918–1992, with Prague as its capital. It was formed when Austria-Hungary fell apart and was peacefully divided into the Czech Republic and Slovakia at the new year of 1993.",
+     "de": "Die Tschechoslowakei war 1918–1992 ein Land in Mitteleuropa mit Prag als Hauptstadt. Sie entstand beim Zerfall Österreich-Ungarns und wurde zum Jahreswechsel 1993 friedlich in Tschechien und die Slowakei geteilt."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
-       "en": "When and where it arose"
+       "en": "When and where it arose",
+       "de": "Wann und wo es entstand"
       },
       "text": {
        "sv": "Landet förklarade sig självständigt 28 oktober 1918, när Österrike-Ungern föll sönder. Tomáš Masaryk och Edvard Beneš ledde arbetet och blev de första presidenterna. Freden i Saint-Germain-en-Laye bekräftade självständigheten.",
-       "en": "The country declared itself independent on 28 October 1918, when Austria-Hungary fell apart. Tomáš Masaryk and Edvard Beneš led the work and became the first presidents. The Treaty of Saint-Germain-en-Laye confirmed the independence."
+       "en": "The country declared itself independent on 28 October 1918, when Austria-Hungary fell apart. Tomáš Masaryk and Edvard Beneš led the work and became the first presidents. The Treaty of Saint-Germain-en-Laye confirmed the independence.",
+       "de": "Das Land erklärte am 28. Oktober 1918 seine Unabhängigkeit, als Österreich-Ungarn zerfiel. Tomáš Masaryk und Edvard Beneš führten die Bewegung an und wurden die ersten Präsidenten. Der Frieden von Saint-Germain-en-Laye bestätigte die Unabhängigkeit."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
-       "en": "How it ended"
+       "en": "How it ended",
+       "de": "Wie es endete"
       },
       "text": {
        "sv": "Efter sammetsrevolutionen 1989 delades landet i Tjeckien och Slovakien, utan våld. Delningen gällde från 31 december 1992 och kallas sammetsskilsmässan. Ingen folkomröstning hölls, och delningen var impopulär när den gjordes.",
-       "en": "After the Velvet Revolution in 1989 the country was divided into the Czech Republic and Slovakia, without violence. The division took effect from 31 December 1992 and is called the Velvet Divorce. No referendum was held, and the division was unpopular when it was made."
+       "en": "After the Velvet Revolution in 1989 the country was divided into the Czech Republic and Slovakia, without violence. The division took effect from 31 December 1992 and is called the Velvet Divorce. No referendum was held, and the division was unpopular when it was made.",
+       "de": "Nach der Samtenen Revolution 1989 wurde das Land ohne Gewalt in Tschechien und die Slowakei geteilt. Die Teilung galt ab dem 31. Dezember 1992 und wird als samtene Scheidung bezeichnet. Es gab keine Volksabstimmung, und die Teilung war zum damaligen Zeitpunkt unpopulär."
       }
      },
      {
       "label": {
        "sv": "Huvudstad och yta",
-       "en": "Capital and area"
+       "en": "Capital and area",
+       "de": "Hauptstadt und Fläche"
       },
       "text": {
        "sv": "Prag. Ytan var 127 906 km².",
-       "en": "Prague. The area was 127,906 km²."
+       "en": "Prague. The area was 127,906 km².",
+       "de": "Prag. Die Fläche betrug 127 906 km²."
       }
      },
      {
       "label": {
        "sv": "Andra världskriget",
-       "en": "The Second World War"
+       "en": "The Second World War",
+       "de": "Der Zweite Weltkrieg"
       },
       "text": {
        "sv": "Efter Münchenöverenskommelsen 1938 tog Nazityskland Sudetenland, och i mars 1939 styckades resten: Böhmen-Mähren blev ett tyskt protektorat, Slovakien en egen stat och Karpato-Ukraina gick till Ungern. Landet återupprättades 1945, men Karpato-Ukraina blev en del av Sovjetunionen.",
-       "en": "After the Munich Agreement in 1938 Nazi Germany took the Sudetenland, and in March 1939 the rest was broken up: Bohemia-Moravia became a German protectorate, Slovakia a state of its own and Carpathian Ukraine went to Hungary. The country was re-established in 1945, but Carpathian Ukraine became part of the Soviet Union."
+       "en": "After the Munich Agreement in 1938 Nazi Germany took the Sudetenland, and in March 1939 the rest was broken up: Bohemia-Moravia became a German protectorate, Slovakia a state of its own and Carpathian Ukraine went to Hungary. The country was re-established in 1945, but Carpathian Ukraine became part of the Soviet Union.",
+       "de": "Nach dem Münchner Abkommen 1938 nahm der NS-Staat das Sudetenland ein, und im März 1939 wurde der Rest aufgeteilt: Böhmen und Mähren wurden ein deutsches Protektorat, die Slowakei ein eigener Staat, und die Karpatenukraine fiel an Ungarn. Das Land wurde 1945 wiederhergestellt, aber die Karpatenukraine wurde Teil der Sowjetunion."
       }
      },
      {
       "label": {
        "sv": "Under kommunismen",
-       "en": "Under communism"
+       "en": "Under communism",
+       "de": "Unter dem Kommunismus"
       },
       "text": {
        "sv": "Kommunistpartiet tog makten i en kupp 25 februari 1948. Pragvåren 1968 slogs ned när Sovjetunionen och andra länder i Warszawapakten invaderade landet 21 augusti 1968.",
-       "en": "The Communist Party took power in a coup on 25 February 1948. The Prague Spring of 1968 was crushed when the Soviet Union and other countries in the Warsaw Pact invaded the country on 21 August 1968."
+       "en": "The Communist Party took power in a coup on 25 February 1948. The Prague Spring of 1968 was crushed when the Soviet Union and other countries in the Warsaw Pact invaded the country on 21 August 1968.",
+       "de": "Die Kommunistische Partei übernahm am 25. Februar 1948 durch einen Staatsstreich die Macht. Der Prager Frühling 1968 wurde niedergeschlagen, als die Sowjetunion und andere Staaten des Warschauer Pakts am 21. August 1968 in das Land einmarschierten."
       }
      },
      {
       "label": {
        "sv": "Symbolen på kartan",
-       "en": "The symbol on the map"
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte"
       },
       "text": {
        "sv": "Det böhmiska lejonet, det stående lejonet med dubbel svans. Det lilla riksvapnet från 1920 var Böhmens vapen med Slovakiens vapen ovanpå, och efter 1945 var det det vapen som mest användes.",
-       "en": "The Bohemian lion, the standing lion with a double tail. The small coat of arms from 1920 was Bohemia's arms with Slovakia's arms on top, and after 1945 it was the arms most used."
+       "en": "The Bohemian lion, the standing lion with a double tail. The small coat of arms from 1920 was Bohemia's arms with Slovakia's arms on top, and after 1945 it was the arms most used.",
+       "de": "Der böhmische Löwe, der aufgerichtete Löwe mit dem Doppelschwanz. Das kleine Staatswappen von 1920 war das Wappen Böhmens mit dem slowakischen Wappen darauf, und nach 1945 war es das am häufigsten verwendete Wappen."
       }
      }
     ],
@@ -20204,81 +20319,96 @@
       "year": 1918,
       "label": {
        "sv": "1918",
-       "en": "1918"
+       "en": "1918",
+       "de": "1918"
       },
       "title": {
        "sv": "Självständigheten",
-       "en": "Independence"
+       "en": "Independence",
+       "de": "Die Unabhängigkeit"
       },
       "text": {
        "sv": "Tjeckoslovakien utropas 28 oktober 1918.",
-       "en": "Czechoslovakia is proclaimed on 28 October 1918."
+       "en": "Czechoslovakia is proclaimed on 28 October 1918.",
+       "de": "Die Tschechoslowakei wird am 28. Oktober 1918 ausgerufen."
       },
       "sources": [
        "wp-czechoslovakia"
       ],
       "mapNote": {
        "sv": "Kartan börjar 1919.",
-       "en": "The map begins in 1919."
+       "en": "The map begins in 1919.",
+       "de": "Die Karte beginnt 1919."
       }
      },
      {
       "year": 1938,
       "label": {
        "sv": "1938",
-       "en": "1938"
+       "en": "1938",
+       "de": "1938"
       },
       "title": {
        "sv": "München",
-       "en": "Munich"
+       "en": "Munich",
+       "de": "München"
       },
       "text": {
        "sv": "Münchenöverenskommelsen 30 september 1938 ger Sudetenland till Nazityskland.",
-       "en": "The Munich Agreement of 30 September 1938 gives the Sudetenland to Nazi Germany."
+       "en": "The Munich Agreement of 30 September 1938 gives the Sudetenland to Nazi Germany.",
+       "de": "Das Münchner Abkommen vom 30. September 1938 gibt das Sudetenland an den NS-Staat."
       },
       "sources": [
        "wp-czechoslovakia"
       ],
       "mapNote": {
        "sv": "Kartan visar ytan minska från cirka 145 000 till 86 000 km² 1938.",
-       "en": "The map shows the area decreasing from about 145,000 to 86,000 km² in 1938."
+       "en": "The map shows the area decreasing from about 145,000 to 86,000 km² in 1938.",
+       "de": "Die Karte zeigt, wie die Fläche von etwa 145 000 auf 86 000 km² im Jahr 1938 schrumpft."
       }
      },
      {
       "year": 1939,
       "label": {
        "sv": "1939",
-       "en": "1939"
+       "en": "1939",
+       "de": "1939"
       },
       "title": {
        "sv": "Landet styckas",
-       "en": "The country is broken up"
+       "en": "The country is broken up",
+       "de": "Das Land wird aufgeteilt"
       },
       "text": {
        "sv": "14 mars 1939 delas landet. Exilregeringen under Beneš erkänns av de allierade.",
-       "en": "On 14 March 1939 the country is divided. The government-in-exile under Beneš is recognised by the Allies."
+       "en": "On 14 March 1939 the country is divided. The government-in-exile under Beneš is recognised by the Allies.",
+       "de": "Am 14. März 1939 wird das Land geteilt. Die Exilregierung unter Beneš wird von den Alliierten anerkannt."
       },
       "sources": [
        "wp-czechoslovakia"
       ],
       "mapNote": {
        "sv": "Kartan visar inget Tjeckoslovakien 1939–1946; Cliopatria räknar landet till Nazityskland och 1945–1946 till Sovjetunionen.",
-       "en": "The map shows no Czechoslovakia in 1939–1946; Cliopatria counts the country as part of Nazi Germany and in 1945–1946 as part of the Soviet Union."
+       "en": "The map shows no Czechoslovakia in 1939–1946; Cliopatria counts the country as part of Nazi Germany and in 1945–1946 as part of the Soviet Union.",
+       "de": "Die Karte zeigt 1939–1946 keine Tschechoslowakei; Cliopatria rechnet das Land dem NS-Staat und 1945–1946 der Sowjetunion zu."
       }
      },
      {
       "year": 1948,
       "label": {
        "sv": "1948",
-       "en": "1948"
+       "en": "1948",
+       "de": "1948"
       },
       "title": {
        "sv": "Kuppen",
-       "en": "The coup"
+       "en": "The coup",
+       "de": "Der Staatsstreich"
       },
       "text": {
        "sv": "Kommunisterna tar makten 25 februari 1948, och landet blir en del av östblocket.",
-       "en": "The Communists take power on 25 February 1948, and the country becomes part of the Eastern Bloc."
+       "en": "The Communists take power on 25 February 1948, and the country becomes part of the Eastern Bloc.",
+       "de": "Die Kommunisten übernehmen am 25. Februar 1948 die Macht, und das Land wird Teil des Ostblocks."
       },
       "sources": [
        "wp-czechoslovakia"
@@ -20288,37 +20418,44 @@
       "year": 1968,
       "label": {
        "sv": "1968",
-       "en": "1968"
+       "en": "1968",
+       "de": "1968"
       },
       "title": {
        "sv": "Invasionen",
-       "en": "The invasion"
+       "en": "The invasion",
+       "de": "Die Invasion"
       },
       "text": {
        "sv": "Warszawapakten invaderar landet 21 augusti 1968 och gör slut på Pragvåren.",
-       "en": "The Warsaw Pact invades the country on 21 August 1968 and ends the Prague Spring."
+       "en": "The Warsaw Pact invades the country on 21 August 1968 and ends the Prague Spring.",
+       "de": "Der Warschauer Pakt marschiert am 21. August 1968 in das Land ein und beendet den Prager Frühling."
       },
       "sources": [
        "wp-czechoslovakia"
       ],
       "mapNote": {
        "sv": "Kartan visar inget Tjeckoslovakien 1969–1990: Cliopatria räknar landet till Sovjetunionen, fast det enligt källorna fanns kvar som egen stat.",
-       "en": "The map shows no Czechoslovakia in 1969–1990: Cliopatria counts the country as part of the Soviet Union, although according to the sources it remained as a state of its own."
+       "en": "The map shows no Czechoslovakia in 1969–1990: Cliopatria counts the country as part of the Soviet Union, although according to the sources it remained as a state of its own.",
+       "de": "Die Karte zeigt 1969–1990 keine Tschechoslowakei: Cliopatria rechnet das Land der Sowjetunion zu, obwohl es laut den Quellen als eigener Staat weiterbestand."
       }
      },
      {
       "year": 1989,
       "label": {
        "sv": "1989",
-       "en": "1989"
+       "en": "1989",
+       "de": "1989"
       },
       "title": {
        "sv": "Sammetsrevolutionen",
-       "en": "The Velvet Revolution"
+       "en": "The Velvet Revolution",
+       "de": "Die Samtene Revolution"
       },
       "text": {
        "sv": "Fredliga protester 17–28 november 1989 tvingar bort kommunistledarna.",
-       "en": "Peaceful protests on 17–28 November 1989 force the Communist leaders out."
+       "en": "Peaceful protests on 17–28 November 1989 force the Communist leaders out.",
+       "de": "Friedliche Proteste vom 17.–28. November 1989 zwingen die kommunistischen Machthaber zum Rückzug."
       },
       "sources": [
        "wp-czechoslovakia"
@@ -20328,22 +20465,26 @@
       "year": 1992,
       "label": {
        "sv": "1992",
-       "en": "1992"
+       "en": "1992",
+       "de": "1992"
       },
       "title": {
        "sv": "Sammetsskilsmässan",
-       "en": "The Velvet Divorce"
+       "en": "The Velvet Divorce",
+       "de": "Die samtene Scheidung"
       },
       "text": {
        "sv": "Landet delas i Tjeckien och Slovakien. Delningen gäller från 31 december 1992.",
-       "en": "The country is divided into the Czech Republic and Slovakia. The division takes effect from 31 December 1992."
+       "en": "The country is divided into the Czech Republic and Slovakia. The division takes effect from 31 December 1992.",
+       "de": "Das Land wird in Tschechien und die Slowakei geteilt. Die Teilung gilt ab dem 31. Dezember 1992."
       },
       "sources": [
        "wp-dissolution-of-czechoslovakia"
       ],
       "mapNote": {
        "sv": "Kartan slutar 1991.",
-       "en": "The map ends in 1991."
+       "en": "The map ends in 1991.",
+       "de": "Die Karte endet 1991."
       }
      }
     ],
@@ -20372,7 +20513,8 @@
     {
      "name": {
       "sv": "Prag",
-      "en": "Prague"
+      "en": "Prague",
+      "de": "Prag"
      },
      "wikidata": "Q1085",
      "at": [

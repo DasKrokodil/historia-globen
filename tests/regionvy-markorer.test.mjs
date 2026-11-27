@@ -23,6 +23,15 @@ const listOf = id => placeEvents(place(id), events).filter(e => isVisibleReview(
 const tx = o => (typeof o === 'string' ? o : o?.sv ?? '');
 const overlaps = (a, b) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0;
 
+test('landskapets eget land saknas bland regionvyns grannar (#2373)', () => {
+  for (const landskap of places.filter(p => p.type === 'landskap' && p.partOf)) {
+    const own = place(landskap.partOf).boundary.ne;
+    assert.ok(own, `${landskap.id}: landet har en Natural Earth-kod`);
+    const { neighbours } = read(`data/ortnamn/${landskap.id}.json`);
+    assert.ok(neighbours.every(n => String(n.ne) !== String(own)), `${landskap.id}: ${landskap.partOf} ska inte vara granne`);
+  }
+});
+
 /** Skärmen för regionvyns ram (som flatmap.js): en karta på 1280 × 560 med platsen inramad i den vänstra delen. */
 function screenOf(id, view = { w: 1280, h: 560 }, free = { x: 0, y: 0, w: 860, h: 560 }) {
   const b = placeBounds(place(id)), f = regionFrame(b, view, free);

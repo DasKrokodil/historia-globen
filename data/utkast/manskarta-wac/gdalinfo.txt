@@ -1,0 +1,53 @@
+Driver: GTiff/GeoTIFF
+Files: /home/runner/work/_temp/wac/wac.tif
+Size is 109164, 54582
+Coordinate System is:
+PROJCRS["SimpleCylindrical MOON",
+    BASEGEOGCRS["GCS_MOON",
+        DATUM["D_MOON",
+            ELLIPSOID["MOON",1737400,0,
+                LENGTHUNIT["metre",1,
+                    ID["EPSG",9001]]]],
+        PRIMEM["Reference_Meridian",0,
+            ANGLEUNIT["degree",0.0174532925199433,
+                ID["EPSG",9122]]]],
+    CONVERSION["Equidistant Cylindrical",
+        METHOD["Equidistant Cylindrical",
+            ID["EPSG",1028]],
+        PARAMETER["Latitude of 1st standard parallel",0,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8823]],
+        PARAMETER["Longitude of natural origin",0,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8802]],
+        PARAMETER["False easting",0,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8806]],
+        PARAMETER["False northing",0,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8807]]],
+    CS[Cartesian,2],
+        AXIS["easting",east,
+            ORDER[1],
+            LENGTHUNIT["metre",1,
+                ID["EPSG",9001]]],
+        AXIS["northing",north,
+            ORDER[2],
+            LENGTHUNIT["metre",1,
+                ID["EPSG",9001]]]]
+Data axis to CRS axis mapping: 1,2
+Origin = (-5458203.076346900314093,2729101.538173450157046)
+Pixel Size = (100.000000000000000,-100.000000000000000)
+Metadata:
+  AREA_OR_POINT=Area
+Image Structure Metadata:
+  INTERLEAVE=BAND
+Corner Coordinates:
+Upper Left  (-5458203.076, 2729101.538) (180d 0' 0.00"W, 90d 0' 0.00"N)
+Lower Left  (-5458203.076,-2729098.462) (180d 0' 0.00"W, 89d59'59.63"S)
+Upper Right ( 5458196.924, 2729101.538) (179d59'59.27"E, 90d 0' 0.00"N)
+Lower Right ( 5458196.924,-2729098.462) (179d59'59.27"E, 89d59'59.63"S)
+Center      (  -3.0763469,   1.5381735) (  0d 0' 0.37"W,  0d 0' 0.18"N)
+Band 1 Block=109164x1 Type=Byte, ColorInterp=Gray
+  NoData Value=0
+  Offset: -0.0039525691699605,   Scale:1.00395256917

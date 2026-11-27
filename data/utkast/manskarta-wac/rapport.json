@@ -1,0 +1,14 @@
+{
+  "storlek": [
+    2048,
+    1024
+  ],
+  "lage": "L",
+  "medel_helbild": 64.3,
+  "medel_ovre_5_procent": 33.4,
+  "medel_undre_5_procent": 38.0,
+  "andel_svarta_pixlar": 0.0,
+  "webp_q80_byte": 506996,
+  "webp_q70_byte": 397046,
+  "webp_1024_q80_byte": 133322
+}
