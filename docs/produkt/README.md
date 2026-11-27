@@ -23,6 +23,7 @@ Det här är de dokument som svarar på *varför*, *för vem* och *vad som är g
 | [12-integritet-och-licenser.md](12-integritet-och-licenser.md) | Vilka data lämnar webbläsaren, och vilka licenser gäller? Underlag för juridisk läsning (utkast) | Ny extern tjänst, ny datakälla, marknadsföring mot lärare |
 | [13-ordlista.md](13-ordlista.md) | Projektets egna begrepp (inte översättningsordlistan) | Nytt begrepp i gränssnittet, onboarding |
 | [14-testoversikt.md](14-testoversikt.md) | Vad bevisar kontrollerna, och vad bevisar de inte? (utkast) | Röd kontroll, release, ny kontroll |
+| [15-lgr22-kontrollista-historia.md](15-lgr22-kontrollista-historia.md) | Vad säger Lgr22 i historia (åk 4–6, 7–9) och vad har globen, turerna och lektionerna som svarar mot det? Kontrollista med luckor (utkast, #1342) | Ny lektion, ny tur, täckningsrunda, Skolverkets nya kursplaner (#843) |
 | [09-kravspecifikation.md](09-kravspecifikation.md) | Vad ska sidan uppfylla och hur ser vi det? Krav med id, prioritet, bevis och status (utkast) | Nytt issue, release, "är det här klart?" |
 
 ## Så hålls dokumenten levande
