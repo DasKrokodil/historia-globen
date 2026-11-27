@@ -79,6 +79,7 @@
               }
             }
           },
+          "includeEvents": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" }, "description": "Händelser vid gränsen (id i events.json) som räknas till platsen trots den grova gränsen (#2333, beslut 2026-11-27), också i ett grannlands polygon. Bara när händelsens egen källa placerar den i platsen; scripts/validate-site.py kräver att punkten ligger utanför gränsen men högst INCLUDE_MAX_KM (5 km) från den." },
           "sources": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
           "review": { "enum": ["draft", "source-checked", "two-sources"] },
           "placeholder": { "type": "boolean" }
