@@ -210,6 +210,29 @@
     ],
     "checked": "2026-11-27"
    }
+  ],
+  "gotland": [
+   {
+    "wikidata": "Q413420",
+    "coordinates": [
+     18.1575,
+     57.28167
+    ],
+    "name": {
+     "sv": "Ajvideboplatsen",
+     "en": "Ajvide",
+     "de": "Ajvide",
+     "es": "Ajvide",
+     "fr": "Ajvide"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "meningokocker-pa-ajvide"
+    ],
+    "checked": "2026-11-27"
+   }
   ]
  }
 }

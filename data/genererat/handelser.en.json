@@ -845,6 +845,7 @@
 "motet-i-gniezno-1000":{"place":{"en":"Gniezno Cathedral, Poland"},"title":{"en":"The Congress of Gniezno"}},
 "kaliszstadgan-1264":{"place":{"en":"Kalisz, Greater Poland, Poland"},"title":{"en":"The Statute of Kalisz protects the Jews"}},
 "saltgruvan-i-wieliczka":{"place":{"en":"Wieliczka near Kraków, Poland"},"title":{"en":"The Wieliczka Salt Mine"}},
+"slaget-vid-visby":{"place":{"en":"Outside Visby's town wall, Gotland"},"title":{"en":"Battle of Visby"},"note":{"title":{"en":"About the calendar"}}},
 "universitetet-i-krakow-grundas":{"place":{"en":"Kraków, Poland"},"title":{"en":"The University of Kraków is founded"}},
 "slaget-vid-grunwald":{"place":{"en":"Near Grunwald, Warmia-Masuria, Poland"},"title":{"en":"The Battle of Grunwald"}},
 "imjinkriget":{"place":{"en":"Korea and the seas around the Korean Peninsula (began at Busan)"},"title":{"en":"The Imjin War"},"note":{"title":{"en":"About the calendar"}}},
@@ -1762,5 +1763,6 @@
 "bombdadet-i-oberwart-1995":{"place":{"en":"Oberwart, Burgenland, Austria"},"title":{"en":"The bomb attack on Roma in Oberwart"},"note":{"title":{"en":"The sources differ"}}},
 "solidaritet-bildas":{"place":{"en":"The Lenin Shipyard in Gdańsk, Poland"},"title":{"en":"Solidarity is founded"}},
 "valet-i-polen-1989":{"place":{"en":"All of Poland (the marker in Warsaw)"},"title":{"en":"The 1989 election breaks the communists’ grip"}},
-"kasjubiska-blir-regionsprak":{"place":{"en":"Kashubia in Pomerania, Poland"},"title":{"en":"Kashubian becomes a regional language"}}
+"kasjubiska-blir-regionsprak":{"place":{"en":"Kashubia in Pomerania, Poland"},"title":{"en":"Kashubian becomes a regional language"}},
+"visby-blir-varldsarv":{"place":{"en":"Visby, Gotland"},"title":{"en":"Visby becomes a World Heritage Site"}}
 }}

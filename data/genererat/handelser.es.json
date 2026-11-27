@@ -734,6 +734,7 @@
 "motet-i-gniezno-1000":{"place":{"es":"Catedral de Gniezno (Polonia)"},"title":{"es":"El Congreso de Gniezno"}},
 "kaliszstadgan-1264":{"place":{"es":"Kalisz, Gran Polonia (Polonia)"},"title":{"es":"El Estatuto de Kalisz protege a los judíos"}},
 "saltgruvan-i-wieliczka":{"place":{"es":"Wieliczka, cerca de Cracovia (Polonia)"},"title":{"es":"La mina de sal de Wieliczka"}},
+"slaget-vid-visby":{"place":{"es":"Ante la muralla de Visby, Gotland"},"title":{"es":"Batalla de Visby"},"note":{"title":{"es":"Sobre el calendario"}}},
 "universitetet-i-krakow-grundas":{"place":{"es":"Cracovia (Polonia)"},"title":{"es":"Se funda la Universidad de Cracovia"}},
 "slaget-vid-grunwald":{"place":{"es":"Cerca de Grunwald, Varmia y Masuria (Polonia)"},"title":{"es":"La batalla de Grunwald"}},
 "slaget-vid-landskrona":{"note":{"title":{"es":"Sobre el calendario"}}},
@@ -1277,5 +1278,6 @@
 "bombdadet-i-oberwart-1995":{"place":{"es":"Oberwart, Burgenland (Austria)"},"title":{"es":"El atentado con bomba contra romaníes en Oberwart"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "solidaritet-bildas":{"place":{"es":"Astillero Lenin de Gdańsk (Polonia)"},"title":{"es":"Nace Solidaridad"}},
 "valet-i-polen-1989":{"place":{"es":"Toda Polonia (el marcador en Varsovia)"},"title":{"es":"Las elecciones de 1989 acaban con el poder comunista"}},
-"kasjubiska-blir-regionsprak":{"place":{"es":"Casubia, en Pomerania (Polonia)"},"title":{"es":"El casubio pasa a ser lengua regional"}}
+"kasjubiska-blir-regionsprak":{"place":{"es":"Casubia, en Pomerania (Polonia)"},"title":{"es":"El casubio pasa a ser lengua regional"}},
+"visby-blir-varldsarv":{"place":{"es":"Visby, Gotland"},"title":{"es":"Visby entra en la Lista del Patrimonio Mundial"}}
 }}

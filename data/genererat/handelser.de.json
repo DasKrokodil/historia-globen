@@ -845,6 +845,7 @@
 "motet-i-gniezno-1000":{"place":{"de":"Dom von Gniezno, Polen"},"title":{"de":"Der Akt von Gnesen"}},
 "kaliszstadgan-1264":{"place":{"de":"Kalisz, Großpolen, Polen"},"title":{"de":"Das Statut von Kalisch schützt die Juden"}},
 "saltgruvan-i-wieliczka":{"place":{"de":"Wieliczka bei Krakau, Polen"},"title":{"de":"Das Salzbergwerk Wieliczka"}},
+"slaget-vid-visby":{"place":{"de":"Vor der Ringmauer von Visby, Gotland"},"title":{"de":"Schlacht von Visby"},"note":{"title":{"de":"Zum Kalender"}}},
 "universitetet-i-krakow-grundas":{"place":{"de":"Krakau, Polen"},"title":{"de":"Die Universität Krakau wird gegründet"}},
 "slaget-vid-grunwald":{"place":{"de":"Bei Grunwald (Grünfelde), Ermland-Masuren, Polen"},"title":{"de":"Die Schlacht bei Tannenberg (Grunwald)"}},
 "imjinkriget":{"place":{"de":"Korea und die Meere um die Koreanische Halbinsel (begann bei Busan)"},"title":{"de":"Der Imjin-Krieg"},"note":{"title":{"de":"Zum Kalender"}}},
@@ -1762,5 +1763,6 @@
 "bombdadet-i-oberwart-1995":{"place":{"de":"Oberwart, Burgenland, Österreich"},"title":{"de":"Das Rohrbombenattentat auf Roma in Oberwart"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "solidaritet-bildas":{"place":{"de":"Leninwerft in Danzig, Polen"},"title":{"de":"Solidarność wird gegründet"}},
 "valet-i-polen-1989":{"place":{"de":"Ganz Polen (die Markierung in Warschau)"},"title":{"de":"Die Wahl 1989 bricht die Macht der Kommunisten"}},
-"kasjubiska-blir-regionsprak":{"place":{"de":"Kaschubei in Pommern, Polen"},"title":{"de":"Kaschubisch wird Regionalsprache"}}
+"kasjubiska-blir-regionsprak":{"place":{"de":"Kaschubei in Pommern, Polen"},"title":{"de":"Kaschubisch wird Regionalsprache"}},
+"visby-blir-varldsarv":{"place":{"de":"Visby, Gotland"},"title":{"de":"Visby wird Welterbe"}}
 }}
