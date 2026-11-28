@@ -1323,6 +1323,69 @@
     ],
     "checked": "2026-11-28"
    }
+  ],
+  "oland": [
+   {
+    "wikidata": "Q893554",
+    "coordinates": [
+     16.698,
+     56.879
+    ],
+    "name": {
+     "sv": "Borgholm",
+     "en": "Borgholm",
+     "de": "Borgholm",
+     "es": "Borgholm",
+     "fr": "Borgholm"
+    },
+    "fallback": [],
+    "events": [
+     "borgholms-slott-brinner"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q1478888",
+    "coordinates": [
+     16.48,
+     56.647
+    ],
+    "name": {
+     "sv": "Färjestaden",
+     "en": "Färjestaden",
+     "de": "Färjestaden",
+     "es": "Färjestaden",
+     "fr": "Färjestaden"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "olandsbron-invigs"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q2021953",
+    "coordinates": [
+     16.467,
+     56.6
+    ],
+    "name": {
+     "sv": "Karlevi",
+     "en": "Karlevi",
+     "de": "Karlevi",
+     "es": "Karlevi",
+     "fr": "Karlevi"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "karlevistenen"
+    ],
+    "checked": "2026-11-28"
+   }
   ]
  }
 }

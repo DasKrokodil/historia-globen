@@ -970,6 +970,7 @@
 "bjorketorpsstenen":{"place":{"en":"Björketorp east of Ronneby, Blekinge"},"title":{"en":"The Björketorp Runestone"},"note":{"title":{"en":"About the dating"}}},
 "venderna-branner-kungahalla":{"place":{"en":"Kungahälla on the Nordre älv, Bohuslän"},"title":{"en":"The Wends burn Kungahälla"},"note":{"title":{"en":"The sources differ"}}},
 "bohus-fastning-byggs":{"place":{"en":"Bohus Fortress, Kungälv, Bohuslän"},"title":{"en":"Bohus Fortress is built"}},
+"karlevistenen":{"place":{"en":"Karlevi on the Kalmar Strait, Öland"},"title":{"en":"The Karlevi Runestone is raised on Öland"},"note":{"title":{"en":"About the dating and the point"}}},
 "imjinkriget":{"place":{"en":"Korea and the seas around the Korean Peninsula (began at Busan)"},"title":{"en":"The Imjin War"},"note":{"title":{"en":"About the calendar"}}},
 "belagringen-av-busan-1592":{"place":{"en":"Busan, Korea"},"title":{"en":"The Japanese storm Busan"}},
 "slaget-vid-chungju-1592":{"place":{"en":"Tangeumdae at Chungju, Korea"},"title":{"en":"The Battle of Chungju"},"note":{"title":{"en":"The sources differ"}}},
@@ -1245,6 +1246,7 @@
 "bohuslan-blir-svenskt":{"place":{"en":"Kungälv, Bohuslän (the peace was signed at Roskilde)"},"title":{"en":"Bohuslän becomes Swedish"},"note":{"title":{"en":"About the place"}}},
 "stora-sillperioden":{"place":{"en":"The coast of Bohuslän (the marker is at Wikidata’s point for the province)"},"title":{"en":"The great herring period"},"note":{"title":{"en":"About the dating"}}},
 "slaget-vid-kvistrum":{"place":{"en":"Kvistrum near Munkedal, Bohuslän"},"title":{"en":"The Battle of Kvistrum"},"note":{"title":{"en":"The sources differ"}}},
+"regalskeppet-kronan-sjunker":{"place":{"en":"The Baltic Sea east of Hulterstad, south-eastern Öland"},"title":{"en":"The royal ship Kronan sinks off Öland"},"note":{"title":{"en":"About the calendar"}}},
 "forsta-opiumkriget":{"place":{"en":"China's coast from the Pearl River to the Yangtze (began at Kowloon, in present-day Hong Kong)"},"title":{"en":"First Opium War"},"note":{"title":{"en":"The sources differ"}}},
 "skarmytslingen-vid-kowloon-1839":{"place":{"en":"Kowloon, present-day Hong Kong"},"title":{"en":"Skirmish at Kowloon"}},
 "britterna-intar-zhoushan-1840":{"place":{"en":"Dinghai on Zhoushan Island (Chusan), Zhejiang"},"title":{"en":"The British take Zhoushan"}},
@@ -1493,6 +1495,7 @@
 "champollion-laser-hieroglyferna":{"place":{"en":"Paris, France (the Académie des Inscriptions et Belles-Lettres)"},"title":{"en":"Champollion deciphers the hieroglyphs"},"note":{"title":{"en":"The sources differ"}}},
 "motala-verkstad-grundas":{"place":{"en":"Motala, Östergötland"},"title":{"en":"Motala Verkstad engineering works is founded"}},
 "kristinebergs-havsstation":{"place":{"en":"Kristineberg near Fiskebäckskil, Skaftö, Bohuslän"},"title":{"en":"The marine research station at Kristineberg is founded"},"note":{"title":{"en":"One source"}}},
+"borgholms-slott-brinner":{"place":{"en":"Borgholm, Öland"},"title":{"en":"Borgholm Castle becomes a ruin after a fire"}},
 "rifkriget":{"place":{"en":"Rif in northern Morocco, then a Spanish protectorate (began near Annual)"},"title":{"en":"Rif War"},"note":{"title":{"en":"The sources differ"}}},
 "slaget-vid-annual":{"place":{"en":"Annual in north-eastern Morocco, about 60 km west of Melilla"},"title":{"en":"The Riffians defeat Spain at Annual"},"note":{"title":{"en":"The sources differ"}}},
 "massakern-vid-monte-arruit":{"place":{"en":"Monte Arruit at Al Aaroui, about 35 km south of Melilla"},"title":{"en":"The massacre at Monte Arruit"},"note":{"title":{"en":"The sources differ"}}},
@@ -1862,6 +1865,7 @@
 "mayaskriften-tydd":{"place":{"en":"Piedras Negras (1959) and Palenque (1973); the marker is at Palenque"},"title":{"en":"The Maya script begins to be read"},"note":{"title":{"en":"The sources differ"}}},
 "takern-blir-naturreservat":{"place":{"en":"Tåkern south of Vadstena, Östergötland"},"title":{"en":"Lake Tåkern becomes a nature reserve"},"note":{"title":{"en":"The sources differ"}}},
 "uddevallavarvet":{"place":{"en":"Kasen, Uddevalla, Bohuslän"},"title":{"en":"The Uddevalla shipyard"},"note":{"title":{"en":"The sources differ"}}},
+"olandsbron-invigs":{"place":{"en":"Färjestaden, Öland (the bridgehead at Möllstorp)"},"title":{"en":"The Öland Bridge opens"},"note":{"title":{"en":"About the point"}}},
 "www":{"place":{"en":"CERN, Geneva"},"title":{"en":"The invention of the Web"}},
 "rysslands-invasion-av-ukraina":{"place":{"en":"Ukraine (attack from the north, east and south, including towards Kyiv)"},"title":{"en":"Russia's invasion of Ukraine"}},
 "slaget-om-kyiv-2022":{"place":{"en":"Kyiv, Ukraine"},"title":{"en":"The Battle of Kyiv"},"note":{"title":{"en":"The sources differ"}}},
@@ -2019,5 +2023,6 @@
 "tresticklan-blir-nationalpark":{"place":{"en":"Tresticklan, Dals-Ed, Dalsland"},"title":{"en":"Tresticklan becomes a national park"}},
 "u-137-gar-pa-grund":{"place":{"en":"Gåsefjärden off Karlskrona, Blekinge"},"title":{"en":"U 137 runs aground"},"note":{"title":{"en":"The sources differ"}}},
 "orlogsstaden-karlskrona-varldsarv":{"place":{"en":"Karlskrona, Blekinge"},"title":{"en":"The Naval Port of Karlskrona becomes a World Heritage Site"}},
-"almobron-rasar":{"place":{"en":"Almö Bridge over the Askerö Fjord, Stenungsund–Tjörn, Bohuslän"},"title":{"en":"The Almö Bridge collapses"}}
+"almobron-rasar":{"place":{"en":"Almö Bridge over the Askerö Fjord, Stenungsund–Tjörn, Bohuslän"},"title":{"en":"The Almö Bridge collapses"}},
+"sodra-olands-odlingslandskap-varldsarv":{"place":{"en":"Southern Öland"},"title":{"en":"The Agricultural Landscape of Southern Öland becomes a World Heritage Site"}}
 }}
