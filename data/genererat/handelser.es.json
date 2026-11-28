@@ -1256,7 +1256,7 @@
 "emukriget":{"place":{"es":"Campion, en el cinturón cerealista de Australia Occidental"},"title":{"es":"La guerra del Emú"},"note":{"title":{"es":"¿Cuántos emúes murieron?"}}},
 "moresnet-blir-belgiskt":{"place":{"es":"Kelmis, Bélgica"},"title":{"es":"Moresnet Neutral pasa a ser belga"}},
 "indonesiens-sjalvstandighet":{"place":{"es":"Casa de Sukarno en Jalan Pegangsaan Timur 56, Yakarta, Indonesia"},"title":{"es":"Indonesia proclama su independencia"}},
-"herero-och-nama-folkmordet":{"place":{"es":"África del Sudoeste Alemana, hoy Namibia (el levantamiento comenzó cerca de Okahandja)"},"title":{"es":"El genocidio de los herero y los nama"}},
+"herero-och-nama-folkmordet":{"place":{"es":"África del Sudoeste Alemana, hoy Namibia (el levantamiento comenzó cerca de Okahandja)"},"title":{"es":"El genocidio de los herero y los nama"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "fn-grundas":{"place":{"es":"San Francisco, Estados Unidos"},"title":{"es":"Se firma la Carta de la ONU y se funda la ONU"}},
 "titanic-sjunker":{"place":{"es":"Atlántico Norte (el pecio se encuentra a 41°44′ N, 49°57′ O)"},"title":{"es":"El Titanic se hunde"}},
 "oktoberrevolutionen":{"place":{"es":"Petrogrado (hoy San Petersburgo), Rusia"},"title":{"es":"La Revolución de Octubre en Rusia"}},
