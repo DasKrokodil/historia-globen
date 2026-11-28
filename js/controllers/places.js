@@ -25,7 +25,7 @@ const BUSY_NOTICE_MS = 10000;
 export function createPlaces(app) {
   const { $, state, data, globe, flatMap, registry } = app;
   const layer = registry.get('places');
-  let cards = [], loading = null, pending = 0, lastSaid = null, announceTimer = 0;
+  let cards = [], request = null, loading = null, pending = 0, lastSaid = null, announceTimer = 0;
 
   /** Vanligt läge: inget Fokus, ingen tur, lektion eller intervall (en jakt pågår bredvid, #893). */
   const allowed = () => !state.focus && !state.modes.some(m => m.mode !== 'jakt');
@@ -37,12 +37,16 @@ export function createPlaces(app) {
 
   /** Laddar platserna en gång. Bara de som har minst en synlig händelse har ett kort (som i Sök och följ). */
   function ensure() {
-    loading ??= loadPlaces().then(list => {
-      cards = list.filter(p => placeEvents(p, data.events).some(e => isVisibleReview(e.review)));
-      layer.cards = cards;
-      if (state.labels?.placeHints && cards.length) app.refresh();
-      return cards;
-    });
+    const next = loadPlaces();
+    if (next !== request) {
+      request = next;
+      loading = request.then(list => {
+        cards = list.filter(p => placeEvents(p, data.events).some(e => isVisibleReview(e.review)));
+        layer.cards = cards;
+        if (state.labels?.placeHints && cards.length) app.refresh();
+        return cards;
+      });
+    }
     return loading;
   }
 
