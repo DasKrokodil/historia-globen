@@ -993,6 +993,210 @@
     "checked": "2026-11-28"
    }
   ],
+  "dalsland": [
+   {
+    "wikidata": "Q271082",
+    "coordinates": [
+     12.697,
+     59.05
+    ],
+    "name": {
+     "sv": "Åmål",
+     "en": "Åmål",
+     "de": "Åmål",
+     "es": "Åmål",
+     "fr": "Åmål"
+    },
+    "fallback": [],
+    "events": [
+     "amal-far-stadsprivilegier"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q846657",
+    "coordinates": [
+     12.606,
+     58.603
+    ],
+    "name": {
+     "sv": "Dalaborg",
+     "en": "Dalaborg",
+     "de": "Dalaborg",
+     "es": "Dalaborg",
+     "fr": "Dalaborg"
+    },
+    "fallback": [
+     "es",
+     "fr"
+    ],
+    "events": [
+     "dalaborg-byggs"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q10532367",
+    "coordinates": [
+     12.38,
+     58.894
+    ],
+    "name": {
+     "sv": "Högsbyns hällristningsområde",
+     "en": "Högsbyns hällristningsområde",
+     "de": "Petroglyphen von Högsbyn",
+     "es": "Högsbyns hällristningsområde",
+     "fr": "Högsbyns hällristningsområde"
+    },
+    "fallback": [
+     "es",
+     "fr"
+    ],
+    "events": [
+     "hallristningarna-i-hogsbyn"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q1019584",
+    "coordinates": [
+     12.414,
+     58.824
+    ],
+    "name": {
+     "sv": "Håverud",
+     "en": "Håverud",
+     "de": "Håverud",
+     "es": "Håverud",
+     "fr": "Håverud"
+    },
+    "fallback": [
+     "fr"
+    ],
+    "events": [
+     "dalslands-kanal-byggs"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q1270469",
+    "coordinates": [
+     11.758,
+     59.026
+    ],
+    "name": {
+     "sv": "Tresticklan",
+     "en": "Tresticklan National Park",
+     "de": "Nationalpark Tresticklan",
+     "es": "Tresticklan",
+     "fr": "parc national de Tresticklan"
+    },
+    "fallback": [],
+    "events": [
+     "tresticklan-blir-nationalpark"
+    ],
+    "checked": "2026-11-28"
+   }
+  ],
+  "ostergotland": [
+   {
+    "wikidata": "Q2664800",
+    "coordinates": [
+     14.651,
+     58.294
+    ],
+    "name": {
+     "sv": "Alvastra",
+     "en": "Alvastra",
+     "de": "Alvastra",
+     "es": "Alvastra",
+     "fr": "Alvastra"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "alvastra-palbyggnad"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q472975",
+    "coordinates": [
+     14.775,
+     58.295
+    ],
+    "name": {
+     "sv": "Rökstenen",
+     "en": "Rök Runestone",
+     "de": "Runenstein von Rök",
+     "es": "Piedra de Rök",
+     "fr": "Pierre de Rök"
+    },
+    "fallback": [],
+    "events": [
+     "rokstenen"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q265682",
+    "coordinates": [
+     14.897,
+     58.445
+    ],
+    "name": {
+     "sv": "Vadstena",
+     "en": "Vadstena",
+     "de": "Vadstena",
+     "es": "Vadstena",
+     "fr": "Vadstena"
+    },
+    "fallback": [],
+    "events": [
+     "vadstena-kloster"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q54357",
+    "coordinates": [
+     15.037,
+     58.544
+    ],
+    "name": {
+     "sv": "Motala",
+     "en": "Motala",
+     "de": "Motala",
+     "es": "Motala",
+     "fr": "Motala"
+    },
+    "fallback": [],
+    "events": [
+     "motala-verkstad-grundas"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q1805733",
+    "coordinates": [
+     14.8,
+     58.35
+    ],
+    "name": {
+     "sv": "Tåkern",
+     "en": "Tåkern",
+     "de": "Tåkern",
+     "es": "Tåkern",
+     "fr": "Tåkern"
+    },
+    "fallback": [],
+    "events": [
+     "takern-blir-naturreservat"
+    ],
+    "checked": "2026-11-28"
+   }
+  ],
   "blekinge": [
    {
     "wikidata": "Q823785",
