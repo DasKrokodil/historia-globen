@@ -36,14 +36,15 @@ export function km([lon1, lat1], [lon2, lat2]) {
 /**
  * Gäller händelsen hela platsen? Det säger datan (#1674): händelsen har `scope: "place"` och en ungefärlig plats
  * (`locationPrecision`, som scripts/validate-site.py kräver), och platsen är den minsta av places som händelsen hör till
- * (smallestPlace i js/place-geo.js: gränsen med kustmarginalen, som platsens händelser). En skånsk händelse gäller alltså Skåne och
+ * bland länder för landsprecision, annars bland alla platser (smallestPlace i js/place-geo.js: gränsen med kustmarginalen, som platsens händelser). En skånsk händelse gäller alltså Skåne och
  * står som ungefärlig markör i Sverige. places är alla platser som får visas; utan dem ger ingen händelse brickan (hellre en
  * markör än "Hela Sverige" för något som gäller Skåne). Inga platstexter läses, så svaret är detsamma på alla språk (textregeln
  * från steg 1b är borta, docs/beslut/2026-11-15-scope-place-1674.md).
  */
 export function wholePlace(e, place, places = []) {
   if (e?.scope !== 'place' || !e.locationPrecision || !place || e._lon == null) return false;
-  return smallestPlace(places, e._lon, e._lat)?.id === place.id;
+  const type = e.locationPrecision === 'country' ? 'country' : undefined;
+  return smallestPlace(places, e._lon, e._lat, type)?.id === place.id;
 }
 
 /** Har händelsen börjat vid året? Hela år räknas (en händelse som börjar 1997,8 har börjat 1997). */
