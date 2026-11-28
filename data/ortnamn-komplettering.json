@@ -511,6 +511,50 @@
     "checked": "2026-11-27"
    }
   ],
+  "vasterbotten": [
+   {
+    "wikidata": "Q10542957",
+    "coordinates": [
+     19.797,
+     64.671
+    ],
+    "name": {
+     "sv": "Kalvträsk",
+     "en": "Kalvträsk",
+     "de": "Kalvträsk",
+     "es": "Kalvträsk",
+     "fr": "Kalvträsk"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "skidan-fran-kalvtrask"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q891347",
+    "coordinates": [
+     20.382,
+     64.865
+    ],
+    "name": {
+     "sv": "Boliden",
+     "en": "Boliden",
+     "de": "Boliden",
+     "es": "Boliden",
+     "fr": "Boliden"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "guldmalmen-i-boliden"
+    ],
+    "checked": "2026-11-28"
+   }
+  ],
   "vastmanland": [
    {
     "wikidata": "Q6488345",
