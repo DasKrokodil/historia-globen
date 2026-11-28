@@ -1154,6 +1154,7 @@
   "space.back": "Zurück zur Erde",
   "space.mapAlt": "Karte der gesamten Mondoberfläche, flach ausgebreitet und nicht maßstabsgetreu; Gebiete nahe den Polen sind in Ost-West-Richtung gedehnt. Markierter Ort: {places}.",
   "space.mapCredit": "Karte: {credit} · {license}",
+  "space.aboutData": ["Quellen und Karte · {n} Quelle", "Quellen und Karte · {n} Quellen"],
   "space.places": "Orte auf der Karte",
   "space.loading": "Mondkarte wird geladen…",
   "space.missing": "Das Kartenbild konnte nicht geladen werden. Der Ort steht in der Liste unten.",
