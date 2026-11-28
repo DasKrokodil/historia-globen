@@ -16758,7 +16758,16 @@ async function run(browser, vp) {
       if (!/Månen · en plats utanför jorden/.test(dlg.band)) throw new Error(`bandet saknas: "${dlg.band}"`);
       if (!/Året är 1969, jordens tid/.test(dlg.year)) throw new Error(`året saknas: "${dlg.year}"`);
       if (!/Statio Tranquillitatis/.test(dlg.alt) || !/inte skalenlig/.test(dlg.alt)) throw new Error(`textalternativet är fel: "${dlg.alt}"`);
-      if (!/inte skalenlig/.test(dlg.caption) || !/Public domain/.test(dlg.caption)) throw new Error(`bildtexten saknar märkning eller licens: "${dlg.caption}"`);
+      const caption = (await (await context.request.get(`${BASE}data/rymd.json`)).json()).maps.moon.caption.sv;
+      if (dlg.caption.trim() !== caption || !await mp.locator('.moon-map figcaption').isVisible()) throw new Error(`bildtexten syns inte i sin helhet: "${dlg.caption}"`);
+      const sources = mp.locator('#moon-body details.detail-about');
+      const summary = sources.locator('summary');
+      const credit = sources.locator('.moon-credit');
+      const links = sources.locator('.src a[href]');
+      const n = await links.count();
+      const line = await summary.textContent();
+      if (!n || !line.includes(`Källor och karta · ${n} källor · Platsen på månen: två källor stämmer`)) throw new Error(`sammanfattningen saknar källor eller status: "${line}"`);
+      if (await sources.evaluate(el => el.open) || await credit.isVisible() || await links.first().isVisible()) throw new Error('krediten eller källorna är synliga innan raden fälls ut');
       if (!/Statio Tranquillitatis/.test(dlg.place)) throw new Error('platsen saknas i listan');
       if (Math.abs(dlg.x - 203.47314 / 360) > 0.01 || Math.abs(dlg.y - 89.32584 / 180) > 0.01) throw new Error(`markören ligger fel: ${dlg.x.toFixed(3)}, ${dlg.y.toFixed(3)}`);
       if (dlg.ff === 'visible') throw new Error('Samtidigt-kortet syns bakom månvyn');
@@ -16770,6 +16779,15 @@ async function run(browser, vp) {
       if (!(await mp.evaluate(() => document.activeElement?.hasAttribute('data-moon-place')))) throw new Error('Tab från rubriken når inte platsens knapp');
       await mp.keyboard.press('Enter');
       await mp.waitForFunction(() => /0,67° N, 23,47° Ö/.test(document.getElementById('moon-live').textContent), null, { timeout: T.step });
+      // Källraden kan fällas ut och ihop med tangentbordet, med bildtexten fortfarande synlig.
+      await mp.keyboard.press('Tab');
+      if (!await summary.evaluate(el => document.activeElement === el)) throw new Error('Tab från platsens knapp når inte källraden');
+      await mp.keyboard.press('Enter');
+      await credit.waitFor({ state: 'visible', timeout: T.step });
+      if (!/Public domain/.test(await credit.textContent()) || !await links.first().isVisible()) throw new Error('den utfällda raden saknar licens eller länkar');
+      if ((await moonState(mp)).overflow > 0) throw new Error('den utfällda källraden ger horisontell scroll');
+      await mp.keyboard.press('Space');
+      await credit.waitFor({ state: 'hidden', timeout: T.step });
       // Escape stänger, faktarutan kommer tillbaka och fokus står på knappen
       await mp.keyboard.press('Escape');
       await mp.waitForSelector('#moon-dialog', { state: 'hidden', timeout: T.step });
@@ -16787,7 +16805,7 @@ async function run(browser, vp) {
       if (after.b || after.y !== before.y) throw new Error(`adressen efter månvyn: före ${JSON.stringify(before)}, efter ${JSON.stringify(after)}`);
       errs.push(...mpAw.settle());
       if (errs.length) throw new Error(errs.join(' | '));
-      return 'knappen bara på Apollo 11, Escape och Tillbaka ger samma resultat, inga konsolfel';
+      return 'bildtexten syns, källraden öppnas med tangentbord, Escape och Tillbaka återställer fokus';
     } finally {
       await mp.close();
     }

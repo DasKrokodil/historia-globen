@@ -1154,6 +1154,7 @@
   "space.back": "Volver a la Tierra",
   "space.mapAlt": "Mapa de toda la superficie de la Luna, extendida en plano y no a escala; las zonas cercanas a los polos aparecen estiradas de este a oeste. Lugar marcado: {places}.",
   "space.mapCredit": "Mapa: {credit} · {license}",
+  "space.aboutData": ["Fuentes y mapa · {n} fuente", "Fuentes y mapa · {n} fuentes"],
   "space.places": "Lugares en el mapa",
   "space.loading": "Cargando el mapa de la Luna…",
   "space.missing": "No se ha podido cargar la imagen del mapa. El lugar figura en la lista de abajo.",

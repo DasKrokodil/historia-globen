@@ -1154,6 +1154,7 @@
   "space.back": "Back to Earth",
   "space.mapAlt": "Map of the whole surface of the Moon, laid out flat and not to scale; areas near the poles are stretched from east to west. Marked site: {places}.",
   "space.mapCredit": "Map: {credit} · {license}",
+  "space.aboutData": ["Sources and map · {n} source", "Sources and map · {n} sources"],
   "space.places": "Sites on the map",
   "space.loading": "Loading the map of the Moon…",
   "space.missing": "The map image could not be loaded. The site is listed below.",
