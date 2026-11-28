@@ -876,6 +876,7 @@
 "riseberga-kloster":{"place":{"fr":"Riseberga, Edsberg, Närke"},"title":{"fr":"L’abbaye de Riseberga"}},
 "engelbrekt-mordas":{"place":{"fr":"Engelbrektsholmen, lac Hjälmaren, Närke"},"title":{"fr":"Engelbrekt est assassiné au bord du lac Hjälmaren"},"note":{"title":{"fr":"À propos de la date"}}},
 "vaxjo-stift-bildas":{"place":{"fr":"Växjö, Småland"},"title":{"fr":"Växjö devient siège épiscopal"},"note":{"title":{"fr":"À propos de la date"}}},
+"bjorketorpsstenen":{"place":{"fr":"Björketorp, à l’est de Ronneby, Blekinge"},"title":{"fr":"La pierre runique de Björketorp"},"note":{"title":{"fr":"À propos de la datation"}}},
 "slaget-vid-landskrona":{"note":{"title":{"fr":"À propos du calendrier"}}},
 "slaget-vid-helsingborg":{"note":{"title":{"fr":"À propos du calendrier"}}},
 "agadez-mosken":{"place":{"fr":"Agadez, Niger"},"title":{"fr":"La mosquée d'Agadez est construite"}},
@@ -1009,6 +1010,10 @@
 "dackefejden":{"place":{"fr":"Château de Kronoberg, près de Växjö, Småland"},"title":{"fr":"La révolte de Nils Dacke"},"note":{"title":{"fr":"À propos du lieu"}}},
 "linne-fods-i-rashult":{"place":{"fr":"Råshult, paroisse de Stenbrohult, Småland"},"title":{"fr":"Naissance de Carl von Linné à Råshult"},"note":{"title":{"fr":"À propos du calendrier"}}},
 "kosta-glasbruk-grundas":{"place":{"fr":"Kosta, Småland"},"title":{"fr":"Fondation de la verrerie de Kosta"},"note":{"title":{"fr":"À propos de la date"}}},
+"ronneby-blodbad":{"place":{"fr":"Ronneby, Blekinge"},"title":{"fr":"Le massacre de Ronneby"},"note":{"title":{"fr":"À propos du calendrier"}}},
+"kristianopel-anlaggs":{"place":{"fr":"Kristianopel, Blekinge"},"title":{"fr":"Fondation de Kristianopel"},"note":{"title":{"fr":"À propos de la datation"}}},
+"karlskrona-grundas":{"place":{"fr":"Trossö, Karlskrona, Blekinge"},"title":{"fr":"Fondation de Karlskrona"}},
+"ronneby-brunn":{"place":{"fr":"Ronneby brunn, Blekinge"},"title":{"fr":"La source ferrugineuse de Ronneby"}},
 "nya-zeelandkrigen":{"note":{"title":{"fr":"Les sources divergent"}}},
 "forsta-missionen-rangihoua":{"place":{"fr":"Oihi, à Rangihoua, Bay of Islands, Nouvelle-Zélande"},"title":{"fr":"La première mission chrétienne en Nouvelle-Zélande"}},
 "muskotkrigen":{"place":{"fr":"Toute la Nouvelle-Zélande, y compris les îles Chatham (la première bataille connue avec des mousquets eut lieu à Moremonui, dans le Northland)"},"title":{"fr":"Guerres des mousquets"},"note":{"title":{"fr":"Les sources divergent"}}},
@@ -1550,5 +1555,7 @@
 "ungern-gar-med-i-eu":{"place":{"fr":"Toute la Hongrie (le marqueur à Budapest)"},"title":{"fr":"La Hongrie entre dans l’UE"}},
 "falu-gruva-blir-varldsarv":{"place":{"fr":"Falun, Dalécarlie"},"title":{"fr":"La mine de Falun inscrite au patrimoine mondial"}},
 "hoga-kusten-blir-varldsarv":{"place":{"fr":"Skuleberget, Haute Côte, Ångermanland"},"title":{"fr":"La Haute Côte devient patrimoine mondial"},"note":{"title":{"fr":"Les sources divergent"}}},
-"meankieli-blir-minoritetssprak":{"place":{"fr":"Vallée de la Torne (le point : Övertorneå), Norrbotten"},"title":{"fr":"Le meänkieli devient une langue minoritaire"},"note":{"title":{"fr":"À propos de la datation"}}}
+"meankieli-blir-minoritetssprak":{"place":{"fr":"Vallée de la Torne (le point : Övertorneå), Norrbotten"},"title":{"fr":"Le meänkieli devient une langue minoritaire"},"note":{"title":{"fr":"À propos de la datation"}}},
+"u-137-gar-pa-grund":{"place":{"fr":"Gåsefjärden, au large de Karlskrona, Blekinge"},"title":{"fr":"Le U 137 s’échoue"},"note":{"title":{"fr":"Les sources divergent"}}},
+"orlogsstaden-karlskrona-varldsarv":{"place":{"fr":"Karlskrona, Blekinge"},"title":{"fr":"Le port naval de Karlskrona inscrit au patrimoine mondial"}}
 }}

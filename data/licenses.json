@@ -3375,6 +3375,9 @@
         "wp-sv-backens-kyrka",
         "wp-sv-balastugan",
         "wp-sv-bjorkebaten",
+        "wp-sv-bjorketorpsstenen",
+        "wp-sv-blekinge",
+        "wp-sv-blekinges-historia",
         "wp-sv-bockstensmannen",
         "wp-sv-bolidengruvan",
         "wp-sv-carl-von-linne",
@@ -3427,10 +3430,12 @@
         "wp-sv-julita-kloster",
         "wp-sv-kalix",
         "wp-sv-kalvtraskskidan",
+        "wp-sv-karlskrona",
         "wp-sv-karlstad",
         "wp-sv-karlstadskonferensen",
         "wp-sv-kopenhamn",
         "wp-sv-kosta-glasbruk",
+        "wp-sv-kristianopel",
         "wp-sv-kroggardsmalmen",
         "wp-sv-kvarntorp",
         "wp-sv-kvarntorpshogen",
@@ -3454,6 +3459,7 @@
         "wp-sv-norrbotten",
         "wp-sv-nykopings-gastabud",
         "wp-sv-orebro-slott",
+        "wp-sv-orlogsstaden-karlskrona",
         "wp-sv-ornskoldsvik",
         "wp-sv-ostersund",
         "wp-sv-pitea",
@@ -3467,6 +3473,8 @@
         "wp-sv-riseberga-kloster",
         "wp-sv-ritamaki",
         "wp-sv-rogstaklippen",
+        "wp-sv-ronneby-blodbad",
+        "wp-sv-ronneby-brunn",
         "wp-sv-rudbeckianska-gymnasiet",
         "wp-sv-ryssharjningarna",
         "wp-sv-sagaholmshogen",
@@ -3503,6 +3511,7 @@
         "wp-sv-tunadal",
         "wp-sv-tureholms-slott",
         "wp-sv-tureholmsskatten",
+        "wp-sv-u-137",
         "wp-sv-umea",
         "wp-sv-umea-universitet",
         "wp-sv-uppland",
@@ -3978,6 +3987,8 @@
         "wd-belgian-congo",
         "wd-billund",
         "wd-bjorkebaten",
+        "wd-bjorketorpsstenen",
+        "wd-blekinge",
         "wd-bockstens-mosse",
         "wd-bockstensmannen",
         "wd-bogd-khanate",
@@ -4107,6 +4118,7 @@
         "wd-korean-empire",
         "wd-kosta-glasbruk",
         "wd-kot-diji",
+        "wd-kristianopel",
         "wd-kronobergs-slott",
         "wd-kungariket-man",
         "wd-kungariket-skottland",
@@ -4158,6 +4170,7 @@
         "wd-nykopingshus",
         "wd-ojebyn",
         "wd-orebro-slott",
+        "wd-orlogsstaden-karlskrona",
         "wd-ornskoldsvik",
         "wd-ostersund",
         "wd-ostersunds-stad",
@@ -4185,6 +4198,9 @@
         "wd-ritamaki",
         "wd-rodding",
         "wd-rogstaklippen",
+        "wd-ronneby",
+        "wd-ronneby-blodbad",
+        "wd-ronneby-brunn",
         "wd-ruanda-urundi",
         "wd-rudbeckianska-gymnasiet",
         "wd-rundetarn",
@@ -4256,6 +4272,7 @@
         "wd-tsardom-of-russia",
         "wd-tumat",
         "wd-tureholmsskatten",
+        "wd-u-137",
         "wd-ukraine",
         "wd-ulleungdo",
         "wd-umea",
@@ -4438,6 +4455,12 @@
         "lex-tybrind-vig-boplads",
         "lex-vimose",
         "lex-waitangitraktaten"
+      ]
+    },
+    {
+      "license": "Lex, fri licens enligt artikelns metadata (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "lex-blodbadet-i-ronneby"
       ]
     },
     {
@@ -5773,9 +5796,11 @@
         "snl-haparanda",
         "snl-ikea",
         "snl-julita",
+        "snl-kristianopel",
         "snl-maori",
         "snl-medelpad",
         "snl-ornskoldsvik",
+        "snl-ronneby",
         "snl-sala",
         "snl-stemmerett-kvinner-norge",
         "snl-svartedauden",
@@ -5860,6 +5885,7 @@
         "lex-almhult",
         "lex-angermanland",
         "lex-astrid-lindgren",
+        "lex-blekinge",
         "lex-boliden",
         "lex-carl-von-linne",
         "lex-dackefejden",
@@ -5880,8 +5906,10 @@
         "lex-jamtland",
         "lex-kalix",
         "lex-karl-14-johan",
+        "lex-karlskrona",
         "lex-karlstad",
         "lex-kosta",
+        "lex-kristianopel",
         "lex-kvarntorp",
         "lex-lappland",
         "lex-lulea",
@@ -5901,6 +5929,7 @@
         "lex-pitea",
         "lex-ramsundsristningen",
         "lex-ringhals",
+        "lex-ronneby",
         "lex-roskildefreden",
         "lex-sala",
         "lex-skane",
@@ -5965,6 +5994,12 @@
       ]
     },
     {
+      "license": "© Riksantikvarieämbetet (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "raa-bjorketorp"
+      ]
+    },
+    {
       "license": "© Smithsonian Magazine (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "smithsonian-machu-picchu",
@@ -5989,6 +6024,7 @@
       "license": "© Store norske leksikon, begrenset gjenbruk (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "snl-angermanland",
+        "snl-blekinge",
         "snl-dalarna",
         "snl-gastrikland",
         "snl-gotland",
@@ -5997,6 +6033,7 @@
         "snl-halsingland",
         "snl-harnosand",
         "snl-jamtland",
+        "snl-karlskrona",
         "snl-karlstad",
         "snl-karlstadforhandlingene",
         "snl-lappland",
@@ -6021,6 +6058,7 @@
     {
       "license": "© UNESCO (bara länkad, ingen text kopierad)",
       "sourceIds": [
+        "unesco-karlskrona",
         "unesco-lanse-aux-meadows"
       ]
     },
