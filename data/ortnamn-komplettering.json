@@ -724,6 +724,195 @@
     "checked": "2026-11-28"
    }
   ],
+  "norrbotten": [
+   {
+    "wikidata": "Q1026845",
+    "coordinates": [
+     22.026,
+     65.632
+    ],
+    "name": {
+     "sv": "Gammelstaden",
+     "en": "Gammelstaden",
+     "de": "Gammelstaden",
+     "es": "Gammelstaden",
+     "fr": "Gammelstaden"
+    },
+    "fallback": [],
+    "events": [
+     "nederlulea-kyrka-invigs"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q10727194",
+    "coordinates": [
+     21.405,
+     65.346
+    ],
+    "name": {
+     "sv": "Öjebyn",
+     "en": "Öjebyn",
+     "de": "Öjebyn",
+     "es": "Öjebyn",
+     "fr": "Öjebyn"
+    },
+    "fallback": [
+     "es",
+     "fr"
+    ],
+    "events": [
+     "pitea-brinner-1666"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q2135581",
+    "coordinates": [
+     23.663,
+     65.831
+    ],
+    "name": {
+     "sv": "Säivis",
+     "en": "Säivis",
+     "de": "Säivis",
+     "es": "Säivis",
+     "fr": "Säivis"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "kapitulationen-i-kalix"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q588976",
+    "coordinates": [
+     24.117,
+     65.834
+    ],
+    "name": {
+     "sv": "Haparanda",
+     "en": "Haparanda",
+     "de": "Haparanda",
+     "es": "Haparanda",
+     "fr": "Haparanda"
+    },
+    "fallback": [],
+    "events": [
+     "haparanda-blir-stad"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q7230430",
+    "coordinates": [
+     22.133,
+     65.617
+    ],
+    "name": {
+     "sv": "Porsön",
+     "en": "Porsön",
+     "de": "Porsön",
+     "es": "Porsön",
+     "fr": "Porsön"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "hogskolan-i-lulea-grundas"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q260609",
+    "coordinates": [
+     23.644,
+     66.388
+    ],
+    "name": {
+     "sv": "Övertorneå",
+     "en": "Övertorneå",
+     "de": "Övertorneå",
+     "es": "Övertorneå",
+     "fr": "Övertorneå"
+    },
+    "fallback": [],
+    "events": [
+     "meankieli-blir-minoritetssprak"
+    ],
+    "checked": "2026-11-28"
+   }
+  ],
+  "narke": [
+   {
+    "wikidata": "Q589426",
+    "coordinates": [
+     14.893,
+     59.154
+    ],
+    "name": {
+     "sv": "Riseberga kloster",
+     "en": "Riseberga Abbey",
+     "de": "Kloster Riseberga",
+     "es": "Riseberga Abbey",
+     "fr": "Riseberga Abbey"
+    },
+    "fallback": [
+     "es",
+     "fr"
+    ],
+    "events": [
+     "riseberga-kloster"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q10484139",
+    "coordinates": [
+     15.573,
+     59.278
+    ],
+    "name": {
+     "sv": "Engelbrektsholmen",
+     "en": "Engelbrektsholmen",
+     "de": "Engelbrektsholmen",
+     "es": "Engelbrektsholmen",
+     "fr": "Engelbrektsholmen"
+    },
+    "fallback": [
+     "de",
+     "es",
+     "fr"
+    ],
+    "events": [
+     "engelbrekt-mordas"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q761227",
+    "coordinates": [
+     14.893,
+     59.28
+    ],
+    "name": {
+     "sv": "Garphyttans nationalpark",
+     "en": "Garphyttan National Park",
+     "de": "Nationalpark Garphyttan",
+     "es": "Parque nacional de Garphyttan",
+     "fr": "parc national de Garphyttan"
+    },
+    "fallback": [],
+    "events": [
+     "garphyttans-nationalpark"
+    ],
+    "checked": "2026-11-28"
+   }
+  ],
   "smaland": [
    {
     "wikidata": "Q927776",
