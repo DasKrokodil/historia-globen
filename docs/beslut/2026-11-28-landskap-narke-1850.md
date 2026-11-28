@@ -8,7 +8,7 @@
 - Platsen `narke` (typ `landskap`, `partOf: "sverige"`, `review: "source-checked"`): kontur ur Lantmäteriets distriktsindelning via `perliedman/svenska-landskap` (`boundary.landskap`), klippt mot `data/land-10m.json` med `tools/platser_gransar.py --plats=narke`. En del, 453 punkter, inget grannland inom 30 km.
 - Namnet är Wikidatas etikett (Q216687): "Närke" på sv, en, de och fr och "Nericia" på es. Alla fem språken har en etikett.
 - Noten säger att Närke saknar havskust, att landskapet når Vättern i söder och Hjälmaren i öster, och att gränsen i sjöarna inte är kontrollerad mot någon källa. Konturen har inga borttagna öar att nämna: den är en enda del, och sjöarna är inte urklippta (Natural Earths land har inga sjöar).
-- Källor (öppnade 2026-11-28): Store norske leksikon, Lex, svenska Wikipedia och Wikidata för landskapet, och 25 nya källposter för händelserna.
+- Källor (öppnade 2026-11-28): Store norske leksikon, Lex, svenska Wikipedia och Wikidata för landskapet, och 24 nya källposter för händelserna.
 - Ortnamn: `data/ortnamn/narke.json` (Natural Earth: Örebro, Linköping, Norrköping, Mariestad; Östersjön) och Riseberga kloster (Q589426, saknar etikett på es och fr), Engelbrektsholmen (Q10484139, saknar de, es och fr) och Garphyttans nationalpark (Q761227) ur Wikidata i `data/ortnamn-komplettering.json`.
 - Inga `major` (sju händelser: Fokus pausar vid alla).
 
