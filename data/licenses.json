@@ -1276,6 +1276,7 @@
         "wp-chengdu",
         "wp-chernobyl-disaster",
         "wp-chernyakhov-culture",
+        "wp-cherokee-syllabary",
         "wp-chertovy-vorota",
         "wp-chiapa-de-corzo",
         "wp-chicago-pile-1",
@@ -1390,6 +1391,7 @@
         "wp-coronation-of-charlemagne",
         "wp-council-of-clermont",
         "wp-covid-19-pandemic",
+        "wp-cretan-hieroglyphs",
         "wp-crete-a-pierrot",
         "wp-crimean-karaites",
         "wp-crisis-third-century",
@@ -1524,6 +1526,7 @@
         "wp-edwin-smith-papyrus",
         "wp-egypt",
         "wp-egypt-muhammad-ali",
+        "wp-egyptian-hieroglyphs",
         "wp-egyptian-hittite-treaty",
         "wp-eidsvoll-manor",
         "wp-eiffel-tower",
@@ -1993,6 +1996,7 @@
         "wp-han-dynasty",
         "wp-han-xiongnu-wars",
         "wp-hanaoka-seishu",
+        "wp-hangul",
         "wp-hannibal-alps",
         "wp-hanno",
         "wp-hans-christian-orsted",
@@ -2143,6 +2147,7 @@
         "wp-indian-removal-act",
         "wp-indo-roman-trade",
         "wp-indonesian-revolution",
+        "wp-indus-script",
         "wp-industrial-revolution",
         "wp-ingolfr-arnarson",
         "wp-inner-niger-delta",
@@ -2775,6 +2780,7 @@
         "wp-nukuleka",
         "wp-nullarbor-plain",
         "wp-nuremberg",
+        "wp-nuremberg-trials",
         "wp-nuri",
         "wp-nuuanu",
         "wp-nuuk",
@@ -3062,6 +3068,7 @@
         "wp-romulus-augustulus",
         "wp-ronald-ross",
         "wp-rongelap",
+        "wp-rongorongo",
         "wp-roopkund",
         "wp-rorkes-drift",
         "wp-rosetta-stone",
@@ -3174,6 +3181,7 @@
         "wp-sens",
         "wp-seongsan-ilchulbong",
         "wp-september-11-attacks",
+        "wp-sequoyah",
         "wp-serbia-and-montenegro",
         "wp-serpent-mound",
         "wp-ses",
@@ -3717,6 +3725,7 @@
         "wp-us-withdrawal-iraq",
         "wp-usamgik",
         "wp-uusikaupunki",
+        "wp-vai-syllabary",
         "wp-vaishali",
         "wp-valdivia-culture",
         "wp-valentina-tereshkova",
@@ -3860,6 +3869,7 @@
         "wp-zagwe",
         "wp-zanzibar",
         "wp-zapotec-civilization",
+        "wp-zapotec-script",
         "wp-zhang-heng",
         "wp-zhang-qian",
         "wp-zheng-he",
@@ -5934,6 +5944,19 @@
       "license": "© UNESCO (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "unesco-lanse-aux-meadows"
+      ]
+    },
+    {
+      "license": "© USHMM, begränsad användning (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "ushmm-chelmno",
+        "ushmm-death-marches",
+        "ushmm-kindertransport",
+        "ushmm-nuremberg-race-laws",
+        "ushmm-nuremberg-trials",
+        "ushmm-treblinka",
+        "ushmm-wannsee",
+        "ushmm-warsaw"
       ]
     }
   ]
