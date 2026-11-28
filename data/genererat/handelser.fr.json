@@ -402,6 +402,7 @@
 "kretensiska-hieroglyfer":{"place":{"fr":"Crète (trouvailles notamment à Cnossos et à Malia ; le repère est à Cnossos)"},"title":{"fr":"Hiéroglyphes crétois"},"note":{"title":{"fr":"À propos de la date"}}},
 "zapotekisk-skrift":{"place":{"fr":"San José Mogote, Oaxaca, Mexique"},"title":{"fr":"Écriture zapotèque à San José Mogote"},"note":{"title":{"fr":"Les sources divergent"}}},
 "sagaholmshogen":{"place":{"fr":"Sagaholm, au sud de Jönköping, Småland"},"title":{"fr":"Le tumulus de Sagaholm"},"note":{"title":{"fr":"À propos de la date"}}},
+"hallristningarna-i-hogsbyn":{"place":{"fr":"Högsbyn, Tisselskog, Dalsland"},"title":{"fr":"Les gravures rupestres de Högsbyn"},"note":{"title":{"fr":"À propos de la datation"}}},
 "genpeikriget":{"place":{"fr":"Japon (la guerre commença à Uji, près de Kyoto)"},"title":{"fr":"La guerre de Genpei"},"note":{"title":{"fr":"À propos du calendrier"}}},
 "slaget-vid-uji-1180":{"place":{"fr":"Uji, près de Kyoto"},"title":{"fr":"La bataille d’Uji"}},
 "slaget-vid-kurikara":{"place":{"fr":"Col de Kurikara, province d’Etchū"},"title":{"fr":"La bataille de Kurikara"}},
@@ -876,6 +877,7 @@
 "riseberga-kloster":{"place":{"fr":"Riseberga, Edsberg, Närke"},"title":{"fr":"L’abbaye de Riseberga"}},
 "engelbrekt-mordas":{"place":{"fr":"Engelbrektsholmen, lac Hjälmaren, Närke"},"title":{"fr":"Engelbrekt est assassiné au bord du lac Hjälmaren"},"note":{"title":{"fr":"À propos de la date"}}},
 "vaxjo-stift-bildas":{"place":{"fr":"Växjö, Småland"},"title":{"fr":"Växjö devient siège épiscopal"},"note":{"title":{"fr":"À propos de la date"}}},
+"dalaborg-byggs":{"place":{"fr":"Dalaborg, Bolstad, Dalsland"},"title":{"fr":"Les ducs construisent Dalaborg"},"note":{"title":{"fr":"Les sources divergent"}}},
 "slaget-vid-landskrona":{"note":{"title":{"fr":"À propos du calendrier"}}},
 "slaget-vid-helsingborg":{"note":{"title":{"fr":"À propos du calendrier"}}},
 "agadez-mosken":{"place":{"fr":"Agadez, Niger"},"title":{"fr":"La mosquée d'Agadez est construite"}},
@@ -1009,6 +1011,7 @@
 "dackefejden":{"place":{"fr":"Château de Kronoberg, près de Växjö, Småland"},"title":{"fr":"La révolte de Nils Dacke"},"note":{"title":{"fr":"À propos du lieu"}}},
 "linne-fods-i-rashult":{"place":{"fr":"Råshult, paroisse de Stenbrohult, Småland"},"title":{"fr":"Naissance de Carl von Linné à Råshult"},"note":{"title":{"fr":"À propos du calendrier"}}},
 "kosta-glasbruk-grundas":{"place":{"fr":"Kosta, Småland"},"title":{"fr":"Fondation de la verrerie de Kosta"},"note":{"title":{"fr":"À propos de la date"}}},
+"amal-far-stadsprivilegier":{"place":{"fr":"Åmål, Dalsland"},"title":{"fr":"Åmål reçoit ses privilèges de ville"}},
 "nya-zeelandkrigen":{"note":{"title":{"fr":"Les sources divergent"}}},
 "forsta-missionen-rangihoua":{"place":{"fr":"Oihi, à Rangihoua, Bay of Islands, Nouvelle-Zélande"},"title":{"fr":"La première mission chrétienne en Nouvelle-Zélande"}},
 "muskotkrigen":{"place":{"fr":"Toute la Nouvelle-Zélande, y compris les îles Chatham (la première bataille connue avec des mousquets eut lieu à Moremonui, dans le Northland)"},"title":{"fr":"Guerres des mousquets"},"note":{"title":{"fr":"Les sources divergent"}}},
@@ -1123,6 +1126,7 @@
 "haparanda-blir-stad":{"place":{"fr":"Haparanda (en meänkieli et en finnois Haaparanta), Norrbotten"},"title":{"fr":"Haparanda devient une ville"},"note":{"title":{"fr":"À propos des sources"}}},
 "malmtaget-till-lulea":{"place":{"fr":"Luleå (en same de Lule Julevu), Norrbotten"},"title":{"fr":"Les trains de minerai atteignent Luleå"},"note":{"title":{"fr":"Les sources divergent"}}},
 "bernadotte-vald-i-orebro":{"place":{"fr":"Örebro, Närke"},"title":{"fr":"Bernadotte est élu héritier du trône à Örebro"},"note":{"title":{"fr":"À propos de la date"}}},
+"dalslands-kanal-byggs":{"place":{"fr":"Håverud, Dalsland"},"title":{"fr":"Construction du canal de Dalsland"}},
 "rifkriget":{"place":{"fr":"Rif, dans le nord du Maroc, alors protectorat espagnol (la guerre commença près d'Annual)"},"title":{"fr":"Guerre du Rif"},"note":{"title":{"fr":"Les sources divergent"}}},
 "slaget-vid-annual":{"place":{"fr":"Annual, dans le nord-est du Maroc, à environ 60 km à l'ouest de Melilla"},"title":{"fr":"Les Rifains battent l'Espagne à Annual"},"note":{"title":{"fr":"Les sources divergent"}}},
 "massakern-vid-monte-arruit":{"place":{"fr":"Monte Arruit, à Al Aaroui, à environ 35 km au sud de Melilla"},"title":{"fr":"Le massacre de Monte Arruit"},"note":{"title":{"fr":"Les sources divergent"}}},
@@ -1550,5 +1554,6 @@
 "ungern-gar-med-i-eu":{"place":{"fr":"Toute la Hongrie (le marqueur à Budapest)"},"title":{"fr":"La Hongrie entre dans l’UE"}},
 "falu-gruva-blir-varldsarv":{"place":{"fr":"Falun, Dalécarlie"},"title":{"fr":"La mine de Falun inscrite au patrimoine mondial"}},
 "hoga-kusten-blir-varldsarv":{"place":{"fr":"Skuleberget, Haute Côte, Ångermanland"},"title":{"fr":"La Haute Côte devient patrimoine mondial"},"note":{"title":{"fr":"Les sources divergent"}}},
-"meankieli-blir-minoritetssprak":{"place":{"fr":"Vallée de la Torne (le point : Övertorneå), Norrbotten"},"title":{"fr":"Le meänkieli devient une langue minoritaire"},"note":{"title":{"fr":"À propos de la datation"}}}
+"meankieli-blir-minoritetssprak":{"place":{"fr":"Vallée de la Torne (le point : Övertorneå), Norrbotten"},"title":{"fr":"Le meänkieli devient une langue minoritaire"},"note":{"title":{"fr":"À propos de la datation"}}},
+"tresticklan-blir-nationalpark":{"place":{"fr":"Tresticklan, Dals-Ed, Dalsland"},"title":{"fr":"Tresticklan devient un parc national"}}
 }}

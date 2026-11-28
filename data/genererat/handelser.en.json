@@ -487,6 +487,7 @@
 "kretensiska-hieroglyfer":{"place":{"en":"Crete (finds including from Knossos and Malia; the marker is at Knossos)"},"title":{"en":"Cretan hieroglyphs"},"note":{"title":{"en":"About the date"}}},
 "zapotekisk-skrift":{"place":{"en":"San José Mogote, Oaxaca, Mexico"},"title":{"en":"Zapotec writing at San José Mogote"},"note":{"title":{"en":"The sources differ"}}},
 "sagaholmshogen":{"place":{"en":"Sagaholm south of Jönköping, Småland"},"title":{"en":"The burial mound at Sagaholm"},"note":{"title":{"en":"About the date"}}},
+"hallristningarna-i-hogsbyn":{"place":{"en":"Högsbyn, Tisselskog, Dalsland"},"title":{"en":"The rock carvings at Högsbyn"},"note":{"title":{"en":"About the dating"}}},
 "genpeikriget":{"place":{"en":"Japan (began at Uji outside Kyoto)"},"title":{"en":"The Genpei War"},"note":{"title":{"en":"About the calendar"}}},
 "slaget-vid-uji-1180":{"place":{"en":"Uji outside Kyoto"},"title":{"en":"The Battle of Uji"}},
 "slaget-vid-kurikara":{"place":{"en":"Kurikara Pass, Etchū Province"},"title":{"en":"The Battle of Kurikara"}},
@@ -961,6 +962,7 @@
 "riseberga-kloster":{"place":{"en":"Riseberga, Edsberg, Närke"},"title":{"en":"Riseberga Abbey"}},
 "engelbrekt-mordas":{"place":{"en":"Engelbrektsholmen, Lake Hjälmaren, Närke"},"title":{"en":"Engelbrekt is murdered by Lake Hjälmaren"},"note":{"title":{"en":"About the date"}}},
 "vaxjo-stift-bildas":{"place":{"en":"Växjö, Småland"},"title":{"en":"Växjö becomes a bishop’s see"},"note":{"title":{"en":"About the date"}}},
+"dalaborg-byggs":{"place":{"en":"Dalaborg, Bolstad, Dalsland"},"title":{"en":"The dukes build Dalaborg"},"note":{"title":{"en":"The sources differ"}}},
 "imjinkriget":{"place":{"en":"Korea and the seas around the Korean Peninsula (began at Busan)"},"title":{"en":"The Imjin War"},"note":{"title":{"en":"About the calendar"}}},
 "belagringen-av-busan-1592":{"place":{"en":"Busan, Korea"},"title":{"en":"The Japanese storm Busan"}},
 "slaget-vid-chungju-1592":{"place":{"en":"Tangeumdae at Chungju, Korea"},"title":{"en":"The Battle of Chungju"},"note":{"title":{"en":"The sources differ"}}},
@@ -1225,6 +1227,7 @@
 "dackefejden":{"place":{"en":"Kronoberg Castle near Växjö, Småland"},"title":{"en":"The Dacke War"},"note":{"title":{"en":"About the place"}}},
 "linne-fods-i-rashult":{"place":{"en":"Råshult in Stenbrohult parish, Småland"},"title":{"en":"Carl Linnaeus is born at Råshult"},"note":{"title":{"en":"About the calendar"}}},
 "kosta-glasbruk-grundas":{"place":{"en":"Kosta, Småland"},"title":{"en":"Kosta Glassworks is founded"},"note":{"title":{"en":"About the date"}}},
+"amal-far-stadsprivilegier":{"place":{"en":"Åmål, Dalsland"},"title":{"en":"Åmål receives its town charter"}},
 "forsta-opiumkriget":{"place":{"en":"China's coast from the Pearl River to the Yangtze (began at Kowloon, in present-day Hong Kong)"},"title":{"en":"First Opium War"},"note":{"title":{"en":"The sources differ"}}},
 "skarmytslingen-vid-kowloon-1839":{"place":{"en":"Kowloon, present-day Hong Kong"},"title":{"en":"Skirmish at Kowloon"}},
 "britterna-intar-zhoushan-1840":{"place":{"en":"Dinghai on Zhoushan Island (Chusan), Zhejiang"},"title":{"en":"The British take Zhoushan"}},
@@ -1468,6 +1471,7 @@
 "haparanda-blir-stad":{"place":{"en":"Haparanda (Meänkieli and Finnish Haaparanta), Norrbotten"},"title":{"en":"Haparanda becomes a town"},"note":{"title":{"en":"About the sources"}}},
 "malmtaget-till-lulea":{"place":{"en":"Luleå (Lule Sami Julevu), Norrbotten"},"title":{"en":"The ore trains reach Luleå"},"note":{"title":{"en":"The sources differ"}}},
 "bernadotte-vald-i-orebro":{"place":{"en":"Örebro, Närke"},"title":{"en":"Bernadotte is elected heir to the throne in Örebro"},"note":{"title":{"en":"About the date"}}},
+"dalslands-kanal-byggs":{"place":{"en":"Håverud, Dalsland"},"title":{"en":"The Dalsland Canal is built"}},
 "rifkriget":{"place":{"en":"Rif in northern Morocco, then a Spanish protectorate (began near Annual)"},"title":{"en":"Rif War"},"note":{"title":{"en":"The sources differ"}}},
 "slaget-vid-annual":{"place":{"en":"Annual in north-eastern Morocco, about 60 km west of Melilla"},"title":{"en":"The Riffians defeat Spain at Annual"},"note":{"title":{"en":"The sources differ"}}},
 "massakern-vid-monte-arruit":{"place":{"en":"Monte Arruit at Al Aaroui, about 35 km south of Melilla"},"title":{"en":"The massacre at Monte Arruit"},"note":{"title":{"en":"The sources differ"}}},
@@ -1985,5 +1989,6 @@
 "ungern-gar-med-i-eu":{"place":{"en":"All of Hungary (the marker in Budapest)"},"title":{"en":"Hungary joins the EU"}},
 "falu-gruva-blir-varldsarv":{"place":{"en":"Falun, Dalarna"},"title":{"en":"Falun Mine becomes a World Heritage Site"}},
 "hoga-kusten-blir-varldsarv":{"place":{"en":"Skuleberget, High Coast, Ångermanland"},"title":{"en":"The High Coast becomes a World Heritage Site"},"note":{"title":{"en":"The sources differ"}}},
-"meankieli-blir-minoritetssprak":{"place":{"en":"Torne Valley (the point: Övertorneå), Norrbotten"},"title":{"en":"Meänkieli becomes a minority language"},"note":{"title":{"en":"About the dating"}}}
+"meankieli-blir-minoritetssprak":{"place":{"en":"Torne Valley (the point: Övertorneå), Norrbotten"},"title":{"en":"Meänkieli becomes a minority language"},"note":{"title":{"en":"About the dating"}}},
+"tresticklan-blir-nationalpark":{"place":{"en":"Tresticklan, Dals-Ed, Dalsland"},"title":{"en":"Tresticklan becomes a national park"}}
 }}

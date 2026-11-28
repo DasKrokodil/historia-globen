@@ -8,11 +8,14 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { visibleEvents } from '../js/focus/place.js';
 import { themeStops } from '../js/theme-stops.js';
+import { linkIncludeEvents } from '../js/place-geo.js';
 
 const json = path => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.url), 'utf8'));
 const events = json('data/events.json').events;
 for (const e of events) { [e._lon, e._lat] = e.location?.coordinates ?? []; }
-const places = json('data/platser.json').places.filter(p => p.review !== 'draft');
+// Platserna länkas som i loadPlaces (js/model.js): landskapen får sina syskon (#1847), så att kustmarginalen inte räknar
+// händelser i ett grannlandskap (Dalaborg i Dalsland, 2 km från gränsen, till Västergötland).
+const places = linkIncludeEvents(json('data/platser.json').places.filter(p => p.review !== 'draft'));
 const important = place => themeStops(visibleEvents(place, events)).filter(e => e.top || e.major);
 
 // Undantag från taket nio: inga sedan #1675, då Sverige gick från 14 till 9 pauser enligt historikerns lista som
