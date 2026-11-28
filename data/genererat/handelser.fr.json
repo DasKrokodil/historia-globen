@@ -1151,6 +1151,7 @@
 "motala-verkstad-grundas":{"place":{"fr":"Motala, Östergötland"},"title":{"fr":"Fondation des ateliers mécaniques Motala Verkstad"}},
 "kristinebergs-havsstation":{"place":{"fr":"Kristineberg, près de Fiskebäckskil, Skaftö, Bohuslän"},"title":{"fr":"Fondation de la station de recherche marine de Kristineberg"},"note":{"title":{"fr":"Une seule source"}}},
 "borgholms-slott-brinner":{"place":{"fr":"Borgholm, Öland"},"title":{"fr":"Le château de Borgholm tombe en ruine après un incendie"}},
+"hawaiianska-forbjuds-som-undervisningssprak":{"place":{"fr":"Honolulu, Hawaï (la loi valait pour tout Hawaï)"},"title":{"fr":"L’anglais devient la seule langue d’enseignement à Hawaï"},"note":{"title":{"fr":"À propos des sources"}}},
 "rifkriget":{"place":{"fr":"Rif, dans le nord du Maroc, alors protectorat espagnol (la guerre commença près d'Annual)"},"title":{"fr":"Guerre du Rif"},"note":{"title":{"fr":"Les sources divergent"}}},
 "slaget-vid-annual":{"place":{"fr":"Annual, dans le nord-est du Maroc, à environ 60 km à l'ouest de Melilla"},"title":{"fr":"Les Rifains battent l'Espagne à Annual"},"note":{"title":{"fr":"Les sources divergent"}}},
 "massakern-vid-monte-arruit":{"place":{"fr":"Monte Arruit, à Al Aaroui, à environ 35 km au sud de Melilla"},"title":{"fr":"Le massacre de Monte Arruit"},"note":{"title":{"fr":"Les sources divergent"}}},
@@ -1521,6 +1522,7 @@
 "takern-blir-naturreservat":{"place":{"fr":"Tåkern, au sud de Vadstena, Östergötland"},"title":{"fr":"Le lac Tåkern devient une réserve naturelle"},"note":{"title":{"fr":"Les sources divergent"}}},
 "uddevallavarvet":{"place":{"fr":"Kasen, Uddevalla, Bohuslän"},"title":{"fr":"Le chantier naval d’Uddevalla"},"note":{"title":{"fr":"Les sources divergent"}}},
 "olandsbron-invigs":{"place":{"fr":"Färjestaden, Öland (la tête de pont à Möllstorp)"},"title":{"fr":"Inauguration du pont d’Öland"},"note":{"title":{"fr":"À propos du point"}}},
+"ned-maddrell-dor":{"place":{"fr":"Cregneash, sud de l’île de Man"},"title":{"fr":"Ned Maddrell meurt, le mannois survit"},"note":{"title":{"fr":"À propos du « dernier locuteur » et du lieu"}}},
 "constitution-act-1986":{"place":{"fr":"Wellington, Nouvelle-Zélande"},"title":{"fr":"La Nouvelle-Zélande se dote de sa propre loi constitutionnelle"},"note":{"title":{"fr":"À propos de la date"}}},
 "maori-officiellt-sprak":{"place":{"fr":"Nouvelle-Zélande"},"title":{"fr":"Le maori devient langue officielle"},"note":{"title":{"fr":"À propos de la date"}}},
 "waikato-tainui-uppgorelsen":{"place":{"fr":"Waikato, Nouvelle-Zélande"},"title":{"fr":"La Couronne présente ses excuses aux Waikato-Tainui"},"note":{"title":{"fr":"Les sources divergent"}}},
@@ -1589,5 +1591,9 @@
 "u-137-gar-pa-grund":{"place":{"fr":"Gåsefjärden, au large de Karlskrona, Blekinge"},"title":{"fr":"Le U 137 s’échoue"},"note":{"title":{"fr":"Les sources divergent"}}},
 "orlogsstaden-karlskrona-varldsarv":{"place":{"fr":"Karlskrona, Blekinge"},"title":{"fr":"Le port naval de Karlskrona inscrit au patrimoine mondial"}},
 "almobron-rasar":{"place":{"fr":"Pont d’Almö sur le fjord d’Askerö, Stenungsund–Tjörn, Bohuslän"},"title":{"fr":"Effondrement du pont d’Almö"}},
-"sodra-olands-odlingslandskap-varldsarv":{"place":{"fr":"Sud d’Öland"},"title":{"fr":"Le paysage agricole du sud d’Öland inscrit au patrimoine mondial"}}
+"sodra-olands-odlingslandskap-varldsarv":{"place":{"fr":"Sud d’Öland"},"title":{"fr":"Le paysage agricole du sud d’Öland inscrit au patrimoine mondial"}},
+"punana-leo-forsta-forskolan":{"place":{"fr":"Kekaha, Kauaʻi, Hawaï"},"title":{"fr":"Première école maternelle d’immersion en hawaïen"}},
+"tevfik-esenc-dor":{"place":{"fr":"Hacıosman près de Manyas, nord-ouest de la Turquie (le repère est à Manyas)"},"title":{"fr":"Tevfik Esenç meurt, l’oubykh s’éteint"},"note":{"title":{"fr":"À propos des sources"}}},
+"marie-smith-jones-dor":{"place":{"fr":"Cordova, sud de l’Alaska (territoire des Eyak ; elle est morte à Anchorage)"},"title":{"fr":"Marie Smith Jones meurt, l’eyak sans locuteur natif"},"note":{"title":{"fr":"À propos des sources"}}},
+"silbo-gomero-kulturarv":{"place":{"fr":"La Gomera, îles Canaries, Espagne"},"title":{"fr":"Le silbo gomero, langage sifflé, devient patrimoine"}}
 }}
