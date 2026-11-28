@@ -856,6 +856,7 @@
 "shuowen-jiezi":{"place":{"es":"China (la fuente no indica ningún lugar; el marcador está en el centro del país)"},"title":{"es":"Shuowen Jiezi, el primer diccionario de caracteres chinos"},"note":{"title":{"es":"Sobre el lugar"}}},
 "rokstenen":{"place":{"es":"Iglesia de Rök, Ostrogotia"},"title":{"es":"Se levanta la piedra rúnica de Rök"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "vadstena-kloster":{"place":{"es":"Vadstena, Ostrogotia"},"title":{"es":"Se funda el convento de Vadstena"}},
+"bjorketorpsstenen":{"place":{"es":"Björketorp, al este de Ronneby, Blekinge"},"title":{"es":"La piedra rúnica de Björketorp"},"note":{"title":{"es":"Sobre la datación"}}},
 "imjinkriget":{"place":{"es":"Corea y los mares que rodean la península de Corea (comenzó en Busan)"},"title":{"es":"La guerra de Imjin"},"note":{"title":{"es":"Sobre el calendario"}}},
 "belagringen-av-busan-1592":{"place":{"es":"Busan, Corea"},"title":{"es":"Los japoneses toman Busan al asalto"}},
 "slaget-vid-chungju-1592":{"place":{"es":"Tangeumdae, junto a Chungju, Corea"},"title":{"es":"La batalla de Chungju"},"note":{"title":{"es":"Las fuentes difieren"}}},
@@ -1016,6 +1017,10 @@
 "forsta-boktryckeriet-i-amerika":{"place":{"es":"Ciudad de México, Nueva España"},"title":{"es":"La primera imprenta en América"},"note":{"title":{"es":"Sobre la fecha"}}},
 "johnsons-ordbok":{"place":{"es":"Gough Square, Londres"},"title":{"es":"Se publica el diccionario inglés de Samuel Johnson"},"note":{"title":{"es":"Sobre la fecha"}}},
 "slaget-vid-stangebro":{"place":{"es":"Stångebro, cerca de Linköping, Ostrogotia"},"title":{"es":"La batalla de Stångebro"},"note":{"title":{"es":"Sobre la fecha y el lugar"}}},
+"ronneby-blodbad":{"place":{"es":"Ronneby, Blekinge"},"title":{"es":"La masacre de Ronneby"},"note":{"title":{"es":"Sobre el calendario"}}},
+"kristianopel-anlaggs":{"place":{"es":"Kristianopel, Blekinge"},"title":{"es":"Se funda Kristianopel"},"note":{"title":{"es":"Sobre la datación"}}},
+"karlskrona-grundas":{"place":{"es":"Trossö, Karlskrona, Blekinge"},"title":{"es":"Se funda Karlskrona"}},
+"ronneby-brunn":{"place":{"es":"Ronneby brunn, Blekinge"},"title":{"es":"El manantial ferruginoso de Ronneby"}},
 "nya-zeelandkrigen":{"note":{"title":{"es":"Las fuentes difieren"}}},
 "forsta-missionen-rangihoua":{"place":{"es":"Oihi, en Rangihoua, Bay of Islands, Nueva Zelanda"},"title":{"es":"La primera misión cristiana en Nueva Zelanda"}},
 "muskotkrigen":{"place":{"es":"Toda Nueva Zelanda, incluidas las islas Chatham (la primera batalla conocida con mosquetes fue en Moremonui, en Northland)"},"title":{"es":"Guerras de los Mosquetes"},"note":{"title":{"es":"Las fuentes difieren"}}},
@@ -1565,5 +1570,7 @@
 "falu-gruva-blir-varldsarv":{"place":{"es":"Falun, Dalarna"},"title":{"es":"La mina de Falun entra en la Lista del Patrimonio Mundial"}},
 "hoga-kusten-blir-varldsarv":{"place":{"es":"Skuleberget, Höga Kusten, Angermania"},"title":{"es":"Höga Kusten se convierte en patrimonio mundial"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "meankieli-blir-minoritetssprak":{"place":{"es":"Valle del Torne (el punto: Övertorneå), Norrbotten"},"title":{"es":"El meänkieli se convierte en lengua minoritaria"},"note":{"title":{"es":"Sobre la datación"}}},
-"tresticklan-blir-nationalpark":{"place":{"es":"Tresticklan, Dals-Ed, Dalia"},"title":{"es":"Tresticklan se convierte en parque nacional"}}
+"tresticklan-blir-nationalpark":{"place":{"es":"Tresticklan, Dals-Ed, Dalia"},"title":{"es":"Tresticklan se convierte en parque nacional"}},
+"u-137-gar-pa-grund":{"place":{"es":"Gåsefjärden, frente a Karlskrona, Blekinge"},"title":{"es":"El U 137 encalla"},"note":{"title":{"es":"Las fuentes difieren"}}},
+"orlogsstaden-karlskrona-varldsarv":{"place":{"es":"Karlskrona, Blekinge"},"title":{"es":"El puerto naval de Karlskrona, patrimonio mundial"}}
 }}

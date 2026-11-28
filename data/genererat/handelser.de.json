@@ -967,6 +967,7 @@
 "shuowen-jiezi":{"place":{"de":"China (die Quelle nennt keinen Ort; die Markierung steht in der Landesmitte)"},"title":{"de":"Shuowen Jiezi, das erste Wörterbuch der chinesischen Schriftzeichen"},"note":{"title":{"de":"Zum Ort"}}},
 "rokstenen":{"place":{"de":"Kirche von Rök, Östergötland"},"title":{"de":"Der Runenstein von Rök wird errichtet"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "vadstena-kloster":{"place":{"de":"Vadstena, Östergötland"},"title":{"de":"Das Kloster Vadstena wird gegründet"}},
+"bjorketorpsstenen":{"place":{"de":"Björketorp östlich von Ronneby, Blekinge"},"title":{"de":"Der Runenstein von Björketorp"},"note":{"title":{"de":"Zur Datierung"}}},
 "imjinkriget":{"place":{"de":"Korea und die Meere um die Koreanische Halbinsel (begann bei Busan)"},"title":{"de":"Der Imjin-Krieg"},"note":{"title":{"de":"Zum Kalender"}}},
 "belagringen-av-busan-1592":{"place":{"de":"Busan, Korea"},"title":{"de":"Die Japaner stürmen Busan"}},
 "slaget-vid-chungju-1592":{"place":{"de":"Tangeumdae bei Chungju, Korea"},"title":{"de":"Die Schlacht bei Chungju"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
@@ -1235,6 +1236,10 @@
 "forsta-boktryckeriet-i-amerika":{"place":{"de":"Mexiko-Stadt, Neuspanien"},"title":{"de":"Die erste Druckerei in Amerika"},"note":{"title":{"de":"Zum Datum"}}},
 "johnsons-ordbok":{"place":{"de":"Gough Square, London"},"title":{"de":"Samuel Johnsons englisches Wörterbuch erscheint"},"note":{"title":{"de":"Zum Datum"}}},
 "slaget-vid-stangebro":{"place":{"de":"Stångebro bei Linköping, Östergötland"},"title":{"de":"Die Schlacht von Stångebro"},"note":{"title":{"de":"Zu Datum und Ort"}}},
+"ronneby-blodbad":{"place":{"de":"Ronneby, Blekinge"},"title":{"de":"Das Blutbad von Ronneby"},"note":{"title":{"de":"Zum Kalender"}}},
+"kristianopel-anlaggs":{"place":{"de":"Kristianopel, Blekinge"},"title":{"de":"Kristianopel wird angelegt"},"note":{"title":{"de":"Zur Datierung"}}},
+"karlskrona-grundas":{"place":{"de":"Trossö, Karlskrona, Blekinge"},"title":{"de":"Karlskrona wird gegründet"}},
+"ronneby-brunn":{"place":{"de":"Ronneby brunn, Blekinge"},"title":{"de":"Die Eisenquelle von Ronneby"}},
 "forsta-opiumkriget":{"place":{"de":"Küste Chinas von der Perlflussmündung bis zum Jangtse (begann bei Kowloon, im heutigen Hongkong)"},"title":{"de":"Erster Opiumkrieg"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
 "skarmytslingen-vid-kowloon-1839":{"place":{"de":"Kowloon, heute Hongkong"},"title":{"de":"Scharmützel bei Kowloon"}},
 "britterna-intar-zhoushan-1840":{"place":{"de":"Dinghai auf der Insel Zhoushan (Chusan), Zhejiang"},"title":{"de":"Die Briten nehmen Zhoushan ein"}},
@@ -2004,5 +2009,7 @@
 "falu-gruva-blir-varldsarv":{"place":{"de":"Falun, Dalarna"},"title":{"de":"Das Bergwerk von Falun wird Welterbe"}},
 "hoga-kusten-blir-varldsarv":{"place":{"de":"Skuleberget, Höga kusten, Ångermanland"},"title":{"de":"Die Höga Kusten wird Welterbe"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "meankieli-blir-minoritetssprak":{"place":{"de":"Tornedal (der Punkt: Övertorneå), Norrbotten"},"title":{"de":"Meänkieli wird Minderheitensprache"},"note":{"title":{"de":"Zur Datierung"}}},
-"tresticklan-blir-nationalpark":{"place":{"de":"Tresticklan, Dals-Ed, Dalsland"},"title":{"de":"Tresticklan wird Nationalpark"}}
+"tresticklan-blir-nationalpark":{"place":{"de":"Tresticklan, Dals-Ed, Dalsland"},"title":{"de":"Tresticklan wird Nationalpark"}},
+"u-137-gar-pa-grund":{"place":{"de":"Gåsefjärden vor Karlskrona, Blekinge"},"title":{"de":"U 137 läuft auf Grund"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
+"orlogsstaden-karlskrona-varldsarv":{"place":{"de":"Karlskrona, Blekinge"},"title":{"de":"Der Marinehafen Karlskrona wird Welterbe"}}
 }}

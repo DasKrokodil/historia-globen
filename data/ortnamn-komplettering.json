@@ -1196,6 +1196,49 @@
     ],
     "checked": "2026-11-28"
    }
+  ],
+  "blekinge": [
+   {
+    "wikidata": "Q823785",
+    "coordinates": [
+     15.279,
+     56.207
+    ],
+    "name": {
+     "sv": "Ronneby",
+     "en": "Ronneby",
+     "de": "Ronneby",
+     "es": "Ronneby",
+     "fr": "Ronneby"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "ronneby-blodbad",
+     "ronneby-brunn"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q174593",
+    "coordinates": [
+     16.034,
+     56.256
+    ],
+    "name": {
+     "sv": "Kristianopel",
+     "en": "Kristianopel",
+     "de": "Kristianopel",
+     "es": "Kristianopel",
+     "fr": "Kristianopel"
+    },
+    "fallback": [],
+    "events": [
+     "kristianopel-anlaggs"
+    ],
+    "checked": "2026-11-28"
+   }
   ]
  }
 }

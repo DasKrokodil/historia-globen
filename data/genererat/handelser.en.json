@@ -967,6 +967,7 @@
 "shuowen-jiezi":{"place":{"en":"China (the source gives no place; the marker is at the centre of the country)"},"title":{"en":"Shuowen Jiezi, the first dictionary of Chinese characters"},"note":{"title":{"en":"About the place"}}},
 "rokstenen":{"place":{"en":"Rök Church, Östergötland"},"title":{"en":"The Rök runestone is raised"},"note":{"title":{"en":"The sources differ"}}},
 "vadstena-kloster":{"place":{"en":"Vadstena, Östergötland"},"title":{"en":"Vadstena Abbey is founded"}},
+"bjorketorpsstenen":{"place":{"en":"Björketorp east of Ronneby, Blekinge"},"title":{"en":"The Björketorp Runestone"},"note":{"title":{"en":"About the dating"}}},
 "imjinkriget":{"place":{"en":"Korea and the seas around the Korean Peninsula (began at Busan)"},"title":{"en":"The Imjin War"},"note":{"title":{"en":"About the calendar"}}},
 "belagringen-av-busan-1592":{"place":{"en":"Busan, Korea"},"title":{"en":"The Japanese storm Busan"}},
 "slaget-vid-chungju-1592":{"place":{"en":"Tangeumdae at Chungju, Korea"},"title":{"en":"The Battle of Chungju"},"note":{"title":{"en":"The sources differ"}}},
@@ -1235,6 +1236,10 @@
 "forsta-boktryckeriet-i-amerika":{"place":{"en":"Mexico City, New Spain"},"title":{"en":"The first printing press in the Americas"},"note":{"title":{"en":"About the date"}}},
 "johnsons-ordbok":{"place":{"en":"Gough Square, London"},"title":{"en":"Samuel Johnson’s English dictionary is published"},"note":{"title":{"en":"About the date"}}},
 "slaget-vid-stangebro":{"place":{"en":"Stångebro near Linköping, Östergötland"},"title":{"en":"The Battle of Stångebro"},"note":{"title":{"en":"About the date and the place"}}},
+"ronneby-blodbad":{"place":{"en":"Ronneby, Blekinge"},"title":{"en":"The Ronneby Bloodbath"},"note":{"title":{"en":"About the calendar"}}},
+"kristianopel-anlaggs":{"place":{"en":"Kristianopel, Blekinge"},"title":{"en":"Kristianopel is founded"},"note":{"title":{"en":"About the dating"}}},
+"karlskrona-grundas":{"place":{"en":"Trossö, Karlskrona, Blekinge"},"title":{"en":"Karlskrona is founded"}},
+"ronneby-brunn":{"place":{"en":"Ronneby brunn, Blekinge"},"title":{"en":"The iron spring at Ronneby"}},
 "forsta-opiumkriget":{"place":{"en":"China's coast from the Pearl River to the Yangtze (began at Kowloon, in present-day Hong Kong)"},"title":{"en":"First Opium War"},"note":{"title":{"en":"The sources differ"}}},
 "skarmytslingen-vid-kowloon-1839":{"place":{"en":"Kowloon, present-day Hong Kong"},"title":{"en":"Skirmish at Kowloon"}},
 "britterna-intar-zhoushan-1840":{"place":{"en":"Dinghai on Zhoushan Island (Chusan), Zhejiang"},"title":{"en":"The British take Zhoushan"}},
@@ -2004,5 +2009,7 @@
 "falu-gruva-blir-varldsarv":{"place":{"en":"Falun, Dalarna"},"title":{"en":"Falun Mine becomes a World Heritage Site"}},
 "hoga-kusten-blir-varldsarv":{"place":{"en":"Skuleberget, High Coast, Ångermanland"},"title":{"en":"The High Coast becomes a World Heritage Site"},"note":{"title":{"en":"The sources differ"}}},
 "meankieli-blir-minoritetssprak":{"place":{"en":"Torne Valley (the point: Övertorneå), Norrbotten"},"title":{"en":"Meänkieli becomes a minority language"},"note":{"title":{"en":"About the dating"}}},
-"tresticklan-blir-nationalpark":{"place":{"en":"Tresticklan, Dals-Ed, Dalsland"},"title":{"en":"Tresticklan becomes a national park"}}
+"tresticklan-blir-nationalpark":{"place":{"en":"Tresticklan, Dals-Ed, Dalsland"},"title":{"en":"Tresticklan becomes a national park"}},
+"u-137-gar-pa-grund":{"place":{"en":"Gåsefjärden off Karlskrona, Blekinge"},"title":{"en":"U 137 runs aground"},"note":{"title":{"en":"The sources differ"}}},
+"orlogsstaden-karlskrona-varldsarv":{"place":{"en":"Karlskrona, Blekinge"},"title":{"en":"The Naval Port of Karlskrona becomes a World Heritage Site"}}
 }}

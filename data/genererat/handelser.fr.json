@@ -882,6 +882,7 @@
 "shuowen-jiezi":{"place":{"fr":"Chine (la source n’indique aucun lieu ; le repère est au centre du pays)"},"title":{"fr":"Shuowen Jiezi, le premier dictionnaire de caractères chinois"},"note":{"title":{"fr":"À propos du lieu"}}},
 "rokstenen":{"place":{"fr":"Église de Rök, Östergötland"},"title":{"fr":"La pierre runique de Rök est dressée"},"note":{"title":{"fr":"Les sources divergent"}}},
 "vadstena-kloster":{"place":{"fr":"Vadstena, Östergötland"},"title":{"fr":"Fondation de l’abbaye de Vadstena"}},
+"bjorketorpsstenen":{"place":{"fr":"Björketorp, à l’est de Ronneby, Blekinge"},"title":{"fr":"La pierre runique de Björketorp"},"note":{"title":{"fr":"À propos de la datation"}}},
 "slaget-vid-landskrona":{"note":{"title":{"fr":"À propos du calendrier"}}},
 "slaget-vid-helsingborg":{"note":{"title":{"fr":"À propos du calendrier"}}},
 "agadez-mosken":{"place":{"fr":"Agadez, Niger"},"title":{"fr":"La mosquée d'Agadez est construite"}},
@@ -1019,6 +1020,10 @@
 "forsta-boktryckeriet-i-amerika":{"place":{"fr":"Mexico, Nouvelle-Espagne"},"title":{"fr":"La première imprimerie des Amériques"},"note":{"title":{"fr":"À propos de la date"}}},
 "johnsons-ordbok":{"place":{"fr":"Gough Square, Londres"},"title":{"fr":"Le dictionnaire anglais de Samuel Johnson paraît"},"note":{"title":{"fr":"À propos de la date"}}},
 "slaget-vid-stangebro":{"place":{"fr":"Stångebro, près de Linköping, Östergötland"},"title":{"fr":"La bataille de Stångebro"},"note":{"title":{"fr":"À propos de la date et du lieu"}}},
+"ronneby-blodbad":{"place":{"fr":"Ronneby, Blekinge"},"title":{"fr":"Le massacre de Ronneby"},"note":{"title":{"fr":"À propos du calendrier"}}},
+"kristianopel-anlaggs":{"place":{"fr":"Kristianopel, Blekinge"},"title":{"fr":"Fondation de Kristianopel"},"note":{"title":{"fr":"À propos de la datation"}}},
+"karlskrona-grundas":{"place":{"fr":"Trossö, Karlskrona, Blekinge"},"title":{"fr":"Fondation de Karlskrona"}},
+"ronneby-brunn":{"place":{"fr":"Ronneby brunn, Blekinge"},"title":{"fr":"La source ferrugineuse de Ronneby"}},
 "nya-zeelandkrigen":{"note":{"title":{"fr":"Les sources divergent"}}},
 "forsta-missionen-rangihoua":{"place":{"fr":"Oihi, à Rangihoua, Bay of Islands, Nouvelle-Zélande"},"title":{"fr":"La première mission chrétienne en Nouvelle-Zélande"}},
 "muskotkrigen":{"place":{"fr":"Toute la Nouvelle-Zélande, y compris les îles Chatham (la première bataille connue avec des mousquets eut lieu à Moremonui, dans le Northland)"},"title":{"fr":"Guerres des mousquets"},"note":{"title":{"fr":"Les sources divergent"}}},
@@ -1569,5 +1574,7 @@
 "falu-gruva-blir-varldsarv":{"place":{"fr":"Falun, Dalécarlie"},"title":{"fr":"La mine de Falun inscrite au patrimoine mondial"}},
 "hoga-kusten-blir-varldsarv":{"place":{"fr":"Skuleberget, Haute Côte, Ångermanland"},"title":{"fr":"La Haute Côte devient patrimoine mondial"},"note":{"title":{"fr":"Les sources divergent"}}},
 "meankieli-blir-minoritetssprak":{"place":{"fr":"Vallée de la Torne (le point : Övertorneå), Norrbotten"},"title":{"fr":"Le meänkieli devient une langue minoritaire"},"note":{"title":{"fr":"À propos de la datation"}}},
-"tresticklan-blir-nationalpark":{"place":{"fr":"Tresticklan, Dals-Ed, Dalsland"},"title":{"fr":"Tresticklan devient un parc national"}}
+"tresticklan-blir-nationalpark":{"place":{"fr":"Tresticklan, Dals-Ed, Dalsland"},"title":{"fr":"Tresticklan devient un parc national"}},
+"u-137-gar-pa-grund":{"place":{"fr":"Gåsefjärden, au large de Karlskrona, Blekinge"},"title":{"fr":"Le U 137 s’échoue"},"note":{"title":{"fr":"Les sources divergent"}}},
+"orlogsstaden-karlskrona-varldsarv":{"place":{"fr":"Karlskrona, Blekinge"},"title":{"fr":"Le port naval de Karlskrona inscrit au patrimoine mondial"}}
 }}
