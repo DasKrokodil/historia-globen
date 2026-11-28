@@ -18,7 +18,7 @@ test('länderna kommer ur platsernas periods: Sverige, Norge (Sverige-Norge), Fi
   assert.deepEqual(ids('kalmarunionen'), ['sverige', 'danmark', 'norge', 'finland', 'island']);
   assert.deepEqual(ids('ryska-imperiet'), ['finland', 'estland', 'lettland', 'litauen', 'polen']);
   assert.deepEqual(ids('norgesvaldet'), ['norge', 'island']);
-  assert.deepEqual(ids('romarriket'), ['storbritannien', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'ungern']);
+  assert.deepEqual(ids('romarriket'), ['storbritannien', 'frankrike', 'belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike', 'schweiz', 'ungern', 'italien']);
   assert.deepEqual(ids('brittiska-imperiet'), ['storbritannien', 'irland', 'tyskland']);
   assert.deepEqual(ids('kungariket-england'), ['storbritannien', 'irland', 'frankrike']);
   assert.deepEqual(ids('kungariket-man'), ['irland']);
@@ -31,12 +31,13 @@ test('länderna kommer ur platsernas periods: Sverige, Norge (Sverige-Norge), Fi
   assert.deepEqual(ids('belgien'), ['belgien', 'luxemburg']);
   assert.deepEqual(ids('tyska-riket'), ['estland', 'lettland', 'litauen', 'belgien', 'luxemburg', 'tyskland', 'polen']);
   assert.deepEqual(ids('nazityskland'), ['belgien', 'nederlanderna', 'luxemburg', 'tyskland', 'osterrike']);
-  assert.deepEqual(ids('ostgoternas-rike'), ['osterrike', 'ungern']);
+  assert.deepEqual(ids('ostgoternas-rike'), ['osterrike', 'ungern', 'italien']);
   assert.deepEqual(ids('kungariket-ungern'), ['osterrike', 'slovakien', 'ungern']);
   assert.deepEqual(ids('osterrike-ungern'), ['osterrike', 'tjeckien', 'slovakien', 'ungern']);
   assert.deepEqual(ids('tjeckoslovakien'), ['tjeckien', 'slovakien']);
   assert.deepEqual(ids('slovakien'), ['slovakien']);
   assert.deepEqual(ids('ungern'), ['ungern']);
+  assert.deepEqual(ids('italien'), ['italien']);
   assert.deepEqual(ids('tjeckien'), ['tjeckien']);
   assert.deepEqual(ids('osterrike'), ['osterrike']);
   assert.deepEqual(ids('schweiz'), ['schweiz']);
@@ -52,7 +53,7 @@ test('länderna kommer ur platsernas periods: Sverige, Norge (Sverige-Norge), Fi
   assert.deepEqual(ids('tyskland'), ['tyskland']);
   assert.deepEqual(ids('nederlanderna'), ['nederlanderna']);
   assert.deepEqual(ids('kungariket-frankrike'), ['frankrike', 'luxemburg']);
-  assert.deepEqual(ids('franska-kolonialvaldet'), ['frankrike', 'tyskland']);
+  assert.deepEqual(ids('franska-kolonialvaldet'), ['frankrike', 'tyskland', 'italien']);
   assert.deepEqual(ids('frankrike'), ['frankrike']);
   assert.deepEqual(ids('osmanska-riket'), ['ungern']);
   assert.deepEqual(ids('aztekriket'), [], 'ett rike som inget landskort nämner får ingen lista');

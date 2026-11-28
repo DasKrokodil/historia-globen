@@ -7,6 +7,89 @@
   },
   "sourcesByLicense": [
     {
+      "license": "Bara länkad källa (Det Kongelige Bibliotek, licens inte läst)",
+      "sourceIds": [
+        "kb-guaman-poma"
+      ]
+    },
+    {
+      "license": "Bara länkad källa (Encyclopedia.com, licens inte läst)",
+      "sourceIds": [
+        "encyclopedia-com-lima"
+      ]
+    },
+    {
+      "license": "Bara länkad källa (USGS)",
+      "sourceIds": [
+        "usgs-plafker-1971"
+      ]
+    },
+    {
+      "license": "Bara länkad källa (forskningsartikel, licens inte läst)",
+      "sourceIds": [
+        "dedenbach-huarochiri-traditions"
+      ]
+    },
+    {
+      "license": "Bara länkad källa (kommissionens webbplats, licens inte läst)",
+      "sourceIds": [
+        "cvr-informe-final-conclusiones"
+      ]
+    },
+    {
+      "license": "Bara länkad källa (lagtext, återgiven av Université Laval)",
+      "sourceIds": [
+        "decreto-ley-21156"
+      ]
+    },
+    {
+      "license": "Bara länkad källa (publikation från Library of Congress, Federal Research Division; licens inte läst på sidan)",
+      "sourceIds": [
+        "lc-peru-country-study-colonial",
+        "lc-peru-country-study-guano",
+        "lc-peru-country-study-independence",
+        "lc-peru-country-study-rebellions"
+      ]
+    },
+    {
+      "license": "Bara länkad källa (tidningsartikel)",
+      "sourceIds": [
+        "elcomercio-senora-de-cao-2006",
+        "gestion-kene-2008"
+      ]
+    },
+    {
+      "license": "Bara länkad källa (universitetets webbplats)",
+      "sourceIds": [
+        "udep-kene-2024"
+      ]
+    },
+    {
+      "license": "Bara länkad källa, ingen text kopierad (licens ej granskad)",
+      "sourceIds": [
+        "agsa-honey-ant",
+        "australian-museum-aboriginal-flag",
+        "indigenous-gov-au-1967-referendum",
+        "indigenous-gov-au-aboriginal-flag",
+        "indigenous-gov-au-handback-acknowledging",
+        "indigenous-gov-au-tent-embassy",
+        "indigenous-gov-au-uluru-handback",
+        "ngv-papunya-tula",
+        "niaa-national-apology",
+        "peo-apology-stolen-generations",
+        "peo-franchise-act-1902",
+        "peo-immigration-restriction-act",
+        "peo-uluru-statement",
+        "rfds-history",
+        "sbs-nitv-wik",
+        "snowyhydro-history",
+        "uluru-gov-au-history",
+        "ulurustatement-org",
+        "vic-gov-bringing-them-home",
+        "wamuseum-hougoumont"
+      ]
+    },
+    {
       "license": "Bara sammanfattningen läst (via Europe PMC): länkad källa, ingen text kopierad",
       "sourceIds": [
         "wu-2012-xianrendong"
@@ -776,6 +859,9 @@
         "wp-1956-summer-olympics",
         "wp-1960-valdivia-earthquake",
         "wp-1964-winter-olympics",
+        "wp-1967-referendum",
+        "wp-1970-ancash-earthquake",
+        "wp-1970-huascaran-debris-avalanche",
         "wp-1973-chilean-coup",
         "wp-1973-enlargement-of-the-european-communities",
         "wp-1983-1985-famine-in-ethiopia",
@@ -817,6 +903,7 @@
         "wp-abisko-national-park",
         "wp-abolition-of-slavery-in-france",
         "wp-aboriginal-tasmanians",
+        "wp-aboriginal-tent-embassy",
         "wp-absalon",
         "wp-abyei",
         "wp-academia-istropolitana",
@@ -971,6 +1058,7 @@
         "wp-auschwitz",
         "wp-austerlitz",
         "wp-australia",
+        "wp-australian-aboriginal-flag",
         "wp-australian-frontier-wars",
         "wp-australian-megafauna",
         "wp-australian-overland-telegraph-line",
@@ -1170,6 +1258,7 @@
         "wp-bretton-woods-conference",
         "wp-brexit",
         "wp-brihadisvara-temple",
+        "wp-bringing-them-home",
         "wp-british-empire",
         "wp-broad-street-cholera-1854",
         "wp-bronze-head-ife",
@@ -1300,6 +1389,7 @@
         "wp-chimborazo",
         "wp-chimor",
         "wp-chinampa",
+        "wp-chincha-islands",
         "wp-chinchorro-culture",
         "wp-chinchorro-mummies",
         "wp-chinese-farm",
@@ -1334,6 +1424,7 @@
         "wp-cliff-palace",
         "wp-climate-of-ancient-rome",
         "wp-cloggs-cave",
+        "wp-cloncurry",
         "wp-clonmacnoise",
         "wp-clovis",
         "wp-clovis-culture",
@@ -1372,6 +1463,7 @@
         "wp-columbus",
         "wp-columbus-fjarde-resan",
         "wp-comb-ceramic-culture",
+        "wp-commonwealth-franchise-act-1902",
         "wp-commonwealth-of-england",
         "wp-confederate-states",
         "wp-confederation-of-the-rhine",
@@ -1394,6 +1486,7 @@
         "wp-constitution-of-belgium",
         "wp-constitution-of-denmark",
         "wp-continental-drift",
+        "wp-convict-era-wa",
         "wp-cook-resa-1",
         "wp-cook-resa-2",
         "wp-cook-resa-3",
@@ -1429,6 +1522,7 @@
         "wp-cuneiform",
         "wp-curonian-spit",
         "wp-curupayty",
+        "wp-cusco",
         "wp-cyclone-tracy",
         "wp-cyrene-libya",
         "wp-cyrillic-script",
@@ -1557,6 +1651,7 @@
         "wp-eight-deer",
         "wp-eketorp",
         "wp-el-alamein-2",
+        "wp-el-brujo",
         "wp-el-dorado",
         "wp-el-manati",
         "wp-el-mirador",
@@ -1861,6 +1956,7 @@
         "wp-francia",
         "wp-francis-ona",
         "wp-francis-xavier",
+        "wp-francisco-de-avila",
         "wp-frankfurt",
         "wp-frankfurt-auschwitz-trials",
         "wp-frankfurt-parliament",
@@ -1992,6 +2088,8 @@
         "wp-groote-schuur-hospital",
         "wp-grote-mandrenke",
         "wp-guadalcanal",
+        "wp-guaman-poma",
+        "wp-guano-era",
         "wp-guide-for-the-perplexed",
         "wp-guila-naquitz-cave",
         "wp-guiping",
@@ -2093,6 +2191,7 @@
         "wp-history-of-guam",
         "wp-history-of-hawaii",
         "wp-history-of-kuwait",
+        "wp-history-of-lima",
         "wp-history-of-luxembourg",
         "wp-history-of-malaria",
         "wp-history-of-nauru",
@@ -2134,9 +2233,13 @@
         "wp-hora-mountain",
         "wp-horrs-island",
         "wp-hotel-metropole-brussels",
+        "wp-hougoumont",
         "wp-house-of-wisdom",
         "wp-huaca-prieta",
         "wp-huaca-rajada",
+        "wp-huamanga-province",
+        "wp-huarochiri-manuscript",
+        "wp-huarochiri-province",
         "wp-huazhou-district",
         "wp-hubbles-law",
         "wp-hudiksvall",
@@ -2264,6 +2367,7 @@
         "wp-jon-arason",
         "wp-jorasanko-thakur-bari",
         "wp-jordan",
+        "wp-jose-de-san-martin",
         "wp-joseon",
         "wp-joseph-lister",
         "wp-joseph-meister",
@@ -2316,6 +2420,7 @@
         "wp-kebara-cave",
         "wp-keeling-curve",
         "wp-kehl",
+        "wp-kene",
         "wp-kepaniwai",
         "wp-kerma-culture",
         "wp-kernave",
@@ -2435,6 +2540,7 @@
         "wp-la-tene-culture",
         "wp-laacher-see",
         "wp-laas-geel",
+        "wp-lady-of-cao",
         "wp-lahore-resolution",
         "wp-lahuradewa",
         "wp-lake-agassiz",
@@ -2518,6 +2624,7 @@
         "wp-liberation-of-kuwait",
         "wp-liberian-declaration-of-independence",
         "wp-lighthouse-of-alexandria",
+        "wp-lima",
         "wp-lima-culture",
         "wp-lincoln",
         "wp-lindisfarne",
@@ -2529,6 +2636,7 @@
         "wp-lion-of-judah",
         "wp-list-flags-sweden",
         "wp-list-uk-flags",
+        "wp-list-wh-peru",
         "wp-lithuanian-press-ban",
         "wp-little-ice-age",
         "wp-liu-song-dynasty",
@@ -2746,6 +2854,7 @@
         "wp-mussau-island",
         "wp-mustatil",
         "wp-mutapa-empire",
+        "wp-mutitjulu",
         "wp-muziris",
         "wp-myall-creek-massacre",
         "wp-myeongnyang",
@@ -2766,6 +2875,7 @@
         "wp-naqada-culture",
         "wp-narmer",
         "wp-narva-1700",
+        "wp-national-apology",
         "wp-national-emblem-of-france",
         "wp-national-health-service",
         "wp-national-independence-day-poland",
@@ -2932,6 +3042,7 @@
         "wp-pannonian-avars",
         "wp-papal-states",
         "wp-papua-new-guinea",
+        "wp-papunya-tula",
         "wp-paracas-culture",
         "wp-paraguay",
         "wp-paraguayan-war",
@@ -2969,6 +3080,7 @@
         "wp-perevolochna",
         "wp-persian-gulf",
         "wp-peru",
+        "wp-peruvian-war-of-independence",
         "wp-pesse",
         "wp-pesse-canoe",
         "wp-philippeville",
@@ -3040,6 +3152,7 @@
         "wp-provisional-government-bangladesh",
         "wp-prussia",
         "wp-pschent",
+        "wp-pucallpa",
         "wp-pulemelei-mound",
         "wp-pulli-settlement",
         "wp-punic-wars",
@@ -3052,6 +3165,7 @@
         "wp-qajar-iran",
         "wp-qalat-al-bahrain",
         "wp-qanat",
+        "wp-qhapaq-nan",
         "wp-qin-dynasty",
         "wp-qin-state",
         "wp-qin-unification",
@@ -3059,6 +3173,7 @@
         "wp-quagga",
         "wp-quarantine",
         "wp-quebec-city",
+        "wp-quechua-language",
         "wp-quilotoa",
         "wp-quirigua",
         "wp-qumran-caves",
@@ -3080,6 +3195,7 @@
         "wp-ravenna",
         "wp-real-alto",
         "wp-real-felipe",
+        "wp-rebellion-tupac-amaru-ii",
         "wp-red-cliffs",
         "wp-red-rock-pass-idaho",
         "wp-reformation-denmark-norway",
@@ -3102,6 +3218,7 @@
         "wp-revolution-of-dignity",
         "wp-revolutions-of-1848",
         "wp-reykjavik",
+        "wp-rfds",
         "wp-rhind-mathematical-papyrus",
         "wp-rhodesia",
         "wp-ria-lagartos-biosphere-reserve",
@@ -3262,6 +3379,7 @@
         "wp-shanghai-1861",
         "wp-shen-kuo",
         "wp-shimbra-kure",
+        "wp-shipibo-conibo",
         "wp-shiraz",
         "wp-shrewsbury",
         "wp-shunga-empire",
@@ -3339,6 +3457,7 @@
         "wp-smallpox-australia",
         "wp-smallpox-mexico",
         "wp-sn-185",
+        "wp-snowy-mountains-scheme",
         "wp-sobibor",
         "wp-society-islands",
         "wp-socrates",
@@ -3791,6 +3910,7 @@
         "wp-tripitaka-koreana",
         "wp-tromso",
         "wp-truganini",
+        "wp-truth-commission-peru",
         "wp-tsardom-of-russia",
         "wp-tsingtao-1914",
         "wp-tu-youyou",
@@ -3801,6 +3921,7 @@
         "wp-tui-tonga-empire",
         "wp-tula",
         "wp-tumaco-la-tolita-culture",
+        "wp-tungasuca",
         "wp-tunis",
         "wp-tuong-lam",
         "wp-tupac-amaru",
@@ -3821,6 +3942,7 @@
         "wp-ukrainian-counteroffensive-2023",
         "wp-ulleungdo",
         "wp-ulundi",
+        "wp-uluru-statement",
         "wp-umayyad-caliphate",
         "wp-umgungundlovu",
         "wp-un-conference-human-environment",
@@ -3884,6 +4006,7 @@
         "wp-vergina-sun",
         "wp-vertieres",
         "wp-vesuvius-79",
+        "wp-viceroyalty-of-peru",
         "wp-vichten",
         "wp-victoria-falls",
         "wp-victorian-gold-rush",
@@ -3952,10 +4075,12 @@
         "wp-western-settlement",
         "wp-westerplatte",
         "wp-what-is-enlightenment",
+        "wp-white-australia-policy",
         "wp-white-horse-temple",
         "wp-white-mountain",
         "wp-white-wolf-mountain",
         "wp-wieliczka-salt-mine",
+        "wp-wik-v-queensland",
         "wp-willem-janszoon",
         "wp-william-hobson",
         "wp-william-rowan-hamilton",
@@ -4002,6 +4127,7 @@
         "wp-younger-dryas",
         "wp-youngest-toba-eruption",
         "wp-yugoslavia",
+        "wp-yungay",
         "wp-zacatecas-1914",
         "wp-zaghouan-aqueduct",
         "wp-zagwe",
@@ -4242,6 +4368,7 @@
         "wd-lappland",
         "wd-lavo-kingdom",
         "wd-lego",
+        "wd-lima",
         "wd-linkoping",
         "wd-liu-song-dynasty",
         "wd-ljusnedals-bruk",
@@ -4297,6 +4424,7 @@
         "wd-overtornea",
         "wd-oyo-empire",
         "wd-pakistan",
+        "wd-papunya",
         "wd-peoples-socialist-republic-of-albania",
         "wd-portuguese-empire",
         "wd-prussia",
