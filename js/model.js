@@ -689,13 +689,25 @@ export function loadPerioder() {
  * gången Fokusmenyn öppnas eller en plats i adressen börjar. Bara kontrollerade platser (inte draft) behålls; en
  * fil som saknas eller inte går att läsa ger en tom lista.
  */
-let placesPromise = null, placesList = [];
-export function loadPlaces() {
-  placesPromise ??= getJSON('data/platser.json').then(doc => (Array.isArray(doc?.places) ? doc.places : [])
-    .filter(p => p && typeof p.id === 'string' && p.boundary?.geometry && isVisibleReview(p.review))).then(linkIncludeEvents).catch(err => { // #2333
-    console.warn('Platser kunde inte laddas', err);
-    return [];
-  }).then(list => (placesList = list));
+let placesPromise = null, placesList = [], placesStatus = 'idle';
+export const placesLoadStatus = () => placesStatus;
+export function loadPlaces({ retry = false } = {}) {
+  if (retry && placesStatus === 'error') placesPromise = null;
+  if (!placesPromise) {
+    placesStatus = 'loading';
+    placesPromise = getJSON('data/platser.json').then(doc => {
+      if (!Array.isArray(doc?.places)) throw new Error('Ogiltig lista i data/platser.json');
+      return doc.places.filter(p => p && typeof p.id === 'string' && p.boundary?.geometry && isVisibleReview(p.review));
+    }).then(linkIncludeEvents).then(list => { // #2333
+      placesStatus = 'ready';
+      placesList = list;
+      return list;
+    }).catch(err => {
+      placesStatus = 'error';
+      console.warn('Platser kunde inte laddas', err);
+      return [];
+    });
+  }
   return placesPromise;
 }
 /** Platserna som redan har laddats (tom lista före loadPlaces). Regionvyn öppnas från ett platskort, så då finns de (#1674). */

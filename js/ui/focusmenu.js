@@ -46,6 +46,7 @@ export class FocusMenu {
     this.ages = ages;
     this.onPick = () => {};
     this.onOpen = () => {};
+    this.onRetryPlaces = () => {};
     this.searchEvents = () => []; // (sökord) → händelser som träffar: [{ key: 'event:<id>', label, sub, color }]
     this.searchPlaces = () => []; // (sökord) → platser ur datan: [{ label, lat, lon }] (#15)
     this.eventsNear = () => []; // ({ label, lat, lon }) → händelser nära platsen, äldst först: [{ key, label, sub, color, approximate }]
@@ -134,10 +135,11 @@ export class FocusMenu {
   setGroups(groups) {
     this.groups = groups.map(g => ({ ...g, items: g.items.map(it => ({ ...it, _terms: [...new Set([it.label, ...(it.terms ?? [])])].map(s => [s, norm(s)]) })) }));
     // Fliken Teman (#398) syns först när det finns minst ett tema; en tom flik ser ut som ett fel
-    // Samma för Platser (#579). Om datan försvinner eller bara innehåller utkast får inte en dold flik ligga kvar som vald.
+    // Länder och landskap behåller fliken vid ett laddningsfel och medan ett nytt försök pågår.
     for (const title of ['Teman', PLACES]) {
       const tab = this.menu.querySelector(`[data-tab="${title}"]`);
-      const has = this.groups.some(g => g.title === title && g.items.length);
+      const has = this.groups.some(g => g.title === title && (g.items.length ||
+        (title === PLACES && (g.loadError || (g.loading && tab && !tab.hidden)))));
       if (tab) tab.hidden = !has;
       if (!has && this.tab === title) {
         this.tab = 'Alla';
@@ -270,12 +272,15 @@ export class FocusMenu {
       ? `<div class="layer-note pad">${esc(ui('focus.nearFirst', { window: tm.label }))}</div>` : '';
     // Länder och landskap (#1261): urvalsraden står överst (inte sist bakom rullningen). N är länderna på nivån land i trädet, räknade ur de
     // laddade platserna, inte träffarna; ett landskap vars land saknas räknas som eget land, som i treeHtml. Ingen siffra för alla länder (saknar källa).
-    const placeItems = this.groups.find(g => g.title === PLACES)?.items ?? [];
+    const places = this.groups.find(g => g.title === PLACES);
+    const placeItems = places?.items ?? [];
+    const placeError = this.tab === PLACES && places?.loadError ? ui('focus.places.loadError') : '';
+    const placeLoading = this.tab === PLACES && places?.loading;
     const countries = placeItems.filter(it => !it.parent || !placeItems.some(o => o.id === it.parent)).length;
     const sample = this.tab === PLACES && countries ? `<p class="focus-sample">${esc(countText('focus.places.sample', countries))}</p>` : '';
     // Ett land som saknas: skriv det öppet och visa vägen vidare. Texten är dold för skärmläsare (aria-hidden) och sägs en gång i live-regionen,
     // som övriga tomma sökningar (renderPlace); knappen är inte dold.
-    const missing = this.tab === PLACES && q && !found ? ui('focus.places.missing', { query: this.query.trim() }) : '';
+    const missing = this.tab === PLACES && !placeError && !placeLoading && q && !found ? ui('focus.places.missing', { query: this.query.trim() }) : '';
     const empty = esc(q ? ui('focus.noMatch', { query: this.query.trim() })
       : this.tab === EVENTS ? ui('focus.eventsHint') : ui('focus.nothing'));
     // Förklaringen under en rubrik visas på gruppens egen flik, inte i Alla eller vid sökning, så att listan blir kort
@@ -286,7 +291,7 @@ export class FocusMenu {
         ${it.sub ? `<span class="layer-note">${esc(it.sub)}</span>` : ''}</button>`).join('');
     const groupItems = (g, expanded) => {
       if (!expanded) return '';
-      if (!g.items.length) return g.loading ? `<div class="layer-note pad">${esc(ui('focus.loading'))}</div>` : '';
+      if (!g.items.length) return g.loading && g.title !== this.tab ? `<div class="layer-note pad">${esc(ui('focus.loading'))}</div>` : '';
       if (g.tree) return this.treeHtml(g, rows, q);
       // En vald flik är redan ett avgränsat urval. Visa därför hela gruppen så
       // att antalet i rubriken direkt motsvarar de synliga raderna; Alla behåller
@@ -303,7 +308,10 @@ export class FocusMenu {
       const less = !q && showAll && g.items.length > 8 ? `<button type="button" class="layer-row focus-more" data-group-near="${esc(g.title)}">${esc(this.texts.showNearest)}</button>` : '';
       return `${ageRows}${more}${less}`;
     };
-    this.body.innerHTML = sample + activeRow + intro + (groups.map(g => {
+    const placeStatus = placeError
+      ? `<div class="focus-missing"><p class="layer-note pad" aria-hidden="true">${esc(placeError)}</p><button type="button" class="focus-clear focus-missing-link" data-retry-places>${esc(ui('focus.places.retry'))}</button></div>`
+      : placeLoading ? `<p class="layer-note pad" aria-hidden="true">${esc(ui('focus.loading'))}</p>` : '';
+    this.body.innerHTML = sample + activeRow + intro + (placeStatus || groups.map(g => {
       const expanded = q || (this.tab !== 'Alla' ? true : this.openGroup === g.title);
       return `<section class="focus-group"><button type="button" class="focus-group-toggle" data-group="${esc(g.title)}" aria-expanded="${expanded}"><span>${esc(tabName(g.title))} <span class="focus-group-count">(${g.total})</span></span><span class="focus-group-chev" aria-hidden="true"></span></button>
       ${g.note && own && !g.tree ? `<div class="layer-note pad focus-note">${esc(g.note)}</div>` : ''}${groupItems(g, expanded)}${g.note && own && g.tree ? `<div class="layer-note pad focus-note">${esc(g.note)}</div>` : ''}</section>`;
@@ -311,9 +319,15 @@ export class FocusMenu {
       || (missing ? `<div class="focus-missing"><p class="layer-note pad" aria-hidden="true">${esc(missing)}</p><button type="button" class="focus-clear focus-missing-link" data-to-near>${esc(ui('focus.places.toNear'))}</button></div>`
         : `<div class="layer-note pad">${empty}</div>`));
     this.body.classList.toggle('focus-own-tab', this.tab !== 'Alla'); // gruppens rubrik döljs på sin egen flik i låg skärm (css, #1951)
-    this.live.textContent = missing || (activeText.length ? `${ui('focus.results', { count: found })}. ${activeText.join('. ')}` : '');
+    this.live.textContent = placeError || (placeLoading ? ui('focus.loading') : '') || missing || (activeText.length ? `${ui('focus.results', { count: found })}. ${activeText.join('. ')}` : '');
     this.body.querySelector('[data-clear]')?.addEventListener('click', () => this.clearFilters());
     this.body.querySelector('[data-to-near]')?.addEventListener('click', () => this.goToNear());
+    this.body.querySelector('[data-retry-places]')?.addEventListener('click', async () => {
+      const tab = this.menu.querySelector(`[data-tab="${PLACES}"]`);
+      tab?.focus({ preventScroll: true });
+      await this.onRetryPlaces();
+      if (document.activeElement === tab) this.body.querySelector('[data-retry-places]')?.focus({ preventScroll: true });
+    });
     for (const b of this.body.querySelectorAll('[data-key]')) {
       b.addEventListener('click', () => { this.close(); this.onPick(b.dataset.key); });
     }
