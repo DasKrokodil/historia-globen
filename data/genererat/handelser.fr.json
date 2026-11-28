@@ -862,6 +862,7 @@
 "nykopings-gastabud":{"place":{"fr":"Château de Nyköping, Nyköping, Södermanland"},"title":{"fr":"Le banquet de Nyköping"},"note":{"title":{"fr":"Les sources divergent"}}},
 "varbergs-fastning":{"place":{"fr":"Varberg, Halland"},"title":{"fr":"Construction du château de Varberg"}},
 "bockstensmannen":{"place":{"fr":"Tourbière de Bocksten, Halland"},"title":{"fr":"L’homme de Bocksten"},"note":{"title":{"fr":"Les sources divergent"}}},
+"nederlulea-kyrka-invigs":{"place":{"fr":"Gammelstad, près de Luleå (en same de Lule Julevu), Norrbotten"},"title":{"fr":"Consécration de l’église de Nederluleå"},"note":{"title":{"fr":"Les sources divergent"}}},
 "slaget-vid-landskrona":{"note":{"title":{"fr":"À propos du calendrier"}}},
 "slaget-vid-helsingborg":{"note":{"title":{"fr":"À propos du calendrier"}}},
 "agadez-mosken":{"place":{"fr":"Agadez, Niger"},"title":{"fr":"La mosquée d'Agadez est construite"}},
@@ -990,6 +991,7 @@
 "ryssarna-branner-nykoping":{"place":{"fr":"Nyköping, Södermanland"},"title":{"fr":"Les Russes incendient Nyköping"},"note":{"title":{"fr":"À propos du calendrier"}}},
 "halland-blir-svenskt":{"place":{"fr":"Halmstad, Halland"},"title":{"fr":"Le Halland devient suédois"},"note":{"title":{"fr":"À propos du lieu"}}},
 "slaget-vid-halmstad":{"place":{"fr":"Fyllebro, près de Halmstad, Halland"},"title":{"fr":"La bataille de Halmstad"},"note":{"title":{"fr":"À propos du calendrier"}}},
+"pitea-brinner-1666":{"place":{"fr":"Öjebyn, Piteå (en same de Lule Bihtám), Norrbotten"},"title":{"fr":"L’ancien Piteå brûle"}},
 "nya-zeelandkrigen":{"note":{"title":{"fr":"Les sources divergent"}}},
 "forsta-missionen-rangihoua":{"place":{"fr":"Oihi, à Rangihoua, Bay of Islands, Nouvelle-Zélande"},"title":{"fr":"La première mission chrétienne en Nouvelle-Zélande"}},
 "muskotkrigen":{"place":{"fr":"Toute la Nouvelle-Zélande, y compris les îles Chatham (la première bataille connue avec des mousquets eut lieu à Moremonui, dans le Northland)"},"title":{"fr":"Guerres des mousquets"},"note":{"title":{"fr":"Les sources divergent"}}},
@@ -1100,6 +1102,9 @@
 "vai-skriften":{"place":{"fr":"Jondu, comté de Grand Cape Mount, Liberia (le repère est au niveau du comté)"},"title":{"fr":"L’écriture vai est créée au Liberia"},"note":{"title":{"fr":"À propos de la date"}}},
 "forstlingen":{"place":{"fr":"Eskilstuna, Södermanland"},"title":{"fr":"La première locomotive à vapeur de Suède"}},
 "balastugan":{"place":{"fr":"Varberg, Halland"},"title":{"fr":"Le premier musée de plein air de Suède"},"note":{"title":{"fr":"À propos du lieu"}}},
+"kapitulationen-i-kalix":{"place":{"fr":"Säivis (en finnois Säivi), entre Kalix et Haparanda, Norrbotten"},"title":{"fr":"La capitulation de Kalix"},"note":{"title":{"fr":"À propos de la datation"}}},
+"haparanda-blir-stad":{"place":{"fr":"Haparanda (en meänkieli et en finnois Haaparanta), Norrbotten"},"title":{"fr":"Haparanda devient une ville"},"note":{"title":{"fr":"À propos des sources"}}},
+"malmtaget-till-lulea":{"place":{"fr":"Luleå (en same de Lule Julevu), Norrbotten"},"title":{"fr":"Les trains de minerai atteignent Luleå"},"note":{"title":{"fr":"Les sources divergent"}}},
 "rifkriget":{"place":{"fr":"Rif, dans le nord du Maroc, alors protectorat espagnol (la guerre commença près d'Annual)"},"title":{"fr":"Guerre du Rif"},"note":{"title":{"fr":"Les sources divergent"}}},
 "slaget-vid-annual":{"place":{"fr":"Annual, dans le nord-est du Maroc, à environ 60 km à l'ouest de Melilla"},"title":{"fr":"Les Rifains battent l'Espagne à Annual"},"note":{"title":{"fr":"Les sources divergent"}}},
 "massakern-vid-monte-arruit":{"place":{"fr":"Monte Arruit, à Al Aaroui, à environ 35 km au sud de Melilla"},"title":{"fr":"Le massacre de Monte Arruit"},"note":{"title":{"fr":"Les sources divergent"}}},
@@ -1459,6 +1464,7 @@
 "forsta-hennes-butiken":{"place":{"fr":"Västerås, Västmanland"},"title":{"fr":"La première boutique Hennes"}},
 "umea-universitet-invigs":{"place":{"fr":"Umeå, Västerbotten"},"title":{"fr":"Inauguration de l’université d’Umeå"},"note":{"title":{"fr":"Les sources divergent"}}},
 "ringhals-forsta-strom":{"place":{"fr":"Presqu’île de Värö, Halland"},"title":{"fr":"Ringhals livre son premier courant"},"note":{"title":{"fr":"Les sources divergent"}}},
+"hogskolan-i-lulea-grundas":{"place":{"fr":"Porsön, Luleå (en same de Lule Julevu), Norrbotten"},"title":{"fr":"Fondation de l’école supérieure de Luleå"}},
 "constitution-act-1986":{"place":{"fr":"Wellington, Nouvelle-Zélande"},"title":{"fr":"La Nouvelle-Zélande se dote de sa propre loi constitutionnelle"},"note":{"title":{"fr":"À propos de la date"}}},
 "maori-officiellt-sprak":{"place":{"fr":"Nouvelle-Zélande"},"title":{"fr":"Le maori devient langue officielle"},"note":{"title":{"fr":"À propos de la date"}}},
 "waikato-tainui-uppgorelsen":{"place":{"fr":"Waikato, Nouvelle-Zélande"},"title":{"fr":"La Couronne présente ses excuses aux Waikato-Tainui"},"note":{"title":{"fr":"Les sources divergent"}}},
@@ -1521,5 +1527,6 @@
 "paneuropeiska-picknicken":{"place":{"fr":"La frontière avec l’Autriche près de Sopron, Hongrie"},"title":{"fr":"Le pique-nique paneuropéen"}},
 "ungern-gar-med-i-eu":{"place":{"fr":"Toute la Hongrie (le marqueur à Budapest)"},"title":{"fr":"La Hongrie entre dans l’UE"}},
 "falu-gruva-blir-varldsarv":{"place":{"fr":"Falun, Dalécarlie"},"title":{"fr":"La mine de Falun inscrite au patrimoine mondial"}},
-"hoga-kusten-blir-varldsarv":{"place":{"fr":"Skuleberget, Haute Côte, Ångermanland"},"title":{"fr":"La Haute Côte devient patrimoine mondial"},"note":{"title":{"fr":"Les sources divergent"}}}
+"hoga-kusten-blir-varldsarv":{"place":{"fr":"Skuleberget, Haute Côte, Ångermanland"},"title":{"fr":"La Haute Côte devient patrimoine mondial"},"note":{"title":{"fr":"Les sources divergent"}}},
+"meankieli-blir-minoritetssprak":{"place":{"fr":"Vallée de la Torne (le point : Övertorneå), Norrbotten"},"title":{"fr":"Le meänkieli devient une langue minoritaire"},"note":{"title":{"fr":"À propos de la datation"}}}
 }}
