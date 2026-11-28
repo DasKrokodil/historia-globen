@@ -6,8 +6,7 @@
 2. **Undvikandelistan för piloten gäller** (Ukraina, Ryssland, Israel och Palestina, Georgien, Armenien, Azerbajdzjan, Cypern, Kosovo, Pakistan, Indien/Kashmir, Kina och Taiwan; Marocko kräver not), enligt beslutet 2026-11-12.
 3. **Elsass, Schleswig och Sydtyrolen väntar** och hör till regionspåret.
 
-## Vad som återstår för DasKrokodil
-Fall 15 och 16 föreslår att Japans kontur behålls (Natural Earth, utan södra Kurilerna och Dokdo/Takeshima) med en not på kortet, som för Kashmir och Taiwan. Förslaget gäller när pull requesten slås ihop. Riksdagens dokument söktes inte; kontrollera igen vid nästa release.
+4. **Förslaget i fall 15 och 16 är godkänt** (DasKrokodil, i chatten, samma dag): Japans kontur behålls (Natural Earth, utan södra Kurilerna och Dokdo/Takeshima), kortet får en not som för Kashmir och Taiwan, och inga händelser läggs på områdena. Riksdagens dokument söktes inte; kontrollera igen vid nästa release.
 
 ## Berör
 #1267, #1273, `docs/omstridda-granser.md`.

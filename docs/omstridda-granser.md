@@ -27,8 +27,8 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 | 12. Nagorno-Karabach | Azerbajdzjan återupprättade sin kontroll hösten 2023; den armeniska befolkningen flydde | Armenien, även 2024 | inget ännu | Omstritt till 2022, Azerbajdzjan från 2023 (svar 7) |
 | 13. Somaliland | Ingen text om Somaliland på UD:s sida om Somalia | Somalia | inget ännu | Stämmer, inget att ändra |
 | 14. Östtimor | Indonesiens ockupation 1975 erkändes aldrig av Sverige; självständigt 2002 | Indonesien 1976–2005, egen stat från 2006 | `indonesien`, `osttimor` | **Gjort 2026-11-06:** utan stat 1976–2001, Östtimor från 2002, med not |
-| 15. Södra Kurilerna (Kunashir, Iturup, Shikotan, Habomai) | Ingen uttalad hållning hittad på de sidor som öppnats (2026-11-28) | Inte kontrollerat | inget ännu (`japan`, landskort) | Japans kontur ur Natural Earth utan öarna, med not (#1267) |
-| 16. Dokdo/Takeshima | Ingen uttalad hållning hittad på de sidor som öppnats (2026-11-28) | Inte kontrollerat | inget ännu (`japan`, landskort) | Japans kontur ur Natural Earth utan klipporna, med not (#1267) |
+| 15. Södra Kurilerna (Kunashir, Iturup, Shikotan, Habomai) | Ingen uttalad hållning hittad på de sidor som öppnats (2026-11-28) | Inte kontrollerat | inget ännu (`japan`, landskort) | Japans kontur ur Natural Earth utan öarna, med not (godkänt 2026-11-28, #1267) |
+| 16. Dokdo/Takeshima | Ingen uttalad hållning hittad på de sidor som öppnats (2026-11-28) | Inte kontrollerat | inget ännu (`japan`, landskort) | Japans kontur ur Natural Earth utan klipporna, med not (godkänt 2026-11-28, #1267) |
 
 ## Fallen ett och ett
 
@@ -154,14 +154,14 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 - **Inte sökt:** riksdagens dokument (frågor och svar) och regeringens äldre uttalanden. En uttalad hållning kan finnas där. Fallet bör därför kontrolleras igen vid nästa release (steg 6 under "Nästa steg").
 - **Vad vi ritar:** Japans kontur i `data/platser.json` kommer ur Natural Earth admin 0 (public domain, de facto-linjen). Ett punktprov mot den inlästa konturen (2026-11-28) visar att Kunashir (145,8° Ö, 43,9° N) och Iturup (147,9° Ö, 45,0° N) ligger utanför Japan, och Rishiri (141,2° Ö, 45,2° N) innanför. Cliopatria har inte kontrollerats för området.
 - **Förslag (som för Kashmir och Taiwan, fall 10 och 11):** konturen behålls, och landskortet för Japan har en not om att gränsen mot Ryssland i Kurilerna är omstridd, att kortet visar den linje kartdatan visar (vem som kontrollerar området) och inte vem det tillhör, och att Sverige inte har någon uttalad hållning som vi hittat. Inga händelser läggs på de fyra öarna.
-- **Beslut av DasKrokodil:** 2026-11-28 sa ja till att Japan är med i piloten (fråga 1 i #1267) och till undvikandelistan (fråga 2). Förslaget i den här punkten väntar på hans ok när pull requesten slås ihop.
+- **Beslut av DasKrokodil (2026-11-28, i chatten):** ja till att Japan är med i piloten (fråga 1 i #1267) och till undvikandelistan (fråga 2), och han **godkände förslaget i den här punkten**: konturen behålls, noten på Japans kort, inga händelser på öarna.
 
 ### 16. Dokdo/Takeshima (Liancourt Rocks) (#1267, 2026-11-28)
 - **Sveriges hållning:** ingen uttalad hållning hittad på samma sidor som fall 15 (Tokyo och Seoul inräknade). Utrikesdeklarationen 2026 nämner inte klipporna.
 - **Inte sökt:** som fall 15.
 - **Vad vi ritar:** ett punktprov mot Japans kontur (2026-11-28) visar att Dokdo/Takeshima (131,87° Ö, 37,24° N) ligger utanför Japan. Konturen för Sydkorea är inte inläst ännu, så var klipporna ligger i den datan är inte kontrollerat.
 - **Förslag:** som fall 15: konturen behålls, en not på Japans kort (och på Sydkoreas när det läggs in), inga händelser på klipporna.
-- **Beslut av DasKrokodil:** som fall 15.
+- **Beslut av DasKrokodil (2026-11-28, i chatten):** godkänt, som fall 15.
 
 ## Ockupation och inbördeskrig (#1332, beslut 2026-11-13)
 
