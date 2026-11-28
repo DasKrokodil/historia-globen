@@ -753,6 +753,7 @@
         "dewp-anwerbeabkommen-tuerkei",
         "dewp-bonn-kopenhagener-erklaerungen",
         "dewp-domowina",
+        "dewp-frankfurter-auschwitz-prozess",
         "dewp-franz-fuchs",
         "dewp-frauenstimmrecht-schweiz",
         "dewp-frauenwahlrecht",
@@ -767,6 +768,7 @@
         "dewp-wurttemberg-hohenzollern",
         "dewp-zentralrat-sinti-roma",
         "frwp-gare-bruxelles-allee-verte",
+        "frwp-hotel-royal-evian",
         "frwp-joseph-meister",
         "frwp-ligne-de-demarcation",
         "iho-hav-granser",
@@ -853,6 +855,7 @@
         "wp-acts-of-union-1800",
         "wp-adalen-shootings",
         "wp-adams-bridge",
+        "wp-addis-ababa",
         "wp-adena-culture",
         "wp-adolphe-grand-duke-of-luxembourg",
         "wp-adrar-bous",
@@ -953,6 +956,7 @@
         "wp-archaeology-of-igbo-ukwu",
         "wp-archdiocese-of-uppsala",
         "wp-archimedes",
+        "wp-ardipithecus",
         "wp-areni-1-winery",
         "wp-argentina",
         "wp-ariane-1",
@@ -1014,6 +1018,7 @@
         "wp-azul",
         "wp-ba-dinh-square",
         "wp-bab",
+        "wp-babi-yar",
         "wp-babylon",
         "wp-babylon-fortress",
         "wp-babylonian-astronomical-diaries",
@@ -1128,6 +1133,7 @@
         "wp-belgian-congo",
         "wp-belgian-revolution",
         "wp-belgrade",
+        "wp-belzec",
         "wp-bengal-famine-1943",
         "wp-beni-hasan",
         "wp-benz-patent-motorwagen",
@@ -1480,6 +1486,7 @@
         "wp-de-revolutionibus",
         "wp-dead-sea-scrolls",
         "wp-death-of-alexander",
+        "wp-debre-berhan",
         "wp-declaration-independence-ukraine",
         "wp-declaration-of-arbroath",
         "wp-decorated-farmhouses-of-halsingland",
@@ -1491,6 +1498,7 @@
         "wp-denisovan",
         "wp-denmark-norway",
         "wp-derafsh-kaviani",
+        "wp-derg",
         "wp-deriba-caldera",
         "wp-devin-castle",
         "wp-dhaka",
@@ -1575,6 +1583,7 @@
         "wp-egypt-muhammad-ali",
         "wp-egyptian-hieroglyphs",
         "wp-egyptian-hittite-treaty",
+        "wp-eichmann-trial",
         "wp-eidsvoll-manor",
         "wp-eiffel-tower",
         "wp-eight-deer",
@@ -1656,6 +1665,7 @@
         "wp-eutaw-springs",
         "wp-everest-1953",
         "wp-evian-accords",
+        "wp-evian-conference",
         "wp-ewuare",
         "wp-experiments-on-plant-hybridization",
         "wp-explorer-1",
@@ -1691,6 +1701,7 @@
         "wp-first-chechen-war",
         "wp-first-fleet",
         "wp-first-french-empire",
+        "wp-first-hijra",
         "wp-first-italo-ethiopian-war",
         "wp-first-mexican-empire",
         "wp-first-opium-war",
@@ -1882,6 +1893,8 @@
         "wp-francia",
         "wp-francis-ona",
         "wp-francis-xavier",
+        "wp-frankfurt",
+        "wp-frankfurt-auschwitz-trials",
         "wp-frankfurt-parliament",
         "wp-franz-fuchs",
         "wp-frederic-chopin",
@@ -1899,6 +1912,7 @@
         "wp-fuorigrotta",
         "wp-gabarnmung",
         "wp-gabriela-mistral",
+        "wp-gadaa",
         "wp-gadebusch",
         "wp-gaelic-athletic-association",
         "wp-gaius-suetonius-paulinus",
@@ -1928,6 +1942,7 @@
         "wp-georg-friedrich-grotefend",
         "wp-george-washingtons-teeth",
         "wp-georges-lemaitre",
+        "wp-gerard-behar-center",
         "wp-gerard-of-cremona",
         "wp-german-colonial-empire",
         "wp-german-confederation",
@@ -1961,6 +1976,7 @@
         "wp-gold-coast-colony",
         "wp-golden-bay-mohua",
         "wp-golden-temple",
+        "wp-gona-ethiopia",
         "wp-gonabad",
         "wp-gonaives",
         "wp-gondar",
@@ -2028,6 +2044,8 @@
         "wp-haapsalu",
         "wp-haasts-eagle",
         "wp-habsburg-monarchy",
+        "wp-hadar",
+        "wp-hadar-ethiopia",
         "wp-hadrians-wall",
         "wp-haengju",
         "wp-hagia-sophia",
@@ -2399,6 +2417,7 @@
         "wp-komaki-nagakute",
         "wp-konark-sun-temple",
         "wp-kongo",
+        "wp-konso-cultural-landscape",
         "wp-konstanz",
         "wp-korean-armistice",
         "wp-korean-empire",
@@ -2512,6 +2531,7 @@
         "wp-lazzarettos-of-dubrovnik",
         "wp-leaning-tower-of-pisa",
         "wp-lebombo-bone",
+        "wp-ledi-geraru",
         "wp-lego-group",
         "wp-lehman-brothers",
         "wp-lei-aurea",
@@ -2551,6 +2571,7 @@
         "wp-livonian-coast",
         "wp-livonians",
         "wp-llanos-de-moxos-archaeology",
+        "wp-lodz-ghetto",
         "wp-london",
         "wp-lord-of-sipan",
         "wp-lordship-of-ireland",
@@ -2562,6 +2583,7 @@
         "wp-loulan",
         "wp-ltu",
         "wp-lucayan-people",
+        "wp-lucy",
         "wp-ludovit-stur",
         "wp-lugnano-in-teverina",
         "wp-luis-vaz-de-torres",
@@ -2662,11 +2684,13 @@
         "wp-meroitic-script",
         "wp-mersa-gawasis",
         "wp-mesa-verde",
+        "wp-meskel",
         "wp-mesoamerican-long-count",
         "wp-mesrop-mashtots",
         "wp-mexican-american-war",
         "wp-mexican-revolution",
         "wp-mexico",
+        "wp-middle-awash",
         "wp-middle-kingdom-egypt",
         "wp-midway",
         "wp-mikael-agricola",
@@ -2733,6 +2757,7 @@
         "wp-mount-washington-hotel",
         "wp-mozarts-birthplace",
         "wp-mozu-kofun-group",
+        "wp-ms-st-louis",
         "wp-mua-tongatapu",
         "wp-mudros",
         "wp-mueller-glacier",
@@ -2855,6 +2880,7 @@
         "wp-nz-constitution-act-1852",
         "wp-nz-land-confiscations",
         "wp-nzinga",
+        "wp-oau",
         "wp-obelisk-of-axum",
         "wp-oberallgau-1949",
         "wp-oberwart",
@@ -2894,6 +2920,7 @@
         "wp-operation-priboi",
         "wp-operation-ramadan",
         "wp-operation-searchlight",
+        "wp-operation-solomon",
         "wp-operation-tail-wind",
         "wp-operation-uvda",
         "wp-operation-vistula",
@@ -2904,6 +2931,7 @@
         "wp-ordinance-of-villers-cotterets",
         "wp-origins-judaism",
         "wp-oriskany",
+        "wp-oromo-migrations",
         "wp-ortoiroid-people",
         "wp-oruanui-eruption",
         "wp-oryza-glaberrima",
@@ -3083,6 +3111,7 @@
         "wp-rangiriri-place",
         "wp-rangitoto-island",
         "wp-raoul-island",
+        "wp-raoul-wallenberg",
         "wp-rattanakosin",
         "wp-ravenna",
         "wp-real-alto",
@@ -3133,6 +3162,7 @@
         "wp-roman-kingdom",
         "wp-roman-republic",
         "wp-roman-seleucid-war",
+        "wp-romani-holocaust",
         "wp-romani-people-in-slovakia",
         "wp-romansh",
         "wp-romulus-augustulus",
@@ -3241,6 +3271,7 @@
         "wp-second-siege-callao",
         "wp-second-sino-japanese-war",
         "wp-second-vatican-council",
+        "wp-selam",
         "wp-seleucia",
         "wp-seleucid-empire",
         "wp-seleucid-mauryan-war",
@@ -3337,6 +3368,7 @@
         "wp-skibbereen",
         "wp-slave-trade-act-1807",
         "wp-slavery-in-brazil",
+        "wp-slavery-in-ethiopia",
         "wp-slovak-national-uprising",
         "wp-slovak-republic-1939-1945",
         "wp-slovakia",
@@ -3345,6 +3377,7 @@
         "wp-smallpox-mexico",
         "wp-sn-185",
         "wp-snowy-mountains-scheme",
+        "wp-sobibor",
         "wp-society-islands",
         "wp-socrates",
         "wp-sofala",
@@ -3993,12 +4026,14 @@
         "wp-xiangshan-county",
         "wp-xianren-cave",
         "wp-xiaohe-cemetery",
+        "wp-yabelo",
         "wp-yamen",
         "wp-yarrangobilly-caves",
         "wp-yashima",
         "wp-yayoi-period",
         "wp-ye-hebei",
         "wp-year-of-africa",
+        "wp-yeha",
         "wp-yekuno-amlak",
         "wp-yellow-turban",
         "wp-yellowstone",
@@ -4014,6 +4049,8 @@
         "wp-zanzibar",
         "wp-zapotec-civilization",
         "wp-zapotec-script",
+        "wp-zara-yaqob",
+        "wp-zemene-mesafint",
         "wp-zhang-heng",
         "wp-zhang-qian",
         "wp-zheng-he",
@@ -4445,7 +4482,8 @@
         "wd-zimbabwe",
         "wd-zimbabwe-rhodesia",
         "wikidata",
-        "wikidata-classical-antiquity"
+        "wikidata-classical-antiquity",
+        "wikidata-havana"
       ]
     },
     {
@@ -4655,6 +4693,12 @@
       "sourceIds": [
         "loc-bild-belagringen-av-yorktown",
         "loc-bild-slaget-vid-saratoga"
+      ]
+    },
+    {
+      "license": "PNAS-licens (öppen via PMC, ingen CC-licens bekräftad; bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "pmc-braun-2019-ledi-geraru"
       ]
     },
     {
@@ -5811,6 +5855,16 @@
       ]
     },
     {
+      "license": "Public domain (US-regeringens verk)",
+      "sourceIds": [
+        "loc-et-19c",
+        "loc-et-derg",
+        "loc-et-islam",
+        "loc-et-menelik",
+        "loc-et-oromo"
+      ]
+    },
+    {
       "license": "Public domain (USA:s federala myndighet)",
       "sourceIds": [
         "commons-bild-ghanas-sjalvstandighet",
@@ -5974,6 +6028,35 @@
         "rizal-2020-ngandong",
         "surovell-2026-monte-verde",
         "tsutaya-2025-penghu"
+      ]
+    },
+    {
+      "license": "UK Parliament (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "hansard-1942-abolition-of-slavery"
+      ]
+    },
+    {
+      "license": "bara länkad, ingen text kopierad",
+      "sourceIds": [
+        "fordham-oau-charter",
+        "jta-operation-solomon",
+        "jvl-operation-solomon",
+        "loc-law-abolition-slavery-ethiopia",
+        "saho-oau",
+        "snl-addis-abeba"
+      ]
+    },
+    {
+      "license": "© African Union (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "au-overview"
+      ]
+    },
+    {
+      "license": "© EBSCO (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "ebsco-yeha"
       ]
     },
     {
@@ -6160,6 +6243,19 @@
       ]
     },
     {
+      "license": "© Scientific American (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "sciam-lucy-40-years"
+      ]
+    },
+    {
+      "license": "© Smithsonian (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "si-humanorigins-afarensis",
+        "si-humanorigins-ramidus"
+      ]
+    },
+    {
       "license": "© Smithsonian Magazine (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "smithsonian-machu-picchu",
@@ -6232,19 +6328,31 @@
     {
       "license": "© UNESCO (bara länkad, ingen text kopierad)",
       "sourceIds": [
+        "unesco-ich-gada",
+        "unesco-ich-meskel",
         "unesco-karlskrona",
         "unesco-lanse-aux-meadows",
-        "unesco-sodra-oland"
+        "unesco-sodra-oland",
+        "unesco-whc-decision-konso"
       ]
     },
     {
       "license": "© USHMM, begränsad användning (bara länkad, ingen text kopierad)",
       "sourceIds": [
+        "ushmm-auschwitz",
+        "ushmm-babyn-yar",
+        "ushmm-belzec",
         "ushmm-chelmno",
         "ushmm-death-marches",
+        "ushmm-eichmann",
+        "ushmm-evian-conference",
         "ushmm-kindertransport",
+        "ushmm-lodz",
         "ushmm-nuremberg-race-laws",
         "ushmm-nuremberg-trials",
+        "ushmm-roma-genocide",
+        "ushmm-sobibor",
+        "ushmm-st-louis",
         "ushmm-treblinka",
         "ushmm-wannsee",
         "ushmm-warsaw"
