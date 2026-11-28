@@ -511,6 +511,50 @@
     "checked": "2026-11-27"
    }
   ],
+  "vasterbotten": [
+   {
+    "wikidata": "Q10542957",
+    "coordinates": [
+     19.797,
+     64.671
+    ],
+    "name": {
+     "sv": "Kalvträsk",
+     "en": "Kalvträsk",
+     "de": "Kalvträsk",
+     "es": "Kalvträsk",
+     "fr": "Kalvträsk"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "skidan-fran-kalvtrask"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q891347",
+    "coordinates": [
+     20.382,
+     64.865
+    ],
+    "name": {
+     "sv": "Boliden",
+     "en": "Boliden",
+     "de": "Boliden",
+     "es": "Boliden",
+     "fr": "Boliden"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "guldmalmen-i-boliden"
+    ],
+    "checked": "2026-11-28"
+   }
+  ],
   "vastmanland": [
    {
     "wikidata": "Q6488345",
@@ -553,6 +597,88 @@
      "anundshog"
     ],
     "checked": "2026-11-27"
+   }
+  ],
+  "varmland": [
+   {
+    "wikidata": "Q30177356",
+    "coordinates": [
+     12.541,
+     60.15
+    ],
+    "name": {
+     "sv": "Ritamäki",
+     "en": "Ritamäki",
+     "de": "Ritamäki",
+     "es": "Ritamäki",
+     "fr": "Ritamäki"
+    },
+    "fallback": [],
+    "events": [
+     "skogsfinnarna-i-varmland"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q10669722",
+    "coordinates": [
+     12.375,
+     59.928
+    ],
+    "name": {
+     "sv": "Skansen Hultet",
+     "en": "Skansen Hultet",
+     "de": "Skansen Hultet",
+     "es": "Skansen Hultet",
+     "fr": "Skansen Hultet"
+    },
+    "fallback": [
+     "de",
+     "es",
+     "fr"
+    ],
+    "events": [
+     "skansen-hultet"
+    ],
+    "checked": "2026-11-28"
+   }
+  ],
+  "sodermanland": [
+   {
+    "wikidata": "Q194359",
+    "coordinates": [
+     17.217,
+     59.265
+    ],
+    "name": {
+     "sv": "Mariefred",
+     "en": "Mariefred",
+     "de": "Mariefred",
+     "es": "Mariefred",
+     "fr": "Mariefred"
+    },
+    "events": [
+     "gripsholms-slott-1537"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q26498",
+    "coordinates": [
+     16.513,
+     59.377
+    ],
+    "name": {
+     "sv": "Eskilstuna",
+     "en": "Eskilstuna",
+     "de": "Eskilstuna",
+     "es": "Eskilstuna",
+     "fr": "Eskilstuna"
+    },
+    "events": [
+     "forstlingen"
+    ],
+    "checked": "2026-11-28"
    }
   ],
   "halland": [

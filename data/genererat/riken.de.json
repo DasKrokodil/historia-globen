@@ -9,6 +9,7 @@
 "ryska-imperiet":{"flags":{"0":{"label":{"de":"Schwarz-gelb-weiße Flagge des Russischen Reiches"}},"1":{"label":{"de":"Weiß-blau-rote Flagge des Russischen Reiches"}}}},
 "svenska-stormaktsvaldet":{"flags":{"0":{"label":{"de":"Schwedische Unionsflagge"}},"1":{"label":{"de":"Schwedische blau-gelbe Flagge"}}}},
 "franska-kolonialvaldet":{"flags":{"0":{"label":{"de":"Französische königlich-weiße Flagge"}},"1":{"label":{"de":"Französische Trikolore"}}}},
+"tyska-forbunden":{"uncertainBorder":{"note":{"de":"Der Rand ist weich, weil die Grenzen unsicher sind. Cliopatria rechnet Berlin und Brandenburg 1809–1814 zum Rheinbund, aber laut Wikipedia waren weder Preußen noch Österreich Mitglieder; der Rheinbund war ein französisches Vasallensystem mit Napoleon als Protektor. Die auf der Karte gezeigte Fläche ist also die von Cliopatria, nicht das tatsächliche Gebiet des Bundes. Der Deutsche Bund 1815–1866 umfasste laut Wikipedia nur Teile Preußens und Österreichs, und Cliopatria zeichnet nur einen Teil der deutschen Staaten; Bayern, Württemberg, Baden, Sachsen und mehrere andere haben eigene Einträge, die die Karte noch nicht zeigt. Die Quellen weichen bei den Jahreszahlen ab: Cliopatria hat den Deutschen Bund bis 1867, Wikipedia 1866, und der Norddeutsche Bund beginnt je nach Zählung 1866 oder im Juli 1867."}}},
 "tyska-riket":{"flags":{"0":{"label":{"de":"Schwarz-weiß-rote Flagge des Deutschen Reiches"}}}},
 "weimarrepubliken":{"flags":{"0":{"label":{"de":"Schwarz-Rot-Gold"}}}},
 "vasttyskland":{"flags":{"0":{"label":{"de":"Schwarz-Rot-Gold"}}}},
