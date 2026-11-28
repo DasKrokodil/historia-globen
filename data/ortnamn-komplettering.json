@@ -510,6 +510,50 @@
     ],
     "checked": "2026-11-27"
    }
+  ],
+  "vastmanland": [
+   {
+    "wikidata": "Q6488345",
+    "coordinates": [
+     16.071,
+     60.076
+    ],
+    "name": {
+     "sv": "Lapphyttan",
+     "en": "Lapphyttan",
+     "de": "Lapphyttan",
+     "es": "Lapphyttan",
+     "fr": "Lapphyttan"
+    },
+    "fallback": [
+     "de"
+    ],
+    "events": [
+     "lapphyttan"
+    ],
+    "checked": "2026-11-27"
+   },
+   {
+    "wikidata": "Q612476",
+    "coordinates": [
+     16.646,
+     59.631
+    ],
+    "name": {
+     "sv": "Anundshög",
+     "en": "Anundshög",
+     "de": "Anundshög",
+     "es": "Anundshög",
+     "fr": "Anundshög"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "anundshog"
+    ],
+    "checked": "2026-11-27"
+   }
   ]
  }
 }
