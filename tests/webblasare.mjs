@@ -5271,20 +5271,44 @@ async function run(browser, vp) {
       // Avsluta platsen, och tryck sedan på konturen i Platt vy (kartan står kvar inramad, konturen syns därför)
       const focusLeft = async () => { await tp.evaluate(() => document.querySelector('#detail [data-end-theme]')?.click()); await tp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step }); };
       await focusLeft();
-      // Jämtland (63,5° N 15° Ö, inne i Sverige men inte i Skåne) på skärmen, räknat ur kartans mitt och zoom. Trycket med finger
-      // väntar ett ögonblick på ett dubbeltryck
-      const { cx, cy } = await tp.evaluate(() => {
+      // En punkt inne i Sverige där handen visas (en plats med kort, ingen markör under pekaren), räknad ur kartans mitt och zoom.
+      // Punkten är inte fast (#2425): landskapen inom Sverige (#1847) blir egna platser med egna händelser, så en fast punkt hamnar
+      // förr eller senare i ett landskap eller under en markör. Trycket följer då den minsta platsen under punkten (placeAt),
+      // Sverige eller ett landskap, och provet kräver just den platsen.
+      const toScreen = (lat0, lon0) => tp.evaluate(([la, lo]) => {
         const [lat, lon, zoom] = document.getElementById('flat-view').dataset.view.split(',').map(Number);
         const r = document.getElementById('flat-canvas').getBoundingClientRect(), scale = Math.max(r.width / 4096, r.height / 2048) * zoom;
-        return { cx: r.left + r.width / 2 + (15 - lon) / 360 * 4096 * scale, cy: r.top + r.height / 2 + (lat - 63.5) / 180 * 2048 * scale };
-      });
-      await tp.mouse.move(cx, cy);
-      await tp.waitForFunction(() => document.getElementById('flat-canvas').classList.contains('on-place'), null, { timeout: T.step });
-      await tp.touchscreen.tap(cx, cy);
-      await followsSweden(tp);
+        const x = r.left + r.width / 2 + (lo - lon) / 360 * 4096 * scale, y = r.top + r.height / 2 + (lat - la) / 180 * 2048 * scale;
+        return x > r.left + 8 && x < r.right - 8 && y > r.top + 8 && y < r.bottom - 8 && document.elementFromPoint(x, y)?.id === 'flat-canvas' ? { x, y } : null;
+      }, [lat0, lon0]);
+      let spot = null;
+      for (const lat of [62.5, 63.5, 64.5, 61.5, 65.5, 60.5, 59.5, 58.5, 66.5]) {
+        for (const lon of [15, 16, 17, 14, 18, 19, 13, 20]) {
+          const at = await toScreen(lat, lon);
+          if (!at) continue;
+          await tp.mouse.move(at.x, at.y);
+          if (await tp.evaluate(() => new Promise(res => requestAnimationFrame(() => res(document.getElementById('flat-canvas').classList.contains('on-place')))))) { spot = { ...at, lat, lon }; break; }
+        }
+        if (spot) break;
+      }
+      if (!spot) throw new Error('ingen punkt i Sverige gav handen över en plats med kort i Platt vy');
+      // Platsen under punkten enligt samma regel som appen (placeAt: den minsta platsen vars gräns innehåller punkten). Den ska vara
+      // Sverige eller en del av Sverige (ett landskap)
+      const id = await tp.evaluate(async ([lat, lon]) => {
+        const { placeAt } = await import('./js/place-geo.js');
+        const { places } = await (await fetch('data/platser.json')).json();
+        const p = placeAt(places.filter(q => q.review !== 'draft'), lon, lat);
+        return p && (p.id === 'sverige' || p.partOf === 'sverige') ? p.id : null;
+      }, [spot.lat, spot.lon]);
+      if (!id) throw new Error(`${spot.lat}° N ${spot.lon}° Ö ligger inte i Sverige eller ett svenskt landskap`);
+      // Trycket med finger väntar ett ögonblick på ett dubbeltryck. Adressen kan en kort stund visa platsen man nyss lämnade, så
+      // väntan gäller just den förväntade platsen
+      await tp.touchscreen.tap(spot.x, spot.y);
+      await tp.waitForFunction(pid => !document.getElementById('focus-bar').hidden && !!document.querySelector('#detail .place-type')
+        && new RegExp(`[#&]f=place:${pid}(&|$)`).test(location.hash), id, { timeout: T.step });
       if ((await tp.getAttribute('#btn-flat', 'aria-pressed')) !== 'true') throw new Error('Platt vy stängdes av trycket');
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
-      return `inramad: mitt ${f.lat},${f.lon}, zoom ${f.zoom}`;
+      return `inramad: mitt ${f.lat},${f.lon}, zoom ${f.zoom}; trycket på ${spot.lat}° N ${spot.lon}° Ö följde ${id}`;
     } finally { await tctx.close(); }
   });
 
