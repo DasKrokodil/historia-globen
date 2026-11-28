@@ -167406,6 +167406,20 @@
     "es": "en Japón",
     "fr": "au Japon"
    },
+   "intro": {
+    "sv": "Följ Japan i tidsordning: händelserna på globen som ligger inom dagens gräns, från de rödlackerade föremålen i Kakinoshima för omkring 9 000 år sedan till nutiden. Det är ett urval, inte en heltäckande historia.",
+    "en": "Follow Japan in chronological order: the events on the globe that lie within today’s border, from the red-lacquered objects at Kakinoshima some 9,000 years ago to the present. It is a selection, not a complete history.",
+    "de": "Folgen Sie Japan in zeitlicher Reihenfolge: den Ereignissen auf dem Globus innerhalb der heutigen Grenze, von den rot lackierten Gegenständen in Kakinoshima vor etwa 9.000 Jahren bis heute. Es ist eine Auswahl, keine vollständige Geschichte.",
+    "es": "Siga Japón en orden cronológico: los acontecimientos del globo situados dentro de la frontera actual, desde los objetos lacados en rojo de Kakinoshima, de hace unos 9000 años, hasta hoy. Es una selección, no una historia completa.",
+    "fr": "Suivez le Japon dans l’ordre chronologique : les événements du globe situés à l’intérieur de la frontière actuelle, depuis les objets laqués de rouge de Kakinoshima, il y a environ 9 000 ans, jusqu’à nos jours. C’est une sélection, pas une histoire complète."
+   },
+   "introNotes": {
+    "sv": "Gränsen mot Ryssland vid södra Kurilerna och Dokdo/Takeshima mot Sydkorea är omstridda. Kortet visar den linje kartdatan visar, alltså vem som kontrollerar områdena och inte vem de tillhör, och Sverige har ingen uttalad hållning som vi hittat. Inga händelser ligger på de områdena. Kortet har inga rikesperioder ännu.",
+    "en": "The border with Russia at the southern Kuril Islands and Dokdo/Takeshima towards South Korea are disputed. The card shows the line the map data shows, that is, who controls the areas and not who they belong to, and Sweden has no stated position that we have found. No events lie in those areas. The card has no empire periods yet.",
+    "de": "Die Grenze zu Russland bei den südlichen Kurilen und Dokdo/Takeshima gegenüber Südkorea sind umstritten. Die Karte zeigt die Linie der Kartendaten, also wer die Gebiete kontrolliert und nicht, wem sie gehören, und Schweden hat nach unserer Kenntnis keine erklärte Haltung. In diesen Gebieten liegen keine Ereignisse. Die Karte hat noch keine Reichsperioden.",
+    "es": "La frontera con Rusia en las islas Kuriles meridionales y Dokdo/Takeshima frente a Corea del Sur son objeto de disputa. La ficha muestra la línea que muestran los datos del mapa, es decir, quién controla las zonas y no a quién pertenecen, y Suecia no tiene una posición declarada que hayamos encontrado. No hay acontecimientos en esas zonas. La ficha aún no tiene períodos de imperios.",
+    "fr": "La frontière avec la Russie aux îles Kouriles du Sud et Dokdo/Takeshima face à la Corée du Sud sont contestées. La fiche montre la ligne que montrent les données de la carte, c’est-à-dire qui contrôle les zones et non à qui elles appartiennent, et la Suède n’a pas de position déclarée que nous ayons trouvée. Aucun événement ne se situe dans ces zones. La fiche n’a pas encore de périodes d’empires."
+   },
    "view": {
     "center": [
      36,
