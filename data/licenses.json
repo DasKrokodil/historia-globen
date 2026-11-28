@@ -840,6 +840,7 @@
         "wp-agadez-mosque",
         "wp-agaja",
         "wp-age-of-enlightenment",
+        "wp-aha-punana-leo",
         "wp-ain-jalut",
         "wp-aitape-skull",
         "wp-akjoujt",
@@ -1624,6 +1625,7 @@
         "wp-experiments-on-plant-hybridization",
         "wp-explorer-1",
         "wp-expulsion-of-germans-from-czechoslovakia",
+        "wp-eyak-language",
         "wp-eyjafjallajokull-2010",
         "wp-ezana",
         "wp-fa-hien-cave",
@@ -2030,6 +2032,7 @@
         "wp-havana",
         "wp-hawaiian-islands",
         "wp-hawaiian-kingdom",
+        "wp-hawaiian-language",
         "wp-he-whakaputanga",
         "wp-health-care-in-germany",
         "wp-heijo-palace",
@@ -2564,6 +2567,7 @@
         "wp-manila-galleon",
         "wp-manora-island",
         "wp-mansa-musa",
+        "wp-manx-language",
         "wp-maori-king-movement",
         "wp-maori-language-act-1987",
         "wp-maragheh-observatory",
@@ -2577,6 +2581,7 @@
         "wp-marib",
         "wp-marib-dam",
         "wp-marie-curie",
+        "wp-marie-smith-jones",
         "wp-mariupol",
         "wp-marne-1914",
         "wp-maros-pangkep",
@@ -2744,6 +2749,7 @@
         "wp-nazi-germany",
         "wp-nearchus",
         "wp-nebra-sky-disc",
+        "wp-ned-maddrell",
         "wp-nelson-mandela",
         "wp-neo-assyrian-empire",
         "wp-neo-babylonian-empire",
@@ -3268,6 +3274,7 @@
         "wp-sigmund-freud",
         "wp-sikh-empire",
         "wp-sikhism",
+        "wp-silbo-gomero",
         "wp-silk-road",
         "wp-silk-road-khotan",
         "wp-siloam-tunnel",
@@ -3656,6 +3663,7 @@
         "wp-test-cricket",
         "wp-tet-offensive",
         "wp-tetzcoco",
+        "wp-tevfik-esenc",
         "wp-texas-declaration",
         "wp-the-communist-manifesto",
         "wp-the-night-watch",
@@ -3768,6 +3776,7 @@
         "wp-uan-muhuggiag",
         "wp-uaxaclajuun",
         "wp-ubirr",
+        "wp-ubykh-language",
         "wp-uchinoura",
         "wp-udhr",
         "wp-uganda",
@@ -6167,6 +6176,12 @@
         "snl-varberg",
         "snl-vasterbotten",
         "snl-vastergotland"
+      ]
+    },
+    {
+      "license": "© UNESCO (bara länkad)",
+      "sourceIds": [
+        "unesco-ich-silbo-gomero"
       ]
     },
     {
