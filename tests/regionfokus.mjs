@@ -44,9 +44,13 @@ try {
       const destination = page.locator(`#${target}`);
       assert.ok(await destination.isVisible(), `${width}/${place}: målet måste synas`);
       assert.equal(await page.locator(':focus').getAttribute('id'), target, `${width}/${place}: fokus efter knapp och mobilark`);
+      // Kartans egna markörer och etiketter (#flat-labels) ligger ovanpå kartytan och räknas som kartan, inte som något som täcker
+      // den (#2425: ett händelsekluster mitt i Sverige i 400 px); ark, paneler och knappar räknas fortfarande som täckning.
       assert.ok(await destination.evaluate(el => {
         const r = el.getBoundingClientRect();
-        return el.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2));
+        const hit = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+        const own = el.id === 'flat-canvas' ? document.getElementById('flat-labels') : null;
+        return el.contains(hit) || !!(own && own.contains(hit));
       }), `${width}/${place}: fokusmålet är täckt`);
       if (target === 'globe-region-back') {
         const state = await page.evaluate(() => window.__regionMotion);
