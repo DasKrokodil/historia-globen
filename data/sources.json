@@ -5348,6 +5348,7 @@
     {"id": "gestion-kene-2008", "title": "Gestión: Gobierno rechaza declaraciones sobre el arte del pueblo shipibo-konibo (kené, Patrimonio Cultural de la Nación 2008)", "url": "https://gestion.pe/peru/gobierno-rechaza-declaraciones-de-disenadora-peruana-y-editor-de-vogue-sobre-arte-del-pueblo-shipibo-konibo-ministerio-de-cultura-noticia/", "license": "Bara länkad källa (tidningsartikel)", "checked": "2026-11-28"},
     {"id": "udep-kene-2024", "title": "Universidad de Piura: El kené y la moda (2024)", "url": "https://www.udep.edu.pe/hoy/2024/12/el-kene-y-la-moda/", "license": "Bara länkad källa (universitetets webbplats)", "checked": "2026-11-28"},
     {"id": "wp-shipibo-conibo", "title": "Shipibo-Conibo people – Wikipedia", "url": "https://en.wikipedia.org/wiki/Shipibo-Conibo_people", "license": "CC BY-SA 4.0", "checked": "2026-11-28"},
-    {"id": "wp-pucallpa", "title": "Pucallpa – Wikipedia", "url": "https://en.wikipedia.org/wiki/Pucallpa", "license": "CC BY-SA 4.0", "checked": "2026-11-28"}
+    {"id": "wp-pucallpa", "title": "Pucallpa – Wikipedia", "url": "https://en.wikipedia.org/wiki/Pucallpa", "license": "CC BY-SA 4.0", "checked": "2026-11-28"},
+    {"id": "unesco-meteora", "title": "Meteora – UNESCO World Heritage Centre", "url": "https://whc.unesco.org/en/list/455/", "license": "CC BY-SA 3.0 IGO (beskrivning, bara länkad)", "checked": "2026-11-28"}
   ]
 }
