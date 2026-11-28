@@ -403,12 +403,24 @@ GROUPS = {
     'habsburgska-riket': ('Habsburgska riket', 'Habsburg Monarchy', [
         # Cliopatrias Q66504140 är en förgreningssida; Habsburgska monarkin är Q153136 (#2005)
         ('(Habsburg Monarchy)', 'habsburgska-riket', 'Habsburgska riket', '#a8475a', {'wikidata': 'Q153136'}),
+        # Europa 1792–1870 (#2390): Cliopatria har Austrian Empire 1806–1867; Österrike-Ungern börjar 1868
+        ('Austrian Empire', 'osterrikiska-kejsardomet', 'Österrikiska kejsardömet', '#a8475a'),
     ]),
     'tokugawa-japan': ('Tokugawa-Japan', 'Tokugawa Japan', [
         ('Tokugawa Shogunate', 'tokugawa-japan', 'Tokugawa-Japan', '#4b9fb0'),
     ]),
     # R5 Kolonialvälden och moderna imperier (#71)
     'franska-kolonialvaldet': ('Franska kolonialväldet', 'French colonial empire', [
+        # Europa 1792–1870 (#2390): Frankrike hade ingen stat på kartan 1792–1814. Cliopatria har posterna (French First
+        # Republic) 1792–1795, (French Directory) 1796–1799, (French Consulate) 1800–1804 och (First French Empire)
+        # 1805–1814; de med parentes är rikets alla delar, de utan parentes (homeland) moderlandet. Cliopatria har en
+        # post (French First Republic) också för 1791, då Kingdom of France fortfarande visas, därför years från 1792.
+        ('(French First Republic)', 'frankrike-forsta-republiken', 'Frankrike (första republiken)', '#2f6fdc',
+         {'years': (1792, 1795), 'homeland': ['French First Republic']}),
+        ('(French Directory)', 'franska-direktoriet', 'Franska direktoriet', '#2f6fdc', {'homeland': ['French Directory']}),
+        ('(French Consulate)', 'franska-konsulatet', 'Franska konsulatet', '#2f6fdc', {'homeland': ['French Consulate']}),
+        ('(First French Empire)', 'forsta-franska-kejsardomet', 'Första franska kejsardömet', '#2f6fdc',
+         {'homeland': ['First French Empire']}),
         # Cliopatrias Q207162 är Bourbonska restaurationen; Q70972 (Kungariket Frankrike, 987–1792 och 1814–1848) som
         # för Kingdom of France nedan (#2005)
         ('(Bourbon Kingdom of France)', 'frankrike-kungadomet', 'Frankrike (kungadömet)', '#2f6fdc',
@@ -433,6 +445,12 @@ GROUPS = {
         # Cliopatria räknar Luxemburg till Nederländerna till och med 1914, också efter 1890 då Luxemburg är eget land (#644)
         ('(Netherlands)', 'nederlanderna', 'Nederländerna', '#e0912c', {'years': (1811, 1949), 'homeland': ['Netherlands'],
                                                                          'minus': ['Luxembourg'], 'splits': (1890,)}),
+    ]),
+    # Europa 1792–1870 (#2390): Berlin och de tyska staterna hade ingen stat på kartan 1809–1870
+    'tyska-forbunden': ('Tyska förbunden', 'German confederations', [
+        ('Confederation of the Rhine', 'rhenforbundet', 'Rhenförbundet', '#7a5aa0'),
+        ('German Confederation', 'tyska-forbundet', 'Tyska förbundet', '#7a5aa0'),
+        ('North German Confederation', 'nordtyska-forbundet', 'Nordtyska förbundet', '#7a5aa0'),
     ]),
     'tyska-riket': ('Tyska riket', 'German Empire', [
         (['German Empire', 'German Africa'], 'tyska-riket', 'Tyska riket', '#7a5aa0', {'en': 'German Empire', 'homeland': ['German Empire']}),
@@ -481,8 +499,9 @@ GROUPS = {
     'preussen': ('Preussen', 'Prussia', [
         ('Duchy of Prussia', 'hertigdomet-preussen', 'Hertigdömet Preussen', '#4a6fa0'),
         ('Brandenburg-Prussia', 'brandenburg-preussen', 'Brandenburg-Preussen', '#4a6fa0', {'years': (1619, 1701)}),
-        # Från 1807 räknar Cliopatria Preussens land till andra riken; bara små rester har egen gräns
-        ('Kingdom of Prussia', 'kungariket-preussen', 'Kungariket Preussen', '#4a6fa0', {'years': (1702, 1806)}),
+        # Cliopatria har Kingdom of Prussia 1702–1808, 1814–1847 och 1863; Berlin räknas 1809–1870 till Rhenförbundet,
+        # Tyska förbundet och Nordtyska förbundet (#2390, grupp tyska-forbunden)
+        ('Kingdom of Prussia', 'kungariket-preussen', 'Kungariket Preussen', '#4a6fa0', {'years': (1702, 1870)}),
     ]),
     'jugoslavien': ('Jugoslavien', 'Yugoslavia', [
         # Cliopatria anger Q83286 (den socialistiska förbundsrepubliken) också för kungariket
@@ -4080,7 +4099,7 @@ def main():
              'homeland.name, moderlandets namn. '
              'Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och '
              'efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). '
-             'Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i '
+             'Preussen visas 1526–1863, men bara de år Cliopatria har en egen gräns för Kungariket Preussen (1702–1808, 1814–1847 och 1863); Berlin räknas 1809–1870 till Rhenförbundet, Tyska förbundet och Nordtyska förbundet (grupp tyska-forbunden, #2390). Europa 1792–1870 (#2390): Frankrike 1792–1814 (Första republiken, Direktoriet, Konsulatet och Första kejsardömet) ligger i franska-kolonialvaldet, och Österrikiska kejsardömet 1806–1867 i habsburgska-riket. Cliopatrias Första franska kejsardöme 1814 har ett hål vid Paris, där Cliopatria i stället ritar Storhertigdömet Berg (Grand Duchy of Berg), och Hamburg 1814–1870, Bayern, Württemberg, Baden, Sachsen, Hannover med flera tyska stater och Kyrkostaten har egna poster som kartan inte visar än. Neutrala Moresnet saknas i '
              'Cliopatria och har ingen fil, bara en punkt (vanished.point). '
              'Sverige (#70): Cliopatrias "Swedish Empire" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet '
              'till och med 1721 (freden i Nystad) och Sverige 1722–1814. '
