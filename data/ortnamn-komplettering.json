@@ -554,6 +554,49 @@
     ],
     "checked": "2026-11-27"
    }
+  ],
+  "halland": [
+   {
+    "wikidata": "Q21168",
+    "coordinates": [
+     12.273,
+     57.097
+    ],
+    "name": {
+     "sv": "Varberg",
+     "en": "Varberg",
+     "de": "Varberg",
+     "es": "Varberg",
+     "fr": "Varberg"
+    },
+    "fallback": [],
+    "events": [
+     "varbergs-fastning",
+     "balastugan"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q922836",
+    "coordinates": [
+     12.395,
+     57.124
+    ],
+    "name": {
+     "sv": "Grimeton",
+     "en": "Grimeton",
+     "de": "Grimeton",
+     "es": "Grimeton",
+     "fr": "Grimeton"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "radiostationen-i-grimeton"
+    ],
+    "checked": "2026-11-28"
+   }
   ]
  }
 }
