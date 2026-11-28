@@ -259,6 +259,8 @@ Bidrar du med kod eller data publiceras det under projektets licenser (GPL-3.0 f
 
 ## Licenser
 
+[UNESCO:s världsarvssida om Meteora](https://whc.unesco.org/en/list/455/) används som länkad faktakälla. Beskrivningen har licensen CC BY-SA 3.0 IGO. Händelsetexten är projektets egen.
+
 Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna](THIRD-PARTY-NOTICES.md) och de maskinläsbara manifesten `data/licenses.json` och `images/licenses.json`.
 
 - **Koden** är licensierad under [GNU GPL v3.0](LICENSE). Du får använda, ändra och sprida den, men det du sprider vidare måste också vara öppet under GPL.
