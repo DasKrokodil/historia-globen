@@ -554,6 +554,44 @@
     ],
     "checked": "2026-11-27"
    }
+  ],
+  "sodermanland": [
+   {
+    "wikidata": "Q194359",
+    "coordinates": [
+     17.217,
+     59.265
+    ],
+    "name": {
+     "sv": "Mariefred",
+     "en": "Mariefred",
+     "de": "Mariefred",
+     "es": "Mariefred",
+     "fr": "Mariefred"
+    },
+    "events": [
+     "gripsholms-slott-1537"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q26498",
+    "coordinates": [
+     16.513,
+     59.377
+    ],
+    "name": {
+     "sv": "Eskilstuna",
+     "en": "Eskilstuna",
+     "de": "Eskilstuna",
+     "es": "Eskilstuna",
+     "fr": "Eskilstuna"
+    },
+    "events": [
+     "forstlingen"
+    ],
+    "checked": "2026-11-28"
+   }
   ]
  }
 }
