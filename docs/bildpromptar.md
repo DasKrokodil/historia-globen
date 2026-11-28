@@ -4349,11 +4349,11 @@ Style: early medieval art: Byzantine icon with gold leaf background, or Insular 
 ## Kopparhuvudena från Ife gjuts (`ife-huvudet`)
 
 - År: 1300 CE · plats: Ife, jorubafolkets religiösa och kungliga centrum (i dag Nigeria)
-- Stil: Illuminerad handskrift (`medeltid`)
+- Stil: Yorubas glaspärlor (`yoruba`)
 - Spara som: `images/incoming/ife-huvudet.jpg`
 
 ```text
-Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: The copper heads of Ife are cast — Ife, the religious and royal centre of the Yoruba people (now Nigeria), 1300 CE. What happened (show only this, do not add details): In Ife, artists cast naturalistic heads in copper alloy, probably during the 14th or 15th century. One of them, the Ife Head, is thought to represent a king (ooni). It was found in 1938 during house building in Ife together with 16 other heads and is today in the British Museum. The finds upset Western notions of African civilisation. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Use blue glass bead colours and rounded highlights along the border. Keep the central scene free of added objects. No faces.. Subject: The copper heads of Ife are cast — Ife, the religious and royal centre of the Yoruba people (now Nigeria), 1300 CE. What happened (show only this, do not add details): In Ife, artists cast naturalistic heads in copper alloy, probably during the 14th or 15th century. One of them, the Ife Head, is thought to represent a king (ooni). It was found in 1938 during house building in Ife together with 16 other heads and is today in the British Museum. The finds upset Western notions of African civilisation. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Handelsstaden Kilwa bygger palats och kupolmoské (`kilwa-pa-sin-hojd`)
@@ -4629,11 +4629,11 @@ Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapi
 ## Askia Muhammad tar makten i Songhairiket (`askia-muhammad-tar-makten`)
 
 - År: 1493 CE · plats: Gao vid Nigerfloden (i dag Mali)
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Jordarkitektur i Sahel (`sahel`)
 - Spara som: `images/incoming/askia-muhammad-tar-makten.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Askia Muhammad takes power in the Songhai Empire — Gao on the Niger River (today Mali), 1493 CE. What happened (show only this, do not add details): In 1493 the general Muhammad Ture defeated the new ruler Sunni Baru and became king of the Songhai Empire, Askia Muhammad. Under him the empire became the largest in West African history. He built up an administration, standard measures for trade and a tax system, and made Islam an important part of the empire. He ruled until 1528, when his son Askia Musa overthrew him. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Use an earthen plaster texture inspired by clay construction in the Niger towns. Confine the texture to the border. No added buildings or faces.. Subject: Askia Muhammad takes power in the Songhai Empire — Gao on the Niger River (today Mali), 1493 CE. What happened (show only this, do not add details): In 1493 the general Muhammad Ture defeated the new ruler Sunni Baru and became king of the Songhai Empire, Askia Muhammad. Under him the empire became the largest in West African history. He built up an administration, standard measures for trade and a tax system, and made Islam an important part of the empire. He ruled until 1528, when his son Askia Musa overthrew him. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Paquimé (Casas Grandes) (`paquime`)
@@ -7129,11 +7129,11 @@ Style: Islamic art: intricate geometric tile patterns, arabesques and decorative
 ## Slaget vid Tondibi (`slaget-vid-tondibi`)
 
 - År: 1591 CE · plats: Nära Tondibi, norr om Gao vid Niger, Mali
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Jordarkitektur i Sahel (`sahel`)
 - Spara som: `images/incoming/slaget-vid-tondibi.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Battle of Tondibi — Near Tondibi, north of Gao on the Niger, Mali, 1591 CE. What happened (show only this, do not add details): In October 1590 the Moroccan sultan Ahmad al-Mansur sends an army with cannon against the Songhai Empire. On 13 March 1591 it, under Judar Pasha, meets the Songhai army under Askia Ishaq II near Tondibi, north of the capital Gao. The Moroccans win, and the Songhai Empire collapses. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Use an earthen plaster texture inspired by clay construction in the Niger towns. Confine the texture to the border. No added buildings or faces.. Subject: Battle of Tondibi — Near Tondibi, north of Gao on the Niger, Mali, 1591 CE. What happened (show only this, do not add details): In October 1590 the Moroccan sultan Ahmad al-Mansur sends an army with cannon against the Songhai Empire. On 13 March 1591 it, under Judar Pasha, meets the Songhai army under Askia Ishaq II near Tondibi, north of the capital Gao. The Moroccans win, and the Songhai Empire collapses. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Slaget vid Moore's Creek Bridge (`slaget-vid-moores-creek-bridge`)
@@ -7649,11 +7649,11 @@ Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engravin
 ## Asanteriket växer fram (`asanteriket-grundas`)
 
 - År: 1701 CE · plats: Kumasi (i dag Ghana)
-- Stil: Barock oljemålning och gravyr (`barock`)
+- Stil: Akans geometriska guldvikter (`akan`)
 - Spara som: `images/incoming/asanteriket-grundas.jpg`
 
 ```text
-Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: The Asante Empire emerges — Kumasi (today Ghana), 1701 CE. What happened (show only this, do not add details): The Asante king Osei Tutu and his priest Okomfo Anokye united the states of the Asante people around the Golden Stool as a common symbol. In 1701 the Asante army defeated Denkyira and thereby gained access to the coastal trade with the Europeans. The kingdom, with its capital Kumasi, built its wealth on gold, agriculture and the slave trade. It lasted until 1902, when it became part of the British colony of the Gold Coast. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Use the brass tones and geometric lines of Akan gold weights in the border. Keep the central scene free of added objects. No faces.. Subject: The Asante Empire emerges — Kumasi (today Ghana), 1701 CE. What happened (show only this, do not add details): The Asante king Osei Tutu and his priest Okomfo Anokye united the states of the Asante people around the Golden Stool as a common symbol. In 1701 the Asante army defeated Denkyira and thereby gained access to the coastal trade with the Europeans. The kingdom, with its capital Kumasi, built its wealth on gold, agriculture and the slave trade. It lasted until 1902, when it became part of the British colony of the Gold Coast. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Dahomey erövrar hamnstaden Ouidah (`dahomey-erovrar-ouidah`)
@@ -7699,11 +7699,11 @@ Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold b
 ## Tarikh al-Sudan, krönikan om Songhai (`tarikh-al-sudan`)
 
 - År: 1655 CE · plats: Timbuktu, Mali
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Jordarkitektur i Sahel (`sahel`)
 - Spara som: `images/incoming/tarikh-al-sudan.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The Tarikh al-Sudan, the chronicle of Songhai — Timbuktu, Mali, 1655 CE. What happened (show only this, do not add details): Around 1655 al-Sa'di, the chronicler of Timbuktu, writes the Tarikh al-Sudan in Arabic. It is the most important source for the history of the Songhai Empire, from the mid-15th century to the Moroccan invasion of 1591, and then tells of Timbuktu under Moroccan rule up to 1655. Al-Sa'di was born in 1594 and in 1646 became chief secretary of the administration in Timbuktu. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Use an earthen plaster texture inspired by clay construction in the Niger towns. Confine the texture to the border. No added buildings or faces.. Subject: The Tarikh al-Sudan, the chronicle of Songhai — Timbuktu, Mali, 1655 CE. What happened (show only this, do not add details): Around 1655 al-Sa'di, the chronicler of Timbuktu, writes the Tarikh al-Sudan in Arabic. It is the most important source for the history of the Songhai Empire, from the mid-15th century to the Moroccan invasion of 1591, and then tells of Timbuktu under Moroccan rule up to 1655. Al-Sa'di was born in 1594 and in 1646 became chief secretary of the administration in Timbuktu. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Vulkanen Fogo får ett stort utbrott (`fogo-utbrottet-1680`)
@@ -8089,11 +8089,11 @@ Style: scientific plate, hand-coloured copper engraving of instruments and diagr
 ## Oyoriket blir en stormakt (`oyoriket`)
 
 - År: 1608 CE · plats: Oyo-Ile (Gamla Oyo), rikets huvudstad, i dagens Nigeria
-- Stil: Träsnitt och kopparstick (`renassans`)
+- Stil: Yorubas glaspärlor (`yoruba`)
 - Spara som: `images/incoming/oyoriket.jpg`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: The Oyo Empire becomes a great power — Oyo-Ile (Old Oyo), the empire’s capital, in present-day Nigeria, 1608 CE. What happened (show only this, do not add details): Oyo was a Yoruba empire in present-day western Nigeria and Benin. Around 1680 it covered over 150,000 km², and in the 18th century it was at the height of its power. The king, the alaafin, was chosen by the Oyo Mesi council, and the council and the Ogboni society kept his power in check. From 1754 the empire was weakened by internal power struggles, and in 1835 the capital Oyo-Ile was destroyed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Use blue glass bead colours and rounded highlights along the border. Keep the central scene free of added objects. No faces.. Subject: The Oyo Empire becomes a great power — Oyo-Ile (Old Oyo), the empire’s capital, in present-day Nigeria, 1608 CE. What happened (show only this, do not add details): Oyo was a Yoruba empire in present-day western Nigeria and Benin. Around 1680 it covered over 150,000 km², and in the 18th century it was at the height of its power. The king, the alaafin, was chosen by the Oyo Mesi council, and the council and the Ogboni society kept his power in check. From 1754 the empire was weakened by internal power struggles, and in 1835 the capital Oyo-Ile was destroyed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Befriade slavar grundar Freetown (`freetown-grundas`)
@@ -8109,11 +8109,11 @@ Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engravin
 ## De lärdas storhetstid i Timbuktu (`larda-i-timbuktu-sankore`)
 
 - År: 1501 CE · plats: Sankoremoskén, Timbuktu, Mali
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Jordarkitektur i Sahel (`sahel`)
 - Spara som: `images/incoming/larda-i-timbuktu-sankore.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The heyday of the scholars of Timbuktu — The Sankoré Mosque, Timbuktu, Mali, 1501 CE. What happened (show only this, do not add details): The Sankoré Mosque in Timbuktu was built in the 14th or early 15th century with money from a Tuareg woman. It became a gathering point for scholars who taught their own students. Its heyday came in the 16th century, under Askia Muhammad. After Morocco had brought down the Songhai Empire in 1591, Moroccan troops arrested many scholars in 1594, among them Ahmad Baba, and deported them to Morocco with their manuscript collections. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Use an earthen plaster texture inspired by clay construction in the Niger towns. Confine the texture to the border. No added buildings or faces.. Subject: The heyday of the scholars of Timbuktu — The Sankoré Mosque, Timbuktu, Mali, 1501 CE. What happened (show only this, do not add details): The Sankoré Mosque in Timbuktu was built in the 14th or early 15th century with money from a Tuareg woman. It became a gathering point for scholars who taught their own students. Its heyday came in the 16th century, under Askia Muhammad. After Morocco had brought down the Songhai Empire in 1591, Moroccan troops arrested many scholars in 1594, among them Ahmad Baba, and deported them to Morocco with their manuscript collections. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Reformationen införs i Danmark (`reformationen-i-danmark`)
@@ -8849,11 +8849,11 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 ## Slaget vid Dodowa (Katamanso) (`slaget-vid-dodowa`)
 
 - År: 1826 CE · plats: Katamanso vid Dodowa, nära Accra, Ghana
-- Stil: Litografi och tidningsgravyr (`1800-tal`)
+- Stil: Akans geometriska guldvikter (`akan`)
 - Spara som: `images/incoming/slaget-vid-dodowa.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The Battle of Dodowa (Katamanso) — Katamanso at Dodowa, near Accra, Ghana, 1826 CE. What happened (show only this, do not add details): On 7 August 1826 the army of the Ashanti Empire under King Osei Yaw Akoto meets an alliance of peoples from the Gold Coast, among them the Fante, Ga, Akyem and Ada, supported by British, Danes and Dutch. The Ashanti lose, and the victory prevents the empire from taking control of the coast. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Use the brass tones and geometric lines of Akan gold weights in the border. Keep the central scene free of added objects. No faces.. Subject: The Battle of Dodowa (Katamanso) — Katamanso at Dodowa, near Accra, Ghana, 1826 CE. What happened (show only this, do not add details): On 7 August 1826 the army of the Ashanti Empire under King Osei Yaw Akoto meets an alliance of peoples from the Gold Coast, among them the Fante, Ga, Akyem and Ada, supported by British, Danes and Dutch. The Ashanti lose, and the victory prevents the empire from taking control of the coast. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Slaget vid Crête-à-Pierrot (`slaget-vid-crete-a-pierrot`)

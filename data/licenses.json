@@ -231,6 +231,7 @@
         "myburgh-2026-fallward",
         "nagele-2025-png",
         "norgaard-2021-metaller",
+        "ogundiran-yoruba-parlor",
         "oktaviana-2024-karampuang",
         "olli-2026-hons-ostersjon",
         "oppenheimer-2018-eldgja",
@@ -269,6 +270,7 @@
         "rozhdestvenskikh-2026-tjerniachov",
         "saltre-2016-megafauna",
         "sirak-2021-kulubnarti",
+        "siriman-wang-jordarkitektur",
         "stamov-2026-goter-bulgarien",
         "swali-2023-pest-britannien",
         "ucdp-brd-261",
@@ -4216,6 +4218,13 @@
         "wd-zimbabwe-rhodesia",
         "wikidata",
         "wikidata-classical-antiquity"
+      ]
+    },
+    {
+      "license": "CC0 (föremålsdata, The Met Open Access)",
+      "sourceIds": [
+        "met-akan-317673",
+        "met-akan-317676"
       ]
     },
     {
