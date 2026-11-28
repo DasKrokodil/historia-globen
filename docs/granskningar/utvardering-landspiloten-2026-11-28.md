@@ -59,6 +59,29 @@ Läst: skärmbilderna, introtexterna för Sverige, Aotearoa, Danmark och Grönla
 - **Beslut som är DasKrokodils:** ska kortet ha berättelseperioder (annars förblir det en lista), och ska Aotearoa/Nya Zeeland-namnet förklaras (kräver öppnad källa).
 - **Efter bygget:** läsbarhetstest med elever (åk 5 och åk 8).
 
+## 4b. Gemensamt förslag: pedagogen och UX-experten
+
+DasKrokodil bad (kommentar på pull requesten 2459) om att pedagogens råd följs och att UX-experten (`ux-tillganglighet`) också granskar, så att de lämnar ett gemensamt förslag. UX-experten läste skärmbilderna, introtexterna och platskortets texter i `data/ui/`; pedagogen svarade sedan på UX-förslaget. **Ingen av dem har testat i webbläsare**, och elevreaktioner är antaganden.
+
+**Överens:** båda håller med om alla fyra fynd i avsnitt 4 (långt textblock utan uppmaning, lista utan röd tråd, "dagens gräns" som kan läsas som att landet alltid funnits, namn och ord som inte förklaras). "Dagens gräns" och "Det är ett urval" ska stå kvar; problemet är att inget förklarar vad de betyder för året.
+
+**Där de justerade varandra:**
+- *Urvalsraden:* UX ville flytta "Det är ett urval" in i en hopfälld rad. Pedagogen: behåll en **kort synlig rad** (källkritik i åk 7–9) och fäll bara ut förklaringen.
+- *Periodrubriker:* UX föreslog årsgränser ("Före 10 000 f.Kr."). Pedagogen: för åk 4–6 säger ord som "Före skriften" och "Medeltiden" mer, men gränserna kräver källa och är ett beslut för DasKrokodil.
+- *Aotearoa:* en inledande mening ("Landet har både urgamla vulkaner och en sen bosättning") plus att landet var tomt på människor länge, så att den tomma tidsaxeln inte läses som "inget hände".
+
+**Gemensam rangordning och vad varje punkt kräver:**
+
+| # | Förslag | Skärmtext (sv) | Kräver |
+|---|---|---|---|
+| 1 | Kort ruta med två rader, och lägre panel på mobil | "Följ Sverige genom tiden: händelserna inom dagens gräns, i ordning." och "Tryck på Spela, eller dra i tidslinjen." Ta bort de upprepande meningarna; behåll en kort rad "Det är ett urval, inte en heltäckande historia." med förklaringen utfälld under "Om platsen". | Text i `data/platser.json` (`intro`) och `data/ui/` på fem språk; panelhöjd och "Visa på kartan" bredvid rubriken är liten CSS/JS. Ingen ny data. |
+| 2 | Namn och etiketter | introNotes för Aotearoa: "Nya Zeeland är det europeiska namnet; Aotearoa är maori för landet." Etiketterna: "Land" blir "Land (i dag)", "Plats" blir "Det här följer du". | Text (fem språk). Namnförklaringen kräver öppnad källa. |
+| 3 | Tillståndsrad före landets start | "Sverige fanns inte som stat 1500 f.Kr. Du ser området som i dag är Sverige." (`role="status"`, inte bara färg) | **Nytt datafält** med statens start och ny kod: DasKrokodils beslut och källa per land. |
+| 4 | Berättelseperioder i listan | Rubriker som "Före skriften", "Medeltiden", med `<h3>` så att skärmläsare kan hoppa; billigast ur redan beräknade årsgränser | Ny kod och troligen ny datamodell; gränserna kräver källor: **DasKrokodils beslut**. |
+| 5 | Ordförklaringar (land, stat, rike), lärarfält och uppgift | Hjälptext i `data/ui/`; lärarfält hör till #1163 | Text, och #1163. |
+
+Billigast och utan nytt beslut: punkt 1 och 2. Förslaget bygger ingenting nu; DasKrokodil avgör vad som blir issues.
+
 ## 5. Vad piloten kostade och vad Codex bidrog med
 
 - **Tid och tokens kan jag inte mäta.** Det finns ingen logg över tokenförbrukning i repot eller i GitHub-historiken. Det jag kan mäta är volymen: de 19 landspull requestarna med 9–20 nya händelser vardera (omkring 320 nya händelser, räknat ur pull requestarnas titlar) plus landskortens konfiguration (`data/platser.json`, nu 48 platser).
@@ -81,9 +104,9 @@ Versionsplanen (6.6.4) samlar Östeuropa (#1843–#1845), mikrostaterna (#1846) 
 | Fråga | Rekommendation |
 |---|---|
 | Ska utvärderingen räknas som gjord? | **Nej, den är en förhandsutvärdering.** Villkoret (tre pilotländer utanför Europa) är inte uppfyllt. Utvärdera på riktigt när minst Etiopien, Peru och Australien har kort. |
-| Hur går länderna i 6.6.4 vidare? | **Pilotländerna utanför Europa först (Etiopien, Peru, Australien, sedan Japan), därefter Östeuropa och mikrostaterna.** Sätt ett villkor per omgång: högst så många nya europeiska kort som nya kort utanför Europa. |
-| Ska Codex södra Europa och Balkan (#1827–#1842) pågå parallellt? | Det är DasKrokodils beslut. Om de byggs färdigt blir 37 av 39 landskort europeiska (95 procent). Alternativ: pausa efter en omgång om fem och bygg pilotländerna emellan. (Jag rör inte Codex pågående arbete.) |
-| Vad ska göras åt kortets utformning innan fler länder? | Pedagogens tre punkter är billiga och påverkar alla kort: en handlingsmening i introt ("Tryck Spela"), en tillståndsrad för år då landet inte fanns, och Aotearoa-namnet förklarat. Berättelseperioder är en större fråga och kräver beslut. |
+| Hur går länderna i 6.6.4 vidare? | **Pilotländerna utanför Europa byggs nu parallellt med Codex europeiska länder (Etiopien, Peru, Australien, sedan Japan), och Östeuropa och mikrostaterna tas därefter.** Villkoret om högst lika många nya europeiska som icke-europeiska kort per omgång gäller inte längre för Codex pågående arbete, men bör gälla för Östeuropa och mikrostaterna. |
+| Ska Codex södra Europa och Balkan (#1827–#1842) pågå parallellt? | **Ja, beslutat av DasKrokodil 2026-11-28 (kommentar på pull requesten): Codex fortsätter med de europeiska länderna.** Spridningen löses då genom att pilotländerna utanför Europa byggs parallellt av Claude Code, inte genom att Codex pausas. Räkna med att Europa blir 37 av 39 landskort (95 procent) tills de fyra pilotländerna är klara. |
+| Vad ska göras åt kortets utformning? | **Följ det gemensamma förslaget från pedagogen och UX-experten (avsnitt 4b).** Punkt 1 och 2 är text och små justeringar och kan göras direkt; punkt 3–5 kräver beslut. |
 | Aotearoa saknar rikesperioder | Lägg till dem i samband med nästa omgång (kräver öppnade källor). |
 
 Fler länder ska tas i omgångar om fem, ett per världsdel, med spridningen som villkor, enligt rekommendationen i #1274.
