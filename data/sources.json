@@ -5185,6 +5185,9 @@
     {"id": "wd-farjestaden", "title": "Färjestaden (Q1478888) – Wikidata", "url": "https://www.wikidata.org/wiki/Q1478888", "license": "CC0", "checked": "2026-11-28", "note": "Tätort i Mörbylånga kommun på Öland; koordinat."},
     {"id": "unesco-sodra-oland", "title": "Agricultural Landscape of Southern Öland – UNESCO World Heritage Centre", "url": "https://whc.unesco.org/en/list/968/", "license": "© UNESCO (bara länkad, ingen text kopierad)", "checked": "2026-11-28", "note": "Inskriven 2000, kriterierna iv och v, 56 286 ha. Södra Öland domineras av en stor kalkstensplatå; människor har bott där i omkring fem tusen år och anpassat sig till öns förutsättningar, med en obruten bosättning från förhistorisk tid till i dag."},
     {"id": "wp-sv-sodra-olands-odlingslandskap", "title": "Södra Ölands odlingslandskap – Wikipedia (svenska)", "url": "https://sv.wikipedia.org/wiki/S%C3%B6dra_%C3%96lands_odlingslandskap", "license": "CC BY-SA 4.0", "checked": "2026-11-28", "note": "Världsarv sedan 2000, kriterierna iv och v, 56 000 hektar; brukat sedan stenåldern; radbyar, åkrar och betesmarker från medeltiden; omfattar Mörbylånga kommun utom de nordligaste socknarna."},
-    {"id": "wd-sodra-olands-odlingslandskap", "title": "Södra Ölands odlingslandskap (Q396132) – Wikidata", "url": "https://www.wikidata.org/wiki/Q396132", "license": "CC0", "checked": "2026-11-28", "note": "Världsarv från 2000; koordinat."}
+    {"id": "wd-sodra-olands-odlingslandskap", "title": "Södra Ölands odlingslandskap (Q396132) – Wikidata", "url": "https://www.wikidata.org/wiki/Q396132", "license": "CC0", "checked": "2026-11-28", "note": "Världsarv från 2000; koordinat."},
+    {"id": "wp-canoe", "title": "Canoe – Wikipedia", "url": "https://en.wikipedia.org/wiki/Canoe", "license": "CC BY-SA 4.0", "checked": "2026-11-28"},
+    {"id": "wp-cocoa-bean", "title": "Cocoa bean – Wikipedia", "url": "https://en.wikipedia.org/wiki/Cocoa_bean", "license": "CC BY-SA 4.0", "checked": "2026-11-28"},
+    {"id": "wp-cipher", "title": "Cipher – Wikipedia", "url": "https://en.wikipedia.org/wiki/Cipher", "license": "CC BY-SA 4.0", "checked": "2026-11-28"}
   ]
 }
