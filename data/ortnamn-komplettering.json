@@ -1240,6 +1240,90 @@
     "checked": "2026-11-28"
    }
   ],
+  "bohuslan": [
+   {
+    "wikidata": "Q27455",
+    "coordinates": [
+     11.976,
+     57.872
+    ],
+    "name": {
+     "sv": "Kungälv",
+     "en": "Kungälv",
+     "de": "Kungälv",
+     "es": "Kungälv",
+     "fr": "Kungälv"
+    },
+    "fallback": [],
+    "events": [
+     "bohuslan-blir-svenskt",
+     "bohus-fastning-byggs"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q3358404",
+    "coordinates": [
+     11.94,
+     57.849
+    ],
+    "name": {
+     "sv": "Kungahälla",
+     "en": "Kungahälla",
+     "de": "Kungahälla",
+     "es": "Kungahälla",
+     "fr": "Kungahälla"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "venderna-branner-kungahalla"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q27447",
+    "coordinates": [
+     11.938,
+     58.349
+    ],
+    "name": {
+     "sv": "Uddevalla",
+     "en": "Uddevalla",
+     "de": "Uddevalla",
+     "es": "Uddevalla",
+     "fr": "Uddevalla"
+    },
+    "fallback": [],
+    "events": [
+     "uddevallavarvet"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q10551205",
+    "coordinates": [
+     11.687,
+     58.462
+    ],
+    "name": {
+     "sv": "Kviström",
+     "en": "Kviström",
+     "de": "Kviström",
+     "es": "Kviström",
+     "fr": "Kviström"
+    },
+    "fallback": [
+     "de",
+     "es"
+    ],
+    "events": [
+     "slaget-vid-kvistrum"
+    ],
+    "checked": "2026-11-28"
+   }
+  ],
   "oland": [
    {
     "wikidata": "Q893554",
