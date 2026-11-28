@@ -144331,6 +144331,20 @@
     "es": "en Etiopía",
     "fr": "en Éthiopie"
    },
+   "intro": {
+    "sv": "Följ Etiopien i tidsordning: händelserna på globen som ligger inom dagens gräns, från Ardi i Aramis för cirka 4,4 miljoner år sedan till nutiden. Det är ett urval, inte en heltäckande historia.",
+    "en": "Follow Ethiopia in chronological order: the events on the globe that lie within today’s border, from Ardi at Aramis some 4.4 million years ago to the present. It is a selection, not a complete history.",
+    "de": "Folgen Sie Äthiopien in zeitlicher Reihenfolge: den Ereignissen auf dem Globus innerhalb der heutigen Grenze, von Ardi in Aramis vor etwa 4,4 Millionen Jahren bis heute. Es ist eine Auswahl, keine vollständige Geschichte.",
+    "es": "Siga Etiopía en orden cronológico: los acontecimientos del globo situados dentro de la frontera actual, desde Ardi en Aramis, de hace unos 4,4 millones de años, hasta hoy. Es una selección, no una historia completa.",
+    "fr": "Suivez l’Éthiopie dans l’ordre chronologique : les événements du globe situés à l’intérieur de la frontière actuelle, depuis Ardi à Aramis, il y a environ 4,4 millions d’années, jusqu’à nos jours. C’est une sélection, pas une histoire complète."
+   },
+   "introNotes": {
+    "sv": "Kortet följer dagens Etiopien. Aksum och D’mt nådde över dagens gräns mot Eritrea, men kortet visar bara det som ligger inom Etiopiens gräns i dag. Kortet har inga rikesperioder ännu.",
+    "en": "The card follows today’s Ethiopia. Aksum and D’mt reached across today’s border with Eritrea, but the card shows only what lies within Ethiopia’s present border. The card has no empire periods yet.",
+    "de": "Die Karte folgt dem heutigen Äthiopien. Aksum und D’mt reichten über die heutige Grenze zu Eritrea hinaus, die Karte zeigt aber nur, was innerhalb der heutigen Grenze Äthiopiens liegt. Die Karte hat noch keine Reichsperioden.",
+    "es": "La ficha sigue la Etiopía actual. Aksum y D’mt se extendían más allá de la actual frontera con Eritrea, pero la ficha solo muestra lo que está dentro de la frontera actual de Etiopía. La ficha aún no tiene períodos de imperios.",
+    "fr": "La fiche suit l’Éthiopie actuelle. Aksoum et D’mt s’étendaient au-delà de l’actuelle frontière avec l’Érythrée, mais la fiche ne montre que ce qui se trouve à l’intérieur de la frontière actuelle de l’Éthiopie. La fiche n’a pas encore de périodes d’empires."
+   },
    "view": {
     "center": [
      9.0,
