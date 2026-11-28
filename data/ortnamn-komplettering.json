@@ -846,6 +846,72 @@
     ],
     "checked": "2026-11-28"
    }
+  ],
+  "narke": [
+   {
+    "wikidata": "Q589426",
+    "coordinates": [
+     14.893,
+     59.154
+    ],
+    "name": {
+     "sv": "Riseberga kloster",
+     "en": "Riseberga Abbey",
+     "de": "Kloster Riseberga",
+     "es": "Riseberga Abbey",
+     "fr": "Riseberga Abbey"
+    },
+    "fallback": [
+     "es",
+     "fr"
+    ],
+    "events": [
+     "riseberga-kloster"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q10484139",
+    "coordinates": [
+     15.573,
+     59.278
+    ],
+    "name": {
+     "sv": "Engelbrektsholmen",
+     "en": "Engelbrektsholmen",
+     "de": "Engelbrektsholmen",
+     "es": "Engelbrektsholmen",
+     "fr": "Engelbrektsholmen"
+    },
+    "fallback": [
+     "de",
+     "es",
+     "fr"
+    ],
+    "events": [
+     "engelbrekt-mordas"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q761227",
+    "coordinates": [
+     14.893,
+     59.28
+    ],
+    "name": {
+     "sv": "Garphyttans nationalpark",
+     "en": "Garphyttan National Park",
+     "de": "Nationalpark Garphyttan",
+     "es": "Parque nacional de Garphyttan",
+     "fr": "parc national de Garphyttan"
+    },
+    "fallback": [],
+    "events": [
+     "garphyttans-nationalpark"
+    ],
+    "checked": "2026-11-28"
+   }
   ]
  }
 }
