@@ -723,6 +723,129 @@
     ],
     "checked": "2026-11-28"
    }
+  ],
+  "norrbotten": [
+   {
+    "wikidata": "Q1026845",
+    "coordinates": [
+     22.026,
+     65.632
+    ],
+    "name": {
+     "sv": "Gammelstaden",
+     "en": "Gammelstaden",
+     "de": "Gammelstaden",
+     "es": "Gammelstaden",
+     "fr": "Gammelstaden"
+    },
+    "fallback": [],
+    "events": [
+     "nederlulea-kyrka-invigs"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q10727194",
+    "coordinates": [
+     21.405,
+     65.346
+    ],
+    "name": {
+     "sv": "Öjebyn",
+     "en": "Öjebyn",
+     "de": "Öjebyn",
+     "es": "Öjebyn",
+     "fr": "Öjebyn"
+    },
+    "fallback": [
+     "es",
+     "fr"
+    ],
+    "events": [
+     "pitea-brinner-1666"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q2135581",
+    "coordinates": [
+     23.663,
+     65.831
+    ],
+    "name": {
+     "sv": "Säivis",
+     "en": "Säivis",
+     "de": "Säivis",
+     "es": "Säivis",
+     "fr": "Säivis"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "kapitulationen-i-kalix"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q588976",
+    "coordinates": [
+     24.117,
+     65.834
+    ],
+    "name": {
+     "sv": "Haparanda",
+     "en": "Haparanda",
+     "de": "Haparanda",
+     "es": "Haparanda",
+     "fr": "Haparanda"
+    },
+    "fallback": [],
+    "events": [
+     "haparanda-blir-stad"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q7230430",
+    "coordinates": [
+     22.133,
+     65.617
+    ],
+    "name": {
+     "sv": "Porsön",
+     "en": "Porsön",
+     "de": "Porsön",
+     "es": "Porsön",
+     "fr": "Porsön"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "hogskolan-i-lulea-grundas"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q260609",
+    "coordinates": [
+     23.644,
+     66.388
+    ],
+    "name": {
+     "sv": "Övertorneå",
+     "en": "Övertorneå",
+     "de": "Övertorneå",
+     "es": "Övertorneå",
+     "fr": "Övertorneå"
+    },
+    "fallback": [],
+    "events": [
+     "meankieli-blir-minoritetssprak"
+    ],
+    "checked": "2026-11-28"
+   }
   ]
  }
 }

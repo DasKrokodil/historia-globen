@@ -941,6 +941,7 @@
 "nykopings-gastabud":{"place":{"en":"Nyköping Castle, Nyköping, Södermanland"},"title":{"en":"The Nyköping Banquet"},"note":{"title":{"en":"The sources differ"}}},
 "varbergs-fastning":{"place":{"en":"Varberg, Halland"},"title":{"en":"The castle at Varberg is built"}},
 "bockstensmannen":{"place":{"en":"Bocksten bog, Halland"},"title":{"en":"The Bocksten Man"},"note":{"title":{"en":"The sources differ"}}},
+"nederlulea-kyrka-invigs":{"place":{"en":"Gammelstad near Luleå (Lule Sami Julevu), Norrbotten"},"title":{"en":"Nederluleå Church is consecrated"},"note":{"title":{"en":"The sources differ"}}},
 "imjinkriget":{"place":{"en":"Korea and the seas around the Korean Peninsula (began at Busan)"},"title":{"en":"The Imjin War"},"note":{"title":{"en":"About the calendar"}}},
 "belagringen-av-busan-1592":{"place":{"en":"Busan, Korea"},"title":{"en":"The Japanese storm Busan"}},
 "slaget-vid-chungju-1592":{"place":{"en":"Tangeumdae at Chungju, Korea"},"title":{"en":"The Battle of Chungju"},"note":{"title":{"en":"The sources differ"}}},
@@ -1200,6 +1201,7 @@
 "ryssarna-branner-nykoping":{"place":{"en":"Nyköping, Södermanland"},"title":{"en":"The Russians burn Nyköping"},"note":{"title":{"en":"About the calendar"}}},
 "halland-blir-svenskt":{"place":{"en":"Halmstad, Halland"},"title":{"en":"Halland becomes Swedish"},"note":{"title":{"en":"About the place"}}},
 "slaget-vid-halmstad":{"place":{"en":"Fyllebro near Halmstad, Halland"},"title":{"en":"The Battle of Halmstad"},"note":{"title":{"en":"About the calendar"}}},
+"pitea-brinner-1666":{"place":{"en":"Öjebyn, Piteå (Lule Sami Bihtám), Norrbotten"},"title":{"en":"Old Piteå burns"}},
 "forsta-opiumkriget":{"place":{"en":"China's coast from the Pearl River to the Yangtze (began at Kowloon, in present-day Hong Kong)"},"title":{"en":"First Opium War"},"note":{"title":{"en":"The sources differ"}}},
 "skarmytslingen-vid-kowloon-1839":{"place":{"en":"Kowloon, present-day Hong Kong"},"title":{"en":"Skirmish at Kowloon"}},
 "britterna-intar-zhoushan-1840":{"place":{"en":"Dinghai on Zhoushan Island (Chusan), Zhejiang"},"title":{"en":"The British take Zhoushan"}},
@@ -1437,6 +1439,9 @@
 "stadsbranden-i-umea":{"place":{"en":"Umeå, Västerbotten"},"title":{"en":"The Umeå town fire"},"note":{"title":{"en":"The sources differ"}}},
 "forstlingen":{"place":{"en":"Eskilstuna, Södermanland"},"title":{"en":"Sweden’s first steam locomotive"}},
 "balastugan":{"place":{"en":"Varberg, Halland"},"title":{"en":"Sweden’s first open-air museum"},"note":{"title":{"en":"About the place"}}},
+"kapitulationen-i-kalix":{"place":{"en":"Säivis (Finnish Säivi) between Kalix and Haparanda, Norrbotten"},"title":{"en":"The capitulation of Kalix"},"note":{"title":{"en":"About the dating"}}},
+"haparanda-blir-stad":{"place":{"en":"Haparanda (Meänkieli and Finnish Haaparanta), Norrbotten"},"title":{"en":"Haparanda becomes a town"},"note":{"title":{"en":"About the sources"}}},
+"malmtaget-till-lulea":{"place":{"en":"Luleå (Lule Sami Julevu), Norrbotten"},"title":{"en":"The ore trains reach Luleå"},"note":{"title":{"en":"The sources differ"}}},
 "rifkriget":{"place":{"en":"Rif in northern Morocco, then a Spanish protectorate (began near Annual)"},"title":{"en":"Rif War"},"note":{"title":{"en":"The sources differ"}}},
 "slaget-vid-annual":{"place":{"en":"Annual in north-eastern Morocco, about 60 km west of Melilla"},"title":{"en":"The Riffians defeat Spain at Annual"},"note":{"title":{"en":"The sources differ"}}},
 "massakern-vid-monte-arruit":{"place":{"en":"Monte Arruit at Al Aaroui, about 35 km south of Melilla"},"title":{"en":"The massacre at Monte Arruit"},"note":{"title":{"en":"The sources differ"}}},
@@ -1787,6 +1792,7 @@
 "forsta-hennes-butiken":{"place":{"en":"Västerås, Västmanland"},"title":{"en":"The first Hennes shop"}},
 "umea-universitet-invigs":{"place":{"en":"Umeå, Västerbotten"},"title":{"en":"Umeå University is inaugurated"},"note":{"title":{"en":"The sources differ"}}},
 "ringhals-forsta-strom":{"place":{"en":"Värö peninsula, Halland"},"title":{"en":"Ringhals delivers its first power"},"note":{"title":{"en":"The sources differ"}}},
+"hogskolan-i-lulea-grundas":{"place":{"en":"Porsön, Luleå (Lule Sami Julevu), Norrbotten"},"title":{"en":"Luleå University College is founded"}},
 "www":{"place":{"en":"CERN, Geneva"},"title":{"en":"The invention of the Web"}},
 "rysslands-invasion-av-ukraina":{"place":{"en":"Ukraine (attack from the north, east and south, including towards Kyiv)"},"title":{"en":"Russia's invasion of Ukraine"}},
 "slaget-om-kyiv-2022":{"place":{"en":"Kyiv, Ukraine"},"title":{"en":"The Battle of Kyiv"},"note":{"title":{"en":"The sources differ"}}},
@@ -1939,5 +1945,6 @@
 "paneuropeiska-picknicken":{"place":{"en":"The border with Austria near Sopron, Hungary"},"title":{"en":"The Pan-European Picnic"}},
 "ungern-gar-med-i-eu":{"place":{"en":"All of Hungary (the marker in Budapest)"},"title":{"en":"Hungary joins the EU"}},
 "falu-gruva-blir-varldsarv":{"place":{"en":"Falun, Dalarna"},"title":{"en":"Falun Mine becomes a World Heritage Site"}},
-"hoga-kusten-blir-varldsarv":{"place":{"en":"Skuleberget, High Coast, Ångermanland"},"title":{"en":"The High Coast becomes a World Heritage Site"},"note":{"title":{"en":"The sources differ"}}}
+"hoga-kusten-blir-varldsarv":{"place":{"en":"Skuleberget, High Coast, Ångermanland"},"title":{"en":"The High Coast becomes a World Heritage Site"},"note":{"title":{"en":"The sources differ"}}},
+"meankieli-blir-minoritetssprak":{"place":{"en":"Torne Valley (the point: Övertorneå), Norrbotten"},"title":{"en":"Meänkieli becomes a minority language"},"note":{"title":{"en":"About the dating"}}}
 }}

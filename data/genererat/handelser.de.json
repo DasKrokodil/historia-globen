@@ -941,6 +941,7 @@
 "nykopings-gastabud":{"place":{"de":"Schloss Nyköping, Nyköping, Södermanland"},"title":{"de":"Das Gastmahl von Nyköping"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "varbergs-fastning":{"place":{"de":"Varberg, Halland"},"title":{"de":"Die Burg von Varberg wird gebaut"}},
 "bockstensmannen":{"place":{"de":"Bockstensmoor, Halland"},"title":{"de":"Der Bockstensmann"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
+"nederlulea-kyrka-invigs":{"place":{"de":"Gammelstad bei Luleå (lulesamisch Julevu), Norrbotten"},"title":{"de":"Weihe der Kirche von Nederluleå"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "imjinkriget":{"place":{"de":"Korea und die Meere um die Koreanische Halbinsel (begann bei Busan)"},"title":{"de":"Der Imjin-Krieg"},"note":{"title":{"de":"Zum Kalender"}}},
 "belagringen-av-busan-1592":{"place":{"de":"Busan, Korea"},"title":{"de":"Die Japaner stürmen Busan"}},
 "slaget-vid-chungju-1592":{"place":{"de":"Tangeumdae bei Chungju, Korea"},"title":{"de":"Die Schlacht bei Chungju"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
@@ -1200,6 +1201,7 @@
 "ryssarna-branner-nykoping":{"place":{"de":"Nyköping, Södermanland"},"title":{"de":"Die Russen brennen Nyköping nieder"},"note":{"title":{"de":"Zum Kalender"}}},
 "halland-blir-svenskt":{"place":{"de":"Halmstad, Halland"},"title":{"de":"Halland wird schwedisch"},"note":{"title":{"de":"Zum Ort"}}},
 "slaget-vid-halmstad":{"place":{"de":"Fyllebro bei Halmstad, Halland"},"title":{"de":"Die Schlacht bei Halmstad"},"note":{"title":{"de":"Zum Kalender"}}},
+"pitea-brinner-1666":{"place":{"de":"Öjebyn, Piteå (lulesamisch Bihtám), Norrbotten"},"title":{"de":"Das alte Piteå brennt"}},
 "forsta-opiumkriget":{"place":{"de":"Küste Chinas von der Perlflussmündung bis zum Jangtse (begann bei Kowloon, im heutigen Hongkong)"},"title":{"de":"Erster Opiumkrieg"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
 "skarmytslingen-vid-kowloon-1839":{"place":{"de":"Kowloon, heute Hongkong"},"title":{"de":"Scharmützel bei Kowloon"}},
 "britterna-intar-zhoushan-1840":{"place":{"de":"Dinghai auf der Insel Zhoushan (Chusan), Zhejiang"},"title":{"de":"Die Briten nehmen Zhoushan ein"}},
@@ -1437,6 +1439,9 @@
 "stadsbranden-i-umea":{"place":{"de":"Umeå, Västerbotten"},"title":{"de":"Der Stadtbrand von Umeå"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "forstlingen":{"place":{"de":"Eskilstuna, Södermanland"},"title":{"de":"Schwedens erste Dampflokomotive"}},
 "balastugan":{"place":{"de":"Varberg, Halland"},"title":{"de":"Schwedens erstes Freilichtmuseum"},"note":{"title":{"de":"Zum Ort"}}},
+"kapitulationen-i-kalix":{"place":{"de":"Säivis (finnisch Säivi) zwischen Kalix und Haparanda, Norrbotten"},"title":{"de":"Die Kapitulation von Kalix"},"note":{"title":{"de":"Zur Datierung"}}},
+"haparanda-blir-stad":{"place":{"de":"Haparanda (Meänkieli und finnisch Haaparanta), Norrbotten"},"title":{"de":"Haparanda wird Stadt"},"note":{"title":{"de":"Zu den Quellen"}}},
+"malmtaget-till-lulea":{"place":{"de":"Luleå (lulesamisch Julevu), Norrbotten"},"title":{"de":"Die Erzzüge erreichen Luleå"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "rifkriget":{"place":{"de":"Rif im Norden Marokkos, damals spanisches Protektorat (begann bei Annual)"},"title":{"de":"Rifkrieg"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "slaget-vid-annual":{"place":{"de":"Annual im Nordosten Marokkos, etwa 60 km westlich von Melilla"},"title":{"de":"Die Rifkämpfer besiegen Spanien bei Annual"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "massakern-vid-monte-arruit":{"place":{"de":"Monte Arruit bei Al Aaroui, etwa 35 km südlich von Melilla"},"title":{"de":"Das Massaker von Monte Arruit"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
@@ -1787,6 +1792,7 @@
 "forsta-hennes-butiken":{"place":{"de":"Västerås, Västmanland"},"title":{"de":"Das erste Hennes-Geschäft"}},
 "umea-universitet-invigs":{"place":{"de":"Umeå, Västerbotten"},"title":{"de":"Eröffnung der Universität Umeå"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "ringhals-forsta-strom":{"place":{"de":"Halbinsel Värö, Halland"},"title":{"de":"Ringhals liefert den ersten Strom"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
+"hogskolan-i-lulea-grundas":{"place":{"de":"Porsön, Luleå (lulesamisch Julevu), Norrbotten"},"title":{"de":"Gründung der Hochschule Luleå"}},
 "www":{"place":{"de":"CERN, Genf"},"title":{"de":"Das Web wird erfunden"}},
 "rysslands-invasion-av-ukraina":{"place":{"de":"Ukraine (Angriff von Norden, Osten und Süden, unter anderem auf Kiew)"},"title":{"de":"Russlands Invasion der Ukraine"}},
 "slaget-om-kyiv-2022":{"place":{"de":"Kiew, Ukraine"},"title":{"de":"Die Schlacht um Kiew"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
@@ -1939,5 +1945,6 @@
 "paneuropeiska-picknicken":{"place":{"de":"Die Grenze zu Österreich bei Sopron, Ungarn"},"title":{"de":"Das Paneuropäische Picknick"}},
 "ungern-gar-med-i-eu":{"place":{"de":"Ganz Ungarn (die Markierung in Budapest)"},"title":{"de":"Ungarn tritt der EU bei"}},
 "falu-gruva-blir-varldsarv":{"place":{"de":"Falun, Dalarna"},"title":{"de":"Das Bergwerk von Falun wird Welterbe"}},
-"hoga-kusten-blir-varldsarv":{"place":{"de":"Skuleberget, Höga kusten, Ångermanland"},"title":{"de":"Die Höga Kusten wird Welterbe"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}}
+"hoga-kusten-blir-varldsarv":{"place":{"de":"Skuleberget, Höga kusten, Ångermanland"},"title":{"de":"Die Höga Kusten wird Welterbe"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
+"meankieli-blir-minoritetssprak":{"place":{"de":"Tornedal (der Punkt: Övertorneå), Norrbotten"},"title":{"de":"Meänkieli wird Minderheitensprache"},"note":{"title":{"de":"Zur Datierung"}}}
 }}
