@@ -32,6 +32,10 @@ STRASBOURG = (7.752, 48.573)  # Q6602
 WARSZAWA = (21.011, 52.23)  # Q270
 KALININGRAD = (20.5, 54.717)  # Q1829
 AMSTERDAM = (4.883, 52.367)  # Q727
+# #2390, Europa 1792–1870, koordinater ur Wikidata: Paris Q90, Wien Q1741, Berlin Q64
+PARIS = (2.352, 48.857)
+WIEN = (16.373, 48.208)
+BERLIN = (13.383, 52.517)
 RATZEBURG = (10.757, 53.702)  # Q490025
 # #1750, ur Wikidata: Baltijsk Q5660, Forbach Q22703, Mödlareuth Q672150, Hirschberg Q630383, Amt Neuhaus Q479687,
 # Gangelt Q204793, Frankfurt (Oder) Q4024. Görlitz (Q4077) används inte: Wikidatas punkt ligger i Polen enligt Natural Earth
@@ -235,6 +239,13 @@ MUSCAT_WD = (58.592, 23.614)  # Q3826
 SUR_OMAN = (59.529, 22.567)  # Q737270
 
 PUNKTER = [
+    # Europa 1792–1870 (#2390): Paris, Wien och Berlin har en stat varje år (Cliopatria; 1814 har Cliopatria ett hål vid Paris, se PR)
+    *[('franska-kolonialvaldet', PARIS, 'Paris', y, True) for y in (1792, 1796, 1800, 1805, 1810, 1813)],
+    *[('habsburgska-riket', WIEN, 'Wien', y, True) for y in (1800, 1804, 1806, 1808, 1811, 1830, 1850, 1867)],
+    # Cliopatria ritar Wien som en del av Första franska kejsardömet under ockupationen 1805 och 1809–1810 (se PR)
+    *[('franska-kolonialvaldet', WIEN, 'Wien', y, True) for y in (1805, 1809, 1810)],
+    *[('tyska-forbunden', BERLIN, 'Berlin', y, True) for y in (1810, 1813, 1815, 1850, 1866, 1867, 1869, 1870)],
+    ('preussen', BERLIN, 'Berlin', 1800, True),
     # Mexikodalen (#1443, DasKrokodils svar A 2026-11-14). Punkterna visar läget som det är, inte som det borde vara: Cliopatrias
     # ytor för Tenochtitlan och Texcoco 1326–1428 ser förväxlade ut och ingen av dem innehåller sin stad, men ytorna står kvar som
     # i källan (rutan Om kartan). Byts ytorna senare, med en andra källa, ska de här punkterna ändras i samma pull request

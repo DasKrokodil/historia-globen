@@ -1,6 +1,6 @@
 {
  "schema": "historia-globen/empires-index@1",
- "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (version 0.2.1, Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/23128623), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Från 1800 slås perioder ändå inte ihop när en sammanhängande del av gränsändringen är större än 2000 km2 och 0.5 procent av riket (#1732), så att till exempel Hatay syns i Turkiet från 1939. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). Rester i Cliopatria, perioder under 1 procent av postens största yta som till största delen ligger utanför postens övriga yta (till exempel Kingdom of Denmark 1402–1406, 73 km2 i Lappland), är borttagna (#1333). start/end är Cliopatrias årtal omräknade till astronomiska år: Cliopatria skriver N f.Kr. som -N (\"negative for BCE\", datan börjar -3400 = 3400BCE), här 1 - N, och Cliopatrias år 0, som bara är slutår före år 1, blir 0 (#1989). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Sverige (#70): Cliopatrias \"Swedish Empire\" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet till och med 1721 (freden i Nystad) och Sverige 1722–1814. Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil. Omstridda gränser i nutid (#644): följer Sveriges officiella hållning enligt UD (DISPUTED i tools/riken.py, docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen. Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967; Staten Palestina (Västbanken med Östra Jerusalem och Gaza) visas från 2014, då Sverige erkände den. De gränserna kommer ur Natural Earth (ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen. Ockupation och inbördeskrig (#1332): där Cliopatria efter 1945 ritar en ockupationsmakt eller en part i ett inbördeskrig i stället för en stat, visas den internationellt erkända staten med sin egen gräns i Cliopatria ett närliggande år (fill i tools/riken.py), och makten klipps bort de åren; där är areaKm2 Cliopatrias yta för den gränsen. Källfel i Cliopatria, Tyskland 1920–1990 (#1706): Västberlin räknas inte till Femte franska republiken; Nazi Germanys småbitar i Sverige, ryska Karelen och Levanten, och före ockupationerna i Norge, Estland och på Naxos, är borttagna (DISPUTED i tools/riken.py). Västtyskland delas 1958, när Saarland kommer med i Cliopatria. Fortsättning (#1730): Saarområdet visas utan stat 1920–1934 (Nationernas förbund), Kehl hör inte till Frankrike från 1950, Selfkant och Elten hör till Västtyskland från 1963 (gränsen ur Natural Earth), gränsen mellan DDR och Västtyskland följer Västtysklands delstater i Natural Earth (ne_10m_admin_1_states_provinces 5.1.2), och Polen 1945–1952 visas med gränsen 1953. Områden med strict i DISPUTED klipps bort eller läggs till också efter förenklingen. Västberlin och Östberlin 1949–1990 (#1731): Västberlins gräns kommer ur Verlauf der Berliner Mauer, 1989 (Geoportal Berlin, Datenlizenz Deutschland – Zero 2.0, tools/vastberlin.py) och klipps ur DDR; Östberlin är hela Berlin i Natural Earth admin 1 minus Västberlin och räknas till DDR. Rättningar efter #1730 (#1750): Saarområdet är klippt mot Tysklands gräns i Natural Earth, gränsen mellan DDR (och den sovjetiska zonen 1945–1948) och Västtyskland följer delstaterna i Natural Earth på båda sidor, Tysklands gräns mot Nederländerna och Polen följer Natural Earth, och Kaliningradområdet har Sovjetunionens gräns 1960 i Cliopatria. Äldre gränsfel kring Tyskland (#1755): Saarområdet är klippt mot Saarlands gräns i Natural Earth; gränsen mellan Frankrike och Tyskland följer Natural Earth 1930–1939 och gränsen mellan Tjeckoslovakien (Tjeckien) och Tyskland från 1945; Nederländernas sida av gränsen mot Tyskland följer Natural Earth från 1950; Lindau ligger i Västtyskland från 1950 och i Tyskland; Kaliningradområdet har Rysslands gräns i Natural Earth från 1945. Områden med efter i DISPUTED klipps eller läggs till bara efter förenklingen. Bodensee, Basel, Vorarlberg, Kuriska näset och Ermland (#1771): gränserna mellan Tyskland, Schweiz, Österrike och Frankrike vid Bodensee och Basel och längs gränsen mellan Österrike och Tyskland följer Natural Earth från 1919; Polens och Litauens gränser mot Kaliningradområdet följer Natural Earth från 1945 (Polen utom det som Cliopatria räknar till Ryssland; Litauen från 1990, Kuriska näset i Sovjetunionen 1945–1989); gränsen mellan Frankrike och Schweiz följer Natural Earth från 1919 (Frankrikes sida 1919–1939 och från 1945); den amerikanska zonen (Bayern) och den sovjetiska (Sachsen och Thüringen) når 1945–1949 fram till gränserna mot Tjeckoslovakien, Polen och Österrike, och den franska (Baden-Württemberg) till Bodensee, med delstaternas gränser i Natural Earth. Sydsudan och Zanzibar (#1534): Sydsudan visas från självständigheten 2011 med sin gräns i Cliopatria 2014 (Cliopatria har landet först från 2014), Sudan 2011–2013 likaså med gränsen 2014, och gränsen mellan dem följer Cliopatrias ogenomskurna gränser; Unguja och Pemba (Zanzibar) hör till Tanzania från 1964, med öarnas gräns i Natural Earth. Östafrikas kust (#1787): Kenyas och Tanzanias land från Somalia till Rovuma och Unguja följer Natural Earth, och nära kusten också gränserna mellan Kenya och Tanzania och mot Somalia och Moçambique; marken går varje år till den stat som Cliopatria räknar den till, och kustremsan utanför Cliopatrias kust till den stat den har längst gräns mot (kust i DISPUTED). Sydkorea (#1500): Cliopatria räknar södra Korea till USA 1946–1966; kartan visar USA där bara 1946–1947 (den amerikanska militärregeringen till 15 augusti 1948) och Sydkorea från 1948, och gränsen mellan Sydkorea och Nordkorea följer Cliopatrias ogenomskurna gränser. Hainan (#1499): Cliopatria räknar ön till Republiken Kina (Taiwan) 1950–2023 och till Folkrepubliken Kina först från 1953; kartan visar ön som Folkrepubliken Kina från 1950, med Cliopatrias gräns för ön, och areaKm2 räknas med ändringen (yta i DISPUTED). Zhoushanön likaså (Folkrepubliken tog Zhoushan 17 maj 1950). Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth (ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn. Kustriken (#1444, pilot): i chimor, dal-riata, almoravider, oman är havet som ligger mer än 0.05 grader från kusten i Natural Earth 1:10m (data/land-10m.json, public domain) bortklippt efter förenklingen (KUST_KLIPP i tools/riken.py, i Oman bara på Arabiska halvön), så att kuststäder och småöar nära kusten står kvar. areaKm2 är ändå Cliopatrias yta. Delade gränser (#1765): grannarna i en region förenklas tillsammans som en täckning (Visvalingam–Whyatt i shapely.coverage_simplify) i stället för var för sig, avrundade till 2 decimaler, så att de har samma linje där de möts (brittiska-oarna: wessex, mercia, northumbria, dal-riata, strathclyde, kungariket-skottland, kungariket-man, kungariket-england, nordsjovaldet, angevinska-riket, perioder som börjar 500–1708, tolerans 0.1; ryssland-sibirien: moskvariket, republiken-novgorod, ryska-imperiet (ryska-tsardomet), mongolriket (gyllene-horden), kazankhanatet, astrachankhanatet, nogajhorden, sibirkhanatet, kazakkhanatet, mogulistan, timuridriket, buchara, khanatet-khiva, kalmarunionen, perioder som börjar 1294–1600, tolerans 0.15, med x skalat med cos 55° före förenklingen). En yta som två riken i en region delar i Cliopatria (till exempel Isle of Man vissa år) blir en egen bit i täckningen och ritas i båda.",
+ "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (version 0.2.1, Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/23128623), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Från 1800 slås perioder ändå inte ihop när en sammanhängande del av gränsändringen är större än 2000 km2 och 0.5 procent av riket (#1732), så att till exempel Hatay syns i Turkiet från 1939. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). Rester i Cliopatria, perioder under 1 procent av postens största yta som till största delen ligger utanför postens övriga yta (till exempel Kingdom of Denmark 1402–1406, 73 km2 i Lappland), är borttagna (#1333). start/end är Cliopatrias årtal omräknade till astronomiska år: Cliopatria skriver N f.Kr. som -N (\"negative for BCE\", datan börjar -3400 = 3400BCE), här 1 - N, och Cliopatrias år 0, som bara är slutår före år 1, blir 0 (#1989). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1863, men bara de år Cliopatria har en egen gräns för Kungariket Preussen (1702–1808, 1814–1847 och 1863); Berlin räknas 1809–1870 till Rhenförbundet, Tyska förbundet och Nordtyska förbundet (grupp tyska-forbunden, #2390). Europa 1792–1870 (#2390): Frankrike 1792–1814 (Första republiken, Direktoriet, Konsulatet och Första kejsardömet) ligger i franska-kolonialvaldet, och Österrikiska kejsardömet 1806–1867 i habsburgska-riket. Cliopatrias Första franska kejsardöme 1814 har ett hål vid Paris, där Cliopatria i stället ritar Storhertigdömet Berg (Grand Duchy of Berg), och Hamburg 1814–1870, Bayern, Württemberg, Baden, Sachsen, Hannover med flera tyska stater och Kyrkostaten har egna poster som kartan inte visar än. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Sverige (#70): Cliopatrias \"Swedish Empire\" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet till och med 1721 (freden i Nystad) och Sverige 1722–1814. Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil. Omstridda gränser i nutid (#644): följer Sveriges officiella hållning enligt UD (DISPUTED i tools/riken.py, docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen. Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967; Staten Palestina (Västbanken med Östra Jerusalem och Gaza) visas från 2014, då Sverige erkände den. De gränserna kommer ur Natural Earth (ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen. Ockupation och inbördeskrig (#1332): där Cliopatria efter 1945 ritar en ockupationsmakt eller en part i ett inbördeskrig i stället för en stat, visas den internationellt erkända staten med sin egen gräns i Cliopatria ett närliggande år (fill i tools/riken.py), och makten klipps bort de åren; där är areaKm2 Cliopatrias yta för den gränsen. Källfel i Cliopatria, Tyskland 1920–1990 (#1706): Västberlin räknas inte till Femte franska republiken; Nazi Germanys småbitar i Sverige, ryska Karelen och Levanten, och före ockupationerna i Norge, Estland och på Naxos, är borttagna (DISPUTED i tools/riken.py). Västtyskland delas 1958, när Saarland kommer med i Cliopatria. Fortsättning (#1730): Saarområdet visas utan stat 1920–1934 (Nationernas förbund), Kehl hör inte till Frankrike från 1950, Selfkant och Elten hör till Västtyskland från 1963 (gränsen ur Natural Earth), gränsen mellan DDR och Västtyskland följer Västtysklands delstater i Natural Earth (ne_10m_admin_1_states_provinces 5.1.2), och Polen 1945–1952 visas med gränsen 1953. Områden med strict i DISPUTED klipps bort eller läggs till också efter förenklingen. Västberlin och Östberlin 1949–1990 (#1731): Västberlins gräns kommer ur Verlauf der Berliner Mauer, 1989 (Geoportal Berlin, Datenlizenz Deutschland – Zero 2.0, tools/vastberlin.py) och klipps ur DDR; Östberlin är hela Berlin i Natural Earth admin 1 minus Västberlin och räknas till DDR. Rättningar efter #1730 (#1750): Saarområdet är klippt mot Tysklands gräns i Natural Earth, gränsen mellan DDR (och den sovjetiska zonen 1945–1948) och Västtyskland följer delstaterna i Natural Earth på båda sidor, Tysklands gräns mot Nederländerna och Polen följer Natural Earth, och Kaliningradområdet har Sovjetunionens gräns 1960 i Cliopatria. Äldre gränsfel kring Tyskland (#1755): Saarområdet är klippt mot Saarlands gräns i Natural Earth; gränsen mellan Frankrike och Tyskland följer Natural Earth 1930–1939 och gränsen mellan Tjeckoslovakien (Tjeckien) och Tyskland från 1945; Nederländernas sida av gränsen mot Tyskland följer Natural Earth från 1950; Lindau ligger i Västtyskland från 1950 och i Tyskland; Kaliningradområdet har Rysslands gräns i Natural Earth från 1945. Områden med efter i DISPUTED klipps eller läggs till bara efter förenklingen. Bodensee, Basel, Vorarlberg, Kuriska näset och Ermland (#1771): gränserna mellan Tyskland, Schweiz, Österrike och Frankrike vid Bodensee och Basel och längs gränsen mellan Österrike och Tyskland följer Natural Earth från 1919; Polens och Litauens gränser mot Kaliningradområdet följer Natural Earth från 1945 (Polen utom det som Cliopatria räknar till Ryssland; Litauen från 1990, Kuriska näset i Sovjetunionen 1945–1989); gränsen mellan Frankrike och Schweiz följer Natural Earth från 1919 (Frankrikes sida 1919–1939 och från 1945); den amerikanska zonen (Bayern) och den sovjetiska (Sachsen och Thüringen) når 1945–1949 fram till gränserna mot Tjeckoslovakien, Polen och Österrike, och den franska (Baden-Württemberg) till Bodensee, med delstaternas gränser i Natural Earth. Sydsudan och Zanzibar (#1534): Sydsudan visas från självständigheten 2011 med sin gräns i Cliopatria 2014 (Cliopatria har landet först från 2014), Sudan 2011–2013 likaså med gränsen 2014, och gränsen mellan dem följer Cliopatrias ogenomskurna gränser; Unguja och Pemba (Zanzibar) hör till Tanzania från 1964, med öarnas gräns i Natural Earth. Östafrikas kust (#1787): Kenyas och Tanzanias land från Somalia till Rovuma och Unguja följer Natural Earth, och nära kusten också gränserna mellan Kenya och Tanzania och mot Somalia och Moçambique; marken går varje år till den stat som Cliopatria räknar den till, och kustremsan utanför Cliopatrias kust till den stat den har längst gräns mot (kust i DISPUTED). Sydkorea (#1500): Cliopatria räknar södra Korea till USA 1946–1966; kartan visar USA där bara 1946–1947 (den amerikanska militärregeringen till 15 augusti 1948) och Sydkorea från 1948, och gränsen mellan Sydkorea och Nordkorea följer Cliopatrias ogenomskurna gränser. Hainan (#1499): Cliopatria räknar ön till Republiken Kina (Taiwan) 1950–2023 och till Folkrepubliken Kina först från 1953; kartan visar ön som Folkrepubliken Kina från 1950, med Cliopatrias gräns för ön, och areaKm2 räknas med ändringen (yta i DISPUTED). Zhoushanön likaså (Folkrepubliken tog Zhoushan 17 maj 1950). Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth (ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn. Kustriken (#1444, pilot): i chimor, dal-riata, almoravider, oman är havet som ligger mer än 0.05 grader från kusten i Natural Earth 1:10m (data/land-10m.json, public domain) bortklippt efter förenklingen (KUST_KLIPP i tools/riken.py, i Oman bara på Arabiska halvön), så att kuststäder och småöar nära kusten står kvar. areaKm2 är ändå Cliopatrias yta. Delade gränser (#1765): grannarna i en region förenklas tillsammans som en täckning (Visvalingam–Whyatt i shapely.coverage_simplify) i stället för var för sig, avrundade till 2 decimaler, så att de har samma linje där de möts (brittiska-oarna: wessex, mercia, northumbria, dal-riata, strathclyde, kungariket-skottland, kungariket-man, kungariket-england, nordsjovaldet, angevinska-riket, perioder som börjar 500–1708, tolerans 0.1; ryssland-sibirien: moskvariket, republiken-novgorod, ryska-imperiet (ryska-tsardomet), mongolriket (gyllene-horden), kazankhanatet, astrachankhanatet, nogajhorden, sibirkhanatet, kazakkhanatet, mogulistan, timuridriket, buchara, khanatet-khiva, kalmarunionen, perioder som börjar 1294–1600, tolerans 0.15, med x skalat med cos 55° före förenklingen). En yta som två riken i en region delar i Cliopatria (till exempel Isle of Man vissa år) blir en egen bit i täckningen och ritas i båda.",
  "groups": [
   {
    "id": "romarriket",
@@ -14900,18 +14900,38 @@
    "id": "habsburgska-riket",
    "name": {
     "sv": "Habsburgska riket",
-    "en": "Habsburg Monarchy"
+    "en": "Habsburg Monarchy",
+    "de": "Habsburgermonarchie",
+    "es": "Monarquía Habsburgo",
+    "fr": "Monarchie de Habsbourg"
    },
    "color": "#a8475a",
    "from": 1459,
-   "to": 1805,
+   "to": 1867,
    "file": "data/empires/habsburgska-riket.json",
    "polities": [
     {
      "id": "habsburgska-riket",
      "name": {
       "sv": "Habsburgska riket",
-      "en": "Habsburg Monarchy"
+      "en": "Habsburg Monarchy",
+      "de": "Habsburgermonarchie",
+      "es": "Monarquía Habsburgo",
+      "fr": "Monarchie de Habsbourg"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "osterrikiska-kejsardomet",
+     "name": {
+      "sv": "Österrikiska kejsardömet",
+      "en": "Austrian Empire",
+      "de": "Kaisertum Österreich",
+      "es": "Imperio austríaco",
+      "fr": "empire d'Autriche"
      },
      "sources": [
       "cliopatria"
@@ -15425,15 +15445,74 @@
     "en": "French colonial empire"
    },
    "color": "#2f6fdc",
-   "from": 1815,
+   "from": 1792,
    "to": 1957,
    "file": "data/empires/franska-kolonialvaldet.json",
    "polities": [
     {
+     "id": "frankrike-forsta-republiken",
+     "name": {
+      "sv": "Frankrike (första republiken)",
+      "en": "French First Republic",
+      "de": "Erste Französische Republik",
+      "es": "Primera República Francesa",
+      "fr": "Première République française"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "franska-direktoriet",
+     "name": {
+      "sv": "Franska direktoriet",
+      "en": "French Directory",
+      "de": "Französisches Direktorium",
+      "es": "Directorio Francés",
+      "fr": "Directoire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "franska-konsulatet",
+     "name": {
+      "sv": "Franska konsulatet",
+      "en": "French Consulate",
+      "de": "Französisches Konsulat",
+      "es": "Consulado francés",
+      "fr": "Consulat"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "forsta-franska-kejsardomet",
+     "name": {
+      "sv": "Första franska kejsardömet",
+      "en": "First French Empire",
+      "de": "Erstes Kaiserreich",
+      "es": "Primer Imperio francés",
+      "fr": "Premier Empire français"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
      "id": "frankrike-kungadomet",
      "name": {
       "sv": "Frankrike (kungadömet)",
-      "en": "Bourbon Kingdom of France"
+      "en": "Bourbon Kingdom of France",
+      "de": "Königreich Frankreich",
+      "es": "Reino de Francia",
+      "fr": "royaume de France"
      },
      "sources": [
       "cliopatria"
@@ -15444,7 +15523,10 @@
      "id": "frankrike-andra-republiken",
      "name": {
       "sv": "Frankrike (andra republiken)",
-      "en": "French Second Republic"
+      "en": "French Second Republic",
+      "de": "Zweite Französische Republik",
+      "es": "Segunda República francesa",
+      "fr": "Deuxième République"
      },
      "sources": [
       "cliopatria"
@@ -15455,7 +15537,10 @@
      "id": "andra-franska-kejsardomet",
      "name": {
       "sv": "Andra franska kejsardömet",
-      "en": "Second French Empire"
+      "en": "Second French Empire",
+      "de": "Zweites Kaiserreich",
+      "es": "Segundo Imperio francés",
+      "fr": "Second Empire"
      },
      "sources": [
       "cliopatria"
@@ -15466,7 +15551,10 @@
      "id": "frankrike-tredje-republiken",
      "name": {
       "sv": "Frankrike (tredje republiken)",
-      "en": "French Third Republic"
+      "en": "French Third Republic",
+      "de": "Dritte Französische Republik",
+      "es": "Tercera República Francesa",
+      "fr": "Troisième République française"
      },
      "sources": [
       "cliopatria"
@@ -15477,7 +15565,10 @@
      "id": "vichyregimen",
      "name": {
       "sv": "Vichyregimen",
-      "en": "Vichy France"
+      "en": "Vichy France",
+      "de": "Vichy-Regime",
+      "es": "Francia de Vichy",
+      "fr": "régime de Vichy"
      },
      "sources": [
       "cliopatria"
@@ -15488,7 +15579,10 @@
      "id": "frankrike-fjarde-republiken",
      "name": {
       "sv": "Frankrike (fjärde republiken)",
-      "en": "French Fourth Republic"
+      "en": "French Fourth Republic",
+      "de": "Vierte Französische Republik",
+      "es": "Cuarta República francesa",
+      "fr": "Quatrième République"
      },
      "sources": [
       "cliopatria"
@@ -16167,6 +16261,79 @@
      }
     }
    ]
+  },
+  {
+   "id": "tyska-forbunden",
+   "name": {
+    "sv": "Tyska förbunden",
+    "en": "German confederations",
+    "de": "Deutsche Staatenbünde",
+    "es": "Confederaciones alemanas",
+    "fr": "Confédérations allemandes"
+   },
+   "color": "#7a5aa0",
+   "from": 1809,
+   "to": 1870,
+   "file": "data/empires/tyska-forbunden.json",
+   "polities": [
+    {
+     "id": "rhenforbundet",
+     "name": {
+      "sv": "Rhenförbundet",
+      "en": "Confederation of the Rhine",
+      "de": "Rheinbund",
+      "es": "Confederación del Rin",
+      "fr": "Confédération du Rhin"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "tyska-forbundet",
+     "name": {
+      "sv": "Tyska förbundet",
+      "en": "German Confederation",
+      "de": "Deutscher Bund",
+      "es": "Confederación Germánica",
+      "fr": "Confédération germanique"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "nordtyska-forbundet",
+     "name": {
+      "sv": "Nordtyska förbundet",
+      "en": "North German Confederation",
+      "de": "Norddeutscher Bund",
+      "es": "Confederación Alemana del Norte",
+      "fr": "Confédération de l'Allemagne du Nord"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "uncertainBorder": {
+    "note": {
+     "sv": "Kanten är mjuk eftersom gränserna är osäkra. Cliopatria räknar Berlin och Brandenburg till Rhenförbundet 1809–1814, men enligt Wikipedia var varken Preussen eller Österrike medlemmar; förbundet var ett franskt lydsystem med Napoleon som beskyddare. Ytan som kartan visar är alltså Cliopatrias, inte förbundets verkliga område. Tyska förbundet 1815–1866 omfattade enligt Wikipedia bara delar av Preussen och Österrike, och Cliopatria ritar bara en del av de tyska staterna; Bayern, Württemberg, Baden, Sachsen och flera andra har egna poster som kartan inte visar än. Källorna skiljer sig om årtal: Cliopatria har Tyska förbundet till 1867, Wikipedia 1866, och Nordtyska förbundet börjar 1866 eller juli 1867 beroende på vad man räknar.",
+     "en": "The edge is soft because the borders are uncertain. Cliopatria counts Berlin and Brandenburg as part of the Confederation of the Rhine in 1809–1814, but according to Wikipedia neither Prussia nor Austria was a member; the confederation was a French client system with Napoleon as its protector. The area the map shows is therefore Cliopatria's, not the confederation's real territory. The German Confederation of 1815–1866 included only parts of Prussia and Austria according to Wikipedia, and Cliopatria draws only some of the German states; Bavaria, Württemberg, Baden, Saxony and several others have their own records that the map does not show yet. The sources differ on dates: Cliopatria has the German Confederation until 1867, Wikipedia 1866, and the North German Confederation begins in 1866 or July 1867 depending on what is counted.",
+     "de": "Der Rand ist weich, weil die Grenzen unsicher sind. Cliopatria rechnet Berlin und Brandenburg 1809–1814 zum Rheinbund, aber laut Wikipedia waren weder Preußen noch Österreich Mitglieder; der Rheinbund war ein französisches Vasallensystem mit Napoleon als Protektor. Die auf der Karte gezeigte Fläche ist also die von Cliopatria, nicht das tatsächliche Gebiet des Bundes. Der Deutsche Bund 1815–1866 umfasste laut Wikipedia nur Teile Preußens und Österreichs, und Cliopatria zeichnet nur einen Teil der deutschen Staaten; Bayern, Württemberg, Baden, Sachsen und mehrere andere haben eigene Einträge, die die Karte noch nicht zeigt. Die Quellen weichen bei den Jahreszahlen ab: Cliopatria hat den Deutschen Bund bis 1867, Wikipedia 1866, und der Norddeutsche Bund beginnt je nach Zählung 1866 oder im Juli 1867.",
+     "es": "El borde es suave porque las fronteras son inciertas. Cliopatria cuenta Berlín y Brandeburgo como parte de la Confederación del Rin en 1809–1814, pero según Wikipedia ni Prusia ni Austria eran miembros; la confederación era un sistema vasallo francés con Napoleón como protector. La superficie que muestra el mapa es, pues, la de Cliopatria, no el territorio real de la confederación. La Confederación Germánica de 1815–1866 abarcaba, según Wikipedia, solo partes de Prusia y de Austria, y Cliopatria dibuja solo una parte de los estados alemanes; Baviera, Wurtemberg, Baden, Sajonia y varios más tienen registros propios que el mapa aún no muestra. Las fuentes difieren en las fechas: Cliopatria tiene la Confederación Germánica hasta 1867, Wikipedia hasta 1866, y la Confederación Alemana del Norte empieza en 1866 o en julio de 1867 según lo que se cuente.",
+     "fr": "Le bord est adouci parce que les frontières sont incertaines. Cliopatria rattache Berlin et le Brandebourg à la Confédération du Rhin en 1809–1814, mais selon Wikipédia ni la Prusse ni l'Autriche n'en étaient membres ; la confédération était un système de vassalité française, avec Napoléon pour protecteur. La surface que montre la carte est donc celle de Cliopatria, non le territoire réel de la confédération. La Confédération germanique de 1815–1866 ne comprenait, selon Wikipédia, que des parties de la Prusse et de l'Autriche, et Cliopatria ne dessine qu'une partie des États allemands ; la Bavière, le Wurtemberg, Bade, la Saxe et plusieurs autres ont leurs propres entrées que la carte ne montre pas encore. Les sources diffèrent sur les dates : Cliopatria place la Confédération germanique jusqu'en 1867, Wikipédia jusqu'en 1866, et la Confédération de l'Allemagne du Nord commence en 1866 ou en juillet 1867 selon ce que l'on compte."
+    },
+    "sources": [
+     "wp-confederation-of-the-rhine",
+     "wp-german-confederation",
+     "wp-north-german-confederation"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "tyska-riket",
@@ -19397,7 +19564,7 @@
    },
    "color": "#4a6fa0",
    "from": 1526,
-   "to": 1806,
+   "to": 1863,
    "file": "data/empires/preussen.json",
    "polities": [
     {
@@ -19405,7 +19572,9 @@
      "name": {
       "sv": "Hertigdömet Preussen",
       "en": "Duchy of Prussia",
-      "de": "Herzogtum Preußen"
+      "de": "Herzogtum Preußen",
+      "es": "Ducado de Prusia",
+      "fr": "duché de Prusse"
      },
      "sources": [
       "cliopatria"
@@ -19417,7 +19586,9 @@
      "name": {
       "sv": "Brandenburg-Preussen",
       "en": "Brandenburg-Prussia",
-      "de": "Brandenburg-Preußen"
+      "de": "Brandenburg-Preußen",
+      "es": "Brandeburgo-Prusia",
+      "fr": "Brandebourg-Prusse"
      },
      "sources": [
       "cliopatria"
@@ -19429,7 +19600,9 @@
      "name": {
       "sv": "Kungariket Preussen",
       "en": "Kingdom of Prussia",
-      "de": "Königreich Preußen"
+      "de": "Königreich Preußen",
+      "es": "Reino de Prusia",
+      "fr": "royaume de Prusse"
      },
      "sources": [
       "cliopatria"
