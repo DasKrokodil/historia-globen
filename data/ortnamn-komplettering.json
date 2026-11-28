@@ -1097,6 +1097,105 @@
     ],
     "checked": "2026-11-28"
    }
+  ],
+  "ostergotland": [
+   {
+    "wikidata": "Q2664800",
+    "coordinates": [
+     14.651,
+     58.294
+    ],
+    "name": {
+     "sv": "Alvastra",
+     "en": "Alvastra",
+     "de": "Alvastra",
+     "es": "Alvastra",
+     "fr": "Alvastra"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "alvastra-palbyggnad"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q472975",
+    "coordinates": [
+     14.775,
+     58.295
+    ],
+    "name": {
+     "sv": "Rökstenen",
+     "en": "Rök Runestone",
+     "de": "Runenstein von Rök",
+     "es": "Piedra de Rök",
+     "fr": "Pierre de Rök"
+    },
+    "fallback": [],
+    "events": [
+     "rokstenen"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q265682",
+    "coordinates": [
+     14.897,
+     58.445
+    ],
+    "name": {
+     "sv": "Vadstena",
+     "en": "Vadstena",
+     "de": "Vadstena",
+     "es": "Vadstena",
+     "fr": "Vadstena"
+    },
+    "fallback": [],
+    "events": [
+     "vadstena-kloster"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q54357",
+    "coordinates": [
+     15.037,
+     58.544
+    ],
+    "name": {
+     "sv": "Motala",
+     "en": "Motala",
+     "de": "Motala",
+     "es": "Motala",
+     "fr": "Motala"
+    },
+    "fallback": [],
+    "events": [
+     "motala-verkstad-grundas"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q1805733",
+    "coordinates": [
+     14.8,
+     58.35
+    ],
+    "name": {
+     "sv": "Tåkern",
+     "en": "Tåkern",
+     "de": "Tåkern",
+     "es": "Tåkern",
+     "fr": "Tåkern"
+    },
+    "fallback": [],
+    "events": [
+     "takern-blir-naturreservat"
+    ],
+    "checked": "2026-11-28"
+   }
   ]
  }
 }
