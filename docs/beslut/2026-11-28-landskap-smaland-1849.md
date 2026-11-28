@@ -1,0 +1,43 @@
+# Småland som landskap (#1849)
+
+**Datum:** 2026-11-28. Följer beslutet [2026-11-27-landskapens-gransar-1847](2026-11-27-landskapens-gransar-1847.md) (gränskälla) och [2026-11-27-landskap-pauser-och-pilot-uppland](2026-11-27-landskap-pauser-och-pilot-uppland.md) (pauser, syskonregeln, verktyget). Inget nytt beslut av DasKrokodil: Småland byggs enligt mönstret från de tidigare landskapen.
+
+## Byggt
+- Platsen `smaland` (typ `landskap`, `partOf: "sverige"`, `review: "source-checked"`): kontur ur Lantmäteriets distriktsindelning via `perliedman/svenska-landskap` (`boundary.landskap`, filen vid den fastlåsta commit som verktyget anger), klippt mot `data/land-10m.json` med `tools/platser_gransar.py --plats=smaland`. En del, 1 257 punkter. Inget grannland inom 30 km (`boundary.neighbours` är tom). Namnet är Wikidatas etikett (Q199957): "Småland" på alla fem språken. Noten säger att konturen är förenklad och klippt mot kusten, att Småland har kust mot Östersjön och Kalmarsund, att Öland är ett eget landskap som inte ingår och att små öar och skär saknas.
+- **Öland ingår inte:** källfilen har Öland som eget landskap, och konturen slutar vid fastlandets kust. Prövat med shapely: punkterna 16,6° Ö 56,75° N (mitt på Öland) och Borgholm ligger utanför konturen, Kalmar innanför.
+- Källor (öppnade 2026-11-28): Store norske leksikon (`snl.no/Småland_-_landskap_i_Sverige`; `snl.no/Småland` svarar 404), Lex, svenska Wikipedia och Wikidata för landskapet, och 26 källposter för de nya händelserna.
+- Ortnamn: `data/ortnamn/smaland.json` (Natural Earth: Jönköping, Växjö, Kalmar och orterna runt om, Östersjön, Kattegatt och Öresund) och Råshult (Q927776), Älmhult (Q122872), Kosta (Q2194673, saknar spansk etikett och har `es` som fallback) och Vimmerby (Q634231) ur Wikidata i `data/ortnamn-komplettering.json`. Sagaholm ligger cirka 3 km från Jönköping och Kronobergs slott cirka 7 km från Växjö, så de fick ingen egen ort.
+- Inga egna `major` (nio synliga händelser), enligt beslutet om landskapens pauser. `kalmarunionen-bildas` är redan `major` i Sveriges lista (se Osäkert).
+
+## Händelserna på kortet (nio, kravet för landskap är tre)
+Mätt med `placeEvents()` (med `linkIncludeEvents` på alla platser, händelser ur `data/events.json` som inte är `draft`). **Före** de nya händelserna, med Smålands kontur på plats: två, `kalmarunionen-bildas` (Kalmar, 1397, inne i konturen) och `offerplatsen-skedemosse` (Öland, se nedan). **Efter:** nio, i kultur (2), religion (2), ekonomi (2), civilisationer, krig och vetenskap, från bronsåldern till 1958.
+
+**Grannarnas kort är oförändrade:** Halland 7, Skåne 21, Västergötland 3 (och alla andra landskap har samma antal som före ändringen). Ingen befintlig händelse flyttas till Småland av syskonregeln. Sveriges kort går från 122 till 129 (de sju nya).
+
+De sju nya:
+- **Gravhögen vid Sagaholm** (cirka 1475–1215 f.Kr., kultur, `source-checked`): svenska Wikipedia (Sagaholmshögen: grävd 27 september–17 december 1971, 15 av 45 kvarvarande hällar i kantkedjan ristade, kol-14 3265 ± 130 BP) och Wikidata (Q1559140, punkten). Dateringen bygger på en enda kol-14-datering och bara en källa; det står i `note` (`kind: "single-source"`).
+- **Växjö blir biskopssäte** (omkring 1170, religion, `two-sources`): svenska Wikipedia (Växjö stift: bildat senast 1170; Småland: Linköpings stift täckte området i början av 1100-talet, Växjö stift omfattade först Värend) och Lex (Växjö: biskopssäte från 1170, Sveriges minsta stift under medeltiden; Småland: Värend skildes ut kort före 1170). Punkten är Växjö domkyrka (Wikidata Q1236720). Skillnaden "senast 1170"/"från 1170"/"kort före 1170" står i `note` (`kind: "date"`); året är ungefärligt (`1170~`).
+- **Dackefejden** (1542–1543, krig, `source-checked`): svenska Wikipedia, Lex (Nils Dacke och Dackefejden: 1542–1543, Nordens största bondeuppror, Dacke styrde Småland från Kronobergs slott) och Store norske leksikon (Småland: 1542–1543). Punkten är Kronobergs slott (Wikidata Q442135), vårt val: källorna knyter upproret till hela Småland, inte en plats. Det står i `note` (`kind: "place"`), och därför höjs nivån inte. Wikipedia nämner också Virserum som platsen för det avgörande slaget ("påstås").
+- **Carl von Linné föds i Råshult** (23 maj 1707, vetenskap, `two-sources`): svenska Wikipedia (13 maj 1707 i den svenska kalendern, i komministergården Råshult), Lex (metadata: född 23.5.1707 i Råshult; Älmhult: Råshult är Linnés födelseort) och Wikidata (Q1043 med både 23 maj gregorianskt och 12 maj julianskt; Q927776 för punkten). `note` med `kind: "calendar"`; datumet i `edtf` är det gregorianska.
+- **Kosta glasbruk grundas** (1742, ekonomi, `source-checked`): svenska Wikipedia (privilegier 1740, bygget började 1741, namnet efter Koskull och Staël von Holstein, glasblåsare från Thüringen), Lex (Kosta: grundat 1742, Glasriket) och Wikidata (Q4993441: 1742 och 26 juli 1742, punkten). Skillnaden 1741/1742 står i `note` (`kind: "date"`).
+- **Astrid Lindgren föds** (14 november 1907, kultur, `two-sources`): svenska Wikipedia (Astrid Lindgren: född i Vimmerby landsförsamling, familjen på Näs; Astrid Lindgrens Näs: huset där hon föddes), Lex (född 14.11.1907, växte upp på Näs nära Vimmerby), Store norske leksikon (född 14.11.1907, Sveriges mest översatta författare, Pippi 1945, Bullerbyn efter barndomen på Näs) och Wikidata (Q10420923, punkten).
+- **Ikeas första varuhus öppnar** (1958, ekonomi, `two-sources`): svenska Wikipedia (Ikea och Ingvar Kamprad), Store norske leksikon (IKEA: grundat 1943, möbelutställning i Älmhult 1953, första varuhuset där 1958) och Lex (Älmhult: Ikea uppstod här). Punkten är Älmhult (Wikidata Q122872). Grundandet 1943 nämns bara med år: Wikipedia om Kamprad anger 15 juli 1943, Wikidata 28 juli 1943.
+
+Alla nya punkter ligger inne i konturen (prövat med shapely) och i inget annat landskap. De som ligger närmast kanten: Älmhult cirka 2 km, Sagaholm cirka 2 km (mot Vättern), Råshult cirka 7 km och Näs cirka 9 km.
+
+### `offerplatsen-skedemosse` (Öland) på Smålands kort
+Offerplatsen Skedemosse ligger på Öland (16,76° Ö 56,84° N), utanför Smålands kontur men cirka 16 km från den, alltså inom kustmarginalen på 20 km. Eftersom Öland ännu inte finns som plats kan syskonregeln inte ta bort den, så den syns på Smålands kort (som "Offerplatsen Skedemosse på Öland"). Det försvinner när Öland byggs, på samma sätt som Gustav Vasa i Strängnäs försvann från Upplands och Västmanlands kort när Södermanland byggdes. Den räknas inte till kravet på tre (Småland har åtta egna). Händelsen och koden i `js/` är inte ändrade.
+
+## Samiskt
+Småland ligger utanför de områden där uppdraget kräver en sökning efter samiska namn. Ingen sökning gjordes.
+
+## Osäkert
+- **Fokus pausar bara vid Kalmarunionen:** `kalmarunionen-bildas` är `major` i Sveriges lista, och `themeStops` i `js/theme-stops.js` väljer bara händelser med `major` när det finns någon. Fokus på Småland pausar därför bara vid den, inte vid alla nio, som beslutet om landskapens pauser avsåg. Samma sak gäller Södermanland med `gustav-vasa`. Det är inte ändrat här (ingen ändring i `js/` eller i Sveriges lista); det behöver ett eget beslut.
+- Konturens area är cirka 31 500 km² (platt närmevärde), cirka 7 % över källorna (Store norske leksikon, Lex, svenska Wikipedia och Wikidata 29 330 km²). Troligen ingår en del av Vätterns yta (antagande); gränsen i Vättern är inte kontrollerad mot någon källa.
+- Om någon större ö saknas i Natural Earths kust (skärgården vid Västervik och Oskarshamn) är inte prövat ö för ö. Noten säger bara att små öar och skär saknas.
+- Wikipedias API och Wikidata svarade ofta 429; sidorna lästes som wikitext (`?action=raw`) och Wikidata via `wbgetentities` med omförsök. Engelska Wikipedia öppnades inte. Lex har ingen artikel om Ikea (404), och Store norske leksikon ingen om Kosta (404).
+- Inte prövade: Kalmarkriget 1611–1613 (svenska Wikipedia lästes, men händelsen togs inte med för att inte lägga en andra markör i Kalmar nära Öland), Kalmar slott, Visingsö och Näs borg, hällkistorna i Kronoberg, fornborgarna i norra Kalmar län, Smålandslagen, järnbruket vid Taberg, Husqvarna och Jönköpings tändsticksfabrik, emigrationen (finns redan som händelse i Västergötland) och Vilhelm Moberg.
+- Landskapsvapen är inte med.
+
+## Berör
+#1849, `data/platser.json`, `data/sources.json`, `data/handelser/fkr.json`, `data/handelser/1-1499.json`, `data/handelser/1500-1799.json`, `data/handelser/1900-1945.json`, `data/handelser/1946-1979.json`, `data/ortnamn/smaland.json`, `data/ortnamn-komplettering.json`, `data/licenses.json`, `data/oversattning.json`, `data/events.json`, `data/genererat/`.
