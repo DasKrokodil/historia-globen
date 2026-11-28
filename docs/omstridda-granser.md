@@ -27,6 +27,8 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 | 12. Nagorno-Karabach | Azerbajdzjan återupprättade sin kontroll hösten 2023; den armeniska befolkningen flydde | Armenien, även 2024 | inget ännu | Omstritt till 2022, Azerbajdzjan från 2023 (svar 7) |
 | 13. Somaliland | Ingen text om Somaliland på UD:s sida om Somalia | Somalia | inget ännu | Stämmer, inget att ändra |
 | 14. Östtimor | Indonesiens ockupation 1975 erkändes aldrig av Sverige; självständigt 2002 | Indonesien 1976–2005, egen stat från 2006 | `indonesien`, `osttimor` | **Gjort 2026-11-06:** utan stat 1976–2001, Östtimor från 2002, med not |
+| 15. Södra Kurilerna (Kunashir, Iturup, Shikotan, Habomai) | Ingen uttalad hållning hittad på de sidor som öppnats (2026-11-28) | Inte kontrollerat | inget ännu (`japan`, landskort) | Japans kontur ur Natural Earth utan öarna, med not (#1267) |
+| 16. Dokdo/Takeshima | Ingen uttalad hållning hittad på de sidor som öppnats (2026-11-28) | Inte kontrollerat | inget ännu (`japan`, landskort) | Japans kontur ur Natural Earth utan klipporna, med not (#1267) |
 
 ## Fallen ett och ett
 
@@ -146,6 +148,20 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 - **Andra källan:** FN:s sidor om [UNTAET](https://peacekeeping.un.org/en/mission/past/etimor/etimor.htm) och [bakgrunden](https://peacekeeping.un.org/en/mission/past/etimor/UntaetB.htm) säger att Indonesien tog in Östtimor som provins 1976 och att FN aldrig erkände det, att FN:s övergångsförvaltning UNTAET inrättades 25 oktober 1999, och att Östtimor blev självständigt 20 maj 2002. Kontrollerade 2026-11-06. FN:s medlemslista anger att landet blev medlem 27 september 2002.
 - **Cliopatria:** området hör till Indonesien (Republic of Indonesia) 1976–2005 och är en egen stat (East Timor) från 2006. Wikidata (Q574) anger 28 november 1975 som startdatum. Källorna skiljer sig alltså, och det står i noten.
 - **Gjort (2026-11-06, femtonde omgången nutida stater):** området (Indonesiens gräns 2005 minus gränsen 2006 i Cliopatria) räknas aldrig till Indonesien från 1976, visas utan stat 1976–2001 (som Golanhöjderna) och som Östtimor från 2002 (`DISPUTED` i `tools/riken.py`). Åren 2002–2005 har Östtimor samma gräns. Noten i rutan Om kartan för Östtimor och Indonesien finns på alla fem språken, med UD:s och FN:s sidor som källor. Hållningen är tydlig, så den här gången behövdes ingen fråga till Rikard; väljer han hellre att visa området på annat sätt 1976–2001 ändras bara `DISPUTED`.
+
+### 15. Södra Kurilerna (Kunashir, Iturup, Shikotan och Habomai) (#1267, 2026-11-28)
+- **Sveriges hållning:** ingen uttalad hållning hittad. Öppnade 2026-11-28: [Utrikesdeklarationen 2026](https://www.regeringen.se/tal/2026/02/utrikesdeklarationen-2026/) (18 februari 2026; den säger om Japan bara att Sverige "stärker samarbetet med Japan, Sydkorea, Australien och Nya Zeeland"), [UD:s sida](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/) samt Sveriges ambassadsidor i [Tokyo](https://www.swedenabroad.se/sv/utlandsmyndigheter/japan-tokyo/), [Seoul](https://www.swedenabroad.se/sv/utlandsmyndigheter/sydkorea-seoul/) och [Moskva](https://www.swedenabroad.se/sv/utlandsmyndigheter/ryssland-moskva/). Ingen av dem nämner Kurilerna eller "Northern Territories".
+- **Inte sökt:** riksdagens dokument (frågor och svar) och regeringens äldre uttalanden. En uttalad hållning kan finnas där. Fallet bör därför kontrolleras igen vid nästa release (steg 6 under "Nästa steg").
+- **Vad vi ritar:** Japans kontur i `data/platser.json` kommer ur Natural Earth admin 0 (public domain, de facto-linjen). Ett punktprov mot den inlästa konturen (2026-11-28) visar att Kunashir (145,8° Ö, 43,9° N) och Iturup (147,9° Ö, 45,0° N) ligger utanför Japan, och Rishiri (141,2° Ö, 45,2° N) innanför. Cliopatria har inte kontrollerats för området.
+- **Förslag (som för Kashmir och Taiwan, fall 10 och 11):** konturen behålls, och landskortet för Japan har en not om att gränsen mot Ryssland i Kurilerna är omstridd, att kortet visar den linje kartdatan visar (vem som kontrollerar området) och inte vem det tillhör, och att Sverige inte har någon uttalad hållning som vi hittat. Inga händelser läggs på de fyra öarna.
+- **Beslut av DasKrokodil:** 2026-11-28 sa ja till att Japan är med i piloten (fråga 1 i #1267) och till undvikandelistan (fråga 2). Förslaget i den här punkten väntar på hans ok när pull requesten slås ihop.
+
+### 16. Dokdo/Takeshima (Liancourt Rocks) (#1267, 2026-11-28)
+- **Sveriges hållning:** ingen uttalad hållning hittad på samma sidor som fall 15 (Tokyo och Seoul inräknade). Utrikesdeklarationen 2026 nämner inte klipporna.
+- **Inte sökt:** som fall 15.
+- **Vad vi ritar:** ett punktprov mot Japans kontur (2026-11-28) visar att Dokdo/Takeshima (131,87° Ö, 37,24° N) ligger utanför Japan. Konturen för Sydkorea är inte inläst ännu, så var klipporna ligger i den datan är inte kontrollerat.
+- **Förslag:** som fall 15: konturen behålls, en not på Japans kort (och på Sydkoreas när det läggs in), inga händelser på klipporna.
+- **Beslut av DasKrokodil:** som fall 15.
 
 ## Ockupation och inbördeskrig (#1332, beslut 2026-11-13)
 
