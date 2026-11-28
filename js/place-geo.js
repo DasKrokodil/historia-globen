@@ -170,10 +170,10 @@ export function inSibling(place, lon, lat) {
  * Till för händelser som gäller hela sin plats (`scope: "place"`, #1674): Skåne går före Sverige, och Köpenhamns punkt, som ligger
  * utanför den grova kusten, hör ändå till Danmark. Ytan är rutans, som i placeAt.
  */
-export function smallestPlace(places, lon, lat) {
+export function smallestPlace(places, lon, lat, type) {
   let best = null, bestArea = Infinity;
   for (const place of places) {
-    if (!place.boundary?.geometry) continue;
+    if (!place.boundary?.geometry || (type && place.type !== type)) continue;
     const area = rawBox(place.boundary.geometry).area;
     if (area < bestArea && inPlace(place, lon, lat)) { best = place; bestArea = area; }
   }
