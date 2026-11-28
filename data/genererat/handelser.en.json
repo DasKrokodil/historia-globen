@@ -968,6 +968,8 @@
 "rokstenen":{"place":{"en":"Rök Church, Östergötland"},"title":{"en":"The Rök runestone is raised"},"note":{"title":{"en":"The sources differ"}}},
 "vadstena-kloster":{"place":{"en":"Vadstena, Östergötland"},"title":{"en":"Vadstena Abbey is founded"}},
 "bjorketorpsstenen":{"place":{"en":"Björketorp east of Ronneby, Blekinge"},"title":{"en":"The Björketorp Runestone"},"note":{"title":{"en":"About the dating"}}},
+"venderna-branner-kungahalla":{"place":{"en":"Kungahälla on the Nordre älv, Bohuslän"},"title":{"en":"The Wends burn Kungahälla"},"note":{"title":{"en":"The sources differ"}}},
+"bohus-fastning-byggs":{"place":{"en":"Bohus Fortress, Kungälv, Bohuslän"},"title":{"en":"Bohus Fortress is built"}},
 "imjinkriget":{"place":{"en":"Korea and the seas around the Korean Peninsula (began at Busan)"},"title":{"en":"The Imjin War"},"note":{"title":{"en":"About the calendar"}}},
 "belagringen-av-busan-1592":{"place":{"en":"Busan, Korea"},"title":{"en":"The Japanese storm Busan"}},
 "slaget-vid-chungju-1592":{"place":{"en":"Tangeumdae at Chungju, Korea"},"title":{"en":"The Battle of Chungju"},"note":{"title":{"en":"The sources differ"}}},
@@ -1240,6 +1242,9 @@
 "kristianopel-anlaggs":{"place":{"en":"Kristianopel, Blekinge"},"title":{"en":"Kristianopel is founded"},"note":{"title":{"en":"About the dating"}}},
 "karlskrona-grundas":{"place":{"en":"Trossö, Karlskrona, Blekinge"},"title":{"en":"Karlskrona is founded"}},
 "ronneby-brunn":{"place":{"en":"Ronneby brunn, Blekinge"},"title":{"en":"The iron spring at Ronneby"}},
+"bohuslan-blir-svenskt":{"place":{"en":"Kungälv, Bohuslän (the peace was signed at Roskilde)"},"title":{"en":"Bohuslän becomes Swedish"},"note":{"title":{"en":"About the place"}}},
+"stora-sillperioden":{"place":{"en":"The coast of Bohuslän (the marker is at Wikidata’s point for the province)"},"title":{"en":"The great herring period"},"note":{"title":{"en":"About the dating"}}},
+"slaget-vid-kvistrum":{"place":{"en":"Kvistrum near Munkedal, Bohuslän"},"title":{"en":"The Battle of Kvistrum"},"note":{"title":{"en":"The sources differ"}}},
 "forsta-opiumkriget":{"place":{"en":"China's coast from the Pearl River to the Yangtze (began at Kowloon, in present-day Hong Kong)"},"title":{"en":"First Opium War"},"note":{"title":{"en":"The sources differ"}}},
 "skarmytslingen-vid-kowloon-1839":{"place":{"en":"Kowloon, present-day Hong Kong"},"title":{"en":"Skirmish at Kowloon"}},
 "britterna-intar-zhoushan-1840":{"place":{"en":"Dinghai on Zhoushan Island (Chusan), Zhejiang"},"title":{"en":"The British take Zhoushan"}},
@@ -1487,6 +1492,7 @@
 "grotefend-och-fornpersisk-kilskrift":{"place":{"en":"Göttingen, Germany"},"title":{"en":"Grotefend takes the first step in reading Old Persian cuneiform"},"note":{"title":{"en":"About this information"}}},
 "champollion-laser-hieroglyferna":{"place":{"en":"Paris, France (the Académie des Inscriptions et Belles-Lettres)"},"title":{"en":"Champollion deciphers the hieroglyphs"},"note":{"title":{"en":"The sources differ"}}},
 "motala-verkstad-grundas":{"place":{"en":"Motala, Östergötland"},"title":{"en":"Motala Verkstad engineering works is founded"}},
+"kristinebergs-havsstation":{"place":{"en":"Kristineberg near Fiskebäckskil, Skaftö, Bohuslän"},"title":{"en":"The marine research station at Kristineberg is founded"},"note":{"title":{"en":"One source"}}},
 "rifkriget":{"place":{"en":"Rif in northern Morocco, then a Spanish protectorate (began near Annual)"},"title":{"en":"Rif War"},"note":{"title":{"en":"The sources differ"}}},
 "slaget-vid-annual":{"place":{"en":"Annual in north-eastern Morocco, about 60 km west of Melilla"},"title":{"en":"The Riffians defeat Spain at Annual"},"note":{"title":{"en":"The sources differ"}}},
 "massakern-vid-monte-arruit":{"place":{"en":"Monte Arruit at Al Aaroui, about 35 km south of Melilla"},"title":{"en":"The massacre at Monte Arruit"},"note":{"title":{"en":"The sources differ"}}},
@@ -1855,6 +1861,7 @@
 "linear-b-tydd":{"place":{"en":"Knossos, Crete (the tablets come from Knossos and Pylos; Ventris worked in Britain)"},"title":{"en":"Michael Ventris deciphers Linear B"},"note":{"title":{"en":"The sources differ"}}},
 "mayaskriften-tydd":{"place":{"en":"Piedras Negras (1959) and Palenque (1973); the marker is at Palenque"},"title":{"en":"The Maya script begins to be read"},"note":{"title":{"en":"The sources differ"}}},
 "takern-blir-naturreservat":{"place":{"en":"Tåkern south of Vadstena, Östergötland"},"title":{"en":"Lake Tåkern becomes a nature reserve"},"note":{"title":{"en":"The sources differ"}}},
+"uddevallavarvet":{"place":{"en":"Kasen, Uddevalla, Bohuslän"},"title":{"en":"The Uddevalla shipyard"},"note":{"title":{"en":"The sources differ"}}},
 "www":{"place":{"en":"CERN, Geneva"},"title":{"en":"The invention of the Web"}},
 "rysslands-invasion-av-ukraina":{"place":{"en":"Ukraine (attack from the north, east and south, including towards Kyiv)"},"title":{"en":"Russia's invasion of Ukraine"}},
 "slaget-om-kyiv-2022":{"place":{"en":"Kyiv, Ukraine"},"title":{"en":"The Battle of Kyiv"},"note":{"title":{"en":"The sources differ"}}},
@@ -2011,5 +2018,6 @@
 "meankieli-blir-minoritetssprak":{"place":{"en":"Torne Valley (the point: Övertorneå), Norrbotten"},"title":{"en":"Meänkieli becomes a minority language"},"note":{"title":{"en":"About the dating"}}},
 "tresticklan-blir-nationalpark":{"place":{"en":"Tresticklan, Dals-Ed, Dalsland"},"title":{"en":"Tresticklan becomes a national park"}},
 "u-137-gar-pa-grund":{"place":{"en":"Gåsefjärden off Karlskrona, Blekinge"},"title":{"en":"U 137 runs aground"},"note":{"title":{"en":"The sources differ"}}},
-"orlogsstaden-karlskrona-varldsarv":{"place":{"en":"Karlskrona, Blekinge"},"title":{"en":"The Naval Port of Karlskrona becomes a World Heritage Site"}}
+"orlogsstaden-karlskrona-varldsarv":{"place":{"en":"Karlskrona, Blekinge"},"title":{"en":"The Naval Port of Karlskrona becomes a World Heritage Site"}},
+"almobron-rasar":{"place":{"en":"Almö Bridge over the Askerö Fjord, Stenungsund–Tjörn, Bohuslän"},"title":{"en":"The Almö Bridge collapses"}}
 }}
