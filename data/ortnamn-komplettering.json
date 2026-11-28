@@ -598,6 +598,50 @@
     ],
     "checked": "2026-11-27"
    }
+  ],
+  "varmland": [
+   {
+    "wikidata": "Q30177356",
+    "coordinates": [
+     12.541,
+     60.15
+    ],
+    "name": {
+     "sv": "Ritamäki",
+     "en": "Ritamäki",
+     "de": "Ritamäki",
+     "es": "Ritamäki",
+     "fr": "Ritamäki"
+    },
+    "fallback": [],
+    "events": [
+     "skogsfinnarna-i-varmland"
+    ],
+    "checked": "2026-11-28"
+   },
+   {
+    "wikidata": "Q10669722",
+    "coordinates": [
+     12.375,
+     59.928
+    ],
+    "name": {
+     "sv": "Skansen Hultet",
+     "en": "Skansen Hultet",
+     "de": "Skansen Hultet",
+     "es": "Skansen Hultet",
+     "fr": "Skansen Hultet"
+    },
+    "fallback": [
+     "de",
+     "es",
+     "fr"
+    ],
+    "events": [
+     "skansen-hultet"
+    ],
+    "checked": "2026-11-28"
+   }
   ]
  }
 }
