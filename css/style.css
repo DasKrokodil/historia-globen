@@ -2184,6 +2184,19 @@ details.used-by summary:hover { color: var(--parchment); }
   border: 6px solid transparent; border-radius: 2px;
   background: linear-gradient(var(--bronze-ground), var(--bronze-ground)) padding-box, repeating-linear-gradient(90deg, var(--bronze) 0 8px, var(--bronze-patina) 8px 12px, var(--bronze-deep) 12px 20px, var(--bronze-patina) 20px 24px) border-box;
 }
+.frame-yoruba {
+  --card-bg: var(--night-2); --card-accent: #a7d9ff; --card-line: #5184ae;
+  border: 5px dotted var(--card-line); border-radius: 8px;
+}
+.frame-akan {
+  --card-bg: var(--night-2); --card-accent: var(--brass-light); --card-line: var(--brass);
+  border: 6px solid transparent;
+  border-image: repeating-linear-gradient(45deg, var(--brass-deep) 0 4px, var(--brass-light) 4px 6px) 6;
+}
+.frame-sahel {
+  --card-bg: var(--stone); --card-accent: var(--parchment); --card-line: #b88d72;
+  border: 5px ridge var(--card-line); border-radius: 4px;
+}
 .frame-etiopien {
   --card-bg: radial-gradient(circle at 85% 12%, rgba(194,59,42,.12), transparent 45%), var(--ethio-ground);
   --card-accent: var(--ethio-gold); --card-line: var(--ethio-red);

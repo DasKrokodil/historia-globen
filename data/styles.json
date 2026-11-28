@@ -1,7 +1,70 @@
 {
  "schema": "historia-globen/styles@1",
- "notes": "Bildstilar efter tidsålder och plats (#129). Grundstilar har tom regions och gäller hela världen för sitt tidsspann (from–to, astronomiska år). Regionala varianter går före grundstilen när händelsens år och plats matchar; de har frame = null och använder grundstilens ram för året, utom en regional stil med egen frame (kina-brons, #1397; etiopien, #2039), som har en egen ram eftersom grundstilen för tiden kommer från en annan del av världen. Den första regionala stilen som träffar går före, så etiopien står före islamisk. exceptIds undantar enstaka händelser från en regional stil (rosettastenen-hittas från islamisk och miniatyr, #2039). regions anger grova rutor i grader: bbox = [västligaste longitud, sydligaste latitud, östligaste longitud, nordligaste latitud]. variants väljs efter händelsens kategori. prompt är en stilbeskrivning på engelska som används när en illustration tas fram (tools/bildpromptar.py).",
+ "notes": "Bildstilar efter tidsålder och plats (#129). Grundstilar har tom regions och gäller hela världen för sitt tidsspann (from–to, astronomiska år). Regionala varianter går före grundstilen när händelsens år och plats matchar; de har frame = null och använder grundstilens ram för året, utom en regional stil med egen frame (kina-brons, etiopien, yoruba, akan och sahel), som har en egen ram eftersom grundstilen för tiden kommer från en annan del av världen. Den första regionala stilen som träffar går före, så etiopien står före islamisk. exceptIds undantar enstaka händelser från en regional stil (rosettastenen-hittas från islamisk och miniatyr, #2039). regions anger grova rutor i grader: bbox = [västligaste longitud, sydligaste latitud, östligaste longitud, nordligaste latitud]. variants väljs efter händelsens kategori. prompt är en stilbeskrivning på engelska som används när en illustration tas fram (tools/bildpromptar.py).",
  "regions": {
+  "ife-oyo": {
+   "name": {
+    "sv": "Ife och Oyo",
+    "en": "Ife and Oyo",
+    "de": "Ife und Oyo",
+    "es": "Ife y Oyo",
+    "fr": "Ife et Oyo"
+   },
+   "bbox": [
+    [
+     4.1,
+     7.2,
+     4.9,
+     9.2
+    ]
+   ]
+  },
+  "asante-guldkusten": {
+   "name": {
+    "sv": "Asante och Guldkusten",
+    "en": "Asante and the Gold Coast",
+    "de": "Asante und die Goldküste",
+    "es": "Asante y la Costa de Oro",
+    "fr": "Asante et la Côte de l’Or"
+   },
+   "bbox": [
+    [
+     -2,
+     5.5,
+     0,
+     7
+    ]
+   ]
+  },
+  "nigerstader": {
+   "name": {
+    "sv": "Djenné, Timbuktu och Gao",
+    "en": "Djenné, Timbuktu and Gao",
+    "de": "Djenné, Timbuktu und Gao",
+    "es": "Djenné, Tombuctú y Gao",
+    "fr": "Djenné, Tombouctou et Gao"
+   },
+   "bbox": [
+    [
+     -4.8,
+     13.7,
+     -4.3,
+     14.1
+    ],
+    [
+     -3.3,
+     16.5,
+     -2.8,
+     17.1
+    ],
+    [
+     -0.5,
+     16,
+     0.2,
+     17.1
+    ]
+   ]
+  },
   "kina": {
    "name": {
     "sv": "Kina",
@@ -489,6 +552,57 @@
    ],
    "frame": null,
    "prompt": "Japanese ukiyo-e woodblock print, bold outlines, flat colour areas, Prussian blue and vermilion, wave and cloud patterns"
+  },
+  {
+   "id": "yoruba",
+   "name": {
+    "sv": "Yorubas glaspärlor",
+    "en": "Yoruba glass beads",
+    "de": "Glasperlen der Yoruba",
+    "es": "Cuentas de vidrio yorubas",
+    "fr": "Perles de verre yoruba"
+   },
+   "from": 1000,
+   "to": 1826,
+   "regions": [
+    "ife-oyo"
+   ],
+   "frame": "yoruba",
+   "prompt": "Use blue glass bead colours and rounded highlights along the border. Keep the central scene free of added objects. No faces."
+  },
+  {
+   "id": "akan",
+   "name": {
+    "sv": "Akans geometriska guldvikter",
+    "en": "Akan geometric gold weights",
+    "de": "Geometrische Goldgewichte der Akan",
+    "es": "Pesas geométricas akan para oro",
+    "fr": "Poids à peser l’or géométriques akan"
+   },
+   "from": 1500,
+   "to": 1899,
+   "regions": [
+    "asante-guldkusten"
+   ],
+   "frame": "akan",
+   "prompt": "Use the brass tones and geometric lines of Akan gold weights in the border. Keep the central scene free of added objects. No faces."
+  },
+  {
+   "id": "sahel",
+   "name": {
+    "sv": "Jordarkitektur i Sahel",
+    "en": "Earthen architecture of the Sahel",
+    "de": "Lehmarchitektur im Sahel",
+    "es": "Arquitectura de tierra del Sahel",
+    "fr": "Architecture de terre du Sahel"
+   },
+   "from": 1280,
+   "to": 1900,
+   "regions": [
+    "nigerstader"
+   ],
+   "frame": "sahel",
+   "prompt": "Use an earthen plaster texture inspired by clay construction in the Niger towns. Confine the texture to the border. No added buildings or faces."
   },
   {
    "id": "etiopien",
