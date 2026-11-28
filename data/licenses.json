@@ -65,6 +65,31 @@
       ]
     },
     {
+      "license": "Bara länkad källa, ingen text kopierad (licens ej granskad)",
+      "sourceIds": [
+        "agsa-honey-ant",
+        "australian-museum-aboriginal-flag",
+        "indigenous-gov-au-1967-referendum",
+        "indigenous-gov-au-aboriginal-flag",
+        "indigenous-gov-au-handback-acknowledging",
+        "indigenous-gov-au-tent-embassy",
+        "indigenous-gov-au-uluru-handback",
+        "ngv-papunya-tula",
+        "niaa-national-apology",
+        "peo-apology-stolen-generations",
+        "peo-franchise-act-1902",
+        "peo-immigration-restriction-act",
+        "peo-uluru-statement",
+        "rfds-history",
+        "sbs-nitv-wik",
+        "snowyhydro-history",
+        "uluru-gov-au-history",
+        "ulurustatement-org",
+        "vic-gov-bringing-them-home",
+        "wamuseum-hougoumont"
+      ]
+    },
+    {
       "license": "Bara sammanfattningen läst (via Europe PMC): länkad källa, ingen text kopierad",
       "sourceIds": [
         "wu-2012-xianrendong"
@@ -786,6 +811,7 @@
         "dewp-anwerbeabkommen-tuerkei",
         "dewp-bonn-kopenhagener-erklaerungen",
         "dewp-domowina",
+        "dewp-frankfurter-auschwitz-prozess",
         "dewp-franz-fuchs",
         "dewp-frauenstimmrecht-schweiz",
         "dewp-frauenwahlrecht",
@@ -800,6 +826,7 @@
         "dewp-wurttemberg-hohenzollern",
         "dewp-zentralrat-sinti-roma",
         "frwp-gare-bruxelles-allee-verte",
+        "frwp-hotel-royal-evian",
         "frwp-joseph-meister",
         "frwp-ligne-de-demarcation",
         "iho-hav-granser",
@@ -832,6 +859,7 @@
         "wp-1956-summer-olympics",
         "wp-1960-valdivia-earthquake",
         "wp-1964-winter-olympics",
+        "wp-1967-referendum",
         "wp-1970-ancash-earthquake",
         "wp-1970-huascaran-debris-avalanche",
         "wp-1973-chilean-coup",
@@ -875,6 +903,7 @@
         "wp-abisko-national-park",
         "wp-abolition-of-slavery-in-france",
         "wp-aboriginal-tasmanians",
+        "wp-aboriginal-tent-embassy",
         "wp-absalon",
         "wp-abyei",
         "wp-academia-istropolitana",
@@ -886,6 +915,7 @@
         "wp-acts-of-union-1800",
         "wp-adalen-shootings",
         "wp-adams-bridge",
+        "wp-addis-ababa",
         "wp-adena-culture",
         "wp-adolphe-grand-duke-of-luxembourg",
         "wp-adrar-bous",
@@ -986,6 +1016,7 @@
         "wp-archaeology-of-igbo-ukwu",
         "wp-archdiocese-of-uppsala",
         "wp-archimedes",
+        "wp-ardipithecus",
         "wp-areni-1-winery",
         "wp-argentina",
         "wp-ariane-1",
@@ -1027,6 +1058,7 @@
         "wp-auschwitz",
         "wp-austerlitz",
         "wp-australia",
+        "wp-australian-aboriginal-flag",
         "wp-australian-frontier-wars",
         "wp-australian-megafauna",
         "wp-australian-overland-telegraph-line",
@@ -1046,6 +1078,7 @@
         "wp-azul",
         "wp-ba-dinh-square",
         "wp-bab",
+        "wp-babi-yar",
         "wp-babylon",
         "wp-babylon-fortress",
         "wp-babylonian-astronomical-diaries",
@@ -1160,6 +1193,7 @@
         "wp-belgian-congo",
         "wp-belgian-revolution",
         "wp-belgrade",
+        "wp-belzec",
         "wp-bengal-famine-1943",
         "wp-beni-hasan",
         "wp-benz-patent-motorwagen",
@@ -1224,6 +1258,7 @@
         "wp-bretton-woods-conference",
         "wp-brexit",
         "wp-brihadisvara-temple",
+        "wp-bringing-them-home",
         "wp-british-empire",
         "wp-broad-street-cholera-1854",
         "wp-bronze-head-ife",
@@ -1389,6 +1424,7 @@
         "wp-cliff-palace",
         "wp-climate-of-ancient-rome",
         "wp-cloggs-cave",
+        "wp-cloncurry",
         "wp-clonmacnoise",
         "wp-clovis",
         "wp-clovis-culture",
@@ -1427,6 +1463,7 @@
         "wp-columbus",
         "wp-columbus-fjarde-resan",
         "wp-comb-ceramic-culture",
+        "wp-commonwealth-franchise-act-1902",
         "wp-commonwealth-of-england",
         "wp-confederate-states",
         "wp-confederation-of-the-rhine",
@@ -1449,6 +1486,7 @@
         "wp-constitution-of-belgium",
         "wp-constitution-of-denmark",
         "wp-continental-drift",
+        "wp-convict-era-wa",
         "wp-cook-resa-1",
         "wp-cook-resa-2",
         "wp-cook-resa-3",
@@ -1510,6 +1548,7 @@
         "wp-de-revolutionibus",
         "wp-dead-sea-scrolls",
         "wp-death-of-alexander",
+        "wp-debre-berhan",
         "wp-declaration-independence-ukraine",
         "wp-declaration-of-arbroath",
         "wp-decorated-farmhouses-of-halsingland",
@@ -1521,6 +1560,7 @@
         "wp-denisovan",
         "wp-denmark-norway",
         "wp-derafsh-kaviani",
+        "wp-derg",
         "wp-deriba-caldera",
         "wp-devin-castle",
         "wp-dhaka",
@@ -1605,6 +1645,7 @@
         "wp-egypt-muhammad-ali",
         "wp-egyptian-hieroglyphs",
         "wp-egyptian-hittite-treaty",
+        "wp-eichmann-trial",
         "wp-eidsvoll-manor",
         "wp-eiffel-tower",
         "wp-eight-deer",
@@ -1687,6 +1728,7 @@
         "wp-eutaw-springs",
         "wp-everest-1953",
         "wp-evian-accords",
+        "wp-evian-conference",
         "wp-ewuare",
         "wp-experiments-on-plant-hybridization",
         "wp-explorer-1",
@@ -1722,6 +1764,7 @@
         "wp-first-chechen-war",
         "wp-first-fleet",
         "wp-first-french-empire",
+        "wp-first-hijra",
         "wp-first-italo-ethiopian-war",
         "wp-first-mexican-empire",
         "wp-first-opium-war",
@@ -1914,6 +1957,8 @@
         "wp-francis-ona",
         "wp-francis-xavier",
         "wp-francisco-de-avila",
+        "wp-frankfurt",
+        "wp-frankfurt-auschwitz-trials",
         "wp-frankfurt-parliament",
         "wp-franz-fuchs",
         "wp-frederic-chopin",
@@ -1931,6 +1976,7 @@
         "wp-fuorigrotta",
         "wp-gabarnmung",
         "wp-gabriela-mistral",
+        "wp-gadaa",
         "wp-gadebusch",
         "wp-gaelic-athletic-association",
         "wp-gaius-suetonius-paulinus",
@@ -1960,6 +2006,7 @@
         "wp-georg-friedrich-grotefend",
         "wp-george-washingtons-teeth",
         "wp-georges-lemaitre",
+        "wp-gerard-behar-center",
         "wp-gerard-of-cremona",
         "wp-german-colonial-empire",
         "wp-german-confederation",
@@ -1993,6 +2040,7 @@
         "wp-gold-coast-colony",
         "wp-golden-bay-mohua",
         "wp-golden-temple",
+        "wp-gona-ethiopia",
         "wp-gonabad",
         "wp-gonaives",
         "wp-gondar",
@@ -2062,6 +2110,8 @@
         "wp-haapsalu",
         "wp-haasts-eagle",
         "wp-habsburg-monarchy",
+        "wp-hadar",
+        "wp-hadar-ethiopia",
         "wp-hadrians-wall",
         "wp-haengju",
         "wp-hagia-sophia",
@@ -2183,6 +2233,7 @@
         "wp-hora-mountain",
         "wp-horrs-island",
         "wp-hotel-metropole-brussels",
+        "wp-hougoumont",
         "wp-house-of-wisdom",
         "wp-huaca-prieta",
         "wp-huaca-rajada",
@@ -2438,6 +2489,7 @@
         "wp-komaki-nagakute",
         "wp-konark-sun-temple",
         "wp-kongo",
+        "wp-konso-cultural-landscape",
         "wp-konstanz",
         "wp-korean-armistice",
         "wp-korean-empire",
@@ -2552,6 +2604,7 @@
         "wp-lazzarettos-of-dubrovnik",
         "wp-leaning-tower-of-pisa",
         "wp-lebombo-bone",
+        "wp-ledi-geraru",
         "wp-lego-group",
         "wp-lehman-brothers",
         "wp-lei-aurea",
@@ -2593,6 +2646,7 @@
         "wp-livonian-coast",
         "wp-livonians",
         "wp-llanos-de-moxos-archaeology",
+        "wp-lodz-ghetto",
         "wp-london",
         "wp-lord-of-sipan",
         "wp-lordship-of-ireland",
@@ -2604,6 +2658,7 @@
         "wp-loulan",
         "wp-ltu",
         "wp-lucayan-people",
+        "wp-lucy",
         "wp-ludovit-stur",
         "wp-lugnano-in-teverina",
         "wp-luis-vaz-de-torres",
@@ -2704,11 +2759,13 @@
         "wp-meroitic-script",
         "wp-mersa-gawasis",
         "wp-mesa-verde",
+        "wp-meskel",
         "wp-mesoamerican-long-count",
         "wp-mesrop-mashtots",
         "wp-mexican-american-war",
         "wp-mexican-revolution",
         "wp-mexico",
+        "wp-middle-awash",
         "wp-middle-kingdom-egypt",
         "wp-midway",
         "wp-mikael-agricola",
@@ -2775,6 +2832,7 @@
         "wp-mount-washington-hotel",
         "wp-mozarts-birthplace",
         "wp-mozu-kofun-group",
+        "wp-ms-st-louis",
         "wp-mua-tongatapu",
         "wp-mudros",
         "wp-mueller-glacier",
@@ -2796,6 +2854,7 @@
         "wp-mussau-island",
         "wp-mustatil",
         "wp-mutapa-empire",
+        "wp-mutitjulu",
         "wp-muziris",
         "wp-myall-creek-massacre",
         "wp-myeongnyang",
@@ -2816,6 +2875,7 @@
         "wp-naqada-culture",
         "wp-narmer",
         "wp-narva-1700",
+        "wp-national-apology",
         "wp-national-emblem-of-france",
         "wp-national-health-service",
         "wp-national-independence-day-poland",
@@ -2895,6 +2955,7 @@
         "wp-nz-constitution-act-1852",
         "wp-nz-land-confiscations",
         "wp-nzinga",
+        "wp-oau",
         "wp-obelisk-of-axum",
         "wp-oberallgau-1949",
         "wp-oberwart",
@@ -2934,6 +2995,7 @@
         "wp-operation-priboi",
         "wp-operation-ramadan",
         "wp-operation-searchlight",
+        "wp-operation-solomon",
         "wp-operation-tail-wind",
         "wp-operation-uvda",
         "wp-operation-vistula",
@@ -2944,6 +3006,7 @@
         "wp-ordinance-of-villers-cotterets",
         "wp-origins-judaism",
         "wp-oriskany",
+        "wp-oromo-migrations",
         "wp-ortoiroid-people",
         "wp-oruanui-eruption",
         "wp-oryza-glaberrima",
@@ -2979,6 +3042,7 @@
         "wp-pannonian-avars",
         "wp-papal-states",
         "wp-papua-new-guinea",
+        "wp-papunya-tula",
         "wp-paracas-culture",
         "wp-paraguay",
         "wp-paraguayan-war",
@@ -3126,6 +3190,7 @@
         "wp-rangiriri-place",
         "wp-rangitoto-island",
         "wp-raoul-island",
+        "wp-raoul-wallenberg",
         "wp-rattanakosin",
         "wp-ravenna",
         "wp-real-alto",
@@ -3153,6 +3218,7 @@
         "wp-revolution-of-dignity",
         "wp-revolutions-of-1848",
         "wp-reykjavik",
+        "wp-rfds",
         "wp-rhind-mathematical-papyrus",
         "wp-rhodesia",
         "wp-ria-lagartos-biosphere-reserve",
@@ -3176,6 +3242,7 @@
         "wp-roman-kingdom",
         "wp-roman-republic",
         "wp-roman-seleucid-war",
+        "wp-romani-holocaust",
         "wp-romani-people-in-slovakia",
         "wp-romansh",
         "wp-romulus-augustulus",
@@ -3284,6 +3351,7 @@
         "wp-second-siege-callao",
         "wp-second-sino-japanese-war",
         "wp-second-vatican-council",
+        "wp-selam",
         "wp-seleucia",
         "wp-seleucid-empire",
         "wp-seleucid-mauryan-war",
@@ -3381,6 +3449,7 @@
         "wp-skibbereen",
         "wp-slave-trade-act-1807",
         "wp-slavery-in-brazil",
+        "wp-slavery-in-ethiopia",
         "wp-slovak-national-uprising",
         "wp-slovak-republic-1939-1945",
         "wp-slovakia",
@@ -3388,6 +3457,8 @@
         "wp-smallpox-australia",
         "wp-smallpox-mexico",
         "wp-sn-185",
+        "wp-snowy-mountains-scheme",
+        "wp-sobibor",
         "wp-society-islands",
         "wp-socrates",
         "wp-sofala",
@@ -3871,6 +3942,7 @@
         "wp-ukrainian-counteroffensive-2023",
         "wp-ulleungdo",
         "wp-ulundi",
+        "wp-uluru-statement",
         "wp-umayyad-caliphate",
         "wp-umgungundlovu",
         "wp-un-conference-human-environment",
@@ -4003,10 +4075,12 @@
         "wp-western-settlement",
         "wp-westerplatte",
         "wp-what-is-enlightenment",
+        "wp-white-australia-policy",
         "wp-white-horse-temple",
         "wp-white-mountain",
         "wp-white-wolf-mountain",
         "wp-wieliczka-salt-mine",
+        "wp-wik-v-queensland",
         "wp-willem-janszoon",
         "wp-william-hobson",
         "wp-william-rowan-hamilton",
@@ -4036,12 +4110,14 @@
         "wp-xiangshan-county",
         "wp-xianren-cave",
         "wp-xiaohe-cemetery",
+        "wp-yabelo",
         "wp-yamen",
         "wp-yarrangobilly-caves",
         "wp-yashima",
         "wp-yayoi-period",
         "wp-ye-hebei",
         "wp-year-of-africa",
+        "wp-yeha",
         "wp-yekuno-amlak",
         "wp-yellow-turban",
         "wp-yellowstone",
@@ -4058,6 +4134,8 @@
         "wp-zanzibar",
         "wp-zapotec-civilization",
         "wp-zapotec-script",
+        "wp-zara-yaqob",
+        "wp-zemene-mesafint",
         "wp-zhang-heng",
         "wp-zhang-qian",
         "wp-zheng-he",
@@ -4346,6 +4424,7 @@
         "wd-overtornea",
         "wd-oyo-empire",
         "wd-pakistan",
+        "wd-papunya",
         "wd-peoples-socialist-republic-of-albania",
         "wd-portuguese-empire",
         "wd-prussia",
@@ -4489,7 +4568,8 @@
         "wd-zimbabwe",
         "wd-zimbabwe-rhodesia",
         "wikidata",
-        "wikidata-classical-antiquity"
+        "wikidata-classical-antiquity",
+        "wikidata-havana"
       ]
     },
     {
@@ -4699,6 +4779,12 @@
       "sourceIds": [
         "loc-bild-belagringen-av-yorktown",
         "loc-bild-slaget-vid-saratoga"
+      ]
+    },
+    {
+      "license": "PNAS-licens (öppen via PMC, ingen CC-licens bekräftad; bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "pmc-braun-2019-ledi-geraru"
       ]
     },
     {
@@ -5855,6 +5941,16 @@
       ]
     },
     {
+      "license": "Public domain (US-regeringens verk)",
+      "sourceIds": [
+        "loc-et-19c",
+        "loc-et-derg",
+        "loc-et-islam",
+        "loc-et-menelik",
+        "loc-et-oromo"
+      ]
+    },
+    {
       "license": "Public domain (USA:s federala myndighet)",
       "sourceIds": [
         "commons-bild-ghanas-sjalvstandighet",
@@ -6018,6 +6114,35 @@
         "rizal-2020-ngandong",
         "surovell-2026-monte-verde",
         "tsutaya-2025-penghu"
+      ]
+    },
+    {
+      "license": "UK Parliament (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "hansard-1942-abolition-of-slavery"
+      ]
+    },
+    {
+      "license": "bara länkad, ingen text kopierad",
+      "sourceIds": [
+        "fordham-oau-charter",
+        "jta-operation-solomon",
+        "jvl-operation-solomon",
+        "loc-law-abolition-slavery-ethiopia",
+        "saho-oau",
+        "snl-addis-abeba"
+      ]
+    },
+    {
+      "license": "© African Union (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "au-overview"
+      ]
+    },
+    {
+      "license": "© EBSCO (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "ebsco-yeha"
       ]
     },
     {
@@ -6204,6 +6329,19 @@
       ]
     },
     {
+      "license": "© Scientific American (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "sciam-lucy-40-years"
+      ]
+    },
+    {
+      "license": "© Smithsonian (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "si-humanorigins-afarensis",
+        "si-humanorigins-ramidus"
+      ]
+    },
+    {
       "license": "© Smithsonian Magazine (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "smithsonian-machu-picchu",
@@ -6276,19 +6414,31 @@
     {
       "license": "© UNESCO (bara länkad, ingen text kopierad)",
       "sourceIds": [
+        "unesco-ich-gada",
+        "unesco-ich-meskel",
         "unesco-karlskrona",
         "unesco-lanse-aux-meadows",
-        "unesco-sodra-oland"
+        "unesco-sodra-oland",
+        "unesco-whc-decision-konso"
       ]
     },
     {
       "license": "© USHMM, begränsad användning (bara länkad, ingen text kopierad)",
       "sourceIds": [
+        "ushmm-auschwitz",
+        "ushmm-babyn-yar",
+        "ushmm-belzec",
         "ushmm-chelmno",
         "ushmm-death-marches",
+        "ushmm-eichmann",
+        "ushmm-evian-conference",
         "ushmm-kindertransport",
+        "ushmm-lodz",
         "ushmm-nuremberg-race-laws",
         "ushmm-nuremberg-trials",
+        "ushmm-roma-genocide",
+        "ushmm-sobibor",
+        "ushmm-st-louis",
         "ushmm-treblinka",
         "ushmm-wannsee",
         "ushmm-warsaw"
