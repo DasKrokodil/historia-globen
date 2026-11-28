@@ -1496,6 +1496,7 @@
 "motala-verkstad-grundas":{"place":{"en":"Motala, Östergötland"},"title":{"en":"Motala Verkstad engineering works is founded"}},
 "kristinebergs-havsstation":{"place":{"en":"Kristineberg near Fiskebäckskil, Skaftö, Bohuslän"},"title":{"en":"The marine research station at Kristineberg is founded"},"note":{"title":{"en":"One source"}}},
 "borgholms-slott-brinner":{"place":{"en":"Borgholm, Öland"},"title":{"en":"Borgholm Castle becomes a ruin after a fire"}},
+"hawaiianska-forbjuds-som-undervisningssprak":{"place":{"en":"Honolulu, Hawaiʻi (the law applied to all of Hawaiʻi)"},"title":{"en":"English becomes the only language of instruction in Hawaiʻi"},"note":{"title":{"en":"About the sources"}}},
 "rifkriget":{"place":{"en":"Rif in northern Morocco, then a Spanish protectorate (began near Annual)"},"title":{"en":"Rif War"},"note":{"title":{"en":"The sources differ"}}},
 "slaget-vid-annual":{"place":{"en":"Annual in north-eastern Morocco, about 60 km west of Melilla"},"title":{"en":"The Riffians defeat Spain at Annual"},"note":{"title":{"en":"The sources differ"}}},
 "massakern-vid-monte-arruit":{"place":{"en":"Monte Arruit at Al Aaroui, about 35 km south of Melilla"},"title":{"en":"The massacre at Monte Arruit"},"note":{"title":{"en":"The sources differ"}}},
@@ -1866,6 +1867,7 @@
 "takern-blir-naturreservat":{"place":{"en":"Tåkern south of Vadstena, Östergötland"},"title":{"en":"Lake Tåkern becomes a nature reserve"},"note":{"title":{"en":"The sources differ"}}},
 "uddevallavarvet":{"place":{"en":"Kasen, Uddevalla, Bohuslän"},"title":{"en":"The Uddevalla shipyard"},"note":{"title":{"en":"The sources differ"}}},
 "olandsbron-invigs":{"place":{"en":"Färjestaden, Öland (the bridgehead at Möllstorp)"},"title":{"en":"The Öland Bridge opens"},"note":{"title":{"en":"About the point"}}},
+"ned-maddrell-dor":{"place":{"en":"Cregneash, southern Isle of Man"},"title":{"en":"Ned Maddrell dies, Manx lives on"},"note":{"title":{"en":"About the \"last speaker\" and the place"}}},
 "www":{"place":{"en":"CERN, Geneva"},"title":{"en":"The invention of the Web"}},
 "rysslands-invasion-av-ukraina":{"place":{"en":"Ukraine (attack from the north, east and south, including towards Kyiv)"},"title":{"en":"Russia's invasion of Ukraine"}},
 "slaget-om-kyiv-2022":{"place":{"en":"Kyiv, Ukraine"},"title":{"en":"The Battle of Kyiv"},"note":{"title":{"en":"The sources differ"}}},
@@ -2024,5 +2026,9 @@
 "u-137-gar-pa-grund":{"place":{"en":"Gåsefjärden off Karlskrona, Blekinge"},"title":{"en":"U 137 runs aground"},"note":{"title":{"en":"The sources differ"}}},
 "orlogsstaden-karlskrona-varldsarv":{"place":{"en":"Karlskrona, Blekinge"},"title":{"en":"The Naval Port of Karlskrona becomes a World Heritage Site"}},
 "almobron-rasar":{"place":{"en":"Almö Bridge over the Askerö Fjord, Stenungsund–Tjörn, Bohuslän"},"title":{"en":"The Almö Bridge collapses"}},
-"sodra-olands-odlingslandskap-varldsarv":{"place":{"en":"Southern Öland"},"title":{"en":"The Agricultural Landscape of Southern Öland becomes a World Heritage Site"}}
+"sodra-olands-odlingslandskap-varldsarv":{"place":{"en":"Southern Öland"},"title":{"en":"The Agricultural Landscape of Southern Öland becomes a World Heritage Site"}},
+"punana-leo-forsta-forskolan":{"place":{"en":"Kekaha, Kauaʻi, Hawaiʻi"},"title":{"en":"First Hawaiian-language immersion preschool"}},
+"tevfik-esenc-dor":{"place":{"en":"Hacıosman near Manyas, north-western Turkey (the marker is in Manyas)"},"title":{"en":"Tevfik Esenç dies, Ubykh is extinct"},"note":{"title":{"en":"About the sources"}}},
+"marie-smith-jones-dor":{"place":{"en":"Cordova, southern Alaska (the Eyak homeland; she died in Anchorage)"},"title":{"en":"Marie Smith Jones dies, Eyak has no native speakers left"},"note":{"title":{"en":"About the sources"}}},
+"silbo-gomero-kulturarv":{"place":{"en":"La Gomera, Canary Islands, Spain"},"title":{"en":"Silbo Gomero, a whistled language, becomes heritage"}}
 }}

@@ -1148,6 +1148,7 @@
 "motala-verkstad-grundas":{"place":{"es":"Motala, Ostrogotia"},"title":{"es":"Se funda el taller mecánico Motala Verkstad"}},
 "kristinebergs-havsstation":{"place":{"es":"Kristineberg, cerca de Fiskebäckskil, Skaftö, Bahusia"},"title":{"es":"Se funda la estación de investigación marina de Kristineberg"},"note":{"title":{"es":"Una fuente"}}},
 "borgholms-slott-brinner":{"place":{"es":"Borgholm, Öland"},"title":{"es":"El castillo de Borgholm queda en ruinas tras un incendio"}},
+"hawaiianska-forbjuds-som-undervisningssprak":{"place":{"es":"Honolulu, Hawái (la ley valía para todo Hawái)"},"title":{"es":"El inglés pasa a ser la única lengua de enseñanza en Hawái"},"note":{"title":{"es":"Sobre las fuentes"}}},
 "rifkriget":{"place":{"es":"El Rif, en el norte de Marruecos, entonces protectorado español (comenzó cerca de Annual)"},"title":{"es":"Guerra del Rif"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "slaget-vid-annual":{"place":{"es":"Annual, en el noreste de Marruecos, a unos 60 km al oeste de Melilla"},"title":{"es":"Los rifeños derrotan a España en Annual"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "massakern-vid-monte-arruit":{"place":{"es":"Monte Arruit, junto a Al Aaroui, a unos 35 km al sur de Melilla"},"title":{"es":"La masacre de Monte Arruit"},"note":{"title":{"es":"Las fuentes difieren"}}},
@@ -1494,6 +1495,7 @@
 "takern-blir-naturreservat":{"place":{"es":"Tåkern, al sur de Vadstena, Ostrogotia"},"title":{"es":"El lago Tåkern se convierte en reserva natural"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "uddevallavarvet":{"place":{"es":"Kasen, Uddevalla, Bahusia"},"title":{"es":"El astillero de Uddevalla"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "olandsbron-invigs":{"place":{"es":"Färjestaden, Öland (la cabeza del puente en Möllstorp)"},"title":{"es":"Se inaugura el puente de Öland"},"note":{"title":{"es":"Sobre el punto"}}},
+"ned-maddrell-dor":{"place":{"es":"Cregneash, sur de la isla de Man"},"title":{"es":"Muere Ned Maddrell, el manés sigue vivo"},"note":{"title":{"es":"Sobre el «último hablante» y el lugar"}}},
 "www":{"place":{"es":"CERN, Ginebra"},"title":{"es":"Se inventa la Web"}},
 "rysslands-invasion-av-ukraina":{"place":{"es":"Ucrania (ataque desde el norte, el este y el sur, entre otros lugares hacia Kyiv)"},"title":{"es":"La invasión rusa de Ucrania"}},
 "slaget-om-kyiv-2022":{"place":{"es":"Kyiv, Ucrania"},"title":{"es":"La batalla de Kyiv"},"note":{"title":{"es":"Las fuentes difieren"}}},
@@ -1585,5 +1587,9 @@
 "u-137-gar-pa-grund":{"place":{"es":"Gåsefjärden, frente a Karlskrona, Blekinge"},"title":{"es":"El U 137 encalla"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "orlogsstaden-karlskrona-varldsarv":{"place":{"es":"Karlskrona, Blekinge"},"title":{"es":"El puerto naval de Karlskrona, patrimonio mundial"}},
 "almobron-rasar":{"place":{"es":"Puente de Almö sobre el fiordo de Askerö, Stenungsund–Tjörn, Bahusia"},"title":{"es":"Se derrumba el puente de Almö"}},
-"sodra-olands-odlingslandskap-varldsarv":{"place":{"es":"Sur de Öland"},"title":{"es":"El paisaje agrícola del sur de Öland, patrimonio mundial"}}
+"sodra-olands-odlingslandskap-varldsarv":{"place":{"es":"Sur de Öland"},"title":{"es":"El paisaje agrícola del sur de Öland, patrimonio mundial"}},
+"punana-leo-forsta-forskolan":{"place":{"es":"Kekaha, Kauaʻi, Hawái"},"title":{"es":"Primera escuela infantil de inmersión en hawaiano"}},
+"tevfik-esenc-dor":{"place":{"es":"Hacıosman, cerca de Manyas, noroeste de Turquía (el marcador está en Manyas)"},"title":{"es":"Muere Tevfik Esenç, el ubijé se extingue"},"note":{"title":{"es":"Sobre las fuentes"}}},
+"marie-smith-jones-dor":{"place":{"es":"Cordova, sur de Alaska (territorio eyak; murió en Anchorage)"},"title":{"es":"Muere Marie Smith Jones, el eyak sin hablantes nativos"},"note":{"title":{"es":"Sobre las fuentes"}}},
+"silbo-gomero-kulturarv":{"place":{"es":"La Gomera, islas Canarias, España"},"title":{"es":"El silbo gomero, lengua silbada, es patrimonio"}}
 }}
