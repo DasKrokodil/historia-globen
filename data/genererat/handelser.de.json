@@ -968,6 +968,7 @@
 "rokstenen":{"place":{"de":"Kirche von Rök, Östergötland"},"title":{"de":"Der Runenstein von Rök wird errichtet"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "vadstena-kloster":{"place":{"de":"Vadstena, Östergötland"},"title":{"de":"Das Kloster Vadstena wird gegründet"}},
 "bjorketorpsstenen":{"place":{"de":"Björketorp östlich von Ronneby, Blekinge"},"title":{"de":"Der Runenstein von Björketorp"},"note":{"title":{"de":"Zur Datierung"}}},
+"karlevistenen":{"place":{"de":"Karlevi am Kalmarsund, Öland"},"title":{"de":"Der Runenstein von Karlevi wird auf Öland errichtet"},"note":{"title":{"de":"Zur Datierung und zum Punkt"}}},
 "imjinkriget":{"place":{"de":"Korea und die Meere um die Koreanische Halbinsel (begann bei Busan)"},"title":{"de":"Der Imjin-Krieg"},"note":{"title":{"de":"Zum Kalender"}}},
 "belagringen-av-busan-1592":{"place":{"de":"Busan, Korea"},"title":{"de":"Die Japaner stürmen Busan"}},
 "slaget-vid-chungju-1592":{"place":{"de":"Tangeumdae bei Chungju, Korea"},"title":{"de":"Die Schlacht bei Chungju"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
@@ -1240,6 +1241,7 @@
 "kristianopel-anlaggs":{"place":{"de":"Kristianopel, Blekinge"},"title":{"de":"Kristianopel wird angelegt"},"note":{"title":{"de":"Zur Datierung"}}},
 "karlskrona-grundas":{"place":{"de":"Trossö, Karlskrona, Blekinge"},"title":{"de":"Karlskrona wird gegründet"}},
 "ronneby-brunn":{"place":{"de":"Ronneby brunn, Blekinge"},"title":{"de":"Die Eisenquelle von Ronneby"}},
+"regalskeppet-kronan-sjunker":{"place":{"de":"Ostsee östlich von Hulterstad, Südost-Öland"},"title":{"de":"Das Regalschiff Kronan sinkt vor Öland"},"note":{"title":{"de":"Zum Kalender"}}},
 "forsta-opiumkriget":{"place":{"de":"Küste Chinas von der Perlflussmündung bis zum Jangtse (begann bei Kowloon, im heutigen Hongkong)"},"title":{"de":"Erster Opiumkrieg"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
 "skarmytslingen-vid-kowloon-1839":{"place":{"de":"Kowloon, heute Hongkong"},"title":{"de":"Scharmützel bei Kowloon"}},
 "britterna-intar-zhoushan-1840":{"place":{"de":"Dinghai auf der Insel Zhoushan (Chusan), Zhejiang"},"title":{"de":"Die Briten nehmen Zhoushan ein"}},
@@ -1487,6 +1489,7 @@
 "grotefend-och-fornpersisk-kilskrift":{"place":{"de":"Göttingen, Deutschland"},"title":{"de":"Grotefend macht den ersten Schritt zum Lesen der altpersischen Keilschrift"},"note":{"title":{"de":"Zu dieser Angabe"}}},
 "champollion-laser-hieroglyferna":{"place":{"de":"Paris, Frankreich (Académie des Inscriptions et Belles-Lettres)"},"title":{"de":"Champollion entziffert die Hieroglyphen"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "motala-verkstad-grundas":{"place":{"de":"Motala, Östergötland"},"title":{"de":"Die Maschinenfabrik Motala Verkstad wird gegründet"}},
+"borgholms-slott-brinner":{"place":{"de":"Borgholm, Öland"},"title":{"de":"Schloss Borgholm wird nach einem Brand zur Ruine"}},
 "rifkriget":{"place":{"de":"Rif im Norden Marokkos, damals spanisches Protektorat (begann bei Annual)"},"title":{"de":"Rifkrieg"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "slaget-vid-annual":{"place":{"de":"Annual im Nordosten Marokkos, etwa 60 km westlich von Melilla"},"title":{"de":"Die Rifkämpfer besiegen Spanien bei Annual"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "massakern-vid-monte-arruit":{"place":{"de":"Monte Arruit bei Al Aaroui, etwa 35 km südlich von Melilla"},"title":{"de":"Das Massaker von Monte Arruit"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
@@ -1855,6 +1858,7 @@
 "linear-b-tydd":{"place":{"de":"Knossos, Kreta (die Tafeln stammen aus Knossos und Pylos; Ventris arbeitete in Großbritannien)"},"title":{"de":"Michael Ventris entziffert Linear B"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "mayaskriften-tydd":{"place":{"de":"Piedras Negras (1959) und Palenque (1973); die Markierung steht in Palenque"},"title":{"de":"Die Maya-Schrift wird lesbar"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "takern-blir-naturreservat":{"place":{"de":"Tåkern südlich von Vadstena, Östergötland"},"title":{"de":"Der Tåkern wird Naturschutzgebiet"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
+"olandsbron-invigs":{"place":{"de":"Färjestaden, Öland (Brückenkopf bei Möllstorp)"},"title":{"de":"Die Ölandbrücke wird eröffnet"},"note":{"title":{"de":"Zum Punkt"}}},
 "www":{"place":{"de":"CERN, Genf"},"title":{"de":"Das Web wird erfunden"}},
 "rysslands-invasion-av-ukraina":{"place":{"de":"Ukraine (Angriff von Norden, Osten und Süden, unter anderem auf Kiew)"},"title":{"de":"Russlands Invasion der Ukraine"}},
 "slaget-om-kyiv-2022":{"place":{"de":"Kiew, Ukraine"},"title":{"de":"Die Schlacht um Kiew"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
@@ -2011,5 +2015,6 @@
 "meankieli-blir-minoritetssprak":{"place":{"de":"Tornedal (der Punkt: Övertorneå), Norrbotten"},"title":{"de":"Meänkieli wird Minderheitensprache"},"note":{"title":{"de":"Zur Datierung"}}},
 "tresticklan-blir-nationalpark":{"place":{"de":"Tresticklan, Dals-Ed, Dalsland"},"title":{"de":"Tresticklan wird Nationalpark"}},
 "u-137-gar-pa-grund":{"place":{"de":"Gåsefjärden vor Karlskrona, Blekinge"},"title":{"de":"U 137 läuft auf Grund"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
-"orlogsstaden-karlskrona-varldsarv":{"place":{"de":"Karlskrona, Blekinge"},"title":{"de":"Der Marinehafen Karlskrona wird Welterbe"}}
+"orlogsstaden-karlskrona-varldsarv":{"place":{"de":"Karlskrona, Blekinge"},"title":{"de":"Der Marinehafen Karlskrona wird Welterbe"}},
+"sodra-olands-odlingslandskap-varldsarv":{"place":{"de":"Süd-Öland"},"title":{"de":"Die Agrarlandschaft von Süd-Öland wird Welterbe"}}
 }}
