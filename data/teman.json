@@ -37,6 +37,64 @@
         "wp-sintashta-culture"
       ],
       "review": "source-checked"
+    },
+    {
+      "id": "sprak-skrift",
+      "name": {
+        "sv": "Språk och skrift",
+        "en": "Language and writing",
+        "de": "Sprache und Schrift",
+        "es": "Lengua y escritura",
+        "fr": "Langue et écriture"
+      },
+      "intro": {
+        "sv": "Ett urval, inte en heltäckande lista, av händelser om skrift och språk: hur skrift uppstod på olika håll, hur alfabet och skrifter spreds, hur gamla skrifter lästes igen och hur tryck kom, och hur språk har förbjudits, hotats och fått nytt liv. Följ dem i tidsordning och se var de hände. Några årtal är osäkra.",
+        "en": "A selection, not a complete list, of events about writing and language: how writing arose in different places, how alphabets and scripts spread, how ancient scripts were read again and how printing came, and how languages have been banned, threatened and given new life. Follow them in time order and see where they happened. Some dates are uncertain.",
+        "de": "Eine Auswahl (keine vollständige Liste) von Ereignissen rund um Schrift und Sprache: wie Schrift an verschiedenen Orten entstand, wie sich Alphabete und Schriften verbreiteten, wie alte Schriften wieder gelesen wurden und wie der Druck aufkam, und wie Sprachen verboten, bedroht und wiederbelebt wurden. Verfolgen Sie sie zeitlich und sehen Sie, wo sie stattfanden. Einige Jahreszahlen sind unsicher.",
+        "es": "Una selección, no una lista exhaustiva, de acontecimientos sobre la escritura y las lenguas: cómo surgió la escritura en distintos lugares, cómo se difundieron alfabetos y escrituras, cómo se volvieron a leer escrituras antiguas y cómo llegó la imprenta, y cómo se han prohibido, amenazado y revivido lenguas. Siga el orden cronológico y vea dónde ocurrieron. Algunas fechas son inciertas.",
+        "fr": "Une sélection, non une liste exhaustive, d’événements sur l’écriture et les langues : comment l’écriture est née en différents endroits, comment alphabets et écritures se sont diffusés, comment d’anciennes écritures ont été relues et comment l’imprimerie est venue, et comment des langues ont été interdites, menacées et ranimées. Suivez-les dans l’ordre chronologique et voyez où ils ont eu lieu. Certaines dates sont incertaines."
+      },
+      "events": [
+        "hieroglyferna-i-egypten",
+        "kilskriften",
+        "orakelben-skrift",
+        "zapotekisk-skrift",
+        "cascajalblocket",
+        "meroitisk-skrift",
+        "feniciska-alfabetet",
+        "armeniska-alfabetet",
+        "glagolitiska-alfabetet",
+        "kyrilliska-skriften",
+        "tibetansk-skrift",
+        "runorna-fran-vimose",
+        "ogham-inskrifterna",
+        "garimaevangelierna",
+        "hangul-skapas",
+        "cherokeeskriften",
+        "vai-skriften",
+        "diamantsutran-trycks",
+        "jikji",
+        "gutenberg",
+        "forsta-boktryckeriet-i-amerika",
+        "agricolas-abc-bok",
+        "rosettastenen-hittas",
+        "champollion-laser-hieroglyferna",
+        "linear-b-tydd",
+        "mayaskriften-tydd",
+        "bibeln-oversatts-till-lettiska",
+        "walesiska-bibeln-1588",
+        "tryckforbudet-i-litauen",
+        "latgaliskan-forbjuds-i-tryck",
+        "hawaiianska-forbjuds-som-undervisningssprak",
+        "punana-leo-forsta-forskolan",
+        "ned-maddrell-dor",
+        "tevfik-esenc-dor",
+        "marie-smith-jones-dor",
+        "silbo-gomero-kulturarv",
+        "maori-officiellt-sprak"
+      ],
+      "sources": [],
+      "review": "source-checked"
     }
   ]
 }
