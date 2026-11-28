@@ -2771,6 +2771,7 @@
         "wp-nukuleka",
         "wp-nullarbor-plain",
         "wp-nuremberg",
+        "wp-nuremberg-trials",
         "wp-nuri",
         "wp-nuuanu",
         "wp-nuuk",
@@ -5898,6 +5899,19 @@
       "license": "© UNESCO (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "unesco-lanse-aux-meadows"
+      ]
+    },
+    {
+      "license": "© USHMM, begränsad användning (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "ushmm-chelmno",
+        "ushmm-death-marches",
+        "ushmm-kindertransport",
+        "ushmm-nuremberg-race-laws",
+        "ushmm-nuremberg-trials",
+        "ushmm-treblinka",
+        "ushmm-wannsee",
+        "ushmm-warsaw"
       ]
     }
   ]
